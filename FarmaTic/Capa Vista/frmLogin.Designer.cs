@@ -1,6 +1,6 @@
 ﻿namespace Capa_Vista
 {
-    partial class Form1
+    partial class frmLogin
     {
         /// <summary>
         /// Variable del diseñador necesaria.
