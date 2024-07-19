@@ -1,0 +1,121 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\user\\downloads\\proyectos visual studio\\proyecto en capas - farmacia\\vista\\cv_agregarpersona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_agregarpersona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|c:\\users\\user\\downloads\\proyectos visual studio\\proyecto en capas - farmacia\\logica\\cl_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|solutionrelative:logica\\cl_usuarios.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|c:\\users\\user\\downloads\\proyectos visual studio\\proyecto en capas - farmacia\\logica\\cl_registrodepersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|solutionrelative:logica\\cl_registrodepersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|c:\\users\\user\\downloads\\proyectos visual studio\\proyecto en capas - farmacia\\datos\\cd_personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|solutionrelative:datos\\cd_personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\user\\downloads\\proyectos visual studio\\proyecto en capas - farmacia\\vista\\cv_agregarpersona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_agregarpersona.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\user\\downloads\\proyectos visual studio\\proyecto en capas - farmacia\\vista\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 3,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CL_RegistrodePersonas.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Logica\\CL_RegistrodePersonas.cs",
+              "RelativeDocumentMoniker": "Logica\\CL_RegistrodePersonas.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Logica\\CL_RegistrodePersonas.cs",
+              "RelativeToolTip": "Logica\\CL_RegistrodePersonas.cs",
+              "ViewState": "AQIAAD0AAAAAAAAAAAAWwE8AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T23:11:10.199Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CL_Usuarios.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Logica\\CL_Usuarios.cs",
+              "RelativeDocumentMoniker": "Logica\\CL_Usuarios.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Logica\\CL_Usuarios.cs",
+              "RelativeToolTip": "Logica\\CL_Usuarios.cs",
+              "ViewState": "AQIAAAsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T23:48:33.779Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Vista\\Program.cs",
+              "RelativeDocumentMoniker": "Vista\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Vista\\Program.cs",
+              "RelativeToolTip": "Vista\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T23:26:31.962Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CV_AgregarPersona.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Vista\\CV_AgregarPersona.cs",
+              "RelativeDocumentMoniker": "Vista\\CV_AgregarPersona.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Vista\\CV_AgregarPersona.cs",
+              "RelativeToolTip": "Vista\\CV_AgregarPersona.cs",
+              "ViewState": "AQIAAEEAAAAAAAAAAAAuwE8AAABDAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T23:10:55.066Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CV_AgregarPersona.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Vista\\CV_AgregarPersona.cs",
+              "RelativeDocumentMoniker": "Vista\\CV_AgregarPersona.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Vista\\CV_AgregarPersona.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\CV_AgregarPersona.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T23:03:35.839Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "CD_Personas.cs",
+              "DocumentMoniker": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Datos\\CD_Personas.cs",
+              "RelativeDocumentMoniker": "Datos\\CD_Personas.cs",
+              "ToolTip": "C:\\Users\\User\\Downloads\\Proyectos Visual Studio\\Proyecto en capas - Farmacia\\Datos\\CD_Personas.cs",
+              "RelativeToolTip": "Datos\\CD_Personas.cs",
+              "ViewState": "AQIAAIMAAAAAAAAAAAAAAIMAAAA2AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-26T22:28:22.042Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

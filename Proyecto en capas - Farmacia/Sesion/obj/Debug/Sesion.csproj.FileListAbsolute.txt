@@ -1,0 +1,6 @@
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Sesion\bin\Debug\Sesion.dll
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Sesion\bin\Debug\Sesion.pdb
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Sesion\obj\Debug\Sesion.csproj.AssemblyReference.cache
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Sesion\obj\Debug\Sesion.csproj.CoreCompileInputs.cache
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Sesion\obj\Debug\Sesion.dll
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Sesion\obj\Debug\Sesion.pdb

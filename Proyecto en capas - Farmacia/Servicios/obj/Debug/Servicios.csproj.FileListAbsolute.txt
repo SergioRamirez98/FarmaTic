@@ -1,0 +1,12 @@
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Servicios\bin\Debug\Servicios.dll
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Servicios\bin\Debug\Servicios.pdb
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.dll
+C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.pdb
+C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Servicios\bin\Debug\Servicios.dll
+C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Servicios\bin\Debug\Servicios.pdb
+C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.dll
+C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.pdb
