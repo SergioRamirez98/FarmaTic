@@ -58,6 +58,7 @@
             this.SuspendLayout();
             // 
             // Txb_UserName
+            // 
             this.Txb_UserName.Location = new System.Drawing.Point(200, 28);
             this.Txb_UserName.Name = "Txb_UserName";
             this.Txb_UserName.Size = new System.Drawing.Size(122, 22);
@@ -298,6 +299,7 @@
             this.Controls.Add(this.Txb_UserName);
             this.Name = "CV_OlvidoPass";
             this.Text = "Olvidé mi contraseña";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CV_OlvidoPass_FormClosed);
             this.Load += new System.EventHandler(this.CV_OlvidoPass_Load);
             this.Gpb_PregSeg.ResumeLayout(false);
             this.Gpb_PregSeg.PerformLayout();

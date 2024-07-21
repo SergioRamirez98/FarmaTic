@@ -15,7 +15,7 @@ namespace Vista
 {
     public partial class CV_Login : Form
     {
-        CL_Usuarios UsuarioExistente = new CL_Usuarios();
+        CL_Usuarios Usuarios = new CL_Usuarios();
         public CV_Login()
         {
             InitializeComponent();
@@ -26,7 +26,7 @@ namespace Vista
             pasardatos();
             try
             {
-                bool validar = UsuarioExistente.Logear();
+                bool validar = Usuarios.Logear();
                 if (validar == true)
                 {
                     if (CSesion_SesionIniciada.NuevaPass == true)
@@ -40,7 +40,8 @@ namespace Vista
                         CV_Menu Menu = new CV_Menu();
                         Menu.Show();
                     }
-                    // this.Hide();
+                    CServ_LimpiarControles.LimpiarFormulario(this);
+                    this.Hide();
                 }
 
             }
@@ -57,20 +58,14 @@ namespace Vista
 
         private void pasardatos()
         {
-            UsuarioExistente.Prop_NombreUsuarioLogin =Txb_Usuario.Text;
-            UsuarioExistente.Prop_ContrasenaUsuarioLogin=Txb_Contrasena.Text;
-            UsuarioExistente.Prop_EncriptacionLogin = Txb_Usuario.Text + Txb_Contrasena.Text;
+            Usuarios.Prop_NombreUsuarioLogin =Txb_Usuario.Text;
+            Usuarios.Prop_ContrasenaUsuarioLogin=Txb_Contrasena.Text;
+            Usuarios.Prop_EncriptacionLogin = Txb_Usuario.Text + Txb_Contrasena.Text;
         }
 
         private void Cbx_MostrarContrasena_CheckedChanged(object sender, EventArgs e)
         {
-            Txb_Contrasena.PasswordChar = '\0';
-            Cbx_MostrarContrasena.Text = "Ocultar contraseña";
-            if (!Cbx_MostrarContrasena.Checked)
-            {
-                Txb_Contrasena.PasswordChar = '*';
-                Cbx_MostrarContrasena.Text = "Mostrar contraseña";
-            }
+            CServ_InfoSensible.Contrasena(Txb_Contrasena, Cbx_MostrarContrasena);
         }
 
         private void LnkLbl_OlvideContrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)

@@ -45,6 +45,7 @@
     <Compile Include="CServ_Aleatorios.cs" />
     <Compile Include="CServ_Encriptacion.cs" />
     <Compile Include="CServ_EnvioMail.cs" />
+    <Compile Include="CServ_InfoSensible.cs" />
     <Compile Include="CServ_MsjUsuario.cs" />
     <Compile Include="CServ_LimpiarControles.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

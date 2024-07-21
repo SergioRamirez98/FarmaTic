@@ -1,23 +1,23 @@
 ﻿using System;
-using System.Data;
-using System.Windows.Forms;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Data;
 
 namespace Sesion
 {
     public static class CSesion_SesionIniciada
     {
+        #region Atributo
+        private static bool atr_SesionActiva = true;
+        #endregion
+
         #region Properties
+        public static bool SesionActiva { get => atr_SesionActiva; set { atr_SesionActiva = value; } }
         public static bool Es_Usuario { get; set; }
         public static string UserName { get; set; }
         public static string UserPass { get; set; }
         public static string Encriptacion { get; set; }
         public static int VenceCada { get; set; }
-        public static string Nombre {get; set;}
+        public static string Nombre { get; set; }
         public static string Apellido { get; set; }
         public static string Dni { get; set; }
         public static string Correo { get; set; }
@@ -41,6 +41,7 @@ namespace Sesion
         public static bool NuevaPass { get; set; }
         public static bool CambioPass { get; set; }
 
+
         #endregion
         public static void CacheSesion(DataTable resultado)
         {
@@ -50,7 +51,7 @@ namespace Sesion
                 Es_Usuario = true;
                 UserName = fila["UserName"].ToString();
                 UserPass = fila["UserPass"].ToString();
-                Encriptacion= fila["Encriptacion"].ToString();
+                Encriptacion = fila["Encriptacion"].ToString();
                 VenceCada = Convert.ToInt32(fila["VenceCada"]);
                 Nombre = fila["Nombre"].ToString();
                 Apellido = fila["Apellido"].ToString();
@@ -66,7 +67,7 @@ namespace Sesion
                 Familia = fila["Familia"].ToString();
                 CambioPass = Convert.ToBoolean(fila["NuevaPass"]);
                 NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
-                if (NuevaPass==false)
+                if (NuevaPass == false)
                 {
                     DataRow fila1 = resultado.Rows[1];
                     DataRow fila2 = resultado.Rows[2];
@@ -81,7 +82,44 @@ namespace Sesion
                 RolDescripcion = fila["Descripcion"].ToString();
                 EstadoCuenta = fila["EstadoCuenta"].ToString();
                 FeAlta = Convert.ToDateTime(fila["FeAlta"]);
-                
+
+            }
+        }
+
+        public static void LimpiarCache()
+        {
+            if (atr_SesionActiva == false)
+            {
+                Es_Usuario = false;
+                UserName = null;
+                UserPass = null;
+                Encriptacion = null;
+                VenceCada = 0;
+                Nombre = null;
+                Apellido = null;
+                Dni = null;
+                Correo = null;
+                Sexo = null;
+                Domicilio = null;
+                Partido = null;
+                Nacionalidad = null;
+                Telefono = 0;
+                FeNacimiento = DateTime.Today;
+                Comentario = null;
+                Familia = null;
+                Pregunta1 = null;
+                Respuesta1 = null;
+                Pregunta2 = null;
+                Respuesta2 = null;
+                Pregunta3 = null;
+                Respuesta3 = null;
+                RolDescripcion = null;
+                EstadoCuenta = null;
+                FeAlta = DateTime.Today;
+                NuevaPass = false;
+                CambioPass = false;
+
+
             }
         }
     }

@@ -52,11 +52,11 @@
     <Compile Include="CV_OlvidoPass.Designer.cs">
       <DependentUpon>CV_OlvidoPass.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_Registrar.cs">
+    <Compile Include="CV_GestionUsuariosPersonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_Registrar.Designer.cs">
-      <DependentUpon>CV_Registrar.cs</DependentUpon>
+    <Compile Include="CV_GestionUsuariosPersonas.Designer.cs">
+      <DependentUpon>CV_GestionUsuariosPersonas.cs</DependentUpon>
     </Compile>
     <Compile Include="CV_Login.cs">
       <SubType>Form</SubType>
@@ -75,8 +75,8 @@
     <EmbeddedResource Include="CV_OlvidoPass.resx">
       <DependentUpon>CV_OlvidoPass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_Registrar.resx">
-      <DependentUpon>CV_Registrar.cs</DependentUpon>
+    <EmbeddedResource Include="CV_GestionUsuariosPersonas.resx">
+      <DependentUpon>CV_GestionUsuariosPersonas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CV_Login.resx">
       <DependentUpon>CV_Login.cs</DependentUpon>

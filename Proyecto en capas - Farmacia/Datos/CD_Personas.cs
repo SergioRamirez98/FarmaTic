@@ -142,7 +142,7 @@ namespace Datos
                 SqlParameter[] parametros = listaparametros.ToArray();
 
                 Dt= ejecutar(sSql, parametros, true);
-                CSesion_PersonaSeleccionada.ActualizaFormulario(Dt, ID_Persona);
+                CSesion_PersonaSeleccionada.ActualizaFormularioPersonas(Dt);
 
             }
             catch (Exception)
@@ -150,6 +150,36 @@ namespace Datos
                 throw new Exception("Error al conectar con la base de datos.");
             }
             return Dt;
+        }
+        
+        public bool CargarUsuarios(int ID_Persona)
+        {
+            string sSql = "SP_Cache_Usuarios";
+            DataTable Dt = new DataTable();
+            try
+            {
+                SqlParameter param_ID_Usuario = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Usuario.Value = ID_Persona;
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Add(param_ID_Usuario);
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                Dt = ejecutar(sSql, parametros, true);
+                CSesion_PersonaSeleccionada.ActualizaFormularioUsuarios(Dt);
+                if (Dt.Rows.Count>1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al conectar con la base de datos.");
+            }            
         }
         public DataTable ObtenerPersonaCmb()
         {

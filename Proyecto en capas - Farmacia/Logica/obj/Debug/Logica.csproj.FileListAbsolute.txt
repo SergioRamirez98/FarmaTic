@@ -24,3 +24,16 @@ C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Logica\bin\Debug\Sesion
 C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Logica\bin\Debug\Sesion.pdb
 C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Logica\bin\Debug\Sesion.dll
 C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Logica\bin\Debug\Sesion.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Logica.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Logica.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Datos.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Servicios.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Sesion.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Datos.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Servicios.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Sesion.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.csproj.AssemblyReference.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.csproj.CoreCompileInputs.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.csproj.CopyComplete
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.pdb

@@ -20,3 +20,14 @@ C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.
 C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.pdb
 C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.dll
 C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Datos.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Datos.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Servicios.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Servicios.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.CopyComplete
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.pdb

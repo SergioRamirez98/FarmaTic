@@ -42,3 +42,26 @@ C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Vis
 C:\Users\User\Downloads\Proyectos Visual Studio\Proyecto en capas - Farmacia\Vista\bin\Debug\Sesion.pdb
 C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Registrar.resources
 C:\Users\ramir\source\repos\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_OlvidoPass.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Vista.exe.config
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Vista.exe
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Vista.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Logica.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Servicios.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Sesion.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Datos.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Logica.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Servicios.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Sesion.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Datos.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.SuggestedBindingRedirects.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_OlvidoPass.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Login.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Menu.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.Properties.Resources.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.CopyComplete
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.exe
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_GestionUsuariosPersonas.resources

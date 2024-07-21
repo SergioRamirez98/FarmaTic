@@ -9,10 +9,16 @@ namespace Sesion
 {
     public static class CSesion_PersonaSeleccionada
     {
+        #region Atributo
+        private static bool atr_SesionActiva=true;
+        #endregion
+
         #region Properties
+        public static bool SesionActiva { get => atr_SesionActiva;set { atr_SesionActiva = value; } }
+
         public static string Nombre { get; set; }
         public static string Apellido { get; set; }
-        public static string Dni { get; set; }
+        public static int Dni { get; set; }
         public static string Correo { get; set; }
         public static string Sexo { get; set; }
         public static string Domicilio { get; set; }
@@ -21,15 +27,32 @@ namespace Sesion
         public static int Telefono { get; set; }
         public static DateTime FeNacimiento { get; set; }
         public static string Comentario { get; set; }
+
+        public static string UserName { get; set; }
+        public static string UserPass { get; set; }
+        public static string Encriptacion { get; set; }
+        public static int VenceCada { get; set; }
+        public static string Familia { get; set; }
+        public static string Pregunta1 { get; set; }
+        public static string Pregunta2 { get; set; }
+        public static string Pregunta3 { get; set; }
+        public static string Respuesta1 { get; set; }
+        public static string Respuesta2 { get; set; }
+        public static string Respuesta3 { get; set; }
+        public static string Descripcion { get; set; }
+        public static string EstadoCuenta { get; set; }
+        public static DateTime FeAlta { get; set; }
+        public static bool NuevaPass { get; set; }
+
         #endregion
-        public static void ActualizaFormulario(DataTable dt, int ID_Persona)
+        public static void ActualizaFormularioPersonas(DataTable dt)
         {
             if (dt.Rows.Count > 0)
             {
                 DataRow fila = dt.Rows[0];
                 Nombre = fila["Nombre"].ToString();
                 Apellido = fila["Apellido"].ToString();
-                Dni = fila["Documento"].ToString();
+                Dni = Convert.ToInt32(fila["Documento"]);
                 Correo = fila["Mail"].ToString();
                 Sexo = fila["Sexo"].ToString();
                 Domicilio = fila["Direccion"].ToString();
@@ -39,6 +62,67 @@ namespace Sesion
                 FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
                 Comentario = fila["Comentarios"].ToString();
             }
+        }
+        public static void ActualizaFormularioUsuarios(DataTable dt)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                DataRow fila = dt.Rows[0];
+                DataRow fila1 = dt.Rows[1];
+                DataRow fila2= dt.Rows[2];
+                UserName = fila["UserName"].ToString();
+                UserPass = fila["UserPass"].ToString();
+                Encriptacion = fila["Encriptacion"].ToString();
+                VenceCada = Convert.ToInt32(fila["VenceCada"]);
+                Familia = fila["Familia"].ToString();
+                Pregunta1 = fila["Pregunta"].ToString();
+                Respuesta1 = fila["Respuesta"].ToString();
+                Pregunta2 = fila1["Pregunta"].ToString();
+                Respuesta2 = fila1["Respuesta"].ToString();
+                Pregunta3 = fila2["Pregunta"].ToString();
+                Respuesta3 = fila2["Respuesta"].ToString();
+                Descripcion = fila["Descripcion"].ToString();
+                EstadoCuenta = fila["EstadoCuenta"].ToString();
+                FeAlta = Convert.ToDateTime(fila["FeAlta"]);
+                NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
+            }
+            else
+            {
+                Console.WriteLine("No se encontró ningun registro, debe registarse");
+            }
+        }
+
+        public static void LimpiarCache() 
+        {
+            if (atr_SesionActiva ==false)
+            {
+                UserName = null;
+                UserPass = null;
+                Encriptacion = null;
+                Nombre = null;
+                Apellido = null;
+                Dni = 0;
+                Correo = null;
+                Sexo = null;
+                Domicilio = null;
+                Partido = null;
+                Nacionalidad = null;
+                Telefono = 0;
+                FeNacimiento = DateTime.Today;
+                Comentario = null;
+                VenceCada = 0;
+                Familia = null;
+                Pregunta1 = null;
+                Respuesta1 = null;
+                Pregunta2 = null;
+                Respuesta2 = null;
+                Pregunta3 = null;
+                Respuesta3 = null;
+                Descripcion = null;
+                EstadoCuenta=null;
+                FeAlta = DateTime.Today;
+                NuevaPass = false;
+    }
         }
 
     }

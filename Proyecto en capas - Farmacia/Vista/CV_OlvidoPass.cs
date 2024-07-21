@@ -35,6 +35,7 @@ namespace Vista
             Btn_Guardar.Enabled = false;
             Lbl_CoincidePass.Enabled = false;
             Lbl_PregGuardada.Enabled = false;
+            CServ_InfoSensible.Contrasena(Txb_Pass, Txb_ConfPass);
             Size = new Size(400,360) ;
             if (CSesion_SesionIniciada.NuevaPass == true)
             {
@@ -94,6 +95,7 @@ namespace Vista
                 if (NombreUsuario.Rows.Count > 0)
                 {
                     Txb_UserName.Text = CSesion_PreguntasUsuarios.UserName;
+                    Txb_UserName.Enabled = false;
                     Txb_Preg1.Text = CSesion_PreguntasUsuarios.Pregunta1;
                     Txb_Preg2.Text = CSesion_PreguntasUsuarios.Pregunta2;
                     Txb_Preg3.Text = CSesion_PreguntasUsuarios.Pregunta3;
@@ -113,7 +115,10 @@ namespace Vista
                 try
                 {
                     PasarDatos(true);
-                    Usuarios.GuardarNuevaPass();                    
+                    Usuarios.GuardarNuevaPass();      
+                    this.Close();
+                    CV_Menu menu = new CV_Menu();
+                    menu.Show();
                 }
                 catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
             }
@@ -123,6 +128,8 @@ namespace Vista
                 {
                     PasarDatos(true);
                     Usuarios.GuardarNuevaPass();
+                    CV_Menu menu = new CV_Menu();
+                    menu.Show();
                 }
                 catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
             }
@@ -155,7 +162,7 @@ namespace Vista
         private void PasarDatos(bool cambioPass) 
         {
             if (cambioPass)
-            {
+            {                
                 Usuarios.Prop_UserName = Txb_UserName.Text;
                 Usuarios.Prop_NuevaPass = false.ToString();
                 if (Txb_ConfPass.Text == Txb_Pass.Text)
@@ -179,14 +186,15 @@ namespace Vista
             Txb_Respuesta1.Enabled = false;
             Txb_Respuesta2.Enabled = false;
             Txb_Respuesta3.Enabled = false;
+            
             Btn_Guardar.Enabled = false;
         }
         private void CargarLoad(bool Load) 
         {
             if (Load)
             {
-                Txb_UserName.Location = new System.Drawing.Point(197, 12);
-                Lbl_UserName.Location = new System.Drawing.Point(200, 36);
+                Txb_UserName.Location = new System.Drawing.Point(140, 12);
+                Lbl_UserName.Location = new System.Drawing.Point(140, 36);
                 this.Text = "Cambio de contraseña";
                 Txb_UserName.Text = CSesion_SesionIniciada.UserName;
                 Txb_UserName.Enabled = false;
@@ -220,5 +228,9 @@ namespace Vista
         }
         #endregion
 
+        private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.Login.Show();
+        }
     }
 }

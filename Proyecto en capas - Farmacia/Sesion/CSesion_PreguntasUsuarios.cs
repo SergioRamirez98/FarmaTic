@@ -5,12 +5,18 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace Sesion
 {
     public static class CSesion_PreguntasUsuarios
     {
+        #region Atributo
+        private static bool atr_SesionActiva = true;
+        #endregion
+
         #region Properties
+        public static bool SesionActiva { get => atr_SesionActiva; set { atr_SesionActiva = value; } }
         public static string UserName { get; set; }
         public static string Pregunta1 { get; set; }
         public static string Pregunta2 { get; set; }
@@ -33,6 +39,21 @@ namespace Sesion
                 Respuesta1 = fila["Respuesta"].ToString();
                 Respuesta2 = fila1["Respuesta"].ToString();
                 Respuesta3 = fila2["Respuesta"].ToString();
+            }
+        }
+
+        public static void LimpiarCache()
+        {
+            if (atr_SesionActiva == false)
+            {
+                UserName = null;                
+                Pregunta1 = null;
+                Respuesta1 = null;
+                Pregunta2 = null;
+                Respuesta2 = null;
+                Pregunta3 = null;
+                Respuesta3 = null;
+
             }
         }
     }

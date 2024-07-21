@@ -47,9 +47,20 @@ namespace Vista
 
         private void Btn_GestionUsuarios_Click(object sender, EventArgs e)
         {
-            CV_Registrar agregarPersona = new CV_Registrar();
+            CV_GestionUsuariosPersonas agregarPersona = new CV_GestionUsuariosPersonas();
             agregarPersona.Show();         
         }
 
+        private void Btn_CerraSesion_Click(object sender, EventArgs e)
+        {
+            CSesion_PersonaSeleccionada.SesionActiva = false;
+            CSesion_PersonaSeleccionada.LimpiarCache();
+            CSesion_SesionIniciada.SesionActiva = false;
+            CSesion_SesionIniciada.LimpiarCache();
+            CSesion_PreguntasUsuarios.SesionActiva = false;
+            CSesion_PreguntasUsuarios.LimpiarCache();
+            this.Close();
+            Program.Login.Show();
+        }
     }
 }
