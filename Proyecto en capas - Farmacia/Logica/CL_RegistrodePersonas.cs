@@ -54,7 +54,7 @@ namespace Logica
         public DataTable InsertarPersona()
         {
             PasarDatos();
-           return DatosPersonas.Insertar();
+            return DatosPersonas.Insertar();
         }
         public DataTable ObtenerLocalidad() 
         {

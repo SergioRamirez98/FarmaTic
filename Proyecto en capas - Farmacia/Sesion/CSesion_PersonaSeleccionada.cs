@@ -29,8 +29,7 @@ namespace Sesion
         public static string Comentario { get; set; }
 
         public static string UserName { get; set; }
-        public static string UserPass { get; set; }
-        public static string Encriptacion { get; set; }
+        public static string PassEncriptada { get; set; }
         public static int VenceCada { get; set; }
         public static string Familia { get; set; }
         public static string Pregunta1 { get; set; }
@@ -71,8 +70,7 @@ namespace Sesion
                 DataRow fila1 = dt.Rows[1];
                 DataRow fila2= dt.Rows[2];
                 UserName = fila["UserName"].ToString();
-                UserPass = fila["UserPass"].ToString();
-                Encriptacion = fila["Encriptacion"].ToString();
+                PassEncriptada = fila["PassEncriptada"].ToString();
                 VenceCada = Convert.ToInt32(fila["VenceCada"]);
                 Familia = fila["Familia"].ToString();
                 Pregunta1 = fila["Pregunta"].ToString();
@@ -97,8 +95,7 @@ namespace Sesion
             if (atr_SesionActiva ==false)
             {
                 UserName = null;
-                UserPass = null;
-                Encriptacion = null;
+                PassEncriptada = null;
                 Nombre = null;
                 Apellido = null;
                 Dni = 0;
@@ -122,7 +119,7 @@ namespace Sesion
                 EstadoCuenta=null;
                 FeAlta = DateTime.Today;
                 NuevaPass = false;
-    }
+            }
         }
 
     }

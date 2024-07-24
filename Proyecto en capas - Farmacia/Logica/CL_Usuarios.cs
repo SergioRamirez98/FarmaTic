@@ -100,7 +100,7 @@ namespace Logica
         {
             string passaleatoria=CServ_Aleatorios.PassAleatoria();
             PasarDatos(passaleatoria);
-         //   CServ_EnvioMail.EnviarCorreo();
+            CServ_EnvioMail.EnviarCorreo();
             Usuario.Insertar();
 
         }
@@ -162,9 +162,8 @@ namespace Logica
             }
             else
             {
-                Usuario.Prop_NombreUsuarioLogin = atr_NombreUsuarioLogin;
-                Usuario.Prop_ContrasenaUsuarioLogin = atr_ContrasenaUsuarioLogin;
-                Usuario.Prop_EncriptacionLogin = CServ_Encriptacion.Encriptar(atr_EncriptacionLogin);
+                Usuario.Prop_NombreUsuarioLogin = atr_NombreUsuarioLogin;               
+                Usuario.Prop_EncriptacionLogin = CServ_Encriptacion.SHA256(atr_EncriptacionLogin);
                
             }
         }
@@ -182,7 +181,7 @@ namespace Logica
                     {
                         Usuario.Prop_UserName = Prop_UserName;
                         Usuario.Prop_Contrasena = Prop_Contrasena;
-                        Usuario.Prop_Encriptacion = CServ_Encriptacion.Encriptar(Prop_Encriptacion);
+                        Usuario.Prop_Encriptacion = CServ_Encriptacion.SHA256(Prop_Encriptacion);
                         Usuario.Prop_NuevaPass = Convert.ToBoolean(Prop_NuevaPass);
                     }
                 }
@@ -201,7 +200,8 @@ namespace Logica
                 Usuario.ID_Persona = Prop_ID_Persona;
                 Usuario.Prop_UserName = Prop_UserName;
                 Usuario.Prop_Contrasena = passaleatoria;
-                Usuario.Prop_Encriptacion = CServ_Encriptacion.Encriptar(Prop_UserName, passaleatoria);
+                string contra = Prop_UserName + passaleatoria;
+                Usuario.Prop_Encriptacion = CServ_Encriptacion.SHA256(contra);
                 CServ_EnvioMail.Prop_UserName = Prop_UserName;
                 CServ_EnvioMail.Prop_PassAleatoria = passaleatoria;
                 CServ_EnvioMail.Prop_Correo = CSesion_PersonaSeleccionada.Correo;
@@ -218,9 +218,6 @@ namespace Logica
 
                 Usuario.Prop_Familia = Prop_Familia;
                 Usuario.Prop_Estado = Prop_Estado;
-                Usuario.Prop_Preg1 = Prop_Preg1;
-                Usuario.Prop_Preg2 = Prop_Preg2;
-                Usuario.Prop_Preg3 = Prop_Preg3;
                 Usuario.Prop_NuevaPass = Convert.ToBoolean(Prop_NuevaPass);
                 Usuario.Prop_CambioPass = Convert.ToBoolean(Prop_CambioPass);
             }

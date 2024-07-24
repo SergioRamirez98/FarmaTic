@@ -19,18 +19,68 @@ namespace Datos
                 conexion.Open();
                 SqlCommand command = new SqlCommand(sql, conexion);
                 command.CommandType = CommandType.StoredProcedure;
-                if (lista != null) 
-                { 
+                if (lista != null)
+                {
                     command.Parameters.AddRange(lista);
+                }                
+                if (RetDataTable)
+                {                 
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(reader);
+                    }
+                }
+                else
+                {                    
                     command.ExecuteNonQuery();
                 }
+            }
+            
+            return dataTable;
 
-                if (RetDataTable)
+            /* MIO ORIGINAL
+               if (lista != null) 
+             { 
+                 command.Parameters.AddRange(lista);
+                 command.ExecuteNonQuery();
+             }
+
+             if (RetDataTable)
+             {
+                 dataTable.Load(command.ExecuteReader());
+             }
+         }
+         return dataTable;*/
+
+
+
+            /* POSIBLE
+               DataTable dataTable = new DataTable();
+            using (SqlConnection conexion = new SqlConnection(VariableParaConectar))
+            {
+                conexion.Open();
+                SqlCommand command = new SqlCommand(sql, conexion);
+                command.CommandType = CommandType.StoredProcedure;
+                if (lista != null)
                 {
-                    dataTable.Load(command.ExecuteReader());
+                    command.Parameters.AddRange(lista);
+                }                
+                if (RetDataTable)
+                {                 
+                    using (SqlDataReader reader = command.ExecuteReader())
+                    {
+                        dataTable.Load(command.ExecuteReader());
+                    }
+                }
+                else
+                {                    
+                    command.ExecuteNonQuery();
                 }
             }
-            return dataTable;
+            
+            return dataTable ;
+             
+             */
         }
 
     }

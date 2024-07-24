@@ -1,6 +1,7 @@
 ﻿using Logica;
 using Servicios;
 using Sesion;
+using Sistema;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -33,8 +34,8 @@ namespace Vista
             Txb_Preg3.Enabled = false;
             Txb_Respuesta3.Enabled = false;
             Btn_Guardar.Enabled = false;
-            Lbl_CoincidePass.Enabled = false;
-            Lbl_PregGuardada.Enabled = false;
+            Lbl_CoincidePass.Visible = false;
+            Lbl_PregGuardada.Visible = false;
             CServ_InfoSensible.Contrasena(Txb_Pass, Txb_ConfPass);
             Size = new Size(400,360) ;
             if (CSesion_SesionIniciada.NuevaPass == true)
@@ -46,8 +47,32 @@ namespace Vista
                 CargarLoad(false);
             }
         }
+        private void Btn_Buscar_Click(object sender, EventArgs e)
+        {
+            Usuarios.Prop_UserName = Txb_UserName.Text;
+            try
+            {
+                DataTable NombreUsuario = Usuarios.BuscarUsuario();
+                if (NombreUsuario.Rows.Count > 0)
+                {
+                    Txb_UserName.Text = CSesion_PreguntasUsuarios.UserName;
+                    Txb_UserName.Enabled = false;
+                    Txb_Preg1.Text = CSesion_PreguntasUsuarios.Pregunta1;
+                    Txb_Preg2.Text = CSesion_PreguntasUsuarios.Pregunta2;
+                    Txb_Preg3.Text = CSesion_PreguntasUsuarios.Pregunta3;
+                    Txb_Respuesta1.Enabled = true;
+                    Txb_Respuesta2.Enabled = true;
+                    Txb_Respuesta3.Enabled = true;
+                    Btn_Guardar.Enabled = true;
+                }
+
+            }
+            catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
+        }
+
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
+
             if (CSesion_SesionIniciada.NuevaPass == true)             
             {
                 PasarDatos();
@@ -85,29 +110,7 @@ namespace Vista
                 }
             }
 
-        }        
-        private void Btn_Buscar_Click(object sender, EventArgs e)
-        {
-            Usuarios.Prop_UserName = Txb_UserName.Text;
-            try
-            {
-                DataTable NombreUsuario = Usuarios.BuscarUsuario();
-                if (NombreUsuario.Rows.Count > 0)
-                {
-                    Txb_UserName.Text = CSesion_PreguntasUsuarios.UserName;
-                    Txb_UserName.Enabled = false;
-                    Txb_Preg1.Text = CSesion_PreguntasUsuarios.Pregunta1;
-                    Txb_Preg2.Text = CSesion_PreguntasUsuarios.Pregunta2;
-                    Txb_Preg3.Text = CSesion_PreguntasUsuarios.Pregunta3;
-                    Txb_Respuesta1.Enabled = true;
-                    Txb_Respuesta2.Enabled = true;
-                    Txb_Respuesta3.Enabled = true;
-                    Btn_Guardar.Enabled = true;
-                }
-                
-            }
-            catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
-        }
+        }          
         private void Btn_GuardarPass_Click(object sender, EventArgs e)
         {
             if (CSesion_SesionIniciada.CambioPass == true)
@@ -133,6 +136,24 @@ namespace Vista
                 }
                 catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
             }
+        }
+
+        //Eventos secundarios
+
+        private void Txb_Pass_TextChanged(object sender, EventArgs e)
+        {
+            CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass,Lbl_CoincidePass);
+        }
+        private void Txb_ConfPass_TextChanged(object sender, EventArgs e)
+        {
+            if (Txb_ConfPass != Txb_Pass)
+            {
+                CSistema_MinimoCaracteres.CantCaracteres(Txb_ConfPass, Lbl_CoincidePass);
+            }
+        }
+        private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Program.Login.Show();
         }
         #endregion
 
@@ -198,39 +219,55 @@ namespace Vista
                 this.Text = "Cambio de contraseña";
                 Txb_UserName.Text = CSesion_SesionIniciada.UserName;
                 Txb_UserName.Enabled = false;
-
-                DataTable Preguntas = Usuarios.ObtenerPreguntas();
-                if (Preguntas.Rows.Count == 3)
+                
+                if (String.IsNullOrEmpty(CSesion_SesionIniciada.Pregunta1))
                 {
-                    Txb_Preg1.Text = Preguntas.Rows[0]["Pregunta"].ToString();
-                    Txb_Respuesta1.Enabled = true;
-                    Txb_Preg2.Text = Preguntas.Rows[1]["Pregunta"].ToString();
-                    Txb_Respuesta2.Enabled = true;
-                    Txb_Preg3.Text = Preguntas.Rows[2]["Pregunta"].ToString();
-                    Txb_Respuesta3.Enabled=true;
-                    Btn_Guardar.Enabled = true;
+                    DataTable Preguntas = Usuarios.ObtenerPreguntas();
+                    if (Preguntas.Rows.Count == 3)
+                    {
+                        Txb_Preg1.Text = Preguntas.Rows[0]["Pregunta"].ToString();
+                        Txb_Respuesta1.Enabled = true;
+                        Txb_Preg2.Text = Preguntas.Rows[1]["Pregunta"].ToString();
+                        Txb_Respuesta2.Enabled = true;
+                        Txb_Preg3.Text = Preguntas.Rows[2]["Pregunta"].ToString();
+                        Txb_Respuesta3.Enabled = true;
+                        Btn_Guardar.Enabled = true;
+                    }
                 }
+                else
+                {
+
+                    Txb_Preg1.Text = CSesion_SesionIniciada.Pregunta1;
+                    Txb_Respuesta1.Enabled = true;
+                    Txb_Preg2.Text = CSesion_SesionIniciada.Pregunta2;
+                    Txb_Respuesta2.Enabled = true;
+                    Txb_Preg3.Text = CSesion_SesionIniciada.Pregunta3;
+                    Txb_Respuesta3.Enabled = true;
+                    Btn_Guardar.Enabled = true;
+
+                    Btn_Guardar.Text = "Comprobar";
+
+                }
+               
             }
             else
             {
                 Txb_UserName.Text = CSesion_SesionIniciada.UserName;
+
                 Btn_Buscar.Visible = true;
 
-                Txb_Preg1.Text = CSesion_SesionIniciada.Pregunta1;
-                
-                Txb_Preg2.Text = CSesion_SesionIniciada.Pregunta2;
-                
+                Txb_Preg1.Text = CSesion_SesionIniciada.Pregunta1;                
+                Txb_Preg2.Text = CSesion_SesionIniciada.Pregunta2;                
                 Txb_Preg3.Text = CSesion_SesionIniciada.Pregunta3;
-                
+
+            //    Btn_Guardar.Enabled = true;
+
                 Btn_Guardar.Text = "Comprobar";
 
             }
         }
         #endregion
 
-        private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Program.Login.Show();
-        }
+       
     }
 }

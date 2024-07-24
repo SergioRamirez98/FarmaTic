@@ -40,7 +40,7 @@
             // Lbl_Usuario
             // 
             this.Lbl_Usuario.AutoSize = true;
-            this.Lbl_Usuario.Location = new System.Drawing.Point(179, 129);
+            this.Lbl_Usuario.Location = new System.Drawing.Point(34, 38);
             this.Lbl_Usuario.Name = "Lbl_Usuario";
             this.Lbl_Usuario.Size = new System.Drawing.Size(54, 16);
             this.Lbl_Usuario.TabIndex = 5;
@@ -49,7 +49,7 @@
             // Llb_Contraseña
             // 
             this.Llb_Contraseña.AutoSize = true;
-            this.Llb_Contraseña.Location = new System.Drawing.Point(179, 194);
+            this.Llb_Contraseña.Location = new System.Drawing.Point(34, 63);
             this.Llb_Contraseña.Name = "Llb_Contraseña";
             this.Llb_Contraseña.Size = new System.Drawing.Size(76, 16);
             this.Llb_Contraseña.TabIndex = 6;
@@ -57,7 +57,7 @@
             // 
             // Txb_Usuario
             // 
-            this.Txb_Usuario.Location = new System.Drawing.Point(308, 129);
+            this.Txb_Usuario.Location = new System.Drawing.Point(163, 38);
             this.Txb_Usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Usuario.Name = "Txb_Usuario";
             this.Txb_Usuario.Size = new System.Drawing.Size(100, 22);
@@ -65,7 +65,7 @@
             // 
             // Txb_Contrasena
             // 
-            this.Txb_Contrasena.Location = new System.Drawing.Point(308, 194);
+            this.Txb_Contrasena.Location = new System.Drawing.Point(163, 63);
             this.Txb_Contrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Contrasena.Name = "Txb_Contrasena";
             this.Txb_Contrasena.Size = new System.Drawing.Size(100, 22);
@@ -74,7 +74,7 @@
             // Cbx_MostrarContrasena
             // 
             this.Cbx_MostrarContrasena.AutoSize = true;
-            this.Cbx_MostrarContrasena.Location = new System.Drawing.Point(447, 166);
+            this.Cbx_MostrarContrasena.Location = new System.Drawing.Point(283, 59);
             this.Cbx_MostrarContrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Cbx_MostrarContrasena.Name = "Cbx_MostrarContrasena";
             this.Cbx_MostrarContrasena.Size = new System.Drawing.Size(144, 20);
@@ -85,7 +85,7 @@
             // 
             // Btn_Ingresar
             // 
-            this.Btn_Ingresar.Location = new System.Drawing.Point(308, 263);
+            this.Btn_Ingresar.Location = new System.Drawing.Point(163, 99);
             this.Btn_Ingresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Ingresar.Name = "Btn_Ingresar";
             this.Btn_Ingresar.Size = new System.Drawing.Size(100, 42);
@@ -97,7 +97,7 @@
             // LnkLbl_OlvideContrasena
             // 
             this.LnkLbl_OlvideContrasena.AutoSize = true;
-            this.LnkLbl_OlvideContrasena.Location = new System.Drawing.Point(287, 319);
+            this.LnkLbl_OlvideContrasena.Location = new System.Drawing.Point(142, 155);
             this.LnkLbl_OlvideContrasena.Name = "LnkLbl_OlvideContrasena";
             this.LnkLbl_OlvideContrasena.Size = new System.Drawing.Size(133, 16);
             this.LnkLbl_OlvideContrasena.TabIndex = 4;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(447, 193);
             this.Controls.Add(this.LnkLbl_OlvideContrasena);
             this.Controls.Add(this.Btn_Ingresar);
             this.Controls.Add(this.Cbx_MostrarContrasena);
@@ -117,8 +117,11 @@
             this.Controls.Add(this.Txb_Usuario);
             this.Controls.Add(this.Llb_Contraseña);
             this.Controls.Add(this.Lbl_Usuario);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximizeBox = false;
             this.Name = "CV_Login";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.CV_Login_Load);
             this.ResumeLayout(false);

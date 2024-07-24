@@ -474,7 +474,7 @@
             this.Cmb_VenceCada.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_VenceCada.Name = "Cmb_VenceCada";
             this.Cmb_VenceCada.Size = new System.Drawing.Size(213, 24);
-            this.Cmb_VenceCada.TabIndex = 52;
+            this.Cmb_VenceCada.TabIndex = 51;
             // 
             // Lbl_VenceCada
             // 
@@ -492,7 +492,7 @@
             this.Btn_RegistrarUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarUsuario.Name = "Btn_RegistrarUsuario";
             this.Btn_RegistrarUsuario.Size = new System.Drawing.Size(253, 31);
-            this.Btn_RegistrarUsuario.TabIndex = 51;
+            this.Btn_RegistrarUsuario.TabIndex = 52;
             this.Btn_RegistrarUsuario.Text = "Registrar Usuario";
             this.Btn_RegistrarUsuario.UseVisualStyleBackColor = true;
             this.Btn_RegistrarUsuario.Click += new System.EventHandler(this.Btn_RegistrarUsuario_Click);

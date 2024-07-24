@@ -15,16 +15,13 @@ namespace Datos
     {
         #region Atributos
         private string atr_NombreUsuarioLogin;
-        private string atr_ContrasenaUsuarioLogin;
         private string atr_EncriptacionLogin;
         SqlParameter[] lista = null;
         #endregion
 
         #region Properties
         public string Prop_NombreUsuarioLogin
-        { get => atr_NombreUsuarioLogin; set { atr_NombreUsuarioLogin = value; } }
-        public string Prop_ContrasenaUsuarioLogin
-        { get => atr_ContrasenaUsuarioLogin; set { atr_ContrasenaUsuarioLogin = value; } }
+        { get => atr_NombreUsuarioLogin; set { atr_NombreUsuarioLogin = value; } }       
         public string Prop_EncriptacionLogin
         { get => atr_EncriptacionLogin; set { atr_EncriptacionLogin = value; } }
 
@@ -45,20 +42,17 @@ namespace Datos
         public bool Prop_NuevaPass{ get; set; }
         public bool Prop_CambioPass { get; set; }
     #endregion
-
-    public bool Logear()
+        
+        public bool Logear()
         {
             string sSql = "SP_Login";
 
             SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
             param_UserName.Value = atr_NombreUsuarioLogin;
-            SqlParameter param_UserPass = new SqlParameter("@UserPass", SqlDbType.VarChar, 30);
-            param_UserPass.Value = atr_ContrasenaUsuarioLogin;
-            SqlParameter param_Encriptacion = new SqlParameter("@Encriptacion", SqlDbType.VarChar, 500);
+            SqlParameter param_Encriptacion = new SqlParameter("@PassEncriptada", SqlDbType.VarChar, 500);
             param_Encriptacion.Value = atr_EncriptacionLogin;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_UserName);
-            listaParametros.Add(param_UserPass);
             listaParametros.Add(param_Encriptacion);
             lista = listaParametros.ToArray();
             DataTable resultado = ejecutar(sSql, lista, true);
@@ -73,7 +67,6 @@ namespace Datos
                 throw new Exception("Error en la base de datos");
             }
         }
-
         public DataTable BuscarUser()
         {
             string sSql = "SP_Buscar_Usuario";
@@ -110,16 +103,13 @@ namespace Datos
             string sSql = "SP_Actualizar_Pass";
 
             SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
-            param_UserName.Value = Prop_UserName;
-            SqlParameter param_UserPass = new SqlParameter("@UserPass", SqlDbType.VarChar, 30);
-            param_UserPass.Value = Prop_Contrasena;
-            SqlParameter param_Encriptacion = new SqlParameter("@Encriptacion", SqlDbType.VarChar, 500);
+            param_UserName.Value = Prop_UserName;           
+            SqlParameter param_Encriptacion = new SqlParameter("@PassEncriptada", SqlDbType.VarChar, 500);
             param_Encriptacion.Value = Prop_Encriptacion;
             SqlParameter param_NuevaPass = new SqlParameter("@NuevaPass", SqlDbType.Bit);
             param_NuevaPass.Value = Prop_NuevaPass;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            listaParametros.Add(param_UserName);
-            listaParametros.Add(param_UserPass);
+            listaParametros.Add(param_UserName);            
             listaParametros.Add(param_Encriptacion);
             listaParametros.Add(param_NuevaPass);
             lista = listaParametros.ToArray();
@@ -136,7 +126,7 @@ namespace Datos
             }
 
         }
-        public DataTable Insertar()
+        public void Insertar()
         {
             try
             {
@@ -144,10 +134,8 @@ namespace Datos
                 SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
                 param_UserName.Value = Prop_UserName;
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
-                param_ID_Persona.Value = ID_Persona;
-                SqlParameter param_Contrasena = new SqlParameter("@UserPass", SqlDbType.VarChar, 30);
-                param_Contrasena.Value = Prop_Contrasena;
-                SqlParameter param_PassEncriptada = new SqlParameter("@Encriptacion", SqlDbType.VarChar, 500);
+                param_ID_Persona.Value = ID_Persona;               
+                SqlParameter param_PassEncriptada = new SqlParameter("@PassEncriptada", SqlDbType.VarChar, 500);
                 param_PassEncriptada.Value = Prop_Encriptacion;
                 SqlParameter param_FeAlta = new SqlParameter("@FeAlta", SqlDbType.DateTime);
                 param_FeAlta.Value = Prop_FeAlta;
@@ -165,7 +153,6 @@ namespace Datos
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_UserName);
                 listaParametros.Add(param_ID_Persona);
-                listaParametros.Add(param_Contrasena);
                 listaParametros.Add(param_PassEncriptada);
                 listaParametros.Add(param_FeAlta);
                 listaParametros.Add(param_Familia);
@@ -176,7 +163,7 @@ namespace Datos
 
                 lista = listaParametros.ToArray();
 
-                return ejecutar(sSql, lista, false);               
+                ejecutar(sSql, lista, false);               
 
             }
             catch (Exception)

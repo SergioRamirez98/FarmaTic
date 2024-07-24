@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Servicios;
 using Sesion;
+using Sistema;
 
 namespace Vista
 {
@@ -58,8 +59,8 @@ namespace Vista
 
         private void pasardatos()
         {
-            Usuarios.Prop_NombreUsuarioLogin =Txb_Usuario.Text;
-            Usuarios.Prop_ContrasenaUsuarioLogin=Txb_Contrasena.Text;
+            Usuarios.Prop_NombreUsuarioLogin = Txb_Usuario.Text;
+            Usuarios.Prop_ContrasenaUsuarioLogin = Txb_Contrasena.Text;
             Usuarios.Prop_EncriptacionLogin = Txb_Usuario.Text + Txb_Contrasena.Text;
         }
 

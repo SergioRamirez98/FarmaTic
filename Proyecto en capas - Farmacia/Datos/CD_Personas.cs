@@ -95,7 +95,7 @@ namespace Datos
 
             lista = listaParametros.ToArray();            
 
-           return ejecutar(sSql, lista, false);
+           return ejecutar(sSql, lista, true);
         }
         public DataTable Localidad()
         {

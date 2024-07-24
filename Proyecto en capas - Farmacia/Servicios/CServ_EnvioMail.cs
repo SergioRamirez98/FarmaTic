@@ -29,7 +29,7 @@ namespace Servicios
             
             MailMessage mensaje = new MailMessage();
             mensaje.From = new MailAddress(CorreoOrigen);
-            mensaje.To.Add("sergio.delomas79@gmail.com"/*Prop_Correo*/);
+            mensaje.To.Add(Prop_Correo);
             mensaje.Subject = "Credenciales de ingreso a Farmatic";
             mensaje.Body = "Estimado, espero se encuentre muy bien, en esta oportunidad queremos"
                 + " brindarle sus credenciales de acceso al sistema Farmatic." +

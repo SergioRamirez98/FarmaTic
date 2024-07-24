@@ -65,3 +65,6 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debu
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.exe
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_GestionUsuariosPersonas.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Capa de Sistema.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Capa de Sistema.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Configuracion.resources

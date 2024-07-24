@@ -43,7 +43,7 @@ namespace Servicios
             MessageBox.Show(msj,
                                     "Operación Exitosa",
                                     MessageBoxButtons.OK,
-                                    MessageBoxIcon.Exclamation);
+                                    MessageBoxIcon.Information);
         }
         /*public static void contrasena()
         {

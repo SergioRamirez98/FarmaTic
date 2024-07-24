@@ -228,6 +228,7 @@
             this.Txb_Pass.Name = "Txb_Pass";
             this.Txb_Pass.Size = new System.Drawing.Size(122, 22);
             this.Txb_Pass.TabIndex = 7;
+            this.Txb_Pass.TextChanged += new System.EventHandler(this.Txb_Pass_TextChanged);
             // 
             // Txb_ConfPass
             // 

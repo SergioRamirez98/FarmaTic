@@ -62,5 +62,22 @@ namespace Vista
             this.Close();
             Program.Login.Show();
         }
+
+        private void CV_Menu_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            CSesion_PersonaSeleccionada.SesionActiva = false;
+            CSesion_PersonaSeleccionada.LimpiarCache();
+            CSesion_SesionIniciada.SesionActiva = false;
+            CSesion_SesionIniciada.LimpiarCache();
+            CSesion_PreguntasUsuarios.SesionActiva = false;
+            CSesion_PreguntasUsuarios.LimpiarCache();            
+            Program.Login.Show();
+        }
+
+        private void Btn_Config_Click(object sender, EventArgs e)
+        {
+            CV_Configuracion Configuracion = new CV_Configuracion();
+            Configuracion.Show();
+        }
     }
 }
