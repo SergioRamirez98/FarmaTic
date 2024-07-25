@@ -11,14 +11,15 @@ namespace Sistema
     public static class CSistema_MinimoCaracteres
     {
         public static bool Caracteres { get; set; } = true;
-        public static void CantCaracteres(TextBox Txb_Pass, Label Lbl_CoincidePass)
+        public static void CantCaracteres(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
             if (Caracteres==true)
             {
                 if (Txb_Pass == null || Txb_Pass.TextLength < 8)
                 {
                     Txb_Pass.ForeColor = Color.Red;
-                    Lbl_CoincidePass.Text = "La contraseña ingresada debe sermayor a 8 dígitos";
+                    Lbl_MsjUsuario.Visible = true;
+                    Lbl_MsjUsuario.Text = "La contraseña ingresada debe ser mayor a 8 dígitos";
                 }
                 else { Txb_Pass.ForeColor = Color.Black; }
 

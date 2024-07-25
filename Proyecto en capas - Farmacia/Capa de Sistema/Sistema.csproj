@@ -43,7 +43,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSistema_CaracEspecial.cs" />
+    <Compile Include="CSistema_DatosPersonales.cs" />
+    <Compile Include="CSistema_MayMin.cs" />
     <Compile Include="CSistema_MinimoCaracteres.cs" />
+    <Compile Include="CSistema_NumyLetr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -49,7 +49,7 @@
             this.Txb_Pass = new System.Windows.Forms.TextBox();
             this.Txb_ConfPass = new System.Windows.Forms.TextBox();
             this.Pnl_GuardarPass = new System.Windows.Forms.Panel();
-            this.Lbl_CoincidePass = new System.Windows.Forms.Label();
+            this.Lbl_MsjUsuario = new System.Windows.Forms.Label();
             this.Lbl_ConfPass = new System.Windows.Forms.Label();
             this.Lbl_Pass = new System.Windows.Forms.Label();
             this.Btn_Buscar = new System.Windows.Forms.Button();
@@ -239,7 +239,7 @@
             // 
             // Pnl_GuardarPass
             // 
-            this.Pnl_GuardarPass.Controls.Add(this.Lbl_CoincidePass);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_MsjUsuario);
             this.Pnl_GuardarPass.Controls.Add(this.Lbl_ConfPass);
             this.Pnl_GuardarPass.Controls.Add(this.Btn_GuardarPass);
             this.Pnl_GuardarPass.Controls.Add(this.Lbl_Pass);
@@ -250,15 +250,15 @@
             this.Pnl_GuardarPass.Size = new System.Drawing.Size(474, 153);
             this.Pnl_GuardarPass.TabIndex = 12;
             // 
-            // Lbl_CoincidePass
+            // Lbl_MsjUsuario
             // 
-            this.Lbl_CoincidePass.AutoSize = true;
-            this.Lbl_CoincidePass.Location = new System.Drawing.Point(152, 75);
-            this.Lbl_CoincidePass.Name = "Lbl_CoincidePass";
-            this.Lbl_CoincidePass.Size = new System.Drawing.Size(185, 16);
-            this.Lbl_CoincidePass.TabIndex = 19;
-            this.Lbl_CoincidePass.Text = "Las contraseñas no coinciden";
-            this.Lbl_CoincidePass.Visible = false;
+            this.Lbl_MsjUsuario.AutoSize = true;
+            this.Lbl_MsjUsuario.Location = new System.Drawing.Point(152, 75);
+            this.Lbl_MsjUsuario.Name = "Lbl_MsjUsuario";
+            this.Lbl_MsjUsuario.Size = new System.Drawing.Size(185, 16);
+            this.Lbl_MsjUsuario.TabIndex = 19;
+            this.Lbl_MsjUsuario.Text = "Las contraseñas no coinciden";
+            this.Lbl_MsjUsuario.Visible = false;
             // 
             // Lbl_ConfPass
             // 
@@ -337,6 +337,6 @@
         private System.Windows.Forms.Label Lbl_Pass;
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.Label Lbl_PregGuardada;
-        private System.Windows.Forms.Label Lbl_CoincidePass;
+        private System.Windows.Forms.Label Lbl_MsjUsuario;
     }
 }

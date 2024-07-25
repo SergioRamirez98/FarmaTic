@@ -34,7 +34,7 @@ namespace Vista
             Txb_Preg3.Enabled = false;
             Txb_Respuesta3.Enabled = false;
             Btn_Guardar.Enabled = false;
-            Lbl_CoincidePass.Visible = false;
+            Lbl_MsjUsuario.Visible = false;
             Lbl_PregGuardada.Visible = false;
             CServ_InfoSensible.Contrasena(Txb_Pass, Txb_ConfPass);
             Size = new Size(400,360) ;
@@ -142,13 +142,13 @@ namespace Vista
 
         private void Txb_Pass_TextChanged(object sender, EventArgs e)
         {
-            CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass,Lbl_CoincidePass);
+            CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass,Lbl_MsjUsuario);
         }
         private void Txb_ConfPass_TextChanged(object sender, EventArgs e)
         {
             if (Txb_ConfPass != Txb_Pass)
             {
-                CSistema_MinimoCaracteres.CantCaracteres(Txb_ConfPass, Lbl_CoincidePass);
+                CSistema_MinimoCaracteres.CantCaracteres(Txb_ConfPass, Lbl_MsjUsuario);
             }
         }
         private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)
@@ -193,7 +193,7 @@ namespace Vista
                 }
                 else
                 {
-                    Lbl_CoincidePass.Visible = true;
+                    Lbl_MsjUsuario.Visible = true;
                 }
 
             }
