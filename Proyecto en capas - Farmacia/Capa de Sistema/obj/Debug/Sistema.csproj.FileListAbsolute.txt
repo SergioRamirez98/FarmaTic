@@ -4,3 +4,6 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Capa de Sistem
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Capa de Sistema\obj\Debug\Sistema.csproj.CoreCompileInputs.cache
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Capa de Sistema\obj\Debug\Capa de Sistema.dll
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Capa de Sistema\obj\Debug\Capa de Sistema.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Capa de Sistema\bin\Debug\Sesion.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Capa de Sistema\bin\Debug\Sesion.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Capa de Sistema\obj\Debug\Sistema.csproj.CopyComplete

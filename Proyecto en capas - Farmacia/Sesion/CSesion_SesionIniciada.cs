@@ -44,50 +44,6 @@ namespace Sesion
         #endregion
         public static void CacheSesion(DataTable resultado)
         {
-            /*if (resultado != null && resultado.Rows.Count > 0)
-    {
-        DataRow fila = resultado.Rows[0];
-        Es_Usuario = true;
-        UserName = fila["UserName"].ToString();
-        PassEncriptada = fila["PassEncriptada"].ToString();
-        VenceCada = Convert.ToInt32(fila["VenceCada"]);
-        Nombre = fila["Nombre"].ToString();
-        Apellido = fila["Apellido"].ToString();
-        Dni = fila["Documento"].ToString();
-        Correo = fila["Mail"].ToString();
-        Sexo = fila["Sexo"].ToString();
-        Domicilio = fila["Direccion"].ToString();
-        Partido = fila["Localidad"].ToString();
-        Nacionalidad = fila["Pais"].ToString();
-        Telefono = Convert.ToInt32(fila["Telefono"]);
-        FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
-        Comentario = fila["Comentarios"].ToString();
-        Familia = fila["Familia"].ToString();
-        CambioPass = Convert.ToBoolean(fila["NuevaPass"]);
-        NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
-
-        // Verificar si hay filas adicionales para las preguntas y respuestas
-        if (resultado.Rows.Count > 1)
-        {
-            DataRow fila1 = resultado.Rows[1];
-            Pregunta1 = fila1["Pregunta"].ToString();
-            Respuesta1 = fila1["Respuesta"].ToString();
-        }
-
-        if (resultado.Rows.Count > 2)
-        {
-            DataRow fila2 = resultado.Rows[2];
-            Pregunta2 = fila2["Pregunta"].ToString();
-            Respuesta2 = fila2["Respuesta"].ToString();
-        }
-
-        if (resultado.Rows.Count > 3)
-        {
-            DataRow fila3 = resultado.Rows[3];
-            Pregunta3 = fila3["Pregunta"].ToString();
-            Respuesta3 = fila3["Respuesta"].ToString();
-        }
-    }*/
             if (resultado.Rows.Count > 0)
             {
                 DataRow fila = resultado.Rows[0];

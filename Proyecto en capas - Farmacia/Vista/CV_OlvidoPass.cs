@@ -3,15 +3,9 @@ using Servicios;
 using Sesion;
 using Sistema;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace Vista
 {
@@ -137,18 +131,29 @@ namespace Vista
                 catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
             }
         }
-
-        //Eventos secundarios
-
         private void Txb_Pass_TextChanged(object sender, EventArgs e)
         {
             CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass,Lbl_MsjUsuario);
+            if (Txb_Pass.ForeColor == Color.Red)
+            {
+                Btn_GuardarPass.Enabled = false;
+            }
+            else
+            {
+                Btn_GuardarPass.Enabled = true;
+            }
         }
         private void Txb_ConfPass_TextChanged(object sender, EventArgs e)
         {
             if (Txb_ConfPass != Txb_Pass)
             {
-                CSistema_MinimoCaracteres.CantCaracteres(Txb_ConfPass, Lbl_MsjUsuario);
+                Txb_Pass.ForeColor = Color.Red;
+                Btn_GuardarPass.Enabled = false;
+            }
+
+            else
+            {
+                Btn_GuardarPass.Enabled=true;
             }
         }
         private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)

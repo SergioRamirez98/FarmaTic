@@ -50,5 +50,11 @@
     <Compile Include="CSistema_NumyLetr.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sesion\Sesion.csproj">
+      <Project>{8b0ae031-16a0-4a30-b9c1-bb0de41f3caf}</Project>
+      <Name>Sesion</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

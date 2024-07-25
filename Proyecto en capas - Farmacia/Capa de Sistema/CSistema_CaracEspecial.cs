@@ -6,7 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Capa_de_Sistema
+namespace Sistema
 {
     public static class CSistema_CaracEspecial
     {
