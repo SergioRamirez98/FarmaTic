@@ -7,7 +7,7 @@ namespace Sistema
 {
     public static class CSistema_DatosPersonales
     {        
-        public static bool DatosPersonales { get;  set; }
+        public static bool DatosPersonales { get;  set; } = true;
         public static void PassDatosPersonales(TextBox Txb_Pass, Label Lbl_MensajeUsuario)
         {
             string Nombre = CSesion_SesionIniciada.Nombre.ToLower();            
@@ -22,8 +22,13 @@ namespace Sistema
                 {
                     Lbl_MensajeUsuario.Visible = true;
                     Lbl_MensajeUsuario.Text = "La contraseña no puede contener datos personales";
-                    Txb_Pass.ForeColor = Color.Red;
+                    Lbl_MensajeUsuario.ForeColor = Color.Red;
                 }
+                else 
+                {
+                    Lbl_MensajeUsuario.Visible = true;
+                    Lbl_MensajeUsuario.Text = "La contraseña no puede contener datos personales";
+                    Lbl_MensajeUsuario.ForeColor= Color.Green; }
             }
         }
     }

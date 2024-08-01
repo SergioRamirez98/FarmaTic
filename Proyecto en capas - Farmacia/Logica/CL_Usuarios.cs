@@ -120,9 +120,13 @@ namespace Logica
 
         public bool CompararDatos()
         {
-            if (Prop_Resp1 == CSesion_PreguntasUsuarios.Respuesta1 
-                && Prop_Resp2 == CSesion_PreguntasUsuarios.Respuesta2 
-                && Prop_Resp3 == CSesion_PreguntasUsuarios.Respuesta3)
+
+            if (Prop_Resp1 == CSesion_SesionIniciada.Respuesta1
+                & Prop_Resp2 == CSesion_SesionIniciada.Respuesta2
+                & Prop_Resp3 == CSesion_SesionIniciada.Respuesta3)/*
+                if (Prop_Resp1 == CSesion_PreguntasUsuarios.Respuesta1 
+                & Prop_Resp2 == CSesion_PreguntasUsuarios.Respuesta2 
+                & Prop_Resp3 == CSesion_PreguntasUsuarios.Respuesta3)*/
             {
                 return true;
             }

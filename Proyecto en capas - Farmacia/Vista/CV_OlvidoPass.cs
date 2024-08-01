@@ -28,8 +28,9 @@ namespace Vista
             Txb_Preg3.Enabled = false;
             Txb_Respuesta3.Enabled = false;
             Btn_Guardar.Enabled = false;
-            Lbl_MsjUsuario.Visible = false;
+            Lbl_CoincidePass.Visible = false;
             Lbl_PregGuardada.Visible = false;
+            Btn_GuardarPass.Enabled = false;
             CServ_InfoSensible.Contrasena(Txb_Pass, Txb_ConfPass);
             Size = new Size(400,360) ;
             if (CSesion_SesionIniciada.NuevaPass == true)
@@ -69,21 +70,45 @@ namespace Vista
 
             if (CSesion_SesionIniciada.NuevaPass == true)             
             {
-                PasarDatos();
-                try
+                if (!String.IsNullOrEmpty(CSesion_SesionIniciada.Pregunta1))
                 {
-                    Usuarios.InsertarRespuestasdeSeguridad();
-                    BloquearControles();                    
-                    Size = new Size(400, 495);
-                    Lbl_PregGuardada.Visible = true;
-                    Pnl_GuardarPass.Visible = true;
-                }
-                catch (Exception ex)
-                {
+                    try
+                    {
+                        PasarDatos();
+                        bool resultado = Usuarios.CompararRespuestas();
+                        if (resultado == true)
+                        {
+                            Size = new Size(400, 569);
+                            BloquearControles();
+                            Pnl_GuardarPass.Visible = true;
+                        }
 
-                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
+                    catch (Exception ex)
+                    {
+                        CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
+
+                }
+                else
+                {
+                    PasarDatos();
+                    try
+                    {
+                        Usuarios.InsertarRespuestasdeSeguridad();
+                        BloquearControles();
+                        Size = new Size(400, 669);
+                        Lbl_PregGuardada.Visible = true;
+                        Pnl_GuardarPass.Visible = true;
+                    }
+                    catch (Exception ex)
+                    {
+
+                        CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
                 }
             }
+
             else
             {
                 try
@@ -92,7 +117,7 @@ namespace Vista
                     bool resultado = Usuarios.CompararRespuestas();
                     if (resultado == true)
                     {
-                        Size = new Size(400, 495);
+                        Size = new Size(400, 669);
                         BloquearControles();
                         Pnl_GuardarPass.Visible = true;
                     }
@@ -132,16 +157,12 @@ namespace Vista
             }
         }
         private void Txb_Pass_TextChanged(object sender, EventArgs e)
-        {
-            CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass,Lbl_MsjUsuario);
-            if (Txb_Pass.ForeColor == Color.Red)
-            {
-                Btn_GuardarPass.Enabled = false;
-            }
-            else
-            {
-                Btn_GuardarPass.Enabled = true;
-            }
+        {                        
+            CSistema_CaracEspecial.CacaterEspecial(Txb_Pass, Lbl_msj1);
+            CSistema_DatosPersonales.PassDatosPersonales(Txb_Pass, Lbl_msj2);
+            CSistema_MayMin.CombinarMayMin(Txb_Pass, Lbl_msj3);
+            CSistema_NumyLetr.NumYLetras(Txb_Pass, Lbl_msj4);
+            CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass, Lbl_msj5);            
         }
         private void Txb_ConfPass_TextChanged(object sender, EventArgs e)
         {
@@ -198,7 +219,7 @@ namespace Vista
                 }
                 else
                 {
-                    Lbl_MsjUsuario.Visible = true;
+                    Lbl_CoincidePass.Visible = true;
                 }
 
             }

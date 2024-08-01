@@ -10,7 +10,7 @@ namespace Sistema
 {
     public static class CSistema_CaracEspecial
     {
-        public static bool CaracEspecial { get; set; }
+        public static bool CaracEspecial { get; set; } = true;
         public static void CacaterEspecial(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
             if (CaracEspecial)
@@ -29,14 +29,14 @@ namespace Sistema
 
                 if (!tieneCaracterEspecial)
                 {
-                    Txb_Pass.ForeColor = Color.Red;
+                    Lbl_MsjUsuario.ForeColor = Color.Red;
                     Lbl_MsjUsuario.Visible = true;
                     Lbl_MsjUsuario.Text = "La contraseña debe tener al menos un carácter especial";
                 }
                 else
                 {
-                    Txb_Pass.ForeColor = Color.Black;
-                    Lbl_MsjUsuario.Visible = false;
+                    Lbl_MsjUsuario.ForeColor = Color.Green;
+                    Lbl_MsjUsuario.Visible = true;
                 }
             }
 

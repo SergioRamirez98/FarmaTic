@@ -15,13 +15,17 @@ namespace Sistema
         {
             if (Caracteres==true)
             {
-                if (Txb_Pass == null || Txb_Pass.TextLength < 8)
-                {
-                    Txb_Pass.ForeColor = Color.Red;
+                if ( Txb_Pass.TextLength < 8)
+                {                    
                     Lbl_MsjUsuario.Visible = true;
                     Lbl_MsjUsuario.Text = "La contraseña ingresada debe ser mayor a 8 dígitos";
+                    Lbl_MsjUsuario.ForeColor = Color.Red;
                 }
-                else { Txb_Pass.ForeColor = Color.Black; }
+                else 
+                {
+                    Lbl_MsjUsuario.ForeColor = Color.Green; 
+                    Lbl_MsjUsuario.Visible= true;
+                }
 
             }
         }

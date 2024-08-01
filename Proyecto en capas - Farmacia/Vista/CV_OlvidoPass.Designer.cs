@@ -49,10 +49,15 @@
             this.Txb_Pass = new System.Windows.Forms.TextBox();
             this.Txb_ConfPass = new System.Windows.Forms.TextBox();
             this.Pnl_GuardarPass = new System.Windows.Forms.Panel();
-            this.Lbl_MsjUsuario = new System.Windows.Forms.Label();
+            this.Lbl_CoincidePass = new System.Windows.Forms.Label();
             this.Lbl_ConfPass = new System.Windows.Forms.Label();
             this.Lbl_Pass = new System.Windows.Forms.Label();
             this.Btn_Buscar = new System.Windows.Forms.Button();
+            this.Lbl_msj1 = new System.Windows.Forms.Label();
+            this.Lbl_msj2 = new System.Windows.Forms.Label();
+            this.Lbl_msj3 = new System.Windows.Forms.Label();
+            this.Lbl_msj4 = new System.Windows.Forms.Label();
+            this.Lbl_msj5 = new System.Windows.Forms.Label();
             this.Gpb_PregSeg.SuspendLayout();
             this.Pnl_GuardarPass.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +74,7 @@
             this.Txb_Preg1.Location = new System.Drawing.Point(133, 30);
             this.Txb_Preg1.Name = "Txb_Preg1";
             this.Txb_Preg1.Size = new System.Drawing.Size(321, 22);
-            this.Txb_Preg1.TabIndex = 13;
+            this.Txb_Preg1.TabIndex = 1;
             // 
             // Txb_Respuesta1
             // 
@@ -153,7 +158,7 @@
             this.Btn_Guardar.Location = new System.Drawing.Point(182, 236);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(122, 29);
-            this.Btn_Guardar.TabIndex = 12;
+            this.Btn_Guardar.TabIndex = 7;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
@@ -214,10 +219,10 @@
             // 
             // Btn_GuardarPass
             // 
-            this.Btn_GuardarPass.Location = new System.Drawing.Point(182, 97);
+            this.Btn_GuardarPass.Location = new System.Drawing.Point(182, 184);
             this.Btn_GuardarPass.Name = "Btn_GuardarPass";
             this.Btn_GuardarPass.Size = new System.Drawing.Size(122, 53);
-            this.Btn_GuardarPass.TabIndex = 9;
+            this.Btn_GuardarPass.TabIndex = 10;
             this.Btn_GuardarPass.Text = "Guardar contraseña";
             this.Btn_GuardarPass.UseVisualStyleBackColor = true;
             this.Btn_GuardarPass.Click += new System.EventHandler(this.Btn_GuardarPass_Click);
@@ -227,7 +232,7 @@
             this.Txb_Pass.Location = new System.Drawing.Point(182, 9);
             this.Txb_Pass.Name = "Txb_Pass";
             this.Txb_Pass.Size = new System.Drawing.Size(122, 22);
-            this.Txb_Pass.TabIndex = 7;
+            this.Txb_Pass.TabIndex = 8;
             this.Txb_Pass.TextChanged += new System.EventHandler(this.Txb_Pass_TextChanged);
             // 
             // Txb_ConfPass
@@ -235,11 +240,16 @@
             this.Txb_ConfPass.Location = new System.Drawing.Point(182, 42);
             this.Txb_ConfPass.Name = "Txb_ConfPass";
             this.Txb_ConfPass.Size = new System.Drawing.Size(122, 22);
-            this.Txb_ConfPass.TabIndex = 8;
+            this.Txb_ConfPass.TabIndex = 9;
             // 
             // Pnl_GuardarPass
             // 
-            this.Pnl_GuardarPass.Controls.Add(this.Lbl_MsjUsuario);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj5);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj4);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj3);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj2);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj1);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_CoincidePass);
             this.Pnl_GuardarPass.Controls.Add(this.Lbl_ConfPass);
             this.Pnl_GuardarPass.Controls.Add(this.Btn_GuardarPass);
             this.Pnl_GuardarPass.Controls.Add(this.Lbl_Pass);
@@ -247,18 +257,18 @@
             this.Pnl_GuardarPass.Controls.Add(this.Txb_Pass);
             this.Pnl_GuardarPass.Location = new System.Drawing.Point(18, 396);
             this.Pnl_GuardarPass.Name = "Pnl_GuardarPass";
-            this.Pnl_GuardarPass.Size = new System.Drawing.Size(474, 153);
+            this.Pnl_GuardarPass.Size = new System.Drawing.Size(474, 250);
             this.Pnl_GuardarPass.TabIndex = 12;
             // 
-            // Lbl_MsjUsuario
+            // Lbl_CoincidePass
             // 
-            this.Lbl_MsjUsuario.AutoSize = true;
-            this.Lbl_MsjUsuario.Location = new System.Drawing.Point(152, 75);
-            this.Lbl_MsjUsuario.Name = "Lbl_MsjUsuario";
-            this.Lbl_MsjUsuario.Size = new System.Drawing.Size(185, 16);
-            this.Lbl_MsjUsuario.TabIndex = 19;
-            this.Lbl_MsjUsuario.Text = "Las contraseñas no coinciden";
-            this.Lbl_MsjUsuario.Visible = false;
+            this.Lbl_CoincidePass.AutoSize = true;
+            this.Lbl_CoincidePass.Location = new System.Drawing.Point(147, 160);
+            this.Lbl_CoincidePass.Name = "Lbl_CoincidePass";
+            this.Lbl_CoincidePass.Size = new System.Drawing.Size(185, 16);
+            this.Lbl_CoincidePass.TabIndex = 19;
+            this.Lbl_CoincidePass.Text = "Las contraseñas no coinciden";
+            this.Lbl_CoincidePass.Visible = false;
             // 
             // Lbl_ConfPass
             // 
@@ -288,11 +298,61 @@
             this.Btn_Buscar.UseVisualStyleBackColor = true;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
             // 
+            // Lbl_msj1
+            // 
+            this.Lbl_msj1.AutoSize = true;
+            this.Lbl_msj1.Location = new System.Drawing.Point(147, 76);
+            this.Lbl_msj1.Name = "Lbl_msj1";
+            this.Lbl_msj1.Size = new System.Drawing.Size(35, 16);
+            this.Lbl_msj1.TabIndex = 20;
+            this.Lbl_msj1.Text = "msj1";
+            this.Lbl_msj1.Visible = false;
+            // 
+            // Lbl_msj2
+            // 
+            this.Lbl_msj2.AutoSize = true;
+            this.Lbl_msj2.Location = new System.Drawing.Point(147, 92);
+            this.Lbl_msj2.Name = "Lbl_msj2";
+            this.Lbl_msj2.Size = new System.Drawing.Size(35, 16);
+            this.Lbl_msj2.TabIndex = 21;
+            this.Lbl_msj2.Text = "msj2";
+            this.Lbl_msj2.Visible = false;
+            // 
+            // Lbl_msj3
+            // 
+            this.Lbl_msj3.AutoSize = true;
+            this.Lbl_msj3.Location = new System.Drawing.Point(147, 108);
+            this.Lbl_msj3.Name = "Lbl_msj3";
+            this.Lbl_msj3.Size = new System.Drawing.Size(35, 16);
+            this.Lbl_msj3.TabIndex = 22;
+            this.Lbl_msj3.Text = "msj3";
+            this.Lbl_msj3.Visible = false;
+            // 
+            // Lbl_msj4
+            // 
+            this.Lbl_msj4.AutoSize = true;
+            this.Lbl_msj4.Location = new System.Drawing.Point(147, 128);
+            this.Lbl_msj4.Name = "Lbl_msj4";
+            this.Lbl_msj4.Size = new System.Drawing.Size(35, 16);
+            this.Lbl_msj4.TabIndex = 23;
+            this.Lbl_msj4.Text = "msj4";
+            this.Lbl_msj4.Visible = false;
+            // 
+            // Lbl_msj5
+            // 
+            this.Lbl_msj5.AutoSize = true;
+            this.Lbl_msj5.Location = new System.Drawing.Point(147, 144);
+            this.Lbl_msj5.Name = "Lbl_msj5";
+            this.Lbl_msj5.Size = new System.Drawing.Size(35, 16);
+            this.Lbl_msj5.TabIndex = 24;
+            this.Lbl_msj5.Text = "msj5";
+            this.Lbl_msj5.Visible = false;
+            // 
             // CV_OlvidoPass
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 396);
+            this.ClientSize = new System.Drawing.Size(648, 652);
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.Pnl_GuardarPass);
             this.Controls.Add(this.Gpb_PregSeg);
@@ -337,6 +397,11 @@
         private System.Windows.Forms.Label Lbl_Pass;
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.Label Lbl_PregGuardada;
-        private System.Windows.Forms.Label Lbl_MsjUsuario;
+        private System.Windows.Forms.Label Lbl_CoincidePass;
+        private System.Windows.Forms.Label Lbl_msj5;
+        private System.Windows.Forms.Label Lbl_msj4;
+        private System.Windows.Forms.Label Lbl_msj3;
+        private System.Windows.Forms.Label Lbl_msj2;
+        private System.Windows.Forms.Label Lbl_msj1;
     }
 }

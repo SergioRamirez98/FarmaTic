@@ -12,7 +12,7 @@ namespace Sistema
 {
     public static class CSistema_MayMin
     {
-        public static bool MayMin { get; set; }
+        public static bool MayMin { get; set; } = true;
         public static void CombinarMayMin(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
             if (MayMin) 
@@ -31,8 +31,7 @@ namespace Sistema
                     {
                         Minuscula = true;
                     }
-
-                    // Si ya hemos encontrado al menos una mayúscula y una minúscula, podemos salir del bucle
+                    
                     if (Minuscula && Mayuscula)
                     {
                         Txb_Pass.ForeColor = Color.Black;
@@ -40,21 +39,16 @@ namespace Sistema
                     }
                 }
                 if (!Mayuscula)
-                {
-                    Txb_Pass.ForeColor = Color.Red;
+                {                    
                     Lbl_MsjUsuario.Visible = true;
                     Lbl_MsjUsuario.Text = "La contraseña debe tener al menos una mayúscula";
+                    Lbl_MsjUsuario.ForeColor = Color.Red;
                 }
                 else if (!Minuscula)
-                {
-                    Txb_Pass.ForeColor = Color.Red;
+                {                 
                     Lbl_MsjUsuario.Visible = true;
                     Lbl_MsjUsuario.Text = "La contraseña debe tener al menos una minúscula";
-                }
-                else
-                {
-                    Txb_Pass.ForeColor = Color.Black;
-                    Lbl_MsjUsuario.Visible = false;
+                    Lbl_MsjUsuario.ForeColor= Color.Green;
                 }
             }
             
