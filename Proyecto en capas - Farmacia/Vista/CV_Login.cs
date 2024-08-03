@@ -17,9 +17,11 @@ namespace Vista
     public partial class CV_Login : Form
     {
         CL_Usuarios Usuarios = new CL_Usuarios();
+        CL_Sistema Sistema = new CL_Sistema();
         public CV_Login()
         {
             InitializeComponent();
+            Sistema.CargarConfiguracion();
         }
 
         private void Btn_Ingresar_Click(object sender, EventArgs e)

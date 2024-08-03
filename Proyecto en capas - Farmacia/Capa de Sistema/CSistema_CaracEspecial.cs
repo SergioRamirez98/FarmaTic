@@ -10,7 +10,7 @@ namespace Sistema
 {
     public static class CSistema_CaracEspecial
     {
-        public static bool CaracEspecial { get; set; } = true;
+        public static bool CaracEspecial { get; set; }
         public static void CacaterEspecial(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
             if (CaracEspecial)

@@ -1,4 +1,5 @@
-﻿using Servicios;
+﻿using Logica;
+using Servicios;
 using Sesion;
 using System;
 using System.Collections.Generic;
@@ -14,10 +15,10 @@ using System.Windows.Forms;
 namespace Vista
 {
     public partial class CV_Menu : Form
-    {
+    {              
         public CV_Menu()
         {
-            InitializeComponent();
+            InitializeComponent();     
         }
         private void CV_Menu_Load(object sender, EventArgs e)
         {

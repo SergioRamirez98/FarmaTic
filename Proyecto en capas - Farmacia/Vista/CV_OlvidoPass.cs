@@ -286,8 +286,6 @@ namespace Vista
                 Txb_Preg2.Text = CSesion_SesionIniciada.Pregunta2;                
                 Txb_Preg3.Text = CSesion_SesionIniciada.Pregunta3;
 
-            //    Btn_Guardar.Enabled = true;
-
                 Btn_Guardar.Text = "Comprobar";
 
             }

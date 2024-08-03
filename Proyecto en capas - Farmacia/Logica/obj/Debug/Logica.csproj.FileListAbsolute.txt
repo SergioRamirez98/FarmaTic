@@ -37,3 +37,5 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Deb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.csproj.CopyComplete
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.dll
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\obj\Debug\Logica.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Capa de Sistema.dll
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Logica\bin\Debug\Capa de Sistema.pdb

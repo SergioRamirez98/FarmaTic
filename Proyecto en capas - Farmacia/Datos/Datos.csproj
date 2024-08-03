@@ -44,10 +44,15 @@
     <Compile Include="CD_ConectarBDD.cs" />
     <Compile Include="CD_EjecutarSP.cs" />
     <Compile Include="CD_Personas.cs" />
+    <Compile Include="CD_Sistema.cs" />
     <Compile Include="CD_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capa de Sistema\Sistema.csproj">
+      <Project>{35b155bc-44fd-41b3-afeb-f5a2554e2d14}</Project>
+      <Name>Sistema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Servicios\Servicios.csproj">
       <Project>{8f6e30bd-7948-4f3c-90db-e93319dfea49}</Project>
       <Name>Servicios</Name>

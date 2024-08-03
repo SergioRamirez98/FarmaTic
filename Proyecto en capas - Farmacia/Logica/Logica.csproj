@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CL_RegistrodePersonas.cs" />
+    <Compile Include="CL_Sistema.cs" />
     <Compile Include="CL_Usuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

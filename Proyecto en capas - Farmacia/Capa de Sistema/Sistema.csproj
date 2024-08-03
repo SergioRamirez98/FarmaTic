@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CSistema_CaracEspecial.cs" />
+    <Compile Include="CSistema_ConfSistema.cs" />
     <Compile Include="CSistema_DatosPersonales.cs" />
     <Compile Include="CSistema_MayMin.cs" />
     <Compile Include="CSistema_MinimoCaracteres.cs" />

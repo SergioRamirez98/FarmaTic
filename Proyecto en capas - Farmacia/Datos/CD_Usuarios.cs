@@ -64,7 +64,7 @@ namespace Datos
             }
             else
             {
-                throw new Exception("Error en la base de datos");
+                throw new Exception("Error al conectar con la base de datos");
             }
         }
         public DataTable BuscarUser()
