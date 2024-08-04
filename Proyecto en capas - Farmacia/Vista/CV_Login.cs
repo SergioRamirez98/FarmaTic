@@ -21,18 +21,19 @@ namespace Vista
         public CV_Login()
         {
             InitializeComponent();
-            Sistema.CargarConfiguracion();
+            
         }
 
         private void Btn_Ingresar_Click(object sender, EventArgs e)
         {
-            pasardatos();
+            PasarDatos();
             try
             {
                 bool validar = Usuarios.Logear();
                 if (validar == true)
                 {
-                    if (CSesion_SesionIniciada.NuevaPass == true)
+                    Sistema.CargarConfiguracion();
+                    if (CSesion_SesionIniciada.NuevaPass == true || CSesion_SesionIniciada.CambioPass ==true)
                     {
                         CV_OlvidoPass FormRecContrasena = new CV_OlvidoPass();
                         FormRecContrasena.Show();
@@ -42,9 +43,11 @@ namespace Vista
                         CServ_MsjUsuario.Exito("¡Conexión exitosa!");
                         CV_Menu Menu = new CV_Menu();
                         Menu.Show();
+                        CSesion_PreguntasUsuarios.LimpiarCache();
                     }
                     CServ_LimpiarControles.LimpiarFormulario(this);
                     this.Hide();
+
                 }
 
             }
@@ -59,7 +62,7 @@ namespace Vista
             Txb_Contrasena.PasswordChar = '*';
         }
 
-        private void pasardatos()
+        private void PasarDatos()
         {
             Usuarios.Prop_NombreUsuarioLogin = Txb_Usuario.Text;
             Usuarios.Prop_ContrasenaUsuarioLogin = Txb_Contrasena.Text;

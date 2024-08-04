@@ -49,15 +49,15 @@
             this.Txb_Pass = new System.Windows.Forms.TextBox();
             this.Txb_ConfPass = new System.Windows.Forms.TextBox();
             this.Pnl_GuardarPass = new System.Windows.Forms.Panel();
+            this.Lbl_CacaterEspecial = new System.Windows.Forms.Label();
+            this.Lbl_MinCaracteres = new System.Windows.Forms.Label();
+            this.Lbl_NumerosYLetras = new System.Windows.Forms.Label();
+            this.Lbl_MayusMinus = new System.Windows.Forms.Label();
+            this.Lbl_DatosPersonales = new System.Windows.Forms.Label();
             this.Lbl_CoincidePass = new System.Windows.Forms.Label();
             this.Lbl_ConfPass = new System.Windows.Forms.Label();
             this.Lbl_Pass = new System.Windows.Forms.Label();
             this.Btn_Buscar = new System.Windows.Forms.Button();
-            this.Lbl_msj1 = new System.Windows.Forms.Label();
-            this.Lbl_msj2 = new System.Windows.Forms.Label();
-            this.Lbl_msj3 = new System.Windows.Forms.Label();
-            this.Lbl_msj4 = new System.Windows.Forms.Label();
-            this.Lbl_msj5 = new System.Windows.Forms.Label();
             this.Gpb_PregSeg.SuspendLayout();
             this.Pnl_GuardarPass.SuspendLayout();
             this.SuspendLayout();
@@ -241,14 +241,15 @@
             this.Txb_ConfPass.Name = "Txb_ConfPass";
             this.Txb_ConfPass.Size = new System.Drawing.Size(122, 22);
             this.Txb_ConfPass.TabIndex = 9;
+            this.Txb_ConfPass.TextChanged += new System.EventHandler(this.Txb_ConfPass_TextChanged_1);
             // 
             // Pnl_GuardarPass
             // 
-            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj5);
-            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj4);
-            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj3);
-            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj2);
-            this.Pnl_GuardarPass.Controls.Add(this.Lbl_msj1);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_CacaterEspecial);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_MinCaracteres);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_NumerosYLetras);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_MayusMinus);
+            this.Pnl_GuardarPass.Controls.Add(this.Lbl_DatosPersonales);
             this.Pnl_GuardarPass.Controls.Add(this.Lbl_CoincidePass);
             this.Pnl_GuardarPass.Controls.Add(this.Lbl_ConfPass);
             this.Pnl_GuardarPass.Controls.Add(this.Btn_GuardarPass);
@@ -260,10 +261,60 @@
             this.Pnl_GuardarPass.Size = new System.Drawing.Size(474, 250);
             this.Pnl_GuardarPass.TabIndex = 12;
             // 
+            // Lbl_CacaterEspecial
+            // 
+            this.Lbl_CacaterEspecial.AutoSize = true;
+            this.Lbl_CacaterEspecial.Location = new System.Drawing.Point(95, 82);
+            this.Lbl_CacaterEspecial.Name = "Lbl_CacaterEspecial";
+            this.Lbl_CacaterEspecial.Size = new System.Drawing.Size(107, 16);
+            this.Lbl_CacaterEspecial.TabIndex = 25;
+            this.Lbl_CacaterEspecial.Text = "CacaterEspecial";
+            this.Lbl_CacaterEspecial.Visible = false;
+            // 
+            // Lbl_MinCaracteres
+            // 
+            this.Lbl_MinCaracteres.AutoSize = true;
+            this.Lbl_MinCaracteres.Location = new System.Drawing.Point(95, 146);
+            this.Lbl_MinCaracteres.Name = "Lbl_MinCaracteres";
+            this.Lbl_MinCaracteres.Size = new System.Drawing.Size(94, 16);
+            this.Lbl_MinCaracteres.TabIndex = 24;
+            this.Lbl_MinCaracteres.Text = "MinCaracteres";
+            this.Lbl_MinCaracteres.Visible = false;
+            // 
+            // Lbl_NumerosYLetras
+            // 
+            this.Lbl_NumerosYLetras.AutoSize = true;
+            this.Lbl_NumerosYLetras.Location = new System.Drawing.Point(95, 130);
+            this.Lbl_NumerosYLetras.Name = "Lbl_NumerosYLetras";
+            this.Lbl_NumerosYLetras.Size = new System.Drawing.Size(108, 16);
+            this.Lbl_NumerosYLetras.TabIndex = 23;
+            this.Lbl_NumerosYLetras.Text = "NumerosYLetras";
+            this.Lbl_NumerosYLetras.Visible = false;
+            // 
+            // Lbl_MayusMinus
+            // 
+            this.Lbl_MayusMinus.AutoSize = true;
+            this.Lbl_MayusMinus.Location = new System.Drawing.Point(95, 114);
+            this.Lbl_MayusMinus.Name = "Lbl_MayusMinus";
+            this.Lbl_MayusMinus.Size = new System.Drawing.Size(82, 16);
+            this.Lbl_MayusMinus.TabIndex = 22;
+            this.Lbl_MayusMinus.Text = "MayusMinus";
+            this.Lbl_MayusMinus.Visible = false;
+            // 
+            // Lbl_DatosPersonales
+            // 
+            this.Lbl_DatosPersonales.AutoSize = true;
+            this.Lbl_DatosPersonales.Location = new System.Drawing.Point(95, 98);
+            this.Lbl_DatosPersonales.Name = "Lbl_DatosPersonales";
+            this.Lbl_DatosPersonales.Size = new System.Drawing.Size(112, 16);
+            this.Lbl_DatosPersonales.TabIndex = 21;
+            this.Lbl_DatosPersonales.Text = "DatosPersonales";
+            this.Lbl_DatosPersonales.Visible = false;
+            // 
             // Lbl_CoincidePass
             // 
             this.Lbl_CoincidePass.AutoSize = true;
-            this.Lbl_CoincidePass.Location = new System.Drawing.Point(147, 160);
+            this.Lbl_CoincidePass.Location = new System.Drawing.Point(95, 162);
             this.Lbl_CoincidePass.Name = "Lbl_CoincidePass";
             this.Lbl_CoincidePass.Size = new System.Drawing.Size(185, 16);
             this.Lbl_CoincidePass.TabIndex = 19;
@@ -297,56 +348,6 @@
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
-            // 
-            // Lbl_msj1
-            // 
-            this.Lbl_msj1.AutoSize = true;
-            this.Lbl_msj1.Location = new System.Drawing.Point(147, 76);
-            this.Lbl_msj1.Name = "Lbl_msj1";
-            this.Lbl_msj1.Size = new System.Drawing.Size(35, 16);
-            this.Lbl_msj1.TabIndex = 20;
-            this.Lbl_msj1.Text = "msj1";
-            this.Lbl_msj1.Visible = false;
-            // 
-            // Lbl_msj2
-            // 
-            this.Lbl_msj2.AutoSize = true;
-            this.Lbl_msj2.Location = new System.Drawing.Point(147, 92);
-            this.Lbl_msj2.Name = "Lbl_msj2";
-            this.Lbl_msj2.Size = new System.Drawing.Size(35, 16);
-            this.Lbl_msj2.TabIndex = 21;
-            this.Lbl_msj2.Text = "msj2";
-            this.Lbl_msj2.Visible = false;
-            // 
-            // Lbl_msj3
-            // 
-            this.Lbl_msj3.AutoSize = true;
-            this.Lbl_msj3.Location = new System.Drawing.Point(147, 108);
-            this.Lbl_msj3.Name = "Lbl_msj3";
-            this.Lbl_msj3.Size = new System.Drawing.Size(35, 16);
-            this.Lbl_msj3.TabIndex = 22;
-            this.Lbl_msj3.Text = "msj3";
-            this.Lbl_msj3.Visible = false;
-            // 
-            // Lbl_msj4
-            // 
-            this.Lbl_msj4.AutoSize = true;
-            this.Lbl_msj4.Location = new System.Drawing.Point(147, 128);
-            this.Lbl_msj4.Name = "Lbl_msj4";
-            this.Lbl_msj4.Size = new System.Drawing.Size(35, 16);
-            this.Lbl_msj4.TabIndex = 23;
-            this.Lbl_msj4.Text = "msj4";
-            this.Lbl_msj4.Visible = false;
-            // 
-            // Lbl_msj5
-            // 
-            this.Lbl_msj5.AutoSize = true;
-            this.Lbl_msj5.Location = new System.Drawing.Point(147, 144);
-            this.Lbl_msj5.Name = "Lbl_msj5";
-            this.Lbl_msj5.Size = new System.Drawing.Size(35, 16);
-            this.Lbl_msj5.TabIndex = 24;
-            this.Lbl_msj5.Text = "msj5";
-            this.Lbl_msj5.Visible = false;
             // 
             // CV_OlvidoPass
             // 
@@ -398,10 +399,10 @@
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.Label Lbl_PregGuardada;
         private System.Windows.Forms.Label Lbl_CoincidePass;
-        private System.Windows.Forms.Label Lbl_msj5;
-        private System.Windows.Forms.Label Lbl_msj4;
-        private System.Windows.Forms.Label Lbl_msj3;
-        private System.Windows.Forms.Label Lbl_msj2;
-        private System.Windows.Forms.Label Lbl_msj1;
+        private System.Windows.Forms.Label Lbl_MinCaracteres;
+        private System.Windows.Forms.Label Lbl_NumerosYLetras;
+        private System.Windows.Forms.Label Lbl_MayusMinus;
+        private System.Windows.Forms.Label Lbl_DatosPersonales;
+        private System.Windows.Forms.Label Lbl_CacaterEspecial;
     }
 }

@@ -120,20 +120,18 @@ namespace Logica
 
         public bool CompararDatos()
         {
-
-            if (Prop_Resp1 == CSesion_SesionIniciada.Respuesta1
+            if (Prop_Resp1 == CSesion_PreguntasUsuarios.Respuesta1
+                & Prop_Resp2 == CSesion_PreguntasUsuarios.Respuesta2
+                & Prop_Resp3 == CSesion_PreguntasUsuarios.Respuesta3 || Prop_Resp1 == CSesion_SesionIniciada.Respuesta1
                 & Prop_Resp2 == CSesion_SesionIniciada.Respuesta2
-                & Prop_Resp3 == CSesion_SesionIniciada.Respuesta3)/*
-                if (Prop_Resp1 == CSesion_PreguntasUsuarios.Respuesta1 
-                & Prop_Resp2 == CSesion_PreguntasUsuarios.Respuesta2 
-                & Prop_Resp3 == CSesion_PreguntasUsuarios.Respuesta3)*/
+                & Prop_Resp3 == CSesion_SesionIniciada.Respuesta3)
             {
                 return true;
             }
             else
-            {
-                return false;
-            }            
+            {                
+                throw new Exception("Lasr respuestas brindadas no son correctas");                
+            }
         }
         public void PasarDatos() 
         {
@@ -187,6 +185,10 @@ namespace Logica
                         Usuario.Prop_Contrasena = Prop_Contrasena;
                         Usuario.Prop_Encriptacion = CServ_Encriptacion.SHA256(Prop_Encriptacion);
                         Usuario.Prop_NuevaPass = Convert.ToBoolean(Prop_NuevaPass);
+                        DateTime hoy = DateTime.Today;
+                        Usuario.Prop_FeCambioPass = hoy.AddDays(CSesion_SesionIniciada.VenceCada);
+
+                        
                     }
                 }
                 catch (Exception)
@@ -213,7 +215,21 @@ namespace Logica
                 try
                 {
                     Usuario.Prop_FeAlta = Convert.ToDateTime(Prop_FeAlta);
-                    Usuario.Prop_VtoPass = Convert.ToInt32(Prop_VtoPass);
+                    switch (Prop_VtoPass)
+                    {
+                        case "30 Dias": Usuario.Prop_VtoPass = 30;
+                            break;
+                        case "60 Dias":
+                            Usuario.Prop_VtoPass = 60;
+                            break;
+                        case "120 Dias":
+                            Usuario.Prop_VtoPass = 120;
+                            break;
+                        case "Nunca":
+                            Usuario.Prop_VtoPass = 0;
+                            break;
+                    }
+                    
                 }
                 catch (Exception)
                 {

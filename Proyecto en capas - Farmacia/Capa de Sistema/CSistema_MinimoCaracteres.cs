@@ -5,12 +5,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
+using Capa_de_Sistema;
 
 namespace Sistema
 {
     public static class CSistema_MinimoCaracteres
     {
-        public static bool Caracteres { get; set; } = true;
+        public static bool Caracteres = CSistema_ConfSistema.MinCaracteres;
         public static void CantCaracteres(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
             if (Caracteres==true)

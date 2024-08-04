@@ -42,51 +42,71 @@ namespace Sesion
         public static string EstadoCuenta { get; set; }
         public static DateTime FeAlta { get; set; }
         public static bool NuevaPass { get; set; }
+        public static DateTime Fe_CambioPass { get; set; }
 
         #endregion
         public static void ActualizaFormularioPersonas(DataTable dt)
         {
-            if (dt.Rows.Count > 0)
+            try
             {
-                DataRow fila = dt.Rows[0];
-                Nombre = fila["Nombre"].ToString();
-                Apellido = fila["Apellido"].ToString();
-                Dni = Convert.ToInt32(fila["Documento"]);
-                Correo = fila["Mail"].ToString();
-                Sexo = fila["Sexo"].ToString();
-                Domicilio = fila["Direccion"].ToString();
-                Partido = fila["Localidad"].ToString();
-                Nacionalidad = fila["Pais"].ToString();
-                Telefono = Convert.ToInt32(fila["Telefono"]);
-                FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
-                Comentario = fila["Comentarios"].ToString();
+
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow fila = dt.Rows[0];
+                    Nombre = fila["Nombre"].ToString();
+                    Apellido = fila["Apellido"].ToString();
+                    Dni = Convert.ToInt32(fila["Documento"]);
+                    Correo = fila["Mail"].ToString();
+                    Sexo = fila["Sexo"].ToString();
+                    Domicilio = fila["Direccion"].ToString();
+                    Partido = fila["Localidad"].ToString();
+                    Nacionalidad = fila["Pais"].ToString();
+                    Telefono = Convert.ToInt32(fila["Telefono"]);
+                    FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
+                    Comentario = fila["Comentarios"].ToString();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al recuperar los datos de la persona en la base de datos");
             }
         }
         public static void ActualizaFormularioUsuarios(DataTable dt)
         {
-            if (dt.Rows.Count > 0)
+            try
             {
-                DataRow fila = dt.Rows[0];
-                DataRow fila1 = dt.Rows[1];
-                DataRow fila2= dt.Rows[2];
-                UserName = fila["UserName"].ToString();
-                PassEncriptada = fila["PassEncriptada"].ToString();
-                VenceCada = Convert.ToInt32(fila["VenceCada"]);
-                Familia = fila["Familia"].ToString();
-                Pregunta1 = fila["Pregunta"].ToString();
-                Respuesta1 = fila["Respuesta"].ToString();
-                Pregunta2 = fila1["Pregunta"].ToString();
-                Respuesta2 = fila1["Respuesta"].ToString();
-                Pregunta3 = fila2["Pregunta"].ToString();
-                Respuesta3 = fila2["Respuesta"].ToString();
-                Descripcion = fila["Descripcion"].ToString();
-                EstadoCuenta = fila["EstadoCuenta"].ToString();
-                FeAlta = Convert.ToDateTime(fila["FeAlta"]);
-                NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow fila = dt.Rows[0];
+                    DataRow fila1 = dt.Rows[1];
+                    DataRow fila2 = dt.Rows[2];
+                    UserName = fila["UserName"].ToString();
+                    PassEncriptada = fila["PassEncriptada"].ToString();
+                    VenceCada = Convert.ToInt32(fila["VenceCada"]);
+                    Familia = fila["Familia"].ToString();
+                    Pregunta1 = fila["Pregunta"].ToString();
+                    Respuesta1 = fila["Respuesta"].ToString();
+                    Pregunta2 = fila1["Pregunta"].ToString();
+                    Respuesta2 = fila1["Respuesta"].ToString();
+                    Pregunta3 = fila2["Pregunta"].ToString();
+                    Respuesta3 = fila2["Respuesta"].ToString();
+                    Descripcion = fila["Descripcion"].ToString();
+                    EstadoCuenta = fila["EstadoCuenta"].ToString();
+                    FeAlta = Convert.ToDateTime(fila["FeAlta"]);
+                    NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
+                    Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
+                }
+                else
+                {
+                    Console.WriteLine("No se encontró ningun registro, debe registarse");
+                }
+
             }
-            else
+            catch (Exception)
             {
-                Console.WriteLine("No se encontró ningun registro, debe registarse");
+
+                throw new Exception("Error al repuerar los datos de la persona, como usuario en la base de datos");
             }
         }
 
@@ -119,6 +139,7 @@ namespace Sesion
                 EstadoCuenta=null;
                 FeAlta = DateTime.Today;
                 NuevaPass = false;
+                Fe_CambioPass = DateTime.Today;
             }
         }
 

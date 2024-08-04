@@ -41,7 +41,7 @@ namespace Vista
         {
             if (Chb_CaracEspec.Checked)
             {
-                CSistema_CaracEspecial.CaracEspecial = true;
+                CSistema_CaracEspecial.CaractEspecial = true;
             }
 
         }

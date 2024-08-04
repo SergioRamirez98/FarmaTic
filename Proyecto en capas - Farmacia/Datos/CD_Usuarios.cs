@@ -41,8 +41,10 @@ namespace Datos
         public int Prop_VtoPass { get; set; }
         public bool Prop_NuevaPass{ get; set; }
         public bool Prop_CambioPass { get; set; }
-    #endregion
-        
+        public DateTime Prop_FeCambioPass { get; set; }
+
+        #endregion
+
         public bool Logear()
         {
             string sSql = "SP_Login";
@@ -76,7 +78,6 @@ namespace Datos
             listaParametros.Add(param_UserName);
             lista = listaParametros.ToArray();
             DataTable Dt = ejecutar(sSql, lista, true);
-            /* DataTable Dt= ejecutar(sSql, parametros, true);*/
             CSesion_PreguntasUsuarios.CachePreguntas(Dt);
             return Dt;
 
@@ -108,10 +109,13 @@ namespace Datos
             param_Encriptacion.Value = Prop_Encriptacion;
             SqlParameter param_NuevaPass = new SqlParameter("@NuevaPass", SqlDbType.Bit);
             param_NuevaPass.Value = Prop_NuevaPass;
+            SqlParameter param_FeCambioPass = new SqlParameter("@Fe_CambioPass", SqlDbType.DateTime);
+            param_FeCambioPass.Value = Prop_FeCambioPass;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_UserName);            
             listaParametros.Add(param_Encriptacion);
             listaParametros.Add(param_NuevaPass);
+            listaParametros.Add(param_FeCambioPass);
             lista = listaParametros.ToArray();
             DataTable resultado = ejecutar(sSql, lista, true);
 

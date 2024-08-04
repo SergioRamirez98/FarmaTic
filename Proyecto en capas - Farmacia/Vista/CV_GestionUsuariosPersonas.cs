@@ -33,9 +33,10 @@ namespace Vista
             Cmb_Estado.Items.Add("Activo");
             Cmb_Estado.Items.Add("Inactivo");
             Cmb_Estado.Items.Add("Bloqueado");
-            Cmb_VenceCada.Items.Add("30");
-            Cmb_VenceCada.Items.Add("60");
-            Cmb_VenceCada.Items.Add("120");
+            Cmb_VenceCada.Items.Add("30 Dias");
+            Cmb_VenceCada.Items.Add("60 Dias");
+            Cmb_VenceCada.Items.Add("120 Dias");
+            Cmb_VenceCada.Items.Add("Nunca");
             Size = new Size(710, 300);
             Rbt_Cliente.Enabled = false;
             Rbt_Usuario.Enabled = false;

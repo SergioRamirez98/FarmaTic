@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_de_Sistema;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,14 +11,16 @@ namespace Sistema
 {
     public static class CSistema_CaracEspecial
     {
-        public static bool CaracEspecial { get; set; }
+        public static bool CaractEspecial = CSistema_ConfSistema.CaractEspecial;
+        
         public static void CacaterEspecial(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
-            if (CaracEspecial)
+            if (CaractEspecial==true)
             {
                 string Caracteres = Txb_Pass.Text;
                 bool tieneCaracterEspecial = false;
-
+                Lbl_MsjUsuario.Text = "La contraseña debe tener al menos un carácter especial";
+                Lbl_MsjUsuario.Visible = true;
                 foreach (char carac in Caracteres)
                 {
                     if (Char.IsSymbol(carac))
@@ -27,16 +30,13 @@ namespace Sistema
                     }
                 }
 
-                if (!tieneCaracterEspecial)
+                if (tieneCaracterEspecial==false)
                 {
                     Lbl_MsjUsuario.ForeColor = Color.Red;
-                    Lbl_MsjUsuario.Visible = true;
-                    Lbl_MsjUsuario.Text = "La contraseña debe tener al menos un carácter especial";
                 }
                 else
                 {
                     Lbl_MsjUsuario.ForeColor = Color.Green;
-                    Lbl_MsjUsuario.Visible = true;
                 }
             }
 

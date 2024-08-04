@@ -22,6 +22,7 @@ namespace Logica
         public DataTable CargarConfiguracion() 
         {
             return sistema.Configuracion();
+            
         }
 
         public void GuardarCambios()

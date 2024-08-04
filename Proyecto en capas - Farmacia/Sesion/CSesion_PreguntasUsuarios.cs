@@ -24,6 +24,11 @@ namespace Sesion
         public static string Respuesta1 { get; set; }
         public static string Respuesta2 { get; set; }
         public static string Respuesta3 { get; set; }
+        public static string Nombre { get; set; }
+        public static string Apellido { get; set; }
+        public static string Documento { get; set; }
+        public static string Direccion { get; set; }
+
         #endregion
         public static void CachePreguntas(DataTable dt)
         {
@@ -39,6 +44,14 @@ namespace Sesion
                 Respuesta1 = fila["Respuesta"].ToString();
                 Respuesta2 = fila1["Respuesta"].ToString();
                 Respuesta3 = fila2["Respuesta"].ToString();
+                Nombre = fila["Nombre"].ToString();
+                Apellido = fila["Apellido"].ToString();
+                Documento = fila["Documento"].ToString();
+                Direccion = fila["Direccion"].ToString();
+            }
+            else
+            {
+                throw new Exception("Error al vincular los datos en la base de datos");
             }
         }
 

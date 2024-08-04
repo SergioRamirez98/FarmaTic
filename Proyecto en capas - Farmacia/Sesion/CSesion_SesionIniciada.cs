@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Servicios;
+using System;
 using System.Collections.Generic;
 using System.Data;
 
@@ -39,60 +40,80 @@ namespace Sesion
         public static DateTime FeAlta { get; set; }
         public static bool NuevaPass { get; set; }
         public static bool CambioPass { get; set; }
-
+        public static DateTime Fe_CambioPass { get; set; }
 
         #endregion
         public static void CacheSesion(DataTable resultado)
         {
             if (resultado.Rows.Count > 0)
             {
-                DataRow fila = resultado.Rows[0];
-                Es_Usuario = true;
-                UserName = fila["UserName"].ToString();
-                PassEncriptada = fila["PassEncriptada"].ToString();
-                VenceCada = Convert.ToInt32(fila["VenceCada"]);
-                Nombre = fila["Nombre"].ToString();
-                Apellido = fila["Apellido"].ToString();
-                Dni = fila["Documento"].ToString();
-                Correo = fila["Mail"].ToString();
-                Sexo = fila["Sexo"].ToString();
-                Domicilio = fila["Direccion"].ToString();
-                Partido = fila["Localidad"].ToString();
-                Nacionalidad = fila["Pais"].ToString();
-                Telefono = Convert.ToInt32(fila["Telefono"]);
-                FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
-                Comentario = fila["Comentarios"].ToString();
-                Familia = fila["Familia"].ToString();
-                CambioPass = Convert.ToBoolean(fila["NuevaPass"]);
-                NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
-                if (resultado.Rows.Count == 3)
+                try
                 {
-                    try
+                    DataRow fila = resultado.Rows[0];
+                    Es_Usuario = true;
+                    UserName = fila["UserName"].ToString();
+                    PassEncriptada = fila["PassEncriptada"].ToString();
+                    VenceCada = Convert.ToInt32(fila["VenceCada"]);
+                    Nombre = fila["Nombre"].ToString();
+                    Apellido = fila["Apellido"].ToString();
+                    Dni = fila["Documento"].ToString();
+                    Correo = fila["Mail"].ToString();
+                    Sexo = fila["Sexo"].ToString();
+                    Domicilio = fila["Direccion"].ToString();
+                    Partido = fila["Localidad"].ToString();
+                    Nacionalidad = fila["Pais"].ToString();
+                    Telefono = Convert.ToInt32(fila["Telefono"]);
+                    FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
+                    Comentario = fila["Comentarios"].ToString();
+                    Familia = fila["Familia"].ToString();
+                    CambioPass = Convert.ToBoolean(fila["CambioPass"]);
+                    NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
+                    if (resultado.Rows.Count == 3)
                     {
-                        DataRow fila1 = resultado.Rows[1];
-                        DataRow fila2 = resultado.Rows[2];
-                        Pregunta1 = fila["Pregunta"].ToString();
-                        Respuesta1 = fila["Respuesta"].ToString();
-                        Pregunta2 = fila1["Pregunta"].ToString();
-                        Respuesta2 = fila1["Respuesta"].ToString();
-                        Pregunta3 = fila2["Pregunta"].ToString();
-                        Respuesta3 = fila2["Respuesta"].ToString();
-                    }
-                    catch (Exception)
-                    {
+                        try
+                        {
+                            DataRow fila1 = resultado.Rows[1];
+                            DataRow fila2 = resultado.Rows[2];
+                            Pregunta1 = fila["Pregunta"].ToString();
+                            Respuesta1 = fila["Respuesta"].ToString();
+                            Pregunta2 = fila1["Pregunta"].ToString();
+                            Respuesta2 = fila1["Respuesta"].ToString();
+                            Pregunta3 = fila2["Pregunta"].ToString();
+                            Respuesta3 = fila2["Respuesta"].ToString();
+                        }
+                        catch (Exception)
+                        {
 
-                        throw new Exception("error al capturar las preguntas, el usuario debe responder primero.");
+                            throw new Exception("error al capturar las preguntas, el usuario debe responder primero.");
+                        }
+
                     }
-                
+
+                    RolDescripcion = fila["Descripcion"].ToString();
+                    EstadoCuenta = fila["EstadoCuenta"].ToString();
+                    FeAlta = Convert.ToDateTime(fila["FeAlta"]);
+                    Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
+                    DateTime hoy = DateTime.Today;
+                    TimeSpan span = Fe_CambioPass.Subtract(hoy);
+                    int espan = span.Days;
+                    if (espan <= 10)
+                    {
+                        bool pregunta = CServ_CambioDeClave.CambiarClave();
+                        if (pregunta) { CambioPass = true; }
+                    }
+                    else if (espan == 0)
+                    {
+                        CambioPass = true;
+                    }
+
                 }
+                catch (Exception)
+                {
 
-                RolDescripcion = fila["Descripcion"].ToString();
-                EstadoCuenta = fila["EstadoCuenta"].ToString();
-                FeAlta = Convert.ToDateTime(fila["FeAlta"]);
-
+                    throw new Exception ("Error al vincular los datos en la base de datos");
+                }
             }
-        }
-
+        }        
         public static void LimpiarCache()
         {
             if (atr_SesionActiva == false)
@@ -124,7 +145,7 @@ namespace Sesion
                 FeAlta = DateTime.Today;
                 NuevaPass = false;
                 CambioPass = false;
-
+                Fe_CambioPass = DateTime.Today;
 
             }
         }

@@ -16,10 +16,10 @@ namespace Servicios
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Error);
         }
-        public static bool Preguntar()
+        public static bool Preguntar(string mensaje)
         {
             bool RespuestaUsuario = false;
-            DialogResult ConsultarPrimero = MessageBox.Show("¿Está Seguro de borrar los datos seleccionados?",
+            DialogResult ConsultarPrimero = MessageBox.Show(mensaje,
             "¡Atención!",
             MessageBoxButtons.YesNo,
             MessageBoxIcon.Asterisk,

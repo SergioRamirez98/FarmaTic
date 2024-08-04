@@ -1,4 +1,5 @@
-﻿using Logica;
+﻿using Capa_de_Sistema;
+using Logica;
 using Servicios;
 using Sesion;
 using Sistema;
@@ -12,6 +13,8 @@ namespace Vista
     public partial class CV_OlvidoPass : Form
     {
         CL_Usuarios Usuarios = new CL_Usuarios();
+        CL_Sistema Sistema = new CL_Sistema();
+        bool VerificarCondiciones = true;
         public CV_OlvidoPass()
         {
             InitializeComponent();
@@ -31,9 +34,10 @@ namespace Vista
             Lbl_CoincidePass.Visible = false;
             Lbl_PregGuardada.Visible = false;
             Btn_GuardarPass.Enabled = false;
+            
             CServ_InfoSensible.Contrasena(Txb_Pass, Txb_ConfPass);
             Size = new Size(400,360) ;
-            if (CSesion_SesionIniciada.NuevaPass == true)
+            if (CSesion_SesionIniciada.NuevaPass == true || CSesion_SesionIniciada.CambioPass == true)
             {
                 CargarLoad(true);          
             }
@@ -41,6 +45,7 @@ namespace Vista
             {
                 CargarLoad(false);
             }
+            Sistema.CargarConfiguracion();
         }
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
@@ -64,13 +69,54 @@ namespace Vista
             }
             catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
         }
-
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
+                if (CSesion_SesionIniciada.NuevaPass == true)
+                {
+                    if (!String.IsNullOrEmpty(CSesion_SesionIniciada.Pregunta1))
+                    {
+                        try
+                        {
+                            PasarDatos();
+                            bool resultado = Usuarios.CompararRespuestas();
+                            if (resultado == true)
+                            {
+                                Size = new Size(400, 569);
+                                BloquearControles();
+                                Pnl_GuardarPass.Visible = true;
+                            }
+                            else
+                            {
+                                throw new Exception("Las respuestas brindadas no son correctas.");
+                            }
 
-            if (CSesion_SesionIniciada.NuevaPass == true)             
-            {
-                if (!String.IsNullOrEmpty(CSesion_SesionIniciada.Pregunta1))
+                        }
+                        catch (Exception ex)
+                        {
+                            CServ_MsjUsuario.MensajesDeError(ex.Message);
+                        }
+
+                    }
+                    else
+                    {
+                        PasarDatos();
+                        try
+                        {
+                            Usuarios.InsertarRespuestasdeSeguridad();
+                            BloquearControles();
+                            Size = new Size(400, 569);
+                            Lbl_PregGuardada.Visible = true;
+                            Pnl_GuardarPass.Visible = true;
+                        }
+                        catch (Exception ex)
+                        {
+
+                            CServ_MsjUsuario.MensajesDeError(ex.Message);
+                        }
+                    }
+                }
+
+                else
                 {
                     try
                     {
@@ -78,7 +124,7 @@ namespace Vista
                         bool resultado = Usuarios.CompararRespuestas();
                         if (resultado == true)
                         {
-                            Size = new Size(400, 569);
+                            Size = new Size(400, 569);//669
                             BloquearControles();
                             Pnl_GuardarPass.Visible = true;
                         }
@@ -88,93 +134,111 @@ namespace Vista
                     {
                         CServ_MsjUsuario.MensajesDeError(ex.Message);
                     }
-
-                }
-                else
-                {
-                    PasarDatos();
-                    try
-                    {
-                        Usuarios.InsertarRespuestasdeSeguridad();
-                        BloquearControles();
-                        Size = new Size(400, 669);
-                        Lbl_PregGuardada.Visible = true;
-                        Pnl_GuardarPass.Visible = true;
-                    }
-                    catch (Exception ex)
-                    {
-
-                        CServ_MsjUsuario.MensajesDeError(ex.Message);
-                    }
-                }
-            }
-
-            else
-            {
-                try
-                {
-                    PasarDatos();
-                    bool resultado = Usuarios.CompararRespuestas();
-                    if (resultado == true)
-                    {
-                        Size = new Size(400, 669);
-                        BloquearControles();
-                        Pnl_GuardarPass.Visible = true;
-                    }
-
-                }
-                catch (Exception ex)
-                {
-                    CServ_MsjUsuario.MensajesDeError(ex.Message);                    
-                }
-            }
+                }        
 
         }          
         private void Btn_GuardarPass_Click(object sender, EventArgs e)
         {
-            if (CSesion_SesionIniciada.CambioPass == true)
+
+            if (VerificarCondiciones)
             {
-                try
+                if (CSesion_SesionIniciada.NuevaPass == true) //Va por esta opcion cuando ingresa por primera vez y cambia de pass
                 {
-                    PasarDatos(true);
-                    Usuarios.GuardarNuevaPass();      
-                    this.Close();
-                    CV_Menu menu = new CV_Menu();
-                    menu.Show();
+                    try
+                    {
+                        PasarDatos(true);
+                        Usuarios.GuardarNuevaPass();
+                        CServ_MsjUsuario.Exito("Contraseña guardada con éxito");
+                        this.Close();
+                        CV_Menu menu = new CV_Menu();
+                        menu.Show();
+                    }
+                    catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
                 }
-                catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
+                else //Va por esta opcion cuando es un cambio de contraseña
+                {
+                    try
+                    {
+                        PasarDatos(true);
+                        Usuarios.GuardarNuevaPass();
+                        CServ_MsjUsuario.Exito("Contraseña guardada con éxito");
+                        this.Close(); 
+                        CV_Menu menu = new CV_Menu();
+                        menu.Show();
+                    }
+                    catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
+                }
             }
-            else 
+            else
             {
-                try
-                {
-                    PasarDatos(true);
-                    Usuarios.GuardarNuevaPass();
-                    CV_Menu menu = new CV_Menu();
-                    menu.Show();
-                }
-                catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
+                CServ_MsjUsuario.MensajesDeError("Revise los errores en rojo.");
             }
         }
         private void Txb_Pass_TextChanged(object sender, EventArgs e)
-        {                        
-            CSistema_CaracEspecial.CacaterEspecial(Txb_Pass, Lbl_msj1);
-            CSistema_DatosPersonales.PassDatosPersonales(Txb_Pass, Lbl_msj2);
-            CSistema_MayMin.CombinarMayMin(Txb_Pass, Lbl_msj3);
-            CSistema_NumyLetr.NumYLetras(Txb_Pass, Lbl_msj4);
-            CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass, Lbl_msj5);            
-        }
-        private void Txb_ConfPass_TextChanged(object sender, EventArgs e)
         {
-            if (Txb_ConfPass != Txb_Pass)
+
+            if (CSistema_ConfSistema.CaractEspecial)
             {
-                Txb_Pass.ForeColor = Color.Red;
-                Btn_GuardarPass.Enabled = false;
+                CSistema_CaracEspecial.CacaterEspecial(Txb_Pass, Lbl_CacaterEspecial);
+                if (Lbl_CacaterEspecial.ForeColor != Color.Green)
+                {
+                    VerificarCondiciones = false;
+                }
             }
+            if (CSistema_ConfSistema.DatosPersonales)
+            {
+                CSistema_DatosPersonales.PassDatosPersonales(Txb_Pass, Lbl_DatosPersonales);
+                if (Lbl_DatosPersonales.ForeColor != Color.Green)
+                {
+                    VerificarCondiciones = false;
+                }
+            }
+            if (CSistema_ConfSistema.MayusMinus)
+            {
+                CSistema_MayMin.CombinarMayMin(Txb_Pass, Lbl_MayusMinus);
+                if (Lbl_MayusMinus.ForeColor != Color.Green)
+                {
+                    VerificarCondiciones = false;
+                }
+            }
+            if (CSistema_ConfSistema.NumerosYLetras)
+            {
+                CSistema_NumyLetr.NumYLetras(Txb_Pass, Lbl_NumerosYLetras);
+                if (Lbl_NumerosYLetras.ForeColor != Color.Green)
+                {
+                    VerificarCondiciones = false;
+                }
+            }
+            if (CSistema_ConfSistema.MinCaracteres)
+            {
+                CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass, Lbl_MinCaracteres);
+                if (Lbl_MinCaracteres.ForeColor != Color.Green)
+                {
+                    VerificarCondiciones = false;
+                }
+            }
+            
+        }
+        private void Txb_ConfPass_TextChanged_1(object sender, EventArgs e)
+        {
+
+            if (Txb_ConfPass.Text == Txb_Pass.Text)
+            {
+                Btn_GuardarPass.Enabled = true;
+                VerificarCondiciones = true;
+                Lbl_CoincidePass.Visible = true;
+                Lbl_CoincidePass.ForeColor = Color.Green;
+                Lbl_CoincidePass.Text = "Las contraseñas coinciden";
+            }
+
 
             else
             {
-                Btn_GuardarPass.Enabled=true;
+                Btn_GuardarPass.Enabled = true;
+                Lbl_CoincidePass.Visible = true;
+                Lbl_CoincidePass.ForeColor = Color.Red;
+                Lbl_CoincidePass.Text = "Las contraseñas no coinciden";
+                VerificarCondiciones =false;
             }
         }
         private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)
@@ -290,8 +354,9 @@ namespace Vista
 
             }
         }
+
         #endregion
 
-       
+        
     }
 }

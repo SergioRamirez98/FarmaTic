@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Capa_de_Sistema;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
@@ -12,7 +13,7 @@ namespace Sistema
 {
     public static class CSistema_MayMin
     {
-        public static bool MayMin { get; set; } = true;
+        public static bool MayMin = CSistema_ConfSistema.MayusMinus;
         public static void CombinarMayMin(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
             if (MayMin) 
@@ -48,7 +49,13 @@ namespace Sistema
                 {                 
                     Lbl_MsjUsuario.Visible = true;
                     Lbl_MsjUsuario.Text = "La contraseña debe tener al menos una minúscula";
-                    Lbl_MsjUsuario.ForeColor= Color.Green;
+                    Lbl_MsjUsuario.ForeColor= Color.Red;
+                }
+                else
+                {
+                    Lbl_MsjUsuario.Visible = true;
+                    Lbl_MsjUsuario.Text = "La contraseña debe combinar mayúsculas y una minúsculas";
+                    Lbl_MsjUsuario.ForeColor = Color.Green;
                 }
             }
             
