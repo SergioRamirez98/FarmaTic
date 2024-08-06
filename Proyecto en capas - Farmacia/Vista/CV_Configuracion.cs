@@ -68,7 +68,6 @@ namespace Vista
                 CSistema_MinimoCaracteres.Caracteres = true;
             }
         }
-
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
             try
@@ -90,7 +89,6 @@ namespace Vista
             Sistema.DatosPersonales = Chb_DatosPersonales.Checked;
             Sistema.MayusMinus = Chb_MayMin.Checked;
             Sistema.MinCaracteres = Chb_MinCaracteres.Checked;
-
         }
     }
 }

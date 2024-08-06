@@ -41,9 +41,9 @@ namespace Sesion
                 Pregunta1 = fila["Pregunta"].ToString();
                 Pregunta2 = fila1["Pregunta"].ToString();
                 Pregunta3 = fila2["Pregunta"].ToString();
-                Respuesta1 = fila["Respuesta"].ToString();
-                Respuesta2 = fila1["Respuesta"].ToString();
-                Respuesta3 = fila2["Respuesta"].ToString();
+                Respuesta1 = fila["Respuesta"].ToString().ToLower();
+                Respuesta2 = fila1["Respuesta"].ToString().ToLower();
+                Respuesta3 = fila2["Respuesta"].ToString().ToLower();
                 Nombre = fila["Nombre"].ToString();
                 Apellido = fila["Apellido"].ToString();
                 Documento = fila["Documento"].ToString();

@@ -174,8 +174,7 @@ namespace Datos
             {
 
                 throw new Exception ("Error al comprobar los datos en la base de datos.");
-            }
-                        
+            }                        
         }
         public void InsertarRespuestas()
         {

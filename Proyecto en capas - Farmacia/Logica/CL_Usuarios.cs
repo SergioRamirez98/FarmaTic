@@ -120,11 +120,11 @@ namespace Logica
 
         public bool CompararDatos()
         {
-            if (Prop_Resp1 == CSesion_PreguntasUsuarios.Respuesta1
-                & Prop_Resp2 == CSesion_PreguntasUsuarios.Respuesta2
-                & Prop_Resp3 == CSesion_PreguntasUsuarios.Respuesta3 || Prop_Resp1 == CSesion_SesionIniciada.Respuesta1
-                & Prop_Resp2 == CSesion_SesionIniciada.Respuesta2
-                & Prop_Resp3 == CSesion_SesionIniciada.Respuesta3)
+            if (Prop_Resp1.ToLower() == CSesion_PreguntasUsuarios.Respuesta1
+                & Prop_Resp2.ToLower() == CSesion_PreguntasUsuarios.Respuesta2
+                & Prop_Resp3.ToLower() == CSesion_PreguntasUsuarios.Respuesta3 || Prop_Resp1.ToLower() == CSesion_SesionIniciada.Respuesta1
+                & Prop_Resp2.ToLower() == CSesion_SesionIniciada.Respuesta2
+                & Prop_Resp3.ToLower() == CSesion_SesionIniciada.Respuesta3)
             {
                 return true;
             }
@@ -245,10 +245,8 @@ namespace Logica
             {
 
                 throw new Exception ("Error al guardar los datos, verifique que todos los campos estén completos");
-            }
-           
+            }         
 
         }
-
     }
 }

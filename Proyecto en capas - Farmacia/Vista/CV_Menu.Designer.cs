@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.Btn_GestionUsuarios = new System.Windows.Forms.Button();
-            this.Btn_GestionInventario = new System.Windows.Forms.Button();
             this.Btn_GestionVentas = new System.Windows.Forms.Button();
             this.Btn_CerraSesion = new System.Windows.Forms.Button();
             this.Btn_Config = new System.Windows.Forms.Button();
+            this.Btn_ModuloInventario = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_GestionUsuarios
@@ -44,15 +44,6 @@
             this.Btn_GestionUsuarios.Text = "Gestion de Usuarios";
             this.Btn_GestionUsuarios.UseVisualStyleBackColor = true;
             this.Btn_GestionUsuarios.Click += new System.EventHandler(this.Btn_GestionUsuarios_Click);
-            // 
-            // Btn_GestionInventario
-            // 
-            this.Btn_GestionInventario.Location = new System.Drawing.Point(230, 34);
-            this.Btn_GestionInventario.Name = "Btn_GestionInventario";
-            this.Btn_GestionInventario.Size = new System.Drawing.Size(184, 58);
-            this.Btn_GestionInventario.TabIndex = 1;
-            this.Btn_GestionInventario.Text = "Modulo de Stock";
-            this.Btn_GestionInventario.UseVisualStyleBackColor = true;
             // 
             // Btn_GestionVentas
             // 
@@ -77,24 +68,35 @@
             // 
             this.Btn_Config.Location = new System.Drawing.Point(30, 132);
             this.Btn_Config.Name = "Btn_Config";
-            this.Btn_Config.Size = new System.Drawing.Size(184, 89);
+            this.Btn_Config.Size = new System.Drawing.Size(184, 58);
             this.Btn_Config.TabIndex = 4;
             this.Btn_Config.Text = "Configuración";
             this.Btn_Config.UseVisualStyleBackColor = true;
             this.Btn_Config.Click += new System.EventHandler(this.Btn_Config_Click);
+            // 
+            // Btn_ModuloInventario
+            // 
+            this.Btn_ModuloInventario.Location = new System.Drawing.Point(230, 34);
+            this.Btn_ModuloInventario.Name = "Btn_ModuloInventario";
+            this.Btn_ModuloInventario.Size = new System.Drawing.Size(184, 58);
+            this.Btn_ModuloInventario.TabIndex = 1;
+            this.Btn_ModuloInventario.Text = "Modulo de Stock";
+            this.Btn_ModuloInventario.UseVisualStyleBackColor = true;
+            this.Btn_ModuloInventario.Click += new System.EventHandler(this.Btn_ModuloInventario_Click);
             // 
             // CV_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btn_ModuloInventario);
             this.Controls.Add(this.Btn_Config);
             this.Controls.Add(this.Btn_CerraSesion);
             this.Controls.Add(this.Btn_GestionVentas);
-            this.Controls.Add(this.Btn_GestionInventario);
             this.Controls.Add(this.Btn_GestionUsuarios);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "CV_Menu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CV_Menu_FormClosed);
             this.Load += new System.EventHandler(this.CV_Menu_Load);
@@ -105,9 +107,9 @@
         #endregion
 
         private System.Windows.Forms.Button Btn_GestionUsuarios;
-        private System.Windows.Forms.Button Btn_GestionInventario;
         private System.Windows.Forms.Button Btn_GestionVentas;
         private System.Windows.Forms.Button Btn_CerraSesion;
         private System.Windows.Forms.Button Btn_Config;
+        private System.Windows.Forms.Button Btn_ModuloInventario;
     }
 }

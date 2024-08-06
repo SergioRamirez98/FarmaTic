@@ -27,7 +27,7 @@ namespace Vista
                 string Familia = CSesion_SesionIniciada.Familia;                
                 switch (Familia)
                 {
-                    case "Administrador": Btn_GestionInventario.Enabled = true;
+                    case "Administrador": Btn_ModuloInventario.Enabled = true;
                         Btn_GestionVentas.Enabled = false;
                         break;
                     case "Administración":
@@ -35,11 +35,11 @@ namespace Vista
                         break;
                     case "Ventas": Btn_GestionUsuarios.Enabled = false; 
                         Btn_GestionVentas.Enabled=true;
-                        Btn_GestionInventario.Enabled=true;
+                        Btn_ModuloInventario.Enabled=true;
                         break;
                     case "Control de Stock": Btn_GestionUsuarios.Enabled = false;
                         Btn_GestionVentas.Enabled = false;
-                        Btn_GestionInventario.Enabled = true;
+                        Btn_ModuloInventario.Enabled = true;
                         break;
                 }               
 
@@ -79,6 +79,12 @@ namespace Vista
         {
             CV_Configuracion Configuracion = new CV_Configuracion();
             Configuracion.Show();
+        }
+
+        private void Btn_ModuloInventario_Click(object sender, EventArgs e)
+        {
+            CV_GestionStock stock = new CV_GestionStock();
+            stock.Show();
         }
     }
 }

@@ -354,9 +354,6 @@ namespace Vista
 
             }
         }
-
-        #endregion
-
-        
+        #endregion        
     }
 }

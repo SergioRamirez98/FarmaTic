@@ -10,7 +10,7 @@ namespace Servicios
     {
         public static bool CambiarClave()
         {
-            bool pregunta=  CServ_MsjUsuario.Preguntar("tenes que cambiar la clave papi");
+            bool pregunta=  CServ_MsjUsuario.Preguntar("Su contraseña está proxima a expirar, ¿desea cambiarla?");
             return pregunta;
         }
 

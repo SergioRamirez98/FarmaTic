@@ -93,17 +93,23 @@ namespace Sesion
                     EstadoCuenta = fila["EstadoCuenta"].ToString();
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
                     Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
-                    DateTime hoy = DateTime.Today;
-                    TimeSpan span = Fe_CambioPass.Subtract(hoy);
-                    int espan = span.Days;
-                    if (espan <= 10)
+                   
+                    if (VenceCada != 0)
                     {
-                        bool pregunta = CServ_CambioDeClave.CambiarClave();
-                        if (pregunta) { CambioPass = true; }
-                    }
-                    else if (espan == 0)
-                    {
-                        CambioPass = true;
+                        DateTime hoy = DateTime.Today;
+                        TimeSpan span = Fe_CambioPass.Subtract(hoy);
+                        TimeSpan span2 = hoy.Subtract(Fe_CambioPass);
+                        int espan = span.Days;
+                        if (espan <= 10)
+                        {
+                            bool pregunta = CServ_CambioDeClave.CambiarClave();
+                            if (pregunta) { CambioPass = true; }
+                        }
+                        else if (espan == 0)
+                        {
+                            CambioPass = true;
+                        }
+
                     }
 
                 }

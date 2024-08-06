@@ -39,7 +39,7 @@
             // Chb_MinCaracteres
             // 
             this.Chb_MinCaracteres.AutoSize = true;
-            this.Chb_MinCaracteres.Location = new System.Drawing.Point(85, 66);
+            this.Chb_MinCaracteres.Location = new System.Drawing.Point(12, 26);
             this.Chb_MinCaracteres.Name = "Chb_MinCaracteres";
             this.Chb_MinCaracteres.Size = new System.Drawing.Size(168, 20);
             this.Chb_MinCaracteres.TabIndex = 0;
@@ -50,7 +50,7 @@
             // Chb_MayMin
             // 
             this.Chb_MayMin.AutoSize = true;
-            this.Chb_MayMin.Location = new System.Drawing.Point(85, 116);
+            this.Chb_MayMin.Location = new System.Drawing.Point(12, 76);
             this.Chb_MayMin.Name = "Chb_MayMin";
             this.Chb_MayMin.Size = new System.Drawing.Size(242, 20);
             this.Chb_MayMin.TabIndex = 1;
@@ -60,7 +60,7 @@
             // Chb_CaracEspec
             // 
             this.Chb_CaracEspec.AutoSize = true;
-            this.Chb_CaracEspec.Location = new System.Drawing.Point(85, 163);
+            this.Chb_CaracEspec.Location = new System.Drawing.Point(12, 123);
             this.Chb_CaracEspec.Name = "Chb_CaracEspec";
             this.Chb_CaracEspec.Size = new System.Drawing.Size(165, 20);
             this.Chb_CaracEspec.TabIndex = 2;
@@ -70,7 +70,7 @@
             // Chb_DatosPersonales
             // 
             this.Chb_DatosPersonales.AutoSize = true;
-            this.Chb_DatosPersonales.Location = new System.Drawing.Point(85, 207);
+            this.Chb_DatosPersonales.Location = new System.Drawing.Point(321, 26);
             this.Chb_DatosPersonales.Name = "Chb_DatosPersonales";
             this.Chb_DatosPersonales.Size = new System.Drawing.Size(202, 20);
             this.Chb_DatosPersonales.TabIndex = 3;
@@ -80,7 +80,7 @@
             // Chb_NumYLetras
             // 
             this.Chb_NumYLetras.AutoSize = true;
-            this.Chb_NumYLetras.Location = new System.Drawing.Point(85, 251);
+            this.Chb_NumYLetras.Location = new System.Drawing.Point(321, 70);
             this.Chb_NumYLetras.Name = "Chb_NumYLetras";
             this.Chb_NumYLetras.Size = new System.Drawing.Size(184, 20);
             this.Chb_NumYLetras.TabIndex = 4;
@@ -89,7 +89,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(394, 160);
+            this.Btn_Guardar.Location = new System.Drawing.Point(321, 120);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Guardar.TabIndex = 5;
@@ -101,7 +101,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(535, 166);
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.Chb_NumYLetras);
             this.Controls.Add(this.Chb_DatosPersonales);
@@ -109,6 +109,7 @@
             this.Controls.Add(this.Chb_MayMin);
             this.Controls.Add(this.Chb_MinCaracteres);
             this.Name = "CV_Configuracion";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración de contraseñas";
             this.Load += new System.EventHandler(this.CV_Configuracion_Load);
             this.ResumeLayout(false);

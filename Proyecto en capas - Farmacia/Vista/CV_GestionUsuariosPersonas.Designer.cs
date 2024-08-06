@@ -95,6 +95,7 @@
             this.Txb_Nombre.Name = "Txb_Nombre";
             this.Txb_Nombre.Size = new System.Drawing.Size(213, 22);
             this.Txb_Nombre.TabIndex = 0;
+            this.Txb_Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Apellido
             // 
@@ -103,6 +104,7 @@
             this.Txb_Apellido.Name = "Txb_Apellido";
             this.Txb_Apellido.Size = new System.Drawing.Size(213, 22);
             this.Txb_Apellido.TabIndex = 1;
+            this.Txb_Apellido.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Domicilio
             // 
@@ -111,6 +113,7 @@
             this.Txb_Domicilio.Name = "Txb_Domicilio";
             this.Txb_Domicilio.Size = new System.Drawing.Size(213, 22);
             this.Txb_Domicilio.TabIndex = 5;
+            this.Txb_Domicilio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Correo
             // 
@@ -119,6 +122,7 @@
             this.Txb_Correo.Name = "Txb_Correo";
             this.Txb_Correo.Size = new System.Drawing.Size(215, 22);
             this.Txb_Correo.TabIndex = 3;
+            this.Txb_Correo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Dni
             // 
@@ -127,6 +131,7 @@
             this.Txb_Dni.Name = "Txb_Dni";
             this.Txb_Dni.Size = new System.Drawing.Size(213, 22);
             this.Txb_Dni.TabIndex = 2;
+            this.Txb_Dni.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Telefono
             // 
@@ -135,6 +140,7 @@
             this.Txb_Telefono.Name = "Txb_Telefono";
             this.Txb_Telefono.Size = new System.Drawing.Size(263, 22);
             this.Txb_Telefono.TabIndex = 8;
+            this.Txb_Telefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Comentario
             // 
@@ -143,6 +149,7 @@
             this.Txb_Comentario.Name = "Txb_Comentario";
             this.Txb_Comentario.Size = new System.Drawing.Size(263, 22);
             this.Txb_Comentario.TabIndex = 10;
+            this.Txb_Comentario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Rbt_Cliente
             // 
@@ -299,6 +306,8 @@
             // 
             // Dtp_FeNacimiento
             // 
+            this.Dtp_FeNacimiento.CustomFormat = "dd/MM/yyyy";
+            this.Dtp_FeNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Dtp_FeNacimiento.Location = new System.Drawing.Point(596, 148);
             this.Dtp_FeNacimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dtp_FeNacimiento.Name = "Dtp_FeNacimiento";
@@ -375,6 +384,7 @@
             this.Txb_UserName.Name = "Txb_UserName";
             this.Txb_UserName.Size = new System.Drawing.Size(213, 22);
             this.Txb_UserName.TabIndex = 26;
+            this.Txb_UserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Contrasena
             // 
@@ -383,6 +393,7 @@
             this.Txb_Contrasena.Name = "Txb_Contrasena";
             this.Txb_Contrasena.Size = new System.Drawing.Size(213, 22);
             this.Txb_Contrasena.TabIndex = 27;
+            this.Txb_Contrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_ConfContrasena
             // 
@@ -391,6 +402,7 @@
             this.Txb_ConfContrasena.Name = "Txb_ConfContrasena";
             this.Txb_ConfContrasena.Size = new System.Drawing.Size(213, 22);
             this.Txb_ConfContrasena.TabIndex = 28;
+            this.Txb_ConfContrasena.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Respuesta1
             // 
@@ -399,6 +411,7 @@
             this.Txb_Respuesta1.Name = "Txb_Respuesta1";
             this.Txb_Respuesta1.Size = new System.Drawing.Size(213, 22);
             this.Txb_Respuesta1.TabIndex = 33;
+            this.Txb_Respuesta1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Pregunta1
             // 
@@ -407,6 +420,7 @@
             this.Txb_Pregunta1.Name = "Txb_Pregunta1";
             this.Txb_Pregunta1.Size = new System.Drawing.Size(213, 22);
             this.Txb_Pregunta1.TabIndex = 32;
+            this.Txb_Pregunta1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Respuesta3
             // 
@@ -415,6 +429,7 @@
             this.Txb_Respuesta3.Name = "Txb_Respuesta3";
             this.Txb_Respuesta3.Size = new System.Drawing.Size(213, 22);
             this.Txb_Respuesta3.TabIndex = 37;
+            this.Txb_Respuesta3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Pregunta3
             // 
@@ -423,6 +438,7 @@
             this.Txb_Pregunta3.Name = "Txb_Pregunta3";
             this.Txb_Pregunta3.Size = new System.Drawing.Size(213, 22);
             this.Txb_Pregunta3.TabIndex = 36;
+            this.Txb_Pregunta3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Pregunta2
             // 
@@ -431,6 +447,7 @@
             this.Txb_Pregunta2.Name = "Txb_Pregunta2";
             this.Txb_Pregunta2.Size = new System.Drawing.Size(213, 22);
             this.Txb_Pregunta2.TabIndex = 34;
+            this.Txb_Pregunta2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Pnb_RegistroUsuario
             // 
@@ -517,6 +534,8 @@
             // 
             // Dtp_FeAlta
             // 
+            this.Dtp_FeAlta.CustomFormat = "dd/MM/yyyy";
+            this.Dtp_FeAlta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.Dtp_FeAlta.Location = new System.Drawing.Point(593, 15);
             this.Dtp_FeAlta.Margin = new System.Windows.Forms.Padding(4);
             this.Dtp_FeAlta.Name = "Dtp_FeAlta";
@@ -590,6 +609,7 @@
             this.Txb_Respuesta2.Name = "Txb_Respuesta2";
             this.Txb_Respuesta2.Size = new System.Drawing.Size(213, 22);
             this.Txb_Respuesta2.TabIndex = 35;
+            this.Txb_Respuesta2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lbl_Estado
             // 
@@ -660,6 +680,7 @@
             this.Controls.Add(this.Pnl_RegistroPersona);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CV_GestionUsuariosPersonas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modulo de gestión de usuarios y personas";
             this.Load += new System.EventHandler(this.CV_AgregarPersona_Load);
             this.Pnl_RegistroPersona.ResumeLayout(false);

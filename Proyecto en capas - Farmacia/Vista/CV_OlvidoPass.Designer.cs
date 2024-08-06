@@ -37,13 +37,13 @@
             this.Txb_Respuesta3 = new System.Windows.Forms.TextBox();
             this.Lbl_UserName = new System.Windows.Forms.Label();
             this.Gpb_PregSeg = new System.Windows.Forms.GroupBox();
+            this.Lbl_Pregunta3 = new System.Windows.Forms.Label();
+            this.Lbl_Respuesta3 = new System.Windows.Forms.Label();
+            this.Lbl_Pregunta2 = new System.Windows.Forms.Label();
+            this.Lbl_Respuesta2 = new System.Windows.Forms.Label();
             this.Lbl_PregGuardada = new System.Windows.Forms.Label();
             this.Btn_Guardar = new System.Windows.Forms.Button();
-            this.Lbl_Respuesta3 = new System.Windows.Forms.Label();
-            this.Lbl_Respuesta2 = new System.Windows.Forms.Label();
             this.Lbl_Respuesta1 = new System.Windows.Forms.Label();
-            this.Lbl_Pregunta3 = new System.Windows.Forms.Label();
-            this.Lbl_Pregunta2 = new System.Windows.Forms.Label();
             this.Lbl_Pregunta1 = new System.Windows.Forms.Label();
             this.Btn_GuardarPass = new System.Windows.Forms.Button();
             this.Txb_Pass = new System.Windows.Forms.TextBox();
@@ -68,48 +68,55 @@
             this.Txb_UserName.Name = "Txb_UserName";
             this.Txb_UserName.Size = new System.Drawing.Size(122, 22);
             this.Txb_UserName.TabIndex = 0;
+            this.Txb_UserName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Preg1
             // 
-            this.Txb_Preg1.Location = new System.Drawing.Point(133, 30);
+            this.Txb_Preg1.Location = new System.Drawing.Point(106, 35);
             this.Txb_Preg1.Name = "Txb_Preg1";
-            this.Txb_Preg1.Size = new System.Drawing.Size(321, 22);
-            this.Txb_Preg1.TabIndex = 1;
+            this.Txb_Preg1.Size = new System.Drawing.Size(340, 22);
+            this.Txb_Preg1.TabIndex = 2;
+            this.Txb_Preg1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Respuesta1
             // 
-            this.Txb_Respuesta1.Location = new System.Drawing.Point(133, 58);
+            this.Txb_Respuesta1.Location = new System.Drawing.Point(106, 63);
             this.Txb_Respuesta1.Name = "Txb_Respuesta1";
-            this.Txb_Respuesta1.Size = new System.Drawing.Size(321, 22);
-            this.Txb_Respuesta1.TabIndex = 2;
+            this.Txb_Respuesta1.Size = new System.Drawing.Size(340, 22);
+            this.Txb_Respuesta1.TabIndex = 3;
+            this.Txb_Respuesta1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Preg2
             // 
-            this.Txb_Preg2.Location = new System.Drawing.Point(133, 101);
+            this.Txb_Preg2.Location = new System.Drawing.Point(106, 103);
             this.Txb_Preg2.Name = "Txb_Preg2";
-            this.Txb_Preg2.Size = new System.Drawing.Size(321, 22);
-            this.Txb_Preg2.TabIndex = 3;
+            this.Txb_Preg2.Size = new System.Drawing.Size(340, 22);
+            this.Txb_Preg2.TabIndex = 4;
+            this.Txb_Preg2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Respuesta2
             // 
-            this.Txb_Respuesta2.Location = new System.Drawing.Point(133, 129);
+            this.Txb_Respuesta2.Location = new System.Drawing.Point(106, 131);
             this.Txb_Respuesta2.Name = "Txb_Respuesta2";
-            this.Txb_Respuesta2.Size = new System.Drawing.Size(321, 22);
-            this.Txb_Respuesta2.TabIndex = 4;
+            this.Txb_Respuesta2.Size = new System.Drawing.Size(340, 22);
+            this.Txb_Respuesta2.TabIndex = 5;
+            this.Txb_Respuesta2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Preg3
             // 
-            this.Txb_Preg3.Location = new System.Drawing.Point(133, 174);
+            this.Txb_Preg3.Location = new System.Drawing.Point(106, 175);
             this.Txb_Preg3.Name = "Txb_Preg3";
-            this.Txb_Preg3.Size = new System.Drawing.Size(321, 22);
-            this.Txb_Preg3.TabIndex = 5;
+            this.Txb_Preg3.Size = new System.Drawing.Size(340, 22);
+            this.Txb_Preg3.TabIndex = 6;
+            this.Txb_Preg3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Respuesta3
             // 
-            this.Txb_Respuesta3.Location = new System.Drawing.Point(133, 202);
+            this.Txb_Respuesta3.Location = new System.Drawing.Point(106, 202);
             this.Txb_Respuesta3.Name = "Txb_Respuesta3";
-            this.Txb_Respuesta3.Size = new System.Drawing.Size(321, 22);
-            this.Txb_Respuesta3.TabIndex = 6;
+            this.Txb_Respuesta3.Size = new System.Drawing.Size(340, 22);
+            this.Txb_Respuesta3.TabIndex = 7;
+            this.Txb_Respuesta3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lbl_UserName
             // 
@@ -122,26 +129,62 @@
             // 
             // Gpb_PregSeg
             // 
-            this.Gpb_PregSeg.Controls.Add(this.Lbl_PregGuardada);
-            this.Gpb_PregSeg.Controls.Add(this.Btn_Guardar);
-            this.Gpb_PregSeg.Controls.Add(this.Lbl_Respuesta3);
-            this.Gpb_PregSeg.Controls.Add(this.Lbl_Respuesta2);
-            this.Gpb_PregSeg.Controls.Add(this.Lbl_Respuesta1);
             this.Gpb_PregSeg.Controls.Add(this.Lbl_Pregunta3);
             this.Gpb_PregSeg.Controls.Add(this.Lbl_Pregunta2);
             this.Gpb_PregSeg.Controls.Add(this.Lbl_Pregunta1);
-            this.Gpb_PregSeg.Controls.Add(this.Txb_Preg1);
-            this.Gpb_PregSeg.Controls.Add(this.Txb_Respuesta1);
-            this.Gpb_PregSeg.Controls.Add(this.Txb_Respuesta3);
-            this.Gpb_PregSeg.Controls.Add(this.Txb_Preg2);
             this.Gpb_PregSeg.Controls.Add(this.Txb_Preg3);
             this.Gpb_PregSeg.Controls.Add(this.Txb_Respuesta2);
+            this.Gpb_PregSeg.Controls.Add(this.Txb_Respuesta3);
+            this.Gpb_PregSeg.Controls.Add(this.Txb_Preg2);
+            this.Gpb_PregSeg.Controls.Add(this.Lbl_Respuesta3);
+            this.Gpb_PregSeg.Controls.Add(this.Txb_Respuesta1);
+            this.Gpb_PregSeg.Controls.Add(this.Txb_Preg1);
+            this.Gpb_PregSeg.Controls.Add(this.Lbl_Respuesta2);
+            this.Gpb_PregSeg.Controls.Add(this.Lbl_PregGuardada);
+            this.Gpb_PregSeg.Controls.Add(this.Lbl_Respuesta1);
+            this.Gpb_PregSeg.Controls.Add(this.Btn_Guardar);
             this.Gpb_PregSeg.Location = new System.Drawing.Point(18, 87);
             this.Gpb_PregSeg.Name = "Gpb_PregSeg";
             this.Gpb_PregSeg.Size = new System.Drawing.Size(474, 303);
             this.Gpb_PregSeg.TabIndex = 9;
             this.Gpb_PregSeg.TabStop = false;
             this.Gpb_PregSeg.Text = "Preguntas de seguridad";
+            // 
+            // Lbl_Pregunta3
+            // 
+            this.Lbl_Pregunta3.AutoSize = true;
+            this.Lbl_Pregunta3.Location = new System.Drawing.Point(15, 181);
+            this.Lbl_Pregunta3.Name = "Lbl_Pregunta3";
+            this.Lbl_Pregunta3.Size = new System.Drawing.Size(61, 16);
+            this.Lbl_Pregunta3.TabIndex = 14;
+            this.Lbl_Pregunta3.Text = "Pregunta";
+            // 
+            // Lbl_Respuesta3
+            // 
+            this.Lbl_Respuesta3.AutoSize = true;
+            this.Lbl_Respuesta3.Location = new System.Drawing.Point(15, 209);
+            this.Lbl_Respuesta3.Name = "Lbl_Respuesta3";
+            this.Lbl_Respuesta3.Size = new System.Drawing.Size(73, 16);
+            this.Lbl_Respuesta3.TabIndex = 17;
+            this.Lbl_Respuesta3.Text = "Respuesta";
+            // 
+            // Lbl_Pregunta2
+            // 
+            this.Lbl_Pregunta2.AutoSize = true;
+            this.Lbl_Pregunta2.Location = new System.Drawing.Point(15, 109);
+            this.Lbl_Pregunta2.Name = "Lbl_Pregunta2";
+            this.Lbl_Pregunta2.Size = new System.Drawing.Size(61, 16);
+            this.Lbl_Pregunta2.TabIndex = 13;
+            this.Lbl_Pregunta2.Text = "Pregunta";
+            // 
+            // Lbl_Respuesta2
+            // 
+            this.Lbl_Respuesta2.AutoSize = true;
+            this.Lbl_Respuesta2.Location = new System.Drawing.Point(15, 137);
+            this.Lbl_Respuesta2.Name = "Lbl_Respuesta2";
+            this.Lbl_Respuesta2.Size = new System.Drawing.Size(73, 16);
+            this.Lbl_Respuesta2.TabIndex = 16;
+            this.Lbl_Respuesta2.Text = "Respuesta";
             // 
             // Lbl_PregGuardada
             // 
@@ -155,67 +198,31 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(182, 236);
+            this.Btn_Guardar.Location = new System.Drawing.Point(182, 243);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(122, 29);
-            this.Btn_Guardar.TabIndex = 7;
+            this.Btn_Guardar.TabIndex = 8;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
-            // Lbl_Respuesta3
-            // 
-            this.Lbl_Respuesta3.AutoSize = true;
-            this.Lbl_Respuesta3.Location = new System.Drawing.Point(15, 208);
-            this.Lbl_Respuesta3.Name = "Lbl_Respuesta3";
-            this.Lbl_Respuesta3.Size = new System.Drawing.Size(83, 16);
-            this.Lbl_Respuesta3.TabIndex = 17;
-            this.Lbl_Respuesta3.Text = "Respuesta 3";
-            // 
-            // Lbl_Respuesta2
-            // 
-            this.Lbl_Respuesta2.AutoSize = true;
-            this.Lbl_Respuesta2.Location = new System.Drawing.Point(15, 135);
-            this.Lbl_Respuesta2.Name = "Lbl_Respuesta2";
-            this.Lbl_Respuesta2.Size = new System.Drawing.Size(83, 16);
-            this.Lbl_Respuesta2.TabIndex = 16;
-            this.Lbl_Respuesta2.Text = "Respuesta 2";
-            // 
             // Lbl_Respuesta1
             // 
             this.Lbl_Respuesta1.AutoSize = true;
-            this.Lbl_Respuesta1.Location = new System.Drawing.Point(15, 64);
+            this.Lbl_Respuesta1.Location = new System.Drawing.Point(15, 69);
             this.Lbl_Respuesta1.Name = "Lbl_Respuesta1";
-            this.Lbl_Respuesta1.Size = new System.Drawing.Size(83, 16);
+            this.Lbl_Respuesta1.Size = new System.Drawing.Size(73, 16);
             this.Lbl_Respuesta1.TabIndex = 15;
-            this.Lbl_Respuesta1.Text = "Respuesta 1";
-            // 
-            // Lbl_Pregunta3
-            // 
-            this.Lbl_Pregunta3.AutoSize = true;
-            this.Lbl_Pregunta3.Location = new System.Drawing.Point(15, 180);
-            this.Lbl_Pregunta3.Name = "Lbl_Pregunta3";
-            this.Lbl_Pregunta3.Size = new System.Drawing.Size(71, 16);
-            this.Lbl_Pregunta3.TabIndex = 14;
-            this.Lbl_Pregunta3.Text = "Pregunta 3";
-            // 
-            // Lbl_Pregunta2
-            // 
-            this.Lbl_Pregunta2.AutoSize = true;
-            this.Lbl_Pregunta2.Location = new System.Drawing.Point(15, 107);
-            this.Lbl_Pregunta2.Name = "Lbl_Pregunta2";
-            this.Lbl_Pregunta2.Size = new System.Drawing.Size(71, 16);
-            this.Lbl_Pregunta2.TabIndex = 13;
-            this.Lbl_Pregunta2.Text = "Pregunta 2";
+            this.Lbl_Respuesta1.Text = "Respuesta";
             // 
             // Lbl_Pregunta1
             // 
             this.Lbl_Pregunta1.AutoSize = true;
-            this.Lbl_Pregunta1.Location = new System.Drawing.Point(15, 33);
+            this.Lbl_Pregunta1.Location = new System.Drawing.Point(15, 38);
             this.Lbl_Pregunta1.Name = "Lbl_Pregunta1";
-            this.Lbl_Pregunta1.Size = new System.Drawing.Size(71, 16);
+            this.Lbl_Pregunta1.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Pregunta1.TabIndex = 12;
-            this.Lbl_Pregunta1.Text = "Pregunta 1";
+            this.Lbl_Pregunta1.Text = "Pregunta";
             // 
             // Btn_GuardarPass
             // 
@@ -233,6 +240,7 @@
             this.Txb_Pass.Name = "Txb_Pass";
             this.Txb_Pass.Size = new System.Drawing.Size(122, 22);
             this.Txb_Pass.TabIndex = 8;
+            this.Txb_Pass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txb_Pass.TextChanged += new System.EventHandler(this.Txb_Pass_TextChanged);
             // 
             // Txb_ConfPass
@@ -241,6 +249,7 @@
             this.Txb_ConfPass.Name = "Txb_ConfPass";
             this.Txb_ConfPass.Size = new System.Drawing.Size(122, 22);
             this.Txb_ConfPass.TabIndex = 9;
+            this.Txb_ConfPass.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Txb_ConfPass.TextChanged += new System.EventHandler(this.Txb_ConfPass_TextChanged_1);
             // 
             // Pnl_GuardarPass
@@ -360,6 +369,7 @@
             this.Controls.Add(this.Lbl_UserName);
             this.Controls.Add(this.Txb_UserName);
             this.Name = "CV_OlvidoPass";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Olvidé mi contraseña";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.CV_OlvidoPass_FormClosed);
             this.Load += new System.EventHandler(this.CV_OlvidoPass_Load);
