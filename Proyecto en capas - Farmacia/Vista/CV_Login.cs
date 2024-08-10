@@ -27,7 +27,7 @@ namespace Vista
             STOQ.Show();
 
 
-/*            PasarDatos();
+           /* PasarDatos();
             try
             {
                 bool validar = Usuarios.Logear();

@@ -183,7 +183,7 @@ namespace Datos
         }
         public DataTable ObtenerPersonaCmb()
         {
-            string sSql = "SP_Obtener_Personas";
+            string sSql = "SP_Obtener_Personas_ComboBox";
 
             try
             {
@@ -200,7 +200,7 @@ namespace Datos
         }
         public DataTable Familia()
         {
-            string sSql = "SP_Obtener_Familia";
+            string sSql = "SP_Obtener_Familias_ComboBox";
             try
             {
                 List<SqlParameter> listaparametros = new List<SqlParameter>();

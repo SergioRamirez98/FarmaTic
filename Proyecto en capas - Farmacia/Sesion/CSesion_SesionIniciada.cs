@@ -66,7 +66,6 @@ namespace Sesion
                     FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
                     Comentario = fila["Comentarios"].ToString();
                     Familia = fila["Familia"].ToString();
-                    CambioPass = Convert.ToBoolean(fila["CambioPass"]);
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
                     if (resultado.Rows.Count == 3)
                     {

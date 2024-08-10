@@ -166,7 +166,6 @@ namespace Logica
             {
                 Usuario.Prop_NombreUsuarioLogin = atr_NombreUsuarioLogin;               
                 Usuario.Prop_EncriptacionLogin = CServ_Encriptacion.SHA256(atr_EncriptacionLogin);
-               
             }
         }
         public void PasarDatos(bool nuevaContrasena)

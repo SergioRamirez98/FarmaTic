@@ -85,7 +85,7 @@ namespace Datos
         public DataTable ObtenerPreguntasAleatorias()
         {
 
-            string sSql = "SP_Obtener_Preguntas";
+            string sSql = "SP_Obtener_Preguntas_Aleatorias";
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             SqlParameter[] parametros = listaParametros.ToArray();
 
