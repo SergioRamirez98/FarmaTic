@@ -46,6 +46,7 @@
             this.Btn_Agregar = new System.Windows.Forms.Button();
             this.Btn_Buscar = new System.Windows.Forms.Button();
             this.Btn_Modificar = new System.Windows.Forms.Button();
+            this.Btn_GuardarCambios = new System.Windows.Forms.Button();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.SuspendLayout();
@@ -59,12 +60,13 @@
             this.DTGV_Productos.RowTemplate.Height = 24;
             this.DTGV_Productos.Size = new System.Drawing.Size(1340, 350);
             this.DTGV_Productos.TabIndex = 19;
+            this.DTGV_Productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_Productos_CellClick);
             // 
             // Txb_Nombre
             // 
             this.Txb_Nombre.Location = new System.Drawing.Point(120, 50);
             this.Txb_Nombre.Name = "Txb_Nombre";
-            this.Txb_Nombre.Size = new System.Drawing.Size(146, 22);
+            this.Txb_Nombre.Size = new System.Drawing.Size(210, 22);
             this.Txb_Nombre.TabIndex = 1;
             this.Txb_Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -72,7 +74,7 @@
             // 
             this.Txb_Marca.Location = new System.Drawing.Point(120, 100);
             this.Txb_Marca.Name = "Txb_Marca";
-            this.Txb_Marca.Size = new System.Drawing.Size(146, 22);
+            this.Txb_Marca.Size = new System.Drawing.Size(210, 22);
             this.Txb_Marca.TabIndex = 2;
             this.Txb_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -80,7 +82,7 @@
             // 
             this.Txb_Descripcion.Location = new System.Drawing.Point(120, 150);
             this.Txb_Descripcion.Name = "Txb_Descripcion";
-            this.Txb_Descripcion.Size = new System.Drawing.Size(146, 22);
+            this.Txb_Descripcion.Size = new System.Drawing.Size(210, 22);
             this.Txb_Descripcion.TabIndex = 3;
             this.Txb_Descripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -89,7 +91,7 @@
             this.Txb_Cantidad.Location = new System.Drawing.Point(121, 200);
             this.Txb_Cantidad.Multiline = true;
             this.Txb_Cantidad.Name = "Txb_Cantidad";
-            this.Txb_Cantidad.Size = new System.Drawing.Size(146, 22);
+            this.Txb_Cantidad.Size = new System.Drawing.Size(210, 22);
             this.Txb_Cantidad.TabIndex = 4;
             this.Txb_Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -199,6 +201,7 @@
             this.Btn_Buscar.TabIndex = 16;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
+            this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
             // 
             // Btn_Modificar
             // 
@@ -208,15 +211,27 @@
             this.Btn_Modificar.TabIndex = 17;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
+            this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
+            // 
+            // Btn_GuardarCambios
+            // 
+            this.Btn_GuardarCambios.Location = new System.Drawing.Point(865, 174);
+            this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(75, 25);
+            this.Btn_GuardarCambios.TabIndex = 18;
+            this.Btn_GuardarCambios.Text = "Guardar Cambios";
+            this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
+            this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_GuardarCambios_Click);
             // 
             // Btn_Eliminar
             // 
-            this.Btn_Eliminar.Location = new System.Drawing.Point(865, 193);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(865, 205);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 25);
-            this.Btn_Eliminar.TabIndex = 18;
+            this.Btn_Eliminar.TabIndex = 20;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // CV_GestionStock
             // 
@@ -224,6 +239,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1365, 697);
             this.Controls.Add(this.Btn_Eliminar);
+            this.Controls.Add(this.Btn_GuardarCambios);
             this.Controls.Add(this.Btn_Modificar);
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.Btn_Agregar);
@@ -272,6 +288,7 @@
         private System.Windows.Forms.Button Btn_Agregar;
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.Button Btn_Modificar;
+        private System.Windows.Forms.Button Btn_GuardarCambios;
         private System.Windows.Forms.Button Btn_Eliminar;
     }
 }

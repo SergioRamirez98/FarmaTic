@@ -18,13 +18,14 @@ namespace Datos
         public int Prop_Cantidad { get; set; }
         public decimal Prop_Precio { get; set; }
         public int Prop_NumLote { get; set; }
+        public int Prop_ID_Producto { get; set; }
         public DateTime Prop_VtoProd { get; set; }
 
         SqlParameter[] lista = null;
         #endregion
         public DataTable MostrarProductosDTGV(string datos)
         {
-            string sSql = "SP_MostrarProductos";
+            string sSql = "SP_Mostrar_Productos";
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             SqlParameter[] parametros = listaParametros.ToArray();
 
@@ -38,7 +39,6 @@ namespace Datos
                 throw new Exception("Usuario no encontrado, por favor ingrese nuevamente");
             }
         }
-
         public void Insertar()
         {
             try
@@ -79,5 +79,50 @@ namespace Datos
                 throw new Exception("Error al comprobar los datos en la base de datos.");
             }
         }
+
+        public void ActualizarProductos()
+        {
+            try
+            {
+                string sSql = "SP_Actualizar_Producto";
+                SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
+                param_ID_Producto.Value = Prop_ID_Producto;
+                SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
+                param_Nombre.Value = Prop_Nombre;
+                SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
+                param_Marca.Value = Prop_Marca;
+                SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
+                param_Descripcion.Value = Prop_Descripcion;
+                SqlParameter param_Cantidad = new SqlParameter("@Cantidad", SqlDbType.Int);
+                param_Cantidad.Value = Prop_Cantidad;
+                SqlParameter param_Precio = new SqlParameter("@PrecUnit", SqlDbType.Float);
+                param_Precio.Value = Prop_Precio;
+                SqlParameter param_VtoProd = new SqlParameter("@FeVtoProd", SqlDbType.DateTime);
+                param_VtoProd.Value = Prop_VtoProd;
+                SqlParameter param_NumLote = new SqlParameter("@NumLote", SqlDbType.Int);
+                param_NumLote.Value = Prop_NumLote;
+
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_ID_Producto);
+                listaParametros.Add(param_Nombre);
+                listaParametros.Add(param_Marca);
+                listaParametros.Add(param_Descripcion);
+                listaParametros.Add(param_Cantidad);
+                listaParametros.Add(param_Precio);
+                listaParametros.Add(param_NumLote);
+                listaParametros.Add(param_VtoProd);
+
+                lista = listaParametros.ToArray();
+
+                ejecutar(sSql, lista, false);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al guardar los datos en la base de datos.");
+            }
+        }
+            
     }
 }
