@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Configuration;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,10 +14,10 @@ using Servicios;
 
 namespace Vista
 {
-    public partial class CV_GestionStock : Form
+    public partial class Lbl_CantBusq : Form
     {
         CL_Productos Productos = new CL_Productos();
-        public CV_GestionStock()
+        public Lbl_CantBusq()
         {
             InitializeComponent();
         }
@@ -24,36 +25,18 @@ namespace Vista
         private void CV_GestionStock_Load(object sender, EventArgs e)
         {
             configurarDTGV();
-            mostrarProductos();
+            mostrarProductos();  
+            Pnl_Busqueda.Visible = false;
+            Pnl_Busqueda.Enabled = false;
         }
-        
-        private void configurarDTGV()
-        {            
-            DTGV_Productos.AllowUserToResizeColumns = false;
-            DTGV_Productos.AllowUserToResizeRows = false;
-            DTGV_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            DTGV_Productos.MultiSelect = false;
-            DTGV_Productos.AllowUserToAddRows = false;
-            DTGV_Productos.AllowUserToResizeColumns = false;
-            DTGV_Productos.AllowUserToResizeRows = false;
-            DTGV_Productos.ReadOnly = true;
-            DTGV_Productos.RowHeadersVisible = false;
-            DTGV_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-           // DTGV_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-
-        }
-        private void mostrarProductos()
+        private void Chb_Busqueda_CheckedChanged(object sender, EventArgs e)
         {
-            DTGV_Productos.DataSource = null;
-            DTGV_Productos.DataSource = Productos.MostrarProductos("");
-            DTGV_Productos.Columns[0].HeaderText = "ID del producto";
-            DTGV_Productos.Columns[1].HeaderText = "Nombre del producto";
-            DTGV_Productos.Columns[2].HeaderText = "Marca";
-            DTGV_Productos.Columns[3].HeaderText = "Descripcion del producto";
-            DTGV_Productos.Columns[4].HeaderText = "Cantidad";
-            DTGV_Productos.Columns[5].HeaderText = "Precio unitario";
-            DTGV_Productos.Columns[6].HeaderText = "Vencimiento";
-            DTGV_Productos.Columns[7].HeaderText = "Numero de lote";
+            if (Chb_Busqueda.Checked)
+            {
+                nuevosControles();
+            }
+            else { reestablecerControles(); }
+            //reestablecerControles();
         }
 
         private void Btn_Agregar_Click(object sender, EventArgs e)
@@ -66,6 +49,8 @@ namespace Vista
                     Productos.InsertarProducto();
                     CServ_MsjUsuario.Exito("El producto fue ingresado exitosamente.");
                     mostrarProductos();
+                    CServ_LimpiarControles.LimpiarFormulario(this);
+
                 }
                 catch (Exception ex)
                 {
@@ -95,6 +80,13 @@ namespace Vista
         { 
             cargarControles();
             bloquearControles();
+            if (Pnl_Busqueda.Visible)
+            {
+                Chb_Busqueda.Checked = false;
+               // Pnl_Busqueda.Visible = false;
+               // Pnl_Busqueda.Enabled = false;
+                
+            }
             Btn_Agregar.Enabled = false;
             Btn_Buscar.Enabled = false;
             Btn_GuardarCambios.Enabled = false;
@@ -108,7 +100,20 @@ namespace Vista
 
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
+            pasarDatos();
+            Productos.ConsultarProductos();
 
+        }
+
+        private void CV_GestionStock_Click(object sender, EventArgs e)
+        {
+            CServ_LimpiarControles.LimpiarFormulario(this);
+            desbloquearControles();
+            Btn_Agregar.Enabled = true;
+            Btn_Buscar.Enabled = true;
+            Btn_Eliminar.Enabled = true;
+            Btn_Modificar.Enabled = true;
+            Btn_GuardarCambios.Enabled = true;
         }
 
         private void Btn_GuardarCambios_Click(object sender, EventArgs e)
@@ -129,17 +134,66 @@ namespace Vista
 
                     CServ_MsjUsuario.MensajesDeError(ex.Message);
                 }
-
             }
-
         }
         private void Btn_Eliminar_Click(object sender, EventArgs e)
         {
+            if (DTGV_Productos.SelectedRows.Count > 0)
+            {
+                int ID_Producto = Convert.ToInt32(DTGV_Productos.SelectedRows[0].Cells["ID_Producto"].Value);
+                bool respuesta = CServ_MsjUsuario.Preguntar("¿Está seguro de querer borrar los datos seleccionados?");
+                if (respuesta)
+                {
+                    try
+                    {
+                        Productos.EliminarProducto(ID_Producto);
+                        CServ_MsjUsuario.Exito("El producto ha sido eliminado");
+                        mostrarProductos();
+                        CServ_LimpiarControles.LimpiarFormulario(this);
+                        desbloquearControles();
+                    }
+                    catch (Exception ex)
+                    {
+                        CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
+                    
+
+                }
+            }
 
         }
         #endregion
 
         #region Metodos
+
+        private void configurarDTGV()
+        {
+            DTGV_Productos.AllowUserToResizeColumns = false;
+            DTGV_Productos.AllowUserToResizeRows = false;
+            DTGV_Productos.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            DTGV_Productos.MultiSelect = false;
+            DTGV_Productos.AllowUserToAddRows = false;
+            DTGV_Productos.AllowUserToResizeColumns = false;
+            DTGV_Productos.AllowUserToResizeRows = false;
+            DTGV_Productos.ReadOnly = true;
+            DTGV_Productos.RowHeadersVisible = false;
+            DTGV_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            // DTGV_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;           
+
+        }
+        private void mostrarProductos()
+        {
+            DTGV_Productos.DataSource = null;
+            DTGV_Productos.DataSource = Productos.MostrarProductos("");
+            DTGV_Productos.Columns[0].HeaderText = "ID del producto";
+            DTGV_Productos.Columns[1].HeaderText = "Nombre del producto";
+            DTGV_Productos.Columns[2].HeaderText = "Marca";
+            DTGV_Productos.Columns[3].HeaderText = "Descripcion del producto";
+            DTGV_Productos.Columns[4].HeaderText = "Cantidad";
+            DTGV_Productos.Columns[5].HeaderText = "Precio unitario";
+            DTGV_Productos.Columns[6].HeaderText = "Vencimiento";
+            DTGV_Productos.Columns[7].HeaderText = "Numero de lote";
+        }
         private void pasarDatos()
         {
             Productos.Prop_Nombre = Txb_Nombre.Text;
@@ -175,7 +229,6 @@ namespace Vista
             }
             return ExisteLote;
         }
-
         private void cargarControles()
         {
             Txb_Nombre.Text = DTGV_Productos.CurrentRow.Cells[1].Value.ToString();
@@ -205,6 +258,53 @@ namespace Vista
             Txb_Precio.Enabled = true;
             Txb_NumLote.Enabled = true;
             Dtp_FeVto.Enabled = true;
+        }
+        private void nuevosControles() 
+        {
+            Pnl_Busqueda.Enabled = true;
+            Pnl_Busqueda.Visible = true;
+
+            Lbl_Cantidad.Visible = false;
+            Txb_Cantidad.Visible = false;
+            Txb_Cantidad.Enabled=false;
+
+            Lbl_NroLote.Visible = false;
+            Txb_NumLote.Enabled = false;
+            Txb_NumLote.Visible = false;
+
+            Lbl_Precio.Visible = false;
+            Txb_Precio.Enabled = false;
+            Txb_Precio.Visible = false;
+
+            Lbl_Vto.Visible = false;
+            Dtp_FeVto.Visible = false;
+            Dtp_FeVto.Enabled = false;
+            
+            Btn_Agregar.Enabled = false;
+            
+        }
+        private void reestablecerControles()
+        {
+            Pnl_Busqueda.Enabled = false;
+            Pnl_Busqueda.Visible = false;
+
+            Lbl_Cantidad.Visible = true;
+            Txb_Cantidad.Visible = true;
+            Txb_Cantidad.Enabled = true;
+
+            Lbl_NroLote.Visible = true;
+            Txb_NumLote.Enabled = true;
+            Txb_NumLote.Visible = true;
+
+            Lbl_Precio.Visible = true;
+            Txb_Precio.Enabled = true;
+            Txb_Precio.Visible = true;
+
+            Lbl_Vto.Visible = true;
+            Dtp_FeVto.Visible = true;
+            Dtp_FeVto.Enabled = true;
+
+            Btn_Agregar.Enabled = true;
         }
 
         #endregion

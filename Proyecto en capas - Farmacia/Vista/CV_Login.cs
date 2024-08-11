@@ -23,7 +23,7 @@ namespace Vista
         {
             // A MODO DE PRUEBA!!!!
 
-            CV_GestionStock STOQ = new CV_GestionStock();
+            Lbl_CantBusq STOQ = new Lbl_CantBusq();
             STOQ.Show();
 
 

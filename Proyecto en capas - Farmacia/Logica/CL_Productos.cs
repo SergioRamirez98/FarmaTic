@@ -11,6 +11,7 @@ namespace Logica
     public class CL_Productos
     {
         CD_Productos Productos = new CD_Productos();
+
         #region Properties
         public string Prop_Nombre { get; set; }        
         public string Prop_Marca { get; set; }
@@ -25,6 +26,11 @@ namespace Logica
         {
             return Productos.MostrarProductosDTGV(datos);
         }
+        public DataTable ConsultarProductos()
+        {
+            pasarDatosConsulta();
+            return Productos.Consultar();
+        }
         public void InsertarProducto() 
         {
             pasarDatos(false);
@@ -34,6 +40,10 @@ namespace Logica
         {
             pasarDatos(true);
             Productos.ActualizarProductos();
+        }        
+        public void EliminarProducto(int ID_Producto)
+        {
+            Productos.Eliminar(ID_Producto);
         }
         private void pasarDatos(bool ProdSeleccionado)
         {
@@ -44,6 +54,7 @@ namespace Logica
             if (!string.IsNullOrEmpty(Prop_Nombre))
             {
                 Productos.Prop_Nombre = Prop_Nombre;
+                //char.ToUpper(Prop_Nombre[0]) + Prop_Nombre.Substring(1).ToLower(); convierte la primer letra en mayus y el resto en minus.
             }
             else
             {
@@ -56,7 +67,9 @@ namespace Logica
             }
             else
             { throw new Exception("La marca del producto no puede ser nulo o vacio"); }
+
             Productos.Prop_Descripcion = Prop_Descripcion;
+
             if (!string.IsNullOrEmpty(Prop_Cantidad) || Prop_Cantidad == "0")
             {
                 try
@@ -128,6 +141,73 @@ namespace Logica
             else
             {
                 throw new Exception("El numero de lote no puede ser vacio o nulo");
+            }
+        }
+        private void pasarDatosConsulta()
+        {
+            Productos.Prop_Nombre = Prop_Nombre;
+            Productos.Prop_Marca = Prop_Marca;
+            Productos.Prop_Descripcion = Prop_Descripcion;
+
+            if (!string.IsNullOrEmpty(Prop_Cantidad) || Prop_Cantidad == "0")
+            {
+                try
+                {
+                    Productos.Prop_Cantidad = Convert.ToInt32(Prop_Cantidad);
+                }
+                catch (Exception)
+                {
+
+                    throw new Exception("La cantidad debe ser un formato numérico válido.");
+                }
+            }
+
+            if (!string.IsNullOrEmpty(Prop_Precio) || Prop_Precio == "0")
+            {
+                try
+                {
+                    Productos.Prop_Precio = Convert.ToDecimal(Prop_Precio);
+                }
+                catch (Exception)
+                {
+
+                    throw new Exception("El precio debe tener un formato numérico válido.");
+                }
+
+            }
+
+            try
+            {
+                DateTime Fe_vencimiento = Convert.ToDateTime(Prop_VtoProd);
+                if (Fe_vencimiento > DateTime.Today)
+                {
+                    Productos.Prop_VtoProd = Fe_vencimiento;
+                }
+                else
+                {
+                    throw new Exception("El producto a ingresar no puede estar vencido");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+
+            if (!String.IsNullOrEmpty(Prop_NumLote) || Prop_NumLote == "0")
+            {
+                try
+                {
+                    Productos.Prop_NumLote = Convert.ToInt32(Prop_NumLote);
+                }
+                catch (Exception)
+                {
+
+                    throw new Exception("El Numero de lote debe tener un formato numérico válido.");
+                }
+
             }
         }
     }
