@@ -50,20 +50,20 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Chb_Busqueda = new System.Windows.Forms.CheckBox();
             this.Pnl_Busqueda = new System.Windows.Forms.Panel();
+            this.Lbl_VtoHasta = new System.Windows.Forms.Label();
+            this.Lbl_PrecHasta = new System.Windows.Forms.Label();
+            this.Lbl_CantHasta = new System.Windows.Forms.Label();
+            this.Dtp_VtoHasta = new System.Windows.Forms.DateTimePicker();
+            this.Txb_PrecHasta = new System.Windows.Forms.TextBox();
+            this.Txb_CantHasta = new System.Windows.Forms.TextBox();
+            this.Lbl_CantDesde = new System.Windows.Forms.Label();
             this.Lbl_VtoDesde = new System.Windows.Forms.Label();
+            this.Txb_CantDesde = new System.Windows.Forms.TextBox();
+            this.Txb_PrecDesde = new System.Windows.Forms.TextBox();
             this.Lbl_LoteBusq = new System.Windows.Forms.Label();
+            this.Txb_NLoteBusq = new System.Windows.Forms.TextBox();
             this.Lbl_PrecDesde = new System.Windows.Forms.Label();
             this.Dtp_VtoDesde = new System.Windows.Forms.DateTimePicker();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.Txb_PrecDesde = new System.Windows.Forms.TextBox();
-            this.Lbl_CantDesde = new System.Windows.Forms.Label();
-            this.Txb_CantDesde = new System.Windows.Forms.TextBox();
-            this.Txb_CantHasta = new System.Windows.Forms.TextBox();
-            this.Txb_PrecHasta = new System.Windows.Forms.TextBox();
-            this.Dtp_VtoHasta = new System.Windows.Forms.DateTimePicker();
-            this.Lbl_CantHasta = new System.Windows.Forms.Label();
-            this.Lbl_PrecHasta = new System.Windows.Forms.Label();
-            this.Lbl_VtoHasta = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
@@ -274,22 +274,102 @@
             this.Pnl_Busqueda.Controls.Add(this.Txb_CantDesde);
             this.Pnl_Busqueda.Controls.Add(this.Txb_PrecDesde);
             this.Pnl_Busqueda.Controls.Add(this.Lbl_LoteBusq);
-            this.Pnl_Busqueda.Controls.Add(this.textBox1);
+            this.Pnl_Busqueda.Controls.Add(this.Txb_NLoteBusq);
             this.Pnl_Busqueda.Controls.Add(this.Lbl_PrecDesde);
             this.Pnl_Busqueda.Controls.Add(this.Dtp_VtoDesde);
             this.Pnl_Busqueda.Location = new System.Drawing.Point(474, 47);
             this.Pnl_Busqueda.Name = "Pnl_Busqueda";
-            this.Pnl_Busqueda.Size = new System.Drawing.Size(385, 152);
+            this.Pnl_Busqueda.Size = new System.Drawing.Size(385, 169);
             this.Pnl_Busqueda.TabIndex = 22;
+            // 
+            // Lbl_VtoHasta
+            // 
+            this.Lbl_VtoHasta.AutoSize = true;
+            this.Lbl_VtoHasta.Location = new System.Drawing.Point(7, 145);
+            this.Lbl_VtoHasta.Name = "Lbl_VtoHasta";
+            this.Lbl_VtoHasta.Size = new System.Drawing.Size(43, 16);
+            this.Lbl_VtoHasta.TabIndex = 34;
+            this.Lbl_VtoHasta.Text = "Hasta";
+            // 
+            // Lbl_PrecHasta
+            // 
+            this.Lbl_PrecHasta.AutoSize = true;
+            this.Lbl_PrecHasta.Location = new System.Drawing.Point(220, 52);
+            this.Lbl_PrecHasta.Name = "Lbl_PrecHasta";
+            this.Lbl_PrecHasta.Size = new System.Drawing.Size(43, 16);
+            this.Lbl_PrecHasta.TabIndex = 33;
+            this.Lbl_PrecHasta.Text = "Hasta";
+            // 
+            // Lbl_CantHasta
+            // 
+            this.Lbl_CantHasta.AutoSize = true;
+            this.Lbl_CantHasta.Location = new System.Drawing.Point(220, 11);
+            this.Lbl_CantHasta.Name = "Lbl_CantHasta";
+            this.Lbl_CantHasta.Size = new System.Drawing.Size(43, 16);
+            this.Lbl_CantHasta.TabIndex = 32;
+            this.Lbl_CantHasta.Text = "Hasta";
+            // 
+            // Dtp_VtoHasta
+            // 
+            this.Dtp_VtoHasta.CustomFormat = "dd/MM/yyyy";
+            this.Dtp_VtoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_VtoHasta.Location = new System.Drawing.Point(269, 145);
+            this.Dtp_VtoHasta.Name = "Dtp_VtoHasta";
+            this.Dtp_VtoHasta.Size = new System.Drawing.Size(107, 22);
+            this.Dtp_VtoHasta.TabIndex = 31;
+            this.Dtp_VtoHasta.Value = new System.DateTime(2310, 12, 31, 0, 0, 0, 0);
+            // 
+            // Txb_PrecHasta
+            // 
+            this.Txb_PrecHasta.Location = new System.Drawing.Point(287, 45);
+            this.Txb_PrecHasta.Name = "Txb_PrecHasta";
+            this.Txb_PrecHasta.Size = new System.Drawing.Size(41, 22);
+            this.Txb_PrecHasta.TabIndex = 30;
+            this.Txb_PrecHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Txb_CantHasta
+            // 
+            this.Txb_CantHasta.Location = new System.Drawing.Point(287, 8);
+            this.Txb_CantHasta.Multiline = true;
+            this.Txb_CantHasta.Name = "Txb_CantHasta";
+            this.Txb_CantHasta.Size = new System.Drawing.Size(42, 22);
+            this.Txb_CantHasta.TabIndex = 29;
+            this.Txb_CantHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Lbl_CantDesde
+            // 
+            this.Lbl_CantDesde.AutoSize = true;
+            this.Lbl_CantDesde.Location = new System.Drawing.Point(7, 11);
+            this.Lbl_CantDesde.Name = "Lbl_CantDesde";
+            this.Lbl_CantDesde.Size = new System.Drawing.Size(103, 16);
+            this.Lbl_CantDesde.TabIndex = 24;
+            this.Lbl_CantDesde.Text = "Cantidad desde";
             // 
             // Lbl_VtoDesde
             // 
             this.Lbl_VtoDesde.AutoSize = true;
             this.Lbl_VtoDesde.Location = new System.Drawing.Point(6, 117);
             this.Lbl_VtoDesde.Name = "Lbl_VtoDesde";
-            this.Lbl_VtoDesde.Size = new System.Drawing.Size(72, 16);
+            this.Lbl_VtoDesde.Size = new System.Drawing.Size(181, 16);
             this.Lbl_VtoDesde.TabIndex = 28;
-            this.Lbl_VtoDesde.Text = "Vto. desde";
+            this.Lbl_VtoDesde.Text = "Indique fecha de vencimiento";
+            // 
+            // Txb_CantDesde
+            // 
+            this.Txb_CantDesde.Location = new System.Drawing.Point(116, 11);
+            this.Txb_CantDesde.Multiline = true;
+            this.Txb_CantDesde.Name = "Txb_CantDesde";
+            this.Txb_CantDesde.Size = new System.Drawing.Size(42, 22);
+            this.Txb_CantDesde.TabIndex = 23;
+            this.Txb_CantDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Txb_PrecDesde
+            // 
+            this.Txb_PrecDesde.Location = new System.Drawing.Point(116, 48);
+            this.Txb_PrecDesde.Name = "Txb_PrecDesde";
+            this.Txb_PrecDesde.Size = new System.Drawing.Size(41, 22);
+            this.Txb_PrecDesde.TabIndex = 23;
+            this.Txb_PrecDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lbl_LoteBusq
             // 
@@ -299,6 +379,14 @@
             this.Lbl_LoteBusq.Size = new System.Drawing.Size(50, 16);
             this.Lbl_LoteBusq.TabIndex = 27;
             this.Lbl_LoteBusq.Text = "Lote N°";
+            // 
+            // Txb_NLoteBusq
+            // 
+            this.Txb_NLoteBusq.Location = new System.Drawing.Point(116, 84);
+            this.Txb_NLoteBusq.Name = "Txb_NLoteBusq";
+            this.Txb_NLoteBusq.Size = new System.Drawing.Size(92, 22);
+            this.Txb_NLoteBusq.TabIndex = 24;
+            this.Txb_NLoteBusq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lbl_PrecDesde
             // 
@@ -313,97 +401,10 @@
             // 
             this.Dtp_VtoDesde.CustomFormat = "dd/MM/yyyy";
             this.Dtp_VtoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_VtoDesde.Location = new System.Drawing.Point(108, 117);
+            this.Dtp_VtoDesde.Location = new System.Drawing.Point(269, 117);
             this.Dtp_VtoDesde.Name = "Dtp_VtoDesde";
             this.Dtp_VtoDesde.Size = new System.Drawing.Size(106, 22);
             this.Dtp_VtoDesde.TabIndex = 25;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(116, 84);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(92, 22);
-            this.textBox1.TabIndex = 24;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Txb_PrecDesde
-            // 
-            this.Txb_PrecDesde.Location = new System.Drawing.Point(116, 48);
-            this.Txb_PrecDesde.Name = "Txb_PrecDesde";
-            this.Txb_PrecDesde.Size = new System.Drawing.Size(41, 22);
-            this.Txb_PrecDesde.TabIndex = 23;
-            this.Txb_PrecDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Lbl_CantDesde
-            // 
-            this.Lbl_CantDesde.AutoSize = true;
-            this.Lbl_CantDesde.Location = new System.Drawing.Point(7, 11);
-            this.Lbl_CantDesde.Name = "Lbl_CantDesde";
-            this.Lbl_CantDesde.Size = new System.Drawing.Size(103, 16);
-            this.Lbl_CantDesde.TabIndex = 24;
-            this.Lbl_CantDesde.Text = "Cantidad desde";
-            // 
-            // Txb_CantDesde
-            // 
-            this.Txb_CantDesde.Location = new System.Drawing.Point(116, 11);
-            this.Txb_CantDesde.Multiline = true;
-            this.Txb_CantDesde.Name = "Txb_CantDesde";
-            this.Txb_CantDesde.Size = new System.Drawing.Size(42, 22);
-            this.Txb_CantDesde.TabIndex = 23;
-            this.Txb_CantDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Txb_CantHasta
-            // 
-            this.Txb_CantHasta.Location = new System.Drawing.Point(287, 8);
-            this.Txb_CantHasta.Multiline = true;
-            this.Txb_CantHasta.Name = "Txb_CantHasta";
-            this.Txb_CantHasta.Size = new System.Drawing.Size(42, 22);
-            this.Txb_CantHasta.TabIndex = 29;
-            this.Txb_CantHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Txb_PrecHasta
-            // 
-            this.Txb_PrecHasta.Location = new System.Drawing.Point(287, 45);
-            this.Txb_PrecHasta.Name = "Txb_PrecHasta";
-            this.Txb_PrecHasta.Size = new System.Drawing.Size(41, 22);
-            this.Txb_PrecHasta.TabIndex = 30;
-            this.Txb_PrecHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Dtp_VtoHasta
-            // 
-            this.Dtp_VtoHasta.CustomFormat = "dd/MM/yyyy";
-            this.Dtp_VtoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_VtoHasta.Location = new System.Drawing.Point(275, 117);
-            this.Dtp_VtoHasta.Name = "Dtp_VtoHasta";
-            this.Dtp_VtoHasta.Size = new System.Drawing.Size(107, 22);
-            this.Dtp_VtoHasta.TabIndex = 31;
-            // 
-            // Lbl_CantHasta
-            // 
-            this.Lbl_CantHasta.AutoSize = true;
-            this.Lbl_CantHasta.Location = new System.Drawing.Point(220, 11);
-            this.Lbl_CantHasta.Name = "Lbl_CantHasta";
-            this.Lbl_CantHasta.Size = new System.Drawing.Size(43, 16);
-            this.Lbl_CantHasta.TabIndex = 32;
-            this.Lbl_CantHasta.Text = "Hasta";
-            // 
-            // Lbl_PrecHasta
-            // 
-            this.Lbl_PrecHasta.AutoSize = true;
-            this.Lbl_PrecHasta.Location = new System.Drawing.Point(220, 52);
-            this.Lbl_PrecHasta.Name = "Lbl_PrecHasta";
-            this.Lbl_PrecHasta.Size = new System.Drawing.Size(43, 16);
-            this.Lbl_PrecHasta.TabIndex = 33;
-            this.Lbl_PrecHasta.Text = "Hasta";
-            // 
-            // Lbl_VtoHasta
-            // 
-            this.Lbl_VtoHasta.AutoSize = true;
-            this.Lbl_VtoHasta.Location = new System.Drawing.Point(220, 122);
-            this.Lbl_VtoHasta.Name = "Lbl_VtoHasta";
-            this.Lbl_VtoHasta.Size = new System.Drawing.Size(43, 16);
-            this.Lbl_VtoHasta.TabIndex = 34;
-            this.Lbl_VtoHasta.Text = "Hasta";
             // 
             // Lbl_CantBusq
             // 
@@ -479,7 +480,7 @@
         private System.Windows.Forms.TextBox Txb_CantDesde;
         private System.Windows.Forms.TextBox Txb_PrecDesde;
         private System.Windows.Forms.Label Lbl_LoteBusq;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txb_NLoteBusq;
         private System.Windows.Forms.Label Lbl_PrecDesde;
         private System.Windows.Forms.DateTimePicker Dtp_VtoDesde;
     }

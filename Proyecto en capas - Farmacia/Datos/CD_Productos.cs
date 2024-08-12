@@ -23,6 +23,16 @@ namespace Datos
 
         SqlParameter[] lista = null;
         #endregion
+
+        #region Properties para consulta
+        public int Prop_CantDesde { get; set; }
+        public int Prop_CantHasta { get; set; }
+        public decimal Prop_PrecDesde { get; set; }
+        public decimal Prop_PrecHasta { get; set; }
+        public int Prop_NLoteBusq { get; set; }
+        public DateTime Prop_VtoDesde { get; set; }
+        public DateTime Prop_VtoHasta { get; set; }
+        #endregion
         public DataTable MostrarProductosDTGV(string datos)
         {
             string sSql = "SP_Mostrar_Productos";

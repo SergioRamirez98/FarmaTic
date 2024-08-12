@@ -22,6 +22,15 @@ namespace Logica
         public string Prop_VtoProd { get; set; }
         public string Prop_ID_Producto { get; set; }
         #endregion
+        #region Properties Adicionales de Busqueda
+        public string Prop_CantDesde { get; set; }
+        public string Prop_CantHasta { get; set; }
+        public string Prop_PrecDesde { get; set; }
+        public string Prop_PrecHasta { get; set; }
+        public string Prop_NLoteBusq { get; set; }
+        public string Prop_VtoDesde { get; set; }
+        public string Prop_VtoHasta { get; set; }
+        #endregion
         public DataTable MostrarProductos(string datos) 
         {
             return Productos.MostrarProductosDTGV(datos);
@@ -148,45 +157,46 @@ namespace Logica
             Productos.Prop_Nombre = Prop_Nombre;
             Productos.Prop_Marca = Prop_Marca;
             Productos.Prop_Descripcion = Prop_Descripcion;
-
-            if (!string.IsNullOrEmpty(Prop_Cantidad) || Prop_Cantidad == "0")
+            
+            try
             {
-                try
-                {
-                    Productos.Prop_Cantidad = Convert.ToInt32(Prop_Cantidad);
-                }
-                catch (Exception)
-                {
-
-                    throw new Exception("La cantidad debe ser un formato numérico válido.");
-                }
+                Productos.Prop_CantDesde = Convert.ToInt32(Prop_CantDesde);
+                Productos.Prop_CantHasta = Convert.ToInt32(Prop_CantHasta);  
+            }
+            catch (Exception)
+            {
+                throw new Exception("La cantidad debe ser un formato numérico válido.");
+            }
+            try
+            {
+                Productos.Prop_PrecDesde = Convert.ToDecimal(Prop_PrecDesde);
+                Productos.Prop_PrecHasta = Convert.ToDecimal(Prop_PrecHasta);
+            }
+            catch (Exception)
+            {
+                throw new Exception("El precio debe tener un formato numérico válido.");
             }
 
-            if (!string.IsNullOrEmpty(Prop_Precio) || Prop_Precio == "0")
-            {
-                try
-                {
-                    Productos.Prop_Precio = Convert.ToDecimal(Prop_Precio);
-                }
-                catch (Exception)
-                {
-
-                    throw new Exception("El precio debe tener un formato numérico válido.");
-                }
-
-            }
+            
 
             try
             {
-                DateTime Fe_vencimiento = Convert.ToDateTime(Prop_VtoProd);
-                if (Fe_vencimiento > DateTime.Today)
+                DateTime Fe_vencimientoDesde = Convert.ToDateTime(Prop_VtoDesde);
+                DateTime Fe_vencimientoHasta = Convert.ToDateTime(Prop_VtoHasta);
+                if (Fe_vencimientoDesde < Fe_vencimientoHasta)
                 {
-                    Productos.Prop_VtoProd = Fe_vencimiento;
+                    Productos.Prop_VtoDesde = Fe_vencimientoDesde;
+                    Productos.Prop_VtoHasta = Fe_vencimientoHasta;
                 }
                 else
                 {
                     throw new Exception("El producto a ingresar no puede estar vencido");
                 }
+                if (!string.IsNullOrEmpty(Prop_VtoDesde))
+                {
+                    Productos.Prop_VtoDesde = Fe_vencimientoDesde;
+                }
+
 
             }
             catch (Exception)
@@ -212,3 +222,6 @@ namespace Logica
         }
     }
 }
+
+
+/* Prop_CantDesde // Prop_CantHasta // Prop_PrecDesde // Prop_PrecHasta // Prop_NLoteBusq // Prop_VtoDesde // Prop_VtoHasta */

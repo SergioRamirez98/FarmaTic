@@ -34,11 +34,20 @@ namespace Vista
             if (Chb_Busqueda.Checked)
             {
                 nuevosControles();
+                Txb_Nombre.Text = "";
+                Txb_Marca.Text = "";
+                Txb_Descripcion.Text="";
+                Txb_Nombre.Enabled = true;
+                Txb_Marca.Enabled = true;
+                Txb_Descripcion.Enabled = true;
+                Btn_Buscar.Enabled = true;
+                Btn_Modificar.Enabled = false;
+                Btn_Eliminar.Enabled = false;
+
             }
-            else { reestablecerControles(); }
+            else {reestablecerControles(); CServ_LimpiarControles.LimpiarFormulario(this); desbloquearControles(); }
             //reestablecerControles();
         }
-
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {
             pasarDatos();        
@@ -78,6 +87,7 @@ namespace Vista
         }
         private void DTGV_Productos_CellClick(object sender, DataGridViewCellEventArgs e)
         { 
+            Chb_Busqueda.Checked = false;
             cargarControles();
             bloquearControles();
             if (Pnl_Busqueda.Visible)
@@ -102,7 +112,6 @@ namespace Vista
         {
             pasarDatos();
             Productos.ConsultarProductos();
-
         }
 
         private void CV_GestionStock_Click(object sender, EventArgs e)
@@ -194,6 +203,9 @@ namespace Vista
             DTGV_Productos.Columns[6].HeaderText = "Vencimiento";
             DTGV_Productos.Columns[7].HeaderText = "Numero de lote";
         }
+        /*private void pasarDatosBusqueda() 
+        {            
+        }*/
         private void pasarDatos()
         {
             Productos.Prop_Nombre = Txb_Nombre.Text;
@@ -203,6 +215,18 @@ namespace Vista
             Productos.Prop_Precio = Txb_Precio.Text;
             Productos.Prop_NumLote = Txb_NumLote.Text;
             Productos.Prop_VtoProd = Dtp_FeVto.Value.ToString("yyyy-MM-dd 00:00:00");
+
+            if (Chb_Busqueda.Checked)
+            {
+                Productos.Prop_CantDesde = Txb_CantDesde.Text;
+                Productos.Prop_CantHasta = Txb_CantHasta.Text;
+                Productos.Prop_PrecDesde = Txb_PrecDesde.Text;
+                Productos.Prop_PrecHasta = Txb_PrecHasta.Text;
+                Productos.Prop_NLoteBusq = Txb_NLoteBusq.Text;
+                Productos.Prop_VtoDesde = Dtp_VtoDesde.Value.ToString("yyyy-MM-dd 00:00:00");
+                Productos.Prop_VtoHasta = Dtp_VtoHasta.Value.ToString("yyyy-MM-dd 00:00:00");
+
+            }
         }
         private void pasarDatos(int ID_Producto)
         {
