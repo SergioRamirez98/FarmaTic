@@ -154,23 +154,54 @@ namespace Logica
         }
         private void pasarDatosConsulta()
         {
+
             Productos.Prop_Nombre = Prop_Nombre;
             Productos.Prop_Marca = Prop_Marca;
             Productos.Prop_Descripcion = Prop_Descripcion;
             
             try
             {
-                Productos.Prop_CantDesde = Convert.ToInt32(Prop_CantDesde);
-                Productos.Prop_CantHasta = Convert.ToInt32(Prop_CantHasta);  
+                if (string.IsNullOrEmpty(Prop_CantDesde))
+                {
+                    Productos.Prop_CantDesde = int.MinValue;
+                }
+                else
+                {
+                    Productos.Prop_CantDesde = Convert.ToInt32(Prop_CantDesde);
+                }
+                if (string.IsNullOrEmpty(Prop_CantHasta))
+                {
+                    Productos.Prop_CantHasta = int.MaxValue;
+                }
+                else
+                {
+                    Productos.Prop_CantHasta = Convert.ToInt32(Prop_CantHasta);
+                }
+
             }
             catch (Exception)
             {
                 throw new Exception("La cantidad debe ser un formato numérico válido.");
             }
+
             try
             {
-                Productos.Prop_PrecDesde = Convert.ToDecimal(Prop_PrecDesde);
-                Productos.Prop_PrecHasta = Convert.ToDecimal(Prop_PrecHasta);
+                if (string.IsNullOrEmpty(Prop_PrecDesde))
+                {
+                    Productos.Prop_PrecDesde = double.MinValue;
+                }
+                else
+                {
+                    Productos.Prop_PrecDesde = Convert.ToDouble(Prop_PrecDesde);
+                }
+                if (string.IsNullOrEmpty(Prop_PrecHasta))
+                {
+                    Productos.Prop_PrecHasta = double.MaxValue;
+                }
+                else
+                {
+                    Productos.Prop_PrecHasta = Convert.ToDouble(Prop_PrecHasta);
+                }
             }
             catch (Exception)
             {
@@ -183,7 +214,7 @@ namespace Logica
             {
                 DateTime Fe_vencimientoDesde = Convert.ToDateTime(Prop_VtoDesde);
                 DateTime Fe_vencimientoHasta = Convert.ToDateTime(Prop_VtoHasta);
-                if (Fe_vencimientoDesde < Fe_vencimientoHasta)
+                if (Fe_vencimientoDesde <= Fe_vencimientoHasta)
                 {
                     Productos.Prop_VtoDesde = Fe_vencimientoDesde;
                     Productos.Prop_VtoHasta = Fe_vencimientoHasta;
@@ -192,12 +223,6 @@ namespace Logica
                 {
                     throw new Exception("El producto a ingresar no puede estar vencido");
                 }
-                if (!string.IsNullOrEmpty(Prop_VtoDesde))
-                {
-                    Productos.Prop_VtoDesde = Fe_vencimientoDesde;
-                }
-
-
             }
             catch (Exception)
             {
@@ -206,18 +231,22 @@ namespace Logica
             }
 
 
-            if (!String.IsNullOrEmpty(Prop_NumLote) || Prop_NumLote == "0")
+            if (String.IsNullOrEmpty(Prop_NLoteBusq)  )
+            {
+                Productos.Prop_NLoteBusq = 0;
+                
+            }
+            else
             {
                 try
                 {
-                    Productos.Prop_NumLote = Convert.ToInt32(Prop_NumLote);
+                    Productos.Prop_NLoteBusq = Convert.ToInt32(Prop_NLoteBusq);
                 }
                 catch (Exception)
                 {
 
                     throw new Exception("El Numero de lote debe tener un formato numérico válido.");
                 }
-
             }
         }
     }

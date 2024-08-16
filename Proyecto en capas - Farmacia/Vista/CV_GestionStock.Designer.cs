@@ -70,50 +70,56 @@
             // 
             // Txb_Nombre
             // 
-            this.Txb_Nombre.Location = new System.Drawing.Point(120, 50);
+            this.Txb_Nombre.Location = new System.Drawing.Point(135, 62);
+            this.Txb_Nombre.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_Nombre.Name = "Txb_Nombre";
-            this.Txb_Nombre.Size = new System.Drawing.Size(210, 22);
+            this.Txb_Nombre.Size = new System.Drawing.Size(236, 26);
             this.Txb_Nombre.TabIndex = 1;
             this.Txb_Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Marca
             // 
-            this.Txb_Marca.Location = new System.Drawing.Point(120, 100);
+            this.Txb_Marca.Location = new System.Drawing.Point(135, 125);
+            this.Txb_Marca.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_Marca.Name = "Txb_Marca";
-            this.Txb_Marca.Size = new System.Drawing.Size(210, 22);
+            this.Txb_Marca.Size = new System.Drawing.Size(236, 26);
             this.Txb_Marca.TabIndex = 2;
             this.Txb_Marca.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Descripcion
             // 
-            this.Txb_Descripcion.Location = new System.Drawing.Point(120, 150);
+            this.Txb_Descripcion.Location = new System.Drawing.Point(135, 188);
+            this.Txb_Descripcion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_Descripcion.Name = "Txb_Descripcion";
-            this.Txb_Descripcion.Size = new System.Drawing.Size(210, 22);
+            this.Txb_Descripcion.Size = new System.Drawing.Size(236, 26);
             this.Txb_Descripcion.TabIndex = 3;
             this.Txb_Descripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Cantidad
             // 
-            this.Txb_Cantidad.Location = new System.Drawing.Point(121, 200);
+            this.Txb_Cantidad.Location = new System.Drawing.Point(136, 250);
+            this.Txb_Cantidad.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_Cantidad.Multiline = true;
             this.Txb_Cantidad.Name = "Txb_Cantidad";
-            this.Txb_Cantidad.Size = new System.Drawing.Size(210, 22);
+            this.Txb_Cantidad.Size = new System.Drawing.Size(236, 26);
             this.Txb_Cantidad.TabIndex = 4;
             this.Txb_Cantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Precio
             // 
-            this.Txb_Precio.Location = new System.Drawing.Point(629, 50);
+            this.Txb_Precio.Location = new System.Drawing.Point(708, 62);
+            this.Txb_Precio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_Precio.Name = "Txb_Precio";
-            this.Txb_Precio.Size = new System.Drawing.Size(107, 22);
+            this.Txb_Precio.Size = new System.Drawing.Size(120, 26);
             this.Txb_Precio.TabIndex = 5;
             this.Txb_Precio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_NumLote
             // 
-            this.Txb_NumLote.Location = new System.Drawing.Point(629, 100);
+            this.Txb_NumLote.Location = new System.Drawing.Point(708, 125);
+            this.Txb_NumLote.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_NumLote.Name = "Txb_NumLote";
-            this.Txb_NumLote.Size = new System.Drawing.Size(107, 22);
+            this.Txb_NumLote.Size = new System.Drawing.Size(120, 26);
             this.Txb_NumLote.TabIndex = 6;
             this.Txb_NumLote.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -121,79 +127,81 @@
             // 
             this.Dtp_FeVto.CustomFormat = "dd/MM/yyyy";
             this.Dtp_FeVto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_FeVto.Location = new System.Drawing.Point(630, 150);
+            this.Dtp_FeVto.Location = new System.Drawing.Point(709, 188);
+            this.Dtp_FeVto.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Dtp_FeVto.Name = "Dtp_FeVto";
-            this.Dtp_FeVto.Size = new System.Drawing.Size(107, 22);
+            this.Dtp_FeVto.Size = new System.Drawing.Size(120, 26);
             this.Dtp_FeVto.TabIndex = 7;
             // 
             // Lbl_Nombre
             // 
             this.Lbl_Nombre.AutoSize = true;
-            this.Lbl_Nombre.Location = new System.Drawing.Point(40, 50);
+            this.Lbl_Nombre.Location = new System.Drawing.Point(45, 62);
             this.Lbl_Nombre.Name = "Lbl_Nombre";
-            this.Lbl_Nombre.Size = new System.Drawing.Size(56, 16);
+            this.Lbl_Nombre.Size = new System.Drawing.Size(65, 20);
             this.Lbl_Nombre.TabIndex = 8;
             this.Lbl_Nombre.Text = "Nombre";
             // 
             // Lbl_Marca
             // 
             this.Lbl_Marca.AutoSize = true;
-            this.Lbl_Marca.Location = new System.Drawing.Point(40, 100);
+            this.Lbl_Marca.Location = new System.Drawing.Point(45, 125);
             this.Lbl_Marca.Name = "Lbl_Marca";
-            this.Lbl_Marca.Size = new System.Drawing.Size(45, 16);
+            this.Lbl_Marca.Size = new System.Drawing.Size(53, 20);
             this.Lbl_Marca.TabIndex = 9;
             this.Lbl_Marca.Text = "Marca";
             // 
             // Lbl_Descripcion
             // 
             this.Lbl_Descripcion.AutoSize = true;
-            this.Lbl_Descripcion.Location = new System.Drawing.Point(40, 150);
+            this.Lbl_Descripcion.Location = new System.Drawing.Point(45, 188);
             this.Lbl_Descripcion.Name = "Lbl_Descripcion";
-            this.Lbl_Descripcion.Size = new System.Drawing.Size(79, 16);
+            this.Lbl_Descripcion.Size = new System.Drawing.Size(92, 20);
             this.Lbl_Descripcion.TabIndex = 10;
             this.Lbl_Descripcion.Text = "Descripcion";
             // 
             // Lbl_Cantidad
             // 
             this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(40, 200);
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(45, 250);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
-            this.Lbl_Cantidad.Size = new System.Drawing.Size(61, 16);
+            this.Lbl_Cantidad.Size = new System.Drawing.Size(73, 20);
             this.Lbl_Cantidad.TabIndex = 11;
             this.Lbl_Cantidad.Text = "Cantidad";
             // 
             // Lbl_Vto
             // 
             this.Lbl_Vto.AutoSize = true;
-            this.Lbl_Vto.Location = new System.Drawing.Point(528, 150);
+            this.Lbl_Vto.Location = new System.Drawing.Point(594, 188);
             this.Lbl_Vto.Name = "Lbl_Vto";
-            this.Lbl_Vto.Size = new System.Drawing.Size(81, 16);
+            this.Lbl_Vto.Size = new System.Drawing.Size(97, 20);
             this.Lbl_Vto.TabIndex = 14;
             this.Lbl_Vto.Text = "Vencimiento";
             // 
             // Lbl_NroLote
             // 
             this.Lbl_NroLote.AutoSize = true;
-            this.Lbl_NroLote.Location = new System.Drawing.Point(528, 100);
+            this.Lbl_NroLote.Location = new System.Drawing.Point(594, 125);
             this.Lbl_NroLote.Name = "Lbl_NroLote";
-            this.Lbl_NroLote.Size = new System.Drawing.Size(50, 16);
+            this.Lbl_NroLote.Size = new System.Drawing.Size(61, 20);
             this.Lbl_NroLote.TabIndex = 13;
             this.Lbl_NroLote.Text = "Lote N°";
             // 
             // Lbl_Precio
             // 
             this.Lbl_Precio.AutoSize = true;
-            this.Lbl_Precio.Location = new System.Drawing.Point(528, 50);
+            this.Lbl_Precio.Location = new System.Drawing.Point(594, 62);
             this.Lbl_Precio.Name = "Lbl_Precio";
-            this.Lbl_Precio.Size = new System.Drawing.Size(46, 16);
+            this.Lbl_Precio.Size = new System.Drawing.Size(53, 20);
             this.Lbl_Precio.TabIndex = 12;
             this.Lbl_Precio.Text = "Precio";
             // 
             // Btn_Agregar
             // 
-            this.Btn_Agregar.Location = new System.Drawing.Point(865, 50);
+            this.Btn_Agregar.Location = new System.Drawing.Point(973, 62);
+            this.Btn_Agregar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_Agregar.Name = "Btn_Agregar";
-            this.Btn_Agregar.Size = new System.Drawing.Size(75, 25);
+            this.Btn_Agregar.Size = new System.Drawing.Size(84, 31);
             this.Btn_Agregar.TabIndex = 15;
             this.Btn_Agregar.Text = "Agregar";
             this.Btn_Agregar.UseVisualStyleBackColor = true;
@@ -201,9 +209,10 @@
             // 
             // Btn_Buscar
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(865, 81);
+            this.Btn_Buscar.Location = new System.Drawing.Point(973, 101);
+            this.Btn_Buscar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(75, 25);
+            this.Btn_Buscar.Size = new System.Drawing.Size(84, 31);
             this.Btn_Buscar.TabIndex = 16;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
@@ -211,9 +220,10 @@
             // 
             // Btn_Modificar
             // 
-            this.Btn_Modificar.Location = new System.Drawing.Point(865, 112);
+            this.Btn_Modificar.Location = new System.Drawing.Point(973, 140);
+            this.Btn_Modificar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(75, 25);
+            this.Btn_Modificar.Size = new System.Drawing.Size(84, 31);
             this.Btn_Modificar.TabIndex = 17;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
@@ -221,9 +231,10 @@
             // 
             // Btn_GuardarCambios
             // 
-            this.Btn_GuardarCambios.Location = new System.Drawing.Point(865, 143);
+            this.Btn_GuardarCambios.Location = new System.Drawing.Point(973, 179);
+            this.Btn_GuardarCambios.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
-            this.Btn_GuardarCambios.Size = new System.Drawing.Size(75, 25);
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(84, 31);
             this.Btn_GuardarCambios.TabIndex = 18;
             this.Btn_GuardarCambios.Text = "Guardar Cambios";
             this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
@@ -232,19 +243,21 @@
             // DTGV_Productos
             // 
             this.DTGV_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_Productos.Location = new System.Drawing.Point(11, 250);
+            this.DTGV_Productos.Location = new System.Drawing.Point(12, 312);
+            this.DTGV_Productos.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.DTGV_Productos.Name = "DTGV_Productos";
             this.DTGV_Productos.RowHeadersWidth = 51;
             this.DTGV_Productos.RowTemplate.Height = 24;
-            this.DTGV_Productos.Size = new System.Drawing.Size(1340, 350);
+            this.DTGV_Productos.Size = new System.Drawing.Size(1508, 438);
             this.DTGV_Productos.TabIndex = 19;
             this.DTGV_Productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_Productos_CellClick);
             // 
             // Btn_Eliminar
             // 
-            this.Btn_Eliminar.Location = new System.Drawing.Point(865, 174);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(973, 218);
+            this.Btn_Eliminar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 25);
+            this.Btn_Eliminar.Size = new System.Drawing.Size(84, 31);
             this.Btn_Eliminar.TabIndex = 20;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
@@ -253,9 +266,10 @@
             // Chb_Busqueda
             // 
             this.Chb_Busqueda.AutoSize = true;
-            this.Chb_Busqueda.Location = new System.Drawing.Point(531, 224);
+            this.Chb_Busqueda.Location = new System.Drawing.Point(597, 280);
+            this.Chb_Busqueda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Chb_Busqueda.Name = "Chb_Busqueda";
-            this.Chb_Busqueda.Size = new System.Drawing.Size(220, 20);
+            this.Chb_Busqueda.Size = new System.Drawing.Size(261, 24);
             this.Chb_Busqueda.TabIndex = 21;
             this.Chb_Busqueda.Text = "¿Desea realizar una busqueda?";
             this.Chb_Busqueda.UseVisualStyleBackColor = true;
@@ -277,35 +291,36 @@
             this.Pnl_Busqueda.Controls.Add(this.Txb_NLoteBusq);
             this.Pnl_Busqueda.Controls.Add(this.Lbl_PrecDesde);
             this.Pnl_Busqueda.Controls.Add(this.Dtp_VtoDesde);
-            this.Pnl_Busqueda.Location = new System.Drawing.Point(474, 47);
+            this.Pnl_Busqueda.Location = new System.Drawing.Point(533, 59);
+            this.Pnl_Busqueda.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Pnl_Busqueda.Name = "Pnl_Busqueda";
-            this.Pnl_Busqueda.Size = new System.Drawing.Size(385, 169);
+            this.Pnl_Busqueda.Size = new System.Drawing.Size(433, 211);
             this.Pnl_Busqueda.TabIndex = 22;
             // 
             // Lbl_VtoHasta
             // 
             this.Lbl_VtoHasta.AutoSize = true;
-            this.Lbl_VtoHasta.Location = new System.Drawing.Point(7, 145);
+            this.Lbl_VtoHasta.Location = new System.Drawing.Point(8, 181);
             this.Lbl_VtoHasta.Name = "Lbl_VtoHasta";
-            this.Lbl_VtoHasta.Size = new System.Drawing.Size(43, 16);
+            this.Lbl_VtoHasta.Size = new System.Drawing.Size(52, 20);
             this.Lbl_VtoHasta.TabIndex = 34;
             this.Lbl_VtoHasta.Text = "Hasta";
             // 
             // Lbl_PrecHasta
             // 
             this.Lbl_PrecHasta.AutoSize = true;
-            this.Lbl_PrecHasta.Location = new System.Drawing.Point(220, 52);
+            this.Lbl_PrecHasta.Location = new System.Drawing.Point(248, 65);
             this.Lbl_PrecHasta.Name = "Lbl_PrecHasta";
-            this.Lbl_PrecHasta.Size = new System.Drawing.Size(43, 16);
+            this.Lbl_PrecHasta.Size = new System.Drawing.Size(52, 20);
             this.Lbl_PrecHasta.TabIndex = 33;
             this.Lbl_PrecHasta.Text = "Hasta";
             // 
             // Lbl_CantHasta
             // 
             this.Lbl_CantHasta.AutoSize = true;
-            this.Lbl_CantHasta.Location = new System.Drawing.Point(220, 11);
+            this.Lbl_CantHasta.Location = new System.Drawing.Point(248, 14);
             this.Lbl_CantHasta.Name = "Lbl_CantHasta";
-            this.Lbl_CantHasta.Size = new System.Drawing.Size(43, 16);
+            this.Lbl_CantHasta.Size = new System.Drawing.Size(52, 20);
             this.Lbl_CantHasta.TabIndex = 32;
             this.Lbl_CantHasta.Text = "Hasta";
             // 
@@ -313,87 +328,93 @@
             // 
             this.Dtp_VtoHasta.CustomFormat = "dd/MM/yyyy";
             this.Dtp_VtoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_VtoHasta.Location = new System.Drawing.Point(269, 145);
+            this.Dtp_VtoHasta.Location = new System.Drawing.Point(303, 181);
+            this.Dtp_VtoHasta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Dtp_VtoHasta.Name = "Dtp_VtoHasta";
-            this.Dtp_VtoHasta.Size = new System.Drawing.Size(107, 22);
+            this.Dtp_VtoHasta.Size = new System.Drawing.Size(120, 26);
             this.Dtp_VtoHasta.TabIndex = 31;
-            this.Dtp_VtoHasta.Value = new System.DateTime(2310, 12, 31, 0, 0, 0, 0);
+            this.Dtp_VtoHasta.Value = new System.DateTime(2026, 12, 31, 0, 0, 0, 0);
             // 
             // Txb_PrecHasta
             // 
-            this.Txb_PrecHasta.Location = new System.Drawing.Point(287, 45);
+            this.Txb_PrecHasta.Location = new System.Drawing.Point(323, 56);
+            this.Txb_PrecHasta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_PrecHasta.Name = "Txb_PrecHasta";
-            this.Txb_PrecHasta.Size = new System.Drawing.Size(41, 22);
+            this.Txb_PrecHasta.Size = new System.Drawing.Size(46, 26);
             this.Txb_PrecHasta.TabIndex = 30;
             this.Txb_PrecHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_CantHasta
             // 
-            this.Txb_CantHasta.Location = new System.Drawing.Point(287, 8);
+            this.Txb_CantHasta.Location = new System.Drawing.Point(323, 10);
+            this.Txb_CantHasta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_CantHasta.Multiline = true;
             this.Txb_CantHasta.Name = "Txb_CantHasta";
-            this.Txb_CantHasta.Size = new System.Drawing.Size(42, 22);
+            this.Txb_CantHasta.Size = new System.Drawing.Size(47, 26);
             this.Txb_CantHasta.TabIndex = 29;
             this.Txb_CantHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lbl_CantDesde
             // 
             this.Lbl_CantDesde.AutoSize = true;
-            this.Lbl_CantDesde.Location = new System.Drawing.Point(7, 11);
+            this.Lbl_CantDesde.Location = new System.Drawing.Point(8, 14);
             this.Lbl_CantDesde.Name = "Lbl_CantDesde";
-            this.Lbl_CantDesde.Size = new System.Drawing.Size(103, 16);
+            this.Lbl_CantDesde.Size = new System.Drawing.Size(121, 20);
             this.Lbl_CantDesde.TabIndex = 24;
             this.Lbl_CantDesde.Text = "Cantidad desde";
             // 
             // Lbl_VtoDesde
             // 
             this.Lbl_VtoDesde.AutoSize = true;
-            this.Lbl_VtoDesde.Location = new System.Drawing.Point(6, 117);
+            this.Lbl_VtoDesde.Location = new System.Drawing.Point(7, 146);
             this.Lbl_VtoDesde.Name = "Lbl_VtoDesde";
-            this.Lbl_VtoDesde.Size = new System.Drawing.Size(181, 16);
+            this.Lbl_VtoDesde.Size = new System.Drawing.Size(216, 20);
             this.Lbl_VtoDesde.TabIndex = 28;
             this.Lbl_VtoDesde.Text = "Indique fecha de vencimiento";
             // 
             // Txb_CantDesde
             // 
-            this.Txb_CantDesde.Location = new System.Drawing.Point(116, 11);
+            this.Txb_CantDesde.Location = new System.Drawing.Point(130, 14);
+            this.Txb_CantDesde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_CantDesde.Multiline = true;
             this.Txb_CantDesde.Name = "Txb_CantDesde";
-            this.Txb_CantDesde.Size = new System.Drawing.Size(42, 22);
+            this.Txb_CantDesde.Size = new System.Drawing.Size(47, 26);
             this.Txb_CantDesde.TabIndex = 23;
             this.Txb_CantDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_PrecDesde
             // 
-            this.Txb_PrecDesde.Location = new System.Drawing.Point(116, 48);
+            this.Txb_PrecDesde.Location = new System.Drawing.Point(130, 60);
+            this.Txb_PrecDesde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_PrecDesde.Name = "Txb_PrecDesde";
-            this.Txb_PrecDesde.Size = new System.Drawing.Size(41, 22);
+            this.Txb_PrecDesde.Size = new System.Drawing.Size(46, 26);
             this.Txb_PrecDesde.TabIndex = 23;
             this.Txb_PrecDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lbl_LoteBusq
             // 
             this.Lbl_LoteBusq.AutoSize = true;
-            this.Lbl_LoteBusq.Location = new System.Drawing.Point(6, 84);
+            this.Lbl_LoteBusq.Location = new System.Drawing.Point(7, 105);
             this.Lbl_LoteBusq.Name = "Lbl_LoteBusq";
-            this.Lbl_LoteBusq.Size = new System.Drawing.Size(50, 16);
+            this.Lbl_LoteBusq.Size = new System.Drawing.Size(61, 20);
             this.Lbl_LoteBusq.TabIndex = 27;
             this.Lbl_LoteBusq.Text = "Lote N°";
             // 
             // Txb_NLoteBusq
             // 
-            this.Txb_NLoteBusq.Location = new System.Drawing.Point(116, 84);
+            this.Txb_NLoteBusq.Location = new System.Drawing.Point(130, 105);
+            this.Txb_NLoteBusq.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Txb_NLoteBusq.Name = "Txb_NLoteBusq";
-            this.Txb_NLoteBusq.Size = new System.Drawing.Size(92, 22);
+            this.Txb_NLoteBusq.Size = new System.Drawing.Size(103, 26);
             this.Txb_NLoteBusq.TabIndex = 24;
             this.Txb_NLoteBusq.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Lbl_PrecDesde
             // 
             this.Lbl_PrecDesde.AutoSize = true;
-            this.Lbl_PrecDesde.Location = new System.Drawing.Point(7, 48);
+            this.Lbl_PrecDesde.Location = new System.Drawing.Point(8, 60);
             this.Lbl_PrecDesde.Name = "Lbl_PrecDesde";
-            this.Lbl_PrecDesde.Size = new System.Drawing.Size(88, 16);
+            this.Lbl_PrecDesde.Size = new System.Drawing.Size(101, 20);
             this.Lbl_PrecDesde.TabIndex = 26;
             this.Lbl_PrecDesde.Text = "Precio desde";
             // 
@@ -401,16 +422,17 @@
             // 
             this.Dtp_VtoDesde.CustomFormat = "dd/MM/yyyy";
             this.Dtp_VtoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_VtoDesde.Location = new System.Drawing.Point(269, 117);
+            this.Dtp_VtoDesde.Location = new System.Drawing.Point(303, 146);
+            this.Dtp_VtoDesde.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Dtp_VtoDesde.Name = "Dtp_VtoDesde";
-            this.Dtp_VtoDesde.Size = new System.Drawing.Size(106, 22);
+            this.Dtp_VtoDesde.Size = new System.Drawing.Size(119, 26);
             this.Dtp_VtoDesde.TabIndex = 25;
             // 
             // Lbl_CantBusq
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 697);
+            this.ClientSize = new System.Drawing.Size(1536, 871);
             this.Controls.Add(this.Pnl_Busqueda);
             this.Controls.Add(this.Chb_Busqueda);
             this.Controls.Add(this.Btn_Eliminar);
@@ -433,6 +455,7 @@
             this.Controls.Add(this.Txb_Marca);
             this.Controls.Add(this.Txb_Nombre);
             this.Controls.Add(this.DTGV_Productos);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "Lbl_CantBusq";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de inventario";

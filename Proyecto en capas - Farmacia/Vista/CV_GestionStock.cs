@@ -28,6 +28,8 @@ namespace Vista
             mostrarProductos();  
             Pnl_Busqueda.Visible = false;
             Pnl_Busqueda.Enabled = false;
+            Btn_Buscar.Enabled = false;
+            Dtp_VtoHasta.Value = DateTime.Now.AddYears(2);
         }
         private void Chb_Busqueda_CheckedChanged(object sender, EventArgs e)
         {
@@ -46,7 +48,7 @@ namespace Vista
 
             }
             else {reestablecerControles(); CServ_LimpiarControles.LimpiarFormulario(this); desbloquearControles(); }
-            //reestablecerControles();
+            
         }
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {
@@ -93,27 +95,22 @@ namespace Vista
             if (Pnl_Busqueda.Visible)
             {
                 Chb_Busqueda.Checked = false;
-               // Pnl_Busqueda.Visible = false;
-               // Pnl_Busqueda.Enabled = false;
                 
             }
             Btn_Agregar.Enabled = false;
             Btn_Buscar.Enabled = false;
             Btn_GuardarCambios.Enabled = false;
         }
-
         private void Btn_Modificar_Click(object sender, EventArgs e)
         {
             desbloquearControles();
             Btn_GuardarCambios.Enabled = true;
         }
-
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
             pasarDatos();
             Productos.ConsultarProductos();
         }
-
         private void CV_GestionStock_Click(object sender, EventArgs e)
         {
             CServ_LimpiarControles.LimpiarFormulario(this);
@@ -124,7 +121,6 @@ namespace Vista
             Btn_Modificar.Enabled = true;
             Btn_GuardarCambios.Enabled = true;
         }
-
         private void Btn_GuardarCambios_Click(object sender, EventArgs e)
         {
             if (DTGV_Productos.SelectedRows.Count >0)
@@ -304,6 +300,7 @@ namespace Vista
             Dtp_FeVto.Visible = false;
             Dtp_FeVto.Enabled = false;
             
+            Btn_Buscar.Enabled = true;
             Btn_Agregar.Enabled = false;
             
         }
@@ -328,6 +325,7 @@ namespace Vista
             Dtp_FeVto.Visible = true;
             Dtp_FeVto.Enabled = true;
 
+            Btn_Buscar.Enabled = false;
             Btn_Agregar.Enabled = true;
         }
 

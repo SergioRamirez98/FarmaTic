@@ -27,9 +27,10 @@ namespace Datos
         #region Properties para consulta
         public int Prop_CantDesde { get; set; }
         public int Prop_CantHasta { get; set; }
-        public decimal Prop_PrecDesde { get; set; }
-        public decimal Prop_PrecHasta { get; set; }
+        public double Prop_PrecDesde { get; set; }
+        public double Prop_PrecHasta { get; set; }
         public int Prop_NLoteBusq { get; set; }
+        
         public DateTime Prop_VtoDesde { get; set; }
         public DateTime Prop_VtoHasta { get; set; }
         #endregion
@@ -154,35 +155,54 @@ namespace Datos
                 throw new Exception("Error al eliminar los datos seleccionados.");
             }
         }
-
         public DataTable Consultar()
         {
             try
             {
                 string sSql = "SP_Consultar_Producto";
-                SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
+             /*   SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
                 param_Nombre.Value = "%" + Prop_Nombre.Trim() + "%";
                 SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
                 param_Marca.Value = "%" + Prop_Marca.Trim()+ "%";
                 SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
                 param_Descripcion.Value = "%" + Prop_Descripcion.Trim() + "%";
-                SqlParameter param_Cantidad = new SqlParameter("@Cantidad", SqlDbType.Int);
-                param_Cantidad.Value = Prop_Cantidad;
-                SqlParameter param_Precio = new SqlParameter("@PrecUnit", SqlDbType.Decimal);
-                param_Precio.Value = Prop_Precio;
-                SqlParameter param_VtoProd = new SqlParameter("@FeVtoProd", SqlDbType.DateTime);
-                param_VtoProd.Value = Prop_VtoProd;
-                SqlParameter param_NumLote = new SqlParameter("@NumLote", SqlDbType.Int);
-                param_NumLote.Value = Prop_NumLote;
+             */
+                SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
+                param_Nombre.Value = Prop_Nombre;
+                SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
+                param_Marca.Value = Prop_Marca;
+                SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
+                param_Descripcion.Value = Prop_Descripcion;
+
+
+
+                SqlParameter param_CantidadDesde = new SqlParameter("@CantidadDesde", SqlDbType.Int);
+                param_CantidadDesde.Value = Prop_CantDesde;
+                SqlParameter param_CantidadHasta = new SqlParameter("@CantidadHasta", SqlDbType.Int);
+                param_CantidadHasta.Value = Prop_CantHasta;
+                SqlParameter param_PrecDesde = new SqlParameter("@PrecDesde", SqlDbType.Float);
+                param_PrecDesde.Value = Prop_PrecDesde;
+                SqlParameter param_PrecHasta = new SqlParameter("@PrecHasta", SqlDbType.Float);
+                param_PrecHasta.Value = Prop_PrecHasta;
+                SqlParameter param_VtoDesde = new SqlParameter("@FeVtoDesde", SqlDbType.DateTime);
+                param_VtoDesde.Value = Prop_VtoDesde;
+                SqlParameter param_VtoHasta = new SqlParameter("@FeVtoHasta", SqlDbType.DateTime);
+                param_VtoHasta.Value = Prop_VtoHasta;
+                SqlParameter param_NumLote = new SqlParameter("@NumLote", SqlDbType.Int);                 
+                param_NumLote.Value = Prop_NLoteBusq;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_Nombre);
                 listaParametros.Add(param_Marca);
                 listaParametros.Add(param_Descripcion);
-                listaParametros.Add(param_Cantidad);
-                listaParametros.Add(param_Precio);
+                listaParametros.Add(param_CantidadDesde);
+                listaParametros.Add(param_CantidadHasta);
+                listaParametros.Add(param_PrecDesde);
+                listaParametros.Add(param_PrecHasta);
+                listaParametros.Add(param_VtoDesde);
+                listaParametros.Add(param_VtoHasta);                
                 listaParametros.Add(param_NumLote);
-                listaParametros.Add(param_VtoProd);
+                
 
                 lista = listaParametros.ToArray();
 
