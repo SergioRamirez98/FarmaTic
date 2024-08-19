@@ -18,6 +18,7 @@ namespace Datos
         public bool DatosPersonales { get; set; }
         public bool MayusMinus { get; set; }
         public bool NumerosYLetras { get; set; }
+        public int AvisosVtoProductos { get; set; }
         SqlParameter [] lista = null;
 
         #endregion
@@ -59,6 +60,8 @@ namespace Datos
                 param_MayusMinus.Value = MayusMinus;
                 SqlParameter param_NumerosYLetras = new SqlParameter("@NumerosYLetras", SqlDbType.Bit);
                 param_NumerosYLetras.Value = NumerosYLetras;
+                SqlParameter param_AvisosVtoProductos = new SqlParameter("@AvisosVtoProductos", SqlDbType.Int);
+                param_AvisosVtoProductos.Value = AvisosVtoProductos; 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
 
                 listaParametros.Add(param_MinCaracteres);

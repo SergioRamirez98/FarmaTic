@@ -35,6 +35,10 @@ namespace Logica
         {
             return Productos.MostrarProductosDTGV(datos);
         }
+        public DataTable CargarVtoProductos() 
+        {
+            return Productos.VtoProductos();
+        }
         public DataTable ConsultarProductos()
         {
             pasarDatosConsulta();

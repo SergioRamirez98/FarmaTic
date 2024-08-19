@@ -28,6 +28,7 @@ namespace Vista
             Chb_DatosPersonales.Checked = CSistema_ConfSistema.DatosPersonales;
             Chb_MayMin.Checked = CSistema_ConfSistema.MayusMinus;
             Chb_MinCaracteres.Checked = CSistema_ConfSistema.MinCaracteres;
+            Nud_VtoProd.Value = CSistema_ConfSistema.AvisosVtoProductos;
         }
         private void Chb_NumYLetras_CheckedChanged(object sender, EventArgs e)
         {
@@ -89,6 +90,7 @@ namespace Vista
             Sistema.DatosPersonales = Chb_DatosPersonales.Checked;
             Sistema.MayusMinus = Chb_MayMin.Checked;
             Sistema.MinCaracteres = Chb_MinCaracteres.Checked;
+            Sistema.AvisosVtoProductos = Convert.ToInt32(Nud_VtoProd.Value);
         }
     }
 }

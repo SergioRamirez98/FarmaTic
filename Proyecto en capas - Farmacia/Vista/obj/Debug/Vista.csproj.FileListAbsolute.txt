@@ -54,14 +54,12 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debu
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Sesion.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Datos.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.AssemblyReference.cache
-C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.SuggestedBindingRedirects.cache
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_OlvidoPass.resources
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Login.resources
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Menu.resources
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.Properties.Resources.resources
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.GenerateResource.cache
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.CoreCompileInputs.cache
-C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.CopyComplete
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.exe
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_GestionUsuariosPersonas.resources
@@ -69,3 +67,5 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debu
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\bin\Debug\Capa de Sistema.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Configuracion.resources
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.Lbl_CantBusq.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.csproj.Up2Date
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_ControlVencimientos.resources

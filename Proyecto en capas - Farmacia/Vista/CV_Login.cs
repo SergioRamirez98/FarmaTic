@@ -18,6 +18,7 @@ namespace Vista
         private void CV_Login_Load(object sender, EventArgs e)
         {
             Txb_Contrasena.PasswordChar = '*';
+            Sistema.CargarConfiguracion();
         }
         private void Btn_Ingresar_Click(object sender, EventArgs e)
         {
@@ -27,13 +28,13 @@ namespace Vista
             STOQ.Show();
 
 
-           /* PasarDatos();
+/*            PasarDatos();
             try
             {
                 bool validar = Usuarios.Logear();
                 if (validar == true)
                 {
-                    Sistema.CargarConfiguracion();
+                    
                     if (CSesion_SesionIniciada.NuevaPass == true || CSesion_SesionIniciada.CambioPass ==true)
                     {
                         CV_OlvidoPass FormRecContrasena = new CV_OlvidoPass();

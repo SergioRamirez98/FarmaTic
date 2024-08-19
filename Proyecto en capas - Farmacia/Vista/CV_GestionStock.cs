@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Net.Configuration;
@@ -25,11 +26,8 @@ namespace Vista
         private void CV_GestionStock_Load(object sender, EventArgs e)
         {
             configurarDTGV();
-            mostrarProductos();  
-            Pnl_Busqueda.Visible = false;
-            Pnl_Busqueda.Enabled = false;
-            Btn_Buscar.Enabled = false;
-            Dtp_VtoHasta.Value = DateTime.Now.AddYears(2);
+            mostrarProductos();
+            configurarLoad();
         }
         private void Chb_Busqueda_CheckedChanged(object sender, EventArgs e)
         {
@@ -97,8 +95,8 @@ namespace Vista
                 Chb_Busqueda.Checked = false;
                 
             }
-            Btn_Agregar.Enabled = false;
-            Btn_Buscar.Enabled = false;
+            Btn_Modificar.Enabled = true;
+            Btn_Agregar.Enabled = false;            
             Btn_GuardarCambios.Enabled = false;
         }
         private void Btn_Modificar_Click(object sender, EventArgs e)
@@ -113,13 +111,8 @@ namespace Vista
         }
         private void CV_GestionStock_Click(object sender, EventArgs e)
         {
-            CServ_LimpiarControles.LimpiarFormulario(this);
-            desbloquearControles();
-            Btn_Agregar.Enabled = true;
-            Btn_Buscar.Enabled = true;
-            Btn_Eliminar.Enabled = true;
-            Btn_Modificar.Enabled = true;
-            Btn_GuardarCambios.Enabled = true;
+            configurarLoad();
+            desbloquearControles();         
         }
         private void Btn_GuardarCambios_Click(object sender, EventArgs e)
         {
@@ -165,7 +158,17 @@ namespace Vista
 
                 }
             }
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No ha seleccionado ningun producto.");
 
+            }
+
+        }
+        private void Btn_VtoProductos_Click(object sender, EventArgs e)
+        {
+            CV_ControlVencimientos ControldeVencimientos = new CV_ControlVencimientos();
+            ControldeVencimientos.Show();
         }
         #endregion
 
@@ -198,10 +201,7 @@ namespace Vista
             DTGV_Productos.Columns[5].HeaderText = "Precio unitario";
             DTGV_Productos.Columns[6].HeaderText = "Vencimiento";
             DTGV_Productos.Columns[7].HeaderText = "Numero de lote";
-        }
-        /*private void pasarDatosBusqueda() 
-        {            
-        }*/
+        }        
         private void pasarDatos()
         {
             Productos.Prop_Nombre = Txb_Nombre.Text;
@@ -328,9 +328,40 @@ namespace Vista
             Btn_Buscar.Enabled = false;
             Btn_Agregar.Enabled = true;
         }
+        private void configurarLoad()
+        {
+            CServ_LimpiarControles.LimpiarFormulario(this);
+            Pnl_Busqueda.Visible = false;
+            Pnl_Busqueda.Enabled = false;
+            Btn_Agregar.Enabled = true;
+            Btn_Modificar.Enabled = false;
+            Btn_Buscar.Enabled = false;
+            Btn_GuardarCambios.Enabled = false;
+            Btn_Eliminar.Enabled = true;
+            Dtp_VtoHasta.Value = DateTime.Now.AddYears(2);
+            DataTable Dt = Productos.CargarVtoProductos();
+            if (Dt.Rows.Count>0)
+            {
+                Timer timer = new Timer();
+                timer.Interval = 500; 
+                timer.Tick += (sender, e) =>
+                {
+                    if (Btn_VtoProductos.BackColor == Color.Yellow)
+                    { Btn_VtoProductos.BackColor = Color.White; }
+                    else
+                    { Btn_VtoProductos.BackColor = Color.Yellow; }
+                };
+                timer.Start();
+            }
+            else
+            {
+                Btn_VtoProductos.BackColor = SystemColors.Control;
+            }
+            
+        }
 
         #endregion
 
-
+       
     }
 }

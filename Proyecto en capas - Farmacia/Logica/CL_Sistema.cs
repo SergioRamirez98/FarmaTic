@@ -17,6 +17,7 @@ namespace Logica
         public bool DatosPersonales { get; set; }
         public bool MayusMinus { get; set; }
         public bool NumerosYLetras { get; set; }
+        public int AvisosVtoProductos { get; set; }
         #endregion
 
         public DataTable CargarConfiguracion() 
@@ -35,8 +36,9 @@ namespace Logica
             sistema.CaractEspecial= CaractEspecial;
             sistema.DatosPersonales= DatosPersonales;
             sistema.MayusMinus= MayusMinus;
-            sistema.NumerosYLetras= NumerosYLetras;
-            
+            sistema.NumerosYLetras = NumerosYLetras;
+            sistema.AvisosVtoProductos = AvisosVtoProductos;
+
         }
     }
 }

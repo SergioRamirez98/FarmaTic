@@ -14,6 +14,7 @@ namespace Capa_de_Sistema
         public static bool DatosPersonales { get; set; }   
         public static bool MayusMinus { get; set; }
         public static bool NumerosYLetras { get; set; }
+        public static int AvisosVtoProductos { get; set; }
         public static void ConfigurarSistema(DataTable dt)
         {
             if (dt.Rows.Count > 0)
@@ -24,6 +25,7 @@ namespace Capa_de_Sistema
                 DatosPersonales = Convert.ToBoolean(fila["Datos_Pers"]);
                 MayusMinus = Convert.ToBoolean(fila["May_Min"]);
                 NumerosYLetras = Convert.ToBoolean(fila["Numeros"]);
+                AvisosVtoProductos = Convert.ToInt32(fila["Aviso_Dias_Vto"]);
             }
         }
 

@@ -34,6 +34,9 @@
             this.Chb_DatosPersonales = new System.Windows.Forms.CheckBox();
             this.Chb_NumYLetras = new System.Windows.Forms.CheckBox();
             this.Btn_Guardar = new System.Windows.Forms.Button();
+            this.Nud_VtoProd = new System.Windows.Forms.NumericUpDown();
+            this.Lbl_DiasVtoProd = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).BeginInit();
             this.SuspendLayout();
             // 
             // Chb_MinCaracteres
@@ -89,7 +92,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(321, 120);
+            this.Btn_Guardar.Location = new System.Drawing.Point(321, 168);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Guardar.TabIndex = 5;
@@ -97,11 +100,34 @@
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
+            // Nud_VtoProd
+            // 
+            this.Nud_VtoProd.Location = new System.Drawing.Point(321, 120);
+            this.Nud_VtoProd.Name = "Nud_VtoProd";
+            this.Nud_VtoProd.Size = new System.Drawing.Size(41, 22);
+            this.Nud_VtoProd.TabIndex = 6;
+            this.Nud_VtoProd.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
+            // 
+            // Lbl_DiasVtoProd
+            // 
+            this.Lbl_DiasVtoProd.AutoSize = true;
+            this.Lbl_DiasVtoProd.Location = new System.Drawing.Point(368, 123);
+            this.Lbl_DiasVtoProd.Name = "Lbl_DiasVtoProd";
+            this.Lbl_DiasVtoProd.Size = new System.Drawing.Size(179, 16);
+            this.Lbl_DiasVtoProd.TabIndex = 7;
+            this.Lbl_DiasVtoProd.Text = "Aviso de dias Vto. Productos";
+            // 
             // CV_Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(535, 166);
+            this.ClientSize = new System.Drawing.Size(556, 203);
+            this.Controls.Add(this.Lbl_DiasVtoProd);
+            this.Controls.Add(this.Nud_VtoProd);
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.Chb_NumYLetras);
             this.Controls.Add(this.Chb_DatosPersonales);
@@ -112,6 +138,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración de contraseñas";
             this.Load += new System.EventHandler(this.CV_Configuracion_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -125,5 +152,7 @@
         private System.Windows.Forms.CheckBox Chb_DatosPersonales;
         private System.Windows.Forms.CheckBox Chb_NumYLetras;
         private System.Windows.Forms.Button Btn_Guardar;
+        private System.Windows.Forms.NumericUpDown Nud_VtoProd;
+        private System.Windows.Forms.Label Lbl_DiasVtoProd;
     }
 }

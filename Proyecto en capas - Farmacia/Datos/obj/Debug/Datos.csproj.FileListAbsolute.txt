@@ -28,8 +28,8 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debu
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
-C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.CopyComplete
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.dll
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Capa de Sistema.dll
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Capa de Sistema.pdb
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.Up2Date

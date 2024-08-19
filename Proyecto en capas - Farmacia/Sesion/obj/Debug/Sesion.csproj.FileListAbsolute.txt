@@ -12,4 +12,4 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Sesion\obj\Deb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Sesion\obj\Debug\Sesion.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Sesion\bin\Debug\Servicios.dll
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Sesion\bin\Debug\Servicios.pdb
-C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Sesion\obj\Debug\Sesion.csproj.CopyComplete
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Sesion\obj\Debug\Sesion.csproj.Up2Date

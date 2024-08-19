@@ -52,6 +52,12 @@
     <Compile Include="CV_Configuracion.Designer.cs">
       <DependentUpon>CV_Configuracion.cs</DependentUpon>
     </Compile>
+    <Compile Include="CV_ControlVencimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CV_ControlVencimientos.Designer.cs">
+      <DependentUpon>CV_ControlVencimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="CV_GestionStock.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -86,6 +92,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CV_Configuracion.resx">
       <DependentUpon>CV_Configuracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CV_ControlVencimientos.resx">
+      <DependentUpon>CV_ControlVencimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CV_GestionStock.resx">
       <DependentUpon>CV_GestionStock.cs</DependentUpon>
