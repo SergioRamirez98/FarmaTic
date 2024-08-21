@@ -36,9 +36,9 @@ namespace Datos
         public DateTime Prop_VtoDesde { get; set; }
         public DateTime Prop_VtoHasta { get; set; }
         #endregion
-        public DataTable MostrarProductosDTGV(string datos)
+        public DataTable MostrarProductosDTGV()
         {
-            string sSql = "SP_Mostrar_Productos";
+            string sSql = "SP_Mostrar_Inventario";
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             SqlParameter[] parametros = listaParametros.ToArray();
 
@@ -54,8 +54,8 @@ namespace Datos
         }
         public DataTable VtoProductos()
         {
-            string sSql = "SP_Vto_Productos";
-            SqlParameter param_Dias_Vto = new SqlParameter("@Dias_Vto", SqlDbType.VarChar, 200);
+            string sSql = "SP_Vto_Inventario";
+            SqlParameter param_Dias_Vto = new SqlParameter("@Dias_Vto", SqlDbType.Int);
             param_Dias_Vto.Value = CSistema_ConfSistema.AvisosVtoProductos; 
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
@@ -71,11 +71,30 @@ namespace Datos
                 throw new Exception("Error al conectar con la base de datos.");
             }
         }
+        public DataTable StockMinimo() 
+        {
+            string sSql = "SP_Stock_Minimo";
+            SqlParameter param_StockMinimo = new SqlParameter("@StockMinimo", SqlDbType.Int);
+            param_StockMinimo.Value = CSistema_ConfSistema.CantMinimadeStock;
+
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(param_StockMinimo);
+            SqlParameter[] parametros = listaParametros.ToArray();
+            try
+            {
+                return ejecutar(sSql, parametros, true);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al conectar con la base de datos.");
+            }
+        }
         public DataTable Consultar()
         {
             try
             {
-                string sSql = "SP_Consultar_Producto";
+                string sSql = "SP_Consultar_Producto_Inventario";
                 SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
                 param_Nombre.Value = Prop_Nombre;
                 SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
@@ -125,7 +144,7 @@ namespace Datos
         {
             try
             {
-                string sSql = "SP_Insertar_Producto";
+                string sSql = "SP_Insertar_Producto_Inventario";
                 SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
                 param_Nombre.Value = Prop_Nombre;
                 SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
@@ -167,7 +186,7 @@ namespace Datos
         {
             try
             {
-                string sSql = "SP_Actualizar_Producto";
+                string sSql = "SP_Actualizar_Producto_Inventario";
                 SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
                 param_ID_Producto.Value = Prop_ID_Producto;
                 SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
@@ -210,7 +229,7 @@ namespace Datos
         {
             try
             {
-                string sSql = "SP_Eliminar_Producto";
+                string sSql = "SP_Eliminar_Producto_Inventario";
                 SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
                 param_ID_Producto.Value = ID_Producto;
 

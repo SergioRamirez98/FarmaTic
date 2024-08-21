@@ -170,6 +170,11 @@ namespace Vista
             CV_ControlVencimientos ControldeVencimientos = new CV_ControlVencimientos();
             ControldeVencimientos.Show();
         }
+        private void Btn_StockCritico_Click(object sender, EventArgs e)
+        {
+            CV_StockMinimo ControldeVencimientos = new CV_StockMinimo();
+            ControldeVencimientos.Show();
+        }
         #endregion
 
         #region Metodos
@@ -192,7 +197,7 @@ namespace Vista
         private void mostrarProductos()
         {
             DTGV_Productos.DataSource = null;
-            DTGV_Productos.DataSource = Productos.MostrarProductos("");
+            DTGV_Productos.DataSource = Productos.MostrarProductos();
             DTGV_Productos.Columns[0].DisplayIndex = 0;
             DTGV_Productos.Columns[1].DisplayIndex = 1;
             DTGV_Productos.Columns[2].DisplayIndex = 2;
@@ -270,6 +275,7 @@ namespace Vista
             Txb_Precio.Text = DTGV_Productos.CurrentRow.Cells[5].Value.ToString();
             Dtp_FeVto.Value = Convert.ToDateTime(DTGV_Productos.CurrentRow.Cells[6].Value.ToString());
             Txb_NumLote.Text = DTGV_Productos.CurrentRow.Cells[7].Value.ToString();
+            Cmb_Categoria.Text = DTGV_Productos.CurrentRow.Cells[8].Value.ToString();
         }
         private void bloquearControles()
         {
@@ -280,6 +286,7 @@ namespace Vista
             Txb_Precio.Enabled = false;
             Txb_NumLote.Enabled = false;
             Dtp_FeVto.Enabled = false;
+            Cmb_Categoria.Enabled = false;
         }
         private void desbloquearControles()
         {
@@ -290,6 +297,7 @@ namespace Vista
             Txb_Precio.Enabled = true;
             Txb_NumLote.Enabled = true;
             Dtp_FeVto.Enabled = true;
+            Cmb_Categoria.Enabled=true;
         }
         private void nuevosControles() 
         {
@@ -367,6 +375,7 @@ namespace Vista
             Cmb_Categoria.Items.Add("Primeros auxilios");
 
             Dtp_VtoHasta.Value = DateTime.Now.AddYears(2);
+
             DataTable Dt = Productos.CargarVtoProductos();
             if (Dt.Rows.Count>0)
             {
@@ -385,11 +394,30 @@ namespace Vista
             {
                 Btn_VtoProductos.BackColor = SystemColors.Control;
             }
-            
+            DataTable DT2 = Productos.CargarStockMinimo();
+            if (DT2.Rows.Count > 0)
+            {
+                Timer timer = new Timer();
+                timer.Interval = 500;
+                timer.Tick += (sender, e) =>
+                {
+                    if (Btn_StockCritico.BackColor == Color.Yellow)
+                    { Btn_StockCritico.BackColor = Color.White; }
+                    else
+                    { Btn_StockCritico.BackColor = Color.Yellow; }
+                };
+                timer.Start();
+            }
+            else
+            {
+                Btn_StockCritico.BackColor = SystemColors.Control;
+            }
+
         }
+
 
         #endregion
 
-       
+        
     }
 }

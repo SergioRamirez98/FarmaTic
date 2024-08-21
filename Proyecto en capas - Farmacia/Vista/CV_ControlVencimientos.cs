@@ -22,8 +22,7 @@ namespace Vista
         private void CV_ControlVencimientos_Load(object sender, EventArgs e)
         {
             configurarDTGV();
-            cargarDTGV();
-            
+            cargarDTGV();            
         }
         private void configurarDTGV()
         {
@@ -43,6 +42,17 @@ namespace Vista
         private void cargarDTGV() 
         {
             DTGV_Vencimientos.DataSource = Productos.CargarVtoProductos();
+
+            DTGV_Vencimientos.Columns[0].DisplayIndex = 0;
+            DTGV_Vencimientos.Columns[1].DisplayIndex = 1;
+            DTGV_Vencimientos.Columns[2].DisplayIndex = 2;
+            DTGV_Vencimientos.Columns[3].DisplayIndex = 4;
+            DTGV_Vencimientos.Columns[4].DisplayIndex = 5;
+            DTGV_Vencimientos.Columns[5].DisplayIndex = 6;
+            DTGV_Vencimientos.Columns[6].DisplayIndex = 7;
+            DTGV_Vencimientos.Columns[7].DisplayIndex = 8;
+            DTGV_Vencimientos.Columns[8].DisplayIndex = 3;
+
             DTGV_Vencimientos.Columns[0].HeaderText = "ID del producto";
             DTGV_Vencimientos.Columns[1].HeaderText = "Nombre del producto";
             DTGV_Vencimientos.Columns[2].HeaderText = "Marca";
@@ -51,6 +61,7 @@ namespace Vista
             DTGV_Vencimientos.Columns[5].HeaderText = "Precio unitario";
             DTGV_Vencimientos.Columns[6].HeaderText = "Vencimiento";
             DTGV_Vencimientos.Columns[7].HeaderText = "Numero de lote";
+            DTGV_Vencimientos.Columns[8].HeaderText = "Categoría";
         }
     }
 }

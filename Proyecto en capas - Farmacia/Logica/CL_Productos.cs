@@ -32,9 +32,9 @@ namespace Logica
         public string Prop_VtoDesde { get; set; }
         public string Prop_VtoHasta { get; set; }
         #endregion
-        public DataTable MostrarProductos(string datos) 
+        public DataTable MostrarProductos() 
         {
-            return Productos.MostrarProductosDTGV(datos);
+            return Productos.MostrarProductosDTGV();
         }
         public DataTable CargarVtoProductos() 
         {
@@ -44,6 +44,10 @@ namespace Logica
         {
             pasarDatosConsulta();
             return Productos.Consultar();
+        }
+        public DataTable CargarStockMinimo() 
+        {
+            return Productos.StockMinimo();
         }
         public void InsertarProducto() 
         {

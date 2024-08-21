@@ -428,6 +428,7 @@
             this.Btn_StockCritico.TabIndex = 16;
             this.Btn_StockCritico.Text = "Tiene productos con bajo stock";
             this.Btn_StockCritico.UseVisualStyleBackColor = true;
+            this.Btn_StockCritico.Click += new System.EventHandler(this.Btn_StockCritico_Click);
             // 
             // Lbl_Categoria
             // 
