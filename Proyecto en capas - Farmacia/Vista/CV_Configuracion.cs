@@ -91,6 +91,7 @@ namespace Vista
             Sistema.MayusMinus = Chb_MayMin.Checked;
             Sistema.MinCaracteres = Chb_MinCaracteres.Checked;
             Sistema.AvisosVtoProductos = Convert.ToInt32(Nud_VtoProd.Value);
+            Sistema.CantMinimadeStock = Convert.ToInt32(Nud_CantMinStock.Value);
         }
     }
 }

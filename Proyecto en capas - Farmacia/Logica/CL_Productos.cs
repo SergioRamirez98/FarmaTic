@@ -20,6 +20,7 @@ namespace Logica
         public string Prop_Precio { get; set; }
         public string Prop_NumLote { get; set; }
         public string Prop_VtoProd { get; set; }
+        public string Prop_Categoria { get; set; }
         public string Prop_ID_Producto { get; set; }
         #endregion
         #region Properties Adicionales de Busqueda
@@ -155,6 +156,8 @@ namespace Logica
             {
                 throw new Exception("El numero de lote no puede ser vacio o nulo");
             }
+
+            Productos.Prop_Categoria = Prop_Categoria;
         }
         private void pasarDatosConsulta()
         {
@@ -255,6 +258,3 @@ namespace Logica
         }
     }
 }
-
-
-/* Prop_CantDesde // Prop_CantHasta // Prop_PrecDesde // Prop_PrecHasta // Prop_NLoteBusq // Prop_VtoDesde // Prop_VtoHasta */

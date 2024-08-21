@@ -83,7 +83,7 @@ namespace Vista
 
         private void Btn_ModuloInventario_Click(object sender, EventArgs e)
         {
-            Lbl_CantBusq stock = new Lbl_CantBusq();
+            CV_Stock stock = new CV_Stock();
             stock.Show();
         }
     }

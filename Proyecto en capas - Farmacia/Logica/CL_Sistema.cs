@@ -18,6 +18,7 @@ namespace Logica
         public bool MayusMinus { get; set; }
         public bool NumerosYLetras { get; set; }
         public int AvisosVtoProductos { get; set; }
+        public int CantMinimadeStock { get; set; }
         #endregion
 
         public DataTable CargarConfiguracion() 
@@ -38,6 +39,7 @@ namespace Logica
             sistema.MayusMinus= MayusMinus;
             sistema.NumerosYLetras = NumerosYLetras;
             sistema.AvisosVtoProductos = AvisosVtoProductos;
+            sistema.AvisosVtoProductos = CantMinimadeStock;
 
         }
     }

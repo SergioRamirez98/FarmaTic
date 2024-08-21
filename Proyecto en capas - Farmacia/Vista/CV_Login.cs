@@ -23,8 +23,8 @@ namespace Vista
         private void Btn_Ingresar_Click(object sender, EventArgs e)
         {
             // A MODO DE PRUEBA!!!!
-
-            Lbl_CantBusq STOQ = new Lbl_CantBusq();
+                        
+            CV_Stock STOQ = new CV_Stock();
             STOQ.Show();
 
 

@@ -36,7 +36,10 @@
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.Nud_VtoProd = new System.Windows.Forms.NumericUpDown();
             this.Lbl_DiasVtoProd = new System.Windows.Forms.Label();
+            this.Nud_CantMinStock = new System.Windows.Forms.NumericUpDown();
+            this.Lbl_CantMinStock = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).BeginInit();
             this.SuspendLayout();
             // 
             // Chb_MinCaracteres
@@ -73,7 +76,7 @@
             // Chb_DatosPersonales
             // 
             this.Chb_DatosPersonales.AutoSize = true;
-            this.Chb_DatosPersonales.Location = new System.Drawing.Point(321, 26);
+            this.Chb_DatosPersonales.Location = new System.Drawing.Point(12, 170);
             this.Chb_DatosPersonales.Name = "Chb_DatosPersonales";
             this.Chb_DatosPersonales.Size = new System.Drawing.Size(202, 20);
             this.Chb_DatosPersonales.TabIndex = 3;
@@ -83,7 +86,7 @@
             // Chb_NumYLetras
             // 
             this.Chb_NumYLetras.AutoSize = true;
-            this.Chb_NumYLetras.Location = new System.Drawing.Point(321, 70);
+            this.Chb_NumYLetras.Location = new System.Drawing.Point(312, 26);
             this.Chb_NumYLetras.Name = "Chb_NumYLetras";
             this.Chb_NumYLetras.Size = new System.Drawing.Size(184, 20);
             this.Chb_NumYLetras.TabIndex = 4;
@@ -102,7 +105,7 @@
             // 
             // Nud_VtoProd
             // 
-            this.Nud_VtoProd.Location = new System.Drawing.Point(321, 120);
+            this.Nud_VtoProd.Location = new System.Drawing.Point(312, 78);
             this.Nud_VtoProd.Name = "Nud_VtoProd";
             this.Nud_VtoProd.Size = new System.Drawing.Size(41, 22);
             this.Nud_VtoProd.TabIndex = 6;
@@ -115,17 +118,40 @@
             // Lbl_DiasVtoProd
             // 
             this.Lbl_DiasVtoProd.AutoSize = true;
-            this.Lbl_DiasVtoProd.Location = new System.Drawing.Point(368, 123);
+            this.Lbl_DiasVtoProd.Location = new System.Drawing.Point(365, 80);
             this.Lbl_DiasVtoProd.Name = "Lbl_DiasVtoProd";
             this.Lbl_DiasVtoProd.Size = new System.Drawing.Size(179, 16);
             this.Lbl_DiasVtoProd.TabIndex = 7;
             this.Lbl_DiasVtoProd.Text = "Aviso de dias Vto. Productos";
             // 
+            // Nud_CantMinStock
+            // 
+            this.Nud_CantMinStock.Location = new System.Drawing.Point(312, 121);
+            this.Nud_CantMinStock.Name = "Nud_CantMinStock";
+            this.Nud_CantMinStock.Size = new System.Drawing.Size(41, 22);
+            this.Nud_CantMinStock.TabIndex = 8;
+            this.Nud_CantMinStock.Value = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            // 
+            // Lbl_CantMinStock
+            // 
+            this.Lbl_CantMinStock.AutoSize = true;
+            this.Lbl_CantMinStock.Location = new System.Drawing.Point(365, 123);
+            this.Lbl_CantMinStock.Name = "Lbl_CantMinStock";
+            this.Lbl_CantMinStock.Size = new System.Drawing.Size(161, 16);
+            this.Lbl_CantMinStock.TabIndex = 9;
+            this.Lbl_CantMinStock.Text = "Cantidad minima de stock";
+            // 
             // CV_Configuracion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 203);
+            this.ClientSize = new System.Drawing.Size(556, 238);
+            this.Controls.Add(this.Lbl_CantMinStock);
+            this.Controls.Add(this.Nud_CantMinStock);
             this.Controls.Add(this.Lbl_DiasVtoProd);
             this.Controls.Add(this.Nud_VtoProd);
             this.Controls.Add(this.Btn_Guardar);
@@ -139,6 +165,7 @@
             this.Text = "Configuración de contraseñas";
             this.Load += new System.EventHandler(this.CV_Configuracion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -154,5 +181,7 @@
         private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.NumericUpDown Nud_VtoProd;
         private System.Windows.Forms.Label Lbl_DiasVtoProd;
+        private System.Windows.Forms.NumericUpDown Nud_CantMinStock;
+        private System.Windows.Forms.Label Lbl_CantMinStock;
     }
 }

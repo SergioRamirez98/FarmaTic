@@ -3,19 +3,19 @@
   "WorkspaceRootPath": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\logica\\cl_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\logica\\cl_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|solutionrelative:logica\\cl_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\vista\\cv_controlvencimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_controlvencimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\vista\\cv_controlvencimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_controlvencimientos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\datos\\cd_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\datos\\cd_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|solutionrelative:datos\\cd_productos.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Bookmark",
@@ -35,14 +35,15 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "CV_ControlVencimientos.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_ControlVencimientos.cs",
-              "RelativeDocumentMoniker": "Vista\\CV_ControlVencimientos.cs",
-              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_ControlVencimientos.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Vista\\CV_ControlVencimientos.cs [Dise\u00F1o]",
+              "Title": "CL_Productos.cs",
+              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Logica\\CL_Productos.cs",
+              "RelativeDocumentMoniker": "Logica\\CL_Productos.cs",
+              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Logica\\CL_Productos.cs",
+              "RelativeToolTip": "Logica\\CL_Productos.cs",
+              "ViewState": "AQIAADQAAAAAAAAAAIAzwFQAAAAmAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-19T01:04:48.512Z",
-              "EditorCaption": " [Dise\u00F1o]"
+              "WhenOpened": "2024-08-21T00:50:45.048Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -52,35 +53,34 @@
               "RelativeDocumentMoniker": "Datos\\CD_Productos.cs",
               "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Datos\\CD_Productos.cs",
               "RelativeToolTip": "Datos\\CD_Productos.cs",
-              "ViewState": "AQIAAD0AAAAAAAAAAAArwDgAAAAMAAAA",
+              "ViewState": "AQIAAHsAAAAAAAAAAAA6wI0AAAAzAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T13:39:08.034Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CL_Productos.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Logica\\CL_Productos.cs",
-              "RelativeDocumentMoniker": "Logica\\CL_Productos.cs",
-              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Logica\\CL_Productos.cs",
-              "RelativeToolTip": "Logica\\CL_Productos.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAArwCUAAAAuAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T15:30:26.048Z",
+              "WhenOpened": "2024-08-20T23:32:02.797Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "CV_ControlVencimientos.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_ControlVencimientos.cs",
-              "RelativeDocumentMoniker": "Vista\\CV_ControlVencimientos.cs",
-              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_ControlVencimientos.cs",
-              "RelativeToolTip": "Vista\\CV_ControlVencimientos.cs",
-              "ViewState": "AQIAABoAAAAAAAAAAAAhwC0AAAA8AAAA",
+              "Title": "CV_GestionStock.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs",
+              "RelativeDocumentMoniker": "Vista\\CV_GestionStock.cs",
+              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs [Dise\u00F1o]",
+              "RelativeToolTip": "Vista\\CV_GestionStock.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-17T15:26:35.16Z",
+              "WhenOpened": "2024-08-21T00:42:07.985Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CV_GestionStock.cs",
+              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs",
+              "RelativeDocumentMoniker": "Vista\\CV_GestionStock.cs",
+              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs",
+              "RelativeToolTip": "Vista\\CV_GestionStock.cs",
+              "ViewState": "AQIAAGYBAAAAAAAAAAAkwG8BAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-21T00:42:02.724Z",
               "EditorCaption": ""
             }
           ]

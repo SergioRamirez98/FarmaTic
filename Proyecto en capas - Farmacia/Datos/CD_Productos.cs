@@ -21,6 +21,7 @@ namespace Datos
         public int Prop_NumLote { get; set; }
         public int Prop_ID_Producto { get; set; }
         public DateTime Prop_VtoProd { get; set; }
+        public string Prop_Categoria { get; set; }
 
         SqlParameter[] lista = null;
         #endregion
@@ -55,7 +56,7 @@ namespace Datos
         {
             string sSql = "SP_Vto_Productos";
             SqlParameter param_Dias_Vto = new SqlParameter("@Dias_Vto", SqlDbType.VarChar, 200);
-            param_Dias_Vto.Value = CSistema_ConfSistema.AvisosVtoProductos; //el valor de configuracion vto dias
+            param_Dias_Vto.Value = CSistema_ConfSistema.AvisosVtoProductos; 
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_Dias_Vto);
@@ -139,6 +140,8 @@ namespace Datos
                 param_VtoProd.Value = Prop_VtoProd;
                 SqlParameter param_NumLote = new SqlParameter("@NumLote", SqlDbType.Int);
                 param_NumLote.Value = Prop_NumLote;
+                SqlParameter param_Categoria = new SqlParameter("@Categoria", SqlDbType.VarChar, 200);
+                param_Categoria.Value = Prop_Categoria;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_Nombre);
@@ -148,7 +151,7 @@ namespace Datos
                 listaParametros.Add(param_Precio);
                 listaParametros.Add(param_NumLote);
                 listaParametros.Add(param_VtoProd);
-
+                listaParametros.Add(param_Categoria);
                 lista = listaParametros.ToArray();
 
                 ejecutar(sSql, lista, false);

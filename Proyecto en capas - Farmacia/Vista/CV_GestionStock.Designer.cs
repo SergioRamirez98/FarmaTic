@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class Lbl_CantBusq
+    partial class CV_Stock
     {
         /// <summary>
         /// Required designer variable.
@@ -66,6 +66,8 @@
             this.Dtp_VtoDesde = new System.Windows.Forms.DateTimePicker();
             this.Btn_VtoProductos = new System.Windows.Forms.Button();
             this.Btn_StockCritico = new System.Windows.Forms.Button();
+            this.Lbl_Categoria = new System.Windows.Forms.Label();
+            this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
@@ -105,28 +107,28 @@
             // 
             // Txb_Precio
             // 
-            this.Txb_Precio.Location = new System.Drawing.Point(629, 50);
+            this.Txb_Precio.Location = new System.Drawing.Point(629, 100);
             this.Txb_Precio.Name = "Txb_Precio";
-            this.Txb_Precio.Size = new System.Drawing.Size(107, 22);
-            this.Txb_Precio.TabIndex = 5;
+            this.Txb_Precio.Size = new System.Drawing.Size(121, 22);
+            this.Txb_Precio.TabIndex = 6;
             this.Txb_Precio.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_NumLote
             // 
-            this.Txb_NumLote.Location = new System.Drawing.Point(629, 100);
+            this.Txb_NumLote.Location = new System.Drawing.Point(629, 150);
             this.Txb_NumLote.Name = "Txb_NumLote";
-            this.Txb_NumLote.Size = new System.Drawing.Size(107, 22);
-            this.Txb_NumLote.TabIndex = 6;
+            this.Txb_NumLote.Size = new System.Drawing.Size(121, 22);
+            this.Txb_NumLote.TabIndex = 7;
             this.Txb_NumLote.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Dtp_FeVto
             // 
             this.Dtp_FeVto.CustomFormat = "dd/MM/yyyy";
             this.Dtp_FeVto.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_FeVto.Location = new System.Drawing.Point(630, 150);
+            this.Dtp_FeVto.Location = new System.Drawing.Point(630, 200);
             this.Dtp_FeVto.Name = "Dtp_FeVto";
-            this.Dtp_FeVto.Size = new System.Drawing.Size(107, 22);
-            this.Dtp_FeVto.TabIndex = 7;
+            this.Dtp_FeVto.Size = new System.Drawing.Size(121, 22);
+            this.Dtp_FeVto.TabIndex = 8;
             // 
             // Lbl_Nombre
             // 
@@ -167,7 +169,7 @@
             // Lbl_Vto
             // 
             this.Lbl_Vto.AutoSize = true;
-            this.Lbl_Vto.Location = new System.Drawing.Point(528, 150);
+            this.Lbl_Vto.Location = new System.Drawing.Point(528, 200);
             this.Lbl_Vto.Name = "Lbl_Vto";
             this.Lbl_Vto.Size = new System.Drawing.Size(81, 16);
             this.Lbl_Vto.TabIndex = 14;
@@ -176,7 +178,7 @@
             // Lbl_NroLote
             // 
             this.Lbl_NroLote.AutoSize = true;
-            this.Lbl_NroLote.Location = new System.Drawing.Point(528, 100);
+            this.Lbl_NroLote.Location = new System.Drawing.Point(528, 150);
             this.Lbl_NroLote.Name = "Lbl_NroLote";
             this.Lbl_NroLote.Size = new System.Drawing.Size(50, 16);
             this.Lbl_NroLote.TabIndex = 13;
@@ -185,7 +187,7 @@
             // Lbl_Precio
             // 
             this.Lbl_Precio.AutoSize = true;
-            this.Lbl_Precio.Location = new System.Drawing.Point(528, 50);
+            this.Lbl_Precio.Location = new System.Drawing.Point(528, 100);
             this.Lbl_Precio.Name = "Lbl_Precio";
             this.Lbl_Precio.Size = new System.Drawing.Size(46, 16);
             this.Lbl_Precio.TabIndex = 12;
@@ -196,7 +198,7 @@
             this.Btn_Agregar.Location = new System.Drawing.Point(865, 36);
             this.Btn_Agregar.Name = "Btn_Agregar";
             this.Btn_Agregar.Size = new System.Drawing.Size(75, 30);
-            this.Btn_Agregar.TabIndex = 15;
+            this.Btn_Agregar.TabIndex = 10;
             this.Btn_Agregar.Text = "Agregar";
             this.Btn_Agregar.UseVisualStyleBackColor = true;
             this.Btn_Agregar.Click += new System.EventHandler(this.Btn_Agregar_Click);
@@ -206,7 +208,7 @@
             this.Btn_Buscar.Location = new System.Drawing.Point(865, 77);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(75, 29);
-            this.Btn_Buscar.TabIndex = 16;
+            this.Btn_Buscar.TabIndex = 11;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
             this.Btn_Buscar.Click += new System.EventHandler(this.Btn_Buscar_Click);
@@ -216,7 +218,7 @@
             this.Btn_Modificar.Location = new System.Drawing.Point(865, 112);
             this.Btn_Modificar.Name = "Btn_Modificar";
             this.Btn_Modificar.Size = new System.Drawing.Size(75, 29);
-            this.Btn_Modificar.TabIndex = 17;
+            this.Btn_Modificar.TabIndex = 12;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
             this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
@@ -226,7 +228,7 @@
             this.Btn_GuardarCambios.Location = new System.Drawing.Point(865, 147);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
             this.Btn_GuardarCambios.Size = new System.Drawing.Size(75, 30);
-            this.Btn_GuardarCambios.TabIndex = 18;
+            this.Btn_GuardarCambios.TabIndex = 13;
             this.Btn_GuardarCambios.Text = "Guardar";
             this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
             this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_GuardarCambios_Click);
@@ -234,7 +236,7 @@
             // DTGV_Productos
             // 
             this.DTGV_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_Productos.Location = new System.Drawing.Point(11, 250);
+            this.DTGV_Productos.Location = new System.Drawing.Point(12, 266);
             this.DTGV_Productos.Name = "DTGV_Productos";
             this.DTGV_Productos.RowHeadersWidth = 51;
             this.DTGV_Productos.RowTemplate.Height = 24;
@@ -247,7 +249,7 @@
             this.Btn_Eliminar.Location = new System.Drawing.Point(865, 183);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 31);
-            this.Btn_Eliminar.TabIndex = 20;
+            this.Btn_Eliminar.TabIndex = 14;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
             this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
@@ -255,10 +257,10 @@
             // Chb_Busqueda
             // 
             this.Chb_Busqueda.AutoSize = true;
-            this.Chb_Busqueda.Location = new System.Drawing.Point(531, 224);
+            this.Chb_Busqueda.Location = new System.Drawing.Point(531, 240);
             this.Chb_Busqueda.Name = "Chb_Busqueda";
             this.Chb_Busqueda.Size = new System.Drawing.Size(220, 20);
-            this.Chb_Busqueda.TabIndex = 21;
+            this.Chb_Busqueda.TabIndex = 9;
             this.Chb_Busqueda.Text = "¿Desea realizar una busqueda?";
             this.Chb_Busqueda.UseVisualStyleBackColor = true;
             this.Chb_Busqueda.CheckedChanged += new System.EventHandler(this.Chb_Busqueda_CheckedChanged);
@@ -279,15 +281,15 @@
             this.Pnl_Busqueda.Controls.Add(this.Txb_NLoteBusq);
             this.Pnl_Busqueda.Controls.Add(this.Lbl_PrecDesde);
             this.Pnl_Busqueda.Controls.Add(this.Dtp_VtoDesde);
-            this.Pnl_Busqueda.Location = new System.Drawing.Point(474, 47);
+            this.Pnl_Busqueda.Location = new System.Drawing.Point(474, 36);
             this.Pnl_Busqueda.Name = "Pnl_Busqueda";
-            this.Pnl_Busqueda.Size = new System.Drawing.Size(385, 169);
+            this.Pnl_Busqueda.Size = new System.Drawing.Size(385, 198);
             this.Pnl_Busqueda.TabIndex = 22;
             // 
             // Lbl_VtoHasta
             // 
             this.Lbl_VtoHasta.AutoSize = true;
-            this.Lbl_VtoHasta.Location = new System.Drawing.Point(7, 145);
+            this.Lbl_VtoHasta.Location = new System.Drawing.Point(4, 173);
             this.Lbl_VtoHasta.Name = "Lbl_VtoHasta";
             this.Lbl_VtoHasta.Size = new System.Drawing.Size(43, 16);
             this.Lbl_VtoHasta.TabIndex = 34;
@@ -315,7 +317,7 @@
             // 
             this.Dtp_VtoHasta.CustomFormat = "dd/MM/yyyy";
             this.Dtp_VtoHasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_VtoHasta.Location = new System.Drawing.Point(269, 145);
+            this.Dtp_VtoHasta.Location = new System.Drawing.Point(266, 173);
             this.Dtp_VtoHasta.Name = "Dtp_VtoHasta";
             this.Dtp_VtoHasta.Size = new System.Drawing.Size(107, 22);
             this.Dtp_VtoHasta.TabIndex = 31;
@@ -350,7 +352,7 @@
             // Lbl_VtoDesde
             // 
             this.Lbl_VtoDesde.AutoSize = true;
-            this.Lbl_VtoDesde.Location = new System.Drawing.Point(6, 117);
+            this.Lbl_VtoDesde.Location = new System.Drawing.Point(3, 145);
             this.Lbl_VtoDesde.Name = "Lbl_VtoDesde";
             this.Lbl_VtoDesde.Size = new System.Drawing.Size(181, 16);
             this.Lbl_VtoDesde.TabIndex = 28;
@@ -403,7 +405,7 @@
             // 
             this.Dtp_VtoDesde.CustomFormat = "dd/MM/yyyy";
             this.Dtp_VtoDesde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_VtoDesde.Location = new System.Drawing.Point(269, 117);
+            this.Dtp_VtoDesde.Location = new System.Drawing.Point(266, 145);
             this.Dtp_VtoDesde.Name = "Dtp_VtoDesde";
             this.Dtp_VtoDesde.Size = new System.Drawing.Size(106, 22);
             this.Dtp_VtoDesde.TabIndex = 25;
@@ -413,7 +415,7 @@
             this.Btn_VtoProductos.Location = new System.Drawing.Point(1084, 56);
             this.Btn_VtoProductos.Name = "Btn_VtoProductos";
             this.Btn_VtoProductos.Size = new System.Drawing.Size(121, 60);
-            this.Btn_VtoProductos.TabIndex = 23;
+            this.Btn_VtoProductos.TabIndex = 15;
             this.Btn_VtoProductos.Text = "Tiene productos próximos a vencer";
             this.Btn_VtoProductos.UseVisualStyleBackColor = true;
             this.Btn_VtoProductos.Click += new System.EventHandler(this.Btn_VtoProductos_Click);
@@ -423,15 +425,34 @@
             this.Btn_StockCritico.Location = new System.Drawing.Point(1084, 131);
             this.Btn_StockCritico.Name = "Btn_StockCritico";
             this.Btn_StockCritico.Size = new System.Drawing.Size(121, 60);
-            this.Btn_StockCritico.TabIndex = 24;
+            this.Btn_StockCritico.TabIndex = 16;
             this.Btn_StockCritico.Text = "Tiene productos con bajo stock";
             this.Btn_StockCritico.UseVisualStyleBackColor = true;
             // 
-            // Lbl_CantBusq
+            // Lbl_Categoria
+            // 
+            this.Lbl_Categoria.AutoSize = true;
+            this.Lbl_Categoria.Location = new System.Drawing.Point(528, 56);
+            this.Lbl_Categoria.Name = "Lbl_Categoria";
+            this.Lbl_Categoria.Size = new System.Drawing.Size(66, 16);
+            this.Lbl_Categoria.TabIndex = 26;
+            this.Lbl_Categoria.Text = "Categoria";
+            // 
+            // Cmb_Categoria
+            // 
+            this.Cmb_Categoria.FormattingEnabled = true;
+            this.Cmb_Categoria.Location = new System.Drawing.Point(629, 56);
+            this.Cmb_Categoria.Name = "Cmb_Categoria";
+            this.Cmb_Categoria.Size = new System.Drawing.Size(121, 24);
+            this.Cmb_Categoria.TabIndex = 5;
+            // 
+            // CV_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1365, 697);
+            this.Controls.Add(this.Cmb_Categoria);
+            this.Controls.Add(this.Lbl_Categoria);
             this.Controls.Add(this.Btn_StockCritico);
             this.Controls.Add(this.Btn_VtoProductos);
             this.Controls.Add(this.Pnl_Busqueda);
@@ -456,7 +477,7 @@
             this.Controls.Add(this.Txb_Marca);
             this.Controls.Add(this.Txb_Nombre);
             this.Controls.Add(this.DTGV_Productos);
-            this.Name = "Lbl_CantBusq";
+            this.Name = "CV_Stock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de inventario";
             this.Load += new System.EventHandler(this.CV_GestionStock_Load);
@@ -508,5 +529,7 @@
         private System.Windows.Forms.DateTimePicker Dtp_VtoDesde;
         private System.Windows.Forms.Button Btn_VtoProductos;
         private System.Windows.Forms.Button Btn_StockCritico;
+        private System.Windows.Forms.Label Lbl_Categoria;
+        private System.Windows.Forms.ComboBox Cmb_Categoria;
     }
 }

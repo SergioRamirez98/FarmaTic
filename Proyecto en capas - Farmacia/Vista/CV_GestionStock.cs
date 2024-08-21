@@ -15,10 +15,10 @@ using Servicios;
 
 namespace Vista
 {
-    public partial class Lbl_CantBusq : Form
+    public partial class CV_Stock : Form
     {
         CL_Productos Productos = new CL_Productos();
-        public Lbl_CantBusq()
+        public CV_Stock()
         {
             InitializeComponent();
         }
@@ -46,7 +46,26 @@ namespace Vista
 
             }
             else {reestablecerControles(); CServ_LimpiarControles.LimpiarFormulario(this); desbloquearControles(); }
-            
+
+        }
+        private void CV_GestionStock_Click(object sender, EventArgs e)
+        {
+            configurarLoad();
+            desbloquearControles();
+        }
+        private void DTGV_Productos_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Chb_Busqueda.Checked = false;
+            cargarControles();
+            bloquearControles();
+            if (Pnl_Busqueda.Visible)
+            {
+                Chb_Busqueda.Checked = false;
+
+            }
+            Btn_Modificar.Enabled = true;
+            Btn_Agregar.Enabled = false;
+            Btn_GuardarCambios.Enabled = false;
         }
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {
@@ -85,20 +104,6 @@ namespace Vista
             }
             
         }
-        private void DTGV_Productos_CellClick(object sender, DataGridViewCellEventArgs e)
-        { 
-            Chb_Busqueda.Checked = false;
-            cargarControles();
-            bloquearControles();
-            if (Pnl_Busqueda.Visible)
-            {
-                Chb_Busqueda.Checked = false;
-                
-            }
-            Btn_Modificar.Enabled = true;
-            Btn_Agregar.Enabled = false;            
-            Btn_GuardarCambios.Enabled = false;
-        }
         private void Btn_Modificar_Click(object sender, EventArgs e)
         {
             desbloquearControles();
@@ -108,11 +113,6 @@ namespace Vista
         {
             pasarDatos();
             Productos.ConsultarProductos();
-        }
-        private void CV_GestionStock_Click(object sender, EventArgs e)
-        {
-            configurarLoad();
-            desbloquearControles();         
         }
         private void Btn_GuardarCambios_Click(object sender, EventArgs e)
         {
@@ -193,6 +193,16 @@ namespace Vista
         {
             DTGV_Productos.DataSource = null;
             DTGV_Productos.DataSource = Productos.MostrarProductos("");
+            DTGV_Productos.Columns[0].DisplayIndex = 0;
+            DTGV_Productos.Columns[1].DisplayIndex = 1;
+            DTGV_Productos.Columns[2].DisplayIndex = 2;
+            DTGV_Productos.Columns[3].DisplayIndex = 4;
+            DTGV_Productos.Columns[4].DisplayIndex = 5;
+            DTGV_Productos.Columns[5].DisplayIndex = 6;
+            DTGV_Productos.Columns[6].DisplayIndex = 7;
+            DTGV_Productos.Columns[7].DisplayIndex = 8;
+            DTGV_Productos.Columns[8].DisplayIndex = 3;
+
             DTGV_Productos.Columns[0].HeaderText = "ID del producto";
             DTGV_Productos.Columns[1].HeaderText = "Nombre del producto";
             DTGV_Productos.Columns[2].HeaderText = "Marca";
@@ -201,6 +211,7 @@ namespace Vista
             DTGV_Productos.Columns[5].HeaderText = "Precio unitario";
             DTGV_Productos.Columns[6].HeaderText = "Vencimiento";
             DTGV_Productos.Columns[7].HeaderText = "Numero de lote";
+            DTGV_Productos.Columns[8].HeaderText = "Categoría";
         }        
         private void pasarDatos()
         {
@@ -211,6 +222,7 @@ namespace Vista
             Productos.Prop_Precio = Txb_Precio.Text;
             Productos.Prop_NumLote = Txb_NumLote.Text;
             Productos.Prop_VtoProd = Dtp_FeVto.Value.ToString("yyyy-MM-dd 00:00:00");
+            Productos.Prop_Categoria = Cmb_Categoria.Text;
 
             if (Chb_Busqueda.Checked)
             {
@@ -299,7 +311,12 @@ namespace Vista
             Lbl_Vto.Visible = false;
             Dtp_FeVto.Visible = false;
             Dtp_FeVto.Enabled = false;
-            
+
+            Lbl_Categoria.Visible = false;
+            Cmb_Categoria.Visible = false;
+            Cmb_Categoria.Enabled = false;
+
+
             Btn_Buscar.Enabled = true;
             Btn_Agregar.Enabled = false;
             
@@ -325,6 +342,10 @@ namespace Vista
             Dtp_FeVto.Visible = true;
             Dtp_FeVto.Enabled = true;
 
+            Lbl_Categoria.Visible = true;
+            Cmb_Categoria.Visible = true;
+            Cmb_Categoria.Enabled = true;
+
             Btn_Buscar.Enabled = false;
             Btn_Agregar.Enabled = true;
         }
@@ -338,6 +359,13 @@ namespace Vista
             Btn_Buscar.Enabled = false;
             Btn_GuardarCambios.Enabled = false;
             Btn_Eliminar.Enabled = true;
+            Cmb_Categoria.Items.Add("Medicamentos");
+            Cmb_Categoria.Items.Add("Cuidado personal");
+            Cmb_Categoria.Items.Add("Higiene");
+            Cmb_Categoria.Items.Add("Cuidado bucal");
+            Cmb_Categoria.Items.Add("Suplementos");
+            Cmb_Categoria.Items.Add("Primeros auxilios");
+
             Dtp_VtoHasta.Value = DateTime.Now.AddYears(2);
             DataTable Dt = Productos.CargarVtoProductos();
             if (Dt.Rows.Count>0)
