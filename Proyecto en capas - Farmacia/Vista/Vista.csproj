@@ -88,6 +88,12 @@
     <Compile Include="CV_Menu.Designer.cs">
       <DependentUpon>CV_Menu.cs</DependentUpon>
     </Compile>
+    <Compile Include="CV_ProdVencido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CV_ProdVencido.Designer.cs">
+      <DependentUpon>CV_ProdVencido.cs</DependentUpon>
+    </Compile>
     <Compile Include="CV_StockMinimo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CV_Menu.resx">
       <DependentUpon>CV_Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CV_ProdVencido.resx">
+      <DependentUpon>CV_ProdVencido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CV_StockMinimo.resx">
       <DependentUpon>CV_StockMinimo.cs</DependentUpon>

@@ -18,7 +18,6 @@ namespace Vista
         {
             InitializeComponent();
         }
-
         private void CV_ControlVencimientos_Load(object sender, EventArgs e)
         {
             configurarDTGV();

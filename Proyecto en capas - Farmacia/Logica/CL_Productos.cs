@@ -49,6 +49,15 @@ namespace Logica
         {
             return Productos.StockMinimo();
         }
+        public DataTable CargarProdVencidos()
+        {
+            return Productos.ProductosVencidos();
+        }
+        public void EliminarProductosVencidos() 
+        { 
+            DateTime FechaActual = DateTime.Today;
+            Productos.ElimProdVencidos(FechaActual); 
+        }
         public void InsertarProducto() 
         {
             pasarDatos(false);

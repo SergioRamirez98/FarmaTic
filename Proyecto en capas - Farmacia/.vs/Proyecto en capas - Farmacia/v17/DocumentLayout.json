@@ -1,16 +1,7 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\",
-  "Documents": [
-    {
-      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\cv_gestionstock.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    }
-  ],
+  "Documents": [],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -18,36 +9,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 1,
+          "SelectedChildIndex": -1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "CV_GestionStock.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs",
-              "RelativeDocumentMoniker": "Vista\\CV_GestionStock.cs",
-              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs",
-              "RelativeToolTip": "Vista\\CV_GestionStock.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAmwAwBAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T13:43:11.058Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CV_GestionStock.cs [Dise\u00F1o]",
-              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs",
-              "RelativeDocumentMoniker": "Vista\\CV_GestionStock.cs",
-              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\CV_GestionStock.cs [Dise\u00F1o]",
-              "RelativeToolTip": "Vista\\CV_GestionStock.cs [Dise\u00F1o]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-21T16:19:00.865Z",
-              "EditorCaption": " [Dise\u00F1o]"
             }
           ]
         }

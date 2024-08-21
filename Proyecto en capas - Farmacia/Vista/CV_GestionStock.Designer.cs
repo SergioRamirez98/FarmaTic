@@ -68,6 +68,7 @@
             this.Btn_StockCritico = new System.Windows.Forms.Button();
             this.Lbl_Categoria = new System.Windows.Forms.Label();
             this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
+            this.Btn_VerProdVencidos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
@@ -412,7 +413,7 @@
             // 
             // Btn_VtoProductos
             // 
-            this.Btn_VtoProductos.Location = new System.Drawing.Point(1084, 56);
+            this.Btn_VtoProductos.Location = new System.Drawing.Point(1088, 31);
             this.Btn_VtoProductos.Name = "Btn_VtoProductos";
             this.Btn_VtoProductos.Size = new System.Drawing.Size(121, 60);
             this.Btn_VtoProductos.TabIndex = 15;
@@ -422,7 +423,7 @@
             // 
             // Btn_StockCritico
             // 
-            this.Btn_StockCritico.Location = new System.Drawing.Point(1084, 131);
+            this.Btn_StockCritico.Location = new System.Drawing.Point(1088, 106);
             this.Btn_StockCritico.Name = "Btn_StockCritico";
             this.Btn_StockCritico.Size = new System.Drawing.Size(121, 60);
             this.Btn_StockCritico.TabIndex = 16;
@@ -447,11 +448,22 @@
             this.Cmb_Categoria.Size = new System.Drawing.Size(121, 24);
             this.Cmb_Categoria.TabIndex = 5;
             // 
+            // Btn_VerProdVencidos
+            // 
+            this.Btn_VerProdVencidos.Location = new System.Drawing.Point(1088, 187);
+            this.Btn_VerProdVencidos.Name = "Btn_VerProdVencidos";
+            this.Btn_VerProdVencidos.Size = new System.Drawing.Size(121, 60);
+            this.Btn_VerProdVencidos.TabIndex = 27;
+            this.Btn_VerProdVencidos.Text = "Ver productos vencidos";
+            this.Btn_VerProdVencidos.UseVisualStyleBackColor = true;
+            this.Btn_VerProdVencidos.Click += new System.EventHandler(this.Btn_VerProdVencidos_Click);
+            // 
             // CV_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1365, 697);
+            this.Controls.Add(this.Btn_VerProdVencidos);
             this.Controls.Add(this.Cmb_Categoria);
             this.Controls.Add(this.Lbl_Categoria);
             this.Controls.Add(this.Btn_StockCritico);
@@ -532,5 +544,6 @@
         private System.Windows.Forms.Button Btn_StockCritico;
         private System.Windows.Forms.Label Lbl_Categoria;
         private System.Windows.Forms.ComboBox Cmb_Categoria;
+        private System.Windows.Forms.Button Btn_VerProdVencidos;
     }
 }

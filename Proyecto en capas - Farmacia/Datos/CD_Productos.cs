@@ -139,7 +139,22 @@ namespace Datos
 
                 throw new Exception("Error al comprobar los datos en la base de datos.");
             }
-        }        
+        }
+        public DataTable ProductosVencidos()
+        {
+            string sSql = "SP_Obtener_Productos_Vencidos";
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            SqlParameter[] parametros = listaParametros.ToArray();
+            try
+            {
+                return ejecutar(sSql, parametros, true);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al conectar con la base de datos.");
+            }
+        }
         public void Insertar()
         {
             try
@@ -235,6 +250,28 @@ namespace Datos
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_ID_Producto);
+
+                lista = listaParametros.ToArray();
+
+                ejecutar(sSql, lista, false);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al eliminar los datos seleccionados.");
+            }
+        }
+        public void ElimProdVencidos(DateTime FechaActual)
+        {
+            try
+            {
+                string sSql = "SP_Eliminar_Prod_Vencidos";
+                SqlParameter param_FeActual = new SqlParameter("@ID_Producto", SqlDbType.Date);
+                param_FeActual.Value = FechaActual;
+
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_FeActual);
 
                 lista = listaParametros.ToArray();
 

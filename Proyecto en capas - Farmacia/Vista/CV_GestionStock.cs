@@ -26,6 +26,7 @@ namespace Vista
         private void CV_GestionStock_Load(object sender, EventArgs e)
         {
             configurarDTGV();
+            Productos.EliminarProductosVencidos();
             mostrarProductos();
             configurarLoad();
         }
@@ -174,6 +175,11 @@ namespace Vista
         {
             CV_StockMinimo ControldeVencimientos = new CV_StockMinimo();
             ControldeVencimientos.Show();
+        }
+        private void Btn_VerProdVencidos_Click(object sender, EventArgs e)
+        {
+            CV_ProdVencido ProductosVencidos = new CV_ProdVencido();
+            ProductosVencidos.Show();
         }
         #endregion
 
@@ -414,6 +420,7 @@ namespace Vista
             }
 
         }
+
 
 
         #endregion
