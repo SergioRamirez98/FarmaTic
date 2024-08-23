@@ -267,7 +267,7 @@ namespace Datos
             try
             {
                 string sSql = "SP_Eliminar_Prod_Vencidos";
-                SqlParameter param_FeActual = new SqlParameter("@ID_Producto", SqlDbType.Date);
+                SqlParameter param_FeActual = new SqlParameter("@FeActual", SqlDbType.Date);
                 param_FeActual.Value = FechaActual;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();

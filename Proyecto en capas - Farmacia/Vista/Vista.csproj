@@ -46,87 +46,87 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CV_Configuracion.cs">
+    <Compile Include="FormulariosMenu\CV_Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_Configuracion.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_Configuracion.Designer.cs">
       <DependentUpon>CV_Configuracion.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_ControlVencimientos.cs">
+    <Compile Include="FormulariosMenu\CV_ControlVencimientos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_ControlVencimientos.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_ControlVencimientos.Designer.cs">
       <DependentUpon>CV_ControlVencimientos.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_GestionStock.cs">
+    <Compile Include="FormulariosMenu\CV_GestionStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_GestionStock.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_GestionStock.Designer.cs">
       <DependentUpon>CV_GestionStock.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_OlvidoPass.cs">
+    <Compile Include="Login\CV_OlvidoPass.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_OlvidoPass.Designer.cs">
+    <Compile Include="Login\CV_OlvidoPass.Designer.cs">
       <DependentUpon>CV_OlvidoPass.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_GestionUsuariosPersonas.cs">
+    <Compile Include="FormulariosMenu\CV_GestionUsuariosPersonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_GestionUsuariosPersonas.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_GestionUsuariosPersonas.Designer.cs">
       <DependentUpon>CV_GestionUsuariosPersonas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_Login.cs">
+    <Compile Include="Login\CV_Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_Login.Designer.cs">
+    <Compile Include="Login\CV_Login.Designer.cs">
       <DependentUpon>CV_Login.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_Menu.cs">
+    <Compile Include="FormulariosMenu\CV_Menu.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_Menu.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_Menu.Designer.cs">
       <DependentUpon>CV_Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_ProdVencido.cs">
+    <Compile Include="FormulariosMenu\CV_ProdVencido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_ProdVencido.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_ProdVencido.Designer.cs">
       <DependentUpon>CV_ProdVencido.cs</DependentUpon>
     </Compile>
-    <Compile Include="CV_StockMinimo.cs">
+    <Compile Include="FormulariosMenu\CV_StockMinimo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_StockMinimo.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_StockMinimo.Designer.cs">
       <DependentUpon>CV_StockMinimo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CV_Configuracion.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_Configuracion.resx">
       <DependentUpon>CV_Configuracion.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_ControlVencimientos.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_ControlVencimientos.resx">
       <DependentUpon>CV_ControlVencimientos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_GestionStock.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_GestionStock.resx">
       <DependentUpon>CV_GestionStock.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_OlvidoPass.resx">
+    <EmbeddedResource Include="Login\CV_OlvidoPass.resx">
       <DependentUpon>CV_OlvidoPass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_GestionUsuariosPersonas.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_GestionUsuariosPersonas.resx">
       <DependentUpon>CV_GestionUsuariosPersonas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_Login.resx">
+    <EmbeddedResource Include="Login\CV_Login.resx">
       <DependentUpon>CV_Login.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_Menu.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_Menu.resx">
       <DependentUpon>CV_Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_ProdVencido.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_ProdVencido.resx">
       <DependentUpon>CV_ProdVencido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CV_StockMinimo.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_StockMinimo.resx">
       <DependentUpon>CV_StockMinimo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

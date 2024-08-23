@@ -113,7 +113,7 @@ namespace Vista
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
             pasarDatos();
-            Productos.ConsultarProductos();
+            DTGV_Productos.DataSource = Productos.ConsultarProductos();
         }
         private void Btn_GuardarCambios_Click(object sender, EventArgs e)
         {
