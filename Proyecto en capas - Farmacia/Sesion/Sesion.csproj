@@ -42,6 +42,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CSesion_CacheStockMinimo.cs" />
+    <Compile Include="CSesion_CacheVtoProductos.cs" />
     <Compile Include="CSesion_PersonaSeleccionada.cs" />
     <Compile Include="CSesion_PreguntasUsuarios.cs" />
     <Compile Include="CSesion_SesionIniciada.cs" />

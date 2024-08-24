@@ -150,8 +150,7 @@ namespace Datos
                 throw new Exception("Error al conectar con la base de datos.");
             }
             return Dt;
-        }
-        
+        }        
         public bool CargarUsuarios(int ID_Persona)
         {
             string sSql = "SP_Cache_Usuarios";

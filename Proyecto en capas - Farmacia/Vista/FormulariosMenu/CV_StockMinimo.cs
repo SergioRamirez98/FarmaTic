@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Sesion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -41,7 +42,7 @@ namespace Vista
         }
         private void cargarDTGV()
         {
-            DTGV_StockMinimo.DataSource = Productos.CargarStockMinimo();           
+            DTGV_StockMinimo.DataSource = CSesion_CacheStockMinimo.ListaStockMinimo;           
 
             DTGV_StockMinimo.Columns[0].DisplayIndex = 0;
             DTGV_StockMinimo.Columns[1].DisplayIndex = 1;
@@ -53,7 +54,7 @@ namespace Vista
             DTGV_StockMinimo.Columns[7].DisplayIndex = 8;
             DTGV_StockMinimo.Columns[8].DisplayIndex = 3;
 
-            DTGV_StockMinimo.Columns[0].HeaderText = "ID del producto";
+            DTGV_StockMinimo.Columns[0].HeaderText = "ID producto";
             DTGV_StockMinimo.Columns[1].HeaderText = "Nombre del producto";
             DTGV_StockMinimo.Columns[2].HeaderText = "Marca";
             DTGV_StockMinimo.Columns[3].HeaderText = "Descripcion del producto";

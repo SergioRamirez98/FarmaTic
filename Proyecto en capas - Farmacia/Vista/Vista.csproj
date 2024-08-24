@@ -64,6 +64,12 @@
     <Compile Include="FormulariosMenu\CV_GestionStock.Designer.cs">
       <DependentUpon>CV_GestionStock.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormulariosMenu\CV_Ventas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\CV_Ventas.Designer.cs">
+      <DependentUpon>CV_Ventas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Login\CV_OlvidoPass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +116,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\CV_GestionStock.resx">
       <DependentUpon>CV_GestionStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulariosMenu\CV_Ventas.resx">
+      <DependentUpon>CV_Ventas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\CV_OlvidoPass.resx">
       <DependentUpon>CV_OlvidoPass.cs</DependentUpon>

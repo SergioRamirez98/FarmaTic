@@ -53,7 +53,7 @@ namespace Vista
             DTGV_ProductosVencidos.Columns[7].DisplayIndex = 8;
             DTGV_ProductosVencidos.Columns[8].DisplayIndex = 3;
 
-            DTGV_ProductosVencidos.Columns[0].HeaderText = "ID del producto";
+            DTGV_ProductosVencidos.Columns[0].HeaderText = "ID producto";
             DTGV_ProductosVencidos.Columns[1].HeaderText = "Nombre del producto";
             DTGV_ProductosVencidos.Columns[2].HeaderText = "Marca";
             DTGV_ProductosVencidos.Columns[3].HeaderText = "Descripcion del producto";

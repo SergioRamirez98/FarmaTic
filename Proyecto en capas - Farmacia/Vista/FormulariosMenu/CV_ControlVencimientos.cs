@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Sesion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -35,12 +36,11 @@ namespace Vista
             DTGV_Vencimientos.ReadOnly = true;
             DTGV_Vencimientos.RowHeadersVisible = false;
             DTGV_Vencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            // DTGV_Vencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;           
-
+            // DTGV_Vencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;         
         }
         private void cargarDTGV() 
         {
-            DTGV_Vencimientos.DataSource = Productos.CargarVtoProductos();
+            DTGV_Vencimientos.DataSource = CSesion_CacheVtoProductos.ListaVtoProductos; /*Productos.CargarVtoProductos();*/
 
             DTGV_Vencimientos.Columns[0].DisplayIndex = 0;
             DTGV_Vencimientos.Columns[1].DisplayIndex = 1;
@@ -52,7 +52,7 @@ namespace Vista
             DTGV_Vencimientos.Columns[7].DisplayIndex = 8;
             DTGV_Vencimientos.Columns[8].DisplayIndex = 3;
 
-            DTGV_Vencimientos.Columns[0].HeaderText = "ID del producto";
+            DTGV_Vencimientos.Columns[0].HeaderText = "ID producto";
             DTGV_Vencimientos.Columns[1].HeaderText = "Nombre del producto";
             DTGV_Vencimientos.Columns[2].HeaderText = "Marca";
             DTGV_Vencimientos.Columns[3].HeaderText = "Descripcion del producto";

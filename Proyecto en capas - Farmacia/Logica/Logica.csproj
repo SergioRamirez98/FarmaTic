@@ -45,6 +45,7 @@
     <Compile Include="CL_RegistrodePersonas.cs" />
     <Compile Include="CL_Sistema.cs" />
     <Compile Include="CL_Usuarios.cs" />
+    <Compile Include="CL_Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

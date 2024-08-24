@@ -70,3 +70,5 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debu
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_ControlVencimientos.resources
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_Stock.resources
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_StockMinimo.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.CV_ProdVencido.resources
+C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Vista\obj\Debug\Vista.FormulariosMenu.CV_Ventas.resources

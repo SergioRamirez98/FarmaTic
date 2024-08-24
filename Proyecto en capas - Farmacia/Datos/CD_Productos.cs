@@ -1,4 +1,5 @@
 ﻿using Capa_de_Sistema;
+using Sesion;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -41,16 +42,18 @@ namespace Datos
             string sSql = "SP_Mostrar_Inventario";
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             SqlParameter[] parametros = listaParametros.ToArray();
-
+            DataTable dt = new DataTable();
             try
             {
-                return ejecutar(sSql, parametros, true);
+                dt= ejecutar(sSql, parametros, true);
+                
             }
             catch (Exception)
             {
 
                 throw new Exception("Error al conectar con la base de datos.");
             }
+            return dt;
         }
         public DataTable VtoProductos()
         {
@@ -61,15 +64,18 @@ namespace Datos
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_Dias_Vto);
             SqlParameter[] parametros = listaParametros.ToArray();
+            DataTable dt = new DataTable();
             try
             {
-                return ejecutar(sSql, parametros, true);
+                dt = ejecutar(sSql, parametros, true);
+                CSesion_CacheVtoProductos.CargarProductosVencidos(dt);
+                
             }
             catch (Exception)
             {
-
                 throw new Exception("Error al conectar con la base de datos.");
             }
+            return dt;
         }
         public DataTable StockMinimo() 
         {
@@ -80,80 +86,81 @@ namespace Datos
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_StockMinimo);
             SqlParameter[] parametros = listaParametros.ToArray();
+            DataTable dt = new DataTable();
             try
             {
-                return ejecutar(sSql, parametros, true);
+                dt = ejecutar(sSql, parametros, true);
+                CSesion_CacheStockMinimo.CargarStockMinimo(dt);
             }
             catch (Exception)
             {
-
                 throw new Exception("Error al conectar con la base de datos.");
             }
+            return dt;
         }
         public DataTable Consultar()
         {
+            string sSql = "SP_Consultar_Producto_Inventario";
+            SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
+            param_Nombre.Value = Prop_Nombre;
+            SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
+            param_Marca.Value = Prop_Marca; 
+            SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
+            param_Descripcion.Value = Prop_Descripcion;
+            SqlParameter param_CantidadDesde = new SqlParameter("@CantidadDesde", SqlDbType.Int);
+            param_CantidadDesde.Value = Prop_CantDesde;
+            SqlParameter param_CantidadHasta = new SqlParameter("@CantidadHasta", SqlDbType.Int);
+            param_CantidadHasta.Value = Prop_CantHasta;
+            SqlParameter param_PrecDesde = new SqlParameter("@PrecDesde", SqlDbType.Float);
+            param_PrecDesde.Value = Prop_PrecDesde;
+            SqlParameter param_PrecHasta = new SqlParameter("@PrecHasta", SqlDbType.Float);
+            param_PrecHasta.Value = Prop_PrecHasta;
+            SqlParameter param_VtoDesde = new SqlParameter("@FeVtoDesde", SqlDbType.DateTime);
+            param_VtoDesde.Value = Prop_VtoDesde;
+            SqlParameter param_VtoHasta = new SqlParameter("@FeVtoHasta", SqlDbType.DateTime);
+            param_VtoHasta.Value = Prop_VtoHasta;
+            SqlParameter param_NumLote = new SqlParameter("@NumLote", SqlDbType.Int);                 
+            param_NumLote.Value = Prop_NLoteBusq;
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(param_Nombre);
+            listaParametros.Add(param_Marca);
+            listaParametros.Add(param_Descripcion);
+            listaParametros.Add(param_CantidadDesde);
+            listaParametros.Add(param_CantidadHasta);
+            listaParametros.Add(param_PrecDesde);
+            listaParametros.Add(param_PrecHasta);
+            listaParametros.Add(param_VtoDesde);
+            listaParametros.Add(param_VtoHasta);                
+            listaParametros.Add(param_NumLote);
+            
+            lista = listaParametros.ToArray();
+            DataTable Dt = new DataTable();
+
             try
             {
-                string sSql = "SP_Consultar_Producto_Inventario";
-                SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
-                param_Nombre.Value = Prop_Nombre;
-                SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
-                param_Marca.Value = Prop_Marca;
-                SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
-                param_Descripcion.Value = Prop_Descripcion;
-                SqlParameter param_CantidadDesde = new SqlParameter("@CantidadDesde", SqlDbType.Int);
-                param_CantidadDesde.Value = Prop_CantDesde;
-                SqlParameter param_CantidadHasta = new SqlParameter("@CantidadHasta", SqlDbType.Int);
-                param_CantidadHasta.Value = Prop_CantHasta;
-                SqlParameter param_PrecDesde = new SqlParameter("@PrecDesde", SqlDbType.Float);
-                param_PrecDesde.Value = Prop_PrecDesde;
-                SqlParameter param_PrecHasta = new SqlParameter("@PrecHasta", SqlDbType.Float);
-                param_PrecHasta.Value = Prop_PrecHasta;
-                SqlParameter param_VtoDesde = new SqlParameter("@FeVtoDesde", SqlDbType.DateTime);
-                param_VtoDesde.Value = Prop_VtoDesde;
-                SqlParameter param_VtoHasta = new SqlParameter("@FeVtoHasta", SqlDbType.DateTime);
-                param_VtoHasta.Value = Prop_VtoHasta;
-                SqlParameter param_NumLote = new SqlParameter("@NumLote", SqlDbType.Int);                 
-                param_NumLote.Value = Prop_NLoteBusq;
-
-                List<SqlParameter> listaParametros = new List<SqlParameter>();
-                listaParametros.Add(param_Nombre);
-                listaParametros.Add(param_Marca);
-                listaParametros.Add(param_Descripcion);
-                listaParametros.Add(param_CantidadDesde);
-                listaParametros.Add(param_CantidadHasta);
-                listaParametros.Add(param_PrecDesde);
-                listaParametros.Add(param_PrecHasta);
-                listaParametros.Add(param_VtoDesde);
-                listaParametros.Add(param_VtoHasta);                
-                listaParametros.Add(param_NumLote);
-                
-
-                lista = listaParametros.ToArray();
-
-                return ejecutar(sSql, lista, true);
-
+                Dt= ejecutar(sSql, lista, true);
             }
             catch (Exception)
             {
-
                 throw new Exception("Error al comprobar los datos en la base de datos.");
             }
+            return Dt;
         }
         public DataTable ProductosVencidos()
         {
             string sSql = "SP_Obtener_Productos_Vencidos";
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             SqlParameter[] parametros = listaParametros.ToArray();
+            DataTable dt = new DataTable();
             try
             {
-                return ejecutar(sSql, parametros, true);
+                dt = ejecutar(sSql, parametros, true);
             }
             catch (Exception)
             {
-
                 throw new Exception("Error al conectar con la base de datos.");
             }
+            return dt;
         }
         public void Insertar()
         {

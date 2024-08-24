@@ -44,6 +44,8 @@
   <ItemGroup>
     <Compile Include="CServ_Aleatorios.cs" />
     <Compile Include="CServ_CambioDeClave.cs" />
+    <Compile Include="Cserv_CargaProductos.cs" />
+    <Compile Include="CServ_CargaStockMinimo.cs" />
     <Compile Include="CServ_Encriptacion.cs" />
     <Compile Include="CServ_EnvioMail.cs" />
     <Compile Include="CServ_InfoSensible.cs" />

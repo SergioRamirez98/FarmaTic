@@ -3,6 +3,7 @@ using Logica;
 using System.Windows.Forms;
 using Servicios;
 using Sesion;
+using Vista.FormulariosMenu;
 
 namespace Vista
 {
@@ -24,7 +25,7 @@ namespace Vista
         {
             // A MODO DE PRUEBA!!!!
                         
-            CV_Stock STOQ = new CV_Stock();
+            CV_Ventas STOQ = new CV_Ventas();
             STOQ.Show();
 
 

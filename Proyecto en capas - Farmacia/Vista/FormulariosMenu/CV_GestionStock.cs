@@ -214,7 +214,7 @@ namespace Vista
             DTGV_Productos.Columns[7].DisplayIndex = 8;
             DTGV_Productos.Columns[8].DisplayIndex = 3;
 
-            DTGV_Productos.Columns[0].HeaderText = "ID del producto";
+            DTGV_Productos.Columns[0].HeaderText = "ID producto";
             DTGV_Productos.Columns[1].HeaderText = "Nombre del producto";
             DTGV_Productos.Columns[2].HeaderText = "Marca";
             DTGV_Productos.Columns[3].HeaderText = "Descripcion del producto";
@@ -398,7 +398,7 @@ namespace Vista
             }
             else
             {
-                Btn_VtoProductos.BackColor = SystemColors.Control;
+                Btn_VtoProductos.BackColor = Color.White; ;
             }
             DataTable DT2 = Productos.CargarStockMinimo();
             if (DT2.Rows.Count > 0)
@@ -416,15 +416,12 @@ namespace Vista
             }
             else
             {
-                Btn_StockCritico.BackColor = SystemColors.Control;
+                Btn_StockCritico.BackColor = Color.White; ;
             }
 
         }
 
-
-
         #endregion
 
-        
     }
 }
