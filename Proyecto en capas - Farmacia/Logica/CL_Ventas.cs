@@ -9,6 +9,20 @@ namespace Logica
 {
     public class CL_Ventas
     {
+        #region Properties
+        public string ID_UsuarioVendedor { get; set; }
+        public string ID_Cliente { get; set; }
+        public string ID_Producto { get; set; }
+        public string NombreProducto { get; set; }
+        public string Marca { get; set; }
+        public string Cantidad { get; set; }
+        public string PrecUnitario { get; set; }
+        public string Subtotal { get; set; }
+        public string FechaVenta { get; set; }
+        public string NumeroLote { get; set; }
+        public string TotalVenta { get; set; }
+
+        #endregion
         public DataTable BusquedaRapida(string Palabra, DataTable Dt) 
         {
             if (!string.IsNullOrEmpty(Palabra.ToLower()))

@@ -93,8 +93,43 @@ namespace Vista.FormulariosMenu
             Txb_UserName.Enabled = false;
             Txb_BusquedaRapida.Text = string.Empty;
             Nud_Cantidad.Value = 1;
+            Lbl_Fecha.Text = DateTime.Today.ToString("D");
         }
+        private void pasarDatos()
+        {
+            foreach (DataGridViewRow itemCarrito in DTGV_Carrito.Rows)
+            {
+                CL_Ventas NuevaVenta = new CL_Ventas();
+               /* NuevaVenta.ID_Cliente = Txb_Cliente.Text;
+                NuevaVenta.NombreProducto = itemCarrito.Cells[1].Value.ToString();
+                NuevaVenta.ID_Cliente = itemCarrito.Cells[1].Value.ToString();
+                NuevaVenta.NombreProducto = itemCarrito.Cells[1].Value.ToString(); 
+                NuevaVenta.Marca = itemCarrito.Cells[1].Value.ToString();
+                NuevaVenta.Cantidad = itemCarrito.Cells[1].Value.ToString();
+                NuevaVenta.PrecUnitario = itemCarrito.Cells[1].Value.ToString();
+                NuevaVenta.Subtotal = itemCarrito.Cells[1].Value.ToString();
+                NuevaVenta.NumeroLote = itemCarrito.Cells[1].Value.ToString();
+                NuevaVenta.FechaVenta = itemCarrito.Cells[1].Value.ToString();*/
+            }
 
+            Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
+            Ventas.FechaVenta = Lbl_Fecha.Text;
+            Ventas.TotalVenta = calculoTotalVenta().ToString();
+            //Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
+            //   Ventas.ID_Cliente = Txb_Cliente.Text;
+            //aca estoy pasando solamente la fila seleccionada. tengo que modificarlo para que sean todos los que estan en el dtgv
+            // Ventas.NombreProducto = DTGV_Carrito.CurrentRow.Cells[1].Value.ToString();
+        }
+        private double calculoTotalVenta()
+        {
+            double totalVenta = 0;
+            foreach (DataGridViewRow subtotal in DTGV_Carrito.Rows) 
+            {
+                double valor = Convert.ToDouble(subtotal.Cells[5].Value);
+                totalVenta = valor + totalVenta;
+            }
+            return totalVenta;
+        }
         private void agregarAlCarrito(int ProdSeleccionado) 
         {
             int Id = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[0].Value);
@@ -108,37 +143,59 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio,Total, Vto, NumeroLote);
             
         }
-        private void compararCarrito(int ProdSeleccionado)
+        private bool compararCarrito(int ProdSeleccionado)
         {
-           // Console.WriteLine(ProdSeleccionado);
-            if (DTGV_Carrito.Rows.Count > 0) 
-            { 
-            foreach (DataGridViewRow item in DTGV_Carrito.Rows)
+            bool SeRepite = false;
+            if (DTGV_Carrito.Rows.Count > 0)
             {
+                foreach (DataGridViewRow item in DTGV_Carrito.Rows)
+                {
                     int valor = Convert.ToInt32(item.Cells["ID"].Value);
-                    if (valor == ProdSeleccionado) { MessageBox.Show("SeRepite"); }
-                //int valor = Convert.ToInt32(DTGV_Carrito.Rows[ProdSeleccionado].Cells[0].Value);
-                    
-                
+                    if (valor == ProdSeleccionado)
+                    { SeRepite = true; break; }
+                }
             }
-            }
+            return SeRepite;
 
         }
+        private void agregarCantidadAlCarrito(int Id)
+        {
+            foreach (DataGridViewRow item in DTGV_Carrito.Rows)
+            {
+                int productoEnCarrito = Convert.ToInt32(item.Cells["Id"].Value);
+                if (Id == productoEnCarrito)
+                {
+                    int contadorActual = Convert.ToInt32(item.Cells["Cantidad"].Value);
+                    int nuevoContador = contadorActual + Convert.ToInt32(Nud_Cantidad.Value);
+                    item.Cells["Cantidad"].Value = nuevoContador;
+                    double precio = Convert.ToDouble(item.Cells["Precio"].Value);
+                    item.Cells["Subtotal"].Value = nuevoContador * precio;
+                    break;
+                }
+            }
+        }
+
+
+
         private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
         {
             DTGV_Ventas.DataSource = Ventas.BusquedaRapida(Txb_BusquedaRapida.Text, Dt);
         }
         private void Btn_AgregarCompra_Click(object sender, EventArgs e)
         {
-            if (DTGV_Ventas.SelectedRows.Count >0 && Nud_Cantidad.Value>0)
+            if (DTGV_Ventas.SelectedRows.Count > 0 && Nud_Cantidad.Value > 0)
             {
                 int Seleccion = DTGV_Ventas.CurrentRow.Index;
-                /*bool ProductoCargado =*/ compararCarrito(Seleccion);
-                /*if (true)
+                int Id = Convert.ToInt32(DTGV_Ventas.Rows[Seleccion].Cells[0].Value);
+                bool ProductoenCarrito = compararCarrito(Id);
+                if (ProductoenCarrito)
                 {
-
-                }*/
-                agregarAlCarrito(Seleccion);
+                    agregarCantidadAlCarrito(Id);
+                }
+                else
+                {
+                    agregarAlCarrito(Seleccion);
+                }
             }
             configurarLoad();
         }
@@ -150,7 +207,7 @@ namespace Vista.FormulariosMenu
 
         private void Btn_FinalizarCompra_Click(object sender, EventArgs e)
         {
-
+            pasarDatos();
         }
     }
 }
