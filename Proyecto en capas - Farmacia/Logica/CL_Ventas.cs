@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Datos;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace Logica
 {
     public class CL_Ventas
     {
+        CD_Ventas Ventas = new CD_Ventas();
         #region Properties
         public string ID_UsuarioVendedor { get; set; }
         public string ID_Cliente { get; set; }

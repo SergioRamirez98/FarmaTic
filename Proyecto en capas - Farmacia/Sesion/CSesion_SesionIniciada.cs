@@ -64,7 +64,6 @@ namespace Sesion
                     Nacionalidad = fila["Pais"].ToString();
                     Telefono = Convert.ToInt32(fila["Telefono"]);
                     FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
-                    Comentario = fila["Comentarios"].ToString();
                     Familia = fila["Familia"].ToString();
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
                     if (resultado.Rows.Count == 3)
@@ -92,7 +91,8 @@ namespace Sesion
                     EstadoCuenta = fila["EstadoCuenta"].ToString();
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
                     Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
-                   
+                    Comentario = fila["Comentarios"].ToString();
+
                     if (VenceCada != 0)
                     {
                         DateTime hoy = DateTime.Today;

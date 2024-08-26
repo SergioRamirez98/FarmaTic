@@ -41,12 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CD_Clientes.cs" />
     <Compile Include="CD_ConectarBDD.cs" />
     <Compile Include="CD_EjecutarSP.cs" />
     <Compile Include="CD_Personas.cs" />
     <Compile Include="CD_Productos.cs" />
     <Compile Include="CD_Sistema.cs" />
     <Compile Include="CD_Usuarios.cs" />
+    <Compile Include="CD_Ventas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

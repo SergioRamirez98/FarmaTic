@@ -51,11 +51,11 @@
             this.Dtp_FeNacimiento = new System.Windows.Forms.DateTimePicker();
             this.Lbl_Partido = new System.Windows.Forms.Label();
             this.Lbl_Documento = new System.Windows.Forms.Label();
-            this.Lbl_Comentarios = new System.Windows.Forms.Label();
             this.Lbl_Sexo = new System.Windows.Forms.Label();
             this.Lbl_FeNacimiento = new System.Windows.Forms.Label();
             this.Lbl_Nacionalidad = new System.Windows.Forms.Label();
             this.Lbl_Telefono = new System.Windows.Forms.Label();
+            this.Lbl_Comentarios = new System.Windows.Forms.Label();
             this.Txb_UserName = new System.Windows.Forms.TextBox();
             this.Txb_Contrasena = new System.Windows.Forms.TextBox();
             this.Txb_ConfContrasena = new System.Windows.Forms.TextBox();
@@ -84,8 +84,19 @@
             this.Lbl_ConfContrasena = new System.Windows.Forms.Label();
             this.Lbl_Contrasena = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.Pnb_RegistroCliente = new System.Windows.Forms.Panel();
+            this.Lbl_DescuentoAplicado = new System.Windows.Forms.Label();
+            this.Txb_Descuento = new System.Windows.Forms.TextBox();
+            this.Btn_RegistrarCliente = new System.Windows.Forms.Button();
+            this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
+            this.Dtp_FeAltaCliente = new System.Windows.Forms.DateTimePicker();
+            this.Lbl_Categoria = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.Lbl_ComentarioCliente = new System.Windows.Forms.Label();
+            this.Txb_ComentarioCliente = new System.Windows.Forms.TextBox();
             this.Pnl_RegistroPersona.SuspendLayout();
             this.Pnb_RegistroUsuario.SuspendLayout();
+            this.Pnb_RegistroCliente.SuspendLayout();
             this.SuspendLayout();
             // 
             // Txb_Nombre
@@ -144,11 +155,11 @@
             // 
             // Txb_Comentario
             // 
-            this.Txb_Comentario.Location = new System.Drawing.Point(596, 185);
+            this.Txb_Comentario.Location = new System.Drawing.Point(631, 252);
             this.Txb_Comentario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Comentario.Name = "Txb_Comentario";
-            this.Txb_Comentario.Size = new System.Drawing.Size(263, 22);
-            this.Txb_Comentario.TabIndex = 10;
+            this.Txb_Comentario.Size = new System.Drawing.Size(213, 22);
+            this.Txb_Comentario.TabIndex = 51;
             this.Txb_Comentario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Rbt_Cliente
@@ -162,6 +173,7 @@
             this.Rbt_Cliente.TabStop = true;
             this.Rbt_Cliente.Text = "¿Es cliente?";
             this.Rbt_Cliente.UseVisualStyleBackColor = true;
+            this.Rbt_Cliente.CheckedChanged += new System.EventHandler(this.Rbt_Cliente_CheckedChanged);
             // 
             // Pnl_RegistroPersona
             // 
@@ -181,13 +193,11 @@
             this.Pnl_RegistroPersona.Controls.Add(this.Txb_Dni);
             this.Pnl_RegistroPersona.Controls.Add(this.Txb_Telefono);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Correo);
-            this.Pnl_RegistroPersona.Controls.Add(this.Txb_Comentario);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Apellido);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Domicilio);
             this.Pnl_RegistroPersona.Controls.Add(this.Dtp_FeNacimiento);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Partido);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Documento);
-            this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Comentarios);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Sexo);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_FeNacimiento);
             this.Pnl_RegistroPersona.Controls.Add(this.Lbl_Nacionalidad);
@@ -219,7 +229,7 @@
             // 
             // Btn_RegistrarPersona
             // 
-            this.Btn_RegistrarPersona.Location = new System.Drawing.Point(596, 222);
+            this.Btn_RegistrarPersona.Location = new System.Drawing.Point(596, 213);
             this.Btn_RegistrarPersona.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarPersona.Name = "Btn_RegistrarPersona";
             this.Btn_RegistrarPersona.Size = new System.Drawing.Size(253, 31);
@@ -328,18 +338,9 @@
             this.Lbl_Documento.AutoSize = true;
             this.Lbl_Documento.Location = new System.Drawing.Point(5, 111);
             this.Lbl_Documento.Name = "Lbl_Documento";
-            this.Lbl_Documento.Size = new System.Drawing.Size(171, 16);
+            this.Lbl_Documento.Size = new System.Drawing.Size(113, 16);
             this.Lbl_Documento.TabIndex = 19;
-            this.Lbl_Documento.Text = "N° Documento de identidad";
-            // 
-            // Lbl_Comentarios
-            // 
-            this.Lbl_Comentarios.AutoSize = true;
-            this.Lbl_Comentarios.Location = new System.Drawing.Point(447, 185);
-            this.Lbl_Comentarios.Name = "Lbl_Comentarios";
-            this.Lbl_Comentarios.Size = new System.Drawing.Size(83, 16);
-            this.Lbl_Comentarios.TabIndex = 24;
-            this.Lbl_Comentarios.Text = "Comentarios";
+            this.Lbl_Documento.Text = "Doc. de identidad";
             // 
             // Lbl_Sexo
             // 
@@ -376,6 +377,15 @@
             this.Lbl_Telefono.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Telefono.TabIndex = 22;
             this.Lbl_Telefono.Text = "Teléfono";
+            // 
+            // Lbl_Comentarios
+            // 
+            this.Lbl_Comentarios.AutoSize = true;
+            this.Lbl_Comentarios.Location = new System.Drawing.Point(444, 252);
+            this.Lbl_Comentarios.Name = "Lbl_Comentarios";
+            this.Lbl_Comentarios.Size = new System.Drawing.Size(83, 16);
+            this.Lbl_Comentarios.TabIndex = 24;
+            this.Lbl_Comentarios.Text = "Comentarios";
             // 
             // Txb_UserName
             // 
@@ -467,12 +477,14 @@
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_Estado);
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_Familia);
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_FechaAlta);
+            this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Comentario);
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_ConfContrasena);
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_Contrasena);
             this.Pnb_RegistroUsuario.Controls.Add(this.label1);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_UserName);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Pregunta2);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Contrasena);
+            this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_Comentarios);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Respuesta3);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_ConfContrasena);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Pregunta3);
@@ -487,16 +499,16 @@
             // Cmb_VenceCada
             // 
             this.Cmb_VenceCada.FormattingEnabled = true;
-            this.Cmb_VenceCada.Location = new System.Drawing.Point(631, 252);
+            this.Cmb_VenceCada.Location = new System.Drawing.Point(628, 289);
             this.Cmb_VenceCada.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_VenceCada.Name = "Cmb_VenceCada";
             this.Cmb_VenceCada.Size = new System.Drawing.Size(213, 24);
-            this.Cmb_VenceCada.TabIndex = 51;
+            this.Cmb_VenceCada.TabIndex = 52;
             // 
             // Lbl_VenceCada
             // 
             this.Lbl_VenceCada.AutoSize = true;
-            this.Lbl_VenceCada.Location = new System.Drawing.Point(446, 252);
+            this.Lbl_VenceCada.Location = new System.Drawing.Point(443, 289);
             this.Lbl_VenceCada.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Lbl_VenceCada.Name = "Lbl_VenceCada";
             this.Lbl_VenceCada.Size = new System.Drawing.Size(170, 16);
@@ -671,11 +683,119 @@
             this.label1.TabIndex = 37;
             this.label1.Text = "Nombre de Usuario";
             // 
+            // Pnb_RegistroCliente
+            // 
+            this.Pnb_RegistroCliente.Controls.Add(this.Lbl_DescuentoAplicado);
+            this.Pnb_RegistroCliente.Controls.Add(this.Txb_Descuento);
+            this.Pnb_RegistroCliente.Controls.Add(this.Btn_RegistrarCliente);
+            this.Pnb_RegistroCliente.Controls.Add(this.Cmb_Categoria);
+            this.Pnb_RegistroCliente.Controls.Add(this.Dtp_FeAltaCliente);
+            this.Pnb_RegistroCliente.Controls.Add(this.Lbl_Categoria);
+            this.Pnb_RegistroCliente.Controls.Add(this.label11);
+            this.Pnb_RegistroCliente.Controls.Add(this.Lbl_ComentarioCliente);
+            this.Pnb_RegistroCliente.Controls.Add(this.Txb_ComentarioCliente);
+            this.Pnb_RegistroCliente.Location = new System.Drawing.Point(927, 308);
+            this.Pnb_RegistroCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.Pnb_RegistroCliente.Name = "Pnb_RegistroCliente";
+            this.Pnb_RegistroCliente.Size = new System.Drawing.Size(893, 155);
+            this.Pnb_RegistroCliente.TabIndex = 54;
+            // 
+            // Lbl_DescuentoAplicado
+            // 
+            this.Lbl_DescuentoAplicado.AutoSize = true;
+            this.Lbl_DescuentoAplicado.Location = new System.Drawing.Point(457, 17);
+            this.Lbl_DescuentoAplicado.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_DescuentoAplicado.Name = "Lbl_DescuentoAplicado";
+            this.Lbl_DescuentoAplicado.Size = new System.Drawing.Size(128, 16);
+            this.Lbl_DescuentoAplicado.TabIndex = 54;
+            this.Lbl_DescuentoAplicado.Text = "Descuento aplicado";
+            // 
+            // Txb_Descuento
+            // 
+            this.Txb_Descuento.Location = new System.Drawing.Point(608, 14);
+            this.Txb_Descuento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Txb_Descuento.Multiline = true;
+            this.Txb_Descuento.Name = "Txb_Descuento";
+            this.Txb_Descuento.Size = new System.Drawing.Size(59, 22);
+            this.Txb_Descuento.TabIndex = 53;
+            this.Txb_Descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Btn_RegistrarCliente
+            // 
+            this.Btn_RegistrarCliente.Location = new System.Drawing.Point(259, 112);
+            this.Btn_RegistrarCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_RegistrarCliente.Name = "Btn_RegistrarCliente";
+            this.Btn_RegistrarCliente.Size = new System.Drawing.Size(277, 31);
+            this.Btn_RegistrarCliente.TabIndex = 52;
+            this.Btn_RegistrarCliente.Text = "Registrar Cliente";
+            this.Btn_RegistrarCliente.UseVisualStyleBackColor = true;
+            this.Btn_RegistrarCliente.Click += new System.EventHandler(this.Btn_RegistrarCliente_Click);
+            // 
+            // Cmb_Categoria
+            // 
+            this.Cmb_Categoria.FormattingEnabled = true;
+            this.Cmb_Categoria.Location = new System.Drawing.Point(193, 18);
+            this.Cmb_Categoria.Margin = new System.Windows.Forms.Padding(4);
+            this.Cmb_Categoria.Name = "Cmb_Categoria";
+            this.Cmb_Categoria.Size = new System.Drawing.Size(206, 24);
+            this.Cmb_Categoria.TabIndex = 26;
+            // 
+            // Dtp_FeAltaCliente
+            // 
+            this.Dtp_FeAltaCliente.CustomFormat = "dd/MM/yyyy";
+            this.Dtp_FeAltaCliente.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.Dtp_FeAltaCliente.Location = new System.Drawing.Point(607, 59);
+            this.Dtp_FeAltaCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.Dtp_FeAltaCliente.Name = "Dtp_FeAltaCliente";
+            this.Dtp_FeAltaCliente.Size = new System.Drawing.Size(117, 22);
+            this.Dtp_FeAltaCliente.TabIndex = 27;
+            // 
+            // Lbl_Categoria
+            // 
+            this.Lbl_Categoria.AutoSize = true;
+            this.Lbl_Categoria.Location = new System.Drawing.Point(5, 18);
+            this.Lbl_Categoria.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_Categoria.Name = "Lbl_Categoria";
+            this.Lbl_Categoria.Size = new System.Drawing.Size(110, 16);
+            this.Lbl_Categoria.TabIndex = 42;
+            this.Lbl_Categoria.Text = "Categoria Cliente";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(457, 62);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 16);
+            this.label11.TabIndex = 40;
+            this.label11.Text = "Fecha de Alta";
+            // 
+            // Lbl_ComentarioCliente
+            // 
+            this.Lbl_ComentarioCliente.AutoSize = true;
+            this.Lbl_ComentarioCliente.Location = new System.Drawing.Point(5, 63);
+            this.Lbl_ComentarioCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_ComentarioCliente.Name = "Lbl_ComentarioCliente";
+            this.Lbl_ComentarioCliente.Size = new System.Drawing.Size(83, 16);
+            this.Lbl_ComentarioCliente.TabIndex = 37;
+            this.Lbl_ComentarioCliente.Text = "Comentarios";
+            // 
+            // Txb_ComentarioCliente
+            // 
+            this.Txb_ComentarioCliente.Location = new System.Drawing.Point(194, 60);
+            this.Txb_ComentarioCliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Txb_ComentarioCliente.Multiline = true;
+            this.Txb_ComentarioCliente.Name = "Txb_ComentarioCliente";
+            this.Txb_ComentarioCliente.Size = new System.Drawing.Size(205, 22);
+            this.Txb_ComentarioCliente.TabIndex = 28;
+            this.Txb_ComentarioCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // CV_GestionUsuariosPersonas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(939, 686);
+            this.ClientSize = new System.Drawing.Size(1768, 686);
+            this.Controls.Add(this.Pnb_RegistroCliente);
             this.Controls.Add(this.Pnb_RegistroUsuario);
             this.Controls.Add(this.Pnl_RegistroPersona);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -687,6 +807,8 @@
             this.Pnl_RegistroPersona.PerformLayout();
             this.Pnb_RegistroUsuario.ResumeLayout(false);
             this.Pnb_RegistroUsuario.PerformLayout();
+            this.Pnb_RegistroCliente.ResumeLayout(false);
+            this.Pnb_RegistroCliente.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -749,5 +871,15 @@
         private System.Windows.Forms.ComboBox Cmb_SeleccionePersona;
         private System.Windows.Forms.ComboBox Cmb_VenceCada;
         private System.Windows.Forms.Label Lbl_VenceCada;
+        private System.Windows.Forms.Panel Pnb_RegistroCliente;
+        private System.Windows.Forms.Button Btn_RegistrarCliente;
+        private System.Windows.Forms.ComboBox Cmb_Categoria;
+        private System.Windows.Forms.DateTimePicker Dtp_FeAltaCliente;
+        private System.Windows.Forms.Label Lbl_Categoria;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label Lbl_ComentarioCliente;
+        private System.Windows.Forms.TextBox Txb_ComentarioCliente;
+        private System.Windows.Forms.Label Lbl_DescuentoAplicado;
+        private System.Windows.Forms.TextBox Txb_Descuento;
     }
 }

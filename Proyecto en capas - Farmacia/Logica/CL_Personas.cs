@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace Logica
 {
-    public class CL_RegistrodePersonas
+    public class CL_Personas
     {
-        CD_Personas DatosPersonas = new CD_Personas();
+        CD_Personas Personas = new CD_Personas();
         #region Atributos
         private string atr_nombre;
         private string atr_apellido;
@@ -22,7 +22,6 @@ namespace Logica
         private string atr_nacionalidad;
         private string atr_telefono;
         private string atr_nacimiento;
-        private string atr_comentarios;
         #endregion
 
         #region Properties
@@ -46,39 +45,37 @@ namespace Logica
         { get => atr_telefono; set { atr_telefono = value; } }
         public string Prop_NACIMIENTO
         { get => atr_nacimiento; set { atr_nacimiento = value; } }
-        public string Prop_COMENTARIOS
-        { get => atr_comentarios; set { atr_comentarios = value; } }
         #endregion
 
         #region Métodos
         public DataTable InsertarPersona()
         {
             PasarDatos();
-            return DatosPersonas.Insertar();
+            return Personas.Insertar();
         }
         public DataTable ObtenerLocalidad() 
         {
-            return DatosPersonas.Localidad();
+            return Personas.Localidad();
         }
         public DataTable ObtenerPais()
         {
-            return DatosPersonas.Pais();
+            return Personas.Pais();
         }
         public DataTable ObtenerPersonas()
         {
-            return DatosPersonas.ObtenerPersonaCmb();
+            return Personas.ObtenerPersonaCmb();
         }
         public DataTable ObtenerFamilia()
         {
-            return DatosPersonas.Familia();
+            return Personas.Familia();
         }
         public DataTable CargarDatos(int ID_Persona)
         {
-            return DatosPersonas.CargarPersonas(ID_Persona);
+            return Personas.CargarPersonas(ID_Persona);
         }
         public bool CargarDatosUsuarios(int ID_Persona)
         {
-            return DatosPersonas.CargarUsuarios(ID_Persona);
+            return Personas.CargarUsuarios(ID_Persona);
         }
         private void PasarDatos() 
         {
@@ -86,22 +83,21 @@ namespace Logica
             {
                 try
                 {
-                    DatosPersonas.Prop_DNI = Convert.ToInt32(atr_dni);
-                    DatosPersonas.Prop_TELEFONO = Convert.ToInt32(atr_telefono);
-                    DatosPersonas.Prop_NACIMIENTO = Convert.ToDateTime(atr_nacimiento);
+                    Personas.Prop_DNI = Convert.ToInt32(atr_dni);
+                    Personas.Prop_TELEFONO = Convert.ToInt32(atr_telefono);
+                    Personas.Prop_NACIMIENTO = Convert.ToDateTime(atr_nacimiento);
                 }
                 catch (Exception)
                 {
                     throw new Exception("Por favor ingrese nuvamente los datos");
                 }
-                DatosPersonas.Prop_NOMBRE = atr_nombre;
-                DatosPersonas.Prop_APELLIDO = atr_apellido;
-                DatosPersonas.Prop_CORREO = atr_correo;
-                DatosPersonas.Prop_SEXO = atr_sexo;
-                DatosPersonas.Prop_DOMICILIO = atr_domicilio;
-                DatosPersonas.Prop_LOCALIDAD = atr_localidad;
-                DatosPersonas.Prop_NACIONALIDAD = atr_nacionalidad;
-                DatosPersonas.Prop_COMENTARIOS = atr_comentarios;
+                Personas.Prop_NOMBRE = atr_nombre;
+                Personas.Prop_APELLIDO = atr_apellido;
+                Personas.Prop_CORREO = atr_correo;
+                Personas.Prop_SEXO = atr_sexo;
+                Personas.Prop_DOMICILIO = atr_domicilio;
+                Personas.Prop_LOCALIDAD = atr_localidad;
+                Personas.Prop_NACIONALIDAD = atr_nacionalidad;
 
             }
             catch (Exception)

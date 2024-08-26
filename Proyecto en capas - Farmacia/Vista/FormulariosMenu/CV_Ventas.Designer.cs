@@ -42,6 +42,7 @@
             this.Lbl_Cliente = new System.Windows.Forms.Label();
             this.Txb_Cliente = new System.Windows.Forms.TextBox();
             this.Lbl_Fecha = new System.Windows.Forms.Label();
+            this.Lbl_Total = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).BeginInit();
@@ -74,14 +75,14 @@
             // 
             // Nud_Cantidad
             // 
-            this.Nud_Cantidad.Location = new System.Drawing.Point(1527, 207);
+            this.Nud_Cantidad.Location = new System.Drawing.Point(1508, 200);
             this.Nud_Cantidad.Name = "Nud_Cantidad";
             this.Nud_Cantidad.Size = new System.Drawing.Size(94, 22);
             this.Nud_Cantidad.TabIndex = 3;
             // 
             // Btn_AgregarCompra
             // 
-            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1527, 263);
+            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1508, 256);
             this.Btn_AgregarCompra.Name = "Btn_AgregarCompra";
             this.Btn_AgregarCompra.Size = new System.Drawing.Size(94, 55);
             this.Btn_AgregarCompra.TabIndex = 4;
@@ -91,7 +92,7 @@
             // 
             // Btn_EliminardeCompra
             // 
-            this.Btn_EliminardeCompra.Location = new System.Drawing.Point(1527, 358);
+            this.Btn_EliminardeCompra.Location = new System.Drawing.Point(1508, 351);
             this.Btn_EliminardeCompra.Name = "Btn_EliminardeCompra";
             this.Btn_EliminardeCompra.Size = new System.Drawing.Size(94, 55);
             this.Btn_EliminardeCompra.TabIndex = 5;
@@ -101,7 +102,7 @@
             // 
             // Btn_FinalizarCompra
             // 
-            this.Btn_FinalizarCompra.Location = new System.Drawing.Point(1527, 473);
+            this.Btn_FinalizarCompra.Location = new System.Drawing.Point(1508, 466);
             this.Btn_FinalizarCompra.Name = "Btn_FinalizarCompra";
             this.Btn_FinalizarCompra.Size = new System.Drawing.Size(94, 55);
             this.Btn_FinalizarCompra.TabIndex = 6;
@@ -140,7 +141,7 @@
             // Lbl_Cantidad
             // 
             this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(1524, 166);
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(1505, 159);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
             this.Lbl_Cantidad.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Cantidad.TabIndex = 27;
@@ -171,11 +172,21 @@
             this.Lbl_Fecha.TabIndex = 30;
             this.Lbl_Fecha.Text = "Fecha";
             // 
+            // Lbl_Total
+            // 
+            this.Lbl_Total.AutoSize = true;
+            this.Lbl_Total.Location = new System.Drawing.Point(1476, 546);
+            this.Lbl_Total.Name = "Lbl_Total";
+            this.Lbl_Total.Size = new System.Drawing.Size(126, 16);
+            this.Lbl_Total.TabIndex = 31;
+            this.Lbl_Total.Text = "Total de la compra: ";
+            // 
             // CV_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1656, 751);
+            this.Controls.Add(this.Lbl_Total);
             this.Controls.Add(this.Lbl_Fecha);
             this.Controls.Add(this.Lbl_Cliente);
             this.Controls.Add(this.Txb_Cliente);
@@ -217,5 +228,6 @@
         private System.Windows.Forms.Label Lbl_Cliente;
         private System.Windows.Forms.TextBox Txb_Cliente;
         private System.Windows.Forms.Label Lbl_Fecha;
+        private System.Windows.Forms.Label Lbl_Total;
     }
 }

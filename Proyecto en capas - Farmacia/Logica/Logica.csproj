@@ -41,8 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CL_Clientes.cs" />
     <Compile Include="CL_Productos.cs" />
-    <Compile Include="CL_RegistrodePersonas.cs" />
+    <Compile Include="CL_Personas.cs" />
     <Compile Include="CL_Sistema.cs" />
     <Compile Include="CL_Usuarios.cs" />
     <Compile Include="CL_Ventas.cs" />

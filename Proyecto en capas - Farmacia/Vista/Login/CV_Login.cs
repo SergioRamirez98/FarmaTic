@@ -25,11 +25,13 @@ namespace Vista
         {
             // A MODO DE PRUEBA!!!!
                         
-            CV_Ventas STOQ = new CV_Ventas();
-            STOQ.Show();
+            /*CV_Ventas STOQ = new CV_Ventas();
+            STOQ.Show();*/
+            CV_GestionUsuariosPersonas Gestion = new CV_GestionUsuariosPersonas();
+            Gestion.Show();
 
-
-/*            PasarDatos();
+            /*
+            PasarDatos();
             try
             {
                 bool validar = Usuarios.Logear();

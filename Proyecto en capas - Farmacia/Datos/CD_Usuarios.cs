@@ -42,6 +42,7 @@ namespace Datos
         public bool Prop_NuevaPass{ get; set; }
         public bool Prop_CambioPass { get; set; }
         public DateTime Prop_FeCambioPass { get; set; }
+        public string Prop_Comentarios { get; set; }
 
         #endregion
 
@@ -145,6 +146,9 @@ namespace Datos
                 param_FeAlta.Value = Prop_FeAlta;
                 SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.VarChar, 50);
                 param_Familia.Value = Prop_Familia;
+                SqlParameter param_Comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 200);
+                param_Comentarios.Value = Prop_Comentarios;
+                //Agregar Comentarios al insertar un usuario
                 SqlParameter param_Estado = new SqlParameter("@EstadoCuenta", SqlDbType.VarChar, 50);
                 param_Estado.Value = Prop_Estado;
                 SqlParameter param_VtoPass = new SqlParameter("@VenceCada", SqlDbType.Int);
@@ -160,6 +164,7 @@ namespace Datos
                 listaParametros.Add(param_PassEncriptada);
                 listaParametros.Add(param_FeAlta);
                 listaParametros.Add(param_Familia);
+                listaParametros.Add(param_Comentarios);
                 listaParametros.Add(param_Estado);
                 listaParametros.Add(param_VtoPass);
                 listaParametros.Add(param_NuevaPass);

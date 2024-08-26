@@ -74,8 +74,6 @@ namespace Datos
             param_telefono.Value = atr_telefono;
             SqlParameter param_Nacimiento = new SqlParameter("@FeNacimiento", SqlDbType.DateTime);
             param_Nacimiento.Value = atr_nacimiento;
-            SqlParameter param_comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 50);
-            param_comentarios.Value = atr_comentarios;
             SqlParameter param_localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
             param_localidad.Value = atr_localidad;
             SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
@@ -89,7 +87,6 @@ namespace Datos
             listaParametros.Add(param_sexo);
             listaParametros.Add(param_telefono);
             listaParametros.Add(param_Nacimiento);
-            listaParametros.Add(param_comentarios);
             listaParametros.Add(param_localidad);
             listaParametros.Add(param_Nacionalidad);
 

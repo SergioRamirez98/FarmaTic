@@ -17,6 +17,7 @@ namespace Vista.FormulariosMenu
         CL_Productos Productos = new CL_Productos();
         CL_Ventas Ventas = new CL_Ventas();
         DataTable Dt = new DataTable();
+        double totalVenta = 0;
         public CV_Ventas()
         {
             InitializeComponent();
@@ -40,7 +41,7 @@ namespace Vista.FormulariosMenu
             DTGV_Ventas.AllowUserToResizeRows = false;
             DTGV_Ventas.ReadOnly = true;
             DTGV_Ventas.RowHeadersVisible = false;
-            DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;            
             // DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DTGV_Carrito.Rows.Clear();
             DTGV_Carrito.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -59,7 +60,8 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.Columns.Add("Subtotal", "SubTotal");
             DTGV_Carrito.Columns.Add("Vencimiento", "Vencimiento");
             DTGV_Carrito.Columns.Add("NumLote", "Numero de lote");
-
+            DTGV_Carrito.Columns[4].DefaultCellStyle.Format = "#0.##0,#0";
+               // defaultCellStyle.Format
         }
         private void cargarDTGV()
         {
@@ -94,35 +96,30 @@ namespace Vista.FormulariosMenu
             Txb_BusquedaRapida.Text = string.Empty;
             Nud_Cantidad.Value = 1;
             Lbl_Fecha.Text = DateTime.Today.ToString("D");
+            Lbl_Total.Text = "El valor total a cobrar es: " + calculoTotalVenta().ToString();
         }
         private void pasarDatos()
         {
             foreach (DataGridViewRow itemCarrito in DTGV_Carrito.Rows)
             {
                 CL_Ventas NuevaVenta = new CL_Ventas();
-               /* NuevaVenta.ID_Cliente = Txb_Cliente.Text;
-                NuevaVenta.NombreProducto = itemCarrito.Cells[1].Value.ToString();
-                NuevaVenta.ID_Cliente = itemCarrito.Cells[1].Value.ToString();
-                NuevaVenta.NombreProducto = itemCarrito.Cells[1].Value.ToString(); 
-                NuevaVenta.Marca = itemCarrito.Cells[1].Value.ToString();
-                NuevaVenta.Cantidad = itemCarrito.Cells[1].Value.ToString();
-                NuevaVenta.PrecUnitario = itemCarrito.Cells[1].Value.ToString();
-                NuevaVenta.Subtotal = itemCarrito.Cells[1].Value.ToString();
-                NuevaVenta.NumeroLote = itemCarrito.Cells[1].Value.ToString();
-                NuevaVenta.FechaVenta = itemCarrito.Cells[1].Value.ToString();*/
+                NuevaVenta.ID_Cliente = Txb_Cliente.Text;
+                NuevaVenta.NombreProducto = itemCarrito.Cells[1].Value.ToString();                 
+                NuevaVenta.Marca = itemCarrito.Cells[2].Value.ToString();
+                NuevaVenta.Cantidad = itemCarrito.Cells[3].Value.ToString();
+                NuevaVenta.PrecUnitario = itemCarrito.Cells[4].Value.ToString();
+                NuevaVenta.Subtotal = itemCarrito.Cells[5].Value.ToString();                 
+                NuevaVenta.FechaVenta = itemCarrito.Cells[6].Value.ToString();
+                NuevaVenta.NumeroLote = itemCarrito.Cells[7].Value.ToString();
             }
 
             Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
             Ventas.FechaVenta = Lbl_Fecha.Text;
-            Ventas.TotalVenta = calculoTotalVenta().ToString();
-            //Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
-            //   Ventas.ID_Cliente = Txb_Cliente.Text;
-            //aca estoy pasando solamente la fila seleccionada. tengo que modificarlo para que sean todos los que estan en el dtgv
-            // Ventas.NombreProducto = DTGV_Carrito.CurrentRow.Cells[1].Value.ToString();
+            Ventas.TotalVenta = totalVenta.ToString();
+            
         }
         private double calculoTotalVenta()
-        {
-            double totalVenta = 0;
+        {            
             foreach (DataGridViewRow subtotal in DTGV_Carrito.Rows) 
             {
                 double valor = Convert.ToDouble(subtotal.Cells[5].Value);
@@ -135,12 +132,12 @@ namespace Vista.FormulariosMenu
             int Id = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[0].Value);
             string Nombre = DTGV_Ventas.Rows[ProdSeleccionado].Cells[1].Value.ToString().ToString();
             string Marca = DTGV_Ventas.Rows[ProdSeleccionado].Cells[2].Value.ToString();
-            int Cantidad = Convert.ToInt32(Nud_Cantidad.Value);            
-            double Precio = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[5].Value);
-            double Total = Cantidad * Precio;
+            int Cantidad = Convert.ToInt32(Nud_Cantidad.Value);                
+            double Precio = Convert.ToDouble(DTGV_Ventas.Rows[ProdSeleccionado].Cells[5].Value);
+            double SubTotal = Cantidad * Precio;
             DateTime Vto = Convert.ToDateTime(DTGV_Ventas.Rows[ProdSeleccionado].Cells[6].Value);
             int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[7].Value);
-            DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio,Total, Vto, NumeroLote);
+            DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote);
             
         }
         private bool compararCarrito(int ProdSeleccionado)
@@ -199,12 +196,10 @@ namespace Vista.FormulariosMenu
             }
             configurarLoad();
         }
-
         private void Btn_EliminardeCompra_Click(object sender, EventArgs e)
         {
 
         }
-
         private void Btn_FinalizarCompra_Click(object sender, EventArgs e)
         {
             pasarDatos();

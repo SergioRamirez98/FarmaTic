@@ -35,36 +35,23 @@ namespace Logica
         { get => atr_ContrasenaUsuarioLogin; set { atr_ContrasenaUsuarioLogin = value; } }
         public string Prop_EncriptacionLogin
         { get => atr_EncriptacionLogin; set { atr_EncriptacionLogin = value; } }
-        public string Prop_UserName
-        { get; set ; } 
-        public string Prop_Contrasena
-        { get; set; }
-        public string Prop_Encriptacion
-        { get; set; }
-        public string Prop_FeAlta
-        { get; set; }
-        public string Prop_Familia
-        { get; set; }
-        public string Prop_Estado
-        { get; set; }
-        public string Prop_Preg1
-        { get; set; }
-        public string Prop_Resp1
-        { get; set; }
-        public string Prop_Preg2
-        { get; set; }
-        public string Prop_Resp2
-        { get; set; }
-        public string Prop_Preg3
-        { get; set; }
-        public string Prop_Resp3
-        { get; set; }
-        public string Prop_VtoPass
-        { get; set; }
-        public string Prop_NuevaPass
-        { get; set; }
-        public string Prop_CambioPass
-        { get; set; }
+        public string Prop_UserName { get; set ; } 
+        public string Prop_Contrasena { get; set; }
+        public string Prop_Encriptacion { get; set; }
+        public string Prop_FeAlta { get; set; }
+        public string Prop_Familia { get; set; }
+        public string Prop_Estado { get; set; }
+        public string Prop_Preg1 { get; set; }
+        public string Prop_Resp1 { get; set; }
+        public string Prop_Preg2 { get; set; }
+        public string Prop_Resp2 { get; set; }
+        public string Prop_Preg3 { get; set; }
+        public string Prop_Resp3 { get; set; }
+        public string Prop_VtoPass { get; set; }
+        public string Prop_NuevaPass{ get; set; }
+        public string Prop_CambioPass { get; set; }
+        public string Prop_Comentarios { get; set; }
+
         #endregion
         public bool Logear()
         {
@@ -117,7 +104,6 @@ namespace Logica
                 throw;
             }
         }
-
         public bool CompararDatos()
         {
             if (Prop_Resp1.ToLower() == CSesion_PreguntasUsuarios.Respuesta1
@@ -239,6 +225,7 @@ namespace Logica
                 Usuario.Prop_Estado = Prop_Estado;
                 Usuario.Prop_NuevaPass = Convert.ToBoolean(Prop_NuevaPass);
                 Usuario.Prop_CambioPass = Convert.ToBoolean(Prop_CambioPass);
+                Usuario.Prop_Comentarios = Prop_Comentarios;
             }
             catch (Exception)
             {

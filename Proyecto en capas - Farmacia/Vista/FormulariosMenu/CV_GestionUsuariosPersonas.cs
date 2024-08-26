@@ -17,8 +17,10 @@ namespace Vista
 {
     public partial class CV_GestionUsuariosPersonas : Form
     {
-        CL_RegistrodePersonas GestionPersonasUsuarios = new CL_RegistrodePersonas();
+        CL_Personas GestionPersonas = new CL_Personas();
         CL_Usuarios Usuario = new CL_Usuarios();
+        CL_Clientes Clientes = new CL_Clientes();
+        int ID_Persona;
 
         public CV_GestionUsuariosPersonas()
         {
@@ -38,69 +40,87 @@ namespace Vista
             Cmb_VenceCada.Items.Add("120 Dias");
             Cmb_VenceCada.Items.Add("Nunca");
             Size = new Size(710, 300);
-            Rbt_Cliente.Enabled = false;
-            Rbt_Usuario.Enabled = false;
-            CargarComboBox();
+            Pnb_RegistroUsuario.Enabled = false;
+            Pnb_RegistroUsuario.Visible = false;
+            Pnb_RegistroCliente.Enabled = false;
+            Pnb_RegistroCliente.Visible = false;
+            //Rbt_Cliente.Enabled = false;
+            //Rbt_Usuario.Enabled = false;
+            cargarComboBox();
             CServ_LimpiarControles.LimpiarFormulario(this);
         }
-        private void Rbt_Usuario_CheckedChanged(object sender, EventArgs e)
-        {
-            Size = new Size(710, 600);
-            Pnb_RegistroUsuario.Visible = true;
-        }        
-        private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
-        {
-            int ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
-            CapturarDatosUsuarios(ID_Persona);
-            try
-            {
-                Usuario.CrearUsuario();
-                CServ_MsjUsuario.Exito("Usuario Generado con éxito");
-            }
-            catch (Exception ex)
-            {
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
-
-        }       
         private void Cmb_SeleccionePersona_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Cmb_SeleccionePersona.SelectedIndex > -1)
             {
                 DataRowView selectedRow = (DataRowView)Cmb_SeleccionePersona.SelectedItem;
-                int ID_Persona = Convert.ToInt32(selectedRow["ID_Persona"]);                                               
+                int ID_Persona = Convert.ToInt32(selectedRow["ID_Persona"]);
                 DataTable dt = new DataTable();
-                dt = GestionPersonasUsuarios.CargarDatos(ID_Persona);
-                bool EsUsuario= GestionPersonasUsuarios.CargarDatosUsuarios(ID_Persona);
-                if (EsUsuario==true)
+                dt = GestionPersonas.CargarDatos(ID_Persona);
+                bool EsUsuario = GestionPersonas.CargarDatosUsuarios(ID_Persona);
+                if (EsUsuario == true)
                 {
-                    BloquearControles(EsUsuario);
-                    CargarPersonasdeCombobox(dt, EsUsuario);
+                    bloquearControles(EsUsuario);
+                    cargarPersonasdeCombobox(dt, EsUsuario);
 
                 }
                 else
                 {
-                    BloquearControles(EsUsuario);
-                    CargarPersonasdeCombobox(dt, EsUsuario);
+                    bloquearControles(EsUsuario);
+                    cargarPersonasdeCombobox(dt, EsUsuario);
                 }
-                
+
             }
             else
             {
                 CServ_LimpiarControles.LimpiarFormulario(this);
             }
-        }        
+        }
+        private void Rbt_Usuario_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Rbt_Usuario.Checked) 
+            { 
+            Size = new Size(710, 600);
+            Pnb_RegistroUsuario.Visible = true;
+            Pnb_RegistroUsuario.Enabled = true;
+            }
+            else
+            {
+                Size = new Size(710, 300);
+                Pnb_RegistroUsuario.Location = new System.Drawing.Point(15, 235);
+                Pnb_RegistroUsuario.Enabled = false;
+                Pnb_RegistroUsuario.Visible = false;
+
+            }
+        }
+        private void Rbt_Cliente_CheckedChanged(object sender, EventArgs e)
+        {
+            if (Rbt_Cliente.Checked) { 
+            Size = new Size(710, 400);
+            Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 235);
+            Pnb_RegistroCliente.Enabled = true;
+            Pnb_RegistroCliente.Visible = true;
+            }
+            else
+            {
+                Size = new Size(710, 300);
+                Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 235);
+                Pnb_RegistroCliente.Enabled = false;
+                Pnb_RegistroCliente.Visible = false;
+
+            }
+        }
         private void Btn_RegistrarPersona_Click(object sender, EventArgs e)
         {
-            CapturarDatosPersonas();
+            capturarDatosPersonas();
             try
             {
-                DataTable dt = GestionPersonasUsuarios.InsertarPersona();
-                CargarComboBox();
+                DataTable dt = GestionPersonas.InsertarPersona();
+                cargarComboBox();
                 if (dt.Rows.Count > 0)
                 {
-                    DataRow DT = dt.Rows[0];                    
-                    Usuario.Prop_ID_Persona = Convert.ToInt32(DT["ID_Persona"]);                    
+                    DataRow DT = dt.Rows[0];
+                    Usuario.Prop_ID_Persona = Convert.ToInt32(DT["ID_Persona"]);
                     Cmb_SeleccionePersona.SelectedValue = Usuario.Prop_ID_Persona;
                     Cmb_SeleccionePersona.Enabled = false;
                 }
@@ -112,45 +132,73 @@ namespace Vista
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
         }
+        private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
+        {
+            ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
+            capturarDatosUsuarios(ID_Persona);
+            try
+            {
+                Usuario.CrearUsuario();
+                CServ_MsjUsuario.Exito("Usuario Generado con éxito");
+            }
+            catch (Exception ex)
+            {
+                CServ_MsjUsuario.MensajesDeError(ex.Message);
+            }
+        }       
+        private void Btn_RegistrarCliente_Click(object sender, EventArgs e)
+        {
+            ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
+            capturarDatosClientes(ID_Persona);
+            try
+            {
+                Clientes.AltaCliente();
+                CServ_MsjUsuario.Exito("Usuario Generado con éxito");
+            }
+            catch (Exception ex)
+            {
+                CServ_MsjUsuario.MensajesDeError(ex.Message);
+            }
+        }
         #endregion
 
         #region Métodos
-        private void CargarComboBox()
+        private void cargarComboBox()
         {
-            Cmb_Partido.DataSource = GestionPersonasUsuarios.ObtenerLocalidad();
+            Cmb_Partido.DataSource = GestionPersonas.ObtenerLocalidad();
             Cmb_Partido.DisplayMember = "Localidad";
             Cmb_Partido.ValueMember = "ID_Localidad";
             Cmb_Partido.SelectedIndex = -1;
 
-            Cmb_Nacionalidad.DataSource = GestionPersonasUsuarios.ObtenerPais();
+            Cmb_Nacionalidad.DataSource = GestionPersonas.ObtenerPais();
             Cmb_Nacionalidad.DisplayMember = "Pais";
             Cmb_Nacionalidad.ValueMember = "ID_Pais";
             Cmb_Nacionalidad.SelectedIndex = -1;
 
             Cmb_SeleccionePersona.SelectedIndexChanged -= Cmb_SeleccionePersona_SelectedIndexChanged;
-            Cmb_SeleccionePersona.DataSource = GestionPersonasUsuarios.ObtenerPersonas();            
+            Cmb_SeleccionePersona.DataSource = GestionPersonas.ObtenerPersonas();            
             Cmb_SeleccionePersona.DisplayMember = "NombreCompleto";
             Cmb_SeleccionePersona.ValueMember = "ID_Persona";
             Cmb_SeleccionePersona.SelectedIndex = -1;
             Cmb_SeleccionePersona.SelectedIndexChanged += Cmb_SeleccionePersona_SelectedIndexChanged;
 
 
-            Cmb_Familia.DataSource = GestionPersonasUsuarios.ObtenerFamilia();
+            Cmb_Familia.DataSource = GestionPersonas.ObtenerFamilia();
             Cmb_Familia.DisplayMember = "Familia";
             Cmb_Familia.ValueMember = "ID_Familia";                  
             Cmb_Familia.SelectedIndex =-1;
         }
-        private void CapturarDatosPersonas()
+        private void capturarDatosPersonas()
         {
-            GestionPersonasUsuarios.Prop_NOMBRE = Txb_Nombre.Text;
-            GestionPersonasUsuarios.Prop_APELLIDO = Txb_Apellido.Text;
-            GestionPersonasUsuarios.Prop_DNI = Txb_Dni.Text;
-            GestionPersonasUsuarios.Prop_CORREO = Txb_Correo.Text;
-            GestionPersonasUsuarios.Prop_SEXO = Cmb_Sexo.Text;
-            GestionPersonasUsuarios.Prop_DOMICILIO = Txb_Domicilio.Text;
-            GestionPersonasUsuarios.Prop_LOCALIDAD = Cmb_Partido.Text;
-            GestionPersonasUsuarios.Prop_NACIONALIDAD = Cmb_Nacionalidad.Text;
-            GestionPersonasUsuarios.Prop_TELEFONO = Txb_Telefono.Text;
+            GestionPersonas.Prop_NOMBRE = Txb_Nombre.Text;
+            GestionPersonas.Prop_APELLIDO = Txb_Apellido.Text;
+            GestionPersonas.Prop_DNI = Txb_Dni.Text;
+            GestionPersonas.Prop_CORREO = Txb_Correo.Text;
+            GestionPersonas.Prop_SEXO = Cmb_Sexo.Text;
+            GestionPersonas.Prop_DOMICILIO = Txb_Domicilio.Text;
+            GestionPersonas.Prop_LOCALIDAD = Cmb_Partido.Text;
+            GestionPersonas.Prop_NACIONALIDAD = Cmb_Nacionalidad.Text;
+            GestionPersonas.Prop_TELEFONO = Txb_Telefono.Text;
 
             DateTime FechaNacimiento = Dtp_FeNacimiento.Value;
             if (FechaNacimiento > DateTime.Today)
@@ -159,12 +207,11 @@ namespace Vista
             }
             else
             {
-                GestionPersonasUsuarios.Prop_NACIMIENTO = FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss");
+                GestionPersonas.Prop_NACIMIENTO = FechaNacimiento.ToString("yyyy-MM-dd HH:mm:ss");
             }
-            GestionPersonasUsuarios.Prop_COMENTARIOS = Txb_Comentario.Text;
 
         }
-        private void CapturarDatosUsuarios(int ID_Persona)
+        private void capturarDatosUsuarios(int ID_Persona)
         {
             bool NuevaPass = true;
             bool CambioPass=false;
@@ -184,8 +231,25 @@ namespace Vista
             Usuario.Prop_VtoPass = Cmb_VenceCada.Text;
             Usuario.Prop_NuevaPass = Convert.ToString(NuevaPass);
             Usuario.Prop_CambioPass = Convert.ToString(CambioPass);
+            Usuario.Prop_Comentarios = Txb_Comentario.Text;
         }
-        public void BloquearControles(bool EsUsuario) 
+        private void capturarDatosClientes(int ID_Persona)
+        {
+            Clientes.ID_Persona = ID_Persona.ToString();
+            Clientes.Categoria = Cmb_Categoria.Text;
+            Clientes.Comentarios = Txb_Comentario.Text;
+            DateTime FeAlta = Dtp_FeAltaCliente.Value;
+            if (FeAlta > DateTime.UtcNow)
+            {
+                throw new Exception("Fecha no valida, por favor ingrese nuevamente");
+            }
+            else
+            {
+                Clientes.FeAlta = FeAlta.ToString("yyyy-MM-dd 00:00:00");
+            }
+
+        }
+        private void bloquearControles(bool EsUsuario) 
         {
             Txb_Nombre.Enabled = false;
             Txb_Apellido.Enabled = false;
@@ -219,7 +283,7 @@ namespace Vista
             }
         
         }
-        public void CargarPersonasdeCombobox(DataTable dt, bool EsUsuario)
+        private void cargarPersonasdeCombobox(DataTable dt, bool EsUsuario)
         {
             if (dt.Rows.Count > 0)
             {
@@ -238,7 +302,7 @@ namespace Vista
             }
             if (EsUsuario == true)
             {
-                BloquearControles(EsUsuario);
+                bloquearControles(EsUsuario);
                 Rbt_Usuario.Checked = true;
                 Txb_UserName.Text = CSesion_PersonaSeleccionada.UserName;
                 Txb_Contrasena.Text = CSesion_PersonaSeleccionada.PassEncriptada;
@@ -270,5 +334,6 @@ namespace Vista
         }
         #endregion
 
+        
     }
 }
