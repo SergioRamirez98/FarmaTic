@@ -64,6 +64,7 @@ namespace Sesion
                     Nacionalidad = fila["Pais"].ToString();
                     Telefono = Convert.ToInt32(fila["Telefono"]);
                     FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
+                    Comentario = fila["Comentarios"].ToString();
                     Familia = fila["Familia"].ToString();
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
                     if (resultado.Rows.Count == 3)
@@ -90,41 +91,45 @@ namespace Sesion
                     RolDescripcion = fila["Descripcion"].ToString();
                     EstadoCuenta = fila["EstadoCuenta"].ToString();
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
-                    Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
-                    Comentario = fila["Comentarios"].ToString();
-
-                    if (VenceCada != 0)
+                    if (NuevaPass == false)
                     {
-                        DateTime hoy = DateTime.Today;
-                        TimeSpan span = Fe_CambioPass.Subtract(hoy);
-                        TimeSpan span2 = hoy.Subtract(Fe_CambioPass);
-                        int espan = span.Days;
-                        if (espan <= 10)
+                        Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
+                        if (VenceCada != 0)
                         {
-                            bool pregunta = CServ_CambioDeClave.CambiarClave();
-                            if (pregunta) { CambioPass = true; }
-                        }
-                        else if (espan == 0)
-                        {
-                            CambioPass = true;
+                            DateTime hoy = DateTime.Today;
+                            TimeSpan span = Fe_CambioPass.Subtract(hoy);
+                            TimeSpan span2 = hoy.Subtract(Fe_CambioPass);
+                            int espan = span.Days;
+                            if (espan <= 10)
+                            {
+                                bool pregunta = CServ_CambioDeClave.CambiarClave();
+                                if (pregunta) { CambioPass = true; }
+                            }
+                            else if (espan == 0)
+                            {
+                                NuevaPass = true;
+                            }
+
                         }
 
                     }
+
+
 
                 }
                 catch (Exception)
                 {
 
-                    throw new Exception ("Error al vincular los datos en la base de datos");
+                    throw new Exception("Error al vincular los datos en la base de datos");
                 }
             }
-        }        
+        }
         public static void LimpiarCache()
         {
-            if (atr_SesionActiva == false)
+            if (SesionActiva == false)
             {
                 Es_Usuario = false;
-                UserName = null; 
+                UserName = null;
                 PassEncriptada = null;
                 VenceCada = 0;
                 Nombre = null;

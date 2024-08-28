@@ -243,6 +243,8 @@ namespace Vista
         }
         private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)
         {
+            CSesion_SesionIniciada.SesionActiva = false;            
+            CSesion_SesionIniciada.LimpiarCache();
             Program.Login.Show();
         }
         #endregion
