@@ -51,7 +51,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||MostrarProductosDTGV.");
             }
             return dt;
         }
@@ -73,7 +73,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||VtoProductos.");
             }
             return dt;
         }
@@ -94,7 +94,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||StockMinimo.");
             }
             return dt;
         }
@@ -142,7 +142,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al comprobar los datos en la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||Consultar.");
             }
             return Dt;
         }
@@ -158,7 +158,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||ProductosVencidos.");
             }
             return dt;
         }
@@ -201,7 +201,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Error al comprobar los datos en la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||Insertar.");
             }
         }
         public void ActualizarProductos()
@@ -244,7 +244,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Error al guardar los datos en la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||ActualizarProducto.");
             }
         }
         public void Eliminar(int ID_Producto)
@@ -266,7 +266,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Error al eliminar los datos seleccionados.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||Eliminar.");
             }
         }
         public void ElimProdVencidos(DateTime FechaActual)
@@ -288,7 +288,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Error al eliminar los datos seleccionados.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Productos||ElimProdVencidos.");
             }
         }
     }

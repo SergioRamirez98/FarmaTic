@@ -1,6 +1,7 @@
 ﻿using Logica;
 using Sesion;
 using System;
+using Servicios;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,7 +42,7 @@ namespace Vista.FormulariosMenu
             DTGV_Ventas.AllowUserToResizeRows = false;
             DTGV_Ventas.ReadOnly = true;
             DTGV_Ventas.RowHeadersVisible = false;
-            DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;            
+            DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             // DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DTGV_Carrito.Rows.Clear();
             DTGV_Carrito.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
@@ -51,17 +52,18 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.RowHeadersVisible = false;
             DTGV_Carrito.AllowUserToResizeColumns = false;
             DTGV_Carrito.AllowUserToResizeRows = false;
-            DTGV_Carrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DTGV_Carrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;            
             DTGV_Carrito.Columns.Add("ID", "ID Producto");
             DTGV_Carrito.Columns.Add("Nombre", "Nombre");
             DTGV_Carrito.Columns.Add("Marca", "Marca");
             DTGV_Carrito.Columns.Add("Cantidad", "Cantidad");
             DTGV_Carrito.Columns.Add("Precio", "Precio Unitario");
+            DTGV_Carrito.Columns["Precio"].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Carrito.Columns.Add("Subtotal", "SubTotal");
+            DTGV_Carrito.Columns["Subtotal"].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Carrito.Columns.Add("Vencimiento", "Vencimiento");
             DTGV_Carrito.Columns.Add("NumLote", "Numero de lote");
-            DTGV_Carrito.Columns[4].DefaultCellStyle.Format = "#0.##0,#0";
-               // defaultCellStyle.Format
+
         }
         private void cargarDTGV()
         {
@@ -74,6 +76,7 @@ namespace Vista.FormulariosMenu
             DTGV_Ventas.Columns[3].DisplayIndex = 4;
             DTGV_Ventas.Columns[4].DisplayIndex = 5;
             DTGV_Ventas.Columns[5].DisplayIndex = 6;
+            DTGV_Ventas.Columns[5].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Ventas.Columns[6].DisplayIndex = 7;
             DTGV_Ventas.Columns[7].DisplayIndex = 8;
             DTGV_Ventas.Columns[8].DisplayIndex = 3;
@@ -87,6 +90,8 @@ namespace Vista.FormulariosMenu
             DTGV_Ventas.Columns[6].HeaderText = "Vencimiento";
             DTGV_Ventas.Columns[7].HeaderText = "Numero de lote";
             DTGV_Ventas.Columns[8].HeaderText = "Categoría";
+            DTGV_Ventas.ClearSelection();
+            
         }
         private void configurarLoad()
         {
@@ -96,7 +101,7 @@ namespace Vista.FormulariosMenu
             Txb_BusquedaRapida.Text = string.Empty;
             Nud_Cantidad.Value = 1;
             Lbl_Fecha.Text = DateTime.Today.ToString("D");
-            Lbl_Total.Text = "El valor total a cobrar es: " + calculoTotalVenta().ToString();
+            Lbl_Total.Text = "El valor total a cobrar es: " + calculoTotalVenta().ToString("#,##0.00");
         }
         private void pasarDatos()
         {
@@ -119,13 +124,14 @@ namespace Vista.FormulariosMenu
             
         }
         private double calculoTotalVenta()
-        {            
+        {
+            double venta = 0;
             foreach (DataGridViewRow subtotal in DTGV_Carrito.Rows) 
             {
                 double valor = Convert.ToDouble(subtotal.Cells[5].Value);
-                totalVenta = valor + totalVenta;
+                venta = valor + venta;
             }
-            return totalVenta;
+            return venta;
         }
         private void agregarAlCarrito(int ProdSeleccionado) 
         {
@@ -137,8 +143,9 @@ namespace Vista.FormulariosMenu
             double SubTotal = Cantidad * Precio;
             DateTime Vto = Convert.ToDateTime(DTGV_Ventas.Rows[ProdSeleccionado].Cells[6].Value);
             int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[7].Value);
-            DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote);
-            
+            DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote);            
+            DTGV_Ventas.ClearSelection();
+            DTGV_Carrito.ClearSelection();
         }
         private bool compararCarrito(int ProdSeleccionado)
         {
@@ -171,9 +178,25 @@ namespace Vista.FormulariosMenu
                 }
             }
         }
+        private void eliminardeCarrito() 
+        {
+            try
+            {
+                DataGridViewSelectedRowCollection filasSeleccionadas;
+                filasSeleccionadas = DTGV_Carrito.SelectedRows;
+                foreach (DataGridViewRow fila in filasSeleccionadas)
+                {
+                    DTGV_Carrito.Rows.Remove(fila);
+                }
+            }
+            catch (Exception)
+            {
+                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
+            }
+        }
 
 
-
+        
         private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
         {
             DTGV_Ventas.DataSource = Ventas.BusquedaRapida(Txb_BusquedaRapida.Text, Dt);
@@ -194,15 +217,34 @@ namespace Vista.FormulariosMenu
                     agregarAlCarrito(Seleccion);
                 }
             }
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
+            }
             configurarLoad();
         }
         private void Btn_EliminardeCompra_Click(object sender, EventArgs e)
         {
-
+            if (DTGV_Carrito.SelectedRows.Count > 0)
+            {
+                eliminardeCarrito();                
+            }
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
+            }
         }
         private void Btn_FinalizarCompra_Click(object sender, EventArgs e)
         {
-            pasarDatos();
+            if (DTGV_Carrito.SelectedRows.Count >0)
+            {
+                pasarDatos();
+            }
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
+            }
+
         }
     }
 }

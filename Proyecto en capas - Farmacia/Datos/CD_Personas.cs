@@ -56,43 +56,52 @@ namespace Datos
         #endregion       
         public DataTable Insertar()
         {
-            string sSql = "SP_Insertar_Persona";
+            try
+            {
+                string sSql = "SP_Insertar_Persona";
 
-            SqlParameter param_nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 50);
-            param_nombre.Value = atr_nombre;
-            SqlParameter param_apellido = new SqlParameter("@Apellido", SqlDbType.VarChar, 50);
-            param_apellido.Value = atr_apellido;
-            SqlParameter param_direccion = new SqlParameter("@Direccion", SqlDbType.VarChar, 50);
-            param_direccion.Value = atr_domicilio;
-            SqlParameter param_mail = new SqlParameter("@Mail", SqlDbType.VarChar, 50);
-            param_mail.Value = atr_correo;
-            SqlParameter param_documento = new SqlParameter("@Documento", SqlDbType.VarChar, 50);
-            param_documento.Value = atr_dni;
-            SqlParameter param_sexo = new SqlParameter("@Sexo", SqlDbType.VarChar, 50);
-            param_sexo.Value = atr_sexo;
-            SqlParameter param_telefono = new SqlParameter("@Telefono", SqlDbType.Int);
-            param_telefono.Value = atr_telefono;
-            SqlParameter param_Nacimiento = new SqlParameter("@FeNacimiento", SqlDbType.DateTime);
-            param_Nacimiento.Value = atr_nacimiento;
-            SqlParameter param_localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
-            param_localidad.Value = atr_localidad;
-            SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
-            param_Nacionalidad.Value = atr_nacionalidad;
-            List<SqlParameter> listaParametros = new List<SqlParameter>();
-            listaParametros.Add(param_nombre);
-            listaParametros.Add(param_apellido);
-            listaParametros.Add(param_direccion);
-            listaParametros.Add(param_mail);
-            listaParametros.Add(param_documento);
-            listaParametros.Add(param_sexo);
-            listaParametros.Add(param_telefono);
-            listaParametros.Add(param_Nacimiento);
-            listaParametros.Add(param_localidad);
-            listaParametros.Add(param_Nacionalidad);
+                SqlParameter param_nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 50);
+                param_nombre.Value = atr_nombre;
+                SqlParameter param_apellido = new SqlParameter("@Apellido", SqlDbType.VarChar, 50);
+                param_apellido.Value = atr_apellido;
+                SqlParameter param_direccion = new SqlParameter("@Direccion", SqlDbType.VarChar, 50);
+                param_direccion.Value = atr_domicilio;
+                SqlParameter param_mail = new SqlParameter("@Mail", SqlDbType.VarChar, 50);
+                param_mail.Value = atr_correo;
+                SqlParameter param_documento = new SqlParameter("@Documento", SqlDbType.VarChar, 50);
+                param_documento.Value = atr_dni;
+                SqlParameter param_sexo = new SqlParameter("@Sexo", SqlDbType.VarChar, 50);
+                param_sexo.Value = atr_sexo;
+                SqlParameter param_telefono = new SqlParameter("@Telefono", SqlDbType.Int);
+                param_telefono.Value = atr_telefono;
+                SqlParameter param_Nacimiento = new SqlParameter("@FeNacimiento", SqlDbType.DateTime);
+                param_Nacimiento.Value = atr_nacimiento;
+                SqlParameter param_localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
+                param_localidad.Value = atr_localidad;
+                SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
+                param_Nacionalidad.Value = atr_nacionalidad;
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_nombre);
+                listaParametros.Add(param_apellido);
+                listaParametros.Add(param_direccion);
+                listaParametros.Add(param_mail);
+                listaParametros.Add(param_documento);
+                listaParametros.Add(param_sexo);
+                listaParametros.Add(param_telefono);
+                listaParametros.Add(param_Nacimiento);
+                listaParametros.Add(param_localidad);
+                listaParametros.Add(param_Nacionalidad);
 
-            lista = listaParametros.ToArray();            
+                lista = listaParametros.ToArray();
 
-           return ejecutar(sSql, lista, true);
+                return ejecutar(sSql, lista, true);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception ("No se ha podido realizar la operación. Error CD_Personas||Insertar");
+            }
         }
         public DataTable Localidad()
         {
@@ -107,7 +116,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Localidad.");
             }
         }
         public DataTable Pais()
@@ -123,15 +132,15 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Pais.");
             }
         }
         public DataTable CargarPersonas(int ID_Persona)
         {
-            string sSql = "SP_Cache_Personas";
             DataTable Dt = new DataTable();
             try
             {
+                string sSql = "SP_Cache_Personas";
                 SqlParameter param_ID_Usuario = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Usuario.Value = ID_Persona;
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
@@ -144,16 +153,16 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||CargarPersonas.");
             }
             return Dt;
         }        
         public bool CargarUsuarios(int ID_Persona)
         {
-            string sSql = "SP_Cache_Usuarios";
             DataTable Dt = new DataTable();
             try
             {
+                string sSql = "SP_Cache_Usuarios";
                 SqlParameter param_ID_Usuario = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Usuario.Value = ID_Persona;
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
@@ -174,7 +183,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||CargarUsuarios.");
             }            
         }
         public DataTable ObtenerPersonaCmb()
@@ -191,14 +200,14 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||ObtenerPersonaCmb");
             }
         }
         public DataTable Familia()
         {
-            string sSql = "SP_Obtener_Familias_ComboBox";
             try
             {
+                string sSql = "SP_Obtener_Familias_ComboBox";
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
                 SqlParameter[] parametros = listaparametros.ToArray();
 
@@ -207,7 +216,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al conectar con la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Familia");
             }
         }
     }

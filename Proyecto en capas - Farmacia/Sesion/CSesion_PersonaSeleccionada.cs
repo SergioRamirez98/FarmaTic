@@ -13,9 +13,7 @@ namespace Sesion
         private static bool atr_SesionActiva=true;
         #endregion
 
-        #region Properties
-        public static bool SesionActiva { get => atr_SesionActiva;set { atr_SesionActiva = value; } }
-
+        #region Properties Personas
         public static string Nombre { get; set; }
         public static string Apellido { get; set; }
         public static int Dni { get; set; }
@@ -27,7 +25,10 @@ namespace Sesion
         public static int Telefono { get; set; }
         public static DateTime FeNacimiento { get; set; }
         public static string Comentario { get; set; }
+        #endregion
 
+        #region Properties Usuarios
+        public static bool SesionActiva { get => atr_SesionActiva; set { atr_SesionActiva = value; } }
         public static string UserName { get; set; }
         public static string PassEncriptada { get; set; }
         public static int VenceCada { get; set; }
@@ -63,6 +64,10 @@ namespace Sesion
                     Nacionalidad = fila["Pais"].ToString();
                     Telefono = Convert.ToInt32(fila["Telefono"]);
                     FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
+                    if (!string.IsNullOrEmpty(fila["ID_Usuario"].ToString()))
+                    {
+                        SesionActiva = true;
+                    }
                 }
             }
             catch (Exception)
@@ -112,7 +117,7 @@ namespace Sesion
 
         public static void LimpiarCache() 
         {
-            if (atr_SesionActiva ==false)
+            if (SesionActiva == false)
             {
                 UserName = null;
                 PassEncriptada = null;

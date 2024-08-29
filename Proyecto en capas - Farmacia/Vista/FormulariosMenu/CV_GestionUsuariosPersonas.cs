@@ -4,6 +4,7 @@ using Sesion;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
@@ -30,23 +31,8 @@ namespace Vista
         #region Eventos
         private void CV_AgregarPersona_Load(object sender, EventArgs e)
         {
-            Cmb_Sexo.Items.Add("Masculino");
-            Cmb_Sexo.Items.Add("Femenino");
-            Cmb_Estado.Items.Add("Activo");
-            Cmb_Estado.Items.Add("Inactivo");
-            Cmb_Estado.Items.Add("Bloqueado");
-            Cmb_VenceCada.Items.Add("30 Dias");
-            Cmb_VenceCada.Items.Add("60 Dias");
-            Cmb_VenceCada.Items.Add("120 Dias");
-            Cmb_VenceCada.Items.Add("Nunca");
-            Size = new Size(710, 300);
-            Pnb_RegistroUsuario.Enabled = false;
-            Pnb_RegistroUsuario.Visible = false;
-            Pnb_RegistroCliente.Enabled = false;
-            Pnb_RegistroCliente.Visible = false;
-            //Rbt_Cliente.Enabled = false;
-            //Rbt_Usuario.Enabled = false;
-            cargarComboBox();
+            configurarLoad();
+            cargarComboBox(false);
             CServ_LimpiarControles.LimpiarFormulario(this);
         }
         private void Cmb_SeleccionePersona_SelectedIndexChanged(object sender, EventArgs e)
@@ -62,27 +48,39 @@ namespace Vista
                 {
                     bloquearControles(EsUsuario);
                     cargarPersonasdeCombobox(dt, EsUsuario);
-
                 }
                 else
                 {
                     bloquearControles(EsUsuario);
                     cargarPersonasdeCombobox(dt, EsUsuario);
                 }
-
             }
             else
             {
                 CServ_LimpiarControles.LimpiarFormulario(this);
             }
         }
+        private void Cmb_Categoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Cmb_Categoria.SelectedIndex > -1)
+            {
+                DataRowView selectedRow = (DataRowView)Cmb_Categoria.SelectedItem;
+                int ID_Categoria = Convert.ToInt32(selectedRow["ID_Categoria"]);
+                int Descuento = Convert.ToInt32((selectedRow["Descuento"]));
+                Txb_Descuento.Text = Descuento + "%";
+            }
+            else
+            {
+                Txb_Descuento.Text = null;
+            }
+        }
         private void Rbt_Usuario_CheckedChanged(object sender, EventArgs e)
         {
             if (Rbt_Usuario.Checked) 
-            { 
-            Size = new Size(710, 600);
-            Pnb_RegistroUsuario.Visible = true;
-            Pnb_RegistroUsuario.Enabled = true;
+            {
+                Size = new Size(710, 600);
+                Pnb_RegistroUsuario.Visible = true;
+                Pnb_RegistroUsuario.Enabled = true;
             }
             else
             {
@@ -95,11 +93,14 @@ namespace Vista
         }
         private void Rbt_Cliente_CheckedChanged(object sender, EventArgs e)
         {
-            if (Rbt_Cliente.Checked) { 
-            Size = new Size(710, 400);
-            Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 235);
-            Pnb_RegistroCliente.Enabled = true;
-            Pnb_RegistroCliente.Visible = true;
+            if (Rbt_Cliente.Checked)
+            {
+                cargarComboBox(true);
+                Size = new Size(710, 400);
+                Txb_Descuento.Enabled = false;
+                Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 235);
+                Pnb_RegistroCliente.Enabled = true;
+                Pnb_RegistroCliente.Visible = true;
             }
             else
             {
@@ -112,11 +113,10 @@ namespace Vista
         }
         private void Btn_RegistrarPersona_Click(object sender, EventArgs e)
         {
-            capturarDatosPersonas();
             try
             {
+                capturarDatosPersonas();
                 DataTable dt = GestionPersonas.InsertarPersona();
-                cargarComboBox();
                 if (dt.Rows.Count > 0)
                 {
                     DataRow DT = dt.Rows[0];
@@ -135,7 +135,7 @@ namespace Vista
         private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
         {
             ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
-            capturarDatosUsuarios(ID_Persona);
+            capturarDatosUsuarios();
             try
             {
                 Usuario.CrearUsuario();
@@ -149,22 +149,58 @@ namespace Vista
         private void Btn_RegistrarCliente_Click(object sender, EventArgs e)
         {
             ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
-            capturarDatosClientes(ID_Persona);
             try
             {
+                capturarDatosClientes();
                 Clientes.AltaCliente();
-                CServ_MsjUsuario.Exito("Usuario Generado con éxito");
+                CServ_MsjUsuario.Exito("Cliente generado con éxito");
+                CServ_LimpiarControles.BloquearControles(Pnb_RegistroCliente);
             }
             catch (Exception ex)
             {
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
+                CServ_LimpiarControles.LimpiarPanelBox(Pnb_RegistroCliente);
             }
+            
         }
+       
         #endregion
 
         #region Métodos
-        private void cargarComboBox()
+        private void configurarLoad() 
         {
+            Cmb_Sexo.Items.Add("Masculino");
+            Cmb_Sexo.Items.Add("Femenino");
+            Cmb_Estado.Items.Add("Activo");
+            Cmb_Estado.Items.Add("Inactivo");
+            Cmb_Estado.Items.Add("Bloqueado");
+            Cmb_VenceCada.Items.Add("30 Dias");
+            Cmb_VenceCada.Items.Add("60 Dias");
+            Cmb_VenceCada.Items.Add("120 Dias");
+            Cmb_VenceCada.Items.Add("Nunca");
+            Size = new Size(710, 300);
+            Pnb_RegistroUsuario.Enabled = false;
+            Pnb_RegistroUsuario.Visible = false;
+            Pnb_RegistroCliente.Enabled = false;
+            Pnb_RegistroCliente.Visible = false;
+            //Rbt_Cliente.Enabled = false;
+            //Rbt_Usuario.Enabled = false;
+            cargarComboBox(false);
+            CServ_LimpiarControles.LimpiarFormulario(this);
+        }
+        private void cargarComboBox(bool Rbt_Cliente)
+        {
+
+            if (Rbt_Cliente)
+            {
+                Cmb_Categoria.DataSource = Clientes.ObtenerCategoria();
+                Cmb_Categoria.DisplayMember = "Categoria";
+                Cmb_Categoria.ValueMember = "ID_Categoria";
+                Cmb_Categoria.SelectedIndex = -1;
+
+            }
+            else
+            { 
             Cmb_Partido.DataSource = GestionPersonas.ObtenerLocalidad();
             Cmb_Partido.DisplayMember = "Localidad";
             Cmb_Partido.ValueMember = "ID_Localidad";
@@ -187,6 +223,7 @@ namespace Vista
             Cmb_Familia.DisplayMember = "Familia";
             Cmb_Familia.ValueMember = "ID_Familia";                  
             Cmb_Familia.SelectedIndex =-1;
+            }
         }
         private void capturarDatosPersonas()
         {
@@ -211,7 +248,7 @@ namespace Vista
             }
 
         }
-        private void capturarDatosUsuarios(int ID_Persona)
+        private void capturarDatosUsuarios()
         {
             bool NuevaPass = true;
             bool CambioPass=false;
@@ -233,11 +270,19 @@ namespace Vista
             Usuario.Prop_CambioPass = Convert.ToString(CambioPass);
             Usuario.Prop_Comentarios = Txb_Comentario.Text;
         }
-        private void capturarDatosClientes(int ID_Persona)
+        private void capturarDatosClientes()
         {
             Clientes.ID_Persona = ID_Persona.ToString();
-            Clientes.Categoria = Cmb_Categoria.Text;
-            Clientes.Comentarios = Txb_Comentario.Text;
+            try
+            {
+                Clientes.ID_Categoria = Cmb_Categoria.SelectedValue.ToString();
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Debe seleccionar una categoria");
+            }
+            Clientes.Comentarios = Txb_ComentarioCliente.Text;
             DateTime FeAlta = Dtp_FeAltaCliente.Value;
             if (FeAlta > DateTime.UtcNow)
             {
@@ -332,8 +377,10 @@ namespace Vista
                 CServ_LimpiarControles.LimpiarPanelBox(Pnb_RegistroUsuario);
             }
         }
+
+
         #endregion
 
-        
+       
     }
 }

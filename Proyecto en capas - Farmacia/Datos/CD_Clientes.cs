@@ -13,7 +13,7 @@ namespace Datos
     {
         #region Properties
         public int ID_Persona { get; set; }
-        public string Categoria { get; set; }
+        public int ID_Categoria { get; set; }
         public string Comentarios { get; set; }
         public DateTime FeAlta { get; set; }
 
@@ -27,8 +27,8 @@ namespace Datos
                 string sSql = "SP_Insertar_Cliente";
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Persona.Value = ID_Persona;
-                SqlParameter param_Categoria = new SqlParameter("@Categoria", SqlDbType.VarChar, 200);
-                param_Categoria.Value = Categoria;
+                SqlParameter param_Categoria = new SqlParameter("@ID_Categoria", SqlDbType.Int);
+                param_Categoria.Value = ID_Categoria;
                 SqlParameter param_Comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 200);
                 param_Comentarios.Value = Comentarios;
                 SqlParameter param_FeAlta = new SqlParameter("@FeAlta", SqlDbType.DateTime);
@@ -48,7 +48,24 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Error al comprobar los datos en la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Clientes||InsertarCliente");
+            }
+        }
+
+        public DataTable ObtenerCategoriasCmb()
+        {
+            try
+            {
+                string sSql = "SP_Obtener_Categorias";
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                return ejecutar(sSql, parametros, true);
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Cliente||ObtenerCategoriaCmb");
             }
         }
     }

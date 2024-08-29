@@ -7,12 +7,9 @@ namespace Sesion
 {
     public static class CSesion_SesionIniciada
     {
-        #region Atributo
-        private static bool atr_SesionActiva = true;
-        #endregion
 
         #region Properties
-        public static bool SesionActiva { get => atr_SesionActiva; set { atr_SesionActiva = value; } }
+        public static bool SesionActiva { get; set ;  }
         public static bool Es_Usuario { get; set; }
         public static string UserName { get; set; }
         public static string PassEncriptada { get; set; }
@@ -49,6 +46,7 @@ namespace Sesion
             {
                 try
                 {
+                    SesionActiva = true;
                     DataRow fila = resultado.Rows[0];
                     Es_Usuario = true;
                     UserName = fila["UserName"].ToString();

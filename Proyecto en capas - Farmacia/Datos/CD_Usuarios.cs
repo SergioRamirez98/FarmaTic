@@ -67,20 +67,29 @@ namespace Datos
             }
             else
             {
-                throw new Exception("Error al conectar con la base de datos");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Logear.");
             }
         }
         public DataTable BuscarUser()
         {
-            string sSql = "SP_Buscar_Usuario";
-            SqlParameter param_UserName = new SqlParameter ("@UserName", SqlDbType.VarChar, 20);
-            param_UserName.Value = Prop_UserName;
-            List<SqlParameter> listaParametros = new List<SqlParameter>();
-            listaParametros.Add(param_UserName);
-            lista = listaParametros.ToArray();
-            DataTable Dt = ejecutar(sSql, lista, true);
-            CSesion_PreguntasUsuarios.CachePreguntas(Dt);
-            return Dt;
+            try
+            {
+                string sSql = "SP_Buscar_Usuario";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
+                param_UserName.Value = Prop_UserName;
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
+                lista = listaParametros.ToArray();
+                DataTable Dt = ejecutar(sSql, lista, true);
+                CSesion_PreguntasUsuarios.CachePreguntas(Dt);
+                return Dt;
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Logear.");
+            }
 
         }
         public DataTable ObtenerPreguntasAleatorias()
@@ -97,7 +106,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Usuario no encontrado, por favor ingrese nuevamente");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Logear");
             }
         }
         public bool CambiarPass()
@@ -127,7 +136,7 @@ namespace Datos
             }
             else
             {
-                throw new Exception("Error en la base de datos");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||CambiarPass");
             }
 
         }
@@ -178,7 +187,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception ("Error al comprobar los datos en la base de datos.");
+                throw new Exception ("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
             }                        
         }
         public void InsertarRespuestas()
@@ -220,7 +229,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception ("No se han podido guardar las preguntas.");
+                throw new Exception ("No se ha podido realizar la operación. Error CD_Usuarios||InsertarRespuesta.");
             }        
         }
     }

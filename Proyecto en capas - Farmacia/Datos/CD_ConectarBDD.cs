@@ -15,8 +15,16 @@ namespace Datos
         public SqlConnection conexion;
         public CD_ConectarBDD()
         {
-            conexion = new SqlConnection(VariableParaConectar);
-            conexion.Open();
+            try
+            {
+                conexion = new SqlConnection(VariableParaConectar);
+                conexion.Open();
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("Error al conectar con la base de datos.");   
+            }
         }
     }
 }

@@ -52,7 +52,10 @@ namespace Logica
 
             return resultadoFiltro;
             }
-            else { return Dt; }
+            else 
+            {
+                return Dt; 
+            }
         }
     }
 }

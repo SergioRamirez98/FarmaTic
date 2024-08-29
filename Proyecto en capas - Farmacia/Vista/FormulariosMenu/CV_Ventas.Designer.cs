@@ -175,7 +175,7 @@
             // Lbl_Total
             // 
             this.Lbl_Total.AutoSize = true;
-            this.Lbl_Total.Location = new System.Drawing.Point(1476, 546);
+            this.Lbl_Total.Location = new System.Drawing.Point(9, 688);
             this.Lbl_Total.Name = "Lbl_Total";
             this.Lbl_Total.Size = new System.Drawing.Size(126, 16);
             this.Lbl_Total.TabIndex = 31;

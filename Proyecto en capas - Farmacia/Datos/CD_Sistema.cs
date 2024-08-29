@@ -41,7 +41,7 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("Error al recuperar la configuración");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||Configuracion.");
             }
         }
 
@@ -81,7 +81,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("Error al guardar en la base de datos.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||GuardarCambios.");
             }
 
         }
