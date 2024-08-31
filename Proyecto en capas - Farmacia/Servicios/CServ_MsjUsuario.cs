@@ -30,14 +30,6 @@ namespace Servicios
             }
             return RespuestaUsuario;
         }
-        public static void ErrorMU(string msj)
-        {
-            MessageBox.Show(msj,
-                                    "¡ERROR!",
-                                    MessageBoxButtons.OK,
-                                    MessageBoxIcon.Error);
-
-        }
         public static void Exito(string msj)
         {
             MessageBox.Show(msj,
@@ -45,15 +37,5 @@ namespace Servicios
                                     MessageBoxButtons.OK,
                                     MessageBoxIcon.Information);
         }
-        /*public static void contrasena()
-        {
-            Txb_Contrasena.PasswordChar = '\0';
-            Cbx_MostrarContrasena.Text = "Ocultar contraseña";
-            if (!Cbx_MostrarContrasena.Checked)
-            {
-                Txb_Contrasena.PasswordChar = '*';
-                Cbx_MostrarContrasena.Text = "Mostrar contraseña";
-            }
-        }*/
     }
 }

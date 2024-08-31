@@ -46,7 +46,7 @@ namespace Vista
                 Btn_Eliminar.Enabled = false;
 
             }
-            else {reestablecerControles(); CServ_LimpiarControles.LimpiarFormulario(this); desbloquearControles(); }
+            else {reestablecerControles(); CServ_Limpiar.LimpiarFormulario(this); desbloquearControles(); }
 
         }
         private void CV_GestionStock_Click(object sender, EventArgs e)
@@ -78,7 +78,7 @@ namespace Vista
                     Productos.InsertarProducto();
                     CServ_MsjUsuario.Exito("El producto fue ingresado exitosamente.");
                     mostrarProductos();
-                    CServ_LimpiarControles.LimpiarFormulario(this);
+                    CServ_Limpiar.LimpiarFormulario(this);
 
                 }
                 catch (Exception ex)
@@ -126,7 +126,7 @@ namespace Vista
                     Productos.ModificarProductos();
                     CServ_MsjUsuario.Exito("Producto actualizado");
                     mostrarProductos();
-                    CServ_LimpiarControles.LimpiarFormulario(this);
+                    CServ_Limpiar.LimpiarFormulario(this);
                 }
                 catch (Exception ex)
                 {
@@ -148,7 +148,7 @@ namespace Vista
                         Productos.EliminarProducto(ID_Producto);
                         CServ_MsjUsuario.Exito("El producto ha sido eliminado");
                         mostrarProductos();
-                        CServ_LimpiarControles.LimpiarFormulario(this);
+                        CServ_Limpiar.LimpiarFormulario(this);
                         desbloquearControles();
                     }
                     catch (Exception ex)
@@ -365,7 +365,7 @@ namespace Vista
         }
         private void configurarLoad()
         {
-            CServ_LimpiarControles.LimpiarFormulario(this);
+            CServ_Limpiar.LimpiarFormulario(this);
             Pnl_Busqueda.Visible = false;
             Pnl_Busqueda.Enabled = false;
             Btn_Agregar.Enabled = true;

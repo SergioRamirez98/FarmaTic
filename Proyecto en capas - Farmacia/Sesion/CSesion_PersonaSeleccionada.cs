@@ -181,9 +181,12 @@ namespace Sesion
                 NuevaPass = false;
                 Fe_CambioPass = DateTime.Today;
                 //Clientes
+                EsCliente = false;
+                ID_Categoria = 0;
+                FechaAltaCliente=DateTime.Today;
+                ComentarioCliente = null;
             }
         }
         #endregion
-
     }
 }

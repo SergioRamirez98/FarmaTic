@@ -83,7 +83,7 @@
             this.Lbl_FechaAlta = new System.Windows.Forms.Label();
             this.Lbl_ConfContrasena = new System.Windows.Forms.Label();
             this.Lbl_Contrasena = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_UserName = new System.Windows.Forms.Label();
             this.Pnb_RegistroCliente = new System.Windows.Forms.Panel();
             this.Lbl_DescuentoAplicado = new System.Windows.Forms.Label();
             this.Txb_Descuento = new System.Windows.Forms.TextBox();
@@ -91,7 +91,7 @@
             this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
             this.Dtp_FeAltaCliente = new System.Windows.Forms.DateTimePicker();
             this.Lbl_Categoria = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.Lbl_FeAltaCliente = new System.Windows.Forms.Label();
             this.Lbl_ComentarioCliente = new System.Windows.Forms.Label();
             this.Txb_ComentarioCliente = new System.Windows.Forms.TextBox();
             this.Pnb_RegistroPersona.SuspendLayout();
@@ -233,7 +233,7 @@
             this.Btn_RegistrarPersona.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarPersona.Name = "Btn_RegistrarPersona";
             this.Btn_RegistrarPersona.Size = new System.Drawing.Size(253, 31);
-            this.Btn_RegistrarPersona.TabIndex = 25;
+            this.Btn_RegistrarPersona.TabIndex = 10;
             this.Btn_RegistrarPersona.Text = "Registrar Persona";
             this.Btn_RegistrarPersona.UseVisualStyleBackColor = true;
             this.Btn_RegistrarPersona.Click += new System.EventHandler(this.Btn_RegistrarPersona_Click);
@@ -480,7 +480,7 @@
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Comentario);
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_ConfContrasena);
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_Contrasena);
-            this.Pnb_RegistroUsuario.Controls.Add(this.label1);
+            this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_UserName);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_UserName);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Pregunta2);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Contrasena);
@@ -673,15 +673,15 @@
             this.Lbl_Contrasena.TabIndex = 38;
             this.Lbl_Contrasena.Text = "Contraseña";
             // 
-            // label1
+            // Lbl_UserName
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(4, 18);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(125, 16);
-            this.label1.TabIndex = 37;
-            this.label1.Text = "Nombre de Usuario";
+            this.Lbl_UserName.AutoSize = true;
+            this.Lbl_UserName.Location = new System.Drawing.Point(4, 18);
+            this.Lbl_UserName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_UserName.Name = "Lbl_UserName";
+            this.Lbl_UserName.Size = new System.Drawing.Size(125, 16);
+            this.Lbl_UserName.TabIndex = 37;
+            this.Lbl_UserName.Text = "Nombre de Usuario";
             // 
             // Pnb_RegistroCliente
             // 
@@ -691,7 +691,7 @@
             this.Pnb_RegistroCliente.Controls.Add(this.Cmb_Categoria);
             this.Pnb_RegistroCliente.Controls.Add(this.Dtp_FeAltaCliente);
             this.Pnb_RegistroCliente.Controls.Add(this.Lbl_Categoria);
-            this.Pnb_RegistroCliente.Controls.Add(this.label11);
+            this.Pnb_RegistroCliente.Controls.Add(this.Lbl_FeAltaCliente);
             this.Pnb_RegistroCliente.Controls.Add(this.Lbl_ComentarioCliente);
             this.Pnb_RegistroCliente.Controls.Add(this.Txb_ComentarioCliente);
             this.Pnb_RegistroCliente.Location = new System.Drawing.Point(927, 308);
@@ -761,15 +761,15 @@
             this.Lbl_Categoria.TabIndex = 42;
             this.Lbl_Categoria.Text = "Categoria Cliente";
             // 
-            // label11
+            // Lbl_FeAltaCliente
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(457, 62);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(90, 16);
-            this.label11.TabIndex = 40;
-            this.label11.Text = "Fecha de Alta";
+            this.Lbl_FeAltaCliente.AutoSize = true;
+            this.Lbl_FeAltaCliente.Location = new System.Drawing.Point(457, 62);
+            this.Lbl_FeAltaCliente.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Lbl_FeAltaCliente.Name = "Lbl_FeAltaCliente";
+            this.Lbl_FeAltaCliente.Size = new System.Drawing.Size(90, 16);
+            this.Lbl_FeAltaCliente.TabIndex = 40;
+            this.Lbl_FeAltaCliente.Text = "Fecha de Alta";
             // 
             // Lbl_ComentarioCliente
             // 
@@ -850,7 +850,7 @@
         private System.Windows.Forms.ComboBox Cmb_Partido;
         private System.Windows.Forms.ComboBox Cmb_Sexo;
         private System.Windows.Forms.RadioButton Rbt_Usuario;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl_UserName;
         private System.Windows.Forms.Label Lbl_ConfContrasena;
         private System.Windows.Forms.Label Lbl_Contrasena;
         private System.Windows.Forms.Label Lbl_Familia;
@@ -877,7 +877,7 @@
         private System.Windows.Forms.ComboBox Cmb_Categoria;
         private System.Windows.Forms.DateTimePicker Dtp_FeAltaCliente;
         private System.Windows.Forms.Label Lbl_Categoria;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label Lbl_FeAltaCliente;
         private System.Windows.Forms.Label Lbl_ComentarioCliente;
         private System.Windows.Forms.TextBox Txb_ComentarioCliente;
         private System.Windows.Forms.Label Lbl_DescuentoAplicado;

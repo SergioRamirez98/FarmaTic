@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace Servicios
 {
-    public static class CServ_LimpiarControles
+    public static class CServ_Limpiar
     {
         public static void LimpiarFormulario(Form formulario)
         {

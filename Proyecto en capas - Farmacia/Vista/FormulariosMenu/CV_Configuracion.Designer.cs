@@ -39,7 +39,7 @@
             this.Nud_CantMinStock = new System.Windows.Forms.NumericUpDown();
             this.Lbl_CantMinStock = new System.Windows.Forms.Label();
             this.Chb_RepetirPass = new System.Windows.Forms.CheckBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_CantIntentosFallidos = new System.Windows.Forms.Label();
             this.Nud_CantidadIntentosFallidos = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).BeginInit();
@@ -159,14 +159,14 @@
             this.Chb_RepetirPass.Text = "No repetir contraseñas";
             this.Chb_RepetirPass.UseVisualStyleBackColor = true;
             // 
-            // label1
+            // Lbl_CantIntentosFallidos
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(353, 115);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(175, 16);
-            this.label1.TabIndex = 9;
-            this.label1.Text = "Cantidad de intentos fallidos";
+            this.Lbl_CantIntentosFallidos.AutoSize = true;
+            this.Lbl_CantIntentosFallidos.Location = new System.Drawing.Point(353, 115);
+            this.Lbl_CantIntentosFallidos.Name = "Lbl_CantIntentosFallidos";
+            this.Lbl_CantIntentosFallidos.Size = new System.Drawing.Size(175, 16);
+            this.Lbl_CantIntentosFallidos.TabIndex = 9;
+            this.Lbl_CantIntentosFallidos.Text = "Cantidad de intentos fallidos";
             // 
             // Nud_CantidadIntentosFallidos
             // 
@@ -185,7 +185,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 249);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Lbl_CantIntentosFallidos);
             this.Controls.Add(this.Nud_CantidadIntentosFallidos);
             this.Controls.Add(this.Chb_RepetirPass);
             this.Controls.Add(this.Lbl_CantMinStock);
@@ -223,7 +223,7 @@
         private System.Windows.Forms.NumericUpDown Nud_CantMinStock;
         private System.Windows.Forms.Label Lbl_CantMinStock;
         private System.Windows.Forms.CheckBox Chb_RepetirPass;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl_CantIntentosFallidos;
         private System.Windows.Forms.NumericUpDown Nud_CantidadIntentosFallidos;
     }
 }

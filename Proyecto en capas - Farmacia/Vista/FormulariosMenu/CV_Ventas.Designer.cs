@@ -37,7 +37,7 @@
             this.Btn_FinalizarCompra = new System.Windows.Forms.Button();
             this.DTGV_Carrito = new System.Windows.Forms.DataGridView();
             this.Lbl_Usuario = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_BusquedaRapida = new System.Windows.Forms.Label();
             this.Lbl_Cantidad = new System.Windows.Forms.Label();
             this.Lbl_Cliente = new System.Windows.Forms.Label();
             this.Txb_Cliente = new System.Windows.Forms.TextBox();
@@ -129,14 +129,14 @@
             this.Lbl_Usuario.TabIndex = 25;
             this.Lbl_Usuario.Text = "Usuario";
             // 
-            // label1
+            // Lbl_BusquedaRapida
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(452, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(117, 16);
-            this.label1.TabIndex = 26;
-            this.label1.Text = "Busqueda Rapida";
+            this.Lbl_BusquedaRapida.AutoSize = true;
+            this.Lbl_BusquedaRapida.Location = new System.Drawing.Point(452, 27);
+            this.Lbl_BusquedaRapida.Name = "Lbl_BusquedaRapida";
+            this.Lbl_BusquedaRapida.Size = new System.Drawing.Size(117, 16);
+            this.Lbl_BusquedaRapida.TabIndex = 26;
+            this.Lbl_BusquedaRapida.Text = "Busqueda Rapida";
             // 
             // Lbl_Cantidad
             // 
@@ -191,7 +191,7 @@
             this.Controls.Add(this.Lbl_Cliente);
             this.Controls.Add(this.Txb_Cliente);
             this.Controls.Add(this.Lbl_Cantidad);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Lbl_BusquedaRapida);
             this.Controls.Add(this.Lbl_Usuario);
             this.Controls.Add(this.DTGV_Carrito);
             this.Controls.Add(this.Btn_FinalizarCompra);
@@ -223,7 +223,7 @@
         private System.Windows.Forms.Button Btn_FinalizarCompra;
         private System.Windows.Forms.DataGridView DTGV_Carrito;
         private System.Windows.Forms.Label Lbl_Usuario;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label Lbl_BusquedaRapida;
         private System.Windows.Forms.Label Lbl_Cantidad;
         private System.Windows.Forms.Label Lbl_Cliente;
         private System.Windows.Forms.TextBox Txb_Cliente;

@@ -93,7 +93,7 @@ namespace Logica
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Por favor ingrese nuvamente los datos");
+                    throw new Exception("Los campos DNI, Telefono deben ser numeros.");
                 }
                 Personas.Prop_NOMBRE = atr_nombre;
                 Personas.Prop_APELLIDO = atr_apellido;
@@ -107,7 +107,7 @@ namespace Logica
             catch (Exception)
             {
 
-                throw new Exception("Error al insertar la persona, por favor intente nuevamente");
+                throw;
             }
             
         }
