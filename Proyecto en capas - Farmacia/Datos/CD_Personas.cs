@@ -186,6 +186,35 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Personas||CargarUsuarios.");
             }            
         }
+        public bool CargarClientes(int ID_Persona)
+        {
+            DataTable Dt = new DataTable();
+            try
+            {
+                string sSql = "SP_Cache_Clientes";
+                SqlParameter param_ID_Usuario = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Usuario.Value = ID_Persona;
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Add(param_ID_Usuario);
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                Dt = ejecutar(sSql, parametros, true);
+                if (Dt.Rows.Count > 0)
+                {
+                    CSesion_PersonaSeleccionada.ActualizaFormularioClientes(Dt);
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||CargarUsuarios.");
+            }
+        }
         public DataTable ObtenerPersonaCmb()
         {
             string sSql = "SP_Obtener_Personas_ComboBox";

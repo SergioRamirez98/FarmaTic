@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sesion;
 using System.Data.SqlTypes;
+using Sistema;
 
 namespace Datos
 {
@@ -67,8 +68,44 @@ namespace Datos
             }
             else
             {
-                throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Logear.");
+                return false;
+                
             }
+        }
+        public void BloqueoUsuario()
+        {
+            try
+            {
+                string Sql = "SP_Bloqueo_Usuario";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
+                param_UserName.Value = atr_NombreUsuarioLogin;
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
+                lista = listaParametros.ToArray();
+                DataTable DT = ejecutar(Sql, lista, true);
+                
+                if (DT.Rows.Count >= CSistema_ConfiguracionSistema.CantIntentosFallidos)
+                {
+                    throw new Exception("Usuario bloqueado");
+                }
+                else if(DT.Rows.Count > 0)
+                {
+                    throw new Exception("Contraseña incorrecta. Recuerde que tiene unicamente 3 intentos o puede ser bloqueado");
+                }
+                else
+                {
+                    throw new Exception("Usuario inexistente. Por favor, intente nuevamente");
+                }
+
+                
+
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
         }
         public DataTable BuscarUser()
         {
@@ -139,6 +176,24 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||CambiarPass");
             }
 
+        }
+        public bool RepitePass() 
+        {
+            string sSql = "SP_Consulta_RepitePass";
+            SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
+            param_UserName.Value = Prop_UserName;
+            SqlParameter param_Pass = new SqlParameter("@UserPass", SqlDbType.VarChar, 200);
+            param_Pass.Value = Prop_Contrasena;
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(param_UserName);
+            listaParametros.Add(param_Pass);
+            lista = listaParametros.ToArray();
+            DataTable Dt = ejecutar(sSql, lista, true);
+            if (Dt.Rows.Count >0)
+            {
+                return true;
+            }
+            else return false;
         }
         public void Insertar()
         {

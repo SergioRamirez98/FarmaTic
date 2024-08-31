@@ -77,6 +77,10 @@ namespace Logica
         {
             return Personas.CargarUsuarios(ID_Persona);
         }
+        public bool CargarDatosClientes(int ID_Persona)
+        {
+            return Personas.CargarClientes(ID_Persona);
+        }
         private void PasarDatos() 
         {
             try

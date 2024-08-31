@@ -44,15 +44,16 @@ namespace Vista
                 DataTable dt = new DataTable();
                 dt = GestionPersonas.CargarDatos(ID_Persona);
                 bool EsUsuario = GestionPersonas.CargarDatosUsuarios(ID_Persona);
-                if (EsUsuario == true)
+                bool EsCliente = GestionPersonas.CargarDatosClientes(ID_Persona);
+                if (EsUsuario)
                 {
-                    bloquearControles(EsUsuario);
-                    cargarPersonasdeCombobox(dt, EsUsuario);
+                    bloquearControles(EsUsuario,false);
+                    cargarPersonasdeCombobox(dt, EsUsuario,false);
                 }
                 else
                 {
-                    bloquearControles(EsUsuario);
-                    cargarPersonasdeCombobox(dt, EsUsuario);
+                    bloquearControles(false, EsCliente);
+                    cargarPersonasdeCombobox(dt, false,EsCliente);
                 }
             }
             else
@@ -119,6 +120,7 @@ namespace Vista
                 DataTable dt = GestionPersonas.InsertarPersona();
                 if (dt.Rows.Count > 0)
                 {
+                    cargarComboBox(false);
                     DataRow DT = dt.Rows[0];
                     Usuario.Prop_ID_Persona = Convert.ToInt32(DT["ID_Persona"]);
                     Cmb_SeleccionePersona.SelectedValue = Usuario.Prop_ID_Persona;
@@ -294,7 +296,7 @@ namespace Vista
             }
 
         }
-        private void bloquearControles(bool EsUsuario) 
+        private void bloquearControles(bool EsUsuario, bool EsCliente) 
         {
             Txb_Nombre.Enabled = false;
             Txb_Apellido.Enabled = false;
@@ -317,7 +319,7 @@ namespace Vista
             Txb_Respuesta2.Enabled = false;
             Txb_Respuesta3.Enabled = false;
 
-            if (EsUsuario==true)
+            if (EsUsuario)
             {
 
                 Txb_UserName.Enabled = false;
@@ -326,9 +328,16 @@ namespace Vista
                 Cmb_Estado.Enabled = false;
                 Cmb_VenceCada.Enabled = false;
             }
+            else if (EsCliente)
+            {
+                Cmb_Categoria.Enabled = false;
+                Txb_Descuento.Enabled = false;
+                Txb_ComentarioCliente.Enabled = false;
+                Dtp_FeAltaCliente.Enabled = false;
+            }
         
         }
-        private void cargarPersonasdeCombobox(DataTable dt, bool EsUsuario)
+        private void cargarPersonasdeCombobox(DataTable dt,bool EsUsuario, bool EsCliente)
         {
             if (dt.Rows.Count > 0)
             {
@@ -342,12 +351,12 @@ namespace Vista
                 Cmb_Nacionalidad.Text = CSesion_PersonaSeleccionada.Nacionalidad;
                 Txb_Telefono.Text = Convert.ToString(CSesion_PersonaSeleccionada.Telefono);
                 Dtp_FeNacimiento.Value = CSesion_PersonaSeleccionada.FeNacimiento;
-                Txb_Comentario.Text = CSesion_PersonaSeleccionada.Comentario;
+                Txb_Comentario.Text = CSesion_PersonaSeleccionada.ComentarioUsuario;
                 Rbt_Usuario.Enabled = true;
             }
-            if (EsUsuario == true)
+            if (EsUsuario)
             {
-                bloquearControles(EsUsuario);
+                bloquearControles(EsUsuario,false);
                 Rbt_Usuario.Checked = true;
                 Txb_UserName.Text = CSesion_PersonaSeleccionada.UserName;
                 Txb_Contrasena.Text = CSesion_PersonaSeleccionada.PassEncriptada;
@@ -370,6 +379,14 @@ namespace Vista
                 listatextbox.Add(Txb_Respuesta2);
                 listatextbox.Add(Txb_Respuesta3);
                 CServ_InfoSensible.RespuestasUsuario(listatextbox);
+            }
+            else if (EsCliente)
+            {
+                Rbt_Cliente.Checked = true; 
+                Cmb_Categoria.SelectedIndex = CSesion_PersonaSeleccionada.ID_Categoria;
+                Txb_ComentarioCliente.Text = CSesion_PersonaSeleccionada.ComentarioCliente;
+                Dtp_FeAltaCliente.Value = CSesion_PersonaSeleccionada.FechaAltaCliente; 
+
             }
 
             else

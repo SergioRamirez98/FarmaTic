@@ -1,5 +1,4 @@
-﻿using Capa_de_Sistema;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace Sistema
 {
     public static class CSistema_NumyLetr
     {
-        public static bool NumerosYLetras = CSistema_ConfSistema.NumerosYLetras;
+        public static bool NumerosYLetras = CSistema_ConfiguracionSistema.NumerosYLetras;
 
         public static void NumYLetras(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {

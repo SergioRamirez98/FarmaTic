@@ -1,5 +1,4 @@
-﻿using Capa_de_Sistema;
-using Logica;
+﻿using Logica;
 using Servicios;
 using Sesion;
 using Sistema;
@@ -177,7 +176,7 @@ namespace Vista
         private void Txb_Pass_TextChanged(object sender, EventArgs e)
         {
 
-            if (CSistema_ConfSistema.CaractEspecial)
+            if (CSistema_ConfiguracionSistema.CaractEspecial)
             {
                 CSistema_CaracEspecial.CacaterEspecial(Txb_Pass, Lbl_CacaterEspecial);
                 if (Lbl_CacaterEspecial.ForeColor != Color.Green)
@@ -185,7 +184,7 @@ namespace Vista
                     VerificarCondiciones = false;
                 }
             }
-            if (CSistema_ConfSistema.DatosPersonales)
+            if (CSistema_ConfiguracionSistema.DatosPersonales)
             {
                 CSistema_DatosPersonales.PassDatosPersonales(Txb_Pass, Lbl_DatosPersonales);
                 if (Lbl_DatosPersonales.ForeColor != Color.Green)
@@ -193,7 +192,7 @@ namespace Vista
                     VerificarCondiciones = false;
                 }
             }
-            if (CSistema_ConfSistema.MayusMinus)
+            if (CSistema_ConfiguracionSistema.MayusMinus)
             {
                 CSistema_MayMin.CombinarMayMin(Txb_Pass, Lbl_MayusMinus);
                 if (Lbl_MayusMinus.ForeColor != Color.Green)
@@ -201,7 +200,7 @@ namespace Vista
                     VerificarCondiciones = false;
                 }
             }
-            if (CSistema_ConfSistema.NumerosYLetras)
+            if (CSistema_ConfiguracionSistema.NumerosYLetras)
             {
                 CSistema_NumyLetr.NumYLetras(Txb_Pass, Lbl_NumerosYLetras);
                 if (Lbl_NumerosYLetras.ForeColor != Color.Green)
@@ -209,7 +208,7 @@ namespace Vista
                     VerificarCondiciones = false;
                 }
             }
-            if (CSistema_ConfSistema.MinCaracteres)
+            if (CSistema_ConfiguracionSistema.MinCaracteres)
             {
                 CSistema_MinimoCaracteres.CantCaracteres(Txb_Pass, Lbl_MinCaracteres);
                 if (Lbl_MinCaracteres.ForeColor != Color.Green)
@@ -234,8 +233,8 @@ namespace Vista
 
             else
             {
-                Btn_GuardarPass.Enabled = true;
-                Lbl_CoincidePass.Visible = true;
+                Btn_GuardarPass.Enabled = false;
+                Lbl_CoincidePass.Visible = false;
                 Lbl_CoincidePass.ForeColor = Color.Red;
                 Lbl_CoincidePass.Text = "Las contraseñas no coinciden";
                 VerificarCondiciones =false;
@@ -272,11 +271,11 @@ namespace Vista
                 Usuarios.Prop_Resp3 = Txb_Respuesta3.Text;
             }
         }
-        private void PasarDatos(bool cambioPass) 
+        private void PasarDatos(bool cambioPass)
         {
+            Usuarios.Prop_UserName = Txb_UserName.Text;
             if (cambioPass)
-            {                
-                Usuarios.Prop_UserName = Txb_UserName.Text;
+            {      
                 Usuarios.Prop_NuevaPass = false.ToString();
                 if (Txb_ConfPass.Text == Txb_Pass.Text)
                 {

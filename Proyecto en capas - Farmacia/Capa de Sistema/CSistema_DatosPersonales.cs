@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using Capa_de_Sistema;
 using Sesion;
 
 namespace Sistema
 {
     public static class CSistema_DatosPersonales
     {
-        public static bool DatosPersonales = CSistema_ConfSistema.DatosPersonales;
+        public static bool DatosPersonales = CSistema_ConfiguracionSistema.DatosPersonales;
         public static void PassDatosPersonales(TextBox Txb_Pass, Label Lbl_MensajeUsuario)
         {
             string Nombre, Apellido, DNI, Domicilio;

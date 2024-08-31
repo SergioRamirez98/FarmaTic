@@ -50,6 +50,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Capa de Sistema\Sistema.csproj">
+      <Project>{35b155bc-44fd-41b3-afeb-f5a2554e2d14}</Project>
+      <Name>Sistema</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Datos\Datos.csproj">
       <Project>{1bea634b-b780-4d44-a75b-fad9bd64df37}</Project>
       <Name>Datos</Name>

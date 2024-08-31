@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Text;
 
-namespace Capa_Servicios{
+namespace Servicios
+{
     
     public static class CServ_Aleatorios
     {       

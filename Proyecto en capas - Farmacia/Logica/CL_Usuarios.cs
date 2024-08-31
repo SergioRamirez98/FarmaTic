@@ -8,10 +8,10 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
-using Capa_Servicios;
 using Datos;
 using Servicios;
 using Sesion;
+using Sistema;
 
 namespace Logica
 {
@@ -32,9 +32,21 @@ namespace Logica
         public string Prop_NombreUsuarioLogin
         { get => atr_NombreUsuarioLogin; set { atr_NombreUsuarioLogin = value; } }
         public string Prop_ContrasenaUsuarioLogin
-        { get => atr_ContrasenaUsuarioLogin; set { atr_ContrasenaUsuarioLogin = value; } }
+        { get => atr_ContrasenaUsuarioLogin; set {
+                if (string.IsNullOrEmpty(atr_ContrasenaUsuarioLogin))
+                {
+                    throw new Exception("Por favor, ingrese la contraseña del usuario.");
+                }
+               else atr_ContrasenaUsuarioLogin = value; } }
         public string Prop_EncriptacionLogin
-        { get => atr_EncriptacionLogin; set { atr_EncriptacionLogin = value; } }
+        {
+            get => atr_EncriptacionLogin; set
+            {
+                if (string.IsNullOrEmpty(atr_NombreUsuarioLogin))
+                {
+                    throw new Exception("Por favor, ingrese el nombre de usuario.");
+                }
+                else atr_EncriptacionLogin = value; } }
         public string Prop_UserName { get; set ; } 
         public string Prop_Contrasena { get; set; }
         public string Prop_Encriptacion { get; set; }
@@ -55,8 +67,14 @@ namespace Logica
         #endregion
         public bool Logear()
         {
-            PasarDatos();            
-            return Usuario.Logear();
+            PasarDatos(); 
+            bool Resultado = false;
+            Resultado = Usuario.Logear();
+            return Resultado;
+        }
+        public void BloqueodeUsuarios() 
+        {
+            Usuario.BloqueoUsuario();
         }
         public DataTable BuscarUsuario()
         {
@@ -96,7 +114,15 @@ namespace Logica
             try
             {
                 PasarDatos(true);
-                Usuario.CambiarPass();
+                {
+                    if (CSistema_ConfiguracionSistema.RepetirPass)
+                    {
+                        bool Repite =Usuario.RepitePass();
+                        if (Repite) { throw new Exception("No puede repetir la contraseña"); }
+                    }
+                    else Usuario.CambiarPass();
+                }
+
             }
             catch (Exception)
             {

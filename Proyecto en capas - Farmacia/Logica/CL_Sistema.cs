@@ -17,8 +17,11 @@ namespace Logica
         public bool DatosPersonales { get; set; }
         public bool MayusMinus { get; set; }
         public bool NumerosYLetras { get; set; }
+        public bool RepetirPass { get; set; }        
         public int AvisosVtoProductos { get; set; }
         public int CantMinimadeStock { get; set; }
+        public int CantIntentosFallidos { get; set; }
+        
         #endregion
 
         public DataTable CargarConfiguracion() 
@@ -38,8 +41,10 @@ namespace Logica
             sistema.DatosPersonales= DatosPersonales;
             sistema.MayusMinus= MayusMinus;
             sistema.NumerosYLetras = NumerosYLetras;
+            sistema.RepetirPass = RepetirPass;
             sistema.AvisosVtoProductos = AvisosVtoProductos;
-            sistema.AvisosVtoProductos = CantMinimadeStock;
+            sistema.CantMinimadeStock = CantMinimadeStock;
+            sistema.CantIntentosFallidos = CantIntentosFallidos;
 
         }
     }

@@ -1,5 +1,5 @@
-﻿using Capa_de_Sistema;
-using Sesion;
+﻿using Sesion;
+using Sistema;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -59,7 +59,7 @@ namespace Datos
         {
             string sSql = "SP_Vto_Inventario";
             SqlParameter param_Dias_Vto = new SqlParameter("@Dias_Vto", SqlDbType.Int);
-            param_Dias_Vto.Value = CSistema_ConfSistema.AvisosVtoProductos; 
+            param_Dias_Vto.Value = CSistema_ConfiguracionSistema.AvisosVtoProductos; 
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_Dias_Vto);
@@ -81,7 +81,7 @@ namespace Datos
         {
             string sSql = "SP_Stock_Minimo";
             SqlParameter param_StockMinimo = new SqlParameter("@StockMinimo", SqlDbType.Int);
-            param_StockMinimo.Value = CSistema_ConfSistema.CantMinimadeStock;
+            param_StockMinimo.Value = CSistema_ConfiguracionSistema.CantMinimadeStock;
 
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_StockMinimo);

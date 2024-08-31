@@ -34,6 +34,7 @@ namespace Datos
                 {                    
                     command.ExecuteNonQuery();
                 }
+                lista = null;
             }
             
             return dataTable;

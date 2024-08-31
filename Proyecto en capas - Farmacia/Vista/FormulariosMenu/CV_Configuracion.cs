@@ -1,5 +1,4 @@
-﻿using Capa_de_Sistema;
-using Logica;
+﻿using Logica;
 using Servicios;
 using Sistema;
 using System;
@@ -23,12 +22,13 @@ namespace Vista
         }
         private void CV_Configuracion_Load(object sender, EventArgs e)
         {
-            Chb_NumYLetras.Checked = CSistema_ConfSistema.NumerosYLetras;
-            Chb_CaracEspec.Checked = CSistema_ConfSistema.CaractEspecial;
-            Chb_DatosPersonales.Checked = CSistema_ConfSistema.DatosPersonales;
-            Chb_MayMin.Checked = CSistema_ConfSistema.MayusMinus;
-            Chb_MinCaracteres.Checked = CSistema_ConfSistema.MinCaracteres;
-            Nud_VtoProd.Value = CSistema_ConfSistema.AvisosVtoProductos;
+            Chb_NumYLetras.Checked = CSistema_ConfiguracionSistema.NumerosYLetras;
+            Chb_CaracEspec.Checked = CSistema_ConfiguracionSistema.CaractEspecial;
+            Chb_DatosPersonales.Checked = CSistema_ConfiguracionSistema.DatosPersonales;
+            Chb_MayMin.Checked = CSistema_ConfiguracionSistema.MayusMinus;
+            Chb_MinCaracteres.Checked = CSistema_ConfiguracionSistema.MinCaracteres;
+            Nud_CantMinStock.Value = CSistema_ConfiguracionSistema.CantMinimadeStock;
+            Nud_VtoProd.Value = CSistema_ConfiguracionSistema.AvisosVtoProductos;
         }
         private void Chb_NumYLetras_CheckedChanged(object sender, EventArgs e)
         {
@@ -90,8 +90,11 @@ namespace Vista
             Sistema.DatosPersonales = Chb_DatosPersonales.Checked;
             Sistema.MayusMinus = Chb_MayMin.Checked;
             Sistema.MinCaracteres = Chb_MinCaracteres.Checked;
+            Sistema.RepetirPass = Chb_RepetirPass.Checked;
             Sistema.AvisosVtoProductos = Convert.ToInt32(Nud_VtoProd.Value);
             Sistema.CantMinimadeStock = Convert.ToInt32(Nud_CantMinStock.Value);
+            Sistema.CantIntentosFallidos = Convert.ToInt32(Nud_CantidadIntentosFallidos.Value);
+
         }
     }
 }

@@ -3,23 +3,23 @@
   "WorkspaceRootPath": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\vista\\formulariosmenu\\cv_gestionusuariospersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\vista\\formulariosmenu\\cv_gestionusuariospersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\formulariosmenu\\cv_gestionusuariospersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\datos\\cd_personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\logica\\cl_personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{1648CAF4-C25E-4F5D-8A42-17904E3F46E8}|Logica\\Logica.csproj|solutionrelative:logica\\cl_personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\datos\\cd_personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|solutionrelative:datos\\cd_personas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{8B0AE031-16A0-4A30-B9C1-BB0DE41F3CAF}|Sesion\\Sesion.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\sesion\\csesion_personaseleccionada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{8B0AE031-16A0-4A30-B9C1-BB0DE41F3CAF}|Sesion\\Sesion.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\sesion\\csesion_personaseleccionada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{8B0AE031-16A0-4A30-B9C1-BB0DE41F3CAF}|Sesion\\Sesion.csproj|solutionrelative:sesion\\csesion_personaseleccionada.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\datos\\cd_ejecutarsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1BEA634B-B780-4D44-A75B-FAD9BD64DF37}|Datos\\Datos.csproj|solutionrelative:datos\\cd_ejecutarsp.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|c:\\users\\ramir\\source\\repos\\farmatic\\proyecto en capas - farmacia\\vista\\formulariosmenu\\cv_gestionusuariospersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\vista\\formulariosmenu\\cv_gestionusuariospersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{8103D970-B22C-4A35-BF05-340C595C3BCB}|Vista\\Vista.csproj|solutionrelative:vista\\formulariosmenu\\cv_gestionusuariospersonas.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -30,37 +30,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "CD_EjecutarSP.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Datos\\CD_EjecutarSP.cs",
-              "RelativeDocumentMoniker": "Datos\\CD_EjecutarSP.cs",
-              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Datos\\CD_EjecutarSP.cs",
-              "RelativeToolTip": "Datos\\CD_EjecutarSP.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAjwB4AAAAUAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T23:00:42.372Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "CD_Personas.cs",
-              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Datos\\CD_Personas.cs",
-              "RelativeDocumentMoniker": "Datos\\CD_Personas.cs",
-              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Datos\\CD_Personas.cs",
-              "RelativeToolTip": "Datos\\CD_Personas.cs",
-              "ViewState": "AQIAAIkAAAAAAAAAAAAnwJ4AAAAIAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T17:58:25.533Z",
-              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -71,7 +45,7 @@
               "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\FormulariosMenu\\CV_GestionUsuariosPersonas.cs [Dise\u00F1o]",
               "RelativeToolTip": "Vista\\FormulariosMenu\\CV_GestionUsuariosPersonas.cs [Dise\u00F1o]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T22:28:34.944Z",
+              "WhenOpened": "2024-08-31T00:39:35.959Z",
               "EditorCaption": " [Dise\u00F1o]"
             },
             {
@@ -82,23 +56,48 @@
               "RelativeDocumentMoniker": "Vista\\FormulariosMenu\\CV_GestionUsuariosPersonas.cs",
               "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Vista\\FormulariosMenu\\CV_GestionUsuariosPersonas.cs",
               "RelativeToolTip": "Vista\\FormulariosMenu\\CV_GestionUsuariosPersonas.cs",
-              "ViewState": "AQIAAHEAAAAAAAAAAAAlwHgBAAAQAAAA",
+              "ViewState": "AQIAAE0AAAAAAAAAAAAewIMAAAAMAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T17:52:29.631Z",
+              "WhenOpened": "2024-08-31T00:45:40.583Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CL_Personas.cs",
+              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Logica\\CL_Personas.cs",
+              "RelativeDocumentMoniker": "Logica\\CL_Personas.cs",
+              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Logica\\CL_Personas.cs",
+              "RelativeToolTip": "Logica\\CL_Personas.cs",
+              "ViewState": "AQIAADYAAAAAAAAAAAAewEUAAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-31T00:30:01.659Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "CD_Personas.cs",
+              "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Datos\\CD_Personas.cs",
+              "RelativeDocumentMoniker": "Datos\\CD_Personas.cs",
+              "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Datos\\CD_Personas.cs",
+              "RelativeToolTip": "Datos\\CD_Personas.cs",
+              "ViewState": "AQIAAFsAAAAAAAAAAAArwGgAAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-28T17:58:25.533Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "CSesion_PersonaSeleccionada.cs",
               "DocumentMoniker": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Sesion\\CSesion_PersonaSeleccionada.cs",
               "RelativeDocumentMoniker": "Sesion\\CSesion_PersonaSeleccionada.cs",
               "ToolTip": "C:\\Users\\ramir\\source\\repos\\FarmaTic\\Proyecto en capas - Farmacia\\Sesion\\CSesion_PersonaSeleccionada.cs",
               "RelativeToolTip": "Sesion\\CSesion_PersonaSeleccionada.cs",
-              "ViewState": "AQIAAEAAAAAAAAAAAAArwE0AAAAIAAAA",
+              "ViewState": "AQIAADoAAAAAAAAAAAAewIIAAAAQAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-08-28T22:35:44.004Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-08-31T00:30:19.683Z"
             }
           ]
         }

@@ -1,5 +1,4 @@
-﻿using Capa_de_Sistema;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
@@ -13,7 +12,7 @@ namespace Sistema
 {
     public static class CSistema_MayMin
     {
-        public static bool MayMin = CSistema_ConfSistema.MayusMinus;
+        public static bool MayMin = CSistema_ConfiguracionSistema.MayusMinus;
         public static void CombinarMayMin(TextBox Txb_Pass, Label Lbl_MsjUsuario)
         {
             if (MayMin) 

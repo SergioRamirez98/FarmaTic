@@ -23,8 +23,7 @@ namespace Sesion
         public static string Partido { get; set; }
         public static string Nacionalidad { get; set; }
         public static int Telefono { get; set; }
-        public static DateTime FeNacimiento { get; set; }
-        public static string Comentario { get; set; }
+        public static DateTime FeNacimiento { get; set; }        
         #endregion
 
         #region Properties Usuarios
@@ -44,8 +43,19 @@ namespace Sesion
         public static DateTime FeAlta { get; set; }
         public static bool NuevaPass { get; set; }
         public static DateTime Fe_CambioPass { get; set; }
+        public static string ComentarioUsuario { get; set; }
 
         #endregion
+
+        #region Properties Clientes
+        public static bool EsCliente { get; set; }
+        public static int ID_Categoria { get; set; }
+        public static DateTime FechaAltaCliente { get; set; }
+        public static string ComentarioCliente { get; set; }
+
+        #endregion
+
+        #region Metodos
         public static void ActualizaFormularioPersonas(DataTable dt)
         {
             try
@@ -100,7 +110,7 @@ namespace Sesion
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
                     Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
-                    Comentario = fila["Comentarios"].ToString();
+                    ComentarioUsuario = fila["Comentarios"].ToString();
                 }
                 else
                 {
@@ -114,13 +124,35 @@ namespace Sesion
                 throw new Exception("Error al repuerar los datos de la persona, como usuario en la base de datos");
             }
         }
+        public static void ActualizaFormularioClientes(DataTable dt)
+        {
+            try
+            {
+                if (dt.Rows.Count > 0)
+                {
+                    DataRow fila = dt.Rows[0];
+                    EsCliente = true;
+                    ID_Categoria = Convert.ToInt32(fila["ID_Categoria"]);
+                    FechaAltaCliente = Convert.ToDateTime(fila["Fe_AltaCliente"]);
+                    ComentarioCliente = fila["Comentarios"].ToString();
+                }
+                else
+                {
+                    Console.WriteLine("No se encontró ningun registro, debe registarse");
+                }
 
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al repuerar los datos de la persona, como usuario en la base de datos");
+            }
+        }
         public static void LimpiarCache() 
         {
             if (SesionActiva == false)
             {
-                UserName = null;
-                PassEncriptada = null;
+                //Personas
                 Nombre = null;
                 Apellido = null;
                 Dni = 0;
@@ -130,8 +162,11 @@ namespace Sesion
                 Partido = null;
                 Nacionalidad = null;
                 Telefono = 0;
+                //Usuarios
+                UserName = null;
+                PassEncriptada = null;
                 FeNacimiento = DateTime.Today;
-                Comentario = null;
+                ComentarioUsuario = null;
                 VenceCada = 0;
                 Familia = null;
                 Pregunta1 = null;
@@ -145,8 +180,10 @@ namespace Sesion
                 FeAlta = DateTime.Today;
                 NuevaPass = false;
                 Fe_CambioPass = DateTime.Today;
+                //Clientes
             }
         }
+        #endregion
 
     }
 }

@@ -31,28 +31,38 @@ namespace Vista
             Gestion.Show();
 
             /*
-            PasarDatos();
             try
             {
+                PasarDatos();
                 bool validar = Usuarios.Logear();
                 if (validar == true)
                 {
-                    
-                    if (CSesion_SesionIniciada.NuevaPass == true || CSesion_SesionIniciada.CambioPass ==true)
+                    if (CSesion_SesionIniciada.EstadoCuenta != "Bloqueado")
                     {
-                        CV_OlvidoPass FormRecContrasena = new CV_OlvidoPass();
-                        FormRecContrasena.Show();
+                        if (CSesion_SesionIniciada.NuevaPass == true || CSesion_SesionIniciada.CambioPass == true)
+                        {
+                            CV_OlvidoPass FormRecContrasena = new CV_OlvidoPass();
+                            FormRecContrasena.Show();
+                        }
+                        else
+                        {
+                            CServ_MsjUsuario.Exito("¡Conexión exitosa!");
+                            CV_Menu Menu = new CV_Menu();
+                            Menu.Show();
+                            CSesion_PreguntasUsuarios.LimpiarCache();
+                        }
+                        CServ_LimpiarControles.LimpiarFormulario(this);
+                        this.Hide();
                     }
                     else
                     {
-                        CServ_MsjUsuario.Exito("¡Conexión exitosa!");
-                        CV_Menu Menu = new CV_Menu();
-                        Menu.Show();
-                        CSesion_PreguntasUsuarios.LimpiarCache();
+                        CServ_MsjUsuario.MensajesDeError("Usuario bloqueado. Por favor, comuníquese con el administrador.");
                     }
-                    CServ_LimpiarControles.LimpiarFormulario(this);
-                    this.Hide();
 
+                }
+                else
+                {
+                    Usuarios.BloqueodeUsuarios();
                 }
 
             }
