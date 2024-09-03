@@ -15,10 +15,16 @@ namespace Vista.FormulariosMenu
 {
     public partial class CV_Ventas : Form
     {
+        #region Atributos
         CL_Productos Productos = new CL_Productos();
         CL_Ventas Ventas = new CL_Ventas();
         DataTable Dt = new DataTable();
         double totalVenta = 0;
+        int ID_Cliente = 0;
+        public delegate void ClienteSeleccionadoHandler(string cliente, int idCliente);
+        public event ClienteSeleccionadoHandler ClienteSeleccionado;
+
+        #endregion
         public CV_Ventas()
         {
             InitializeComponent();
@@ -26,8 +32,8 @@ namespace Vista.FormulariosMenu
 
         private void CV_Ventas_Load(object sender, EventArgs e)
         {
-            configurarDTGV();
             cargarDTGV();
+            configurarDTGV();
             configurarLoad();
 
         }
@@ -43,7 +49,31 @@ namespace Vista.FormulariosMenu
             DTGV_Ventas.ReadOnly = true;
             DTGV_Ventas.RowHeadersVisible = false;
             DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            // DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+
+            DTGV_Ventas.Columns[0].DisplayIndex = 0;
+            DTGV_Ventas.Columns[1].DisplayIndex = 1;
+            DTGV_Ventas.Columns[2].DisplayIndex = 2;
+            DTGV_Ventas.Columns[3].DisplayIndex = 4;
+            DTGV_Ventas.Columns[4].DisplayIndex = 5;
+            DTGV_Ventas.Columns[5].DisplayIndex = 6;
+            DTGV_Ventas.Columns[5].DefaultCellStyle.Format = "#,##0.00";
+            DTGV_Ventas.Columns[6].DisplayIndex = 7;
+            DTGV_Ventas.Columns[7].DisplayIndex = 8;
+            DTGV_Ventas.Columns[8].DisplayIndex = 3;
+
+            DTGV_Ventas.Columns[0].HeaderText = "ID producto";
+            DTGV_Ventas.Columns[1].HeaderText = "Nombre del producto";
+            DTGV_Ventas.Columns[2].HeaderText = "Marca";
+            DTGV_Ventas.Columns[3].HeaderText = "Descripcion del producto";
+            DTGV_Ventas.Columns[4].HeaderText = "Cantidad";
+            DTGV_Ventas.Columns[5].HeaderText = "Precio unitario";
+            DTGV_Ventas.Columns[6].HeaderText = "Vencimiento";
+            DTGV_Ventas.Columns[7].HeaderText = "Numero de lote";
+            DTGV_Ventas.Columns[8].HeaderText = "Categoría";
+
+
+
+
             DTGV_Carrito.Rows.Clear();
             DTGV_Carrito.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DTGV_Carrito.MultiSelect = true;
@@ -68,28 +98,7 @@ namespace Vista.FormulariosMenu
         private void cargarDTGV()
         {
             Dt = Productos.MostrarProductos();
-            DTGV_Ventas.DataSource = Dt;
-
-            DTGV_Ventas.Columns[0].DisplayIndex = 0;
-            DTGV_Ventas.Columns[1].DisplayIndex = 1;
-            DTGV_Ventas.Columns[2].DisplayIndex = 2;
-            DTGV_Ventas.Columns[3].DisplayIndex = 4;
-            DTGV_Ventas.Columns[4].DisplayIndex = 5;
-            DTGV_Ventas.Columns[5].DisplayIndex = 6;
-            DTGV_Ventas.Columns[5].DefaultCellStyle.Format = "#,##0.00";
-            DTGV_Ventas.Columns[6].DisplayIndex = 7;
-            DTGV_Ventas.Columns[7].DisplayIndex = 8;
-            DTGV_Ventas.Columns[8].DisplayIndex = 3;
-
-            DTGV_Ventas.Columns[0].HeaderText = "ID producto";
-            DTGV_Ventas.Columns[1].HeaderText = "Nombre del producto";
-            DTGV_Ventas.Columns[2].HeaderText = "Marca";
-            DTGV_Ventas.Columns[3].HeaderText = "Descripcion del producto";
-            DTGV_Ventas.Columns[4].HeaderText = "Cantidad";
-            DTGV_Ventas.Columns[5].HeaderText = "Precio unitario";
-            DTGV_Ventas.Columns[6].HeaderText = "Vencimiento";
-            DTGV_Ventas.Columns[7].HeaderText = "Numero de lote";
-            DTGV_Ventas.Columns[8].HeaderText = "Categoría";
+            DTGV_Ventas.DataSource = Dt;            
             DTGV_Ventas.ClearSelection();
             
         }
@@ -100,6 +109,7 @@ namespace Vista.FormulariosMenu
             Txb_UserName.Enabled = false;
             Txb_BusquedaRapida.Text = string.Empty;
             Nud_Cantidad.Value = 1;
+            Txb_Cliente.Enabled = false;
             Lbl_Fecha.Text = DateTime.Today.ToString("D");
             Lbl_Total.Text = "El valor total a cobrar es: " + calculoTotalVenta().ToString("#,##0.00");
         }
@@ -117,7 +127,7 @@ namespace Vista.FormulariosMenu
                 NuevaVenta.FechaVenta = itemCarrito.Cells[6].Value.ToString();
                 NuevaVenta.NumeroLote = itemCarrito.Cells[7].Value.ToString();
             }
-
+            Ventas.ID_Cliente = ID_Cliente.ToString();
             Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
             Ventas.FechaVenta = Lbl_Fecha.Text;
             Ventas.TotalVenta = totalVenta.ToString();
@@ -194,9 +204,14 @@ namespace Vista.FormulariosMenu
                 CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
             }
         }
+        private void SeleccionCliente(string cliente, int idClienteDelegado)
+        {
+            Txb_Cliente.Text = cliente;
+            ID_Cliente = idClienteDelegado;
+        }
 
 
-        
+
         private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
         {
             DTGV_Ventas.DataSource = Ventas.BusquedaRapida(Txb_BusquedaRapida.Text, Dt);
@@ -238,13 +253,28 @@ namespace Vista.FormulariosMenu
         {
             if (DTGV_Carrito.SelectedRows.Count >0)
             {
-                pasarDatos();
-            }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
-            }
+                try
+                {
+                    pasarDatos();
+                    Ventas.RealizarVenta();
+                }
+                catch (Exception ex)
+                {
 
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
+            }
+            
+
+        }        
+
+        private void Btn_BuscarCliente_Click(object sender, EventArgs e)
+        {
+            CV_ObtenerClientes obtenerClientes = new CV_ObtenerClientes();
+            obtenerClientes.ClienteSeleccionado += new CV_ObtenerClientes.ClienteSeleccionadoHandler(SeleccionCliente);
+            obtenerClientes.ShowDialog();
         }
+      
+
     }
 }

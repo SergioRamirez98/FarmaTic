@@ -39,10 +39,10 @@
             this.Lbl_Usuario = new System.Windows.Forms.Label();
             this.Lbl_BusquedaRapida = new System.Windows.Forms.Label();
             this.Lbl_Cantidad = new System.Windows.Forms.Label();
-            this.Lbl_Cliente = new System.Windows.Forms.Label();
             this.Txb_Cliente = new System.Windows.Forms.TextBox();
             this.Lbl_Fecha = new System.Windows.Forms.Label();
             this.Lbl_Total = new System.Windows.Forms.Label();
+            this.Btn_BuscarCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).BeginInit();
@@ -147,26 +147,17 @@
             this.Lbl_Cantidad.TabIndex = 27;
             this.Lbl_Cantidad.Text = "Cantidad";
             // 
-            // Lbl_Cliente
-            // 
-            this.Lbl_Cliente.AutoSize = true;
-            this.Lbl_Cliente.Location = new System.Drawing.Point(815, 27);
-            this.Lbl_Cliente.Name = "Lbl_Cliente";
-            this.Lbl_Cliente.Size = new System.Drawing.Size(48, 16);
-            this.Lbl_Cliente.TabIndex = 29;
-            this.Lbl_Cliente.Text = "Cliente";
-            // 
             // Txb_Cliente
             // 
             this.Txb_Cliente.Location = new System.Drawing.Point(960, 24);
             this.Txb_Cliente.Name = "Txb_Cliente";
-            this.Txb_Cliente.Size = new System.Drawing.Size(100, 22);
+            this.Txb_Cliente.Size = new System.Drawing.Size(177, 22);
             this.Txb_Cliente.TabIndex = 2;
             // 
             // Lbl_Fecha
             // 
             this.Lbl_Fecha.AutoSize = true;
-            this.Lbl_Fecha.Location = new System.Drawing.Point(1260, 26);
+            this.Lbl_Fecha.Location = new System.Drawing.Point(1243, 30);
             this.Lbl_Fecha.Name = "Lbl_Fecha";
             this.Lbl_Fecha.Size = new System.Drawing.Size(45, 16);
             this.Lbl_Fecha.TabIndex = 30;
@@ -181,14 +172,24 @@
             this.Lbl_Total.TabIndex = 31;
             this.Lbl_Total.Text = "Total de la compra: ";
             // 
+            // Btn_BuscarCliente
+            // 
+            this.Btn_BuscarCliente.Location = new System.Drawing.Point(825, 24);
+            this.Btn_BuscarCliente.Name = "Btn_BuscarCliente";
+            this.Btn_BuscarCliente.Size = new System.Drawing.Size(111, 23);
+            this.Btn_BuscarCliente.TabIndex = 32;
+            this.Btn_BuscarCliente.Text = "Buscar Cliente";
+            this.Btn_BuscarCliente.UseVisualStyleBackColor = true;
+            this.Btn_BuscarCliente.Click += new System.EventHandler(this.Btn_BuscarCliente_Click);
+            // 
             // CV_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1656, 751);
+            this.Controls.Add(this.Btn_BuscarCliente);
             this.Controls.Add(this.Lbl_Total);
             this.Controls.Add(this.Lbl_Fecha);
-            this.Controls.Add(this.Lbl_Cliente);
             this.Controls.Add(this.Txb_Cliente);
             this.Controls.Add(this.Lbl_Cantidad);
             this.Controls.Add(this.Lbl_BusquedaRapida);
@@ -225,9 +226,9 @@
         private System.Windows.Forms.Label Lbl_Usuario;
         private System.Windows.Forms.Label Lbl_BusquedaRapida;
         private System.Windows.Forms.Label Lbl_Cantidad;
-        private System.Windows.Forms.Label Lbl_Cliente;
         private System.Windows.Forms.TextBox Txb_Cliente;
         private System.Windows.Forms.Label Lbl_Fecha;
         private System.Windows.Forms.Label Lbl_Total;
+        private System.Windows.Forms.Button Btn_BuscarCliente;
     }
 }

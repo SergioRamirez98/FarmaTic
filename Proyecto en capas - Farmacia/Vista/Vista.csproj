@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormulariosMenu\CV_ObtenerClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\CV_ObtenerClientes.Designer.cs">
+      <DependentUpon>CV_ObtenerClientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormulariosMenu\CV_Configuracion.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,6 +114,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormulariosMenu\CV_ObtenerClientes.resx">
+      <DependentUpon>CV_ObtenerClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\CV_Configuracion.resx">
       <DependentUpon>CV_Configuracion.cs</DependentUpon>
     </EmbeddedResource>

@@ -53,6 +53,7 @@ namespace Logica
         {
             return Productos.ProductosVencidos();
         }
+        
         public void EliminarProductosVencidos() 
         { 
             DateTime FechaActual = DateTime.Today;

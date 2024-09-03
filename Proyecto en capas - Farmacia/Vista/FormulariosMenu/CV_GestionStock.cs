@@ -197,8 +197,6 @@ namespace Vista
             DTGV_Productos.ReadOnly = true;
             DTGV_Productos.RowHeadersVisible = false;
             DTGV_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            // DTGV_Productos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;           
-
         }
         private void mostrarProductos()
         {
@@ -209,12 +207,13 @@ namespace Vista
             DTGV_Productos.Columns[2].DisplayIndex = 2;
             DTGV_Productos.Columns[3].DisplayIndex = 4;
             DTGV_Productos.Columns[4].DisplayIndex = 5;
+            DTGV_Productos.Columns[5].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Productos.Columns[5].DisplayIndex = 6;
             DTGV_Productos.Columns[6].DisplayIndex = 7;
             DTGV_Productos.Columns[7].DisplayIndex = 8;
             DTGV_Productos.Columns[8].DisplayIndex = 3;
 
-            DTGV_Productos.Columns[0].HeaderText = "ID producto";
+            DTGV_Productos.Columns[0].HeaderText = "ID";
             DTGV_Productos.Columns[1].HeaderText = "Nombre del producto";
             DTGV_Productos.Columns[2].HeaderText = "Marca";
             DTGV_Productos.Columns[3].HeaderText = "Descripcion del producto";
@@ -223,6 +222,7 @@ namespace Vista
             DTGV_Productos.Columns[6].HeaderText = "Vencimiento";
             DTGV_Productos.Columns[7].HeaderText = "Numero de lote";
             DTGV_Productos.Columns[8].HeaderText = "Categoría";
+            DTGV_Productos.ClearSelection();
         }        
         private void pasarDatos()
         {
@@ -373,6 +373,9 @@ namespace Vista
             Btn_Buscar.Enabled = false;
             Btn_GuardarCambios.Enabled = false;
             Btn_Eliminar.Enabled = true;
+            Size = new Size(1050, 555);
+            Pnl_Busqueda.Location = new Point(350, 20);
+
             Cmb_Categoria.Items.Add("Medicamentos");
             Cmb_Categoria.Items.Add("Cuidado personal");
             Cmb_Categoria.Items.Add("Higiene");
@@ -418,6 +421,7 @@ namespace Vista
             {
                 Btn_StockCritico.BackColor = Color.White; ;
             }
+            DTGV_Productos.ClearSelection();
 
         }
 

@@ -241,7 +241,7 @@
             this.DTGV_Productos.Name = "DTGV_Productos";
             this.DTGV_Productos.RowHeadersWidth = 51;
             this.DTGV_Productos.RowTemplate.Height = 24;
-            this.DTGV_Productos.Size = new System.Drawing.Size(1340, 350);
+            this.DTGV_Productos.Size = new System.Drawing.Size(1371, 350);
             this.DTGV_Productos.TabIndex = 19;
             this.DTGV_Productos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_Productos_CellClick);
             // 
@@ -282,7 +282,7 @@
             this.Pnl_Busqueda.Controls.Add(this.Txb_NLoteBusq);
             this.Pnl_Busqueda.Controls.Add(this.Lbl_PrecDesde);
             this.Pnl_Busqueda.Controls.Add(this.Dtp_VtoDesde);
-            this.Pnl_Busqueda.Location = new System.Drawing.Point(474, 36);
+            this.Pnl_Busqueda.Location = new System.Drawing.Point(482, 622);
             this.Pnl_Busqueda.Name = "Pnl_Busqueda";
             this.Pnl_Busqueda.Size = new System.Drawing.Size(385, 198);
             this.Pnl_Busqueda.TabIndex = 22;
@@ -462,7 +462,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1365, 697);
+            this.ClientSize = new System.Drawing.Size(1395, 817);
             this.Controls.Add(this.Btn_VerProdVencidos);
             this.Controls.Add(this.Cmb_Categoria);
             this.Controls.Add(this.Lbl_Categoria);

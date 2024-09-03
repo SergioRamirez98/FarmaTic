@@ -36,6 +36,7 @@ namespace Vista
             DTGV_ProductosVencidos.ReadOnly = true;
             DTGV_ProductosVencidos.RowHeadersVisible = false;
             DTGV_ProductosVencidos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+
             // DTGV_Vencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;           
 
         }

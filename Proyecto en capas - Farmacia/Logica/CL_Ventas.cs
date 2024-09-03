@@ -25,6 +25,10 @@ namespace Logica
         public string TotalVenta { get; set; }
 
         #endregion
+        public DataTable ObtenerClientes()
+        {
+            return Ventas.CargarClientes();
+        }
         public DataTable BusquedaRapida(string Palabra, DataTable Dt) 
         {
             if (!string.IsNullOrEmpty(Palabra.ToLower()))
@@ -56,6 +60,33 @@ namespace Logica
             {
                 return Dt; 
             }
+        }
+        public void RealizarVenta()
+        {
+            try
+            {
+                pasarDatos();
+                Ventas.InsertarVenta();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+        private void pasarDatos()
+        {
+            Ventas.ID_UsuarioVendedor = ID_UsuarioVendedor;
+            Ventas.ID_Cliente = ID_Cliente;
+            Ventas.ID_Producto = ID_Producto;
+            Ventas.NombreProducto = NombreProducto;
+            Ventas.Marca = Marca;
+            Ventas.Cantidad = Cantidad;
+            Ventas.PrecUnitario = PrecUnitario;
+            Ventas.Subtotal = Subtotal;
+            Ventas.FechaVenta = FechaVenta;
+            Ventas.NumeroLote = NumeroLote;
+            Ventas.TotalVenta = TotalVenta;
         }
     }
 }
