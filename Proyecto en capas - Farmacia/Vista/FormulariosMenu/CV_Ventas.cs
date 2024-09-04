@@ -118,20 +118,16 @@ namespace Vista.FormulariosMenu
             foreach (DataGridViewRow itemCarrito in DTGV_Carrito.Rows)
             {
                 CL_Ventas NuevaVenta = new CL_Ventas();
-                NuevaVenta.ID_Cliente = Txb_Cliente.Text;
-                NuevaVenta.NombreProducto = itemCarrito.Cells[1].Value.ToString();                 
-                NuevaVenta.Marca = itemCarrito.Cells[2].Value.ToString();
-                NuevaVenta.Cantidad = itemCarrito.Cells[3].Value.ToString();
+                NuevaVenta.ID_Producto = itemCarrito.Cells[0].Value.ToString();
                 NuevaVenta.PrecUnitario = itemCarrito.Cells[4].Value.ToString();
-                NuevaVenta.Subtotal = itemCarrito.Cells[5].Value.ToString();                 
-                NuevaVenta.FechaVenta = itemCarrito.Cells[6].Value.ToString();
-                NuevaVenta.NumeroLote = itemCarrito.Cells[7].Value.ToString();
+                NuevaVenta.Cantidad = itemCarrito.Cells[3].Value.ToString();
+                NuevaVenta.Subtotal = itemCarrito.Cells[5].Value.ToString();    
             }
-            Ventas.ID_Cliente = ID_Cliente.ToString();
             Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
-            Ventas.FechaVenta = Lbl_Fecha.Text;
+            Ventas.ID_Cliente = ID_Cliente.ToString(); 
+            Ventas.FechaVenta = DateTime.Today.ToString();
             Ventas.TotalVenta = totalVenta.ToString();
-            
+
         }
         private double calculoTotalVenta()
         {
@@ -251,7 +247,7 @@ namespace Vista.FormulariosMenu
         }
         private void Btn_FinalizarCompra_Click(object sender, EventArgs e)
         {
-            if (DTGV_Carrito.SelectedRows.Count >0)
+            if (DTGV_Carrito.Rows.Count >0)
             {
                 try
                 {
@@ -264,7 +260,10 @@ namespace Vista.FormulariosMenu
                     CServ_MsjUsuario.MensajesDeError(ex.Message);
                 }
             }
-            
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No ha seleccionado ningun producto.");
+            }            
 
         }        
 

@@ -14,14 +14,12 @@ namespace Datos
         public int ID_UsuarioVendedor { get; set; }
         public int ID_Cliente { get; set; }
         public int ID_Producto { get; set; }
-        public string NombreProducto { get; set; }
-        public string Marca { get; set; }
         public int Cantidad { get; set; }
         public double PrecUnitario { get; set; }
         public double Subtotal { get; set; }
         public DateTime FechaVenta { get; set; }
-        public int NumeroLote { get; set; }
         public double TotalVenta { get; set; }
+        SqlParameter[] lista = null;
 
         #endregion
 
@@ -44,26 +42,41 @@ namespace Datos
         }
         public void InsertarVenta()
         {
-            string sSql = "SP_Obtener_Clientes";/*
-            SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
-            param_UserName.Value = Prop_UserName;
-            SqlParameter param_Encriptacion = new SqlParameter("@PassEncriptada", SqlDbType.VarChar, 500);
-            param_Encriptacion.Value = Prop_Encriptacion;
-            SqlParameter param_NuevaPass = new SqlParameter("@NuevaPass", SqlDbType.Bit);
-            param_NuevaPass.Value = Prop_NuevaPass;
-            SqlParameter param_FeCambioPass = new SqlParameter("@Fe_CambioPass", SqlDbType.DateTime);
-            param_FeCambioPass.Value = Prop_FeCambioPass;
+            string sSql = "SP_Insertar_Venta";
+            SqlParameter param_ID_Usuario = new SqlParameter("@ID_Usuario", SqlDbType.Int);
+            param_ID_Usuario.Value = ID_UsuarioVendedor;
+            SqlParameter param_ID_Cliente = new SqlParameter("@ID_Cliente", SqlDbType.Int);
+            param_ID_Cliente.Value = ID_Cliente;
+            SqlParameter param_Fe_Venta = new SqlParameter("@NuevaPass", SqlDbType.DateTime);
+            param_Fe_Venta.Value = FechaVenta;
+            SqlParameter param_TotalVenta = new SqlParameter("@Total", SqlDbType.Decimal);
+            param_TotalVenta.Value = TotalVenta;
+
+            SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
+            param_ID_Producto.Value = ID_Producto;
+            SqlParameter param_PrecUnitario = new SqlParameter("@PrecUnitario", SqlDbType.Decimal);
+            param_PrecUnitario.Value = PrecUnitario;
+            SqlParameter param_Cantidad = new SqlParameter("@Cantidad", SqlDbType.Int);
+            param_Cantidad.Value = Cantidad;
+            SqlParameter param_Subtotal = new SqlParameter("@Subtotal", SqlDbType.Decimal);
+            param_Subtotal.Value = Subtotal;
+
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            listaParametros.Add(param_UserName);
-            listaParametros.Add(param_Encriptacion);
-            listaParametros.Add(param_NuevaPass);
-            listaParametros.Add(param_FeCambioPass);*/
-            List<SqlParameter> listaParametros = new List<SqlParameter>();
-            SqlParameter[] parametros = listaParametros.ToArray();
+            listaParametros.Add(param_ID_Usuario);
+            listaParametros.Add(param_ID_Cliente);
+            listaParametros.Add(param_Fe_Venta);
+            listaParametros.Add(param_TotalVenta);
+
+            listaParametros.Add(param_ID_Producto);
+            listaParametros.Add(param_PrecUnitario);
+            listaParametros.Add(param_Cantidad);
+            listaParametros.Add(param_Subtotal);
+
+            lista = listaParametros.ToArray();
 
             try
             {
-                ejecutar(sSql, parametros, true);
+                ejecutar(sSql, lista, true);
             }
             catch (Exception)
             {

@@ -15,13 +15,13 @@ namespace Logica
         public string ID_UsuarioVendedor { get; set; }
         public string ID_Cliente { get; set; }
         public string ID_Producto { get; set; }
-        public string NombreProducto { get; set; }
-        public string Marca { get; set; }
+      //  public string NombreProducto { get; set; }
+      //  public string Marca { get; set; }
         public string Cantidad { get; set; }
         public string PrecUnitario { get; set; }
         public string Subtotal { get; set; }
         public string FechaVenta { get; set; }
-        public string NumeroLote { get; set; }
+       // public string NumeroLote { get; set; }
         public string TotalVenta { get; set; }
 
         #endregion
@@ -76,17 +76,16 @@ namespace Logica
         }
         private void pasarDatos()
         {
-            Ventas.ID_UsuarioVendedor = ID_UsuarioVendedor;
-            Ventas.ID_Cliente = ID_Cliente;
-            Ventas.ID_Producto = ID_Producto;
-            Ventas.NombreProducto = NombreProducto;
-            Ventas.Marca = Marca;
-            Ventas.Cantidad = Cantidad;
-            Ventas.PrecUnitario = PrecUnitario;
-            Ventas.Subtotal = Subtotal;
-            Ventas.FechaVenta = FechaVenta;
-            Ventas.NumeroLote = NumeroLote;
-            Ventas.TotalVenta = TotalVenta;
+            Ventas.ID_UsuarioVendedor = Convert.ToInt32(ID_UsuarioVendedor);
+        // Ver que hago, si agrego un cliente o no
+            Ventas.ID_Cliente = Convert.ToInt32(ID_Cliente);
+            Ventas.ID_Producto = Convert.ToInt32(ID_Producto);
+            Ventas.Cantidad = Convert.ToInt32(Cantidad);
+            Ventas.PrecUnitario = Convert.ToDouble(PrecUnitario);
+            Ventas.Subtotal = Convert.ToDouble(Subtotal);
+            Ventas.FechaVenta = Convert.ToDateTime(FechaVenta);
+            Ventas.TotalVenta = Convert.ToDouble(TotalVenta);
+           
         }
     }
 }
