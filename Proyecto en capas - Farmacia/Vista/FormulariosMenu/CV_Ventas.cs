@@ -18,6 +18,7 @@ namespace Vista.FormulariosMenu
         #region Atributos
         CL_Productos Productos = new CL_Productos();
         CL_Ventas Ventas = new CL_Ventas();
+        List<CL_Ventas> VentaItems = new List<CL_Ventas>();    
         DataTable Dt = new DataTable();
         double totalVenta = 0;
         int ID_Cliente = 0;
@@ -122,8 +123,10 @@ namespace Vista.FormulariosMenu
                 NuevaVenta.PrecUnitario = itemCarrito.Cells[4].Value.ToString();
                 NuevaVenta.Cantidad = itemCarrito.Cells[3].Value.ToString();
                 NuevaVenta.Subtotal = itemCarrito.Cells[5].Value.ToString();    
+                VentaItems.Add(NuevaVenta);
             }
-            Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
+            Ventas.VentaItems = VentaItems;
+            Ventas.ID_UsuarioVendedor = 1.ToString();// CSesion_SesionIniciada.UserName;
             Ventas.ID_Cliente = ID_Cliente.ToString(); 
             Ventas.FechaVenta = DateTime.Today.ToString();
             Ventas.TotalVenta = totalVenta.ToString();
@@ -135,9 +138,9 @@ namespace Vista.FormulariosMenu
             foreach (DataGridViewRow subtotal in DTGV_Carrito.Rows) 
             {
                 double valor = Convert.ToDouble(subtotal.Cells[5].Value);
-                venta = valor + venta;
+                totalVenta = valor + venta;
             }
-            return venta;
+            return totalVenta;
         }
         private void agregarAlCarrito(int ProdSeleccionado) 
         {
@@ -266,7 +269,6 @@ namespace Vista.FormulariosMenu
             }            
 
         }        
-
         private void Btn_BuscarCliente_Click(object sender, EventArgs e)
         {
             CV_ObtenerClientes obtenerClientes = new CV_ObtenerClientes();

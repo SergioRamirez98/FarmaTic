@@ -11,18 +11,19 @@ namespace Logica
     public class CL_Ventas
     {
         CD_Ventas Ventas = new CD_Ventas();
+        List<CD_Ventas> Items = new List<CD_Ventas>();
+
         #region Properties
+
         public string ID_UsuarioVendedor { get; set; }
         public string ID_Cliente { get; set; }
         public string ID_Producto { get; set; }
-      //  public string NombreProducto { get; set; }
-      //  public string Marca { get; set; }
         public string Cantidad { get; set; }
         public string PrecUnitario { get; set; }
         public string Subtotal { get; set; }
         public string FechaVenta { get; set; }
-       // public string NumeroLote { get; set; }
         public string TotalVenta { get; set; }
+        public List<CL_Ventas> VentaItems {get;set;}
 
         #endregion
         public DataTable ObtenerClientes()
@@ -76,16 +77,21 @@ namespace Logica
         }
         private void pasarDatos()
         {
+            foreach (var item in VentaItems) 
+            {
+                CD_Ventas VentaItems = new CD_Ventas();
+                VentaItems.ID_Producto = Convert.ToInt32(item.ID_Producto);
+                VentaItems.Cantidad = Convert.ToInt32(item.Cantidad);
+                VentaItems.PrecUnitario = Convert.ToDouble(item.PrecUnitario);
+                VentaItems.Subtotal = Convert.ToDouble(item.Subtotal);
+                Items.Add(VentaItems);
+            }
+            Ventas.items = Items;
             Ventas.ID_UsuarioVendedor = Convert.ToInt32(ID_UsuarioVendedor);
         // Ver que hago, si agrego un cliente o no
             Ventas.ID_Cliente = Convert.ToInt32(ID_Cliente);
-            Ventas.ID_Producto = Convert.ToInt32(ID_Producto);
-            Ventas.Cantidad = Convert.ToInt32(Cantidad);
-            Ventas.PrecUnitario = Convert.ToDouble(PrecUnitario);
-            Ventas.Subtotal = Convert.ToDouble(Subtotal);
             Ventas.FechaVenta = Convert.ToDateTime(FechaVenta);
-            Ventas.TotalVenta = Convert.ToDouble(TotalVenta);
-           
+            Ventas.TotalVenta = Convert.ToDouble(TotalVenta);  
         }
     }
 }

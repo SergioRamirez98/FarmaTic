@@ -19,6 +19,8 @@ namespace Datos
         public double Subtotal { get; set; }
         public DateTime FechaVenta { get; set; }
         public double TotalVenta { get; set; }
+        public List <CD_Ventas> items { get; set; }
+
         SqlParameter[] lista = null;
 
         #endregion
@@ -47,14 +49,14 @@ namespace Datos
             param_ID_Usuario.Value = ID_UsuarioVendedor;
             SqlParameter param_ID_Cliente = new SqlParameter("@ID_Cliente", SqlDbType.Int);
             param_ID_Cliente.Value = ID_Cliente;
-            SqlParameter param_Fe_Venta = new SqlParameter("@NuevaPass", SqlDbType.DateTime);
+            SqlParameter param_Fe_Venta = new SqlParameter("@Fe_Venta", SqlDbType.DateTime);
             param_Fe_Venta.Value = FechaVenta;
             SqlParameter param_TotalVenta = new SqlParameter("@Total", SqlDbType.Decimal);
             param_TotalVenta.Value = TotalVenta;
 
             SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
             param_ID_Producto.Value = ID_Producto;
-            SqlParameter param_PrecUnitario = new SqlParameter("@PrecUnitario", SqlDbType.Decimal);
+            SqlParameter param_PrecUnitario = new SqlParameter("@PrecioUnitario", SqlDbType.Decimal);
             param_PrecUnitario.Value = PrecUnitario;
             SqlParameter param_Cantidad = new SqlParameter("@Cantidad", SqlDbType.Int);
             param_Cantidad.Value = Cantidad;
