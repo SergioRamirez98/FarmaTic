@@ -155,6 +155,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -186,6 +187,21 @@
       <Project>{8b0ae031-16a0-4a30-b9c1-bb0de41f3caf}</Project>
       <Name>Sesion</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\farmaTic logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\25752585_15697.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ojo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\28455827_17042.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fondo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -17,8 +17,8 @@ namespace Datos
         {
             try
             {
-                conexion = new SqlConnection(VariableParaConectar);
-                conexion.Open();
+                //conexion = new SqlConnection(VariableParaConectar);
+                //conexion.Open();
 
             }
             catch (Exception)

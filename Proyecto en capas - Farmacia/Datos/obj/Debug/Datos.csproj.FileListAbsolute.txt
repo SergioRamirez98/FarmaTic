@@ -33,3 +33,16 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debu
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Capa de Sistema.dll
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Capa de Sistema.pdb
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.Up2Date
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Datos.dll
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Datos.pdb
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Capa de Sistema.dll
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Servicios.dll
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.dll
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Capa de Sistema.pdb
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Servicios.pdb
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\bin\Debug\Sesion.pdb
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.AssemblyReference.cache
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.CoreCompileInputs.cache
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.csproj.Up2Date
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.dll
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Datos\obj\Debug\Datos.pdb

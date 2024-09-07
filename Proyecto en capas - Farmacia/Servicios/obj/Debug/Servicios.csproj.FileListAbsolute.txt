@@ -16,3 +16,9 @@ C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.dll
 C:\Users\ramir\source\repos\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.pdb
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Servicios\bin\Debug\Servicios.dll
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Servicios\bin\Debug\Servicios.pdb
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.csproj.AssemblyReference.cache
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.csproj.CoreCompileInputs.cache
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.dll
+C:\Users\mdiazortigoza\Desktop\Ce\FarmaTic\Proyecto en capas - Farmacia\Servicios\obj\Debug\Servicios.pdb

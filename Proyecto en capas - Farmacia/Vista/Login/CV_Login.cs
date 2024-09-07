@@ -14,17 +14,17 @@ namespace Vista
         public CV_Login()
         {
             InitializeComponent();
-            
+
         }
         private void CV_Login_Load(object sender, EventArgs e)
         {
             Txb_Contrasena.PasswordChar = '*';
-            Sistema.CargarConfiguracion();
+            //Sistema.CargarConfiguracion();
         }
         private void Btn_Ingresar_Click(object sender, EventArgs e)
         {
             // A MODO DE PRUEBA!!!!
-                        
+
             CV_Ventas STOQ = new CV_Ventas();
             STOQ.Show();/*
             CV_Stock stoq = new CV_Stock();
@@ -75,7 +75,7 @@ namespace Vista
         }
         private void Cbx_MostrarContrasena_CheckedChanged(object sender, EventArgs e)
         {
-            CServ_InfoSensible.Contrasena(Txb_Contrasena, Cbx_MostrarContrasena);
+            //CServ_InfoSensible.Contrasena(Txb_Contrasena, Cbx_MostrarContrasena);
         }
 
         private void LnkLbl_OlvideContrasena_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -86,9 +86,23 @@ namespace Vista
         }
         private void PasarDatos()
         {
-            Usuarios.Prop_NombreUsuarioLogin = Txb_Usuario.Text;
-            Usuarios.Prop_ContrasenaUsuarioLogin = Txb_Contrasena.Text;
-            Usuarios.Prop_EncriptacionLogin = Txb_Usuario.Text + Txb_Contrasena.Text;
+            //Usuarios.Prop_NombreUsuarioLogin = Txb_Usuario.Text;
+            //Usuarios.Prop_ContrasenaUsuarioLogin = Txb_Contrasena.Text;
+            //Usuarios.Prop_EncriptacionLogin = Txb_Usuario.Text + Txb_Contrasena.Text;
+        }
+
+        private void btnMostrarContrasenia_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void btnMostrarContrasenia_MouseDown(object sender, MouseEventArgs e)
+        {
+            Txb_Contrasena.PasswordChar = '\0';
+        }
+
+        private void btnMostrarContrasenia_MouseUp(object sender, MouseEventArgs e)
+        {
+            Txb_Contrasena.PasswordChar = '*';
         }
     }
 }
