@@ -11,7 +11,7 @@ namespace Datos
     public abstract class CD_ConectarBDD
     {
         protected string VariableParaConectar = "data source=DESKTOP-JC9L6DB\\SQLEXPRESS; initial catalog=Farmatic; integrated security=True;";
-
+        
         public SqlConnection conexion;
         public CD_ConectarBDD()
         {
