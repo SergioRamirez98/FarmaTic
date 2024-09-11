@@ -9,6 +9,7 @@ namespace Sistema
 {
     public static class CSistema_ConfiguracionSistema
     {
+        #region Properties
         public static bool MinCaracteres { get; set; }
         public static bool CaractEspecial { get; set; }
         public static bool DatosPersonales { get; set; }   
@@ -18,6 +19,7 @@ namespace Sistema
         public static int AvisosVtoProductos { get; set; }
         public static int CantMinimadeStock { get; set; }
         public static int CantIntentosFallidos { get; set; }
+        #endregion
         public static void ConfigurarSistema(DataTable dt)
         {
             if (dt.Rows.Count > 0)

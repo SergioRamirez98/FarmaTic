@@ -13,7 +13,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servicios", "Servicios\Serv
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sesion", "Sesion\Sesion.csproj", "{8B0AE031-16A0-4A30-B9C1-BB0DE41F3CAF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema", "Capa de Sistema\Sistema.csproj", "{35B155BC-44FD-41B3-AFEB-F5A2554E2D14}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sistema", "Sistema\Sistema.csproj", "{35B155BC-44FD-41B3-AFEB-F5A2554E2D14}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -171,10 +171,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Capa de Sistema\Sistema.csproj">
-      <Project>{35b155bc-44fd-41b3-afeb-f5a2554e2d14}</Project>
-      <Name>Sistema</Name>
-    </ProjectReference>
     <ProjectReference Include="..\Logica\Logica.csproj">
       <Project>{1648caf4-c25e-4f5d-8a42-17904e3f46e8}</Project>
       <Name>Logica</Name>
@@ -186,6 +182,10 @@
     <ProjectReference Include="..\Sesion\Sesion.csproj">
       <Project>{8b0ae031-16a0-4a30-b9c1-bb0de41f3caf}</Project>
       <Name>Sesion</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sistema\Sistema.csproj">
+      <Project>{35b155bc-44fd-41b3-afeb-f5a2554e2d14}</Project>
+      <Name>Sistema</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
