@@ -14,8 +14,20 @@ namespace Vista
     public partial class CV_ObtenerClientes : Form
     {
         CL_Ventas ventas = new CL_Ventas();
-        public delegate void ClienteSeleccionadoHandler( string cliente, int idCliente);
+        public delegate void ClienteSeleccionadoHandler( string cliente, int idCliente, double Descuento, string Categoria);
+
         public event ClienteSeleccionadoHandler ClienteSeleccionado;
+
+        #region Properties
+        public int ID_Cliente {get;set;}
+        public int ID_Persona{get;set;}
+        public DateTime Fecha_de_Alta{get;set;}           
+        public string Cliente{get;set;}
+        public int Documento{get;set;}
+        public double Descuento{get;set;}
+        public string Categoria { get; set; }
+        #endregion
+
 
         public CV_ObtenerClientes()
         {
@@ -26,7 +38,6 @@ namespace Vista
         {
             cargarDTGV();
             configurarDTGV();
-
         }
         private void configurarDTGV() 
         {
@@ -50,8 +61,6 @@ namespace Vista
             DTGV_Clientes.Columns[4].HeaderText = "Documento";
             DTGV_Clientes.Columns[5].HeaderText = "Descuento";
             DTGV_Clientes.Columns[6].HeaderText = "Categoria";
-
-            
         }
         private void cargarDTGV() 
         {
@@ -69,11 +78,18 @@ namespace Vista
             if (DTGV_Clientes.SelectedRows.Count > 0)
             {
                 int Seleccion = DTGV_Clientes.CurrentRow.Index;
-                int IdCliente = Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[0].Value);
-                string Cliente = DTGV_Clientes.Rows[Seleccion].Cells[3].Value.ToString();
-                ClienteSeleccionado(Cliente,IdCliente);
-                this.Close();
 
+                ID_Cliente =Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[0].Value);
+                ID_Persona = Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[1].Value);
+                Fecha_de_Alta = Convert.ToDateTime(DTGV_Clientes.Rows[Seleccion].Cells[2].Value);
+                Cliente = DTGV_Clientes.Rows[Seleccion].Cells[3].Value.ToString();
+                Documento = Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[4].Value);
+                Descuento = Convert.ToDouble(DTGV_Clientes.Rows[Seleccion].Cells[5].Value);
+                Categoria = DTGV_Clientes.Rows[Seleccion].Cells[6].Value.ToString();
+                //  string Cliente = DTGV_Clientes.Rows[Seleccion].Cells[3].Value.ToString();
+                ClienteSeleccionado(Cliente, ID_Cliente, Descuento, Categoria);
+
+                this.Close();                
             }
         }
     }

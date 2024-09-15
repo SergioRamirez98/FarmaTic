@@ -43,6 +43,7 @@
             this.Lbl_Fecha = new System.Windows.Forms.Label();
             this.Lbl_Total = new System.Windows.Forms.Label();
             this.Btn_BuscarCliente = new System.Windows.Forms.Button();
+            this.Btn_Consultar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).BeginInit();
@@ -78,14 +79,14 @@
             this.Nud_Cantidad.Location = new System.Drawing.Point(1508, 200);
             this.Nud_Cantidad.Name = "Nud_Cantidad";
             this.Nud_Cantidad.Size = new System.Drawing.Size(94, 22);
-            this.Nud_Cantidad.TabIndex = 3;
+            this.Nud_Cantidad.TabIndex = 4;
             // 
             // Btn_AgregarCompra
             // 
             this.Btn_AgregarCompra.Location = new System.Drawing.Point(1508, 256);
             this.Btn_AgregarCompra.Name = "Btn_AgregarCompra";
             this.Btn_AgregarCompra.Size = new System.Drawing.Size(94, 55);
-            this.Btn_AgregarCompra.TabIndex = 4;
+            this.Btn_AgregarCompra.TabIndex = 5;
             this.Btn_AgregarCompra.Text = "Agregar a la compra";
             this.Btn_AgregarCompra.UseVisualStyleBackColor = true;
             this.Btn_AgregarCompra.Click += new System.EventHandler(this.Btn_AgregarCompra_Click);
@@ -95,7 +96,7 @@
             this.Btn_EliminardeCompra.Location = new System.Drawing.Point(1508, 351);
             this.Btn_EliminardeCompra.Name = "Btn_EliminardeCompra";
             this.Btn_EliminardeCompra.Size = new System.Drawing.Size(94, 55);
-            this.Btn_EliminardeCompra.TabIndex = 5;
+            this.Btn_EliminardeCompra.TabIndex = 6;
             this.Btn_EliminardeCompra.Text = "Eliminar de la compra";
             this.Btn_EliminardeCompra.UseVisualStyleBackColor = true;
             this.Btn_EliminardeCompra.Click += new System.EventHandler(this.Btn_EliminardeCompra_Click);
@@ -105,7 +106,7 @@
             this.Btn_FinalizarCompra.Location = new System.Drawing.Point(1508, 466);
             this.Btn_FinalizarCompra.Name = "Btn_FinalizarCompra";
             this.Btn_FinalizarCompra.Size = new System.Drawing.Size(94, 55);
-            this.Btn_FinalizarCompra.TabIndex = 6;
+            this.Btn_FinalizarCompra.TabIndex = 7;
             this.Btn_FinalizarCompra.Text = "Finalizar Compra";
             this.Btn_FinalizarCompra.UseVisualStyleBackColor = true;
             this.Btn_FinalizarCompra.Click += new System.EventHandler(this.Btn_FinalizarCompra_Click);
@@ -177,16 +178,27 @@
             this.Btn_BuscarCliente.Location = new System.Drawing.Point(825, 24);
             this.Btn_BuscarCliente.Name = "Btn_BuscarCliente";
             this.Btn_BuscarCliente.Size = new System.Drawing.Size(111, 23);
-            this.Btn_BuscarCliente.TabIndex = 32;
+            this.Btn_BuscarCliente.TabIndex = 2;
             this.Btn_BuscarCliente.Text = "Buscar Cliente";
             this.Btn_BuscarCliente.UseVisualStyleBackColor = true;
             this.Btn_BuscarCliente.Click += new System.EventHandler(this.Btn_BuscarCliente_Click);
+            // 
+            // Btn_Consultar
+            // 
+            this.Btn_Consultar.Location = new System.Drawing.Point(1508, 64);
+            this.Btn_Consultar.Name = "Btn_Consultar";
+            this.Btn_Consultar.Size = new System.Drawing.Size(94, 50);
+            this.Btn_Consultar.TabIndex = 3;
+            this.Btn_Consultar.Text = "Consultar ventas";
+            this.Btn_Consultar.UseVisualStyleBackColor = true;
+            this.Btn_Consultar.Click += new System.EventHandler(this.Btn_Consultar_Click);
             // 
             // CV_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1656, 751);
+            this.Controls.Add(this.Btn_Consultar);
             this.Controls.Add(this.Btn_BuscarCliente);
             this.Controls.Add(this.Lbl_Total);
             this.Controls.Add(this.Lbl_Fecha);
@@ -230,5 +242,6 @@
         private System.Windows.Forms.Label Lbl_Fecha;
         private System.Windows.Forms.Label Lbl_Total;
         private System.Windows.Forms.Button Btn_BuscarCliente;
+        private System.Windows.Forms.Button Btn_Consultar;
     }
 }

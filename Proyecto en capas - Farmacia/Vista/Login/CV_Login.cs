@@ -26,14 +26,14 @@ namespace Vista
         {
             // A MODO DE PRUEBA!!!!
 
-            CV_Ventas STOQ = new CV_Ventas();
-            STOQ.Show();/*
-            CV_Stock stoq = new CV_Stock();
-            stoq.Show();*/
-            /*CV_GestionUsuariosPersonas Gestion = new CV_GestionUsuariosPersonas();
-            Gestion.Show();*/
+            //CV_Ventas STOQ = new CV_Ventas();
+            //STOQ.Show();
+            //CV_Stock stoq = new CV_Stock();
+            //stoq.Show();
+            //CV_GestionUsuariosPersonas Gestion = new CV_GestionUsuariosPersonas();
+            //Gestion.Show();
 
-            /*
+            
             try
             {
                 PasarDatos();
@@ -54,7 +54,7 @@ namespace Vista
                             Menu.Show();
                             CSesion_PreguntasUsuarios.LimpiarCache();
                         }
-                        CServ_LimpiarControles.LimpiarFormulario(this);
+                        CServ_Limpiar.LimpiarFormulario(this);
                         this.Hide();
                     }
                     else
@@ -72,7 +72,7 @@ namespace Vista
             catch (Exception ex)
             {
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }*/
+            }
         }
         private void Cbx_MostrarContrasena_CheckedChanged(object sender, EventArgs e)
         {

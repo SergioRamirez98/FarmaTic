@@ -111,9 +111,9 @@ namespace Datos
             param_CantidadDesde.Value = Prop_CantDesde;
             SqlParameter param_CantidadHasta = new SqlParameter("@CantidadHasta", SqlDbType.Int);
             param_CantidadHasta.Value = Prop_CantHasta;
-            SqlParameter param_PrecDesde = new SqlParameter("@PrecDesde", SqlDbType.Float);
+            SqlParameter param_PrecDesde = new SqlParameter("@PrecDesde", SqlDbType.Decimal);
             param_PrecDesde.Value = Prop_PrecDesde;
-            SqlParameter param_PrecHasta = new SqlParameter("@PrecHasta", SqlDbType.Float);
+            SqlParameter param_PrecHasta = new SqlParameter("@PrecHasta", SqlDbType.Decimal);
             param_PrecHasta.Value = Prop_PrecHasta;
             SqlParameter param_VtoDesde = new SqlParameter("@FeVtoDesde", SqlDbType.DateTime);
             param_VtoDesde.Value = Prop_VtoDesde;
@@ -219,7 +219,7 @@ namespace Datos
                 param_Descripcion.Value = Prop_Descripcion;
                 SqlParameter param_Cantidad = new SqlParameter("@Cantidad", SqlDbType.Int);
                 param_Cantidad.Value = Prop_Cantidad;
-                SqlParameter param_Precio = new SqlParameter("@PrecUnit", SqlDbType.Float);
+                SqlParameter param_Precio = new SqlParameter("@PrecUnit", SqlDbType.Decimal);
                 param_Precio.Value = Prop_Precio;
                 SqlParameter param_VtoProd = new SqlParameter("@FeVtoProd", SqlDbType.DateTime);
                 param_VtoProd.Value = Prop_VtoProd;

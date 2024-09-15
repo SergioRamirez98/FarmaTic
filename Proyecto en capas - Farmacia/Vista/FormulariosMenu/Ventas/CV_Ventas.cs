@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
 
 namespace Vista.FormulariosMenu
 {
@@ -20,9 +21,13 @@ namespace Vista.FormulariosMenu
         CL_Ventas Ventas = new CL_Ventas();
         List<CL_Ventas> VentaItems = new List<CL_Ventas>();    
         DataTable Dt = new DataTable();
-        double totalVenta = 0;
+        double totalventa = 0, Desc =0;
         int ID_Cliente = 0;
-        public delegate void ClienteSeleccionadoHandler(string cliente, int idCliente);
+        string cat;
+        public delegate void ClienteSeleccionadoHandler(string cliente, int idCliente, double Descuento, string Categoria);
+
+        //Tengo que poner el descuento aplicado en la consulta SQL
+
         public event ClienteSeleccionadoHandler ClienteSeleccionado;
 
         #endregion
@@ -38,6 +43,82 @@ namespace Vista.FormulariosMenu
             configurarLoad();
 
         }
+
+        #region Eventos
+        private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
+        {
+            DTGV_Ventas.DataSource = Ventas.BusquedaRapida(Txb_BusquedaRapida.Text, Dt);
+        }
+        private void Btn_AgregarCompra_Click(object sender, EventArgs e)
+        {
+            if (DTGV_Ventas.SelectedRows.Count > 0 && Nud_Cantidad.Value > 0)
+            {
+                int Seleccion = DTGV_Ventas.CurrentRow.Index;
+                int Id = Convert.ToInt32(DTGV_Ventas.Rows[Seleccion].Cells[0].Value);
+                bool ProductoenCarrito = compararCarrito(Id);
+                if (ProductoenCarrito)
+                {
+                    agregarCantidadAlCarrito(Id);
+                }
+                else
+                {
+                    agregarAlCarrito(Seleccion);
+                }
+            }
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
+            }
+            configurarLoad();
+        }
+        private void Btn_EliminardeCompra_Click(object sender, EventArgs e)
+        {
+            if (DTGV_Carrito.SelectedRows.Count > 0)
+            {
+                eliminardeCarrito();
+                calculoTotalVenta();
+                configurarLoad();
+            }
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
+            }
+        }
+        private void Btn_FinalizarCompra_Click(object sender, EventArgs e)
+        {
+            if (DTGV_Carrito.Rows.Count >0)
+            {
+                try
+                {
+                    pasarDatos();
+                    int ID_Venta = Ventas.RealizarVenta();
+                    pasarDatos(ID_Venta);
+                    Ventas.RealizarVentaItem();
+                    CServ_MsjUsuario.Exito("Venta Generada con éxito");
+                    Txb_Cliente.Text = "";
+                    DTGV_Carrito.Rows.Clear();
+                    cargarDTGV();
+                }
+                catch (Exception ex)
+                {
+
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
+            }
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No ha seleccionado ningun producto.");
+            }            
+
+        }        
+        private void Btn_BuscarCliente_Click(object sender, EventArgs e)
+        {
+            CV_ObtenerClientes obtenerClientes = new CV_ObtenerClientes();
+            obtenerClientes.ClienteSeleccionado += new CV_ObtenerClientes.ClienteSeleccionadoHandler(SeleccionCliente);
+            obtenerClientes.ShowDialog();
+        }
+        #endregion
+        #region Metodos
         private void configurarDTGV()
         {
             DTGV_Ventas.AllowUserToResizeColumns = false;
@@ -83,7 +164,7 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.RowHeadersVisible = false;
             DTGV_Carrito.AllowUserToResizeColumns = false;
             DTGV_Carrito.AllowUserToResizeRows = false;
-            DTGV_Carrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;            
+            DTGV_Carrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DTGV_Carrito.Columns.Add("ID", "ID Producto");
             DTGV_Carrito.Columns.Add("Nombre", "Nombre");
             DTGV_Carrito.Columns.Add("Marca", "Marca");
@@ -95,17 +176,20 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.Columns.Add("Vencimiento", "Vencimiento");
             DTGV_Carrito.Columns.Add("NumLote", "Numero de lote");
 
+            //            
+            DTGV_Carrito.Columns.Add("Descuento", "Descuento por cliente");
+            //DTGV_Carrito.Columns["Descuento"].DefaultCellStyle.Format = "0.00%";
         }
         private void cargarDTGV()
         {
             Dt = Productos.MostrarProductos();
-            DTGV_Ventas.DataSource = Dt;            
+            DTGV_Ventas.DataSource = Dt;
             DTGV_Ventas.ClearSelection();
-            
+
         }
         private void configurarLoad()
         {
-            Size = new Size(1250,798);
+            Size = new Size(1250, 798);
             //Txb_UserName.Text = CSesion_SesionIniciada.UserName;
             Txb_UserName.Enabled = false;
             Txb_BusquedaRapida.Text = string.Empty;
@@ -116,43 +200,52 @@ namespace Vista.FormulariosMenu
         }
         private void pasarDatos()
         {
+            Ventas.ID_UsuarioVendedor = 1.ToString();// CSesion_SesionIniciada.UserName;
+            if (ID_Cliente!=0)Ventas.ID_Cliente = ID_Cliente.ToString(); 
+            else Ventas.ID_Cliente = 2.ToString();
+
+            Ventas.FechaVenta = DateTime.Today.ToString();
+            Ventas.TotalVenta = totalventa.ToString();
+            Ventas.Descuento=Desc.ToString();
+        }
+        private void pasarDatos(int ID_Venta)
+        {
             foreach (DataGridViewRow itemCarrito in DTGV_Carrito.Rows)
             {
                 CL_Ventas NuevaVenta = new CL_Ventas();
+                NuevaVenta.ID_Venta = ID_Venta.ToString();
                 NuevaVenta.ID_Producto = itemCarrito.Cells[0].Value.ToString();
                 NuevaVenta.PrecUnitario = itemCarrito.Cells[4].Value.ToString();
                 NuevaVenta.Cantidad = itemCarrito.Cells[3].Value.ToString();
-                NuevaVenta.Subtotal = itemCarrito.Cells[5].Value.ToString();    
+                NuevaVenta.Subtotal = itemCarrito.Cells[5].Value.ToString();
+                NuevaVenta.TotalconDescuento = Ventas.CalcularTotalConDescuentoporItem(NuevaVenta.Subtotal,Desc);
                 VentaItems.Add(NuevaVenta);
             }
             Ventas.VentaItems = VentaItems;
-            Ventas.ID_UsuarioVendedor = 1.ToString();// CSesion_SesionIniciada.UserName;
-            Ventas.ID_Cliente = ID_Cliente.ToString(); 
-            Ventas.FechaVenta = DateTime.Today.ToString();
-            Ventas.TotalVenta = totalVenta.ToString();
-
         }
         private double calculoTotalVenta()
         {
-            double venta = 0;
-            foreach (DataGridViewRow subtotal in DTGV_Carrito.Rows) 
+            totalventa = 0;
+            foreach (DataGridViewRow subtotal in DTGV_Carrito.Rows)
             {
                 double valor = Convert.ToDouble(subtotal.Cells[5].Value);
-                totalVenta = valor + venta;
+                totalventa = valor + totalventa;
             }
-            return totalVenta;
+            totalventa= Ventas.CalcularTotalConDescuento(Desc, totalventa);
+            return totalventa;
         }
-        private void agregarAlCarrito(int ProdSeleccionado) 
+        private void agregarAlCarrito(int ProdSeleccionado)
         {
             int Id = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[0].Value);
-            string Nombre = DTGV_Ventas.Rows[ProdSeleccionado].Cells[1].Value.ToString().ToString();
+            string Nombre = DTGV_Ventas.Rows[ProdSeleccionado].Cells[1].Value.ToString();
             string Marca = DTGV_Ventas.Rows[ProdSeleccionado].Cells[2].Value.ToString();
-            int Cantidad = Convert.ToInt32(Nud_Cantidad.Value);                
+            int Cantidad = Convert.ToInt32(Nud_Cantidad.Value);
             double Precio = Convert.ToDouble(DTGV_Ventas.Rows[ProdSeleccionado].Cells[5].Value);
             double SubTotal = Cantidad * Precio;
             DateTime Vto = Convert.ToDateTime(DTGV_Ventas.Rows[ProdSeleccionado].Cells[6].Value);
-            int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[7].Value);
-            DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote);            
+            int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[7].Value);       
+
+            DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote,Desc);
             DTGV_Ventas.ClearSelection();
             DTGV_Carrito.ClearSelection();
         }
@@ -187,7 +280,7 @@ namespace Vista.FormulariosMenu
                 }
             }
         }
-        private void eliminardeCarrito() 
+        private void eliminardeCarrito()
         {
             try
             {
@@ -203,79 +296,21 @@ namespace Vista.FormulariosMenu
                 CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
             }
         }
-        private void SeleccionCliente(string cliente, int idClienteDelegado)
+
+        private void Btn_Consultar_Click(object sender, EventArgs e)
+        {
+            CV_ConsultaVentas consulta = new CV_ConsultaVentas();
+            consulta.Show();
+        }
+
+        private void SeleccionCliente(string cliente, int idClienteDelegado, double Descuento, string Categoria)
         {
             Txb_Cliente.Text = cliente;
             ID_Cliente = idClienteDelegado;
+            Desc=Descuento;
+            cat = Categoria;
         }
-
-
-
-        private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
-        {
-            DTGV_Ventas.DataSource = Ventas.BusquedaRapida(Txb_BusquedaRapida.Text, Dt);
-        }
-        private void Btn_AgregarCompra_Click(object sender, EventArgs e)
-        {
-            if (DTGV_Ventas.SelectedRows.Count > 0 && Nud_Cantidad.Value > 0)
-            {
-                int Seleccion = DTGV_Ventas.CurrentRow.Index;
-                int Id = Convert.ToInt32(DTGV_Ventas.Rows[Seleccion].Cells[0].Value);
-                bool ProductoenCarrito = compararCarrito(Id);
-                if (ProductoenCarrito)
-                {
-                    agregarCantidadAlCarrito(Id);
-                }
-                else
-                {
-                    agregarAlCarrito(Seleccion);
-                }
-            }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
-            }
-            configurarLoad();
-        }
-        private void Btn_EliminardeCompra_Click(object sender, EventArgs e)
-        {
-            if (DTGV_Carrito.SelectedRows.Count > 0)
-            {
-                eliminardeCarrito();                
-            }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
-            }
-        }
-        private void Btn_FinalizarCompra_Click(object sender, EventArgs e)
-        {
-            if (DTGV_Carrito.Rows.Count >0)
-            {
-                try
-                {
-                    pasarDatos();
-                    Ventas.RealizarVenta();
-                }
-                catch (Exception ex)
-                {
-
-                    CServ_MsjUsuario.MensajesDeError(ex.Message);
-                }
-            }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No ha seleccionado ningun producto.");
-            }            
-
-        }        
-        private void Btn_BuscarCliente_Click(object sender, EventArgs e)
-        {
-            CV_ObtenerClientes obtenerClientes = new CV_ObtenerClientes();
-            obtenerClientes.ClienteSeleccionado += new CV_ObtenerClientes.ClienteSeleccionadoHandler(SeleccionCliente);
-            obtenerClientes.ShowDialog();
-        }
-      
+        #endregion
 
     }
 }
