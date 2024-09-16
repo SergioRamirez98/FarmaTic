@@ -21,13 +21,11 @@ namespace Vista.FormulariosMenu
         CL_Ventas Ventas = new CL_Ventas();
         List<CL_Ventas> VentaItems = new List<CL_Ventas>();    
         DataTable Dt = new DataTable();
+
         double totalventa = 0, Desc =0;
         int ID_Cliente = 0;
         string cat;
         public delegate void ClienteSeleccionadoHandler(string cliente, int idCliente, double Descuento, string Categoria);
-
-        //Tengo que poner el descuento aplicado en la consulta SQL
-
         public event ClienteSeleccionadoHandler ClienteSeleccionado;
 
         #endregion
@@ -117,7 +115,13 @@ namespace Vista.FormulariosMenu
             obtenerClientes.ClienteSeleccionado += new CV_ObtenerClientes.ClienteSeleccionadoHandler(SeleccionCliente);
             obtenerClientes.ShowDialog();
         }
+        private void Btn_Consultar_Click(object sender, EventArgs e)
+        {
+            CV_ConsultaVentas consulta = new CV_ConsultaVentas();
+            consulta.Show();
+        }
         #endregion
+
         #region Metodos
         private void configurarDTGV()
         {
@@ -297,19 +301,14 @@ namespace Vista.FormulariosMenu
             }
         }
 
-        private void Btn_Consultar_Click(object sender, EventArgs e)
-        {
-            CV_ConsultaVentas consulta = new CV_ConsultaVentas();
-            consulta.Show();
-        }
-
         private void SeleccionCliente(string cliente, int idClienteDelegado, double Descuento, string Categoria)
         {
             Txb_Cliente.Text = cliente;
             ID_Cliente = idClienteDelegado;
-            Desc=Descuento;
+            Desc = Descuento;
             cat = Categoria;
         }
+
         #endregion
 
     }

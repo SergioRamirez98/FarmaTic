@@ -46,16 +46,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormulariosMenu\GestionPersonas\CV_SeleccionarPersona.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\GestionPersonas\CV_SeleccionarPersona.Designer.cs">
+      <DependentUpon>CV_SeleccionarPersona.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormulariosMenu\Ventas\CV_ConsultaVentas.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormulariosMenu\Ventas\CV_ConsultaVentas.Designer.cs">
       <DependentUpon>CV_ConsultaVentas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ObtenerClientes.cs">
+    <Compile Include="FormulariosMenu\Ventas\CV_ObtenerClientes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ObtenerClientes.Designer.cs">
+    <Compile Include="FormulariosMenu\Ventas\CV_ObtenerClientes.Designer.cs">
       <DependentUpon>CV_ObtenerClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\CV_Configuracion.cs">
@@ -94,10 +100,10 @@
     <Compile Include="Login\CV_OlvidoPass.Designer.cs">
       <DependentUpon>CV_OlvidoPass.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_GestionUsuariosPersonas.cs">
+    <Compile Include="FormulariosMenu\GestionPersonas\CV_GestionUsuariosPersonas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_GestionUsuariosPersonas.Designer.cs">
+    <Compile Include="FormulariosMenu\GestionPersonas\CV_GestionUsuariosPersonas.Designer.cs">
       <DependentUpon>CV_GestionUsuariosPersonas.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\CV_Login.cs">
@@ -126,10 +132,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormulariosMenu\GestionPersonas\CV_SeleccionarPersona.resx">
+      <DependentUpon>CV_SeleccionarPersona.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\Ventas\CV_ConsultaVentas.resx">
       <DependentUpon>CV_ConsultaVentas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_ObtenerClientes.resx">
+    <EmbeddedResource Include="FormulariosMenu\Ventas\CV_ObtenerClientes.resx">
       <DependentUpon>CV_ObtenerClientes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\CV_Configuracion.resx">
@@ -150,7 +159,7 @@
     <EmbeddedResource Include="Login\CV_OlvidoPass.resx">
       <DependentUpon>CV_OlvidoPass.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_GestionUsuariosPersonas.resx">
+    <EmbeddedResource Include="FormulariosMenu\GestionPersonas\CV_GestionUsuariosPersonas.resx">
       <DependentUpon>CV_GestionUsuariosPersonas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\CV_Login.resx">

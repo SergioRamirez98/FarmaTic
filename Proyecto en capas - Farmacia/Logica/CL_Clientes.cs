@@ -23,15 +23,20 @@ namespace Logica
 
         public void AltaCliente() 
         {
-            PasarDatos();
+            pasarDatos();
             Clientes.InsertarCliente();
+        }
+        public void ModificarCliente() 
+        {
+            pasarDatos();
+            Clientes.Modificar();
         }
         public DataTable ObtenerCategoria()
         {
             DataTable dt= Clientes.ObtenerCategoriasCmb();          
             return dt;
         }
-        private void PasarDatos() 
+        private void pasarDatos() 
         {
             if (ID_Persona== "0"||ID_Categoria=="0")
             {

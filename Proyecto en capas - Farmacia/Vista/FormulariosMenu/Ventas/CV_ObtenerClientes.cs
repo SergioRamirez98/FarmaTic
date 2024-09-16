@@ -75,21 +75,32 @@ namespace Vista
 
         private void DTGV_Clientes_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            seleccionarCliente();
+        }
+
+        private void DTGV_Clientes_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                seleccionarCliente();
+            }
+        }
+        private void seleccionarCliente()
+        {
             if (DTGV_Clientes.SelectedRows.Count > 0)
             {
                 int Seleccion = DTGV_Clientes.CurrentRow.Index;
 
-                ID_Cliente =Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[0].Value);
+                ID_Cliente = Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[0].Value);
                 ID_Persona = Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[1].Value);
                 Fecha_de_Alta = Convert.ToDateTime(DTGV_Clientes.Rows[Seleccion].Cells[2].Value);
                 Cliente = DTGV_Clientes.Rows[Seleccion].Cells[3].Value.ToString();
                 Documento = Convert.ToInt32(DTGV_Clientes.Rows[Seleccion].Cells[4].Value);
                 Descuento = Convert.ToDouble(DTGV_Clientes.Rows[Seleccion].Cells[5].Value);
                 Categoria = DTGV_Clientes.Rows[Seleccion].Cells[6].Value.ToString();
-                //  string Cliente = DTGV_Clientes.Rows[Seleccion].Cells[3].Value.ToString();
                 ClienteSeleccionado(Cliente, ID_Cliente, Descuento, Categoria);
 
-                this.Close();                
+                this.Close();
             }
         }
     }

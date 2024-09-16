@@ -18,6 +18,7 @@ namespace Vista
     public partial class CV_Stock : Form
     {
         CL_Productos Productos = new CL_Productos();
+        DataTable Dt = new DataTable();
         public CV_Stock()
         {
             InitializeComponent();
@@ -71,7 +72,7 @@ namespace Vista
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {
             pasarDatos();        
-            if (consultarLote(Txb_NumLote.Text) == false)
+            if (Productos.ConsultarLote(Txb_NumLote.Text, Dt) == false)
             {
                 try
                 {
@@ -201,7 +202,8 @@ namespace Vista
         private void mostrarProductos()
         {
             DTGV_Productos.DataSource = null;
-            DTGV_Productos.DataSource = Productos.MostrarProductos();
+            Dt = Productos.MostrarProductos();
+            DTGV_Productos.DataSource = Dt;
             DTGV_Productos.Columns[0].DisplayIndex = 0;
             DTGV_Productos.Columns[1].DisplayIndex = 1;
             DTGV_Productos.Columns[2].DisplayIndex = 2;
@@ -257,21 +259,7 @@ namespace Vista
             Productos.Prop_Precio = Txb_Precio.Text;
             Productos.Prop_NumLote = Txb_NumLote.Text;
             Productos.Prop_VtoProd = Dtp_FeVto.Value.ToString("yyyy-MM-dd 00:00:00");
-        }
-        private bool consultarLote(string NLote)
-        {
-            bool ExisteLote = false;
-            foreach (DataGridViewRow item in DTGV_Productos.Rows)
-            {
-                if (NLote == item.Cells[7].Value.ToString())
-                {
-                    ExisteLote = true;
-                    break;
-                }
-                else { ExisteLote = false; }
-            }
-            return ExisteLote;
-        }
+        }       
         private void cargarControles()
         {
             Txb_Nombre.Text = DTGV_Productos.CurrentRow.Cells[1].Value.ToString();

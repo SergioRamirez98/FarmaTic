@@ -44,6 +44,7 @@
             this.DTGV_Clientes.Size = new System.Drawing.Size(772, 150);
             this.DTGV_Clientes.TabIndex = 0;
             this.DTGV_Clientes.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_Clientes_CellContentDoubleClick);
+            this.DTGV_Clientes.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTGV_Clientes_KeyDown);
             // 
             // Txb_BuscarCliente
             // 

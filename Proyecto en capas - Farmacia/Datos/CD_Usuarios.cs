@@ -245,6 +245,43 @@ namespace Datos
                 throw new Exception ("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
             }                        
         }
+        public void MmodificarUsuario() {
+            try
+            {
+                string sSql = "SP_Modificar_Usuario";
+                
+                SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Persona.Value = ID_Persona;
+                SqlParameter param_FeAlta = new SqlParameter("@FeAlta", SqlDbType.DateTime);
+                param_FeAlta.Value = Prop_FeAlta;
+                SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.VarChar, 50);
+                param_Familia.Value = Prop_Familia;
+                SqlParameter param_Comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 200);
+                param_Comentarios.Value = Prop_Comentarios;
+                SqlParameter param_VtoPass = new SqlParameter("@VenceCada", SqlDbType.Int);
+                param_VtoPass.Value = Prop_VtoPass;
+                SqlParameter param_Estado = new SqlParameter("@EstadoCuenta", SqlDbType.VarChar, 50);
+                param_Estado.Value = Prop_Estado;
+
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_ID_Persona);
+                listaParametros.Add(param_Familia);
+                listaParametros.Add(param_Estado);
+                listaParametros.Add(param_Comentarios);
+                listaParametros.Add(param_FeAlta);
+                listaParametros.Add(param_VtoPass);  
+
+                lista = listaParametros.ToArray();
+
+                ejecutar(sSql, lista, false);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
+            }
+        }
         public void InsertarRespuestas()
         {
             try

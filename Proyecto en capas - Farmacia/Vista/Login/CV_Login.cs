@@ -28,13 +28,13 @@ namespace Vista
 
             //CV_Ventas STOQ = new CV_Ventas();
             //STOQ.Show();
-            //CV_Stock stoq = new CV_Stock();
-            //stoq.Show();
-            //CV_GestionUsuariosPersonas Gestion = new CV_GestionUsuariosPersonas();
-            //Gestion.Show();
+            CV_Stock stoq = new CV_Stock();
+            stoq.Show();
+            CV_GestionUsuariosPersonas Gestion = new CV_GestionUsuariosPersonas();
+            Gestion.Show();
 
             
-            try
+           /* try
             {
                 PasarDatos();
                 bool validar = Usuarios.Logear();
@@ -72,7 +72,7 @@ namespace Vista
             catch (Exception ex)
             {
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
+            }*/
         }
         private void Cbx_MostrarContrasena_CheckedChanged(object sender, EventArgs e)
         {

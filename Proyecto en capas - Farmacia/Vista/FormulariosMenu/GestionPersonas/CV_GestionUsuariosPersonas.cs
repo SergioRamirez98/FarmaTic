@@ -10,10 +10,12 @@ using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
 using System.Linq;
 using System.Net.Configuration;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
+using Vista.FormulariosMenu.GestionPersonas;
 
 namespace Vista
 {
@@ -23,6 +25,8 @@ namespace Vista
         CL_Usuarios Usuario = new CL_Usuarios();
         CL_Clientes Clientes = new CL_Clientes();
         int ID_Persona;
+        public delegate void PersonaSeleccionadaHandler(int idCliente, string cliente);
+        public event PersonaSeleccionadaHandler PersonaSeleccionada;
 
         public CV_GestionUsuariosPersonas()
         {
@@ -35,38 +39,7 @@ namespace Vista
             configurarLoad();
             cargarComboBox(false);
             CServ_Limpiar.LimpiarFormulario(this);
-        }
-        private void Cmb_SeleccionePersona_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (Cmb_SeleccionePersona.SelectedIndex > -1)
-            {
-                DataRowView selectedRow = (DataRowView)Cmb_SeleccionePersona.SelectedItem;
-                int ID_Persona = Convert.ToInt32(selectedRow["ID_Persona"]);
-                DataTable dt = new DataTable();
-                dt = GestionPersonas.CargarDatos(ID_Persona);
-                bool EsUsuario = GestionPersonas.CargarDatosUsuarios(ID_Persona);
-                bool EsCliente = GestionPersonas.CargarDatosClientes(ID_Persona);
-                if (EsUsuario)
-                {
-                    bloquearControles(EsUsuario,false);
-                    cargarPersonasdeCombobox(dt, EsUsuario,false);
-                }
-                else if (EsCliente)
-                {
-                    bloquearControles(false, EsCliente);
-                    cargarPersonasdeCombobox(dt, false, EsCliente);
-                }
-                else
-                {
-                    bloquearControles(false, false);
-                    cargarPersonasdeCombobox(dt, false, EsCliente);
-                }
-            }
-            else
-            {
-                CServ_Limpiar.LimpiarFormulario(this);
-            }
-        }
+        }      
         private void Cmb_Categoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (Cmb_Categoria.SelectedIndex > -1)
@@ -83,7 +56,7 @@ namespace Vista
         }
         private void Rbt_Usuario_CheckedChanged(object sender, EventArgs e)
         {
-            if (Rbt_Usuario.Checked) 
+            if (Rbt_Usuario.Checked)
             {
                 Size = new Size(710, 600);
                 Pnb_RegistroUsuario.Visible = true;
@@ -104,7 +77,7 @@ namespace Vista
                 cargarComboBox(true);
                 Size = new Size(710, 400);
                 Txb_Descuento.Enabled = false;
-                Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 235);
+                Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 237);
                 Pnb_RegistroCliente.Enabled = true;
                 Pnb_RegistroCliente.Visible = true;
             }
@@ -120,28 +93,69 @@ namespace Vista
         private void Btn_RegistrarPersona_Click(object sender, EventArgs e)
         {
             try
-            { 
+            {
                 capturarDatosPersonas();
                 DataTable dt = GestionPersonas.InsertarPersona();
                 if (dt.Rows.Count > 0)
                 {
                     cargarComboBox(false);
                     DataRow DT = dt.Rows[0];
-                    Usuario.Prop_ID_Persona = Convert.ToInt32(DT["ID_Persona"]);
-                    Cmb_SeleccionePersona.SelectedValue =Usuario.Prop_ID_Persona;
-                    Cmb_SeleccionePersona.Enabled = false;
+                    ID_Persona = Convert.ToInt32(DT["ID_Persona"]);                    
+                    cargarPersonas();                    
                 }
                 CServ_MsjUsuario.Exito("La persona se ha registrado correctamente");
+                Btn_Modificar.Enabled = true;
+                Btn_Eliminar.Enabled = true;
                 Rbt_Usuario.Enabled = true;
+                Rbt_Cliente.Enabled = true;
+
             }
             catch (Exception ex)
             {
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
         }
+        private void Btn_Modificar_Click(object sender, EventArgs e)
+        {
+            if (ID_Persona!=0 )
+            {
+                desbloquearControles();
+                Btn_RegistrarPersona.Enabled = false;
+                Btn_Eliminar.Enabled = false;
+                Btn_GuardarCambios.Enabled = true;
+            }
+            
+        }
+        private void Btn_GuardarCambios_Click(object sender, EventArgs e)
+        {
+            capturarDatosPersonas();
+            if (Rbt_Cliente.Checked) capturarDatosClientes();
+            else if(Rbt_Usuario.Checked) capturarDatosUsuarios();
+            try
+            {
+                GestionPersonas.ModificarPersona(ID_Persona);
+                if (Rbt_Cliente.Checked) { Clientes.ModificarCliente(); bloquearControles(false, true); }
+                else if (Rbt_Usuario.Checked) { Usuario.ModificarUsuario(); bloquearControles(true, false); }
+                seleccionPersona(ID_Persona, CSesion_PersonaSeleccionada.Nombre+' '+ CSesion_PersonaSeleccionada.Apellido);
+                Btn_GuardarCambios.Enabled = false;
+                Btn_Eliminar.Enabled = true;
+                CServ_MsjUsuario.Exito("Datos Guardados con éxito");
+            }
+            catch (Exception ex)
+            {
+                CServ_MsjUsuario.MensajesDeError(ex.Message);
+            }
+        }
+        private void Btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            if (ID_Persona!=0)
+            {
+                bool Eliminar=CServ_MsjUsuario.Preguntar("¿Esta seguro de querer eliminar a la persona seleccionada?");
+            }
+        }
         private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
         {
-            ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
+            //ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
             capturarDatosUsuarios();
             try
             {
@@ -152,10 +166,10 @@ namespace Vista
             {
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
-        }       
+        }
         private void Btn_RegistrarCliente_Click(object sender, EventArgs e)
         {
-            ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
+           // ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
             try
             {
                 capturarDatosClientes();
@@ -168,13 +182,28 @@ namespace Vista
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
                 CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
             }
-            
+
         }
-       
+        private void Btn_SeleccionarCliente_Click(object sender, EventArgs e)
+        {
+            CV_SeleccionarPersona SeleccionarPersona = new CV_SeleccionarPersona();
+            SeleccionarPersona.PersonaSeleccionada += new CV_SeleccionarPersona.PersonaSeleccionadaHandler(seleccionPersona);
+            SeleccionarPersona.ShowDialog();
+        }
+        private void Btn_Refrescar_Click(object sender, EventArgs e)
+        {
+            configurarLoad();
+            desbloquearControles();
+            CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroPersona);
+            CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
+            CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
+
+        }
+
         #endregion
 
         #region Métodos
-        private void configurarLoad() 
+        private void configurarLoad()
         {
             Cmb_Sexo.Items.Add("Masculino");
             Cmb_Sexo.Items.Add("Femenino");
@@ -190,8 +219,14 @@ namespace Vista
             Pnb_RegistroUsuario.Visible = false;
             Pnb_RegistroCliente.Enabled = false;
             Pnb_RegistroCliente.Visible = false;
-            //Rbt_Cliente.Enabled = false;
-            //Rbt_Usuario.Enabled = false;
+            Txb_PersonaSeleccionada.Enabled = false;
+            Rbt_Cliente.Enabled = false;
+            Rbt_Usuario.Enabled = false;
+
+            Btn_Modificar.Enabled = false;
+            Btn_Eliminar.Enabled = false;
+            Btn_GuardarCambios.Enabled = false;
+
             cargarComboBox(false);
             CServ_Limpiar.LimpiarFormulario(this);
         }
@@ -207,29 +242,20 @@ namespace Vista
 
             }
             else
-            { 
-            Cmb_Partido.DataSource = GestionPersonas.ObtenerLocalidad();
-            Cmb_Partido.DisplayMember = "Localidad";
-            Cmb_Partido.ValueMember = "ID_Localidad";
-            Cmb_Partido.SelectedIndex = -1;
+            {
+                Cmb_Partido.DataSource = GestionPersonas.ObtenerLocalidad();
+                Cmb_Partido.DisplayMember = "Localidad";
+                Cmb_Partido.ValueMember = "ID_Localidad";
+                Cmb_Partido.SelectedIndex = -1;
 
-            Cmb_Nacionalidad.DataSource = GestionPersonas.ObtenerPais();
-            Cmb_Nacionalidad.DisplayMember = "Pais";
-            Cmb_Nacionalidad.ValueMember = "ID_Pais";
-            Cmb_Nacionalidad.SelectedIndex = -1;
-
-            Cmb_SeleccionePersona.SelectedIndexChanged -= Cmb_SeleccionePersona_SelectedIndexChanged;
-            Cmb_SeleccionePersona.DataSource = GestionPersonas.ObtenerPersonas();            
-            Cmb_SeleccionePersona.DisplayMember = "NombreCompleto";
-            Cmb_SeleccionePersona.ValueMember = "ID_Persona";
-            Cmb_SeleccionePersona.SelectedIndex = -1;
-            Cmb_SeleccionePersona.SelectedIndexChanged += Cmb_SeleccionePersona_SelectedIndexChanged;
-
-
-            Cmb_Familia.DataSource = GestionPersonas.ObtenerFamilia();
-            Cmb_Familia.DisplayMember = "Familia";
-            Cmb_Familia.ValueMember = "ID_Familia";                  
-            Cmb_Familia.SelectedIndex =-1;
+                Cmb_Nacionalidad.DataSource = GestionPersonas.ObtenerPais();
+                Cmb_Nacionalidad.DisplayMember = "Pais";
+                Cmb_Nacionalidad.ValueMember = "ID_Pais";
+                Cmb_Nacionalidad.SelectedIndex = -1;
+                Cmb_Familia.DataSource = GestionPersonas.ObtenerFamilia();
+                Cmb_Familia.DisplayMember = "Familia";
+                Cmb_Familia.ValueMember = "ID_Familia";
+                Cmb_Familia.SelectedIndex = -1;
             }
         }
         private void capturarDatosPersonas()
@@ -258,7 +284,7 @@ namespace Vista
         private void capturarDatosUsuarios()
         {
             bool NuevaPass = true;
-            bool CambioPass=false;
+            bool CambioPass = false;
             Usuario.Prop_ID_Persona = ID_Persona;
             Usuario.Prop_UserName = Txb_UserName.Text;
             DateTime FeAlta = Dtp_FeAlta.Value;
@@ -301,7 +327,7 @@ namespace Vista
             }
 
         }
-        private void bloquearControles(bool EsUsuario, bool EsCliente) 
+        private void bloquearControles(bool EsUsuario, bool EsCliente)
         {
             Txb_Nombre.Enabled = false;
             Txb_Apellido.Enabled = false;
@@ -322,7 +348,8 @@ namespace Vista
             Txb_Pregunta3.Enabled = false;
             Txb_Respuesta1.Enabled = false;
             Txb_Respuesta2.Enabled = false;
-            Txb_Respuesta3.Enabled = false; 
+            Txb_Respuesta3.Enabled = false;
+
 
             if (EsUsuario)
             {
@@ -332,6 +359,7 @@ namespace Vista
                 Cmb_Familia.Enabled = false;
                 Cmb_Estado.Enabled = false;
                 Cmb_VenceCada.Enabled = false;
+                Btn_RegistrarUsuario.Enabled = false;
             }
             else if (EsCliente)
             {
@@ -340,6 +368,7 @@ namespace Vista
                 Txb_Descuento.Enabled = false;
                 Txb_ComentarioCliente.Enabled = false;
                 Dtp_FeAltaCliente.Enabled = false;
+                Btn_RegistrarCliente.Enabled = false;
             }
             else
             {
@@ -347,9 +376,11 @@ namespace Vista
                 Cmb_Categoria.Enabled = true;
                 Rbt_Cliente.Checked = false;
                 Txb_UserName.Enabled = true;
+                Rbt_Cliente.Enabled = true;
+                Rbt_Usuario.Enabled = true;
 
             }
-        
+
         }
         private void desbloquearControles(bool EsUsuario, bool EsCliente)
         {
@@ -392,7 +423,7 @@ namespace Vista
             }
 
         }
-        private void cargarPersonasdeCombobox(DataTable dt,bool EsUsuario, bool EsCliente)
+        private void cargarPersonasdeCombobox(DataTable dt, bool EsUsuario, bool EsCliente)
         {
             if (dt.Rows.Count > 0)
             {
@@ -411,7 +442,7 @@ namespace Vista
             }
             if (EsUsuario)
             {
-                bloquearControles(EsUsuario,false);
+                bloquearControles(EsUsuario, false);
                 Rbt_Usuario.Checked = true;
                 Rbt_Cliente.Enabled = false;
                 Txb_UserName.Text = CSesion_PersonaSeleccionada.UserName;
@@ -427,7 +458,7 @@ namespace Vista
                 Dtp_FeAlta.Value = CSesion_PersonaSeleccionada.FeAlta;
                 Cmb_Familia.Text = CSesion_PersonaSeleccionada.Familia;
                 Cmb_Estado.Text = CSesion_PersonaSeleccionada.EstadoCuenta;
-                Cmb_VenceCada.Text = Convert.ToString(CSesion_PersonaSeleccionada.VenceCada);     
+                Cmb_VenceCada.Text = Convert.ToString(CSesion_PersonaSeleccionada.VenceCada);
                 List<TextBox> listatextbox = new List<TextBox>();
                 listatextbox.Add(Txb_Contrasena);
                 listatextbox.Add(Txb_ConfContrasena);
@@ -437,26 +468,94 @@ namespace Vista
                 CServ_InfoSensible.RespuestasUsuario(listatextbox);
             }
             else if (EsCliente)
-            {                
+            {
                 Rbt_Usuario.Checked = false;
+                
                 Rbt_Cliente.Checked = true;
-                Cmb_Categoria.SelectedIndex = CSesion_PersonaSeleccionada.ID_Categoria;
+                Cmb_Categoria.SelectedValue = CSesion_PersonaSeleccionada.ID_Categoria;
                 Txb_ComentarioCliente.Text = CSesion_PersonaSeleccionada.ComentarioCliente;
-                Dtp_FeAltaCliente.Value = CSesion_PersonaSeleccionada.FechaAltaCliente; 
+                Dtp_FeAltaCliente.Value = CSesion_PersonaSeleccionada.FechaAltaCliente;
 
             }
 
             else
             {
                 Rbt_Cliente.Checked = false;
+                Rbt_Usuario.Checked = false;
                 CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
                 CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
             }
         }
+        private void seleccionPersona(int idPersonaDelegado, string cliente)
+        {
+            ID_Persona = idPersonaDelegado;
+            Txb_PersonaSeleccionada.Text = cliente;
+            if (ID_Persona != 0)
+            {
+                cargarPersonas();
+                Btn_Modificar.Enabled = true;
+                Btn_Eliminar.Enabled = true;
+            }
+        }
+        private void cargarPersonas()
+        {
+            if (ID_Persona!=0)
+            {
+                DataTable dt = new DataTable();
+                dt = GestionPersonas.CargarDatos(ID_Persona);
+                bool EsUsuario = GestionPersonas.CargarDatosUsuarios(ID_Persona);
+                bool EsCliente = GestionPersonas.CargarDatosClientes(ID_Persona);
+                if (EsUsuario)
+                {
+                    bloquearControles(EsUsuario, false);
+                    cargarPersonasdeCombobox(dt, EsUsuario, false);
+                }
+                else if (EsCliente)
+                {
+                    bloquearControles(false, EsCliente);
+                    cargarPersonasdeCombobox(dt, false, EsCliente);
+                }
+                else
+                {
+                    bloquearControles(false, false);
+                    cargarPersonasdeCombobox(dt, false, EsCliente);
+                }
+            }
 
-
+            else
+            {
+                CServ_Limpiar.LimpiarFormulario(this);
+            }
+        }
+        private void desbloquearControles()
+        {
+            Txb_Nombre.Enabled = true;
+            Txb_Apellido.Enabled = true;
+            Txb_Dni.Enabled = true;
+            Txb_Correo.Enabled = true;
+            Cmb_Sexo.Enabled = true;
+            Txb_Domicilio.Enabled = true;
+            Cmb_Partido.Enabled = true;
+            Cmb_Nacionalidad.Enabled = true;
+            Txb_Telefono.Enabled = true;
+            Dtp_FeNacimiento.Enabled = true;
+            Btn_RegistrarPersona.Enabled = true;
+            Rbt_Cliente.Enabled = true;
+            Rbt_Usuario.Enabled = true;
+            if (Rbt_Cliente.Checked)
+            {
+                Txb_ComentarioCliente.Enabled = true;
+                Cmb_Categoria.Enabled = true;
+                Dtp_FeAltaCliente.Enabled = true;
+            }
+            else if (Rbt_Usuario.Checked)
+            {
+                Dtp_FeAlta.Enabled = true;
+                Cmb_Familia.Enabled = true;
+                Cmb_Estado.Enabled = true;
+                Cmb_VenceCada.Enabled = true;
+            }
+        }
         #endregion
-
-       
     }
 }

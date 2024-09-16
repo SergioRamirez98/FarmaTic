@@ -53,7 +53,22 @@ namespace Logica
         {
             return Productos.ProductosVencidos();
         }
-        
+
+        public bool ConsultarLote(string NumLote, DataTable Dt)
+        {
+            bool ExisteLote = false;
+            foreach (DataRow item in Dt.Rows)
+            {
+                if (NumLote == item[7].ToString())
+                {
+                    ExisteLote = true;
+                    break;
+                }
+                else { ExisteLote = false; }
+            }
+            return ExisteLote;
+
+        }
         public void EliminarProductosVencidos() 
         { 
             DateTime FechaActual = DateTime.Today;

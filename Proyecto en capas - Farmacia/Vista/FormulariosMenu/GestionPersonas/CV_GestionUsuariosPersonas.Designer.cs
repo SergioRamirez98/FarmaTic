@@ -37,8 +37,9 @@
             this.Txb_Comentario = new System.Windows.Forms.TextBox();
             this.Rbt_Cliente = new System.Windows.Forms.RadioButton();
             this.Pnb_RegistroPersona = new System.Windows.Forms.Panel();
-            this.Lbl_SeleccionePersona = new System.Windows.Forms.Label();
-            this.Cmb_SeleccionePersona = new System.Windows.Forms.ComboBox();
+            this.Btn_Refrescar = new System.Windows.Forms.Button();
+            this.Txb_PersonaSeleccionada = new System.Windows.Forms.TextBox();
+            this.Btn_SeleccionarCliente = new System.Windows.Forms.Button();
             this.Btn_RegistrarPersona = new System.Windows.Forms.Button();
             this.Cmb_Nacionalidad = new System.Windows.Forms.ComboBox();
             this.Cmb_Partido = new System.Windows.Forms.ComboBox();
@@ -94,6 +95,9 @@
             this.Lbl_FeAltaCliente = new System.Windows.Forms.Label();
             this.Lbl_ComentarioCliente = new System.Windows.Forms.Label();
             this.Txb_ComentarioCliente = new System.Windows.Forms.TextBox();
+            this.Btn_Modificar = new System.Windows.Forms.Button();
+            this.Btn_GuardarCambios = new System.Windows.Forms.Button();
+            this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Pnb_RegistroPersona.SuspendLayout();
             this.Pnb_RegistroUsuario.SuspendLayout();
             this.Pnb_RegistroCliente.SuspendLayout();
@@ -101,7 +105,7 @@
             // 
             // Txb_Nombre
             // 
-            this.Txb_Nombre.Location = new System.Drawing.Point(195, 62);
+            this.Txb_Nombre.Location = new System.Drawing.Point(192, 39);
             this.Txb_Nombre.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Nombre.Name = "Txb_Nombre";
             this.Txb_Nombre.Size = new System.Drawing.Size(213, 22);
@@ -110,7 +114,7 @@
             // 
             // Txb_Apellido
             // 
-            this.Txb_Apellido.Location = new System.Drawing.Point(195, 102);
+            this.Txb_Apellido.Location = new System.Drawing.Point(192, 79);
             this.Txb_Apellido.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Apellido.Name = "Txb_Apellido";
             this.Txb_Apellido.Size = new System.Drawing.Size(213, 22);
@@ -119,7 +123,7 @@
             // 
             // Txb_Domicilio
             // 
-            this.Txb_Domicilio.Location = new System.Drawing.Point(197, 250);
+            this.Txb_Domicilio.Location = new System.Drawing.Point(194, 227);
             this.Txb_Domicilio.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Domicilio.Name = "Txb_Domicilio";
             this.Txb_Domicilio.Size = new System.Drawing.Size(213, 22);
@@ -128,7 +132,7 @@
             // 
             // Txb_Correo
             // 
-            this.Txb_Correo.Location = new System.Drawing.Point(195, 176);
+            this.Txb_Correo.Location = new System.Drawing.Point(192, 153);
             this.Txb_Correo.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Correo.Name = "Txb_Correo";
             this.Txb_Correo.Size = new System.Drawing.Size(215, 22);
@@ -137,7 +141,7 @@
             // 
             // Txb_Dni
             // 
-            this.Txb_Dni.Location = new System.Drawing.Point(195, 139);
+            this.Txb_Dni.Location = new System.Drawing.Point(192, 116);
             this.Txb_Dni.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Dni.Name = "Txb_Dni";
             this.Txb_Dni.Size = new System.Drawing.Size(213, 22);
@@ -146,7 +150,7 @@
             // 
             // Txb_Telefono
             // 
-            this.Txb_Telefono.Location = new System.Drawing.Point(596, 139);
+            this.Txb_Telefono.Location = new System.Drawing.Point(595, 79);
             this.Txb_Telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Telefono.Name = "Txb_Telefono";
             this.Txb_Telefono.Size = new System.Drawing.Size(263, 22);
@@ -165,7 +169,7 @@
             // Rbt_Cliente
             // 
             this.Rbt_Cliente.AutoSize = true;
-            this.Rbt_Cliente.Location = new System.Drawing.Point(731, 260);
+            this.Rbt_Cliente.Location = new System.Drawing.Point(717, 256);
             this.Rbt_Cliente.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rbt_Cliente.Name = "Rbt_Cliente";
             this.Rbt_Cliente.Size = new System.Drawing.Size(100, 20);
@@ -177,8 +181,12 @@
             // 
             // Pnb_RegistroPersona
             // 
-            this.Pnb_RegistroPersona.Controls.Add(this.Lbl_SeleccionePersona);
-            this.Pnb_RegistroPersona.Controls.Add(this.Cmb_SeleccionePersona);
+            this.Pnb_RegistroPersona.Controls.Add(this.Btn_Eliminar);
+            this.Pnb_RegistroPersona.Controls.Add(this.Btn_GuardarCambios);
+            this.Pnb_RegistroPersona.Controls.Add(this.Btn_Modificar);
+            this.Pnb_RegistroPersona.Controls.Add(this.Btn_Refrescar);
+            this.Pnb_RegistroPersona.Controls.Add(this.Txb_PersonaSeleccionada);
+            this.Pnb_RegistroPersona.Controls.Add(this.Btn_SeleccionarCliente);
             this.Pnb_RegistroPersona.Controls.Add(this.Btn_RegistrarPersona);
             this.Pnb_RegistroPersona.Controls.Add(this.Cmb_Nacionalidad);
             this.Pnb_RegistroPersona.Controls.Add(this.Cmb_Partido);
@@ -208,31 +216,39 @@
             this.Pnb_RegistroPersona.Size = new System.Drawing.Size(893, 294);
             this.Pnb_RegistroPersona.TabIndex = 13;
             // 
-            // Lbl_SeleccionePersona
+            // Btn_Refrescar
             // 
-            this.Lbl_SeleccionePersona.AutoSize = true;
-            this.Lbl_SeleccionePersona.Location = new System.Drawing.Point(7, 4);
-            this.Lbl_SeleccionePersona.Name = "Lbl_SeleccionePersona";
-            this.Lbl_SeleccionePersona.Size = new System.Drawing.Size(142, 16);
-            this.Lbl_SeleccionePersona.TabIndex = 27;
-            this.Lbl_SeleccionePersona.Text = "Seleccione la persona";
+            this.Btn_Refrescar.Location = new System.Drawing.Point(446, 2);
+            this.Btn_Refrescar.Name = "Btn_Refrescar";
+            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Refrescar.TabIndex = 30;
+            this.Btn_Refrescar.Text = "Refrescar";
+            this.Btn_Refrescar.UseVisualStyleBackColor = true;
+            this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
             // 
-            // Cmb_SeleccionePersona
+            // Txb_PersonaSeleccionada
             // 
-            this.Cmb_SeleccionePersona.FormattingEnabled = true;
-            this.Cmb_SeleccionePersona.Location = new System.Drawing.Point(192, 4);
-            this.Cmb_SeleccionePersona.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Cmb_SeleccionePersona.Name = "Cmb_SeleccionePersona";
-            this.Cmb_SeleccionePersona.Size = new System.Drawing.Size(213, 24);
-            this.Cmb_SeleccionePersona.TabIndex = 26;
-            this.Cmb_SeleccionePersona.SelectedIndexChanged += new System.EventHandler(this.Cmb_SeleccionePersona_SelectedIndexChanged);
+            this.Txb_PersonaSeleccionada.Location = new System.Drawing.Point(197, 4);
+            this.Txb_PersonaSeleccionada.Name = "Txb_PersonaSeleccionada";
+            this.Txb_PersonaSeleccionada.Size = new System.Drawing.Size(213, 22);
+            this.Txb_PersonaSeleccionada.TabIndex = 29;
+            // 
+            // Btn_SeleccionarCliente
+            // 
+            this.Btn_SeleccionarCliente.Location = new System.Drawing.Point(7, 3);
+            this.Btn_SeleccionarCliente.Name = "Btn_SeleccionarCliente";
+            this.Btn_SeleccionarCliente.Size = new System.Drawing.Size(152, 23);
+            this.Btn_SeleccionarCliente.TabIndex = 28;
+            this.Btn_SeleccionarCliente.Text = "Seleccione Cliente";
+            this.Btn_SeleccionarCliente.UseVisualStyleBackColor = true;
+            this.Btn_SeleccionarCliente.Click += new System.EventHandler(this.Btn_SeleccionarCliente_Click);
             // 
             // Btn_RegistrarPersona
             // 
-            this.Btn_RegistrarPersona.Location = new System.Drawing.Point(596, 213);
+            this.Btn_RegistrarPersona.Location = new System.Drawing.Point(592, 153);
             this.Btn_RegistrarPersona.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarPersona.Name = "Btn_RegistrarPersona";
-            this.Btn_RegistrarPersona.Size = new System.Drawing.Size(253, 31);
+            this.Btn_RegistrarPersona.Size = new System.Drawing.Size(117, 41);
             this.Btn_RegistrarPersona.TabIndex = 10;
             this.Btn_RegistrarPersona.Text = "Registrar Persona";
             this.Btn_RegistrarPersona.UseVisualStyleBackColor = true;
@@ -241,7 +257,7 @@
             // Cmb_Nacionalidad
             // 
             this.Cmb_Nacionalidad.FormattingEnabled = true;
-            this.Cmb_Nacionalidad.Location = new System.Drawing.Point(596, 102);
+            this.Cmb_Nacionalidad.Location = new System.Drawing.Point(595, 42);
             this.Cmb_Nacionalidad.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_Nacionalidad.Name = "Cmb_Nacionalidad";
             this.Cmb_Nacionalidad.Size = new System.Drawing.Size(263, 24);
@@ -250,16 +266,16 @@
             // Cmb_Partido
             // 
             this.Cmb_Partido.FormattingEnabled = true;
-            this.Cmb_Partido.Location = new System.Drawing.Point(596, 65);
+            this.Cmb_Partido.Location = new System.Drawing.Point(194, 260);
             this.Cmb_Partido.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_Partido.Name = "Cmb_Partido";
-            this.Cmb_Partido.Size = new System.Drawing.Size(263, 24);
+            this.Cmb_Partido.Size = new System.Drawing.Size(212, 24);
             this.Cmb_Partido.TabIndex = 6;
             // 
             // Cmb_Sexo
             // 
             this.Cmb_Sexo.FormattingEnabled = true;
-            this.Cmb_Sexo.Location = new System.Drawing.Point(197, 213);
+            this.Cmb_Sexo.Location = new System.Drawing.Point(194, 190);
             this.Cmb_Sexo.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_Sexo.Name = "Cmb_Sexo";
             this.Cmb_Sexo.Size = new System.Drawing.Size(212, 24);
@@ -268,7 +284,7 @@
             // Rbt_Usuario
             // 
             this.Rbt_Usuario.AutoSize = true;
-            this.Rbt_Usuario.Location = new System.Drawing.Point(608, 260);
+            this.Rbt_Usuario.Location = new System.Drawing.Point(594, 256);
             this.Rbt_Usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Rbt_Usuario.Name = "Rbt_Usuario";
             this.Rbt_Usuario.Size = new System.Drawing.Size(105, 20);
@@ -281,7 +297,7 @@
             // Lbl_Nombre
             // 
             this.Lbl_Nombre.AutoSize = true;
-            this.Lbl_Nombre.Location = new System.Drawing.Point(7, 65);
+            this.Lbl_Nombre.Location = new System.Drawing.Point(4, 42);
             this.Lbl_Nombre.Name = "Lbl_Nombre";
             this.Lbl_Nombre.Size = new System.Drawing.Size(56, 16);
             this.Lbl_Nombre.TabIndex = 14;
@@ -290,7 +306,7 @@
             // Lbl_Correo
             // 
             this.Lbl_Correo.AutoSize = true;
-            this.Lbl_Correo.Location = new System.Drawing.Point(9, 176);
+            this.Lbl_Correo.Location = new System.Drawing.Point(6, 153);
             this.Lbl_Correo.Name = "Lbl_Correo";
             this.Lbl_Correo.Size = new System.Drawing.Size(118, 16);
             this.Lbl_Correo.TabIndex = 17;
@@ -299,7 +315,7 @@
             // Lbl_Apellido
             // 
             this.Lbl_Apellido.AutoSize = true;
-            this.Lbl_Apellido.Location = new System.Drawing.Point(7, 102);
+            this.Lbl_Apellido.Location = new System.Drawing.Point(4, 79);
             this.Lbl_Apellido.Name = "Lbl_Apellido";
             this.Lbl_Apellido.Size = new System.Drawing.Size(57, 16);
             this.Lbl_Apellido.TabIndex = 15;
@@ -308,7 +324,7 @@
             // Lbl_Domicilio
             // 
             this.Lbl_Domicilio.AutoSize = true;
-            this.Lbl_Domicilio.Location = new System.Drawing.Point(9, 250);
+            this.Lbl_Domicilio.Location = new System.Drawing.Point(6, 227);
             this.Lbl_Domicilio.Name = "Lbl_Domicilio";
             this.Lbl_Domicilio.Size = new System.Drawing.Size(63, 16);
             this.Lbl_Domicilio.TabIndex = 16;
@@ -318,7 +334,7 @@
             // 
             this.Dtp_FeNacimiento.CustomFormat = "dd/MM/yyyy";
             this.Dtp_FeNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.Dtp_FeNacimiento.Location = new System.Drawing.Point(596, 176);
+            this.Dtp_FeNacimiento.Location = new System.Drawing.Point(595, 116);
             this.Dtp_FeNacimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dtp_FeNacimiento.Name = "Dtp_FeNacimiento";
             this.Dtp_FeNacimiento.Size = new System.Drawing.Size(263, 22);
@@ -327,7 +343,7 @@
             // Lbl_Partido
             // 
             this.Lbl_Partido.AutoSize = true;
-            this.Lbl_Partido.Location = new System.Drawing.Point(447, 65);
+            this.Lbl_Partido.Location = new System.Drawing.Point(6, 260);
             this.Lbl_Partido.Name = "Lbl_Partido";
             this.Lbl_Partido.Size = new System.Drawing.Size(50, 16);
             this.Lbl_Partido.TabIndex = 18;
@@ -336,7 +352,7 @@
             // Lbl_Documento
             // 
             this.Lbl_Documento.AutoSize = true;
-            this.Lbl_Documento.Location = new System.Drawing.Point(7, 139);
+            this.Lbl_Documento.Location = new System.Drawing.Point(4, 116);
             this.Lbl_Documento.Name = "Lbl_Documento";
             this.Lbl_Documento.Size = new System.Drawing.Size(113, 16);
             this.Lbl_Documento.TabIndex = 19;
@@ -345,7 +361,7 @@
             // Lbl_Sexo
             // 
             this.Lbl_Sexo.AutoSize = true;
-            this.Lbl_Sexo.Location = new System.Drawing.Point(6, 213);
+            this.Lbl_Sexo.Location = new System.Drawing.Point(3, 190);
             this.Lbl_Sexo.Name = "Lbl_Sexo";
             this.Lbl_Sexo.Size = new System.Drawing.Size(38, 16);
             this.Lbl_Sexo.TabIndex = 20;
@@ -354,7 +370,7 @@
             // Lbl_FeNacimiento
             // 
             this.Lbl_FeNacimiento.AutoSize = true;
-            this.Lbl_FeNacimiento.Location = new System.Drawing.Point(447, 176);
+            this.Lbl_FeNacimiento.Location = new System.Drawing.Point(446, 116);
             this.Lbl_FeNacimiento.Name = "Lbl_FeNacimiento";
             this.Lbl_FeNacimiento.Size = new System.Drawing.Size(135, 16);
             this.Lbl_FeNacimiento.TabIndex = 23;
@@ -363,7 +379,7 @@
             // Lbl_Nacionalidad
             // 
             this.Lbl_Nacionalidad.AutoSize = true;
-            this.Lbl_Nacionalidad.Location = new System.Drawing.Point(447, 102);
+            this.Lbl_Nacionalidad.Location = new System.Drawing.Point(446, 42);
             this.Lbl_Nacionalidad.Name = "Lbl_Nacionalidad";
             this.Lbl_Nacionalidad.Size = new System.Drawing.Size(88, 16);
             this.Lbl_Nacionalidad.TabIndex = 21;
@@ -372,7 +388,7 @@
             // Lbl_Telefono
             // 
             this.Lbl_Telefono.AutoSize = true;
-            this.Lbl_Telefono.Location = new System.Drawing.Point(447, 139);
+            this.Lbl_Telefono.Location = new System.Drawing.Point(446, 79);
             this.Lbl_Telefono.Name = "Lbl_Telefono";
             this.Lbl_Telefono.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Telefono.TabIndex = 22;
@@ -791,6 +807,36 @@
             this.Txb_ComentarioCliente.TabIndex = 28;
             this.Txb_ComentarioCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // Btn_Modificar
+            // 
+            this.Btn_Modificar.Location = new System.Drawing.Point(727, 153);
+            this.Btn_Modificar.Name = "Btn_Modificar";
+            this.Btn_Modificar.Size = new System.Drawing.Size(117, 41);
+            this.Btn_Modificar.TabIndex = 31;
+            this.Btn_Modificar.Text = "Modificar";
+            this.Btn_Modificar.UseVisualStyleBackColor = true;
+            this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
+            // 
+            // Btn_GuardarCambios
+            // 
+            this.Btn_GuardarCambios.Location = new System.Drawing.Point(592, 202);
+            this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(117, 41);
+            this.Btn_GuardarCambios.TabIndex = 32;
+            this.Btn_GuardarCambios.Text = "Guardar cambios";
+            this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
+            this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_GuardarCambios_Click);
+            // 
+            // Btn_Eliminar
+            // 
+            this.Btn_Eliminar.Location = new System.Drawing.Point(727, 202);
+            this.Btn_Eliminar.Name = "Btn_Eliminar";
+            this.Btn_Eliminar.Size = new System.Drawing.Size(117, 41);
+            this.Btn_Eliminar.TabIndex = 33;
+            this.Btn_Eliminar.Text = "Eliminar";
+            this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
+            // 
             // CV_GestionUsuariosPersonas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -868,8 +914,6 @@
         private System.Windows.Forms.DateTimePicker Dtp_FeAlta;
         private System.Windows.Forms.Button Btn_RegistrarUsuario;
         private System.Windows.Forms.Button Btn_RegistrarPersona;
-        private System.Windows.Forms.Label Lbl_SeleccionePersona;
-        private System.Windows.Forms.ComboBox Cmb_SeleccionePersona;
         private System.Windows.Forms.ComboBox Cmb_VenceCada;
         private System.Windows.Forms.Label Lbl_VenceCada;
         private System.Windows.Forms.Panel Pnb_RegistroCliente;
@@ -882,5 +926,11 @@
         private System.Windows.Forms.TextBox Txb_ComentarioCliente;
         private System.Windows.Forms.Label Lbl_DescuentoAplicado;
         private System.Windows.Forms.TextBox Txb_Descuento;
+        private System.Windows.Forms.Button Btn_SeleccionarCliente;
+        private System.Windows.Forms.TextBox Txb_PersonaSeleccionada;
+        private System.Windows.Forms.Button Btn_Refrescar;
+        private System.Windows.Forms.Button Btn_Modificar;
+        private System.Windows.Forms.Button Btn_Eliminar;
+        private System.Windows.Forms.Button Btn_GuardarCambios;
     }
 }

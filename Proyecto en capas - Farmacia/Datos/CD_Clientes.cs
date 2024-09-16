@@ -51,7 +51,37 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Clientes||InsertarCliente");
             }
         }
+        public void Modificar()
+        {
+            try
+            {
+                string sSql = "SP_Modificar_Cliente";
+                SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Persona.Value = ID_Persona;
+                SqlParameter param_Categoria = new SqlParameter("@ID_Categoria", SqlDbType.Int);
+                param_Categoria.Value = ID_Categoria;
+                SqlParameter param_Comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 200);
+                param_Comentarios.Value = Comentarios;
+                SqlParameter param_FeAlta = new SqlParameter("@FeAlta", SqlDbType.DateTime);
+                param_FeAlta.Value = FeAlta;
 
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_Categoria);
+                listaParametros.Add(param_ID_Persona);
+                listaParametros.Add(param_Comentarios);
+                listaParametros.Add(param_FeAlta);
+
+                lista = listaParametros.ToArray();
+
+                ejecutar(sSql, lista, false);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("No se ha podido realizar la operación. Error CD_Clientes||Modificar");
+            }
+        }
         public DataTable ObtenerCategoriasCmb()
         {
             try

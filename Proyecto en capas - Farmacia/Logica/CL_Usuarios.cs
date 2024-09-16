@@ -72,6 +72,11 @@ namespace Logica
             Resultado = Usuario.Logear();
             return Resultado;
         }
+        public void ModificarUsuario()
+        {
+            PasarDatosModificacion();
+            Usuario.MmodificarUsuario();
+        }
         public void BloqueodeUsuarios() 
         {
             Usuario.BloqueoUsuario();
@@ -244,7 +249,7 @@ namespace Logica
                 }
                 catch (Exception)
                 {
-                    throw new Exception("Error al guardar las fechas, por favor intente nuevamente");
+                    throw new Exception("Error al guardar los vencimientos, por favor intente nuevamente");
                 }
 
                 Usuario.Prop_Familia = Prop_Familia;
@@ -260,5 +265,49 @@ namespace Logica
             }         
 
         }
+        public void PasarDatosModificacion()
+        {
+            try
+            {
+                Usuario.ID_Persona = Prop_ID_Persona;
+                Usuario.Prop_UserName = Prop_UserName;
+                Usuario.Prop_Familia = Prop_Familia;
+                Usuario.Prop_Estado = Prop_Estado;
+                Usuario.Prop_Comentarios = Prop_Comentarios;
+
+                try
+                {
+                    Usuario.Prop_FeAlta = Convert.ToDateTime(Prop_FeAlta);
+                    switch (Prop_VtoPass)
+                    {
+                        case "30 Dias":
+                            Usuario.Prop_VtoPass = 30;
+                            break;
+                        case "60 Dias":
+                            Usuario.Prop_VtoPass = 60;
+                            break;
+                        case "120 Dias":
+                            Usuario.Prop_VtoPass = 120;
+                            break;
+                        case "Nunca":
+                            Usuario.Prop_VtoPass = 0;
+                            break;
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Error al guardar los vencimientos, por favor intente nuevamente");
+                }
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("Error al guardar los datos, verifique que todos los campos estén completos");
+            }
+
+        }
+
     }
 }

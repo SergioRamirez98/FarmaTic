@@ -48,6 +48,11 @@ namespace Logica
         #endregion
 
         #region Métodos
+        public void ModificarPersona(int ID_Persona) 
+        {
+            PasarDatos();
+            Personas.Modificar(ID_Persona);
+        }
         public DataTable InsertarPersona()
         {
             PasarDatos();
