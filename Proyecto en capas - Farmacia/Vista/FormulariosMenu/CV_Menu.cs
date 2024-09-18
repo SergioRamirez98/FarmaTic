@@ -11,6 +11,7 @@ using System.Net.Configuration;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.FormulariosMenu;
 
 namespace Vista
 {
@@ -85,6 +86,13 @@ namespace Vista
         {
             CV_Stock stock = new CV_Stock();
             stock.Show();
+        }
+
+        private void Btn_GestionVentas_Click(object sender, EventArgs e)
+        {
+            CV_Ventas ventas = new CV_Ventas();
+            ventas.Show();
+
         }
     }
 }

@@ -60,7 +60,8 @@ namespace Datos
         }
         public DataTable VerVentaPorItems(int ID_Venta) 
         {
-            string sSql = "SP_Consulta_Venta_Items";
+            //string sSql = "SP_Consulta_Venta_Items";
+            string sSql = "SP_Consulta_Venta_Items2";
 
             SqlParameter param_ID_Venta = new SqlParameter("@ID_Venta", SqlDbType.Int);
             param_ID_Venta.Value = ID_Venta;

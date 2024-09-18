@@ -37,9 +37,12 @@
             this.Txb_Comentario = new System.Windows.Forms.TextBox();
             this.Rbt_Cliente = new System.Windows.Forms.RadioButton();
             this.Pnb_RegistroPersona = new System.Windows.Forms.Panel();
+            this.Btn_Eliminar = new System.Windows.Forms.Button();
+            this.Btn_GuardarCambios = new System.Windows.Forms.Button();
+            this.Btn_Modificar = new System.Windows.Forms.Button();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
             this.Txb_PersonaSeleccionada = new System.Windows.Forms.TextBox();
-            this.Btn_SeleccionarCliente = new System.Windows.Forms.Button();
+            this.Btn_SeleccionarPersona = new System.Windows.Forms.Button();
             this.Btn_RegistrarPersona = new System.Windows.Forms.Button();
             this.Cmb_Nacionalidad = new System.Windows.Forms.ComboBox();
             this.Cmb_Partido = new System.Windows.Forms.ComboBox();
@@ -95,9 +98,6 @@
             this.Lbl_FeAltaCliente = new System.Windows.Forms.Label();
             this.Lbl_ComentarioCliente = new System.Windows.Forms.Label();
             this.Txb_ComentarioCliente = new System.Windows.Forms.TextBox();
-            this.Btn_Modificar = new System.Windows.Forms.Button();
-            this.Btn_GuardarCambios = new System.Windows.Forms.Button();
-            this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Pnb_RegistroPersona.SuspendLayout();
             this.Pnb_RegistroUsuario.SuspendLayout();
             this.Pnb_RegistroCliente.SuspendLayout();
@@ -186,7 +186,7 @@
             this.Pnb_RegistroPersona.Controls.Add(this.Btn_Modificar);
             this.Pnb_RegistroPersona.Controls.Add(this.Btn_Refrescar);
             this.Pnb_RegistroPersona.Controls.Add(this.Txb_PersonaSeleccionada);
-            this.Pnb_RegistroPersona.Controls.Add(this.Btn_SeleccionarCliente);
+            this.Pnb_RegistroPersona.Controls.Add(this.Btn_SeleccionarPersona);
             this.Pnb_RegistroPersona.Controls.Add(this.Btn_RegistrarPersona);
             this.Pnb_RegistroPersona.Controls.Add(this.Cmb_Nacionalidad);
             this.Pnb_RegistroPersona.Controls.Add(this.Cmb_Partido);
@@ -216,11 +216,41 @@
             this.Pnb_RegistroPersona.Size = new System.Drawing.Size(893, 294);
             this.Pnb_RegistroPersona.TabIndex = 13;
             // 
+            // Btn_Eliminar
+            // 
+            this.Btn_Eliminar.Location = new System.Drawing.Point(727, 202);
+            this.Btn_Eliminar.Name = "Btn_Eliminar";
+            this.Btn_Eliminar.Size = new System.Drawing.Size(117, 41);
+            this.Btn_Eliminar.TabIndex = 33;
+            this.Btn_Eliminar.Text = "Eliminar";
+            this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
+            // 
+            // Btn_GuardarCambios
+            // 
+            this.Btn_GuardarCambios.Location = new System.Drawing.Point(592, 202);
+            this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(117, 41);
+            this.Btn_GuardarCambios.TabIndex = 32;
+            this.Btn_GuardarCambios.Text = "Guardar cambios";
+            this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
+            this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_GuardarCambios_Click);
+            // 
+            // Btn_Modificar
+            // 
+            this.Btn_Modificar.Location = new System.Drawing.Point(727, 153);
+            this.Btn_Modificar.Name = "Btn_Modificar";
+            this.Btn_Modificar.Size = new System.Drawing.Size(117, 41);
+            this.Btn_Modificar.TabIndex = 31;
+            this.Btn_Modificar.Text = "Modificar";
+            this.Btn_Modificar.UseVisualStyleBackColor = true;
+            this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
+            // 
             // Btn_Refrescar
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(446, 2);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(81, 23);
             this.Btn_Refrescar.TabIndex = 30;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
@@ -233,15 +263,15 @@
             this.Txb_PersonaSeleccionada.Size = new System.Drawing.Size(213, 22);
             this.Txb_PersonaSeleccionada.TabIndex = 29;
             // 
-            // Btn_SeleccionarCliente
+            // Btn_SeleccionarPersona
             // 
-            this.Btn_SeleccionarCliente.Location = new System.Drawing.Point(7, 3);
-            this.Btn_SeleccionarCliente.Name = "Btn_SeleccionarCliente";
-            this.Btn_SeleccionarCliente.Size = new System.Drawing.Size(152, 23);
-            this.Btn_SeleccionarCliente.TabIndex = 28;
-            this.Btn_SeleccionarCliente.Text = "Seleccione Cliente";
-            this.Btn_SeleccionarCliente.UseVisualStyleBackColor = true;
-            this.Btn_SeleccionarCliente.Click += new System.EventHandler(this.Btn_SeleccionarCliente_Click);
+            this.Btn_SeleccionarPersona.Location = new System.Drawing.Point(7, 3);
+            this.Btn_SeleccionarPersona.Name = "Btn_SeleccionarPersona";
+            this.Btn_SeleccionarPersona.Size = new System.Drawing.Size(152, 23);
+            this.Btn_SeleccionarPersona.TabIndex = 28;
+            this.Btn_SeleccionarPersona.Text = "Seleccione Persona";
+            this.Btn_SeleccionarPersona.UseVisualStyleBackColor = true;
+            this.Btn_SeleccionarPersona.Click += new System.EventHandler(this.Btn_SeleccionarPersona_Click);
             // 
             // Btn_RegistrarPersona
             // 
@@ -807,36 +837,6 @@
             this.Txb_ComentarioCliente.TabIndex = 28;
             this.Txb_ComentarioCliente.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Btn_Modificar
-            // 
-            this.Btn_Modificar.Location = new System.Drawing.Point(727, 153);
-            this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(117, 41);
-            this.Btn_Modificar.TabIndex = 31;
-            this.Btn_Modificar.Text = "Modificar";
-            this.Btn_Modificar.UseVisualStyleBackColor = true;
-            this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
-            // 
-            // Btn_GuardarCambios
-            // 
-            this.Btn_GuardarCambios.Location = new System.Drawing.Point(592, 202);
-            this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
-            this.Btn_GuardarCambios.Size = new System.Drawing.Size(117, 41);
-            this.Btn_GuardarCambios.TabIndex = 32;
-            this.Btn_GuardarCambios.Text = "Guardar cambios";
-            this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
-            this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_GuardarCambios_Click);
-            // 
-            // Btn_Eliminar
-            // 
-            this.Btn_Eliminar.Location = new System.Drawing.Point(727, 202);
-            this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(117, 41);
-            this.Btn_Eliminar.TabIndex = 33;
-            this.Btn_Eliminar.Text = "Eliminar";
-            this.Btn_Eliminar.UseVisualStyleBackColor = true;
-            this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
-            // 
             // CV_GestionUsuariosPersonas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -926,7 +926,7 @@
         private System.Windows.Forms.TextBox Txb_ComentarioCliente;
         private System.Windows.Forms.Label Lbl_DescuentoAplicado;
         private System.Windows.Forms.TextBox Txb_Descuento;
-        private System.Windows.Forms.Button Btn_SeleccionarCliente;
+        private System.Windows.Forms.Button Btn_SeleccionarPersona;
         private System.Windows.Forms.TextBox Txb_PersonaSeleccionada;
         private System.Windows.Forms.Button Btn_Refrescar;
         private System.Windows.Forms.Button Btn_Modificar;

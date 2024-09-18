@@ -53,6 +53,7 @@
             this.Btn_GestionVentas.TabIndex = 2;
             this.Btn_GestionVentas.Text = "Modulo de ventas";
             this.Btn_GestionVentas.UseVisualStyleBackColor = true;
+            this.Btn_GestionVentas.Click += new System.EventHandler(this.Btn_GestionVentas_Click);
             // 
             // Btn_CerraSesion
             // 

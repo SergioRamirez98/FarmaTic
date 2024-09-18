@@ -5,6 +5,7 @@ using Servicios;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Modelo;
 
 namespace Sesion
 {
@@ -19,13 +20,13 @@ namespace Sesion
         public static DateTime FeVtoProd { get; set; }
         public static int NumLote { get; set; }
         public static string Categoria { get; set; }
-        public static List<Cserv_CargaProductos> ListaVtoProductos { get; set; } = new List<Cserv_CargaProductos>();
+        public static List<CM_CargaProductos> ListaVtoProductos { get; set; } = new List<CM_CargaProductos>();
 
         public static void CargarProductosVencidos(DataTable Dt)
         {
             foreach (DataRow Dr in Dt.Rows) 
             {
-                Cserv_CargaProductos Productos = new Cserv_CargaProductos
+                CM_CargaProductos Productos = new CM_CargaProductos
                 {
                     ID_Producto = Convert.ToInt32(Dr["ID_Producto"]),
                     NombreProd = Dr["NombreProd"].ToString(),

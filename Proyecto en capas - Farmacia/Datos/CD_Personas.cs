@@ -268,7 +268,7 @@ namespace Datos
         }
         public DataTable ObtenerPersonaCmb()
         {
-            string sSql = "SP_Obtener_Personas_ComboBox";
+            string sSql = "SP_Obtener_Personas_Seleccion";
 
             try
             {

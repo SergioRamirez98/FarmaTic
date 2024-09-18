@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8B0AE031-16A0-4A30-B9C1-BB0DE41F3CAF}</ProjectGuid>
+    <ProjectGuid>{9F34F81F-70D3-4D63-8A0A-14D71FDBB618}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sesion</RootNamespace>
-    <AssemblyName>Sesion</AssemblyName>
+    <RootNamespace>Modelo</RootNamespace>
+    <AssemblyName>Modelo</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -33,7 +33,6 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -42,22 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CSesion_CacheStockMinimo.cs" />
-    <Compile Include="CSesion_CacheVtoProductos.cs" />
-    <Compile Include="CSesion_PersonaSeleccionada.cs" />
-    <Compile Include="CSesion_PreguntasUsuarios.cs" />
-    <Compile Include="CSesion_SesionIniciada.cs" />
+    <Compile Include="CM_CargaProductos.cs" />
+    <Compile Include="CM_CargaStockMinimo.cs" />
+    <Compile Include="CM_PermisosUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Modelo\Modelo.csproj">
-      <Project>{9f34f81f-70d3-4d63-8a0a-14d71fdbb618}</Project>
-      <Name>Modelo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Servicios\Servicios.csproj">
-      <Project>{8f6e30bd-7948-4f3c-90db-e93319dfea49}</Project>
-      <Name>Servicios</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

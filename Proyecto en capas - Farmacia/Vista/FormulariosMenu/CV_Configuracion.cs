@@ -18,6 +18,7 @@ namespace Vista
         CL_Sistema Sistema = new CL_Sistema();
         public CV_Configuracion()
         {
+            Sistema.CargarConfiguracion();
             InitializeComponent();
         }
         private void CV_Configuracion_Load(object sender, EventArgs e)

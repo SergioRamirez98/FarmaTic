@@ -1,4 +1,5 @@
 ﻿using Servicios;
+using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -39,9 +40,19 @@ namespace Sesion
         public static bool CambioPass { get; set; }
         public static DateTime Fe_CambioPass { get; set; }
 
+
+        public static int ID_Usuario { get; set; }
+        public static int ID_Rol { get; set; }
+        public static string Descripcion { get; set; }
+        public static List<CM_PermisosUsuarios> Permisos { get; set; } = new List<CM_PermisosUsuarios>();
+
         #endregion
         public static void CacheSesion(DataTable resultado)
         {
+            if (true)
+            {
+
+            }
             if (resultado.Rows.Count > 0)
             {
                 try
@@ -120,6 +131,19 @@ namespace Sesion
 
                     throw new Exception("Error al vincular los datos en la base de datos");
                 }
+            }
+        }
+        public static void CachePermisos (DataTable Resultado)
+        {
+            foreach (DataRow Row in Resultado.Rows) 
+            {
+                CM_PermisosUsuarios PermisosdelUsuario = new CM_PermisosUsuarios();
+                {
+                    ID_Usuario = Convert.ToInt32(Row["ID_Usuario"]);
+                    ID_Rol = Convert.ToInt32(Row["ID_Usuario"]);
+                    Descripcion= Row["Descripcion"].ToString();
+                }
+                Permisos.Add(PermisosdelUsuario);
             }
         }
         public static void LimpiarCache()

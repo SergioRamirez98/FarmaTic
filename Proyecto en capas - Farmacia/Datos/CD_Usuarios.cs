@@ -64,12 +64,20 @@ namespace Datos
             if (resultado.Rows.Count > 0)
             {
                 CSesion_SesionIniciada.CacheSesion(resultado);
+                listaParametros.Clear();
+                string sSql2 = "SP_Obtener_Permisos_Usuario";
+                SqlParameter UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
+                UserName.Value = atr_NombreUsuarioLogin;
+                listaParametros.Add(UserName);                
+                lista = listaParametros.ToArray();
+                DataTable permisos = ejecutar(sSql2, lista, true);
+                CSesion_SesionIniciada.CachePermisos(permisos);
+                
                 return true;
             }
             else
             {
-                return false;
-                
+                return false;                
             }
         }
         public void BloqueoUsuario()
@@ -168,7 +176,10 @@ namespace Datos
 
             if (resultado.Rows.Count > 0)
             {
-                CSesion_SesionIniciada.CacheSesion(resultado);
+                if (CSesion_SesionIniciada.NuevaPass == true)
+                {
+                    CSesion_SesionIniciada.CacheSesion(resultado);
+                }
                 return true;
             }
             else

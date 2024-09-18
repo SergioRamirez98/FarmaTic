@@ -39,6 +39,7 @@ namespace Vista.FormulariosMenu.Ventas
             DTGV_VisualizadorVentas.Columns[7].HeaderText = "Valor con descuento";
             DTGV_VisualizadorVentas.Columns[8].HeaderText = "Fecha de venta";
             DTGV_VisualizadorVentas.Columns[4].DefaultCellStyle.Format = "#,##0.00";
+            DTGV_VisualizadorVentas.Columns[7].DefaultCellStyle.Format = "#,##0.00";
             DTGV_VisualizadorVentas.ClearSelection();
         }
         private void configurarDTGV()

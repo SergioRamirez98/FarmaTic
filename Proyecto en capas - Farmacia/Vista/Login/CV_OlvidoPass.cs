@@ -162,8 +162,6 @@ namespace Vista
                         Usuarios.GuardarNuevaPass();
                         CServ_MsjUsuario.Exito("Contraseña guardada con éxito");
                         this.Close(); 
-                        CV_Menu menu = new CV_Menu();
-                        menu.Show();
                     }
                     catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
                 }

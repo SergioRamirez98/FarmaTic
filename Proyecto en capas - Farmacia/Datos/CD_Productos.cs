@@ -57,7 +57,7 @@ namespace Datos
         }
         public DataTable VtoProductos()
         {
-            string sSql = "SP_Vto_Inventario";
+            string sSql = "SP_Obtener_Productos_Prox_Vencer";
             SqlParameter param_Dias_Vto = new SqlParameter("@Dias_Vto", SqlDbType.Int);
             param_Dias_Vto.Value = CSistema_ConfiguracionSistema.AvisosVtoProductos; 
 

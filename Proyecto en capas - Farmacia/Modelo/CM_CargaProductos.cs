@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Servicios
+namespace Modelo
 {
-    public class Cserv_CargaProductos
+    public class CM_CargaProductos
     {
         public int ID_Producto { get; set; }
         public string NombreProd { get; set; }

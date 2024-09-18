@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using Modelo;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,13 +20,13 @@ namespace Sesion
         public static DateTime FeVtoProd { get; set; }
         public static int NumLote { get; set; }
         public static string Categoria { get; set; }
-        public static List<Cserv_CargaStockMinimo> ListaStockMinimo { get; set; } = new List<Cserv_CargaStockMinimo>();
+        public static List<CM_CargaStockMinimo> ListaStockMinimo { get; set; } = new List<CM_CargaStockMinimo>();
 
         public static void CargarStockMinimo(DataTable Dt)
         {
             foreach (DataRow Dr in Dt.Rows)
             {
-                Cserv_CargaStockMinimo Productos = new Cserv_CargaStockMinimo
+                CM_CargaStockMinimo Productos = new CM_CargaStockMinimo
                 {
                     ID_Producto = Convert.ToInt32(Dr["ID_Producto"]),
                     NombreProd = Dr["NombreProd"].ToString(),

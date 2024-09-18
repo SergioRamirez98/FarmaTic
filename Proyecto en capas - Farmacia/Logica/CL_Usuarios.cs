@@ -29,24 +29,34 @@ namespace Logica
         #region Properties
         public int Prop_ID_Persona
         { get; set; }
+
+
         public string Prop_NombreUsuarioLogin
-        { get => atr_NombreUsuarioLogin; set { atr_NombreUsuarioLogin = value; } }
+        {
+            get => atr_NombreUsuarioLogin; set
+            {
+                if (string.IsNullOrEmpty(value))
+                {
+                    throw new Exception("Por favor, ingrese el nombre de usuario.");
+                }
+                atr_NombreUsuarioLogin = value; } }
         public string Prop_ContrasenaUsuarioLogin
         { get => atr_ContrasenaUsuarioLogin; set {
-                if (string.IsNullOrEmpty(atr_ContrasenaUsuarioLogin))
+                if (string.IsNullOrEmpty(value))
                 {
                     throw new Exception("Por favor, ingrese la contraseña del usuario.");
                 }
                else atr_ContrasenaUsuarioLogin = value; } }
         public string Prop_EncriptacionLogin
         {
-            get => atr_EncriptacionLogin; set
-            {
-                if (string.IsNullOrEmpty(atr_NombreUsuarioLogin))
-                {
-                    throw new Exception("Por favor, ingrese el nombre de usuario.");
-                }
-                else atr_EncriptacionLogin = value; } }
+            get => atr_EncriptacionLogin; set{ atr_EncriptacionLogin = value; } }
+
+
+
+        
+       /* public string Prop_NombreUsuarioLogin { get; set;  }
+        public string Prop_EncriptacionLogin { get; set; }
+        public string Prop_ContrasenaUsuarioLogin { get; set; }*/
         public string Prop_UserName { get; set ; } 
         public string Prop_Contrasena { get; set; }
         public string Prop_Encriptacion { get; set; }
@@ -181,7 +191,7 @@ namespace Logica
             }
             else
             {
-                Usuario.Prop_NombreUsuarioLogin = atr_NombreUsuarioLogin;               
+                Usuario.Prop_NombreUsuarioLogin = atr_NombreUsuarioLogin;
                 Usuario.Prop_EncriptacionLogin = CServ_Encriptacion.SHA256(atr_EncriptacionLogin);
             }
         }

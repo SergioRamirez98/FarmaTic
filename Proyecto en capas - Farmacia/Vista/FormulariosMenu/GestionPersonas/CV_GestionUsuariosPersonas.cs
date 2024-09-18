@@ -184,12 +184,13 @@ namespace Vista
             }
 
         }
-        private void Btn_SeleccionarCliente_Click(object sender, EventArgs e)
+        private void Btn_SeleccionarPersona_Click(object sender, EventArgs e)
         {
             CV_SeleccionarPersona SeleccionarPersona = new CV_SeleccionarPersona();
             SeleccionarPersona.PersonaSeleccionada += new CV_SeleccionarPersona.PersonaSeleccionadaHandler(seleccionPersona);
             SeleccionarPersona.ShowDialog();
         }
+
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {
             configurarLoad();
@@ -557,5 +558,7 @@ namespace Vista
             }
         }
         #endregion
+
+        
     }
 }

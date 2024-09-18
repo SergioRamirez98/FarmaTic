@@ -202,6 +202,10 @@
       <Project>{1648caf4-c25e-4f5d-8a42-17904e3f46e8}</Project>
       <Name>Logica</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{9f34f81f-70d3-4d63-8a0a-14d71fdbb618}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Servicios\Servicios.csproj">
       <Project>{8f6e30bd-7948-4f3c-90db-e93319dfea49}</Project>
       <Name>Servicios</Name>
