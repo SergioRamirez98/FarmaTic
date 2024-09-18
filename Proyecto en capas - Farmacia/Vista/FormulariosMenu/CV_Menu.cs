@@ -23,28 +23,29 @@ namespace Vista
         }
         private void CV_Menu_Load(object sender, EventArgs e)
         {
-            if (CSesion_SesionIniciada.Es_Usuario==true)
-            {
-                string Familia = CSesion_SesionIniciada.Familia;                
-                switch (Familia)
-                {
-                    case "Administrador": Btn_ModuloInventario.Enabled = true;
-                        Btn_GestionVentas.Enabled = false;
-                        break;
-                    case "Administración":
-                        Btn_GestionUsuarios.Enabled=false;
-                        break;
-                    case "Ventas": Btn_GestionUsuarios.Enabled = false; 
-                        Btn_GestionVentas.Enabled=true;
-                        Btn_ModuloInventario.Enabled=true;
-                        break;
-                    case "Control de Stock": Btn_GestionUsuarios.Enabled = false;
-                        Btn_GestionVentas.Enabled = false;
-                        Btn_ModuloInventario.Enabled = true;
-                        break;
-                }               
+            accesoAModulos();
+            //if (CSesion_SesionIniciada.Es_Usuario==true)
+            //{
+            //    string Familia = CSesion_SesionIniciada.Familia;                
+            //    switch (Familia)
+            //    {
+            //        case "Administrador": Btn_ModuloInventario.Enabled = true;
+            //            Btn_GestionVentas.Enabled = false;
+            //            break;
+            //        case "Administración":
+            //            Btn_GestionUsuarios.Enabled=false;
+            //            break;
+            //        case "Ventas": Btn_GestionUsuarios.Enabled = false; 
+            //            Btn_GestionVentas.Enabled=true;
+            //            Btn_ModuloInventario.Enabled=true;
+            //            break;
+            //        case "Control de Stock": Btn_GestionUsuarios.Enabled = false;
+            //            Btn_GestionVentas.Enabled = false;
+            //            Btn_ModuloInventario.Enabled = true;
+            //            break;
+            //    }               
 
-            }
+            //}
         }
 
         private void Btn_GestionUsuarios_Click(object sender, EventArgs e)
@@ -93,6 +94,44 @@ namespace Vista
             CV_Ventas ventas = new CV_Ventas();
             ventas.Show();
 
+        }
+
+        public void accesoAModulos()
+        {
+            Btn_GestionUsuarios.Enabled = false;
+            Btn_GestionVentas.Enabled = false;
+            Btn_ModuloInventario.Enabled = false;
+            Btn_Config.Enabled = false;
+
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1: // Acceder a Personas
+                        Btn_GestionUsuarios.Enabled = true;
+                        Btn_GestionVentas.Enabled = true;
+                        Btn_ModuloInventario.Enabled = true;
+                        Btn_Config.Enabled = true;
+                        break;
+
+                    case 2: // Acceder a Personas
+                        Btn_GestionUsuarios.Enabled = true;
+                        break;
+                    case 19: // Acceder a Gestión de Stock
+                        Btn_ModuloInventario.Enabled = true;
+                        break;
+                    case 33: // Acceder a Gestión de Ventas
+                        Btn_GestionVentas.Enabled = true;
+                        break;
+                    case 17: // Acceder a Configuración
+                        Btn_ModuloInventario.Enabled = true;
+                        break;
+                    default:
+                        // Opcional: manejar permisos no reconocidos
+                        break;
+
+                }
+            }
         }
     }
 }

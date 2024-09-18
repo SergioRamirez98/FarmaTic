@@ -3,6 +3,7 @@ using Modelo;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Diagnostics;
 
 namespace Sesion
 {
@@ -45,6 +46,19 @@ namespace Sesion
         public static int ID_Rol { get; set; }
         public static string Descripcion { get; set; }
         public static List<CM_PermisosUsuarios> Permisos { get; set; } = new List<CM_PermisosUsuarios>();
+        /*public static void CachePermisos (DataTable Resultado)
+        {
+            foreach (DataRow Row in Resultado.Rows) 
+            {
+                CM_PermisosUsuarios PermisosdelUsuario = new CM_PermisosUsuarios();
+                {
+                    ID_Usuario = Convert.ToInt32(Row["ID_Usuario"]);
+                    ID_Rol = Convert.ToInt32(Row["ID_Usuario"]);
+                    Descripcion= Row["Descripcion"].ToString();
+                }
+                Permisos.Add(PermisosdelUsuario);
+            }
+        }*/
 
         #endregion
         public static void CacheSesion(DataTable resultado)
@@ -135,16 +149,21 @@ namespace Sesion
         }
         public static void CachePermisos (DataTable Resultado)
         {
-            foreach (DataRow Row in Resultado.Rows) 
+            Permisos.Clear();
+            foreach (DataRow Row in Resultado.Rows)
             {
+                Debug.WriteLine($"ID_Usuario: {Row["ID_Usuario"]}, ID_Rol: {Row["ID_Rol"]}, Descripcion: {Row["Descripcion"]}");
+
                 CM_PermisosUsuarios PermisosdelUsuario = new CM_PermisosUsuarios();
                 {
                     ID_Usuario = Convert.ToInt32(Row["ID_Usuario"]);
                     ID_Rol = Convert.ToInt32(Row["ID_Usuario"]);
-                    Descripcion= Row["Descripcion"].ToString();
-                }
+                    Descripcion = Row["Descripcion"].ToString();
+                };
                 Permisos.Add(PermisosdelUsuario);
+
             }
+           
         }
         public static void LimpiarCache()
         {
