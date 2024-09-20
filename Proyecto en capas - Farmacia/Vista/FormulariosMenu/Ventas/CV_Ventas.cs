@@ -194,7 +194,7 @@ namespace Vista.FormulariosMenu
         private void configurarLoad()
         {
             Size = new Size(1250, 798);
-            //Txb_UserName.Text = CSesion_SesionIniciada.UserName;
+            Txb_UserName.Text = CSesion_SesionIniciada.UserName;
             Txb_UserName.Enabled = false;
             Txb_BusquedaRapida.Text = string.Empty;
             Nud_Cantidad.Value = 1;
@@ -204,7 +204,7 @@ namespace Vista.FormulariosMenu
         }
         private void pasarDatos()
         {
-            Ventas.ID_UsuarioVendedor = 1.ToString();// CSesion_SesionIniciada.UserName;
+            Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
             if (ID_Cliente!=0)Ventas.ID_Cliente = ID_Cliente.ToString(); 
             else Ventas.ID_Cliente = 2.ToString();
 
@@ -300,7 +300,6 @@ namespace Vista.FormulariosMenu
                 CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
             }
         }
-
         private void SeleccionCliente(string cliente, int idClienteDelegado, double Descuento, string Categoria)
         {
             Txb_Cliente.Text = cliente;
@@ -308,7 +307,6 @@ namespace Vista.FormulariosMenu
             Desc = Descuento;
             cat = Categoria;
         }
-
         #endregion
 
     }

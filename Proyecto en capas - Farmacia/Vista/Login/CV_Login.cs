@@ -5,6 +5,7 @@ using Servicios;
 using Sesion;
 using Sistema;
 using Vista.FormulariosMenu;
+using Modelo;
 
 namespace Vista
 {

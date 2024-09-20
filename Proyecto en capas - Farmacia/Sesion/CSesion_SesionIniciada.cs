@@ -46,27 +46,10 @@ namespace Sesion
         public static int ID_Rol { get; set; }
         public static string Descripcion { get; set; }
         public static List<CM_PermisosUsuarios> Permisos { get; set; } = new List<CM_PermisosUsuarios>();
-        /*public static void CachePermisos (DataTable Resultado)
-        {
-            foreach (DataRow Row in Resultado.Rows) 
-            {
-                CM_PermisosUsuarios PermisosdelUsuario = new CM_PermisosUsuarios();
-                {
-                    ID_Usuario = Convert.ToInt32(Row["ID_Usuario"]);
-                    ID_Rol = Convert.ToInt32(Row["ID_Usuario"]);
-                    Descripcion= Row["Descripcion"].ToString();
-                }
-                Permisos.Add(PermisosdelUsuario);
-            }
-        }*/
-
+        
         #endregion
         public static void CacheSesion(DataTable resultado)
         {
-            if (true)
-            {
-
-            }
             if (resultado.Rows.Count > 0)
             {
                 try
@@ -137,8 +120,6 @@ namespace Sesion
 
                     }
 
-
-
                 }
                 catch (Exception)
                 {
@@ -152,18 +133,15 @@ namespace Sesion
             Permisos.Clear();
             foreach (DataRow Row in Resultado.Rows)
             {
-                Debug.WriteLine($"ID_Usuario: {Row["ID_Usuario"]}, ID_Rol: {Row["ID_Rol"]}, Descripcion: {Row["Descripcion"]}");
-
-                CM_PermisosUsuarios PermisosdelUsuario = new CM_PermisosUsuarios();
+                CM_PermisosUsuarios PermisosdelUsuario = new CM_PermisosUsuarios
                 {
-                    ID_Usuario = Convert.ToInt32(Row["ID_Usuario"]);
-                    ID_Rol = Convert.ToInt32(Row["ID_Usuario"]);
-                    Descripcion = Row["Descripcion"].ToString();
+                    ID_Usuario = Convert.ToInt32(Row["ID_Usuario"]),
+                    ID_Rol = Convert.ToInt32(Row["ID_Rol"]),
+                    Descripcion = Row["Descripcion"].ToString(),
                 };
                 Permisos.Add(PermisosdelUsuario);
-
             }
-           
+
         }
         public static void LimpiarCache()
         {
@@ -197,6 +175,12 @@ namespace Sesion
                 NuevaPass = false;
                 CambioPass = false;
                 Fe_CambioPass = DateTime.Today;
+                foreach (var item in Permisos)
+                {
+                    item.ID_Usuario = 0;
+                    item.ID_Rol = 0;
+                    item.Descripcion = null;
+                }
 
             }
         }

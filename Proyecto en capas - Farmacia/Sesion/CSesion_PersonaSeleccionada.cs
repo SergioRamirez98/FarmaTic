@@ -150,6 +150,7 @@ namespace Sesion
         }
         public static void LimpiarCache() 
         {
+
             if (SesionActiva == false)
             {
                 //Personas
@@ -162,6 +163,7 @@ namespace Sesion
                 Partido = null;
                 Nacionalidad = null;
                 Telefono = 0;
+
                 //Usuarios
                 UserName = null;
                 PassEncriptada = null;
@@ -180,6 +182,7 @@ namespace Sesion
                 FeAlta = DateTime.Today;
                 NuevaPass = false;
                 Fe_CambioPass = DateTime.Today;
+
                 //Clientes
                 EsCliente = false;
                 ID_Categoria = 0;

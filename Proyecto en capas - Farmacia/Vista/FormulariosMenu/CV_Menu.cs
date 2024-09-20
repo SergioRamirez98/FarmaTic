@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Net.Configuration;
@@ -24,28 +25,6 @@ namespace Vista
         private void CV_Menu_Load(object sender, EventArgs e)
         {
             accesoAModulos();
-            //if (CSesion_SesionIniciada.Es_Usuario==true)
-            //{
-            //    string Familia = CSesion_SesionIniciada.Familia;                
-            //    switch (Familia)
-            //    {
-            //        case "Administrador": Btn_ModuloInventario.Enabled = true;
-            //            Btn_GestionVentas.Enabled = false;
-            //            break;
-            //        case "Administración":
-            //            Btn_GestionUsuarios.Enabled=false;
-            //            break;
-            //        case "Ventas": Btn_GestionUsuarios.Enabled = false; 
-            //            Btn_GestionVentas.Enabled=true;
-            //            Btn_ModuloInventario.Enabled=true;
-            //            break;
-            //        case "Control de Stock": Btn_GestionUsuarios.Enabled = false;
-            //            Btn_GestionVentas.Enabled = false;
-            //            Btn_ModuloInventario.Enabled = true;
-            //            break;
-            //    }               
-
-            //}
         }
 
         private void Btn_GestionUsuarios_Click(object sender, EventArgs e)
@@ -107,28 +86,25 @@ namespace Vista
             {
                 switch (permiso.ID_Rol)
                 {
-                    case 1: // Acceder a Personas
+                    case 1: 
                         Btn_GestionUsuarios.Enabled = true;
                         Btn_GestionVentas.Enabled = true;
                         Btn_ModuloInventario.Enabled = true;
                         Btn_Config.Enabled = true;
                         break;
 
-                    case 2: // Acceder a Personas
+                    case 2: 
                         Btn_GestionUsuarios.Enabled = true;
                         break;
-                    case 19: // Acceder a Gestión de Stock
+                    case 19:
                         Btn_ModuloInventario.Enabled = true;
                         break;
-                    case 33: // Acceder a Gestión de Ventas
+                    case 33:
                         Btn_GestionVentas.Enabled = true;
                         break;
-                    case 17: // Acceder a Configuración
+                    case 17:
                         Btn_ModuloInventario.Enabled = true;
-                        break;
-                    default:
-                        // Opcional: manejar permisos no reconocidos
-                        break;
+                        break;                   
 
                 }
             }
