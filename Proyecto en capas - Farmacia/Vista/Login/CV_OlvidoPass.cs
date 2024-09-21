@@ -162,6 +162,7 @@ namespace Vista
                         Usuarios.GuardarNuevaPass();
                         CServ_MsjUsuario.Exito("Contraseña guardada con éxito");
                         this.Close(); 
+
                     }
                     catch (Exception ex) { CServ_MsjUsuario.MensajesDeError(ex.Message); }
                 }
@@ -240,7 +241,10 @@ namespace Vista
         }
         private void CV_OlvidoPass_FormClosed(object sender, FormClosedEventArgs e)
         {
-            CSesion_SesionIniciada.SesionActiva = false;            
+            if (CSesion_SesionIniciada.NuevaPass == false)
+            {
+                CSesion_SesionIniciada.SesionActiva = true;
+            }
             CSesion_SesionIniciada.LimpiarCache();
             Program.Login.Show();
         }

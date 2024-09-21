@@ -16,7 +16,7 @@ namespace Vista.FormulariosMenu
 {
     public partial class CV_Ventas : Form
     {
-        #region Atributos
+        #region Properties
         CL_Productos Productos = new CL_Productos();
         CL_Ventas Ventas = new CL_Ventas();
         List<CL_Ventas> VentaItems = new List<CL_Ventas>();    

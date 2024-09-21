@@ -27,7 +27,7 @@ namespace Sesion
         public static int Telefono { get; set; }
         public static DateTime FeNacimiento { get; set; }
         public static string Comentario { get; set; }
-        public static string Familia { get; set; }
+        public static int ID_Familia { get; set; }
         public static string Pregunta1 { get; set; }
         public static string Respuesta1 { get; set; }
         public static string Pregunta2 { get; set; }
@@ -35,12 +35,11 @@ namespace Sesion
         public static string Pregunta3 { get; set; }
         public static string Respuesta3 { get; set; }
         public static string RolDescripcion { get; set; }
-        public static string EstadoCuenta { get; set; }
+        public static int EstadoCuenta { get; set; }
         public static DateTime FeAlta { get; set; }
         public static bool NuevaPass { get; set; }
         public static bool CambioPass { get; set; }
         public static DateTime Fe_CambioPass { get; set; }
-
 
         public static int ID_Usuario { get; set; }
         public static int ID_Rol { get; set; }
@@ -59,7 +58,7 @@ namespace Sesion
                     Es_Usuario = true;
                     UserName = fila["UserName"].ToString();
                     PassEncriptada = fila["PassEncriptada"].ToString();
-                    VenceCada = Convert.ToInt32(fila["VenceCada"]);
+                    VenceCada = Convert.ToInt32(fila["DiasParaVencimiento"]);
                     Nombre = fila["Nombre"].ToString();
                     Apellido = fila["Apellido"].ToString();
                     Dni = fila["Documento"].ToString();
@@ -71,7 +70,7 @@ namespace Sesion
                     Telefono = Convert.ToInt32(fila["Telefono"]);
                     FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
                     Comentario = fila["Comentarios"].ToString();
-                    Familia = fila["Familia"].ToString();
+                    ID_Familia = Convert.ToInt32(fila["ID_Familia"]);
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
                     if (resultado.Rows.Count == 3)
                     {
@@ -88,14 +87,12 @@ namespace Sesion
                         }
                         catch (Exception)
                         {
-
                             throw new Exception("error al capturar las preguntas, el usuario debe responder primero.");
                         }
-
                     }
 
                     RolDescripcion = fila["Descripcion"].ToString();
-                    EstadoCuenta = fila["EstadoCuenta"].ToString();
+                    EstadoCuenta = Convert.ToInt32(fila["ID_Estado"]);
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
                     if (NuevaPass == false)
                     {
@@ -115,11 +112,8 @@ namespace Sesion
                             {
                                 NuevaPass = true;
                             }
-
                         }
-
                     }
-
                 }
                 catch (Exception)
                 {
@@ -162,7 +156,7 @@ namespace Sesion
                 Telefono = 0;
                 FeNacimiento = DateTime.Today;
                 Comentario = null;
-                Familia = null;
+                ID_Familia = 0;
                 Pregunta1 = null;
                 Respuesta1 = null;
                 Pregunta2 = null;
@@ -170,7 +164,7 @@ namespace Sesion
                 Pregunta3 = null;
                 Respuesta3 = null;
                 RolDescripcion = null;
-                EstadoCuenta = null;
+                EstadoCuenta = 0;
                 FeAlta = DateTime.Today;
                 NuevaPass = false;
                 CambioPass = false;

@@ -31,8 +31,8 @@ namespace Datos
         public string Prop_Contrasena { get; set; }
         public string Prop_Encriptacion { get; set; }
         public DateTime Prop_FeAlta { get; set; }
-        public string Prop_Familia { get; set; }
-        public string Prop_Estado { get; set; }
+        public int Prop_Familia { get; set; }
+        public int Prop_Estado { get; set; }
         public string Prop_Preg1 { get; set; }
         public string Prop_Preg2 { get; set; }
         public string Prop_Preg3 { get; set; }
@@ -78,6 +78,38 @@ namespace Datos
             else
             {
                 return false;                
+            }
+        }
+        public DataTable ObtenerEstadoCmb()
+        {
+            try
+            {
+                string sSql = "SP_Obtener_EstadoCmb";
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                return ejecutar(sSql, parametros, true);
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Cliente||ObtenerEstadoCmb");
+            }
+        }
+        public DataTable ObtenerVencimientosPass()
+        {
+            try
+            {
+                string sSql = "SP_Obtener_VtodePass";
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                return ejecutar(sSql, parametros, true);
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Cliente||ObtenerVencimientosPass");
             }
         }
         public void BloqueoUsuario()
@@ -219,12 +251,12 @@ namespace Datos
                 param_PassEncriptada.Value = Prop_Encriptacion;
                 SqlParameter param_FeAlta = new SqlParameter("@FeAlta", SqlDbType.DateTime);
                 param_FeAlta.Value = Prop_FeAlta;
-                SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.VarChar, 50);
+                SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.Int);
                 param_Familia.Value = Prop_Familia;
                 SqlParameter param_Comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 200);
                 param_Comentarios.Value = Prop_Comentarios;
                 //Agregar Comentarios al insertar un usuario
-                SqlParameter param_Estado = new SqlParameter("@EstadoCuenta", SqlDbType.VarChar, 50);
+                SqlParameter param_Estado = new SqlParameter("@EstadoCuenta", SqlDbType.Int);
                 param_Estado.Value = Prop_Estado;
                 SqlParameter param_VtoPass = new SqlParameter("@VenceCada", SqlDbType.Int);
                 param_VtoPass.Value = Prop_VtoPass;
@@ -265,13 +297,13 @@ namespace Datos
                 param_ID_Persona.Value = ID_Persona;
                 SqlParameter param_FeAlta = new SqlParameter("@FeAlta", SqlDbType.DateTime);
                 param_FeAlta.Value = Prop_FeAlta;
-                SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.VarChar, 50);
+                SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.Int);
                 param_Familia.Value = Prop_Familia;
                 SqlParameter param_Comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 200);
                 param_Comentarios.Value = Prop_Comentarios;
                 SqlParameter param_VtoPass = new SqlParameter("@VenceCada", SqlDbType.Int);
                 param_VtoPass.Value = Prop_VtoPass;
-                SqlParameter param_Estado = new SqlParameter("@EstadoCuenta", SqlDbType.VarChar, 50);
+                SqlParameter param_Estado = new SqlParameter("@EstadoCuenta", SqlDbType.Int);
                 param_Estado.Value = Prop_Estado;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();

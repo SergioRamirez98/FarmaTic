@@ -98,5 +98,7 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Cliente||ObtenerCategoriaCmb");
             }
         }
+       
+        
     }
 }

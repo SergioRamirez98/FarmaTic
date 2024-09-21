@@ -36,6 +36,8 @@ namespace Logica
             DataTable dt= Clientes.ObtenerCategoriasCmb();          
             return dt;
         }
+
+        
         private void pasarDatos() 
         {
             if (ID_Persona== "0"||ID_Categoria=="0")

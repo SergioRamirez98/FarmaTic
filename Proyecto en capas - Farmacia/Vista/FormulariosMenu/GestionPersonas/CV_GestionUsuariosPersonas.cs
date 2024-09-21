@@ -4,17 +4,8 @@ using Sesion;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
-using System.Diagnostics;
-using System.Diagnostics.Eventing.Reader;
 using System.Drawing;
-using System.Linq;
-using System.Net.Configuration;
-using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Xml;
 using Vista.FormulariosMenu.GestionPersonas;
 
 namespace Vista
@@ -155,12 +146,12 @@ namespace Vista
         }
         private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
         {
-            //ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
             capturarDatosUsuarios();
             try
             {
                 Usuario.CrearUsuario();
                 CServ_MsjUsuario.Exito("Usuario Generado con éxito");
+                bloquearControles(true,false);
             }
             catch (Exception ex)
             {
@@ -169,7 +160,6 @@ namespace Vista
         }
         private void Btn_RegistrarCliente_Click(object sender, EventArgs e)
         {
-           // ID_Persona = Convert.ToInt32(Cmb_SeleccionePersona.SelectedValue);
             try
             {
                 capturarDatosClientes();
@@ -190,11 +180,10 @@ namespace Vista
             SeleccionarPersona.PersonaSeleccionada += new CV_SeleccionarPersona.PersonaSeleccionadaHandler(seleccionPersona);
             SeleccionarPersona.ShowDialog();
         }
-
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {
-            configurarLoad();
             desbloquearControles();
+            configurarLoad();
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroPersona);
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
@@ -208,13 +197,8 @@ namespace Vista
         {
             Cmb_Sexo.Items.Add("Masculino");
             Cmb_Sexo.Items.Add("Femenino");
-            Cmb_Estado.Items.Add("Activo");
-            Cmb_Estado.Items.Add("Inactivo");
-            Cmb_Estado.Items.Add("Bloqueado");
-            Cmb_VenceCada.Items.Add("30 Dias");
-            Cmb_VenceCada.Items.Add("60 Dias");
-            Cmb_VenceCada.Items.Add("120 Dias");
-            Cmb_VenceCada.Items.Add("Nunca");
+            Cmb_Sexo.SelectedIndex = -1;
+
             Size = new Size(710, 300);
             Pnb_RegistroUsuario.Enabled = false;
             Pnb_RegistroUsuario.Visible = false;
@@ -227,9 +211,6 @@ namespace Vista
             Btn_Modificar.Enabled = false;
             Btn_Eliminar.Enabled = false;
             Btn_GuardarCambios.Enabled = false;
-
-            cargarComboBox(false);
-            CServ_Limpiar.LimpiarFormulario(this);
         }
         private void cargarComboBox(bool Rbt_Cliente)
         {
@@ -239,7 +220,7 @@ namespace Vista
                 Cmb_Categoria.DataSource = Clientes.ObtenerCategoria();
                 Cmb_Categoria.DisplayMember = "Categoria";
                 Cmb_Categoria.ValueMember = "ID_Categoria";
-                Cmb_Categoria.SelectedIndex = -1;
+                Cmb_Categoria.SelectedIndex = -1;               
 
             }
             else
@@ -253,10 +234,24 @@ namespace Vista
                 Cmb_Nacionalidad.DisplayMember = "Pais";
                 Cmb_Nacionalidad.ValueMember = "ID_Pais";
                 Cmb_Nacionalidad.SelectedIndex = -1;
+
                 Cmb_Familia.DataSource = GestionPersonas.ObtenerFamilia();
-                Cmb_Familia.DisplayMember = "Familia";
+                Cmb_Familia.DisplayMember = "Descripcion_Familia";
                 Cmb_Familia.ValueMember = "ID_Familia";
                 Cmb_Familia.SelectedIndex = -1;
+
+                Cmb_Estado.DataSource = Usuario.ObtenerEstadoUsuarios();
+                Cmb_Estado.DisplayMember = "Descripcion_Estado";
+                Cmb_Estado.ValueMember = "ID_Estado";
+                Cmb_Estado.SelectedIndex = -1;
+
+
+                
+                DataTable dt= Usuario.ObtenerVtosdePass(); ;
+                Cmb_VenceCada.DataSource = dt;
+                Cmb_VenceCada.DisplayMember = "DiasParaVencimiento";
+                Cmb_VenceCada.ValueMember = "ID_Vencimiento";
+                Cmb_VenceCada.SelectedIndex = -1;
             }
         }
         private void capturarDatosPersonas()
@@ -297,9 +292,9 @@ namespace Vista
             {
                 Usuario.Prop_FeAlta = FeAlta.ToString("yyyy-MM-dd 00:00:00");
             }
-            Usuario.Prop_Familia = Cmb_Familia.Text;
-            Usuario.Prop_Estado = Cmb_Estado.Text;
-            Usuario.Prop_VtoPass = Cmb_VenceCada.Text;
+            Usuario.Prop_Familia = Cmb_Familia.SelectedValue.ToString();
+            Usuario.Prop_Estado = Cmb_Estado.SelectedValue.ToString();
+            Usuario.Prop_VtoPass = Cmb_VenceCada.SelectedValue.ToString();
             Usuario.Prop_NuevaPass = Convert.ToString(NuevaPass);
             Usuario.Prop_CambioPass = Convert.ToString(CambioPass);
             Usuario.Prop_Comentarios = Txb_Comentario.Text;
@@ -379,7 +374,6 @@ namespace Vista
                 Txb_UserName.Enabled = true;
                 Rbt_Cliente.Enabled = true;
                 Rbt_Usuario.Enabled = true;
-
             }
 
         }
@@ -457,9 +451,11 @@ namespace Vista
                 Txb_Respuesta2.Text = CSesion_PersonaSeleccionada.Respuesta2;
                 Txb_Respuesta3.Text = CSesion_PersonaSeleccionada.Respuesta3;
                 Dtp_FeAlta.Value = CSesion_PersonaSeleccionada.FeAlta;
-                Cmb_Familia.Text = CSesion_PersonaSeleccionada.Familia;
-                Cmb_Estado.Text = CSesion_PersonaSeleccionada.EstadoCuenta;
-                Cmb_VenceCada.Text = Convert.ToString(CSesion_PersonaSeleccionada.VenceCada);
+                Cmb_Familia.SelectedValue = CSesion_PersonaSeleccionada.ID_Familia;
+                
+                Cmb_Estado.SelectedValue = CSesion_PersonaSeleccionada.EstadoUsuario;
+                
+                Cmb_VenceCada.SelectedValue = CSesion_PersonaSeleccionada.ID_VenceCada;
                 List<TextBox> listatextbox = new List<TextBox>();
                 listatextbox.Add(Txb_Contrasena);
                 listatextbox.Add(Txb_ConfContrasena);

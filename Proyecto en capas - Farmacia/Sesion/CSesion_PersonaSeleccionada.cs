@@ -30,8 +30,8 @@ namespace Sesion
         public static bool SesionActiva { get => atr_SesionActiva; set { atr_SesionActiva = value; } }
         public static string UserName { get; set; }
         public static string PassEncriptada { get; set; }
-        public static int VenceCada { get; set; }
-        public static string Familia { get; set; }
+        public static int ID_VenceCada { get; set; }
+        public static int ID_Familia { get; set; }
         public static string Pregunta1 { get; set; }
         public static string Pregunta2 { get; set; }
         public static string Pregunta3 { get; set; }
@@ -39,11 +39,14 @@ namespace Sesion
         public static string Respuesta2 { get; set; }
         public static string Respuesta3 { get; set; }
         public static string Descripcion { get; set; }
-        public static string EstadoCuenta { get; set; }
+        public static int EstadoCuenta { get; set; }
         public static DateTime FeAlta { get; set; }
         public static bool NuevaPass { get; set; }
         public static DateTime Fe_CambioPass { get; set; }
         public static string ComentarioUsuario { get; set; }
+
+        public static int EstadoUsuario { get; set; }
+
 
         #endregion
 
@@ -97,20 +100,23 @@ namespace Sesion
                     DataRow fila2 = dt.Rows[2];
                     UserName = fila["UserName"].ToString();
                     PassEncriptada = fila["PassEncriptada"].ToString();
-                    VenceCada = Convert.ToInt32(fila["VenceCada"]);
-                    Familia = fila["Familia"].ToString();
+
+                    ID_VenceCada = Convert.ToInt32(fila["ID_Vencimiento"]);
+                    ID_Familia = Convert.ToInt32(fila["ID_Familia"]);
                     Pregunta1 = fila["Pregunta"].ToString();
                     Respuesta1 = fila["Respuesta"].ToString();
                     Pregunta2 = fila1["Pregunta"].ToString();
                     Respuesta2 = fila1["Respuesta"].ToString();
                     Pregunta3 = fila2["Pregunta"].ToString();
                     Respuesta3 = fila2["Respuesta"].ToString();
+
                     Descripcion = fila["Descripcion"].ToString();
-                    EstadoCuenta = fila["EstadoCuenta"].ToString();
+                    EstadoCuenta = Convert.ToInt32(fila["ID_Estado"]);
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
                     Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
                     ComentarioUsuario = fila["Comentarios"].ToString();
+                    EstadoUsuario = Convert.ToInt32(fila["ID_Estado"]); //
                 }
                 else
                 {
@@ -169,8 +175,8 @@ namespace Sesion
                 PassEncriptada = null;
                 FeNacimiento = DateTime.Today;
                 ComentarioUsuario = null;
-                VenceCada = 0;
-                Familia = null;
+                ID_VenceCada = 0;
+                ID_Familia = 0;
                 Pregunta1 = null;
                 Respuesta1 = null;
                 Pregunta2 = null;
@@ -178,7 +184,7 @@ namespace Sesion
                 Pregunta3 = null;
                 Respuesta3 = null;
                 Descripcion = null;
-                EstadoCuenta=null;
+                EstadoCuenta=0;
                 FeAlta = DateTime.Today;
                 NuevaPass = false;
                 Fe_CambioPass = DateTime.Today;
@@ -188,6 +194,7 @@ namespace Sesion
                 ID_Categoria = 0;
                 FechaAltaCliente=DateTime.Today;
                 ComentarioCliente = null;
+
             }
         }
         #endregion

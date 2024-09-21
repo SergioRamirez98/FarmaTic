@@ -23,11 +23,14 @@ namespace Vista.FormulariosMenu.GestionPersonas
         public int Documento { get; set; }
         public string Direccion { get; set; }
         public string Mail{ get; set; }
+        public DataTable Dt { get; set; }
         #endregion
         public CV_SeleccionarPersona()
         {
             InitializeComponent();
         }
+
+        #region Eventos
 
         private void CV_SeleccionarPersona_Load(object sender, EventArgs e)
         {
@@ -38,12 +41,17 @@ namespace Vista.FormulariosMenu.GestionPersonas
         {
             seleccionarPersona();
         }
-
         private void DTGV_SeleccionarPersona_KeyDown(object sender, KeyEventArgs e)
         {
             if (DTGV_SeleccionarPersona.SelectedRows.Count > 0) seleccionarPersona();
 
         }
+        private void Txb_BusqPersona_TextChanged(object sender, EventArgs e)
+        {
+            DTGV_SeleccionarPersona.DataSource = Personas.BusquedaRapida(Txb_BusqPersona.Text, Dt);
+        }
+        #endregion
+        #region Métodos
         private void configurarDTGV()
         {
             DTGV_SeleccionarPersona.AllowUserToResizeColumns = false;
@@ -61,13 +69,13 @@ namespace Vista.FormulariosMenu.GestionPersonas
             DTGV_SeleccionarPersona.Columns[1].HeaderText = "Persona";
             DTGV_SeleccionarPersona.Columns[2].HeaderText = "Documento";
             DTGV_SeleccionarPersona.Columns[3].HeaderText = "Direccion";
-            DTGV_SeleccionarPersona.Columns[4].HeaderText = "Mail";       }
+            DTGV_SeleccionarPersona.Columns[4].HeaderText = "Mail"; 
+        }
         private void cargarDTVG()
         {
-            DTGV_SeleccionarPersona.DataSource=Personas.ObtenerPersonas();
-        }
-
-        
+            Dt = Personas.ObtenerPersonas();
+            DTGV_SeleccionarPersona.DataSource = Dt;
+        }        
         private void seleccionarPersona() 
         {
             if (DTGV_SeleccionarPersona.SelectedRows.Count > 0)
@@ -84,7 +92,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
                 this.Close();
             }
         }
+        #endregion
 
-        
     }
 }

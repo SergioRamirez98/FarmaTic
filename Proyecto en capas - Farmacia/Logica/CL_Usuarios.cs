@@ -29,11 +29,8 @@ namespace Logica
         #region Properties
         public int Prop_ID_Persona
         { get; set; }
-
-
         public string Prop_NombreUsuarioLogin
-        {
-            get => atr_NombreUsuarioLogin; set
+        { get => atr_NombreUsuarioLogin; set
             {
                 if (string.IsNullOrEmpty(value))
                 {
@@ -48,15 +45,7 @@ namespace Logica
                 }
                else atr_ContrasenaUsuarioLogin = value; } }
         public string Prop_EncriptacionLogin
-        {
-            get => atr_EncriptacionLogin; set{ atr_EncriptacionLogin = value; } }
-
-
-
-        
-       /* public string Prop_NombreUsuarioLogin { get; set;  }
-        public string Prop_EncriptacionLogin { get; set; }
-        public string Prop_ContrasenaUsuarioLogin { get; set; }*/
+        { get => atr_EncriptacionLogin; set{ atr_EncriptacionLogin = value; } }
         public string Prop_UserName { get; set ; } 
         public string Prop_Contrasena { get; set; }
         public string Prop_Encriptacion { get; set; }
@@ -99,6 +88,17 @@ namespace Logica
         public DataTable ObtenerPreguntas()
         {
             return Usuario.ObtenerPreguntasAleatorias();            
+        }
+        public DataTable ObtenerEstadoUsuarios()
+        {
+            DataTable dt = Usuario.ObtenerEstadoCmb();
+            return dt;
+        }
+        public DataTable ObtenerVtosdePass()
+        {
+            DataTable dt = Usuario.ObtenerVencimientosPass();
+            DataTable VtoConvertido= convertirVto(dt);
+            return VtoConvertido;
         }
         public void InsertarRespuestasdeSeguridad()
         {
@@ -241,20 +241,7 @@ namespace Logica
                 try
                 {
                     Usuario.Prop_FeAlta = Convert.ToDateTime(Prop_FeAlta);
-                    switch (Prop_VtoPass)
-                    {
-                        case "30 Dias": Usuario.Prop_VtoPass = 30;
-                            break;
-                        case "60 Dias":
-                            Usuario.Prop_VtoPass = 60;
-                            break;
-                        case "120 Dias":
-                            Usuario.Prop_VtoPass = 120;
-                            break;
-                        case "Nunca":
-                            Usuario.Prop_VtoPass = 0;
-                            break;
-                    }
+                    Usuario.Prop_VtoPass = Convert.ToInt32(Prop_VtoPass);                    
                     
                 }
                 catch (Exception)
@@ -262,8 +249,8 @@ namespace Logica
                     throw new Exception("Error al guardar los vencimientos, por favor intente nuevamente");
                 }
 
-                Usuario.Prop_Familia = Prop_Familia;
-                Usuario.Prop_Estado = Prop_Estado;
+                Usuario.Prop_Familia = Convert.ToInt32(Prop_Familia);
+                Usuario.Prop_Estado = Convert.ToInt32(Prop_Estado);
                 Usuario.Prop_NuevaPass = Convert.ToBoolean(Prop_NuevaPass);
                 Usuario.Prop_CambioPass = Convert.ToBoolean(Prop_CambioPass);
                 Usuario.Prop_Comentarios = Prop_Comentarios;
@@ -281,28 +268,15 @@ namespace Logica
             {
                 Usuario.ID_Persona = Prop_ID_Persona;
                 Usuario.Prop_UserName = Prop_UserName;
-                Usuario.Prop_Familia = Prop_Familia;
-                Usuario.Prop_Estado = Prop_Estado;
                 Usuario.Prop_Comentarios = Prop_Comentarios;
 
                 try
                 {
+                    Usuario.Prop_Familia = Convert.ToInt32(Prop_Familia);
+                    Usuario.Prop_Estado = Convert.ToInt32(Prop_Estado);
+                    Usuario.Prop_VtoPass = Convert.ToInt32(Prop_VtoPass);
+
                     Usuario.Prop_FeAlta = Convert.ToDateTime(Prop_FeAlta);
-                    switch (Prop_VtoPass)
-                    {
-                        case "30 Dias":
-                            Usuario.Prop_VtoPass = 30;
-                            break;
-                        case "60 Dias":
-                            Usuario.Prop_VtoPass = 60;
-                            break;
-                        case "120 Dias":
-                            Usuario.Prop_VtoPass = 120;
-                            break;
-                        case "Nunca":
-                            Usuario.Prop_VtoPass = 0;
-                            break;
-                    }
 
                 }
                 catch (Exception)
@@ -317,6 +291,31 @@ namespace Logica
                 throw new Exception("Error al guardar los datos, verifique que todos los campos estén completos");
             }
 
+        }
+        public DataTable convertirVto(DataTable dt) 
+        {
+            DataTable DtModificado = new DataTable();
+            DtModificado.Columns.Add("ID_Vencimiento", typeof(int));
+            DtModificado.Columns.Add("DiasParaVencimiento", typeof(string));
+
+            foreach (DataRow row in dt.Rows)
+            {
+                var fila = DtModificado.NewRow();
+                fila["ID_Vencimiento"] = row["ID_Vencimiento"];
+
+                if ((int)row["DiasParaVencimiento"] == 0)
+                {
+                    fila["DiasParaVencimiento"] = "Nunca vence";
+                }
+                else
+                {
+                    fila["DiasParaVencimiento"] = row["DiasParaVencimiento"].ToString();
+                }
+
+                DtModificado.Rows.Add(fila);
+            }
+
+            return DtModificado;
         }
 
     }

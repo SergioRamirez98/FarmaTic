@@ -42,7 +42,7 @@ namespace Vista
                 bool validar = Usuarios.Logear();
                 if (validar == true)
                 {
-                    if (CSesion_SesionIniciada.EstadoCuenta != "Bloqueado")
+                    if (CSesion_SesionIniciada.EstadoCuenta != 3)
                     {
                         if (CSesion_SesionIniciada.NuevaPass == true || CSesion_SesionIniciada.CambioPass == true)
                         {

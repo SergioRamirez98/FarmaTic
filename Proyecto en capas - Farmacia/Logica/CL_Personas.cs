@@ -117,6 +117,35 @@ namespace Logica
             
         }
 
+        public DataTable BusquedaRapida(string Palabra, DataTable Dt) 
+        {
+            Palabra= Palabra.ToLower();
+
+            if (!string.IsNullOrEmpty(Palabra))
+            {
+                DataTable resultadoFiltro = Dt.Clone();
+                             
+                var PersonasEncontrados = Dt.AsEnumerable()
+
+                        .Where(row => row.Field<string>("NombreCompleto").ToLower().Contains(Palabra) ||
+                        row.Field<string>("Documento").ToLower().Contains(Palabra) ||
+                        row.Field<string>("Direccion").ToLower().Contains(Palabra) ||
+                        row.Field<string>("Mail").ToLower().Contains(Palabra));
+                
+                foreach (var fila in PersonasEncontrados)
+                {
+                    resultadoFiltro.ImportRow(fila);
+                }
+
+                return resultadoFiltro;
+            }
+            else
+            {
+                return Dt;
+            }
+        }
+
+
         #endregion
 
     }
