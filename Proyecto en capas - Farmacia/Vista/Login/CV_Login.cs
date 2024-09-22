@@ -24,20 +24,11 @@ namespace Vista
             Sistema.CargarConfiguracion();          
         }
         private void Btn_Ingresar_Click(object sender, EventArgs e)
-        {
-            // A MODO DE PRUEBA!!!!
-
-            //CV_GestionUsuariosPersonas Gestion = new CV_GestionUsuariosPersonas();
-            //Gestion.Show();
-            //CV_Ventas STOQ = new CV_Ventas();
-            //STOQ.Show();
-            //CV_Stock stoq = new CV_Stock();
-            //stoq.Show();
-            //CV_Menu menu = new CV_Menu();
-            //menu.Show();
-            
+        {            
            try
             {
+                Txb_Usuario.Text = "SRamirez98";
+                Txb_Contrasena.Text = "Sa";
                 PasarDatos();
                 bool validar = Usuarios.Logear();
                 if (validar == true)

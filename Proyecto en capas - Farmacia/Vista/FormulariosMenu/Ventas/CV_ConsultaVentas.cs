@@ -24,9 +24,7 @@ namespace Vista
         private void CV_ConsultaVentas_Load(object sender, EventArgs e)
         {
             configurarDTGV();
-            //cargarDTGV();
         }
-
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
             try
@@ -39,7 +37,6 @@ namespace Vista
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
         }
-
         private void Btn_Ver_Click(object sender, EventArgs e)
         {
             if (DTGV_BusqVentas.SelectedRows.Count>0)
@@ -50,10 +47,7 @@ namespace Vista
                 CV_VisualizadorVentas VisualizadordeVentas = new CV_VisualizadorVentas(ID_Venta);
                 VisualizadordeVentas.Show();
             }
-        }
-
-       
-
+        }              
         private void Btn_Eliminar_Click(object sender, EventArgs e)
         {
             if (DTGV_BusqVentas.SelectedRows.Count > 0)
@@ -73,6 +67,7 @@ namespace Vista
                 CServ_MsjUsuario.MensajesDeError("No ha seleccionado ninguna Venta");
             }
         }
+
         #region Metodos
         private void configurarDTGV()
         {
@@ -94,7 +89,6 @@ namespace Vista
             Ventas.FechaHasta = Dtp_FeHasta.Value.ToString("yyyy-MM-dd 00:00:00");
             
         }
-
         private void cargarDTGV() 
         {
             DTGV_BusqVentas.DataSource = null;
