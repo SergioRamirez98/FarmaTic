@@ -157,7 +157,7 @@ namespace Datos
         public DataTable Localidad()
         {
 
-            string sSql = "SP_Obtener_Localidades";
+            string sSql = "SP_Obtener_Localidades_ComboBox";
             try
             {
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
@@ -172,7 +172,7 @@ namespace Datos
         }
         public DataTable Pais()
         {
-            string sSql = "SP_Obtener_Paises";
+            string sSql = "SP_Obtener_Paises_ComboBox";
             try
             {
                 List<SqlParameter> listaparametros = new List<SqlParameter>();

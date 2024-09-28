@@ -11,10 +11,11 @@ namespace Sesion
     {
 
         #region Properties
-        public static bool SesionActiva { get; set ;  }
+        public static bool SesionActiva { get; set ;}
         public static bool Es_Usuario { get; set; }
         public static string UserName { get; set; }
         public static string PassEncriptada { get; set; }
+        public static int ID { get; set; }
         public static int VenceCada { get; set; }
         public static string Nombre { get; set; }
         public static string Apellido { get; set; }
@@ -40,7 +41,9 @@ namespace Sesion
         public static bool NuevaPass { get; set; }
         public static bool CambioPass { get; set; }
         public static DateTime Fe_CambioPass { get; set; }
+        #endregion
 
+        #region Properties Permisos Usuario
         public static int ID_Usuario { get; set; }
         public static int ID_Rol { get; set; }
         public static string Descripcion { get; set; }
@@ -135,7 +138,8 @@ namespace Sesion
                 };
                 Permisos.Add(PermisosdelUsuario);
             }
-
+            DataRow fila = Resultado.Rows[0];
+            ID_Usuario = Convert.ToInt32(fila["ID_Usuario"]);
         }
         public static void LimpiarCache()
         {

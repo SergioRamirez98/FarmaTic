@@ -86,7 +86,7 @@ namespace Datos
         {
             try
             {
-                string sSql = "SP_Obtener_Categorias";
+                string sSql = "SP_Obtener_Categorias_ComboBox";
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
                 SqlParameter[] parametros = listaparametros.ToArray();
 

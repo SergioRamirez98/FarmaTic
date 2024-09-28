@@ -39,7 +39,7 @@ namespace Datos
         #endregion
         public DataTable MostrarProductosDTGV()
         {
-            string sSql = "SP_Mostrar_Inventario";
+            string sSql = "SP_Obtener_Inventario";
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             SqlParameter[] parametros = listaParametros.ToArray();
             DataTable dt = new DataTable();
@@ -111,9 +111,9 @@ namespace Datos
             param_CantidadDesde.Value = Prop_CantDesde;
             SqlParameter param_CantidadHasta = new SqlParameter("@CantidadHasta", SqlDbType.Int);
             param_CantidadHasta.Value = Prop_CantHasta;
-            SqlParameter param_PrecDesde = new SqlParameter("@PrecDesde", SqlDbType.Decimal);
+            SqlParameter param_PrecDesde = new SqlParameter("@PrecDesde", SqlDbType.Float);
             param_PrecDesde.Value = Prop_PrecDesde;
-            SqlParameter param_PrecHasta = new SqlParameter("@PrecHasta", SqlDbType.Decimal);
+            SqlParameter param_PrecHasta = new SqlParameter("@PrecHasta", SqlDbType.Float);
             param_PrecHasta.Value = Prop_PrecHasta;
             SqlParameter param_VtoDesde = new SqlParameter("@FeVtoDesde", SqlDbType.DateTime);
             param_VtoDesde.Value = Prop_VtoDesde;

@@ -204,7 +204,9 @@ namespace Vista.FormulariosMenu
         }
         private void pasarDatos()
         {
-            Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
+            //Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
+
+            Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.ID_Usuario.ToString();
             if (ID_Cliente!=0)Ventas.ID_Cliente = ID_Cliente.ToString(); 
             else Ventas.ID_Cliente = 2.ToString();
 

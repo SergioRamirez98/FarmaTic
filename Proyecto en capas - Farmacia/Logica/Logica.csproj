@@ -45,6 +45,7 @@
     <Compile Include="CL_ConsultaVentas.cs" />
     <Compile Include="CL_Productos.cs" />
     <Compile Include="CL_Personas.cs" />
+    <Compile Include="CL_Proveedores.cs" />
     <Compile Include="CL_Sistema.cs" />
     <Compile Include="CL_Usuarios.cs" />
     <Compile Include="CL_Ventas.cs" />

@@ -84,7 +84,7 @@ namespace Datos
         {
             try
             {
-                string sSql = "SP_Obtener_EstadoCmb";
+                string sSql = "SP_Obtener_Estado_ComboBox";
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
                 SqlParameter[] parametros = listaparametros.ToArray();
 
