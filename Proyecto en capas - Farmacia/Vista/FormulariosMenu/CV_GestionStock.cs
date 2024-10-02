@@ -17,12 +17,15 @@ namespace Vista
 {
     public partial class CV_Stock : Form
     {
-        CL_Productos Productos = new CL_Productos();
-        DataTable Dt = new DataTable();
         public CV_Stock()
         {
             InitializeComponent();
         }
+        #region atributos
+        CL_Productos Productos = new CL_Productos();
+        DataTable Dt = new DataTable();
+        #endregion
+
         #region Eventos
         private void CV_GestionStock_Load(object sender, EventArgs e)
         {
@@ -36,10 +39,10 @@ namespace Vista
             if (Chb_Busqueda.Checked)
             {
                 nuevosControles();
-                Txb_Nombre.Text = "";
+                Txb_Monodroga.Text = "";
                 Txb_Marca.Text = "";
                 Txb_Descripcion.Text="";
-                Txb_Nombre.Enabled = true;
+                Txb_Monodroga.Enabled = true;
                 Txb_Marca.Enabled = true;
                 Txb_Descripcion.Enabled = true;
                 Btn_Buscar.Enabled = true;
@@ -219,7 +222,8 @@ namespace Vista
         }        
         private void pasarDatos()
         {
-            Productos.Prop_Nombre = Txb_Nombre.Text;
+            Productos.Prop_NombreComercial = Txb_NombreComercial.Text;
+            Productos.Prop_Monodroga = Txb_Monodroga.Text;
             Productos.Prop_Marca = Txb_Marca.Text;
             Productos.Prop_Descripcion = Txb_Descripcion.Text;
             Productos.Prop_Cantidad = Txb_Cantidad.Text;
@@ -243,7 +247,8 @@ namespace Vista
         private void pasarDatos(int ID_Producto)
         {
             Productos.Prop_ID_Producto = ID_Producto.ToString();
-            Productos.Prop_Nombre = Txb_Nombre.Text;
+            Productos.Prop_NombreComercial = Txb_NombreComercial.Text;
+            Productos.Prop_Monodroga = Txb_Monodroga.Text;
             Productos.Prop_Marca = Txb_Marca.Text;
             Productos.Prop_Descripcion = Txb_Descripcion.Text;
             Productos.Prop_Cantidad = Txb_Cantidad.Text;
@@ -253,18 +258,20 @@ namespace Vista
         }       
         private void cargarControles()
         {
-            Txb_Nombre.Text = DTGV_Productos.CurrentRow.Cells[2].Value.ToString();
+            Txb_NombreComercial.Text = DTGV_Productos.CurrentRow.Cells[1].Value.ToString();
+            Txb_Monodroga.Text = DTGV_Productos.CurrentRow.Cells[2].Value.ToString();
             Txb_Marca.Text = DTGV_Productos.CurrentRow.Cells[3].Value.ToString();
             Txb_Descripcion.Text = DTGV_Productos.CurrentRow.Cells[4].Value.ToString();
             Txb_Cantidad.Text = DTGV_Productos.CurrentRow.Cells[5].Value.ToString();
-            Txb_Precio.Text = DTGV_Productos.CurrentRow.Cells[6].Value.ToString();
+            Txb_Precio.Text = DTGV_Productos.CurrentRow.Cells[6].Value.ToString();            
             Dtp_FeVto.Value = Convert.ToDateTime(DTGV_Productos.CurrentRow.Cells[7].Value.ToString());
             Txb_NumLote.Text = DTGV_Productos.CurrentRow.Cells[8].Value.ToString();
             Cmb_Categoria.Text = DTGV_Productos.CurrentRow.Cells[9].Value.ToString();
         }
         private void bloquearControles()
         {
-            Txb_Nombre.Enabled = false;
+            Txb_NombreComercial.Enabled = false;
+            Txb_Monodroga.Enabled = false;
             Txb_Marca.Enabled = false;
             Txb_Descripcion.Enabled = false;
             Txb_Cantidad.Enabled = false;
@@ -275,7 +282,8 @@ namespace Vista
         }
         private void desbloquearControles()
         {
-            Txb_Nombre.Enabled = true;
+            Txb_NombreComercial.Enabled = true;
+            Txb_Monodroga.Enabled = true;
             Txb_Marca.Enabled = true;
             Txb_Descripcion.Enabled = true;
             Txb_Cantidad.Enabled = true;

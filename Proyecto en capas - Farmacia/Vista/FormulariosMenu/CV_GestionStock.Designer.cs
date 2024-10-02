@@ -28,14 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Txb_Nombre = new System.Windows.Forms.TextBox();
+            this.Txb_Monodroga = new System.Windows.Forms.TextBox();
             this.Txb_Marca = new System.Windows.Forms.TextBox();
             this.Txb_Descripcion = new System.Windows.Forms.TextBox();
             this.Txb_Cantidad = new System.Windows.Forms.TextBox();
             this.Txb_Precio = new System.Windows.Forms.TextBox();
             this.Txb_NumLote = new System.Windows.Forms.TextBox();
             this.Dtp_FeVto = new System.Windows.Forms.DateTimePicker();
-            this.Lbl_Nombre = new System.Windows.Forms.Label();
+            this.Lbl_Monodroga = new System.Windows.Forms.Label();
             this.Lbl_Marca = new System.Windows.Forms.Label();
             this.Lbl_Descripcion = new System.Windows.Forms.Label();
             this.Lbl_Cantidad = new System.Windows.Forms.Label();
@@ -69,21 +69,23 @@
             this.Lbl_Categoria = new System.Windows.Forms.Label();
             this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
             this.Btn_VerProdVencidos = new System.Windows.Forms.Button();
+            this.Lbl_Nombre = new System.Windows.Forms.Label();
+            this.Txb_NombreComercial = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Txb_Nombre
+            // Txb_Monodroga
             // 
-            this.Txb_Nombre.Location = new System.Drawing.Point(120, 50);
-            this.Txb_Nombre.Name = "Txb_Nombre";
-            this.Txb_Nombre.Size = new System.Drawing.Size(210, 22);
-            this.Txb_Nombre.TabIndex = 1;
-            this.Txb_Nombre.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Txb_Monodroga.Location = new System.Drawing.Point(125, 94);
+            this.Txb_Monodroga.Name = "Txb_Monodroga";
+            this.Txb_Monodroga.Size = new System.Drawing.Size(210, 22);
+            this.Txb_Monodroga.TabIndex = 1;
+            this.Txb_Monodroga.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Txb_Marca
             // 
-            this.Txb_Marca.Location = new System.Drawing.Point(120, 100);
+            this.Txb_Marca.Location = new System.Drawing.Point(124, 128);
             this.Txb_Marca.Name = "Txb_Marca";
             this.Txb_Marca.Size = new System.Drawing.Size(210, 22);
             this.Txb_Marca.TabIndex = 2;
@@ -91,7 +93,7 @@
             // 
             // Txb_Descripcion
             // 
-            this.Txb_Descripcion.Location = new System.Drawing.Point(120, 150);
+            this.Txb_Descripcion.Location = new System.Drawing.Point(125, 161);
             this.Txb_Descripcion.Name = "Txb_Descripcion";
             this.Txb_Descripcion.Size = new System.Drawing.Size(210, 22);
             this.Txb_Descripcion.TabIndex = 3;
@@ -99,7 +101,7 @@
             // 
             // Txb_Cantidad
             // 
-            this.Txb_Cantidad.Location = new System.Drawing.Point(121, 200);
+            this.Txb_Cantidad.Location = new System.Drawing.Point(125, 200);
             this.Txb_Cantidad.Multiline = true;
             this.Txb_Cantidad.Name = "Txb_Cantidad";
             this.Txb_Cantidad.Size = new System.Drawing.Size(210, 22);
@@ -131,19 +133,19 @@
             this.Dtp_FeVto.Size = new System.Drawing.Size(121, 22);
             this.Dtp_FeVto.TabIndex = 8;
             // 
-            // Lbl_Nombre
+            // Lbl_Monodroga
             // 
-            this.Lbl_Nombre.AutoSize = true;
-            this.Lbl_Nombre.Location = new System.Drawing.Point(40, 50);
-            this.Lbl_Nombre.Name = "Lbl_Nombre";
-            this.Lbl_Nombre.Size = new System.Drawing.Size(56, 16);
-            this.Lbl_Nombre.TabIndex = 8;
-            this.Lbl_Nombre.Text = "Nombre";
+            this.Lbl_Monodroga.AutoSize = true;
+            this.Lbl_Monodroga.Location = new System.Drawing.Point(41, 94);
+            this.Lbl_Monodroga.Name = "Lbl_Monodroga";
+            this.Lbl_Monodroga.Size = new System.Drawing.Size(77, 16);
+            this.Lbl_Monodroga.TabIndex = 8;
+            this.Lbl_Monodroga.Text = "Monodroga";
             // 
             // Lbl_Marca
             // 
             this.Lbl_Marca.AutoSize = true;
-            this.Lbl_Marca.Location = new System.Drawing.Point(40, 100);
+            this.Lbl_Marca.Location = new System.Drawing.Point(40, 128);
             this.Lbl_Marca.Name = "Lbl_Marca";
             this.Lbl_Marca.Size = new System.Drawing.Size(45, 16);
             this.Lbl_Marca.TabIndex = 9;
@@ -152,7 +154,7 @@
             // Lbl_Descripcion
             // 
             this.Lbl_Descripcion.AutoSize = true;
-            this.Lbl_Descripcion.Location = new System.Drawing.Point(40, 150);
+            this.Lbl_Descripcion.Location = new System.Drawing.Point(41, 161);
             this.Lbl_Descripcion.Name = "Lbl_Descripcion";
             this.Lbl_Descripcion.Size = new System.Drawing.Size(79, 16);
             this.Lbl_Descripcion.TabIndex = 10;
@@ -458,11 +460,30 @@
             this.Btn_VerProdVencidos.UseVisualStyleBackColor = true;
             this.Btn_VerProdVencidos.Click += new System.EventHandler(this.Btn_VerProdVencidos_Click);
             // 
+            // Lbl_Nombre
+            // 
+            this.Lbl_Nombre.AutoSize = true;
+            this.Lbl_Nombre.Location = new System.Drawing.Point(40, 58);
+            this.Lbl_Nombre.Name = "Lbl_Nombre";
+            this.Lbl_Nombre.Size = new System.Drawing.Size(59, 16);
+            this.Lbl_Nombre.TabIndex = 29;
+            this.Lbl_Nombre.Text = "Nombre ";
+            // 
+            // Txb_NombreComercial
+            // 
+            this.Txb_NombreComercial.Location = new System.Drawing.Point(124, 58);
+            this.Txb_NombreComercial.Name = "Txb_NombreComercial";
+            this.Txb_NombreComercial.Size = new System.Drawing.Size(210, 22);
+            this.Txb_NombreComercial.TabIndex = 28;
+            this.Txb_NombreComercial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // CV_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1395, 817);
+            this.Controls.Add(this.Lbl_Nombre);
+            this.Controls.Add(this.Txb_NombreComercial);
             this.Controls.Add(this.Btn_VerProdVencidos);
             this.Controls.Add(this.Cmb_Categoria);
             this.Controls.Add(this.Lbl_Categoria);
@@ -481,14 +502,14 @@
             this.Controls.Add(this.Lbl_Cantidad);
             this.Controls.Add(this.Lbl_Descripcion);
             this.Controls.Add(this.Lbl_Marca);
-            this.Controls.Add(this.Lbl_Nombre);
+            this.Controls.Add(this.Lbl_Monodroga);
             this.Controls.Add(this.Dtp_FeVto);
             this.Controls.Add(this.Txb_NumLote);
             this.Controls.Add(this.Txb_Precio);
             this.Controls.Add(this.Txb_Cantidad);
             this.Controls.Add(this.Txb_Descripcion);
             this.Controls.Add(this.Txb_Marca);
-            this.Controls.Add(this.Txb_Nombre);
+            this.Controls.Add(this.Txb_Monodroga);
             this.Controls.Add(this.DTGV_Productos);
             this.Name = "CV_Stock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -504,14 +525,14 @@
         }
 
         #endregion
-        private System.Windows.Forms.TextBox Txb_Nombre;
+        private System.Windows.Forms.TextBox Txb_Monodroga;
         private System.Windows.Forms.TextBox Txb_Marca;
         private System.Windows.Forms.TextBox Txb_Descripcion;
         private System.Windows.Forms.TextBox Txb_Cantidad;
         private System.Windows.Forms.TextBox Txb_Precio;
         private System.Windows.Forms.TextBox Txb_NumLote;
         private System.Windows.Forms.DateTimePicker Dtp_FeVto;
-        private System.Windows.Forms.Label Lbl_Nombre;
+        private System.Windows.Forms.Label Lbl_Monodroga;
         private System.Windows.Forms.Label Lbl_Marca;
         private System.Windows.Forms.Label Lbl_Descripcion;
         private System.Windows.Forms.Label Lbl_Cantidad;
@@ -545,5 +566,7 @@
         private System.Windows.Forms.Label Lbl_Categoria;
         private System.Windows.Forms.ComboBox Cmb_Categoria;
         private System.Windows.Forms.Button Btn_VerProdVencidos;
+        private System.Windows.Forms.Label Lbl_Nombre;
+        private System.Windows.Forms.TextBox Txb_NombreComercial;
     }
 }

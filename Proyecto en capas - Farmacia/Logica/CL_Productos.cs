@@ -13,7 +13,8 @@ namespace Logica
         CD_Productos Productos = new CD_Productos();
 
         #region Properties
-        public string Prop_Nombre { get; set; }        
+        public string Prop_NombreComercial { get; set; }
+        public string Prop_Monodroga { get; set; }
         public string Prop_Marca { get; set; }
         public string Prop_Descripcion { get; set; }
         public string Prop_Cantidad { get; set; }
@@ -90,26 +91,20 @@ namespace Logica
         }
         private void pasarDatos(bool ProdSeleccionado)
         {
-            if (ProdSeleccionado)
-            {
-                Productos.Prop_ID_Producto = Convert.ToInt32(Prop_ID_Producto);
-            }
-            if (!string.IsNullOrEmpty(Prop_Nombre))
-            {
-                Productos.Prop_Nombre = Prop_Nombre;
-                //char.ToUpper(Prop_Nombre[0]) + Prop_Nombre.Substring(1).ToLower(); convierte la primer letra en mayus y el resto en minus.
-            }
-            else
-            {
-                throw new Exception("El nombre del producto no puede ser nulo o vacio");
-            }
+            if (ProdSeleccionado)  Productos.Prop_ID_Producto = Convert.ToInt32(Prop_ID_Producto);
+            
+            if (!string.IsNullOrEmpty(Prop_NombreComercial)) Productos.Prop_NombreComercial = Prop_NombreComercial;
+                //char.ToUpper(Prop_Nombre[0]) + Prop_Nombre.Substring(1).ToLower(); convierte la primer letra en mayus y el resto en minus.            
+            else throw new Exception("El nombre del producto no puede ser nulo o vacio");
 
-            if (!string.IsNullOrEmpty(Prop_Marca))
-            {
-                Productos.Prop_Marca = Prop_Marca;
-            }
-            else
-            { throw new Exception("La marca del producto no puede ser nulo o vacio"); }
+
+            if (!string.IsNullOrEmpty(Prop_Monodroga)) Productos.Prop_Monodroga = Prop_Monodroga;
+                //char.ToUpper(Prop_Nombre[0]) + Prop_Nombre.Substring(1).ToLower(); convierte la primer letra en mayus y el resto en minus.
+            else throw new Exception("la monodroga del producto no puede ser nulo o vacio");
+            
+
+            if (!string.IsNullOrEmpty(Prop_Marca)) Productos.Prop_Marca = Prop_Marca;            
+            else throw new Exception("La marca del producto no puede ser nulo o vacio"); 
 
             Productos.Prop_Descripcion = Prop_Descripcion;
 
@@ -125,10 +120,8 @@ namespace Logica
                     throw new Exception("La cantidad debe ser un formato numérico válido.");
                 }
             }
-            else
-            {
-                throw new Exception("La cantidad no puede ser vacia o nula");
-            }
+            else throw new Exception("La cantidad no puede ser vacia o nula");
+            
 
             if (!string.IsNullOrEmpty(Prop_Precio) || Prop_Precio =="0")
             {
@@ -190,29 +183,18 @@ namespace Logica
         }
         private void pasarDatosConsulta()
         {
-
-            Productos.Prop_Nombre = Prop_Nombre;
+            Productos.Prop_NombreComercial = Prop_NombreComercial;
+            Productos.Prop_Monodroga = Prop_Monodroga;
             Productos.Prop_Marca = Prop_Marca;
             Productos.Prop_Descripcion = Prop_Descripcion;
             
             try
             {
-                if (string.IsNullOrEmpty(Prop_CantDesde))
-                {
-                    Productos.Prop_CantDesde = int.MinValue;
-                }
-                else
-                {
-                    Productos.Prop_CantDesde = Convert.ToInt32(Prop_CantDesde);
-                }
-                if (string.IsNullOrEmpty(Prop_CantHasta))
-                {
-                    Productos.Prop_CantHasta = int.MaxValue;
-                }
-                else
-                {
-                    Productos.Prop_CantHasta = Convert.ToInt32(Prop_CantHasta);
-                }
+                if (string.IsNullOrEmpty(Prop_CantDesde)) Productos.Prop_CantDesde = int.MinValue;
+                else Productos.Prop_CantDesde = Convert.ToInt32(Prop_CantDesde);
+                
+                if (string.IsNullOrEmpty(Prop_CantHasta)) Productos.Prop_CantHasta = int.MaxValue;                
+                else  Productos.Prop_CantHasta = Convert.ToInt32(Prop_CantHasta);
 
             }
             catch (Exception)

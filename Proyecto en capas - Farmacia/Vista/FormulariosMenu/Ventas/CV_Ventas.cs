@@ -204,8 +204,6 @@ namespace Vista.FormulariosMenu
         }
         private void pasarDatos()
         {
-            //Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.UserName;
-
             Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.ID_Usuario.ToString();
             if (ID_Cliente!=0)Ventas.ID_Cliente = ID_Cliente.ToString(); 
             else Ventas.ID_Cliente = 2.ToString();
@@ -243,15 +241,21 @@ namespace Vista.FormulariosMenu
         private void agregarAlCarrito(int ProdSeleccionado)
         {
             int Id = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[0].Value);
-            string Nombre = DTGV_Ventas.Rows[ProdSeleccionado].Cells[1].Value.ToString();
-            string Marca = DTGV_Ventas.Rows[ProdSeleccionado].Cells[2].Value.ToString();
+            string Nombre = DTGV_Ventas.Rows[ProdSeleccionado].Cells[2].Value.ToString();
+            string Marca = DTGV_Ventas.Rows[ProdSeleccionado].Cells[3].Value.ToString();
             int Cantidad = Convert.ToInt32(Nud_Cantidad.Value);
-            double Precio = Convert.ToDouble(DTGV_Ventas.Rows[ProdSeleccionado].Cells[5].Value);
+            double Precio = Convert.ToDouble(DTGV_Ventas.Rows[ProdSeleccionado].Cells[6].Value);
             double SubTotal = Cantidad * Precio;
-            DateTime Vto = Convert.ToDateTime(DTGV_Ventas.Rows[ProdSeleccionado].Cells[6].Value);
-            int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[7].Value);       
+            DateTime Vto = Convert.ToDateTime(DTGV_Ventas.Rows[ProdSeleccionado].Cells[7].Value);
+            int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[8].Value);       
 
             DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote,Desc);
+            foreach (DataGridViewRow row in DTGV_Carrito.Rows)
+            {
+                row.Cells[8].Value = Desc;
+            }
+
+
             DTGV_Ventas.ClearSelection();
             DTGV_Carrito.ClearSelection();
         }
@@ -307,6 +311,10 @@ namespace Vista.FormulariosMenu
             Txb_Cliente.Text = cliente;
             ID_Cliente = idClienteDelegado;
             Desc = Descuento;
+            foreach (DataGridViewRow row in DTGV_Carrito.Rows)
+            {
+                row.Cells[8].Value = Desc;
+            }
             cat = Categoria;
         }
         #endregion

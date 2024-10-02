@@ -14,7 +14,8 @@ namespace Datos
     public class CD_Productos:CD_EjecutarSP
     {
         #region Properties
-        public string Prop_Nombre { get; set; }
+        public string Prop_NombreComercial { get; set; }
+        public string Prop_Monodroga { get; set; }
         public string Prop_Marca { get; set; }
         public string Prop_Descripcion { get; set; }
         public int Prop_Cantidad { get; set; }
@@ -32,8 +33,7 @@ namespace Datos
         public int Prop_CantHasta { get; set; }
         public double Prop_PrecDesde { get; set; }
         public double Prop_PrecHasta { get; set; }
-        public int Prop_NLoteBusq { get; set; }
-        
+        public int Prop_NLoteBusq { get; set; }        
         public DateTime Prop_VtoDesde { get; set; }
         public DateTime Prop_VtoHasta { get; set; }
         #endregion
@@ -101,8 +101,10 @@ namespace Datos
         public DataTable Consultar()
         {
             string sSql = "SP_Consultar_Producto_Inventario";
-            SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
-            param_Nombre.Value = Prop_Nombre;
+            SqlParameter param_NombreComercial = new SqlParameter("@NombreComercial", SqlDbType.VarChar, 200);
+            param_NombreComercial.Value = Prop_NombreComercial;
+            SqlParameter param_Monodroga = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
+            param_Monodroga.Value = Prop_Monodroga;
             SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
             param_Marca.Value = Prop_Marca; 
             SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
@@ -122,7 +124,8 @@ namespace Datos
             SqlParameter param_NumLote = new SqlParameter("@NumLote", SqlDbType.Int);                 
             param_NumLote.Value = Prop_NLoteBusq;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            listaParametros.Add(param_Nombre);
+            listaParametros.Add(param_NombreComercial);
+            listaParametros.Add(param_Monodroga);
             listaParametros.Add(param_Marca);
             listaParametros.Add(param_Descripcion);
             listaParametros.Add(param_CantidadDesde);
@@ -167,8 +170,10 @@ namespace Datos
             try
             {
                 string sSql = "SP_Insertar_Producto_Inventario";
-                SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
-                param_Nombre.Value = Prop_Nombre;
+                SqlParameter param_NombreComercial = new SqlParameter("@NombreComercial", SqlDbType.VarChar, 200);
+                param_NombreComercial.Value = Prop_NombreComercial;
+                SqlParameter param_Monodroga = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
+                param_Monodroga.Value = Prop_Monodroga;
                 SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
                 param_Marca.Value = Prop_Marca;
                 SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
@@ -185,7 +190,8 @@ namespace Datos
                 param_Categoria.Value = Prop_Categoria;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
-                listaParametros.Add(param_Nombre);
+                listaParametros.Add(param_NombreComercial);
+                listaParametros.Add(param_Monodroga);
                 listaParametros.Add(param_Marca);
                 listaParametros.Add(param_Descripcion);
                 listaParametros.Add(param_Cantidad);
@@ -211,8 +217,10 @@ namespace Datos
                 string sSql = "SP_Actualizar_Producto_Inventario";
                 SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
                 param_ID_Producto.Value = Prop_ID_Producto;
-                SqlParameter param_Nombre = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
-                param_Nombre.Value = Prop_Nombre;
+                SqlParameter param_NombreComercial = new SqlParameter("@NombreComercial", SqlDbType.VarChar, 200);
+                param_NombreComercial.Value = Prop_NombreComercial;
+                SqlParameter param_Monodroga = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
+                param_Monodroga.Value = Prop_Monodroga;
                 SqlParameter param_Marca = new SqlParameter("@Marca", SqlDbType.VarChar, 200);
                 param_Marca.Value = Prop_Marca;
                 SqlParameter param_Descripcion = new SqlParameter("@DescripProd", SqlDbType.VarChar, 200);
@@ -228,7 +236,8 @@ namespace Datos
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_ID_Producto);
-                listaParametros.Add(param_Nombre);
+                listaParametros.Add(param_NombreComercial);
+                listaParametros.Add(param_Monodroga);
                 listaParametros.Add(param_Marca);
                 listaParametros.Add(param_Descripcion);
                 listaParametros.Add(param_Cantidad);
