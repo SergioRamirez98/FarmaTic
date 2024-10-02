@@ -34,6 +34,7 @@
             this.Btn_Config = new System.Windows.Forms.Button();
             this.Btn_ModuloInventario = new System.Windows.Forms.Button();
             this.Btn_Proveedores = new System.Windows.Forms.Button();
+            this.Btb_OC = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_GestionUsuarios
@@ -68,10 +69,10 @@
             // 
             // Btn_Config
             // 
-            this.Btn_Config.Location = new System.Drawing.Point(30, 132);
+            this.Btn_Config.Location = new System.Drawing.Point(30, 315);
             this.Btn_Config.Name = "Btn_Config";
             this.Btn_Config.Size = new System.Drawing.Size(184, 58);
-            this.Btn_Config.TabIndex = 4;
+            this.Btn_Config.TabIndex = 20;
             this.Btn_Config.Text = "Configuración";
             this.Btn_Config.UseVisualStyleBackColor = true;
             this.Btn_Config.Click += new System.EventHandler(this.Btn_Config_Click);
@@ -88,19 +89,30 @@
             // 
             // Btn_Proveedores
             // 
-            this.Btn_Proveedores.Location = new System.Drawing.Point(230, 132);
+            this.Btn_Proveedores.Location = new System.Drawing.Point(30, 141);
             this.Btn_Proveedores.Name = "Btn_Proveedores";
             this.Btn_Proveedores.Size = new System.Drawing.Size(184, 58);
-            this.Btn_Proveedores.TabIndex = 5;
+            this.Btn_Proveedores.TabIndex = 4;
             this.Btn_Proveedores.Text = "Proveedores";
             this.Btn_Proveedores.UseVisualStyleBackColor = true;
             this.Btn_Proveedores.Click += new System.EventHandler(this.Btn_Proveedores_Click);
+            // 
+            // Btb_OC
+            // 
+            this.Btb_OC.Location = new System.Drawing.Point(230, 141);
+            this.Btb_OC.Name = "Btb_OC";
+            this.Btb_OC.Size = new System.Drawing.Size(184, 58);
+            this.Btb_OC.TabIndex = 5;
+            this.Btb_OC.Text = "Orden de Compra";
+            this.Btb_OC.UseVisualStyleBackColor = true;
+            this.Btb_OC.Click += new System.EventHandler(this.Btb_OC_Click);
             // 
             // CV_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btb_OC);
             this.Controls.Add(this.Btn_Proveedores);
             this.Controls.Add(this.Btn_ModuloInventario);
             this.Controls.Add(this.Btn_Config);
@@ -125,5 +137,6 @@
         private System.Windows.Forms.Button Btn_Config;
         private System.Windows.Forms.Button Btn_ModuloInventario;
         private System.Windows.Forms.Button Btn_Proveedores;
+        private System.Windows.Forms.Button Btb_OC;
     }
 }

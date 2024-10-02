@@ -46,6 +46,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FormulariosMenu\CV_CatalogoCompra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\CV_CatalogoCompra.Designer.cs">
+      <DependentUpon>CV_CatalogoCompra.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormulariosMenu\CV_GestiónProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -138,6 +144,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormulariosMenu\CV_CatalogoCompra.resx">
+      <DependentUpon>CV_CatalogoCompra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\CV_GestiónProveedores.resx">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
     </EmbeddedResource>

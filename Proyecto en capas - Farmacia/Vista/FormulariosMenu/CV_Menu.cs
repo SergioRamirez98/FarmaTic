@@ -79,6 +79,10 @@ namespace Vista
             CV_GestionProveedores Proveedores = new CV_GestionProveedores();
             Proveedores.Show();
         }
+        private void Btb_OC_Click(object sender, EventArgs e)
+        {
+
+        }
 
         public void accesoAModulos()
         {
@@ -87,6 +91,7 @@ namespace Vista
             Btn_ModuloInventario.Enabled = false;
             Btn_Config.Enabled = false;
             Btn_Proveedores.Enabled = false;
+            Btb_OC.Enabled = false;
 
             foreach (var permiso in CSesion_SesionIniciada.Permisos)
             {
@@ -98,6 +103,7 @@ namespace Vista
                         Btn_ModuloInventario.Enabled = true;
                         Btn_Config.Enabled = true;
                         Btn_Proveedores.Enabled = true;
+                        Btb_OC.Enabled = true;
                         break;
 
                     case 2: 
@@ -115,8 +121,13 @@ namespace Vista
                     case 42:
                         Btn_Proveedores.Enabled = true;
                         break;
+                    case 43:
+                        Btb_OC.Enabled = true;
+                        break;
                 }
             }
         }
+
+        
     }
 }

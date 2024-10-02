@@ -204,26 +204,17 @@ namespace Vista
             DTGV_Productos.DataSource = null;
             Dt = Productos.MostrarProductos();
             DTGV_Productos.DataSource = Dt;
-            DTGV_Productos.Columns[0].DisplayIndex = 0;
-            DTGV_Productos.Columns[1].DisplayIndex = 1;
-            DTGV_Productos.Columns[2].DisplayIndex = 2;
-            DTGV_Productos.Columns[3].DisplayIndex = 4;
-            DTGV_Productos.Columns[4].DisplayIndex = 5;
-            DTGV_Productos.Columns[5].DefaultCellStyle.Format = "#,##0.00";
-            DTGV_Productos.Columns[5].DisplayIndex = 6;
-            DTGV_Productos.Columns[6].DisplayIndex = 7;
-            DTGV_Productos.Columns[7].DisplayIndex = 8;
-            DTGV_Productos.Columns[8].DisplayIndex = 3;
-
             DTGV_Productos.Columns[0].HeaderText = "ID";
-            DTGV_Productos.Columns[1].HeaderText = "Nombre del producto";
-            DTGV_Productos.Columns[2].HeaderText = "Marca";
-            DTGV_Productos.Columns[3].HeaderText = "Descripcion del producto";
-            DTGV_Productos.Columns[4].HeaderText = "Cantidad";
-            DTGV_Productos.Columns[5].HeaderText = "Precio unitario";
-            DTGV_Productos.Columns[6].HeaderText = "Vencimiento";
-            DTGV_Productos.Columns[7].HeaderText = "Numero de lote";
-            DTGV_Productos.Columns[8].HeaderText = "Categoría";
+            DTGV_Productos.Columns[1].HeaderText = "Nombre Comercial";
+            DTGV_Productos.Columns[2].HeaderText = "Monodroga";
+            DTGV_Productos.Columns[3].HeaderText = "Marca";
+            DTGV_Productos.Columns[4].HeaderText = "Descripcion del producto";
+            DTGV_Productos.Columns[5].HeaderText = "Cantidad";
+            DTGV_Productos.Columns[6].HeaderText = "Precio unitario";
+            DTGV_Productos.Columns[6].DefaultCellStyle.Format = "#,##0.00";
+            DTGV_Productos.Columns[7].HeaderText = "Vencimiento";
+            DTGV_Productos.Columns[8].HeaderText = "Numero de lote";
+            DTGV_Productos.Columns[9].HeaderText = "Categoría";
             DTGV_Productos.ClearSelection();
         }        
         private void pasarDatos()
@@ -262,14 +253,14 @@ namespace Vista
         }       
         private void cargarControles()
         {
-            Txb_Nombre.Text = DTGV_Productos.CurrentRow.Cells[1].Value.ToString();
-            Txb_Marca.Text = DTGV_Productos.CurrentRow.Cells[2].Value.ToString();
-            Txb_Descripcion.Text = DTGV_Productos.CurrentRow.Cells[3].Value.ToString();
-            Txb_Cantidad.Text = DTGV_Productos.CurrentRow.Cells[4].Value.ToString();
-            Txb_Precio.Text = DTGV_Productos.CurrentRow.Cells[5].Value.ToString();
-            Dtp_FeVto.Value = Convert.ToDateTime(DTGV_Productos.CurrentRow.Cells[6].Value.ToString());
-            Txb_NumLote.Text = DTGV_Productos.CurrentRow.Cells[7].Value.ToString();
-            Cmb_Categoria.Text = DTGV_Productos.CurrentRow.Cells[8].Value.ToString();
+            Txb_Nombre.Text = DTGV_Productos.CurrentRow.Cells[2].Value.ToString();
+            Txb_Marca.Text = DTGV_Productos.CurrentRow.Cells[3].Value.ToString();
+            Txb_Descripcion.Text = DTGV_Productos.CurrentRow.Cells[4].Value.ToString();
+            Txb_Cantidad.Text = DTGV_Productos.CurrentRow.Cells[5].Value.ToString();
+            Txb_Precio.Text = DTGV_Productos.CurrentRow.Cells[6].Value.ToString();
+            Dtp_FeVto.Value = Convert.ToDateTime(DTGV_Productos.CurrentRow.Cells[7].Value.ToString());
+            Txb_NumLote.Text = DTGV_Productos.CurrentRow.Cells[8].Value.ToString();
+            Cmb_Categoria.Text = DTGV_Productos.CurrentRow.Cells[9].Value.ToString();
         }
         private void bloquearControles()
         {
