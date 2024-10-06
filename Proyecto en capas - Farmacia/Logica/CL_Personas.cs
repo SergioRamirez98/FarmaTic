@@ -58,6 +58,10 @@ namespace Logica
             PasarDatos();
             return Personas.Insertar();
         }
+        public void Eliminar(int ID_Persona) 
+        {
+            Personas.EliminarPersona(ID_Persona);
+        }
         public DataTable ObtenerLocalidad() 
         {
             return Personas.Localidad();
@@ -69,11 +73,7 @@ namespace Logica
         public DataTable ObtenerPersonas()
         {
             return Personas.ObtenerPersonaCmb();
-        }
-        public DataTable ObtenerFamilia()
-        {
-            return Personas.Familia();
-        }
+        }        
         public DataTable CargarDatos(int ID_Persona)
         {
             return Personas.CargarPersonas(ID_Persona);

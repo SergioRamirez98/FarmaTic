@@ -38,7 +38,9 @@ namespace Vista
                 DataRowView selectedRow = (DataRowView)Cmb_Categoria.SelectedItem;
                 int ID_Categoria = Convert.ToInt32(selectedRow["ID_Categoria"]);
                 int Descuento = Convert.ToInt32((selectedRow["Descuento"]));
+                string DescCategoria = (selectedRow["Descripcion"]).ToString();
                 Txb_Descuento.Text = Descuento + "%";
+                Txb_DescCategoria.Text = DescCategoria;
             }
             else
             {
@@ -47,7 +49,7 @@ namespace Vista
         }
         private void Rbt_Usuario_CheckedChanged(object sender, EventArgs e)
         {
-            if (Rbt_Usuario.Checked)
+           /* if (Rbt_Usuario.Checked)
             {
                 Size = new Size(710, 600);
                 Pnb_RegistroUsuario.Visible = true;
@@ -59,7 +61,7 @@ namespace Vista
                 Pnb_RegistroUsuario.Location = new System.Drawing.Point(15, 235);
                 Pnb_RegistroUsuario.Enabled = false;
                 Pnb_RegistroUsuario.Visible = false;
-            }
+            }*/
         }
         private void Rbt_Cliente_CheckedChanged(object sender, EventArgs e)
         {
@@ -81,6 +83,12 @@ namespace Vista
 
             }
         }
+        private void Txb_AsociarUsuario_Click(object sender, EventArgs e)
+        {
+            CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
+            altaUsuario.Show();
+        }
+
         private void Btn_RegistrarPersona_Click(object sender, EventArgs e)
         {
             try
@@ -141,7 +149,12 @@ namespace Vista
         {
             if (ID_Persona!=0)
             {
-                bool Eliminar=CServ_MsjUsuario.Preguntar("¿Esta seguro de querer eliminar a la persona seleccionada?");
+                bool Eliminar=CServ_MsjUsuario.Preguntar("¿Esta seguro de querer eliminar a la persona seleccionada? Si la persona es cliente o usuario se dará de baja también.");
+                if (Eliminar)
+                {
+                    GestionPersonas.Eliminar(ID_Persona);
+                    CServ_MsjUsuario.Exito("Persona eliminada con éxito");
+                }
             }
         }
         private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
@@ -220,6 +233,7 @@ namespace Vista
                 Cmb_Categoria.DataSource = Clientes.ObtenerCategoria();
                 Cmb_Categoria.DisplayMember = "Categoria";
                 Cmb_Categoria.ValueMember = "ID_Categoria";
+                Txb_DescCategoria.Enabled = false;
                 Cmb_Categoria.SelectedIndex = -1;               
 
             }
@@ -235,7 +249,7 @@ namespace Vista
                 Cmb_Nacionalidad.ValueMember = "ID_Pais";
                 Cmb_Nacionalidad.SelectedIndex = -1;
 
-                Cmb_Familia.DataSource = GestionPersonas.ObtenerFamilia();
+                Cmb_Familia.DataSource = Usuario.ObtenerFamilia();
                 Cmb_Familia.DisplayMember = "Descripcion_Familia";
                 Cmb_Familia.ValueMember = "ID_Familia";
                 Cmb_Familia.SelectedIndex = -1;
@@ -349,7 +363,10 @@ namespace Vista
 
             if (EsUsuario)
             {
+                Rbt_Usuario.Enabled = false; 
                 Rbt_Cliente.Checked = true;
+                Rbt_Cliente.Enabled = true;
+
                 Txb_UserName.Enabled = false;
                 Dtp_FeAlta.Enabled = false;
                 Cmb_Familia.Enabled = false;
@@ -360,8 +377,10 @@ namespace Vista
             else if (EsCliente)
             {
                 Rbt_Usuario.Checked = true;
+                Rbt_Cliente.Enabled = false;
                 Cmb_Categoria.Enabled = false;
                 Txb_Descuento.Enabled = false;
+                Txb_DescCategoria.Enabled = false;
                 Txb_ComentarioCliente.Enabled = false;
                 Dtp_FeAltaCliente.Enabled = false;
                 Btn_RegistrarCliente.Enabled = false;
@@ -434,6 +453,7 @@ namespace Vista
                 Dtp_FeNacimiento.Value = CSesion_PersonaSeleccionada.FeNacimiento;
                 Txb_Comentario.Text = CSesion_PersonaSeleccionada.ComentarioUsuario;
                 Rbt_Usuario.Enabled = true;
+                Rbt_Cliente.Enabled = true;
             }
             if (EsUsuario)
             {
@@ -467,7 +487,7 @@ namespace Vista
             else if (EsCliente)
             {
                 Rbt_Usuario.Checked = false;
-                
+                Rbt_Cliente.Enabled = true;
                 Rbt_Cliente.Checked = true;
                 Cmb_Categoria.SelectedValue = CSesion_PersonaSeleccionada.ID_Categoria;
                 Txb_ComentarioCliente.Text = CSesion_PersonaSeleccionada.ComentarioCliente;
@@ -553,8 +573,18 @@ namespace Vista
                 Cmb_VenceCada.Enabled = true;
             }
         }
+
+
         #endregion
 
-        
+        private void Btn_AsociarCliente_Click(object sender, EventArgs e)
+        {
+            cargarComboBox(true);
+            Size = new Size(710, 400);
+            Txb_Descuento.Enabled = false;
+            Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 237);
+            Pnb_RegistroCliente.Enabled = true;
+            Pnb_RegistroCliente.Visible = true;
+        }
     }
 }

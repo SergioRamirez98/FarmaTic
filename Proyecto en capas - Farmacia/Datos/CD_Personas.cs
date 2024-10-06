@@ -103,6 +103,23 @@ namespace Datos
                 throw new Exception ("No se ha podido realizar la operación. Error CD_Personas||Insertar");
             }
         }
+        public void EliminarPersona(int ID_Persona) 
+        {
+            try
+            {
+                string sSql = "SP_Eliminar_Persona";
+                SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Persona.Value = ID_Persona;
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_ID_Persona);
+                lista = listaParametros.ToArray();
+                ejecutar(sSql, lista, false);
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Insertar");
+            }
+        }
         public DataTable Modificar(int ID_Persona)
         {
             try
@@ -283,21 +300,6 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Personas||ObtenerPersonaCmb");
             }
         }
-        public DataTable Familia()
-        {
-            try
-            {
-                string sSql = "SP_Obtener_Familias_ComboBox";
-                List<SqlParameter> listaparametros = new List<SqlParameter>();
-                SqlParameter[] parametros = listaparametros.ToArray();
-
-                return ejecutar(sSql, parametros, true);
-
-            }
-            catch (Exception)
-            {
-                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Familia");
-            }
-        }
+       
     }
 }

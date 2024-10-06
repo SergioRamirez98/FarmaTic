@@ -147,6 +147,23 @@ namespace Datos
             }
 
         }
+        public void EliminarUsuario(int ID_Persona) 
+        {
+            try
+            {
+                string sSql = "SP_Eliminar_Usuario";
+                SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Persona.Value = ID_Persona;
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_ID_Persona);
+                lista = listaParametros.ToArray();
+                ejecutar(sSql, lista, false);
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||EliminarUsuario");
+            }
+        }
         public DataTable BuscarUser()
         {
             try
@@ -169,6 +186,22 @@ namespace Datos
             }
 
         }
+        public DataTable Familia()
+        {
+            try
+            {
+                string sSql = "SP_Obtener_Familias_ComboBox";
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                return ejecutar(sSql, parametros, true);
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Familia");
+            }
+        }
         public DataTable ObtenerPreguntasAleatorias()
         {
 
@@ -186,6 +219,37 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Logear");
             }
         }
+
+        public bool CargarUsuarios(int ID_Persona)
+        {
+            DataTable Dt = new DataTable();
+            try
+            {
+                string sSql = "SP_Cache_Usuarios";
+                SqlParameter param_ID_Usuario = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Usuario.Value = ID_Persona;
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Add(param_ID_Usuario);
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                Dt = ejecutar(sSql, parametros, true);
+                CSesion_PersonaSeleccionada.ActualizaFormularioUsuarios(Dt);
+                if (Dt.Rows.Count > 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||CargarUsuarios.");
+            }
+        }
+
         public bool CambiarPass()
         {
             string sSql = "SP_Actualizar_Pass";

@@ -80,6 +80,18 @@ namespace Logica
         {
             Usuario.BloqueoUsuario();
         }
+        public void Eliminar(int id_Persona) 
+        {
+            Usuario.EliminarUsuario(id_Persona);
+        }
+        public DataTable ObtenerFamilia()
+        {
+            return Usuario.Familia();
+        }
+        public bool CargarDatosUsuarios(int ID_Persona)
+        {
+            return Usuario.CargarUsuarios(ID_Persona);
+        }
         public DataTable BuscarUsuario()
         {
             Usuario.Prop_UserName = Prop_UserName;

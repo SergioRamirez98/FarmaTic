@@ -58,6 +58,12 @@
     <Compile Include="FormulariosMenu\CV_GestiónProveedores.Designer.cs">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="FormulariosMenu\GestionPersonas\CV_AltaUsuario.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\GestionPersonas\CV_AltaUsuario.Designer.cs">
+      <DependentUpon>CV_AltaUsuario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormulariosMenu\GestionPersonas\CV_SeleccionarPersona.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\CV_GestiónProveedores.resx">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulariosMenu\GestionPersonas\CV_AltaUsuario.resx">
+      <DependentUpon>CV_AltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\GestionPersonas\CV_SeleccionarPersona.resx">
       <DependentUpon>CV_SeleccionarPersona.cs</DependentUpon>
