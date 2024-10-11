@@ -46,17 +46,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormulariosMenu\CV_CatalogoCompra.cs">
+    <Compile Include="FormulariosMenu\CV_CatalogoProductos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_CatalogoCompra.Designer.cs">
-      <DependentUpon>CV_CatalogoCompra.cs</DependentUpon>
+    <Compile Include="FormulariosMenu\CV_CatalogoProductos.Designer.cs">
+      <DependentUpon>CV_CatalogoProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\CV_GestiónProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FormulariosMenu\CV_GestiónProveedores.Designer.cs">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormulariosMenu\CV_ObtenerProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\CV_ObtenerProveedores.Designer.cs">
+      <DependentUpon>CV_ObtenerProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\GestionPersonas\CV_AltaUsuario.cs">
       <SubType>Form</SubType>
@@ -150,11 +156,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormulariosMenu\CV_CatalogoCompra.resx">
-      <DependentUpon>CV_CatalogoCompra.cs</DependentUpon>
+    <EmbeddedResource Include="FormulariosMenu\CV_CatalogoProductos.resx">
+      <DependentUpon>CV_CatalogoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\CV_GestiónProveedores.resx">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulariosMenu\CV_ObtenerProveedores.resx">
+      <DependentUpon>CV_ObtenerProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\GestionPersonas\CV_AltaUsuario.resx">
       <DependentUpon>CV_AltaUsuario.cs</DependentUpon>

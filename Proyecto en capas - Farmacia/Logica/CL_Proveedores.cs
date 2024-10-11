@@ -14,6 +14,8 @@ namespace Logica
 
         #region Atributos
         CD_Proveedores Proveedores = new CD_Proveedores();
+        DataTable Dt = new DataTable();
+
         #endregion
         #region Properties
         public string ID_Proveedor { get; set; }
@@ -31,7 +33,7 @@ namespace Logica
         #region Métodos
         public DataTable MostrarProveedores()
         {
-            return Proveedores.MostrarProveedores();
+            return Dt=Proveedores.MostrarProveedores();
         }
         public DataTable ObtenerIVA()
         {
@@ -127,6 +129,34 @@ namespace Logica
             Proveedores.IVA = IVA;
         }
 
+        public DataTable BusquedaRapida(string Palabra)
+        {
+
+            Palabra = Palabra.ToLower();
+
+            if (!string.IsNullOrEmpty(Palabra))
+            {
+                DataTable resultadoFiltro = Dt.Clone();
+
+                var PersonasEncontrados = Dt.AsEnumerable()
+
+                        .Where(row => row.Field<string>("Nombre").ToLower().Contains(Palabra) ||
+                        row.Field<string>("Direccion").ToLower().Contains(Palabra) ||
+                        row.Field<string>("Localidad").ToLower().Contains(Palabra) ||
+                        row.Field<string>("MAIL").ToLower().Contains(Palabra));
+
+                foreach (var fila in PersonasEncontrados)
+                {
+                    resultadoFiltro.ImportRow(fila);
+                }
+
+                return resultadoFiltro;
+            }
+            else
+            {
+                return Dt;
+            }
+        }
         #endregion
     }
 }

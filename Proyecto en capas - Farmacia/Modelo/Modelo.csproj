@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CM_CargaProductos.cs" />
     <Compile Include="CM_CargaStockMinimo.cs" />
+    <Compile Include="CM_Catalogo.cs" />
     <Compile Include="CM_PermisosUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

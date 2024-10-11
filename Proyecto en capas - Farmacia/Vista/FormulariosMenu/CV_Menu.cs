@@ -81,7 +81,8 @@ namespace Vista
         }
         private void Btb_OC_Click(object sender, EventArgs e)
         {
-
+            CV_CatalogoProductos Catalogo = new CV_CatalogoProductos();
+            Catalogo.Show();
         }
 
         public void accesoAModulos()

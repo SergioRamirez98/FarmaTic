@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CD_Catalogo.cs" />
     <Compile Include="CD_Clientes.cs" />
     <Compile Include="CD_ConectarBDD.cs" />
     <Compile Include="CD_ConsultaVentas.cs" />
@@ -54,6 +55,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{9f34f81f-70d3-4d63-8a0a-14d71fdbb618}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Servicios\Servicios.csproj">
       <Project>{8f6e30bd-7948-4f3c-90db-e93319dfea49}</Project>
       <Name>Servicios</Name>
