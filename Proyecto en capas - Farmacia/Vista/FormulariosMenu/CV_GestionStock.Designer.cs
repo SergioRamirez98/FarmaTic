@@ -71,6 +71,7 @@
             this.Btn_VerProdVencidos = new System.Windows.Forms.Button();
             this.Lbl_Nombre = new System.Windows.Forms.Label();
             this.Txb_NombreComercial = new System.Windows.Forms.TextBox();
+            this.Btn_Refrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
@@ -198,7 +199,7 @@
             // 
             // Btn_Agregar
             // 
-            this.Btn_Agregar.Location = new System.Drawing.Point(865, 36);
+            this.Btn_Agregar.Location = new System.Drawing.Point(860, 68);
             this.Btn_Agregar.Name = "Btn_Agregar";
             this.Btn_Agregar.Size = new System.Drawing.Size(75, 30);
             this.Btn_Agregar.TabIndex = 10;
@@ -208,7 +209,7 @@
             // 
             // Btn_Buscar
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(865, 77);
+            this.Btn_Buscar.Location = new System.Drawing.Point(860, 109);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(75, 29);
             this.Btn_Buscar.TabIndex = 11;
@@ -218,7 +219,7 @@
             // 
             // Btn_Modificar
             // 
-            this.Btn_Modificar.Location = new System.Drawing.Point(865, 112);
+            this.Btn_Modificar.Location = new System.Drawing.Point(860, 144);
             this.Btn_Modificar.Name = "Btn_Modificar";
             this.Btn_Modificar.Size = new System.Drawing.Size(75, 29);
             this.Btn_Modificar.TabIndex = 12;
@@ -228,7 +229,7 @@
             // 
             // Btn_GuardarCambios
             // 
-            this.Btn_GuardarCambios.Location = new System.Drawing.Point(865, 147);
+            this.Btn_GuardarCambios.Location = new System.Drawing.Point(860, 179);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
             this.Btn_GuardarCambios.Size = new System.Drawing.Size(75, 30);
             this.Btn_GuardarCambios.TabIndex = 13;
@@ -249,7 +250,7 @@
             // 
             // Btn_Eliminar
             // 
-            this.Btn_Eliminar.Location = new System.Drawing.Point(865, 183);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(860, 215);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 31);
             this.Btn_Eliminar.TabIndex = 14;
@@ -477,11 +478,22 @@
             this.Txb_NombreComercial.TabIndex = 28;
             this.Txb_NombreComercial.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // Btn_Refrescar
+            // 
+            this.Btn_Refrescar.Location = new System.Drawing.Point(860, 31);
+            this.Btn_Refrescar.Name = "Btn_Refrescar";
+            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 31);
+            this.Btn_Refrescar.TabIndex = 30;
+            this.Btn_Refrescar.Text = "Refrescar";
+            this.Btn_Refrescar.UseVisualStyleBackColor = true;
+            this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
+            // 
             // CV_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1395, 817);
+            this.Controls.Add(this.Btn_Refrescar);
             this.Controls.Add(this.Lbl_Nombre);
             this.Controls.Add(this.Txb_NombreComercial);
             this.Controls.Add(this.Btn_VerProdVencidos);
@@ -515,7 +527,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de inventario";
             this.Load += new System.EventHandler(this.CV_GestionStock_Load);
-            this.Click += new System.EventHandler(this.CV_GestionStock_Click);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).EndInit();
             this.Pnl_Busqueda.ResumeLayout(false);
             this.Pnl_Busqueda.PerformLayout();
@@ -568,5 +579,6 @@
         private System.Windows.Forms.Button Btn_VerProdVencidos;
         private System.Windows.Forms.Label Lbl_Nombre;
         private System.Windows.Forms.TextBox Txb_NombreComercial;
+        private System.Windows.Forms.Button Btn_Refrescar;
     }
 }

@@ -53,11 +53,6 @@ namespace Vista
             else {reestablecerControles(); CServ_Limpiar.LimpiarFormulario(this); desbloquearControles(); }
 
         }
-        private void CV_GestionStock_Click(object sender, EventArgs e)
-        {
-            configurarLoad();
-            desbloquearControles();
-        }
         private void DTGV_Productos_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             Chb_Busqueda.Checked = false;
@@ -184,6 +179,11 @@ namespace Vista
         {
             CV_ProdVencido ProductosVencidos = new CV_ProdVencido();
             ProductosVencidos.Show();
+        }
+        private void Btn_Refrescar_Click(object sender, EventArgs e)
+        {
+            configurarLoad();
+            desbloquearControles();
         }
         #endregion
 
@@ -412,7 +412,6 @@ namespace Vista
 
         }
 
-        #endregion
-
+        #endregion       
     }
 }
