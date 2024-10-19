@@ -24,6 +24,7 @@ namespace Sesion
         public static string Sexo { get; set; }
         public static string Domicilio { get; set; }
         public static string Partido { get; set; }
+        public static string Localidad { get; set; }
         public static string Nacionalidad { get; set; }
         public static int Telefono { get; set; }
         public static DateTime FeNacimiento { get; set; }
@@ -68,7 +69,8 @@ namespace Sesion
                     Correo = fila["Mail"].ToString();
                     Sexo = fila["Sexo"].ToString();
                     Domicilio = fila["Direccion"].ToString();
-                    Partido = fila["Localidad"].ToString();
+                    Partido = fila["Partido"].ToString();
+                    Localidad = fila["Localidad"].ToString();
                     Nacionalidad = fila["Pais"].ToString();
                     Telefono = Convert.ToInt32(fila["Telefono"]);
                     FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
@@ -156,6 +158,7 @@ namespace Sesion
                 Sexo = null;
                 Domicilio = null;
                 Partido = null;
+                Localidad = null;
                 Nacionalidad = null;
                 Telefono = 0;
                 FeNacimiento = DateTime.Today;

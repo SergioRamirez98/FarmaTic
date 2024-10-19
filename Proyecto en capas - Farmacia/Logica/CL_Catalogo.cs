@@ -11,6 +11,7 @@ namespace Logica
     public class CL_Catalogo
     {
         CD_Catalogo Catalogo = new CD_Catalogo();
+
         #region Properties
         public string ID_Producto { get; set; }
         public string NombreComercial { get; set; }

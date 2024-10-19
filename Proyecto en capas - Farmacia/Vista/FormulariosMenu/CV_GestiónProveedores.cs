@@ -182,7 +182,7 @@ namespace Vista
             DTGV_Proveedores.Columns[1].HeaderText = "Razon social";
             DTGV_Proveedores.Columns[2].HeaderText = "Matricula";
             DTGV_Proveedores.Columns[3].HeaderText = "Direccion";
-            DTGV_Proveedores.Columns[4].HeaderText = "Localidad";
+            DTGV_Proveedores.Columns[4].HeaderText = "Partido";
             DTGV_Proveedores.Columns[5].HeaderText = "Telefono";
             DTGV_Proveedores.Columns[6].HeaderText = "CUIT";
             DTGV_Proveedores.Columns[7].HeaderText = "Mail";
@@ -191,10 +191,10 @@ namespace Vista
         }
         private void cargarComboBox()
         {
-            Cmb_Localidad.DataSource = GestionPersonas.ObtenerLocalidad();
-            Cmb_Localidad.DisplayMember = "Localidad";
-            Cmb_Localidad.ValueMember = "ID_Localidad";
-            Cmb_Localidad.SelectedIndex = -1;
+            Cmb_Partido.DataSource = GestionPersonas.ObtenerPartido();
+            Cmb_Partido.DisplayMember = "Partido";
+            Cmb_Partido.ValueMember = "ID_Partido";
+            Cmb_Partido.SelectedIndex = -1;
 
             Cmb_IVA.DataSource = Proveedores.ObtenerIVA();
             Cmb_IVA.DisplayMember = "DescripcionIVA";
@@ -213,7 +213,7 @@ namespace Vista
             Proveedores.Matricula = Txb_Matricula.Text;
             Proveedores.Telefono=Txb_Telefono.Text;
             Proveedores.Direccion = Txb_Direccion.Text;
-            Proveedores.Localidad = Cmb_Localidad.Text;
+            Proveedores.Partido = Cmb_Partido.Text;
             Proveedores.Mail = Txb_Mail.Text;
             Proveedores.IVA = Cmb_IVA.Text;
             Proveedores.IIBB= Chb_IIBB.Checked.ToString();
@@ -223,7 +223,7 @@ namespace Vista
             Txb_RazonSocial.Text = DTGV_Proveedores.CurrentRow.Cells[1].Value.ToString();
             Txb_Matricula.Text = DTGV_Proveedores.CurrentRow.Cells[2].Value.ToString();
             Txb_Direccion.Text = DTGV_Proveedores.CurrentRow.Cells[3].Value.ToString();
-            Cmb_Localidad.Text = DTGV_Proveedores.CurrentRow.Cells[4].Value.ToString();
+            Cmb_Partido.Text = DTGV_Proveedores.CurrentRow.Cells[4].Value.ToString();
             Txb_Telefono.Text = DTGV_Proveedores.CurrentRow.Cells[5].Value.ToString();
             Txb_Cuit.Text = DTGV_Proveedores.CurrentRow.Cells[6].Value.ToString();
             Txb_Mail.Text = DTGV_Proveedores.CurrentRow.Cells[7].Value.ToString();

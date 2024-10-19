@@ -16,6 +16,6 @@ namespace Modelo
         public int UnidadporLote { get; set; }
         public int CompraMinima { get; set; }
         public double PrecioProveedor { get; set; }
-        
+
     }
 }

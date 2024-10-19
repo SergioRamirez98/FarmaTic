@@ -60,7 +60,6 @@ namespace Datos
             }
             return CatalogoProductos;
         }
-
         public List<CM_Catalogo> Busqueda()
         {
             DataTable dt = new DataTable();
@@ -224,8 +223,6 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Catalogo||EliminarProductoCatalogo.");
             }
         }
-
-
         private void cargarCM_Catalogo(DataTable dt) 
         {
             if (dt.Rows.Count>0)

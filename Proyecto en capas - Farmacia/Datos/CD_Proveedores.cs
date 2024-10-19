@@ -18,7 +18,7 @@ namespace Datos
         public int Matricula { get; set; }
         public int Telefono { get; set; }
         public string Direccion { get; set; }
-        public string Localidad { get; set; }
+        public string Partido { get; set; }
         public string Mail { get; set; }
         public string IVA { get; set; }
         public bool IIBB { get; set; }
@@ -75,8 +75,8 @@ namespace Datos
             param_Telefono.Value = Telefono;
             SqlParameter param_Direccion = new SqlParameter("@Direccion", SqlDbType.VarChar, 200);
             param_Direccion.Value = Direccion;
-            SqlParameter param_ID_Localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 200);
-            param_ID_Localidad.Value = Localidad;
+            SqlParameter param_ID_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 200);
+            param_ID_Partido.Value = Partido;
             SqlParameter param_Mail = new SqlParameter("@Mail", SqlDbType.VarChar, 200);
             param_Mail.Value = Mail;
             SqlParameter param_IVA = new SqlParameter("@IVA", SqlDbType.VarChar, 200);
@@ -91,7 +91,7 @@ namespace Datos
             listaParametros.Add(param_Telefono);
             listaParametros.Add(param_Direccion);
             listaParametros.Add(param_Mail);
-            listaParametros.Add(param_ID_Localidad);
+            listaParametros.Add(param_ID_Partido);
             listaParametros.Add(param_IVA);
             listaParametros.Add(param_IIBB);
             lista = listaParametros.ToArray();
@@ -125,8 +125,8 @@ namespace Datos
                 param_Telefono.Value = Telefono;
                 SqlParameter param_Direccion = new SqlParameter("@Direccion", SqlDbType.VarChar, 200);
                 param_Direccion.Value = Direccion;
-                SqlParameter param_ID_Localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 200);
-                param_ID_Localidad.Value = Localidad;
+                SqlParameter param_ID_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 200);
+                param_ID_Partido.Value = Partido;
                 SqlParameter param_Mail = new SqlParameter("@Mail", SqlDbType.VarChar,200);
                 param_Mail.Value = Mail;
                 SqlParameter param_IVA = new SqlParameter("@IVA", SqlDbType.VarChar, 200);
@@ -141,7 +141,7 @@ namespace Datos
                 listaParametros.Add(param_Telefono);
                 listaParametros.Add(param_Direccion);
                 listaParametros.Add(param_Mail);
-                listaParametros.Add(param_ID_Localidad);
+                listaParametros.Add(param_ID_Partido);
                 listaParametros.Add(param_IVA);
                 listaParametros.Add(param_IIBB);
                 lista = listaParametros.ToArray();
@@ -172,8 +172,8 @@ namespace Datos
                 param_Telefono.Value = Telefono;
                 SqlParameter param_Direccion = new SqlParameter("@Direccion", SqlDbType.VarChar, 200);
                 param_Direccion.Value = Direccion;
-                SqlParameter param_ID_Localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 200);
-                param_ID_Localidad.Value = Localidad;
+                SqlParameter param_ID_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 200);
+                param_ID_Partido.Value = Partido;
                 SqlParameter param_Mail = new SqlParameter("@Mail", SqlDbType.VarChar, 200);
                 param_Mail.Value = Mail;
                 SqlParameter param_IVA = new SqlParameter("@IVA", SqlDbType.VarChar, 200);
@@ -189,7 +189,7 @@ namespace Datos
                 listaParametros.Add(param_Telefono);
                 listaParametros.Add(param_Direccion);
                 listaParametros.Add(param_Mail);
-                listaParametros.Add(param_ID_Localidad);
+                listaParametros.Add(param_ID_Partido);
                 listaParametros.Add(param_IVA);
                 listaParametros.Add(param_IIBB);
                 lista = listaParametros.ToArray();

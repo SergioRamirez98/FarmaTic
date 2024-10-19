@@ -18,7 +18,7 @@ namespace Logica
         private string atr_correo;
         private string atr_sexo;
         private string atr_domicilio;
-        private string atr_localidad;
+        private string atr_Partido;
         private string atr_nacionalidad;
         private string atr_telefono;
         private string atr_nacimiento;
@@ -37,8 +37,8 @@ namespace Logica
         { get => atr_sexo; set { atr_sexo = value; } }
         public string Prop_DOMICILIO
         { get => atr_domicilio; set { atr_domicilio = value; } }
-        public string Prop_LOCALIDAD
-        { get => atr_localidad; set { atr_localidad = value; } }
+        public string Prop_Partido
+        { get => atr_Partido; set { atr_Partido = value; } }
         public string Prop_NACIONALIDAD
         { get => atr_nacionalidad; set { atr_nacionalidad = value; } }
         public string Prop_TELEFONO
@@ -62,9 +62,13 @@ namespace Logica
         {
             Personas.EliminarPersona(ID_Persona);
         }
-        public DataTable ObtenerLocalidad() 
+        public DataTable ObtenerPartido() 
         {
-            return Personas.Localidad();
+            return Personas.Partido();
+        }
+        public DataTable ObtenerLocalidades()
+        {
+            return Personas.Localidades();
         }
         public DataTable ObtenerPais()
         {
@@ -105,7 +109,7 @@ namespace Logica
                 Personas.Prop_CORREO = atr_correo;
                 Personas.Prop_SEXO = atr_sexo;
                 Personas.Prop_DOMICILIO = atr_domicilio;
-                Personas.Prop_LOCALIDAD = atr_localidad;
+                Personas.Prop_Partido = atr_Partido;
                 Personas.Prop_NACIONALIDAD = atr_nacionalidad;
 
             }

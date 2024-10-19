@@ -34,6 +34,7 @@ namespace Vista.FormulariosMenu
             InitializeComponent();
         }
 
+        #region Eventos
         private void CV_Ventas_Load(object sender, EventArgs e)
         {
             cargarDTGV();
@@ -41,8 +42,6 @@ namespace Vista.FormulariosMenu
             configurarLoad();
 
         }
-
-        #region Eventos
         private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
         {
             DTGV_Ventas.DataSource = Ventas.BusquedaRapida(Txb_BusquedaRapida.Text, Dt);

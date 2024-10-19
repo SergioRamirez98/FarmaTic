@@ -20,7 +20,7 @@ namespace Datos
         private string atr_correo;
         private string atr_sexo;
         private string atr_domicilio;
-        private string atr_localidad;
+        private string atr_Partido;
         private string atr_nacionalidad;
         private int atr_telefono;
         private DateTime atr_nacimiento;
@@ -43,8 +43,8 @@ namespace Datos
         { get => atr_sexo; set { atr_sexo = value; } }
         public string Prop_DOMICILIO
         { get => atr_domicilio; set { atr_domicilio = value; } }
-        public string Prop_LOCALIDAD
-        { get => atr_localidad; set { atr_localidad = value; } }
+        public string Prop_Partido
+        { get => atr_Partido; set { atr_Partido = value; } }
         public string Prop_NACIONALIDAD
         { get => atr_nacionalidad; set { atr_nacionalidad = value; } }
         public int Prop_TELEFONO
@@ -76,8 +76,8 @@ namespace Datos
                 param_telefono.Value = atr_telefono;
                 SqlParameter param_Nacimiento = new SqlParameter("@FeNacimiento", SqlDbType.DateTime);
                 param_Nacimiento.Value = atr_nacimiento;
-                SqlParameter param_localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
-                param_localidad.Value = atr_localidad;
+                SqlParameter param_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 50);
+                param_Partido.Value = atr_Partido;
                 SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
                 param_Nacionalidad.Value = atr_nacionalidad;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
@@ -89,7 +89,7 @@ namespace Datos
                 listaParametros.Add(param_sexo);
                 listaParametros.Add(param_telefono);
                 listaParametros.Add(param_Nacimiento);
-                listaParametros.Add(param_localidad);
+                listaParametros.Add(param_Partido);
                 listaParametros.Add(param_Nacionalidad);
 
                 lista = listaParametros.ToArray();
@@ -143,8 +143,8 @@ namespace Datos
                 param_telefono.Value = atr_telefono;
                 SqlParameter param_Nacimiento = new SqlParameter("@FeNacimiento", SqlDbType.DateTime);
                 param_Nacimiento.Value = atr_nacimiento;
-                SqlParameter param_localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
-                param_localidad.Value = atr_localidad;
+                SqlParameter param_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 50);
+                param_Partido.Value = atr_Partido;
                 SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
                 param_Nacionalidad.Value = atr_nacionalidad;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
@@ -157,7 +157,7 @@ namespace Datos
                 listaParametros.Add(param_sexo);
                 listaParametros.Add(param_telefono);
                 listaParametros.Add(param_Nacimiento);
-                listaParametros.Add(param_localidad);
+                listaParametros.Add(param_Partido);
                 listaParametros.Add(param_Nacionalidad);
 
                 lista = listaParametros.ToArray();
@@ -171,7 +171,23 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Insertar");
             }
         }
-        public DataTable Localidad()
+        public DataTable Partido() 
+        {
+
+            string sSql = "SP_Obtener_Partido_ComboBox";
+            try
+            {
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                SqlParameter[] parametros = listaparametros.ToArray();
+                return ejecutar(sSql, parametros, true);
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Partido.");
+            }
+        } //
+        public DataTable Localidades()
         {
 
             string sSql = "SP_Obtener_Localidades_ComboBox";
@@ -184,9 +200,10 @@ namespace Datos
             }
             catch (Exception)
             {
-                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Localidad.");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Localidades.");
             }
         }
+        
         public DataTable Pais()
         {
             string sSql = "SP_Obtener_Paises_ComboBox";

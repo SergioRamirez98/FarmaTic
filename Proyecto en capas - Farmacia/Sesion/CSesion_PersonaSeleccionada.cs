@@ -73,7 +73,7 @@ namespace Sesion
                     Correo = fila["Mail"].ToString();
                     Sexo = fila["Sexo"].ToString();
                     Domicilio = fila["Direccion"].ToString();
-                    Partido = fila["Localidad"].ToString();
+                    Partido = fila["Partido"].ToString();
                     Nacionalidad = fila["Pais"].ToString();
                     Telefono = Convert.ToInt32(fila["Telefono"]);
                     FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);

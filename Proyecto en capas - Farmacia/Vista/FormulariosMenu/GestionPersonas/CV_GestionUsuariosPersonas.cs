@@ -239,9 +239,9 @@ namespace Vista
             }
             else
             {
-                Cmb_Partido.DataSource = GestionPersonas.ObtenerLocalidad();
-                Cmb_Partido.DisplayMember = "Localidad";
-                Cmb_Partido.ValueMember = "ID_Localidad";
+                Cmb_Partido.DataSource = GestionPersonas.ObtenerPartido();
+                Cmb_Partido.DisplayMember = "Partido";
+                Cmb_Partido.ValueMember = "ID_Partido";
                 Cmb_Partido.SelectedIndex = -1;
 
                 Cmb_Nacionalidad.DataSource = GestionPersonas.ObtenerPais();
@@ -276,7 +276,7 @@ namespace Vista
             GestionPersonas.Prop_CORREO = Txb_Correo.Text;
             GestionPersonas.Prop_SEXO = Cmb_Sexo.Text;
             GestionPersonas.Prop_DOMICILIO = Txb_Domicilio.Text;
-            GestionPersonas.Prop_LOCALIDAD = Cmb_Partido.Text;
+            GestionPersonas.Prop_Partido = Cmb_Partido.Text;
             GestionPersonas.Prop_NACIONALIDAD = Cmb_Nacionalidad.Text;
             GestionPersonas.Prop_TELEFONO = Txb_Telefono.Text;
 

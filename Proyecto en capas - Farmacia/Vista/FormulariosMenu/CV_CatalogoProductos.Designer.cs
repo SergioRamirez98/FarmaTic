@@ -50,6 +50,10 @@
             this.Lbl_Proveedor = new System.Windows.Forms.Label();
             this.Btn_SeleccionarProveedor = new System.Windows.Forms.Button();
             this.Pnl_Busqueda = new System.Windows.Forms.Panel();
+            this.Lbl_CompraMinHasta = new System.Windows.Forms.Label();
+            this.Txb_CompraMinHasta = new System.Windows.Forms.TextBox();
+            this.Txb_CompraMinDesde = new System.Windows.Forms.TextBox();
+            this.Lbl_CompraMinDesde = new System.Windows.Forms.Label();
             this.Lbl_PrecHasta = new System.Windows.Forms.Label();
             this.Lbl_CantHasta = new System.Windows.Forms.Label();
             this.Txb_PrecHasta = new System.Windows.Forms.TextBox();
@@ -58,10 +62,6 @@
             this.Txb_CantDesde = new System.Windows.Forms.TextBox();
             this.Txb_PrecDesde = new System.Windows.Forms.TextBox();
             this.Lbl_PrecDesde = new System.Windows.Forms.Label();
-            this.Lbl_CompraMinHasta = new System.Windows.Forms.Label();
-            this.Txb_CompraMinHasta = new System.Windows.Forms.TextBox();
-            this.Txb_CompraMinDesde = new System.Windows.Forms.TextBox();
-            this.Lbl_CompraMinDesde = new System.Windows.Forms.Label();
             this.Chb_Busqueda = new System.Windows.Forms.CheckBox();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Catalogo)).BeginInit();
@@ -213,7 +213,7 @@
             this.DTGV_Catalogo.Name = "DTGV_Catalogo";
             this.DTGV_Catalogo.RowHeadersWidth = 51;
             this.DTGV_Catalogo.RowTemplate.Height = 24;
-            this.DTGV_Catalogo.Size = new System.Drawing.Size(1371, 350);
+            this.DTGV_Catalogo.Size = new System.Drawing.Size(1287, 350);
             this.DTGV_Catalogo.TabIndex = 53;
             this.DTGV_Catalogo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_Catalogo_CellClick);
             // 
@@ -287,6 +287,40 @@
             this.Pnl_Busqueda.Size = new System.Drawing.Size(385, 114);
             this.Pnl_Busqueda.TabIndex = 59;
             // 
+            // Lbl_CompraMinHasta
+            // 
+            this.Lbl_CompraMinHasta.AutoSize = true;
+            this.Lbl_CompraMinHasta.Location = new System.Drawing.Point(247, 52);
+            this.Lbl_CompraMinHasta.Name = "Lbl_CompraMinHasta";
+            this.Lbl_CompraMinHasta.Size = new System.Drawing.Size(43, 16);
+            this.Lbl_CompraMinHasta.TabIndex = 37;
+            this.Lbl_CompraMinHasta.Text = "Hasta";
+            // 
+            // Txb_CompraMinHasta
+            // 
+            this.Txb_CompraMinHasta.Location = new System.Drawing.Point(296, 45);
+            this.Txb_CompraMinHasta.Name = "Txb_CompraMinHasta";
+            this.Txb_CompraMinHasta.Size = new System.Drawing.Size(72, 22);
+            this.Txb_CompraMinHasta.TabIndex = 36;
+            this.Txb_CompraMinHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Txb_CompraMinDesde
+            // 
+            this.Txb_CompraMinDesde.Location = new System.Drawing.Point(154, 47);
+            this.Txb_CompraMinDesde.Name = "Txb_CompraMinDesde";
+            this.Txb_CompraMinDesde.Size = new System.Drawing.Size(76, 22);
+            this.Txb_CompraMinDesde.TabIndex = 34;
+            this.Txb_CompraMinDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // Lbl_CompraMinDesde
+            // 
+            this.Lbl_CompraMinDesde.AutoSize = true;
+            this.Lbl_CompraMinDesde.Location = new System.Drawing.Point(7, 48);
+            this.Lbl_CompraMinDesde.Name = "Lbl_CompraMinDesde";
+            this.Lbl_CompraMinDesde.Size = new System.Drawing.Size(143, 16);
+            this.Lbl_CompraMinDesde.TabIndex = 35;
+            this.Lbl_CompraMinDesde.Text = "Compra minima desde";
+            // 
             // Lbl_PrecHasta
             // 
             this.Lbl_PrecHasta.AutoSize = true;
@@ -357,40 +391,6 @@
             this.Lbl_PrecDesde.TabIndex = 26;
             this.Lbl_PrecDesde.Text = "Precio desde";
             // 
-            // Lbl_CompraMinHasta
-            // 
-            this.Lbl_CompraMinHasta.AutoSize = true;
-            this.Lbl_CompraMinHasta.Location = new System.Drawing.Point(247, 52);
-            this.Lbl_CompraMinHasta.Name = "Lbl_CompraMinHasta";
-            this.Lbl_CompraMinHasta.Size = new System.Drawing.Size(43, 16);
-            this.Lbl_CompraMinHasta.TabIndex = 37;
-            this.Lbl_CompraMinHasta.Text = "Hasta";
-            // 
-            // Txb_CompraMinHasta
-            // 
-            this.Txb_CompraMinHasta.Location = new System.Drawing.Point(296, 45);
-            this.Txb_CompraMinHasta.Name = "Txb_CompraMinHasta";
-            this.Txb_CompraMinHasta.Size = new System.Drawing.Size(72, 22);
-            this.Txb_CompraMinHasta.TabIndex = 36;
-            this.Txb_CompraMinHasta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Txb_CompraMinDesde
-            // 
-            this.Txb_CompraMinDesde.Location = new System.Drawing.Point(154, 47);
-            this.Txb_CompraMinDesde.Name = "Txb_CompraMinDesde";
-            this.Txb_CompraMinDesde.Size = new System.Drawing.Size(76, 22);
-            this.Txb_CompraMinDesde.TabIndex = 34;
-            this.Txb_CompraMinDesde.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // Lbl_CompraMinDesde
-            // 
-            this.Lbl_CompraMinDesde.AutoSize = true;
-            this.Lbl_CompraMinDesde.Location = new System.Drawing.Point(7, 48);
-            this.Lbl_CompraMinDesde.Name = "Lbl_CompraMinDesde";
-            this.Lbl_CompraMinDesde.Size = new System.Drawing.Size(143, 16);
-            this.Lbl_CompraMinDesde.TabIndex = 35;
-            this.Lbl_CompraMinDesde.Text = "Compra minima desde";
-            // 
             // Chb_Busqueda
             // 
             this.Chb_Busqueda.AutoSize = true;
@@ -416,7 +416,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1404, 701);
+            this.ClientSize = new System.Drawing.Size(1331, 701);
             this.Controls.Add(this.Btn_Refrescar);
             this.Controls.Add(this.Chb_Busqueda);
             this.Controls.Add(this.Pnl_Busqueda);

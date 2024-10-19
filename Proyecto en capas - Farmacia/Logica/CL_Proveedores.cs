@@ -24,7 +24,7 @@ namespace Logica
         public string Matricula { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-        public string Localidad { get; set; }
+        public string Partido { get; set; }
         public string Mail { get; set; }
         public string IVA { get; set; }
         public string IIBB { get; set; }
@@ -102,8 +102,8 @@ namespace Logica
                 if (Telefono !="") Proveedores.Telefono = Convert.ToInt32(Telefono);               
                 else Proveedores.Telefono = 0;
 
-                if (Localidad != "") Proveedores.Localidad = Localidad;
-                else throw new Exception("Por favor seleccione la localidad a la que pertenece el proveedor");
+                if (Partido != "") Proveedores.Partido = Partido;
+                else throw new Exception("Por favor seleccione la Partido a la que pertenece el proveedor");
 
 
                 if (IVA != "") Proveedores.IVA = IVA;
@@ -125,7 +125,7 @@ namespace Logica
             if (CUIT == "") Proveedores.CUIT = 0; else  Proveedores.CUIT = Convert.ToInt64(CUIT);
             if (Matricula == "") Proveedores.Matricula = 0; else Proveedores.Matricula = Convert.ToInt32(Matricula);
             if (Telefono == "") Proveedores.Telefono = 0; else Proveedores.Telefono = Convert.ToInt32(Telefono);
-            Proveedores.Localidad = Localidad;
+            Proveedores.Partido = Partido;
             Proveedores.IVA = IVA;
         }
 
@@ -142,7 +142,7 @@ namespace Logica
 
                         .Where(row => row.Field<string>("Nombre").ToLower().Contains(Palabra) ||
                         row.Field<string>("Direccion").ToLower().Contains(Palabra) ||
-                        row.Field<string>("Localidad").ToLower().Contains(Palabra) ||
+                        row.Field<string>("Partido").ToLower().Contains(Palabra) ||
                         row.Field<string>("MAIL").ToLower().Contains(Palabra));
 
                 foreach (var fila in PersonasEncontrados)

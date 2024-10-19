@@ -87,35 +87,44 @@ namespace Datos
         }
         public void InsertarVentaItem()
         {
-            string sSql = "SP_Insertar_Venta_Item";
-            List<SqlParameter> listaParametros = new List<SqlParameter>();
-            foreach (var item in Items)
+            try
+            {
+                string sSql = "SP_Insertar_Venta_Item";
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                foreach (var item in Items)
+                {
+
+                    SqlParameter param_ID_Venta = new SqlParameter("@ID_Venta", SqlDbType.Int);
+                    param_ID_Venta.Value = item.ID_Venta;
+                    SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
+                    param_ID_Producto.Value = item.ID_Producto;
+                    SqlParameter param_PrecUnitario = new SqlParameter("@PrecioUnitario", SqlDbType.Decimal);
+                    param_PrecUnitario.Value = item.PrecUnitario;
+                    SqlParameter param_Cantidad = new SqlParameter("@Cantidad", SqlDbType.Int);
+                    param_Cantidad.Value = item.Cantidad;
+                    SqlParameter param_Subtotal = new SqlParameter("@Subtotal", SqlDbType.Decimal);
+                    param_Subtotal.Value = item.Subtotal;
+
+                    SqlParameter param_ItemDescuento = new SqlParameter("@ItemDescuento", SqlDbType.Decimal);
+                    param_ItemDescuento.Value = item.TotalconDescuento;
+
+
+                    listaParametros.Add(param_ID_Venta);
+                    listaParametros.Add(param_ID_Producto);
+                    listaParametros.Add(param_PrecUnitario);
+                    listaParametros.Add(param_Cantidad);
+                    listaParametros.Add(param_Subtotal);
+                    listaParametros.Add(param_ItemDescuento);
+                    lista = listaParametros.ToArray();
+                    ejecutar(sSql, lista, false);
+                    listaParametros.Clear();
+                }
+
+            }
+            catch (Exception)
             {
 
-                SqlParameter param_ID_Venta = new SqlParameter("@ID_Venta", SqlDbType.Int);
-                param_ID_Venta.Value = item.ID_Venta;
-                SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
-                param_ID_Producto.Value = item.ID_Producto;
-                SqlParameter param_PrecUnitario = new SqlParameter("@PrecioUnitario", SqlDbType.Decimal);
-                param_PrecUnitario.Value = item.PrecUnitario;
-                SqlParameter param_Cantidad = new SqlParameter("@Cantidad", SqlDbType.Int);
-                param_Cantidad.Value = item.Cantidad;
-                SqlParameter param_Subtotal = new SqlParameter("@Subtotal", SqlDbType.Decimal);
-                param_Subtotal.Value = item.Subtotal;
-
-                SqlParameter param_ItemDescuento = new SqlParameter("@ItemDescuento", SqlDbType.Decimal);
-                param_ItemDescuento.Value = item.TotalconDescuento;
-
-
-                listaParametros.Add(param_ID_Venta);
-                listaParametros.Add(param_ID_Producto);
-                listaParametros.Add(param_PrecUnitario);
-                listaParametros.Add(param_Cantidad);
-                listaParametros.Add(param_Subtotal);
-                listaParametros.Add(param_ItemDescuento);
-                lista = listaParametros.ToArray();
-                ejecutar(sSql, lista, false);
-                listaParametros.Clear();
+                throw new Exception("No se ha podido realizar la operación. Error CD_Ventas||InsertarVentaItem");
             }
         }
     }

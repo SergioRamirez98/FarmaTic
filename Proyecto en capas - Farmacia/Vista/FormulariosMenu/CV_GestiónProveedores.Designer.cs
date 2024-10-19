@@ -33,14 +33,14 @@
             this.Txb_Matricula = new System.Windows.Forms.TextBox();
             this.Txb_Telefono = new System.Windows.Forms.TextBox();
             this.Txb_Direccion = new System.Windows.Forms.TextBox();
-            this.Cmb_Localidad = new System.Windows.Forms.ComboBox();
+            this.Cmb_Partido = new System.Windows.Forms.ComboBox();
             this.Lbl_RazonSocial = new System.Windows.Forms.Label();
             this.Lbl_Cuit = new System.Windows.Forms.Label();
             this.Lbl_Telefono = new System.Windows.Forms.Label();
             this.Lbl_Matrícula = new System.Windows.Forms.Label();
             this.Lbl_Direccion = new System.Windows.Forms.Label();
             this.Lbl_CondIVA = new System.Windows.Forms.Label();
-            this.Lbl_Localidad = new System.Windows.Forms.Label();
+            this.Lbl_Partido = new System.Windows.Forms.Label();
             this.DTGV_Proveedores = new System.Windows.Forms.DataGridView();
             this.Btn_Agregar = new System.Windows.Forms.Button();
             this.Btn_Buscar = new System.Windows.Forms.Button();
@@ -93,13 +93,13 @@
             this.Txb_Direccion.Size = new System.Drawing.Size(161, 22);
             this.Txb_Direccion.TabIndex = 4;
             // 
-            // Cmb_Localidad
+            // Cmb_Partido
             // 
-            this.Cmb_Localidad.FormattingEnabled = true;
-            this.Cmb_Localidad.Location = new System.Drawing.Point(387, 18);
-            this.Cmb_Localidad.Name = "Cmb_Localidad";
-            this.Cmb_Localidad.Size = new System.Drawing.Size(182, 24);
-            this.Cmb_Localidad.TabIndex = 5;
+            this.Cmb_Partido.FormattingEnabled = true;
+            this.Cmb_Partido.Location = new System.Drawing.Point(387, 18);
+            this.Cmb_Partido.Name = "Cmb_Partido";
+            this.Cmb_Partido.Size = new System.Drawing.Size(182, 24);
+            this.Cmb_Partido.TabIndex = 5;
             // 
             // Lbl_RazonSocial
             // 
@@ -155,14 +155,14 @@
             this.Lbl_CondIVA.TabIndex = 15;
             this.Lbl_CondIVA.Text = "Cond. IVA";
             // 
-            // Lbl_Localidad
+            // Lbl_Partido
             // 
-            this.Lbl_Localidad.AutoSize = true;
-            this.Lbl_Localidad.Location = new System.Drawing.Point(314, 18);
-            this.Lbl_Localidad.Name = "Lbl_Localidad";
-            this.Lbl_Localidad.Size = new System.Drawing.Size(67, 16);
-            this.Lbl_Localidad.TabIndex = 14;
-            this.Lbl_Localidad.Text = "Localidad";
+            this.Lbl_Partido.AutoSize = true;
+            this.Lbl_Partido.Location = new System.Drawing.Point(314, 18);
+            this.Lbl_Partido.Name = "Lbl_Partido";
+            this.Lbl_Partido.Size = new System.Drawing.Size(67, 16);
+            this.Lbl_Partido.TabIndex = 14;
+            this.Lbl_Partido.Text = "Partido";
             // 
             // DTGV_Proveedores
             // 
@@ -248,11 +248,11 @@
             this.Pnl_DatosProveedores.Controls.Add(this.Txb_Matricula);
             this.Pnl_DatosProveedores.Controls.Add(this.Txb_Telefono);
             this.Pnl_DatosProveedores.Controls.Add(this.Txb_Direccion);
-            this.Pnl_DatosProveedores.Controls.Add(this.Cmb_Localidad);
+            this.Pnl_DatosProveedores.Controls.Add(this.Cmb_Partido);
             this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Cuit);
             this.Pnl_DatosProveedores.Controls.Add(this.Lbl_CondIVA);
             this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Matrícula);
-            this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Localidad);
+            this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Partido);
             this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Telefono);
             this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Direccion);
             this.Pnl_DatosProveedores.Location = new System.Drawing.Point(20, 27);
@@ -333,14 +333,14 @@
         private System.Windows.Forms.TextBox Txb_Matricula;
         private System.Windows.Forms.TextBox Txb_Telefono;
         private System.Windows.Forms.TextBox Txb_Direccion;
-        private System.Windows.Forms.ComboBox Cmb_Localidad;
+        private System.Windows.Forms.ComboBox Cmb_Partido;
         private System.Windows.Forms.Label Lbl_RazonSocial;
         private System.Windows.Forms.Label Lbl_Cuit;
         private System.Windows.Forms.Label Lbl_Telefono;
         private System.Windows.Forms.Label Lbl_Matrícula;
         private System.Windows.Forms.Label Lbl_Direccion;
         private System.Windows.Forms.Label Lbl_CondIVA;
-        private System.Windows.Forms.Label Lbl_Localidad;
+        private System.Windows.Forms.Label Lbl_Partido;
         private System.Windows.Forms.DataGridView DTGV_Proveedores;
         private System.Windows.Forms.Button Btn_Agregar;
         private System.Windows.Forms.Button Btn_Buscar;

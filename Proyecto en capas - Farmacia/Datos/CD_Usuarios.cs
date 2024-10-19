@@ -219,7 +219,6 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Logear");
             }
         }
-
         public bool CargarUsuarios(int ID_Persona)
         {
             DataTable Dt = new DataTable();
@@ -249,7 +248,6 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Personas||CargarUsuarios.");
             }
         }
-
         public bool CambiarPass()
         {
             string sSql = "SP_Actualizar_Pass";

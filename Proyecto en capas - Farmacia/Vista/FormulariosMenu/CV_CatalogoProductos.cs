@@ -31,10 +31,8 @@ namespace Vista.FormulariosMenu
         private void CV_CatalogoProductos_Load(object sender, EventArgs e)
         {
             configurarDTGV();
-            //Productos.EliminarProductosVencidos();
             mostrarProductos();
             configurarLoad();
-
         }
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {

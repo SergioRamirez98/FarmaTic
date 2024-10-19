@@ -82,7 +82,7 @@ namespace Vista.FormulariosMenu
             DTGV_SeleccionProveedores.Columns[1].HeaderText = "Razon social";
             DTGV_SeleccionProveedores.Columns[2].HeaderText = "Matricula";
             DTGV_SeleccionProveedores.Columns[3].HeaderText = "Direccion";
-            DTGV_SeleccionProveedores.Columns[4].HeaderText = "Localidad";
+            DTGV_SeleccionProveedores.Columns[4].HeaderText = "Partido";
             DTGV_SeleccionProveedores.Columns[5].HeaderText = "Telefono";
             DTGV_SeleccionProveedores.Columns[6].HeaderText = "CUIT";
             DTGV_SeleccionProveedores.Columns[7].HeaderText = "Mail";
