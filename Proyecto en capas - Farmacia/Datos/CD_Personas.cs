@@ -21,6 +21,7 @@ namespace Datos
         private string atr_sexo;
         private string atr_domicilio;
         private string atr_Partido;
+        private string atr_Localidad;
         private string atr_nacionalidad;
         private int atr_telefono;
         private DateTime atr_nacimiento;
@@ -45,6 +46,8 @@ namespace Datos
         { get => atr_domicilio; set { atr_domicilio = value; } }
         public string Prop_Partido
         { get => atr_Partido; set { atr_Partido = value; } }
+        public string Prop_Localidad
+        { get => atr_Localidad; set { atr_Localidad = value; } }
         public string Prop_NACIONALIDAD
         { get => atr_nacionalidad; set { atr_nacionalidad = value; } }
         public int Prop_TELEFONO
@@ -78,6 +81,9 @@ namespace Datos
                 param_Nacimiento.Value = atr_nacimiento;
                 SqlParameter param_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 50);
                 param_Partido.Value = atr_Partido;
+
+                SqlParameter param_Localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
+                param_Localidad.Value = atr_Localidad;
                 SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
                 param_Nacionalidad.Value = atr_nacionalidad;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
@@ -90,6 +96,7 @@ namespace Datos
                 listaParametros.Add(param_telefono);
                 listaParametros.Add(param_Nacimiento);
                 listaParametros.Add(param_Partido);
+                listaParametros.Add(param_Localidad);
                 listaParametros.Add(param_Nacionalidad);
 
                 lista = listaParametros.ToArray();
@@ -145,6 +152,8 @@ namespace Datos
                 param_Nacimiento.Value = atr_nacimiento;
                 SqlParameter param_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 50);
                 param_Partido.Value = atr_Partido;
+                SqlParameter param_Localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
+                param_Localidad.Value = atr_Localidad;
                 SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
                 param_Nacionalidad.Value = atr_nacionalidad;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
@@ -158,6 +167,7 @@ namespace Datos
                 listaParametros.Add(param_telefono);
                 listaParametros.Add(param_Nacimiento);
                 listaParametros.Add(param_Partido);
+                listaParametros.Add(param_Localidad);
                 listaParametros.Add(param_Nacionalidad);
 
                 lista = listaParametros.ToArray();
@@ -186,15 +196,20 @@ namespace Datos
             {
                 throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Partido.");
             }
-        } //
-        public DataTable Localidades()
+        } 
+        public DataTable Localidades(int ID_Partido)
         {
 
             string sSql = "SP_Obtener_Localidades_ComboBox";
+            SqlParameter param_ID_PartidoSeleccionado = new SqlParameter("@ID_Partido", SqlDbType.Int);
+            param_ID_PartidoSeleccionado.Value = ID_Partido;
             try
             {
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Add(param_ID_PartidoSeleccionado);
                 SqlParameter[] parametros = listaparametros.ToArray();
+
+
                 return ejecutar(sSql, parametros, true);
 
             }

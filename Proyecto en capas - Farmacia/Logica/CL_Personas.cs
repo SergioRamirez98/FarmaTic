@@ -19,6 +19,7 @@ namespace Logica
         private string atr_sexo;
         private string atr_domicilio;
         private string atr_Partido;
+        private string atr_Localidad;
         private string atr_nacionalidad;
         private string atr_telefono;
         private string atr_nacimiento;
@@ -39,6 +40,8 @@ namespace Logica
         { get => atr_domicilio; set { atr_domicilio = value; } }
         public string Prop_Partido
         { get => atr_Partido; set { atr_Partido = value; } }
+        public string Prop_Localidad
+        { get => atr_Localidad; set { atr_Localidad = value; } }
         public string Prop_NACIONALIDAD
         { get => atr_nacionalidad; set { atr_nacionalidad = value; } }
         public string Prop_TELEFONO
@@ -66,9 +69,9 @@ namespace Logica
         {
             return Personas.Partido();
         }
-        public DataTable ObtenerLocalidades()
+        public DataTable ObtenerLocalidades(int ID_Seleccionado)
         {
-            return Personas.Localidades();
+            return Personas.Localidades(ID_Seleccionado);
         }
         public DataTable ObtenerPais()
         {
@@ -110,6 +113,9 @@ namespace Logica
                 Personas.Prop_SEXO = atr_sexo;
                 Personas.Prop_DOMICILIO = atr_domicilio;
                 Personas.Prop_Partido = atr_Partido;
+                if (string.IsNullOrEmpty(atr_Localidad)) Personas.Prop_Localidad = "Homónimo";
+                else Personas.Prop_Localidad = atr_Localidad;
+                
                 Personas.Prop_NACIONALIDAD = atr_nacionalidad;
 
             }
@@ -120,7 +126,6 @@ namespace Logica
             }
             
         }
-
         public DataTable BusquedaRapida(string Palabra, DataTable Dt) 
         {
             Palabra= Palabra.ToLower();
@@ -148,7 +153,6 @@ namespace Logica
                 return Dt;
             }
         }
-
 
         #endregion
 
