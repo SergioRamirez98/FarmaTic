@@ -160,7 +160,7 @@
             this.Txb_Telefono.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Telefono.Name = "Txb_Telefono";
             this.Txb_Telefono.Size = new System.Drawing.Size(263, 22);
-            this.Txb_Telefono.TabIndex = 8;
+            this.Txb_Telefono.TabIndex = 9;
             this.Txb_Telefono.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Rbt_Cliente
@@ -222,7 +222,7 @@
             this.Cmb_Localidad.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_Localidad.Name = "Cmb_Localidad";
             this.Cmb_Localidad.Size = new System.Drawing.Size(265, 24);
-            this.Cmb_Localidad.TabIndex = 36;
+            this.Cmb_Localidad.TabIndex = 7;
             // 
             // Lbl_Localidad
             // 
@@ -238,7 +238,7 @@
             this.Btn_AsociarCliente.Location = new System.Drawing.Point(730, 262);
             this.Btn_AsociarCliente.Name = "Btn_AsociarCliente";
             this.Btn_AsociarCliente.Size = new System.Drawing.Size(131, 40);
-            this.Btn_AsociarCliente.TabIndex = 35;
+            this.Btn_AsociarCliente.TabIndex = 16;
             this.Btn_AsociarCliente.Text = "Asociar a cliente";
             this.Btn_AsociarCliente.UseVisualStyleBackColor = true;
             this.Btn_AsociarCliente.Click += new System.EventHandler(this.Btn_AsociarCliente_Click);
@@ -248,7 +248,7 @@
             this.Btn_Eliminar.Location = new System.Drawing.Point(730, 226);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(131, 30);
-            this.Btn_Eliminar.TabIndex = 33;
+            this.Btn_Eliminar.TabIndex = 14;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
             this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
@@ -258,7 +258,7 @@
             this.Btn_GuardarCambios.Location = new System.Drawing.Point(595, 226);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
             this.Btn_GuardarCambios.Size = new System.Drawing.Size(131, 30);
-            this.Btn_GuardarCambios.TabIndex = 32;
+            this.Btn_GuardarCambios.TabIndex = 13;
             this.Btn_GuardarCambios.Text = "Guardar";
             this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
             this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_GuardarCambios_Click);
@@ -268,7 +268,7 @@
             this.Btn_AsociarUsuario.Location = new System.Drawing.Point(595, 262);
             this.Btn_AsociarUsuario.Name = "Btn_AsociarUsuario";
             this.Btn_AsociarUsuario.Size = new System.Drawing.Size(131, 40);
-            this.Btn_AsociarUsuario.TabIndex = 34;
+            this.Btn_AsociarUsuario.TabIndex = 15;
             this.Btn_AsociarUsuario.Text = "Asociar a usuario";
             this.Btn_AsociarUsuario.UseVisualStyleBackColor = true;
             this.Btn_AsociarUsuario.Click += new System.EventHandler(this.Btn_AsociarUsuario_Click);
@@ -278,7 +278,7 @@
             this.Btn_Modificar.Location = new System.Drawing.Point(730, 190);
             this.Btn_Modificar.Name = "Btn_Modificar";
             this.Btn_Modificar.Size = new System.Drawing.Size(131, 30);
-            this.Btn_Modificar.TabIndex = 31;
+            this.Btn_Modificar.TabIndex = 12;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
             this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
@@ -316,7 +316,7 @@
             this.Btn_RegistrarPersona.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarPersona.Name = "Btn_RegistrarPersona";
             this.Btn_RegistrarPersona.Size = new System.Drawing.Size(131, 30);
-            this.Btn_RegistrarPersona.TabIndex = 10;
+            this.Btn_RegistrarPersona.TabIndex = 11;
             this.Btn_RegistrarPersona.Text = "Registrar ";
             this.Btn_RegistrarPersona.UseVisualStyleBackColor = true;
             this.Btn_RegistrarPersona.Click += new System.EventHandler(this.Btn_RegistrarPersona_Click);
@@ -328,7 +328,7 @@
             this.Cmb_Nacionalidad.Margin = new System.Windows.Forms.Padding(4);
             this.Cmb_Nacionalidad.Name = "Cmb_Nacionalidad";
             this.Cmb_Nacionalidad.Size = new System.Drawing.Size(263, 24);
-            this.Cmb_Nacionalidad.TabIndex = 7;
+            this.Cmb_Nacionalidad.TabIndex = 8;
             // 
             // Cmb_Partido
             // 
@@ -393,7 +393,7 @@
             this.Dtp_FeNacimiento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Dtp_FeNacimiento.Name = "Dtp_FeNacimiento";
             this.Dtp_FeNacimiento.Size = new System.Drawing.Size(263, 22);
-            this.Dtp_FeNacimiento.TabIndex = 9;
+            this.Dtp_FeNacimiento.TabIndex = 10;
             // 
             // Lbl_Partido
             // 

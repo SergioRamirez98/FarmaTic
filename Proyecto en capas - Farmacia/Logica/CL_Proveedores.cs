@@ -17,6 +17,7 @@ namespace Logica
         DataTable Dt = new DataTable();
 
         #endregion
+
         #region Properties
         public string ID_Proveedor { get; set; }
         public string RazonSocial { get; set; }
@@ -24,7 +25,8 @@ namespace Logica
         public string Matricula { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-        public string Partido { get; set; }
+        public string Partido { get; set; } //Localidad
+        public string Localidad { get; set; } 
         public string Mail { get; set; }
         public string IVA { get; set; }
         public string IIBB { get; set; }
@@ -104,6 +106,8 @@ namespace Logica
 
                 if (Partido != "") Proveedores.Partido = Partido;
                 else throw new Exception("Por favor seleccione la Partido a la que pertenece el proveedor");
+                if (string.IsNullOrEmpty(Localidad)) Proveedores.Localidad = "Homónimo";
+                else Proveedores.Localidad = Localidad;
 
 
                 if (IVA != "") Proveedores.IVA = IVA;

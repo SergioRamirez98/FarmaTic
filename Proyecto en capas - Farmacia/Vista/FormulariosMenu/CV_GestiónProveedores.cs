@@ -26,6 +26,7 @@ namespace Vista
             InitializeComponent();
         }
 
+        #region Eventos
         private void CV_GestionProveedores_Load(object sender, EventArgs e)
         {
             cargarComboBox();
@@ -95,7 +96,7 @@ namespace Vista
         {
             if (DTGV_Proveedores.Rows.Count > 0)
             {
-                //Preguntar Si dice que si, lo ejecutamos
+
                 Proveedores.ID_Proveedor = DTGV_Proveedores.SelectedRows[0].Cells["ID_Proveedor"].Value.ToString();
                 bool respuesta = CServ_MsjUsuario.Preguntar("¿Está seguro de querer borrar los datos seleccionados?");
                 if (respuesta)
@@ -113,7 +114,6 @@ namespace Vista
                     {
                         CServ_MsjUsuario.MensajesDeError(ex.Message);
                     }
-
 
                 }
             }
@@ -138,9 +138,32 @@ namespace Vista
                 ID_Proveedor = Convert.ToInt32(DTGV_Proveedores.SelectedRows[0].Cells["ID_Proveedor"].Value);
             }
         }
+        private void Cmb_Partido_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (Cmb_Partido.SelectedIndex > 0)
+            {
+                int ID_Seleccionado = Convert.ToInt32(Cmb_Partido.SelectedValue);
+                DataTable dt = GestionPersonas.ObtenerLocalidades(ID_Seleccionado);
+                if (dt.Rows.Count > 0)
+                {
+                    Cmb_Localidad.DataSource = dt;
+                    Cmb_Localidad.DisplayMember = "Localidad";
+                    Cmb_Localidad.ValueMember = "ID_Localidad";
+                    Cmb_Localidad.SelectedIndex = -1;
+                    Cmb_Localidad.Enabled = true;
+                }
+                else
+                {
+                    Cmb_Localidad.Enabled = false;
+                    Cmb_Localidad.SelectedIndex = -1;
+                }
 
+            }
+        }
+        
+        #endregion
 
-
+        #region Métodos
         private void configurarLoad() 
         {
             DTGV_Proveedores.ClearSelection();
@@ -148,6 +171,7 @@ namespace Vista
             Btn_Buscar.Enabled = true;
             Btn_Eliminar.Enabled = false;
             Btn_Guardar.Enabled = false;
+            Cmb_Localidad.Enabled = false;
         }
         private void configurarDTGV()
         {
@@ -167,27 +191,21 @@ namespace Vista
         {
             dt= Proveedores.MostrarProveedores();
             DTGV_Proveedores.DataSource = dt;
-            /*
-            DTGV_Proveedores.Columns[0].DisplayIndex = 0;
-            DTGV_Proveedores.Columns[1].DisplayIndex = 1;
-            DTGV_Proveedores.Columns[2].DisplayIndex = 2;
-            DTGV_Proveedores.Columns[3].DisplayIndex = 4;
-            DTGV_Proveedores.Columns[4].DisplayIndex = 5;
-            DTGV_Proveedores.Columns[5].DisplayIndex = 6;
-            DTGV_Proveedores.Columns[6].DisplayIndex = 7;
-            DTGV_Proveedores.Columns[7].DisplayIndex = 8;
-            DTGV_Proveedores.Columns[8].DisplayIndex = 3;
-            */
+            
             DTGV_Proveedores.Columns[0].HeaderText = "ID Proveedor";
             DTGV_Proveedores.Columns[1].HeaderText = "Razon social";
             DTGV_Proveedores.Columns[2].HeaderText = "Matricula";
             DTGV_Proveedores.Columns[3].HeaderText = "Direccion";
             DTGV_Proveedores.Columns[4].HeaderText = "Partido";
-            DTGV_Proveedores.Columns[5].HeaderText = "Telefono";
-            DTGV_Proveedores.Columns[6].HeaderText = "CUIT";
-            DTGV_Proveedores.Columns[7].HeaderText = "Mail";
-            DTGV_Proveedores.Columns[8].HeaderText = "IIBB";
-            DTGV_Proveedores.Columns[9].HeaderText = "Condicion IVA";            
+
+            DTGV_Proveedores.Columns[5].HeaderText = "Localidad";
+
+            DTGV_Proveedores.Columns[6].HeaderText = "Telefono";
+            DTGV_Proveedores.Columns[7].HeaderText = "CUIT";
+            DTGV_Proveedores.Columns[8].HeaderText = "Mail";
+            DTGV_Proveedores.Columns[9].HeaderText = "IIBB";
+            DTGV_Proveedores.Columns[10].HeaderText = "Condicion IVA";   
+            DTGV_Proveedores.ClearSelection();
         }
         private void cargarComboBox()
         {
@@ -214,6 +232,7 @@ namespace Vista
             Proveedores.Telefono=Txb_Telefono.Text;
             Proveedores.Direccion = Txb_Direccion.Text;
             Proveedores.Partido = Cmb_Partido.Text;
+            Proveedores.Localidad = Cmb_Localidad.Text;
             Proveedores.Mail = Txb_Mail.Text;
             Proveedores.IVA = Cmb_IVA.Text;
             Proveedores.IIBB= Chb_IIBB.Checked.ToString();
@@ -224,13 +243,13 @@ namespace Vista
             Txb_Matricula.Text = DTGV_Proveedores.CurrentRow.Cells[2].Value.ToString();
             Txb_Direccion.Text = DTGV_Proveedores.CurrentRow.Cells[3].Value.ToString();
             Cmb_Partido.Text = DTGV_Proveedores.CurrentRow.Cells[4].Value.ToString();
-            Txb_Telefono.Text = DTGV_Proveedores.CurrentRow.Cells[5].Value.ToString();
-            Txb_Cuit.Text = DTGV_Proveedores.CurrentRow.Cells[6].Value.ToString();
-            Txb_Mail.Text = DTGV_Proveedores.CurrentRow.Cells[7].Value.ToString();
-            Chb_IIBB.Checked = Convert.ToBoolean(DTGV_Proveedores.CurrentRow.Cells[8].Value);
-            Cmb_IVA.Text = DTGV_Proveedores.CurrentRow.Cells[9].Value.ToString();
+            Cmb_Localidad.Text = DTGV_Proveedores.CurrentRow.Cells[5].Value.ToString();
+            Txb_Telefono.Text = DTGV_Proveedores.CurrentRow.Cells[6].Value.ToString();
+            Txb_Cuit.Text = DTGV_Proveedores.CurrentRow.Cells[7].Value.ToString();
+            Txb_Mail.Text = DTGV_Proveedores.CurrentRow.Cells[8].Value.ToString();
+            Chb_IIBB.Checked = Convert.ToBoolean(DTGV_Proveedores.CurrentRow.Cells[9].Value);
+            Cmb_IVA.Text = DTGV_Proveedores.CurrentRow.Cells[10].Value.ToString();
         }
-
-
-    }
+        #endregion
+ }
 }

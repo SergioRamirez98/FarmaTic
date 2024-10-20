@@ -54,6 +54,8 @@
             this.Cmb_IVA = new System.Windows.Forms.ComboBox();
             this.Lbl_IIBB = new System.Windows.Forms.Label();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
+            this.Cmb_Localidad = new System.Windows.Forms.ComboBox();
+            this.Lbl_Localidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Proveedores)).BeginInit();
             this.Pnl_DatosProveedores.SuspendLayout();
             this.SuspendLayout();
@@ -100,6 +102,7 @@
             this.Cmb_Partido.Name = "Cmb_Partido";
             this.Cmb_Partido.Size = new System.Drawing.Size(182, 24);
             this.Cmb_Partido.TabIndex = 5;
+            this.Cmb_Partido.SelectedIndexChanged += new System.EventHandler(this.Cmb_Partido_SelectedIndexChanged);
             // 
             // Lbl_RazonSocial
             // 
@@ -149,7 +152,7 @@
             // Lbl_CondIVA
             // 
             this.Lbl_CondIVA.AutoSize = true;
-            this.Lbl_CondIVA.Location = new System.Drawing.Point(314, 95);
+            this.Lbl_CondIVA.Location = new System.Drawing.Point(315, 132);
             this.Lbl_CondIVA.Name = "Lbl_CondIVA";
             this.Lbl_CondIVA.Size = new System.Drawing.Size(66, 16);
             this.Lbl_CondIVA.TabIndex = 15;
@@ -160,7 +163,7 @@
             this.Lbl_Partido.AutoSize = true;
             this.Lbl_Partido.Location = new System.Drawing.Point(314, 18);
             this.Lbl_Partido.Name = "Lbl_Partido";
-            this.Lbl_Partido.Size = new System.Drawing.Size(67, 16);
+            this.Lbl_Partido.Size = new System.Drawing.Size(50, 16);
             this.Lbl_Partido.TabIndex = 14;
             this.Lbl_Partido.Text = "Partido";
             // 
@@ -229,14 +232,16 @@
             // Chb_IIBB
             // 
             this.Chb_IIBB.AutoSize = true;
-            this.Chb_IIBB.Location = new System.Drawing.Point(386, 136);
+            this.Chb_IIBB.Location = new System.Drawing.Point(387, 173);
             this.Chb_IIBB.Name = "Chb_IIBB";
             this.Chb_IIBB.Size = new System.Drawing.Size(18, 17);
-            this.Chb_IIBB.TabIndex = 8;
+            this.Chb_IIBB.TabIndex = 9;
             this.Chb_IIBB.UseVisualStyleBackColor = true;
             // 
             // Pnl_DatosProveedores
             // 
+            this.Pnl_DatosProveedores.Controls.Add(this.Cmb_Localidad);
+            this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Localidad);
             this.Pnl_DatosProveedores.Controls.Add(this.Txb_Mail);
             this.Pnl_DatosProveedores.Controls.Add(this.Lbl_Mail);
             this.Pnl_DatosProveedores.Controls.Add(this.Cmb_IVA);
@@ -262,15 +267,15 @@
             // 
             // Txb_Mail
             // 
-            this.Txb_Mail.Location = new System.Drawing.Point(387, 55);
+            this.Txb_Mail.Location = new System.Drawing.Point(388, 92);
             this.Txb_Mail.Name = "Txb_Mail";
             this.Txb_Mail.Size = new System.Drawing.Size(182, 22);
-            this.Txb_Mail.TabIndex = 6;
+            this.Txb_Mail.TabIndex = 7;
             // 
             // Lbl_Mail
             // 
             this.Lbl_Mail.AutoSize = true;
-            this.Lbl_Mail.Location = new System.Drawing.Point(313, 58);
+            this.Lbl_Mail.Location = new System.Drawing.Point(314, 95);
             this.Lbl_Mail.Name = "Lbl_Mail";
             this.Lbl_Mail.Size = new System.Drawing.Size(32, 16);
             this.Lbl_Mail.TabIndex = 18;
@@ -279,15 +284,15 @@
             // Cmb_IVA
             // 
             this.Cmb_IVA.FormattingEnabled = true;
-            this.Cmb_IVA.Location = new System.Drawing.Point(387, 95);
+            this.Cmb_IVA.Location = new System.Drawing.Point(388, 132);
             this.Cmb_IVA.Name = "Cmb_IVA";
             this.Cmb_IVA.Size = new System.Drawing.Size(182, 24);
-            this.Cmb_IVA.TabIndex = 7;
+            this.Cmb_IVA.TabIndex = 8;
             // 
             // Lbl_IIBB
             // 
             this.Lbl_IIBB.AutoSize = true;
-            this.Lbl_IIBB.Location = new System.Drawing.Point(314, 135);
+            this.Lbl_IIBB.Location = new System.Drawing.Point(315, 172);
             this.Lbl_IIBB.Name = "Lbl_IIBB";
             this.Lbl_IIBB.Size = new System.Drawing.Size(31, 16);
             this.Lbl_IIBB.TabIndex = 16;
@@ -298,10 +303,27 @@
             this.Btn_Refrescar.Location = new System.Drawing.Point(624, 27);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
             this.Btn_Refrescar.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Refrescar.TabIndex = 23;
+            this.Btn_Refrescar.TabIndex = 16;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
             this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
+            // 
+            // Cmb_Localidad
+            // 
+            this.Cmb_Localidad.FormattingEnabled = true;
+            this.Cmb_Localidad.Location = new System.Drawing.Point(388, 58);
+            this.Cmb_Localidad.Name = "Cmb_Localidad";
+            this.Cmb_Localidad.Size = new System.Drawing.Size(182, 24);
+            this.Cmb_Localidad.TabIndex = 6;
+            // 
+            // Lbl_Localidad
+            // 
+            this.Lbl_Localidad.AutoSize = true;
+            this.Lbl_Localidad.Location = new System.Drawing.Point(315, 58);
+            this.Lbl_Localidad.Name = "Lbl_Localidad";
+            this.Lbl_Localidad.Size = new System.Drawing.Size(67, 16);
+            this.Lbl_Localidad.TabIndex = 20;
+            this.Lbl_Localidad.Text = "Localidad";
             // 
             // CV_GestionProveedores
             // 
@@ -354,5 +376,7 @@
         private System.Windows.Forms.Label Lbl_IIBB;
         private System.Windows.Forms.TextBox Txb_Mail;
         private System.Windows.Forms.Label Lbl_Mail;
+        private System.Windows.Forms.ComboBox Cmb_Localidad;
+        private System.Windows.Forms.Label Lbl_Localidad;
     }
 }
