@@ -111,8 +111,7 @@ namespace Sesion
                     Respuesta2 = fila1["Respuesta"].ToString();
                     Pregunta3 = fila2["Pregunta"].ToString();
                     Respuesta3 = fila2["Respuesta"].ToString();
-
-                    Descripcion = fila["Descripcion"].ToString();
+//                    Descripcion = fila["Descripcion"].ToString();
                     EstadoCuenta = Convert.ToInt32(fila["ID_Estado"]);
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);

@@ -24,9 +24,9 @@ namespace Vista.FormulariosMenu.GestionPersonas
         }
         private void CV_AltaUsuario_Load(object sender, EventArgs e)
         {
+            cargarComboBox(true);
             cargarLoad(ID_Persona);
             bloquearControles();
-            cargarComboBox(true);
         }
         private void btn_SeleccionarPersona_Click(object sender, EventArgs e)
         {
@@ -81,8 +81,6 @@ namespace Vista.FormulariosMenu.GestionPersonas
             }
 
         }
-
-
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {
             cargarLoad(ID_Persona=0);
@@ -146,7 +144,13 @@ namespace Vista.FormulariosMenu.GestionPersonas
             Cmb_VenceCada.DataSource = dt;
             Cmb_VenceCada.DisplayMember = "DiasParaVencimiento";
             Cmb_VenceCada.ValueMember = "ID_Vencimiento";
-            Cmb_VenceCada.SelectedIndex = -1;            
+            Cmb_VenceCada.SelectedIndex = -1;
+
+
+            Cmb_Familia.DataSource = Usuario.ObtenerFamilia();
+            Cmb_Familia.DisplayMember = "Descripcion_Familia";
+            Cmb_Familia.ValueMember = "ID_Familia";
+            Cmb_Familia.SelectedIndex = -1;
         }
         private void cargarLoad(int ID) 
         {

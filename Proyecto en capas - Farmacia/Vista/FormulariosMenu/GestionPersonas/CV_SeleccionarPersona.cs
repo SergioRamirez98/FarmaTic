@@ -15,8 +15,11 @@ namespace Vista.FormulariosMenu.GestionPersonas
     public partial class CV_SeleccionarPersona : Form
     {
         CL_Personas Personas = new CL_Personas();        
+
         public delegate void PersonaSeleccionadaHandler(int idPersona, string persona);
+
         public event PersonaSeleccionadaHandler PersonaSeleccionada;
+
         #region Properties
         public int ID_Persona { get; set; }
         public string Persona { get; set; }
@@ -44,7 +47,6 @@ namespace Vista.FormulariosMenu.GestionPersonas
         private void DTGV_SeleccionarPersona_KeyDown(object sender, KeyEventArgs e)
         {
             if (DTGV_SeleccionarPersona.SelectedRows.Count > 0) seleccionarPersona();
-
         }
         private void Txb_BusqPersona_TextChanged(object sender, EventArgs e)
         {
