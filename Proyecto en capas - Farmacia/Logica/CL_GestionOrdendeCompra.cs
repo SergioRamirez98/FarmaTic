@@ -16,6 +16,8 @@ namespace Logica
         public List<CM_ObtenerPedidodeCompra> PedidosdeCompra { get; set; } = new List<CM_ObtenerPedidodeCompra>();
         public List<CM_Pedido> PedidosdeCompraItems { get; set; } = new List<CM_Pedido>();
 
+        List<CM_OrdenDeCompraPorItemsPDF> ItemsOCDef = new List<CM_OrdenDeCompraPorItemsPDF>();
+
         #region Properties
         public string OrdenDeCompra { get; set; }
         public string ID_Pedido { get; set; }
@@ -44,6 +46,12 @@ namespace Logica
             pasarDatos(true);
             OC.InsertarOCporItems();
         }
+
+        public List<CM_OrdenDeCompraPorItemsPDF> ObtenerItemsOC(int oc) 
+        {
+            ItemsOCDef.Clear();
+            return ItemsOCDef = OC.ObtenerOCPorItems(oc);
+        }
         public List<CM_Pedido> MostrarPedidosPorItem(int ID)
         {
             PedidosdeCompraItems.Clear();
@@ -67,7 +75,7 @@ namespace Logica
             string palabraMinus=Palabra.ToLower();
             var productosFiltrados = Lista
                 .Where(p => p.UserName.ToLower().Contains(palabraMinus) ||
-                             p.NombreProveedor.Contains(palabraMinus) ||
+                             p.NombreProveedor.ToLower().Contains(palabraMinus) ||
                              p.Fecha_Pedido.ToString().Contains(palabraMayus) ||
                              p.MontoPedido.ToString().Contains(palabraMayus))
                 .ToList();

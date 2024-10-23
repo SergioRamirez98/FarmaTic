@@ -31,6 +31,7 @@ namespace Datos
         public List<CD_GestionOrdendeCompra> Items = new List<CD_GestionOrdendeCompra>();
         public List<CM_ObtenerPedidodeCompra> CatalogoProductos { get; set; } = new List<CM_ObtenerPedidodeCompra>();
         public List<CM_Pedido> PedidoporItem { get; set; } = new List<CM_Pedido>();
+        public List<CM_OrdenDeCompraPorItemsPDF> OCporItem { get; set; } = new List<CM_OrdenDeCompraPorItemsPDF>();
         SqlParameter[] lista = null;
         #endregion
 
@@ -131,6 +132,7 @@ namespace Datos
                 {
                     DataRow fila = dt.Rows[0];
                     OrdenDeCompra = Convert.ToInt32(fila["OC"]);
+                    obtenerDatosOrdendeCompra(OrdenDeCompra);
                 }
             }
             catch (Exception)
@@ -147,7 +149,7 @@ namespace Datos
             {
                 foreach (var item in Items)
                 {
-                    
+
                     string sSql = "SP_Insertar_Orden_de_Compra_Por_Items";
                     SqlParameter param_OrdenDeCompra = new SqlParameter("@OrdenDeCompra", SqlDbType.Int);
                     param_OrdenDeCompra.Value = item.OrdenDeCompra;
@@ -181,14 +183,84 @@ namespace Datos
 
         }
         public void EliminarPedidodeCompra()
-        {            
+        {
             string sSql = "SP_Eliminar_Pedido_de_Compra";
             SqlParameter param_ID_Pedido = new SqlParameter("@ID_Pedido", SqlDbType.Int);
             param_ID_Pedido.Value = ID_Pedido;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            listaParametros.Add(param_ID_Pedido);            
-            lista= listaParametros.ToArray();        
+            listaParametros.Add(param_ID_Pedido);
+            lista = listaParametros.ToArray();
             ejecutar(sSql, lista, false);
+        }
+
+        public List<CM_OrdenDeCompraPorItemsPDF> ObtenerOCPorItems(int oc)
+        {
+            OCporItem.Clear();
+             DataTable dt = new DataTable();
+            try
+            {
+                string sSql = "SP_Obtener_OC_Por_Items";
+                SqlParameter param_OC = new SqlParameter("@OC", SqlDbType.Int);
+                param_OC.Value = oc;
+
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Add(param_OC);
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                dt = ejecutar(sSql, parametros, true);
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_OrdendeCompra||ObtenerOCPorItems");
+            }
+            if (dt.Rows.Count > 0)
+            {
+                cargarCM_OrdenDeCompraPorItemsPDF(dt);
+            }
+            return OCporItem;
+        }
+
+        private void obtenerDatosOrdendeCompra(int OC)
+        {
+            string sSql = "SP_Obtener_Datos_Proveedores_Empresa";
+            SqlParameter param_OC = new SqlParameter("@OC", SqlDbType.Int);
+            param_OC.Value = OC;
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(param_OC); 
+            lista = listaParametros.ToArray();
+
+            DataTable dt =ejecutar(sSql, lista, true);
+            if (dt.Rows.Count > 0)
+            {
+             //   CM_DatosOCDefinitiva.. Datos = new CM_DatosOCDefinitiva..();
+                DataRow fila = dt.Rows[0];
+                CM_DatosOCDefinitiva.NombreProveedor = fila["NombreProveedor"].ToString();
+                CM_DatosOCDefinitiva.MatriculaProveedor = Convert.ToInt32(fila["MatriculaProveedor"]);
+                CM_DatosOCDefinitiva.CUITProveedor = fila["CUITProveedor"].ToString();
+                CM_DatosOCDefinitiva.IVAProveedor = fila["IVAProveedor"].ToString();
+                CM_DatosOCDefinitiva.IIBBProveedor = Convert.ToBoolean(fila["IIBBProveedor"]);
+                CM_DatosOCDefinitiva.DireccionProv = fila["DireccionProveedor"].ToString();
+                CM_DatosOCDefinitiva.CorreoProv = fila["MAILProveedor"].ToString();
+                CM_DatosOCDefinitiva.LocalidadProv = fila["LocalidadProveedor"].ToString();
+                CM_DatosOCDefinitiva.PartidoProv = fila["PartidoProveedor"].ToString();
+                CM_DatosOCDefinitiva.TelefonoProv = Convert.ToInt32(fila["TelefonoProveedor"]);
+
+
+                CM_DatosOCDefinitiva.Usuario = fila["UserName"].ToString();
+                CM_DatosOCDefinitiva.NombreApellido = fila["NombreApellido"].ToString();
+                CM_DatosOCDefinitiva.Fecha = Convert.ToDateTime(fila["FechaOrden"]);
+
+
+                CM_DatosOCDefinitiva.NombreEmpresa = fila["NombreEmpresa"].ToString();
+                CM_DatosOCDefinitiva.DireccionFarma = fila["DireccionEmpresa"].ToString();
+                CM_DatosOCDefinitiva.DomicilioEntrega = fila["DomicilioEntregaEmpresa"].ToString();
+                CM_DatosOCDefinitiva.FechaInicioAct = Convert.ToDateTime(fila["InicioActEmpresa"]);
+                CM_DatosOCDefinitiva.CUITEmpresa = fila["CuitEmpresa"].ToString();
+                CM_DatosOCDefinitiva.PartidoFarma = fila["PartidoEmpresa"].ToString();
+                CM_DatosOCDefinitiva.LocalidadFarma = fila["LocalidadEmpresa"].ToString();
+            }
+
         }
         private void cargarCM_Catalogo(DataTable dt)
         {
@@ -230,6 +302,27 @@ namespace Datos
                     };
 
                     PedidoporItem.Add(catalogo);
+                }
+
+            }
+        }
+        private void cargarCM_OrdenDeCompraPorItemsPDF(DataTable dt)
+        {
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    CM_OrdenDeCompraPorItemsPDF catalogo = new CM_OrdenDeCompraPorItemsPDF
+                    {
+                        NombreComercial = dr["NombreComercial"].ToString(),
+                        Monodroga = dr["Monodroga"].ToString(),
+                        Marca = dr["Marca"].ToString(),                      
+                        Cantidad = Convert.ToInt32(dr["Cantidad"]),
+                        PrecioUnitario = Convert.ToDouble(dr["PrecioUnitario"]),
+                        Subtotal = Convert.ToDouble(dr["Subtotal"])                        
+                    };
+
+                    OCporItem.Add(catalogo);
                 }
 
             }

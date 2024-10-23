@@ -11,15 +11,8 @@ using iTextSharp.text;
 using iTextSharp.text.pdf;
 using iTextSharp.tool.xml;
 using System.IO;
-/*
-using iText.Kernel.Pdf;
-using iText.Layout;
-using iText.Layout.Element;
-using iText.Kernel.Geom;
-using iText.Layout.Properties;
-*/
-
 using System.Windows.Forms;
+using System.Text;
 
 
 namespace Vista.FormulariosMenu
@@ -30,6 +23,7 @@ namespace Vista.FormulariosMenu
         List<CL_GestionOrdendeCompra> ListaItems = new List<CL_GestionOrdendeCompra>();
         List<CM_Pedido> Pedido = new List<CM_Pedido>();
         List<CM_ObtenerPedidodeCompra> ListaPedidos = new List<CM_ObtenerPedidodeCompra>();
+        List<CM_OrdenDeCompraPorItemsPDF> ItemsOCDef = new List<CM_OrdenDeCompraPorItemsPDF>();
         decimal TotalOC = 0;
 
 
@@ -69,13 +63,11 @@ namespace Vista.FormulariosMenu
                 if (DTGV_Pedidos.SelectedRows.Count > 0 && TotalOC > 0)
                 {
                     pasarDatos();
-                    int oc = 1;
-                    //int oc = OC.InsertarOrden();
+                    int oc = OC.InsertarOrden();
                     pasarDatos(oc);
-                    //OC.InsertarOrdenPorItems();
+                    OC.InsertarOrdenPorItems();
                     generarPDF(oc);
-
-                    CServ_MsjUsuario.Exito("La Orden de compra se ha generado con éxito.");                    
+                    CServ_MsjUsuario.Exito("La Orden de compra se ha generado con éxito.");
                     DTGV_OC.DataSource = null;
                     DTGV_OC.Columns.Clear();
                     DTGV_OC.Rows.Clear();
@@ -119,7 +111,7 @@ namespace Vista.FormulariosMenu
             {
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
-            
+
             CV_OrdenDeCompra_Load(sender, e);
         }
         private void Btn_Historial_Click(object sender, EventArgs e)
@@ -136,7 +128,7 @@ namespace Vista.FormulariosMenu
         private void DTGV_OC_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             int Seleccion = DTGV_OC.CurrentRow.Index;
-            bool  Agregar = Convert.ToBoolean(DTGV_OC.Rows[Seleccion].Cells[7].Value);
+            bool Agregar = Convert.ToBoolean(DTGV_OC.Rows[Seleccion].Cells[7].Value);
             if (Agregar)
             {
                 DTGV_OC.Rows[Seleccion].Cells[7].Value = false;
@@ -146,15 +138,16 @@ namespace Vista.FormulariosMenu
                 DTGV_OC.Rows[Seleccion].Cells[7].Value = true;
             }
             calculoTotalOC();
-            
+
         }
         private void Txb_Buscar_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Txb_Buscar.Text) && Txb_Buscar.Text != "Buscar")
             {
+                
                 List<CM_ObtenerPedidodeCompra> Lista = new List<CM_ObtenerPedidodeCompra>();
-                Lista = OC.BuscarFiltrado(ListaPedidos,Txb_Buscar.Text);
-                DTGV_Pedidos.DataSource= Lista;
+                Lista = OC.BuscarFiltrado(ListaPedidos, Txb_Buscar.Text);
+                DTGV_Pedidos.DataSource = Lista;
                 DTGV_Pedidos.ClearSelection();
             }
             else
@@ -169,11 +162,11 @@ namespace Vista.FormulariosMenu
         }
 
         #region Metodos
-        private void configurarLoad() 
+        private void configurarLoad()
         {
             Lbl_Total.Text = "El monto total de la orden de compra es: $" + TotalOC.ToString("#,##0.00");
             DTGV_Pedidos.Size = new System.Drawing.Size(535, 228);
-            Btn_Descartar.Enabled=false;
+            Btn_Descartar.Enabled = false;
             Btn_ConfTotal.Enabled = false;
             Btn_Historial.Enabled = true;
             Txb_Buscar.Text = "Buscar";
@@ -202,9 +195,9 @@ namespace Vista.FormulariosMenu
             DTGV_OC.AllowUserToResizeRows = false;
             DTGV_OC.RowHeadersVisible = false;
             DTGV_OC.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            DTGV_OC.DataSource = null;            
+            DTGV_OC.DataSource = null;
             DTGV_OC.ClearSelection();
-        }        
+        }
         private void mostrarPedidos()
         {
             DTGV_Pedidos.DataSource = null;
@@ -285,7 +278,7 @@ namespace Vista.FormulariosMenu
                 OrdenItems.Subtotal = item.Cells[6].Value.ToString();
                 ListaItems.Add(OrdenItems);
             }
-            OC.ListaItems= ListaItems;
+            OC.ListaItems = ListaItems;
         }
         private decimal calculoTotalOC()
         {
@@ -306,74 +299,100 @@ namespace Vista.FormulariosMenu
         }
         private void generarPDF(int oc)
         {
-            SaveFileDialog guardar = new SaveFileDialog();
-            guardar.FileName = oc.ToString() + ".pdf";
-            string pagina = "<table border=1><tr><td>HOLAMUNDO</td></tr></table>";
-            if (guardar.ShowDialog() == DialogResult.OK)
+            try
             {
-                using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                SaveFileDialog guardar = new SaveFileDialog();
+                guardar.FileName = "OC N° "+oc.ToString() + ".pdf";
+                string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
+                string PDFhtml = "";
+                PDFhtml = File.ReadAllText(rutaArchivo.ToString());
+                PDFhtml = cargarDatosPDF(PDFhtml,oc);
+
+                if (guardar.ShowDialog() == DialogResult.OK)
                 {
-                    Document pdf = new Document(PageSize.A4, 25, 25, 25, 25);
-                    PdfWriter writer = PdfWriter.GetInstance(pdf, stream);
-                    pdf.Open();
-
-                    /*esto es desde chat gpt
-
-
-                    string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
-                    string html = File.ReadAllText(rutaArchivo);
-
-                    // Obtén el contenido dinámico de tu lista de productos
-                    List<Producto> productos = ObtenerProductos(); // Método que retorna la lista de productos
-                    string contenidoDinamico = ObtenerContenidoDesdeBaseDeDatos(productos); // Genera el contenido HTML
-
-                    // Reemplaza el marcador de posición en el HTML
-                    html = html.Replace("<!-- CONTENIDO DINAMICO -->", contenidoDinamico);*/
-                    // Agregar información del proveedor
-                    pdf.Add(new Paragraph($"Proveedor: {OC.Proveedor}"));
-                    pdf.Add(new Paragraph($"ID Pedido: {OC.ID_Pedido}"));
-                    pdf.Add(new Paragraph($"Total: ${Convert.ToDecimal(OC.Total).ToString("#,##0.00")}"));//($"Total: ${OC.Total}"));
-                    pdf.Add(new Paragraph("\n")); // Espacio adicional
-
-                    // Crear tabla para los items                    
-                    //PdfpTable table = new Table(4); // 4 columnas: Producto, Cantidad, Precio Unitario, Subtotal
-                    PdfPTable table = new PdfPTable(4);
-                    table.AddCell("Producto");
-                    table.AddCell("Cantidad");
-                    table.AddCell("Precio Unitario");
-                    table.AddCell("Subtotal");
-
-                    // Agregar los items a la tabla
-                    foreach (var item in OC.ListaItems)
+                    using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
                     {
-                        table.AddCell(item.Producto);
-                        table.AddCell(item.Cantidad);
-                        table.AddCell(Convert.ToDecimal(item.PrecioUnitario).ToString("#,##0.00"));
-                        table.AddCell(Convert.ToDecimal(item.Subtotal).ToString("#,##0.00"));
-                    }
+                        Document pdfDoc = new Document(PageSize.A4, 55, 75, 25, 25);
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        iTextSharp.text.Image FarmaLogo = iTextSharp.text.Image.GetInstance(Properties.Resources.FarmaciaPasteur, System.Drawing.Imaging.ImageFormat.Png);
+                        iTextSharp.text.Image FarmaTIClogo = iTextSharp.text.Image.GetInstance(Properties.Resources.farmaTic_logo, System.Drawing.Imaging.ImageFormat.Png);
+                        FarmaLogo.ScaleToFit(80, 60);
+                        FarmaLogo.Alignment = iTextSharp.text.Image.UNDERLYING;
+                        FarmaLogo.SetAbsolutePosition(pdfDoc.LeftMargin, pdfDoc.Top - 60);
 
-                    // Agregar tabla al documento
-                    pdf.Add(table);
+                        FarmaTIClogo.ScaleToFit(80, 60);
+                        FarmaTIClogo.Alignment = iTextSharp.text.Image.UNDERLYING;
+                        FarmaTIClogo.SetAbsolutePosition(PageSize.A4.Width - pdfDoc.RightMargin - 30, pdfDoc.Top - 60);
 
-                    // Agregar el total final al final del documento
-                    pdf.Add(new Paragraph($"\nTotal de la compra: ${Convert.ToDecimal(OC.Total).ToString("#,##0.00")}"));
+                        pdfDoc.Add(FarmaTIClogo);
+                        pdfDoc.Add(FarmaLogo);
 
-
-
-
-
-
-                    pdf.Add(new Phrase(""));
-                    /*using (StringReader sr = new StringReader(pagina)) 
-                    {
-                        XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdf, sr);
-                    }*/
-                    pdf.Close();
-                    stream.Close();
+                        using (StringReader sr = new StringReader(PDFhtml))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+                        pdfDoc.Close();
+                        stream.Close();
+                    }                    
                 }
-            }                    
-         }
+                Process.Start(guardar.FileName);
+            }
+            catch (Exception)
+            {
 
+                throw new Exception("La compra se ha realizado con éxito pero no se ha podido generar el PDF. Por favor, contáctes con el proveedor del sistema");
+            }
+        }
+        private string cargarDatosPDF(string PDFhtml, int oc)
+        {
+            ItemsOCDef = OC.ObtenerItemsOC(oc);
+
+            PDFhtml = PDFhtml.Replace("@OC", "Orden de Compra");
+            PDFhtml = PDFhtml.Replace("@NUMERO", oc.ToString());
+
+            PDFhtml = PDFhtml.Replace("@Proveedor", CM_DatosOCDefinitiva.NombreEmpresa);
+            PDFhtml = PDFhtml.Replace("@Fecha", CM_DatosOCDefinitiva.Fecha.ToString("d"));
+            PDFhtml = PDFhtml.Replace("@MatriculaProveedor", CM_DatosOCDefinitiva.MatriculaProveedor.ToString());
+            PDFhtml = PDFhtml.Replace("@CUITProveedor", CM_DatosOCDefinitiva.CUITProveedor);
+            PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionProv);
+            PDFhtml = PDFhtml.Replace("@CorreoProv", CM_DatosOCDefinitiva.CorreoProv);
+            PDFhtml = PDFhtml.Replace("@LocalidadProv", CM_DatosOCDefinitiva.LocalidadProv);
+            PDFhtml = PDFhtml.Replace("@PartidoProv", CM_DatosOCDefinitiva.PartidoProv);
+            PDFhtml = PDFhtml.Replace("@TelefonoProv", CM_DatosOCDefinitiva.TelefonoProv.ToString());
+
+            PDFhtml = PDFhtml.Replace("@NombreEmpresa", CM_DatosOCDefinitiva.NombreEmpresa.ToString());
+            PDFhtml = PDFhtml.Replace("@DireccionFarma", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+            PDFhtml = PDFhtml.Replace("@CUITEmpresa", CM_DatosOCDefinitiva.CUITEmpresa.ToString());
+            PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+            PDFhtml = PDFhtml.Replace("@DomicilioEntrega", CM_DatosOCDefinitiva.DomicilioEntrega.ToString());
+            PDFhtml = PDFhtml.Replace("@Fe", CM_DatosOCDefinitiva.FechaInicioAct.ToString("d"));
+            PDFhtml = PDFhtml.Replace("@PartidoFarma", CM_DatosOCDefinitiva.PartidoFarma.ToString());
+            PDFhtml = PDFhtml.Replace("@LocalidadFarma", CM_DatosOCDefinitiva.LocalidadFarma.ToString());
+
+
+            string FilaProductos = "";
+            foreach (var producto in ItemsOCDef)
+            {
+                FilaProductos += "<tr>";
+                FilaProductos += "<td>" + producto.NombreComercial + "</td>";
+                FilaProductos += "<td>" + producto.Monodroga + "</td>";
+                FilaProductos += "<td>" + producto.Marca + "</td>";
+                FilaProductos += "<td>" + producto.Cantidad.ToString() + "</td>";
+                FilaProductos += "<td>" + producto.PrecioUnitario.ToString("#,##0.00") + "</td>";
+                FilaProductos += "<td>" + producto.Subtotal.ToString("#,##0.00") + "</td>";
+                FilaProductos += "</tr>";
+            }
+
+            PDFhtml = PDFhtml.Replace("@Items", FilaProductos);
+            PDFhtml = PDFhtml.Replace("@TotOC", TotalOC.ToString("#,##0.00"));
+
+            PDFhtml = PDFhtml.Replace("@Usuario", CM_DatosOCDefinitiva.NombreApellido.ToString());
+            PDFhtml = PDFhtml.Replace("@AutoFecha", CM_DatosOCDefinitiva.Fecha.ToString());
+            CM_DatosOCDefinitiva.LimpiarDatos(true);
+
+            return PDFhtml;
+        }
         #endregion
     }
 }

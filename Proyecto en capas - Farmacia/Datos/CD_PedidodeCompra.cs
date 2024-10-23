@@ -1,4 +1,5 @@
-﻿using Sesion;
+﻿using Modelo;
+using Sesion;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -52,6 +53,10 @@ namespace Datos
                 {
                     DataRow fila = dt.Rows[0];
                     ID_Pedido = Convert.ToInt32(fila["ID_Pedido"]);
+
+                    obtenerDatosPedidodeCompra(ID_Pedido);
+
+
                 }
             }
             catch (Exception)
@@ -90,5 +95,47 @@ namespace Datos
                 listaParametros.Clear();
             }
         }
+
+        private void obtenerDatosPedidodeCompra(int PC)
+        {
+            string sSql = "SP_Obtener_Datos_Proveedores_Empresa_Para_PC";
+            SqlParameter param_PC = new SqlParameter("@OC", SqlDbType.Int);
+            param_PC.Value = PC;
+            List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(param_PC);
+            lista = listaParametros.ToArray();
+
+            DataTable dt = ejecutar(sSql, lista, true);
+            if (dt.Rows.Count > 0)
+            {
+                DataRow fila = dt.Rows[0];
+                CM_DatosOCDefinitiva.NombreProveedor = fila["NombreProveedor"].ToString();
+                CM_DatosOCDefinitiva.MatriculaProveedor = Convert.ToInt32(fila["MatriculaProveedor"]);
+                CM_DatosOCDefinitiva.CUITProveedor = fila["CUITProveedor"].ToString();
+                CM_DatosOCDefinitiva.IVAProveedor = fila["IVAProveedor"].ToString();
+                CM_DatosOCDefinitiva.IIBBProveedor = Convert.ToBoolean(fila["IIBBProveedor"]);
+                CM_DatosOCDefinitiva.DireccionProv = fila["DireccionProveedor"].ToString();
+                CM_DatosOCDefinitiva.CorreoProv = fila["MAILProveedor"].ToString();
+                CM_DatosOCDefinitiva.LocalidadProv = fila["LocalidadProveedor"].ToString();
+                CM_DatosOCDefinitiva.PartidoProv = fila["PartidoProveedor"].ToString();
+                CM_DatosOCDefinitiva.TelefonoProv = Convert.ToInt32(fila["TelefonoProveedor"]);
+
+
+                CM_DatosOCDefinitiva.Usuario = fila["UserName"].ToString();
+                CM_DatosOCDefinitiva.NombreApellido = fila["NombreApellido"].ToString();
+                CM_DatosOCDefinitiva.Fecha = Convert.ToDateTime(fila["FechaOrden"]);
+
+
+                CM_DatosOCDefinitiva.NombreEmpresa = fila["NombreEmpresa"].ToString();
+                CM_DatosOCDefinitiva.DireccionFarma = fila["DireccionEmpresa"].ToString();
+                CM_DatosOCDefinitiva.DomicilioEntrega = fila["DomicilioEntregaEmpresa"].ToString();
+                CM_DatosOCDefinitiva.FechaInicioAct = Convert.ToDateTime(fila["InicioActEmpresa"]);
+                CM_DatosOCDefinitiva.CUITEmpresa = fila["CuitEmpresa"].ToString();
+                CM_DatosOCDefinitiva.PartidoFarma = fila["PartidoEmpresa"].ToString();
+                CM_DatosOCDefinitiva.LocalidadFarma = fila["LocalidadEmpresa"].ToString();
+            }
+
+        }
+
     }
 }

@@ -1,11 +1,19 @@
-﻿using Logica;
+﻿using iText.Layout;
+using iTextSharp.text;
+using iTextSharp.tool.xml;
+using Logica;
 using Modelo;
 using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
+using iTextSharp.text;
+using iTextSharp.text.pdf;
+using iTextSharp.tool.xml;
+using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
@@ -21,6 +29,7 @@ namespace Vista.FormulariosMenu
         CL_PedidodeCompra PedidodeCompra = new CL_PedidodeCompra();
         List<CM_PedidosdeCompra> ListaPedidos = new List<CM_PedidosdeCompra>();
         List<CM_Catalogo> ListaCatalogo = new List<CM_Catalogo>();
+        decimal totalProveedor = 0;
         public CV_PedidodeCompra()
         {
             InitializeComponent();
@@ -78,13 +87,11 @@ namespace Vista.FormulariosMenu
             try
             {
                 InsertarPedido();
-                CServ_MsjUsuario.Exito("Pedido de compra ingresado con Exito");
                 DTGV_PedidodeCompra.Rows.Clear();
                 
             }
             catch (Exception ex)
             {
-
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
         }
@@ -280,7 +287,7 @@ namespace Vista.FormulariosMenu
             {
                 string proveedorActual = DTGV_PedidodeCompra.Rows[i].Cells["Proveedor"].Value.ToString();
                 List<CL_PedidodeCompra> listaProveedores = new List<CL_PedidodeCompra>();
-                decimal totalProveedor = 0;
+                totalProveedor = 0;
 
                 while (i < DTGV_PedidodeCompra.Rows.Count)
                 {
@@ -308,10 +315,109 @@ namespace Vista.FormulariosMenu
                 PedidodeCompra.TotalporProveedor = totalProveedor.ToString();
                 PedidodeCompra.Proveedor = proveedorActual;
                 PedidodeCompra.ProductosPorProveedor = listaProveedores;
-                int ID = PedidodeCompra.InsertarCompraProveedor();
-                PedidodeCompra.InsertarCompraItems(ID);
+                int PC = PedidodeCompra.InsertarCompraProveedor();
+                PedidodeCompra.InsertarCompraItems(PC);
+                generarPDF(PC);
             }
         }
+        private void generarPDF(int Pc)
+        {
+            try
+            {
+                SaveFileDialog guardar = new SaveFileDialog();
+                guardar.FileName = "PC N° " + Pc.ToString() + ".pdf";
+                string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
+                string PDFhtml = "";
+                PDFhtml = File.ReadAllText(rutaArchivo.ToString());
+                PDFhtml = cargarDatosPDF(PDFhtml, Pc);
+
+                if (guardar.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream stream = new FileStream(guardar.FileName, FileMode.Create))
+                    {
+
+                        iTextSharp.text.Document pdfDoc = new iTextSharp.text.Document(PageSize.A4, 55, 75, 25, 25);
+                        PdfWriter writer = PdfWriter.GetInstance(pdfDoc, stream);
+                        pdfDoc.Open();
+                        iTextSharp.text.Image FarmaLogo = iTextSharp.text.Image.GetInstance(Properties.Resources.FarmaciaPasteur, System.Drawing.Imaging.ImageFormat.Png);
+                        iTextSharp.text.Image FarmaTIClogo = iTextSharp.text.Image.GetInstance(Properties.Resources.farmaTic_logo, System.Drawing.Imaging.ImageFormat.Png);
+                        FarmaLogo.ScaleToFit(80, 60);
+                        FarmaLogo.Alignment = iTextSharp.text.Image.UNDERLYING;
+                        FarmaLogo.SetAbsolutePosition(pdfDoc.LeftMargin, pdfDoc.Top - 60);
+
+                        FarmaTIClogo.ScaleToFit(80, 60);
+                        FarmaTIClogo.Alignment = iTextSharp.text.Image.UNDERLYING;
+                        FarmaTIClogo.SetAbsolutePosition(PageSize.A4.Width - pdfDoc.RightMargin - 40, pdfDoc.Top - 60);
+
+                        pdfDoc.Add(FarmaTIClogo);
+                        pdfDoc.Add(FarmaLogo);
+
+                        using (StringReader sr = new StringReader(PDFhtml))
+                        {
+                            XMLWorkerHelper.GetInstance().ParseXHtml(writer, pdfDoc, sr);
+                        }
+                        pdfDoc.Close();
+                        stream.Close();
+                    }
+                }
+                Process.Start(guardar.FileName);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("La compra se ha realizado con éxito pero no se ha podido generar el PDF. Por favor, contáctes con el proveedor del sistema");
+            }
+        }
+        private string cargarDatosPDF(string PDFhtml, int oc)
+        {
+            List<CL_PedidodeCompra> ItemsOCDef = PedidodeCompra.ProductosPorProveedor;
+
+            PDFhtml = PDFhtml.Replace("@OC", "Pedido de Compra");
+            PDFhtml = PDFhtml.Replace("@NUMERO", oc.ToString());
+
+            PDFhtml = PDFhtml.Replace("@Proveedor", CM_DatosOCDefinitiva.NombreEmpresa);
+            PDFhtml = PDFhtml.Replace("@Fecha", CM_DatosOCDefinitiva.Fecha.ToString("d"));
+            PDFhtml = PDFhtml.Replace("@MatriculaProveedor", CM_DatosOCDefinitiva.MatriculaProveedor.ToString());
+            PDFhtml = PDFhtml.Replace("@CUITProveedor", CM_DatosOCDefinitiva.CUITProveedor);
+            PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionProv);
+            PDFhtml = PDFhtml.Replace("@CorreoProv", CM_DatosOCDefinitiva.CorreoProv);
+            PDFhtml = PDFhtml.Replace("@LocalidadProv", CM_DatosOCDefinitiva.LocalidadProv);
+            PDFhtml = PDFhtml.Replace("@PartidoProv", CM_DatosOCDefinitiva.PartidoProv);
+            PDFhtml = PDFhtml.Replace("@TelefonoProv", CM_DatosOCDefinitiva.TelefonoProv.ToString());
+
+            PDFhtml = PDFhtml.Replace("@NombreEmpresa", CM_DatosOCDefinitiva.NombreEmpresa.ToString());
+            PDFhtml = PDFhtml.Replace("@DireccionFarma", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+            PDFhtml = PDFhtml.Replace("@CUITEmpresa", CM_DatosOCDefinitiva.CUITEmpresa.ToString());
+            PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+            PDFhtml = PDFhtml.Replace("@DomicilioEntrega", CM_DatosOCDefinitiva.DomicilioEntrega.ToString());
+            PDFhtml = PDFhtml.Replace("@Fe", CM_DatosOCDefinitiva.FechaInicioAct.ToString("d"));
+            PDFhtml = PDFhtml.Replace("@PartidoFarma", CM_DatosOCDefinitiva.PartidoFarma.ToString());
+            PDFhtml = PDFhtml.Replace("@LocalidadFarma", CM_DatosOCDefinitiva.LocalidadFarma.ToString());
+
+
+            string FilaProductos = "";
+            foreach (var producto in ItemsOCDef)
+            {
+                FilaProductos += "<tr>";
+                FilaProductos += "<td>" + producto.NombreComercial + "</td>";
+                FilaProductos += "<td>" + producto.Monodroga + "</td>";
+                FilaProductos += "<td>" + producto.Marca + "</td>";
+                FilaProductos += "<td>" + producto.Cantidad.ToString() + "</td>";
+                FilaProductos += "<td>" + Convert.ToDouble(producto.Precio).ToString("#,##0.00") + "</td>";
+                FilaProductos += "<td>" + Convert.ToDouble(producto.Subtotal).ToString("#,##0.00") + "</td>";
+                FilaProductos += "</tr>";
+            }
+
+            PDFhtml = PDFhtml.Replace("@Items", FilaProductos);
+            PDFhtml = PDFhtml.Replace("@TotOC", totalProveedor.ToString("#,##0.00"));
+
+            PDFhtml = PDFhtml.Replace("@Usuario", CM_DatosOCDefinitiva.NombreApellido.ToString());
+            PDFhtml = PDFhtml.Replace("@AutoFecha", CM_DatosOCDefinitiva.Fecha.ToString());
+            CM_DatosOCDefinitiva.LimpiarDatos(true);
+
+            return PDFhtml;
+        }
+
         #endregion
 
     }

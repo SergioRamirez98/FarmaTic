@@ -1,15 +1,214 @@
-<style>
-    table { width: 100%; border-collapse: collapse; }
-    th, td { border: 1px solid black; padding: 8px; text-align: left; }
-    th { background-color: #4CAF50; color: white; }
-    h1 { color: #333; font-size: 24px; }
-</style>
-<h1>Reporte de Orden de Compra</h1>
-<table>
-    <tr>
-        <th>Producto</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-    </tr>
-    <!-- CONTENIDO DINAMICO -->
-</table>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Plantilla Orden de Compra</title>
+    <style>
+        @page {
+            size: A4;
+            margin: 25mm; /* Márgenes de 25mm */
+        }
+
+        body {
+            margin: 0; /* Elimina márgenes predeterminados del navegador */
+            padding: 0; /* Elimina relleno predeterminado */
+            font-size: 10px; /* Tamaño de fuente global reducido */
+        }
+
+        table.border {
+            border-collapse: collapse;
+            width: 100%; /* Asegura que la tabla use el ancho completo */
+        }
+
+        table.borderPrincipal {
+            border-collapse: collapse;
+            width: 150px; /* Asegura que la tabla use el ancho completo */
+        }
+
+        table.border th, table.border td {
+            padding: 20px; /* Menor padding para compactar */
+            border: 1px solid black;
+            font-size: 12px; /* Tamaño de fuente específico */
+        }
+
+        table.borderPrincipal th, table.borderPrincipal td {
+            padding: 3px; /* Menor padding para compactar */
+            border: 1px solid black;
+            font-size: 15px; /* Tamaño de fuente específico */
+        }
+
+        .containerPrincipal {
+            width: 50%;
+            max-width: 800px; /* Limita el ancho máximo */
+            margin: 0 auto; /* Centra la tabla */
+        }
+
+        /* Asegura que la tabla principal no ocupe toda la pantalla */
+        .container {
+            width: 85%;
+            max-width: 800px; /* Limita el ancho máximo */
+            margin: 0 auto; /* Centra la tabla */
+        }
+
+        .containerItems {
+            width: 80%; /* Ocupará todo el ancho disponible */
+            max-width: none; /* Sin límite en el ancho máximo */
+            margin: 0; /* Elimina el margen para que ocupe todo el espacio */
+            padding: 0; /* Elimina cualquier padding */
+        }
+
+        .info-table {
+            margin-top:30px;
+        }
+            .info-table td {
+                /*padding: 5px;*/ /* Reducir el padding en la tabla de información */
+                padding: 3px; /* Reducir el padding en la tabla de información */
+                font-size: 11px; /* Tamaño de fuente específico para la tabla de información */
+                white-space: nowrap;
+                line-height: 1.0;
+            }
+    </style>
+</head>
+<body>
+    <div class="containerPrincipal">
+        <table>
+            <tr>
+                <td style="width: 20%"></td>
+                <td style="width: 40%" align="center"></td>
+                <td style="width: 0%">
+                    <table class="borderPrincipal">
+                        <tr><td align="center"><strong>@OC</strong></td></tr>
+                        <tr><td align="center"><strong>@NUMERO</strong></td></tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="container">
+        <table>
+            <tr><td colspan="3" height="10"></td></tr>
+            <tr>
+                <td colspan="2">
+                    <table class="info-table" style="width:100%">
+
+                        <tr>
+                            <td style="width:20%">Proveedor: </td>
+                            <td style="width:80%;">@Proveedor</td>
+
+                            <td style="width:20%">Farmacia: </td>
+                            <td style="width:80%;">@NombreEmpresa</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%">Matricula: </td>
+                            <td style="width:80%;">@MatriculaProveedor</td>
+
+                            <td style="width:20%">Domicilio Fiscal: </td>
+                            <td style="width:80%;">@DireccionFarma</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%">CUIT: </td>
+                            <td style="width:80%;">@CUITProveedor</td>
+
+                            <td style="width:20%">CUIT: </td>
+                            <td style="width:80%;">@CUITEmpresa</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%">Direccion: </td>
+                            <td style="width:80%;">@DireccionProv</td>
+
+                            <td style="width:20%">Lugar de entrega: </td>
+                            <td style="width:80%;">@DomicilioEntrega</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%">Correo: </td>
+                            <td style="width:80%;">@CorreoProv</td>
+
+
+                            <td style="width:20%">Fe. Inicio Act.: </td>
+                            <td style="width:80%;">@Fe</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%">Partido: </td>
+                            <td style="width:80%;">@PartidoProv</td>
+
+                            <td style="width:20%">Partido: </td>
+                            <td style="width:80%;">@PartidoFarma</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%">Localidad: </td>
+                            <td style="width:80%;">@LocalidadProv</td>
+
+                            <td style="width:20%">Localidad: </td>
+                            <td style="width:80%;">@LocalidadFarma</td>
+                        </tr>
+                        <tr>
+                            <td style="width:20%">Telefono: </td>
+                            <td style="width:80%;">@TelefonoProv</td>
+                        </tr>
+
+                        <tr>
+                            <td style="width:20%">Pedido N°:</td>
+                            <td style="width:80%;">@PC</td>
+
+                        </tr>
+                        <tr>
+                            <td style="width:15%">Fecha:</td>
+                            <td style="width:40%;">@Fecha</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="containerItems">
+        <table>
+            <tr><td colspan="6" height="10"></td></tr>
+            <tr>
+                <td colspan="3">
+                    <table class="border">
+                        <thead style="background-color: #D8D8D8">
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Monodroga</th>
+                                <th>Marca</th>
+                                <th>Cantidad</th>
+                                <th>Precio Unitario</th>
+                                <th>Total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @Items
+                            <tr>
+                                <td colspan="5" align="right" style="font-size: 1.05em; font-weight: bold;">Total Orden de Compra:</td>
+                                <td style="font-size: 1.2em; font-weight: bold;"><strong>@TotOC</strong></td>
+                                <!--<td colspan="5" align="right">Total Orden de Compra:</td>
+    <td><strong>@TotOC</strong></td>-->
+                            </tr>
+                        </tbody>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div new class="container">
+        <table>
+            <tr><td colspan="2" height="10"></td></tr>
+            <tr>
+                <td colspan="2">
+                    <table class="info-table" style="width:100%">
+
+                        <tr>
+                            <td style="width:20%">Autorizado por: </td>
+                            <td style="width:80%;">@Usuario</td>
+
+                            <td style="width:20%">Fecha de autorización: </td>
+                            <td style="width:80%;">@AutoFecha</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+

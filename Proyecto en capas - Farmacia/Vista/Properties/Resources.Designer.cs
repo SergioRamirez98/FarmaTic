@@ -83,6 +83,26 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap FarmaciaPasteur {
+            get {
+                object obj = ResourceManager.GetObject("FarmaciaPasteur", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap FarmaciaPasteur1 {
+            get {
+                object obj = ResourceManager.GetObject("FarmaciaPasteur1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap farmaTic_logo {
             get {
                 object obj = ResourceManager.GetObject("farmaTic logo", resourceCulture);
@@ -107,6 +127,34 @@ namespace Vista.Properties {
             get {
                 object obj = ResourceManager.GetObject("ojo", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a 
+        ///&lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Plantilla Orden de Compra&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        @page {
+        ///            size: A4;
+        ///            margin: 25mm; /* Márgenes de 25mm */
+        ///        }
+        ///
+        ///        body {
+        ///            margin: 0; /* Elimina márgenes predeterminados del navegador */
+        ///            padding: 0; /* Elimina relleno predeterminado */
+        ///            font-size: 10px; /* Tamaño de fuente global reducido */
+        ///        }
+        ///
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///            wi [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string Plantilla {
+            get {
+                return ResourceManager.GetString("Plantilla", resourceCulture);
             }
         }
     }

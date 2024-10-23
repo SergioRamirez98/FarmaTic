@@ -41,7 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CM_DatosProveedor.cs" />
+    <Compile Include="CM_DatosOCDefinitiva.cs" />
+    <Compile Include="CM_OrdenDeCompraPorItemsPDF.cs" />
     <Compile Include="CM_Pedido.cs" />
     <Compile Include="CM_CargaProductos.cs" />
     <Compile Include="CM_CargaStockMinimo.cs" />
