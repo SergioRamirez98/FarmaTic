@@ -32,7 +32,6 @@ namespace Vista
             CV_GestionUsuariosPersonas agregarPersona = new CV_GestionUsuariosPersonas();
             agregarPersona.Show();         
         }
-
         private void Btn_CerraSesion_Click(object sender, EventArgs e)
         {
             CSesion_PersonaSeleccionada.SesionActiva = false;
@@ -44,7 +43,6 @@ namespace Vista
             this.Close();
             Program.Login.Show();
         }
-
         private void CV_Menu_FormClosed(object sender, FormClosedEventArgs e)
         {
             CSesion_PersonaSeleccionada.SesionActiva = false;
@@ -55,49 +53,41 @@ namespace Vista
             CSesion_PreguntasUsuarios.LimpiarCache();            
             Program.Login.Show();
         }
-
         private void Btn_Config_Click(object sender, EventArgs e)
         {
             CV_Configuracion Configuracion = new CV_Configuracion();
             Configuracion.Show();
         }
-
         private void Btn_ModuloInventario_Click(object sender, EventArgs e)
         {
             CV_Stock stock = new CV_Stock();
             stock.Show();
         }
-
         private void Btn_GestionVentas_Click(object sender, EventArgs e)
         {
             CV_Ventas ventas = new CV_Ventas();
             ventas.Show();
         }
-
         private void Btn_Proveedores_Click(object sender, EventArgs e)
         {
             CV_GestionProveedores Proveedores = new CV_GestionProveedores();
             Proveedores.Show();
         }
-        private void Btb_OC_Click(object sender, EventArgs e)
+        private void Btn_ModulodeCompra_Click(object sender, EventArgs e)
         {
-            CV_CatalogoProductos Catalogo = new CV_CatalogoProductos();
-            Catalogo.Show();
-            CV_PedidodeCompra PC = new CV_PedidodeCompra();
-            PC.Show();
-            CV_GestionOrdenDeCompra OC = new CV_GestionOrdenDeCompra();
-            OC.Show();
+            CV_GestiondeCompras GC = new CV_GestiondeCompras();
+            GC.Show();
 
         }
 
-        public void accesoAModulos()
+        private void accesoAModulos()
         {
             Btn_GestionUsuarios.Enabled = false;
             Btn_GestionVentas.Enabled = false;
             Btn_ModuloInventario.Enabled = false;
             Btn_Config.Enabled = false;
             Btn_Proveedores.Enabled = false;
-            Btb_OC.Enabled = false;
+            Btn_ModulodeCompra.Enabled = false;
 
             foreach (var permiso in CSesion_SesionIniciada.Permisos)
             {
@@ -109,11 +99,17 @@ namespace Vista
                         Btn_ModuloInventario.Enabled = true;
                         Btn_Config.Enabled = true;
                         Btn_Proveedores.Enabled = true;
-                        Btb_OC.Enabled = true;
+                        Btn_ModulodeCompra.Enabled = true;
                         break;
 
                     case 2: 
                         Btn_GestionUsuarios.Enabled = true;
+                        break;
+                    case 7:
+                        Btn_GestionUsuarios.Enabled = true;
+                        break;
+                    case 17:
+                        Btn_ModuloInventario.Enabled = true;
                         break;
                     case 19:
                         Btn_ModuloInventario.Enabled = true;
@@ -121,14 +117,11 @@ namespace Vista
                     case 33:
                         Btn_GestionVentas.Enabled = true;
                         break;
-                    case 17:
-                        Btn_ModuloInventario.Enabled = true;
-                        break;
                     case 42:
                         Btn_Proveedores.Enabled = true;
                         break;
-                    case 43:
-                        Btb_OC.Enabled = true;
+                    case 61:
+                        Btn_ModulodeCompra.Enabled = true;
                         break;
                 }
             }

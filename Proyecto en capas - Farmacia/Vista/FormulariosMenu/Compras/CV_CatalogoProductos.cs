@@ -1,5 +1,6 @@
 ﻿using Logica;
 using Servicios;
+using Sesion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,79 +17,97 @@ namespace Vista.FormulariosMenu
     public partial class CV_CatalogoProductos : Form
     {
         CL_Catalogo Catalogo = new CL_Catalogo();
-        
-        public delegate void ProveedorSeleccionadoHandler(int ID_Proveedor, string proveedor);
-        public event ProveedorSeleccionadoHandler ProveedorSeleccionado;
 
-
+        public delegate void ProveedorSeleccionadoHandler(int ID, string proveedor);
+        public event ProveedorSeleccionadoHandler ProveedorSeleccionado;        
         int ID_Proveedor = 0;
         int ID_Producto = 0;
+        bool Agregar = false;
+        bool Buscar= false;
+        bool Modificar = false;
+        bool Eliminar= false;
+        
         public CV_CatalogoProductos()
         {
             InitializeComponent();
         }
 
+        #region Eventos
         private void CV_CatalogoProductos_Load(object sender, EventArgs e)
         {
             configurarDTGV();
             mostrarProductos();
             configurarLoad();
+            cargarPermisos();
         }
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {
-                
-            if (Catalogo.ConsultarCatalogo(Txb_NombreComercial.Text) == false)
+            if (Agregar)
+            {
+                if (Catalogo.ConsultarCatalogo(Txb_NombreComercial.Text) == false)
+                {
+                    try
+                    {
+                        pasarDatos(false);
+                        Catalogo.InsertarProducto();
+                        CServ_MsjUsuario.Exito("El producto fue ingresado exitosamente.");
+                        mostrarProductos();
+                        CServ_Limpiar.LimpiarFormulario(this);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
+
+                }
+                else
+                {
+                    if (CServ_MsjUsuario.Preguntar("El producto ya existe. ¿Desea actualizar el producto existente?") == true)
+                    {
+                        try
+                        {
+                            pasarDatos(false);
+                            Catalogo.ModificarProductos();
+                        }
+                        catch (Exception ex)
+                        {
+
+                            CServ_MsjUsuario.MensajesDeError(ex.Message);
+                        }
+                    }
+                }
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+        }
+        private void Btn_Buscar_Click(object sender, EventArgs e)
+        {
+            if (Buscar)
             {
                 try
                 {
-                    pasarDatos(false);
-                    Catalogo.InsertarProducto();
-                    CServ_MsjUsuario.Exito("El producto fue ingresado exitosamente.");
-                    mostrarProductos();
-                    CServ_Limpiar.LimpiarFormulario(this);
-
+                    pasarDatos(true);
+                    DTGV_Catalogo.DataSource = null;
+                    DTGV_Catalogo.DataSource = Catalogo.RealizarBusqueda();
+                    nombrarColumnas();
                 }
                 catch (Exception ex)
                 {
                     CServ_MsjUsuario.MensajesDeError(ex.Message);
                 }
-
             }
-            else
-            {
-                if (CServ_MsjUsuario.Preguntar("El producto ya existe. ¿Desea actualizar el producto existente?") == true)
-                {
-                    try
-                    {
-                        pasarDatos(false);
-                        Catalogo.ModificarProductos();
-                    }
-                    catch (Exception ex)
-                    {
-
-                        CServ_MsjUsuario.MensajesDeError(ex.Message);
-                    }
-                } 
-            }
-        }
-        private void Btn_Buscar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                pasarDatos(true);
-                DTGV_Catalogo.DataSource = null;
-                DTGV_Catalogo.DataSource= Catalogo.RealizarBusqueda();
-                nombrarColumnas();
-            }
-            catch (Exception ex)
-            {
-                CServ_MsjUsuario.MensajesDeError(ex.Message); 
-            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            
         }
         private void Btn_Modificar_Click(object sender, EventArgs e)
         {
-            desbloquearControles();
-            Btn_GuardarCambios.Enabled = true;
+            if (Modificar)
+            {
+                desbloquearControles();
+                Btn_GuardarCambios.Enabled = true;
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            
         }
         private void Btn_GuardarCambios_Click(object sender, EventArgs e)
         {
@@ -109,21 +128,26 @@ namespace Vista.FormulariosMenu
         }
         private void Btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if (DTGV_Catalogo.SelectedRows.Count>0)
+            if (Eliminar)
             {
-                if (CServ_MsjUsuario.Preguntar("Esta seguro que desea eliminar el producto seleccionado"))
+                if (DTGV_Catalogo.SelectedRows.Count > 0)
                 {
-                    pasarDatos(false);
-                    Catalogo.EliminarProducto();
-                    CServ_MsjUsuario.Exito("Producto eliminado con éxito");
-                    mostrarProductos();
-                    configurarLoad();
+                    if (CServ_MsjUsuario.Preguntar("Esta seguro que desea eliminar el producto seleccionado"))
+                    {
+                        pasarDatos(false);
+                        Catalogo.EliminarProducto();
+                        CServ_MsjUsuario.Exito("Producto eliminado con éxito");
+                        mostrarProductos();
+                        configurarLoad();
+                    }
+                }
+                else
+                {
+                    CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto para eliminar");
                 }
             }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto para eliminar");
-            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            
         }
         private void DTGV_Catalogo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -133,7 +157,7 @@ namespace Vista.FormulariosMenu
                 Chb_Busqueda.Enabled= false;
                 bloquearControles();
                 cargarControles();
-                Btn_Agregar.Enabled = false;
+                Btn_Agregar.Enabled = true;
                 Btn_Eliminar.Enabled = true;
                 Btn_Modificar.Enabled = true;
             }
@@ -166,9 +190,11 @@ namespace Vista.FormulariosMenu
         {
             CV_CatalogoProductos_Load(sender, e);
         }
+        #endregion
 
 
 
+        #region Métodos
 
         private void configurarDTGV()
         {
@@ -206,6 +232,35 @@ namespace Vista.FormulariosMenu
             Pnl_Busqueda.Enabled = false;
             Pnl_Busqueda.Visible = false;
             CServ_Limpiar.LimpiarPanelBox(Pnl_Busqueda);
+        }
+        private void cargarPermisos() 
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Agregar= true;
+                        Buscar= true;
+                        Eliminar= true;                        
+                        Modificar= true;
+                        break;
+
+                    case 47:
+                        Agregar= true;
+                        break;
+                    case 48:
+                        Modificar= true;
+                        break;
+                    case 49:
+                        Buscar= true;
+                        break;
+                    case 50:
+                        Eliminar= true;
+                        break;
+                    
+                }
+            }
         }
         private void pasarDatos(bool busqueda) 
         {
@@ -283,5 +338,6 @@ namespace Vista.FormulariosMenu
             DTGV_Catalogo.Columns[7].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Catalogo.Columns[7].HeaderText = "Precio por Lote";
         }
+        #endregion
     }
 }

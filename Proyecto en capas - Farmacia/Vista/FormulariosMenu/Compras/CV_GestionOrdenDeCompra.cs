@@ -165,7 +165,7 @@ namespace Vista.FormulariosMenu
         private void configurarLoad()
         {
             Lbl_Total.Text = "El monto total de la orden de compra es: $" + TotalOC.ToString("#,##0.00");
-            DTGV_Pedidos.Size = new System.Drawing.Size(535, 228);
+            DTGV_Pedidos.Size = new System.Drawing.Size(565, 228);//537
             Btn_Descartar.Enabled = false;
             Btn_ConfTotal.Enabled = false;
             Btn_Historial.Enabled = true;
