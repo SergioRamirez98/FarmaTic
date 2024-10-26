@@ -140,17 +140,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CV_GestiondeCompras.cs">
+    <Compile Include="FormulariosMenu\Compras\CV_GestiondeCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CV_GestiondeCompras.Designer.cs">
+    <Compile Include="FormulariosMenu\Compras\CV_GestiondeCompras.Designer.cs">
       <DependentUpon>CV_GestiondeCompras.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FormulariosMenu\CV_OrdendeCompra.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormulariosMenu\CV_OrdendeCompra.Designer.cs">
-      <DependentUpon>CV_OrdendeCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\Compras\CV_CatalogoProductos.cs">
       <SubType>Form</SubType>
@@ -158,16 +152,28 @@
     <Compile Include="FormulariosMenu\Compras\CV_CatalogoProductos.Designer.cs">
       <DependentUpon>CV_CatalogoProductos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_GestiónProveedores.cs">
+    <Compile Include="FormulariosMenu\CV_Bitacora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_GestiónProveedores.Designer.cs">
+    <Compile Include="FormulariosMenu\CV_Bitacora.Designer.cs">
+      <DependentUpon>CV_Bitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormulariosMenu\CV_ConfiguracionSistema.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\CV_ConfiguracionSistema.Designer.cs">
+      <DependentUpon>CV_ConfiguracionSistema.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormulariosMenu\Compras\CV_GestiónProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\Compras\CV_GestiónProveedores.Designer.cs">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ObtenerProveedores.cs">
+    <Compile Include="FormulariosMenu\Compras\CV_ObtenerProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ObtenerProveedores.Designer.cs">
+    <Compile Include="FormulariosMenu\Compras\CV_ObtenerProveedores.Designer.cs">
       <DependentUpon>CV_ObtenerProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\Compras\CV_GestionOrdenDeCompra.cs">
@@ -206,22 +212,22 @@
     <Compile Include="FormulariosMenu\Ventas\CV_ObtenerClientes.Designer.cs">
       <DependentUpon>CV_ObtenerClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_Configuracion.cs">
+    <Compile Include="FormulariosMenu\CV_ModulodeSeguridad.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_Configuracion.Designer.cs">
-      <DependentUpon>CV_Configuracion.cs</DependentUpon>
+    <Compile Include="FormulariosMenu\CV_ModulodeSeguridad.Designer.cs">
+      <DependentUpon>CV_ModulodeSeguridad.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ControlVencimientos.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_ControlVencimientos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ControlVencimientos.Designer.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_ControlVencimientos.Designer.cs">
       <DependentUpon>CV_ControlVencimientos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_GestionStock.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_GestionStock.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_GestionStock.Designer.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_GestionStock.Designer.cs">
       <DependentUpon>CV_GestionStock.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\Ventas\CV_Ventas.cs">
@@ -260,33 +266,36 @@
     <Compile Include="FormulariosMenu\CV_Menu.Designer.cs">
       <DependentUpon>CV_Menu.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ProdVencido.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_ProdVencido.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_ProdVencido.Designer.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_ProdVencido.Designer.cs">
       <DependentUpon>CV_ProdVencido.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_StockMinimo.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_StockMinimo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\CV_StockMinimo.Designer.cs">
+    <Compile Include="FormulariosMenu\ControlStock\CV_StockMinimo.Designer.cs">
       <DependentUpon>CV_StockMinimo.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="CV_GestiondeCompras.resx">
+    <EmbeddedResource Include="FormulariosMenu\Compras\CV_GestiondeCompras.resx">
       <DependentUpon>CV_GestiondeCompras.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_OrdendeCompra.resx">
-      <DependentUpon>CV_OrdendeCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\Compras\CV_CatalogoProductos.resx">
       <DependentUpon>CV_CatalogoProductos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_GestiónProveedores.resx">
+    <EmbeddedResource Include="FormulariosMenu\CV_Bitacora.resx">
+      <DependentUpon>CV_Bitacora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulariosMenu\CV_ConfiguracionSistema.resx">
+      <DependentUpon>CV_ConfiguracionSistema.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulariosMenu\Compras\CV_GestiónProveedores.resx">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_ObtenerProveedores.resx">
+    <EmbeddedResource Include="FormulariosMenu\Compras\CV_ObtenerProveedores.resx">
       <DependentUpon>CV_ObtenerProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\Compras\CV_GestionOrdenDeCompra.resx">
@@ -307,13 +316,13 @@
     <EmbeddedResource Include="FormulariosMenu\Ventas\CV_ObtenerClientes.resx">
       <DependentUpon>CV_ObtenerClientes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_Configuracion.resx">
-      <DependentUpon>CV_Configuracion.cs</DependentUpon>
+    <EmbeddedResource Include="FormulariosMenu\CV_ModulodeSeguridad.resx">
+      <DependentUpon>CV_ModulodeSeguridad.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_ControlVencimientos.resx">
+    <EmbeddedResource Include="FormulariosMenu\ControlStock\CV_ControlVencimientos.resx">
       <DependentUpon>CV_ControlVencimientos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_GestionStock.resx">
+    <EmbeddedResource Include="FormulariosMenu\ControlStock\CV_GestionStock.resx">
       <DependentUpon>CV_GestionStock.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\Ventas\CV_Ventas.resx">
@@ -334,10 +343,10 @@
     <EmbeddedResource Include="FormulariosMenu\CV_Menu.resx">
       <DependentUpon>CV_Menu.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_ProdVencido.resx">
+    <EmbeddedResource Include="FormulariosMenu\ControlStock\CV_ProdVencido.resx">
       <DependentUpon>CV_ProdVencido.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\CV_StockMinimo.resx">
+    <EmbeddedResource Include="FormulariosMenu\ControlStock\CV_StockMinimo.resx">
       <DependentUpon>CV_StockMinimo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">

@@ -20,6 +20,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Sesion;
 
 namespace Vista.FormulariosMenu
 {
@@ -30,6 +31,10 @@ namespace Vista.FormulariosMenu
         List<CM_PedidosdeCompra> ListaPedidos = new List<CM_PedidosdeCompra>();
         List<CM_Catalogo> ListaCatalogo = new List<CM_Catalogo>();
         decimal totalProveedor = 0;
+        bool Agregar = false;
+        bool Eliminar = false;
+        bool Finalizar = false;
+        bool Visualizar = false;
         public CV_PedidodeCompra()
         {
             InitializeComponent();
@@ -39,61 +44,74 @@ namespace Vista.FormulariosMenu
         {
             configurarDTGV();
             mostrarCatalogo();
+            cargarPermisos();
         }
         private void Btn_AgregarAlPedido_Click(object sender, EventArgs e)
         {
-            try
+            if (Agregar)
             {
-                if (DTGV_Catalogo.SelectedRows.Count > 0 && Nud_Cantidad.Value > 0)
+                try
                 {
-                    int Seleccion = DTGV_Catalogo.CurrentRow.Index;
-                    int Id = Convert.ToInt32(DTGV_Catalogo.Rows[Seleccion].Cells[0].Value);
-                    bool ProductoenCarrito = compararPedido(Id);
-                    if (ProductoenCarrito)  agregarCantidadAlPedido(Id);
+                    if (DTGV_Catalogo.SelectedRows.Count > 0 && Nud_Cantidad.Value > 0)
+                    {
+                        int Seleccion = DTGV_Catalogo.CurrentRow.Index;
+                        int Id = Convert.ToInt32(DTGV_Catalogo.Rows[Seleccion].Cells[0].Value);
+                        bool ProductoenCarrito = compararPedido(Id);
+                        if (ProductoenCarrito) agregarCantidadAlPedido(Id);
+                        else
+                        {
+                            if (Nud_Cantidad.Value >= Convert.ToInt32(DTGV_Catalogo.Rows[Seleccion].Cells[6].Value)) agregarAlPedido(Seleccion);
+                            else throw new Exception("La cantidad no puede ser menos que la cantidad mínima de compra indicada por el proveedor.");
+                        }
+                        ordenarPorProveedor();
+                    }
                     else
                     {
-                        if (Nud_Cantidad.Value >= Convert.ToInt32(DTGV_Catalogo.Rows[Seleccion].Cells[6].Value)) agregarAlPedido(Seleccion);                        
-                        else throw new Exception("La cantidad no puede ser menos que la cantidad mínima de compra indicada por el proveedor.");
+                        CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
                     }
+
+                }
+                catch (Exception ex)
+                {
+
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
+
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+        }
+        private void Btn_EliminardePedido_Click(object sender, EventArgs e)
+        {
+            if (Eliminar)
+            {
+                if (DTGV_PedidodeCompra.SelectedRows.Count > 0)
+                {
+                    eliminarDePedido();
                     ordenarPorProveedor();
                 }
                 else
                 {
                     CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
                 }
-
             }
-            catch (Exception ex)
-            {
-
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }         
-        }
-        private void Btn_EliminardePedido_Click(object sender, EventArgs e)
-        {
-
-            if (DTGV_PedidodeCompra.SelectedRows.Count > 0)
-            {
-                eliminarDePedido();
-                ordenarPorProveedor();
-            }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
-            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_FinalizarPedido_Click(object sender, EventArgs e)
         {
-            try
+            if (Finalizar)
             {
-                InsertarPedido();
-                DTGV_PedidodeCompra.Rows.Clear();
-                
+                try
+                {
+                    InsertarPedido();
+                    DTGV_PedidodeCompra.Rows.Clear();
+
+                }
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void DTGV_Catalogo_SelectionChanged(object sender, EventArgs e)
         {
@@ -416,6 +434,36 @@ namespace Vista.FormulariosMenu
             CM_DatosOCDefinitiva.LimpiarDatos(true);
 
             return PDFhtml;
+        }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Agregar = true;
+                        Finalizar = true;
+                        Eliminar = true;
+                        Visualizar = true;
+                        break;
+
+                    case 52:
+                        Agregar = true;
+                        break;
+
+                    case 53:
+                        Eliminar = true;
+                        break;
+                    case 54:
+                        Finalizar = true;
+                        break;
+                    case 55:
+                        Visualizar = true;
+                        break;
+
+                }
+            }
         }
 
         #endregion

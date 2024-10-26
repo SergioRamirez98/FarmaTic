@@ -31,6 +31,7 @@
             this.Btn_Catalogo = new System.Windows.Forms.Button();
             this.Btn_PedidodeCompra = new System.Windows.Forms.Button();
             this.Btn_OrdendeCompra = new System.Windows.Forms.Button();
+            this.Btn_Proveedores = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_Catalogo
@@ -63,11 +64,21 @@
             this.Btn_OrdendeCompra.UseVisualStyleBackColor = true;
             this.Btn_OrdendeCompra.Click += new System.EventHandler(this.Btn_OrdendeCompra_Click);
             // 
+            // Btn_Proveedores
+            // 
+            this.Btn_Proveedores.Location = new System.Drawing.Point(502, 98);
+            this.Btn_Proveedores.Name = "Btn_Proveedores";
+            this.Btn_Proveedores.Size = new System.Drawing.Size(103, 51);
+            this.Btn_Proveedores.TabIndex = 3;
+            this.Btn_Proveedores.Text = "Gestion de proveedores";
+            this.Btn_Proveedores.UseVisualStyleBackColor = true;
+            // 
             // CV_GestiondeCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btn_Proveedores);
             this.Controls.Add(this.Btn_OrdendeCompra);
             this.Controls.Add(this.Btn_PedidodeCompra);
             this.Controls.Add(this.Btn_Catalogo);
@@ -83,5 +94,6 @@
         private System.Windows.Forms.Button Btn_Catalogo;
         private System.Windows.Forms.Button Btn_PedidodeCompra;
         private System.Windows.Forms.Button Btn_OrdendeCompra;
+        private System.Windows.Forms.Button Btn_Proveedores;
     }
 }

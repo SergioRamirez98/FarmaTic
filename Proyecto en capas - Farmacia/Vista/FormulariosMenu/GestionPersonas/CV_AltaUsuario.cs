@@ -18,6 +18,10 @@ namespace Vista.FormulariosMenu.GestionPersonas
         CL_Usuarios Usuario = new CL_Usuarios();
         CL_Personas GestionPersonas = new CL_Personas();
         int ID_Persona = 0;
+        bool Registrar = false;
+        bool Modificar = false;
+        bool Eliminar = false;        
+        bool SeleccionarUsuarios = false;
         public CV_AltaUsuario(int idpersona)
         {
             InitializeComponent();if (idpersona != 0) ID_Persona = idpersona;
@@ -27,6 +31,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             cargarComboBox(true);
             cargarLoad(ID_Persona);
             bloquearControles();
+            cargarPermisos();
         }
         private void btn_SeleccionarPersona_Click(object sender, EventArgs e)
         {
@@ -37,21 +42,30 @@ namespace Vista.FormulariosMenu.GestionPersonas
         }
         private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
         {
-            capturarDatosUsuarios();
-            try
+            if (Registrar)
             {
-                Usuario.CrearUsuario();
-                CServ_MsjUsuario.Exito("Usuario Generado con éxito");
-                bloquearControles();
+                capturarDatosUsuarios();
+                try
+                {
+                    Usuario.CrearUsuario();
+                    CServ_MsjUsuario.Exito("Usuario Generado con éxito");
+                    bloquearControles();
+                }
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_Modificar_Click(object sender, EventArgs e)
         {
-            habilitarControles();
+            if (Modificar)
+            {
+                habilitarControles();
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            
         }
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
@@ -71,14 +85,18 @@ namespace Vista.FormulariosMenu.GestionPersonas
         }
         private void Btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if (ID_Persona != 0)
+            if (Eliminar)
             {
-                bool Eliminar = CServ_MsjUsuario.Preguntar("¿Esta seguro de querer eliminar al usuario seleccionado?");
-                if (Eliminar)
+                if (ID_Persona != 0)
                 {
-                    Usuario.Eliminar(ID_Persona);
+                    bool Eliminar = CServ_MsjUsuario.Preguntar("¿Esta seguro de querer eliminar al usuario seleccionado?");
+                    if (Eliminar)
+                    {
+                        Usuario.Eliminar(ID_Persona);
+                    }
                 }
             }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
 
         }
         private void Btn_Refrescar_Click(object sender, EventArgs e)
@@ -160,7 +178,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             Btn_Modificar.Enabled = false;
             Btn_Guardar.Enabled = false;
 
-            if (ID!= 0 && CSesion_PersonaSeleccionada.EsCliente ==false)
+            if (ID!= 0 && CSesion_PersonaSeleccionada.EsCliente ==false && CSesion_PersonaSeleccionada.EsUsuario ==true)
             { 
                 Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;
                 Txb_UserName.Text = CSesion_PersonaSeleccionada.UserName;
@@ -194,8 +212,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             }
             else
             {
-                Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;
-
+                Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;                
                 CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
                 habilitarControles();
             }
@@ -216,7 +233,6 @@ namespace Vista.FormulariosMenu.GestionPersonas
                 Txb_Persona.Enabled = false;
             }
         }
-
         private void habilitarControles()
         {
             Dtp_FeAlta.Enabled = true;
@@ -229,6 +245,36 @@ namespace Vista.FormulariosMenu.GestionPersonas
             DataTable dt = new DataTable();
             dt = GestionPersonas.CargarDatos(ID_Persona);
             GestionPersonas.CargarDatosClientes(ID_Persona);
+        }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Registrar = true;
+                        Modificar = true;
+                        Eliminar = true;
+                        SeleccionarUsuarios = true;
+                        break;
+
+                    case 13:
+                        Registrar = true;
+                        break;
+                    case 14:
+                        Modificar = true;
+                        break;
+
+                    case 15:
+                        Eliminar = true;
+                        break;
+                    case 16:
+                        SeleccionarUsuarios = true;
+                        break;
+                }
+            }
+            btn_SeleccionarPersona.Enabled = SeleccionarUsuarios;
         }
 
     }

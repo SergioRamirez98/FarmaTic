@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class CV_Configuracion
+    partial class CV_ModulodeSeguridad
     {
         /// <summary>
         /// Required designer variable.
@@ -34,15 +34,10 @@
             this.Chb_DatosPersonales = new System.Windows.Forms.CheckBox();
             this.Chb_NumYLetras = new System.Windows.Forms.CheckBox();
             this.Btn_Guardar = new System.Windows.Forms.Button();
-            this.Nud_VtoProd = new System.Windows.Forms.NumericUpDown();
-            this.Lbl_DiasVtoProd = new System.Windows.Forms.Label();
-            this.Nud_CantMinStock = new System.Windows.Forms.NumericUpDown();
-            this.Lbl_CantMinStock = new System.Windows.Forms.Label();
             this.Chb_RepetirPass = new System.Windows.Forms.CheckBox();
             this.Lbl_CantIntentosFallidos = new System.Windows.Forms.Label();
             this.Nud_CantidadIntentosFallidos = new System.Windows.Forms.NumericUpDown();
-            ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).BeginInit();
+            this.Btn_Bitacora = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantidadIntentosFallidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,48 +102,6 @@
             this.Btn_Guardar.UseVisualStyleBackColor = true;
             this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
-            // Nud_VtoProd
-            // 
-            this.Nud_VtoProd.Location = new System.Drawing.Point(290, 55);
-            this.Nud_VtoProd.Name = "Nud_VtoProd";
-            this.Nud_VtoProd.Size = new System.Drawing.Size(54, 22);
-            this.Nud_VtoProd.TabIndex = 6;
-            this.Nud_VtoProd.Value = new decimal(new int[] {
-            30,
-            0,
-            0,
-            0});
-            // 
-            // Lbl_DiasVtoProd
-            // 
-            this.Lbl_DiasVtoProd.AutoSize = true;
-            this.Lbl_DiasVtoProd.Location = new System.Drawing.Point(353, 55);
-            this.Lbl_DiasVtoProd.Name = "Lbl_DiasVtoProd";
-            this.Lbl_DiasVtoProd.Size = new System.Drawing.Size(179, 16);
-            this.Lbl_DiasVtoProd.TabIndex = 6;
-            this.Lbl_DiasVtoProd.Text = "Aviso de dias Vto. Productos";
-            // 
-            // Nud_CantMinStock
-            // 
-            this.Nud_CantMinStock.Location = new System.Drawing.Point(290, 85);
-            this.Nud_CantMinStock.Name = "Nud_CantMinStock";
-            this.Nud_CantMinStock.Size = new System.Drawing.Size(54, 22);
-            this.Nud_CantMinStock.TabIndex = 8;
-            this.Nud_CantMinStock.Value = new decimal(new int[] {
-            5,
-            0,
-            0,
-            0});
-            // 
-            // Lbl_CantMinStock
-            // 
-            this.Lbl_CantMinStock.AutoSize = true;
-            this.Lbl_CantMinStock.Location = new System.Drawing.Point(353, 85);
-            this.Lbl_CantMinStock.Name = "Lbl_CantMinStock";
-            this.Lbl_CantMinStock.Size = new System.Drawing.Size(161, 16);
-            this.Lbl_CantMinStock.TabIndex = 7;
-            this.Lbl_CantMinStock.Text = "Cantidad minima de stock";
-            // 
             // Chb_RepetirPass
             // 
             this.Chb_RepetirPass.AutoSize = true;
@@ -162,7 +115,7 @@
             // Lbl_CantIntentosFallidos
             // 
             this.Lbl_CantIntentosFallidos.AutoSize = true;
-            this.Lbl_CantIntentosFallidos.Location = new System.Drawing.Point(353, 115);
+            this.Lbl_CantIntentosFallidos.Location = new System.Drawing.Point(353, 55);
             this.Lbl_CantIntentosFallidos.Name = "Lbl_CantIntentosFallidos";
             this.Lbl_CantIntentosFallidos.Size = new System.Drawing.Size(175, 16);
             this.Lbl_CantIntentosFallidos.TabIndex = 9;
@@ -170,7 +123,7 @@
             // 
             // Nud_CantidadIntentosFallidos
             // 
-            this.Nud_CantidadIntentosFallidos.Location = new System.Drawing.Point(290, 115);
+            this.Nud_CantidadIntentosFallidos.Location = new System.Drawing.Point(290, 55);
             this.Nud_CantidadIntentosFallidos.Name = "Nud_CantidadIntentosFallidos";
             this.Nud_CantidadIntentosFallidos.Size = new System.Drawing.Size(54, 22);
             this.Nud_CantidadIntentosFallidos.TabIndex = 9;
@@ -180,30 +133,35 @@
             0,
             0});
             // 
-            // CV_Configuracion
+            // Btn_Bitacora
+            // 
+            this.Btn_Bitacora.Location = new System.Drawing.Point(290, 112);
+            this.Btn_Bitacora.Name = "Btn_Bitacora";
+            this.Btn_Bitacora.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Bitacora.TabIndex = 11;
+            this.Btn_Bitacora.Text = "Bitácora";
+            this.Btn_Bitacora.UseVisualStyleBackColor = true;
+            this.Btn_Bitacora.Click += new System.EventHandler(this.Btn_Bitacora_Click);
+            // 
+            // CV_ModulodeSeguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(556, 249);
+            this.Controls.Add(this.Btn_Bitacora);
             this.Controls.Add(this.Lbl_CantIntentosFallidos);
             this.Controls.Add(this.Nud_CantidadIntentosFallidos);
             this.Controls.Add(this.Chb_RepetirPass);
-            this.Controls.Add(this.Lbl_CantMinStock);
-            this.Controls.Add(this.Nud_CantMinStock);
-            this.Controls.Add(this.Lbl_DiasVtoProd);
-            this.Controls.Add(this.Nud_VtoProd);
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.Chb_NumYLetras);
             this.Controls.Add(this.Chb_DatosPersonales);
             this.Controls.Add(this.Chb_CaracEspec);
             this.Controls.Add(this.Chb_MayMin);
             this.Controls.Add(this.Chb_MinCaracteres);
-            this.Name = "CV_Configuracion";
+            this.Name = "CV_ModulodeSeguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Configuración de contraseñas";
+            this.Text = "Configuración de seguridad";
             this.Load += new System.EventHandler(this.CV_Configuracion_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantidadIntentosFallidos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -218,12 +176,9 @@
         private System.Windows.Forms.CheckBox Chb_DatosPersonales;
         private System.Windows.Forms.CheckBox Chb_NumYLetras;
         private System.Windows.Forms.Button Btn_Guardar;
-        private System.Windows.Forms.NumericUpDown Nud_VtoProd;
-        private System.Windows.Forms.Label Lbl_DiasVtoProd;
-        private System.Windows.Forms.NumericUpDown Nud_CantMinStock;
-        private System.Windows.Forms.Label Lbl_CantMinStock;
         private System.Windows.Forms.CheckBox Chb_RepetirPass;
         private System.Windows.Forms.Label Lbl_CantIntentosFallidos;
         private System.Windows.Forms.NumericUpDown Nud_CantidadIntentosFallidos;
+        private System.Windows.Forms.Button Btn_Bitacora;
     }
 }

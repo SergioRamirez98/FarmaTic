@@ -20,6 +20,9 @@ namespace Vista
         CL_Personas GestionPersonas = new CL_Personas();
         DataTable dt = new DataTable();
         int ID_Proveedor=0;
+        bool Agregar = false;
+        bool Eliminar = false;
+        bool Modificar = false;
         #endregion
         public CV_GestionProveedores()
         {
@@ -33,31 +36,32 @@ namespace Vista
             configurarDTGV();
             cargarDTGV();
             configurarLoad();
+            cargarPermisos();
         }
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {
-            pasarDatos();
-            if (Proveedores.ConsultarCUIT(Txb_Cuit.Text, dt) == false)
+            if (Agregar)
             {
-                try
+                pasarDatos();
+                if (Proveedores.ConsultarCUIT(Txb_Cuit.Text, dt) == false)
                 {
-                    Proveedores.InsertarProveedor();
-                    CServ_MsjUsuario.Exito("El Proveedor fue ingresado exitosamente.");
-                    cargarDTGV();
-                    CServ_Limpiar.LimpiarFormulario(this);
+                    try
+                    {
+                        Proveedores.InsertarProveedor();
+                        CServ_MsjUsuario.Exito("El Proveedor fue ingresado exitosamente.");
+                        cargarDTGV();
+                        CServ_Limpiar.LimpiarFormulario(this);
+
+                    }
+                    catch (Exception ex)
+                    {
+                        CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
 
                 }
-                catch (Exception ex)
-                {
-                    CServ_MsjUsuario.MensajesDeError(ex.Message);
-                }
-
+                else CServ_MsjUsuario.MensajesDeError("Ya existe un proveedor registrado con este numero de CUIT");
             }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("Ya existe un proveedor registrado con este numero de CUIT");
-            }
-
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
@@ -73,8 +77,13 @@ namespace Vista
         }
         private void Btn_Modificar_Click(object sender, EventArgs e)
         {
-            Btn_Guardar.Enabled = true;
-            Pnl_DatosProveedores.Enabled = true;
+            if (Modificar)
+            {
+                Btn_Guardar.Enabled = true;
+                Pnl_DatosProveedores.Enabled = true;
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            
         }
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
@@ -94,30 +103,34 @@ namespace Vista
         }
         private void Btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if (DTGV_Proveedores.Rows.Count > 0)
+            if (Eliminar)
             {
-
-                Proveedores.ID_Proveedor = DTGV_Proveedores.SelectedRows[0].Cells["ID_Proveedor"].Value.ToString();
-                bool respuesta = CServ_MsjUsuario.Preguntar("¿Está seguro de querer borrar los datos seleccionados?");
-                if (respuesta)
+                if (DTGV_Proveedores.Rows.Count > 0)
                 {
-                    try
-                    {
-                        Proveedores.EliminarProveedor();
-                        CServ_MsjUsuario.Exito("El producto ha sido eliminado");
-                        CServ_Limpiar.LimpiarPanelBox(Pnl_DatosProveedores);
-                        Pnl_DatosProveedores.Enabled = true;
-                        configurarLoad();
-                        cargarDTGV();
-                    }
-                    catch (Exception ex)
-                    {
-                        CServ_MsjUsuario.MensajesDeError(ex.Message);
-                    }
 
+                    Proveedores.ID_Proveedor = DTGV_Proveedores.SelectedRows[0].Cells["ID_Proveedor"].Value.ToString();
+                    bool respuesta = CServ_MsjUsuario.Preguntar("¿Está seguro de querer borrar los datos seleccionados?");
+                    if (respuesta)
+                    {
+                        try
+                        {
+                            Proveedores.EliminarProveedor();
+                            CServ_MsjUsuario.Exito("El producto ha sido eliminado");
+                            CServ_Limpiar.LimpiarPanelBox(Pnl_DatosProveedores);
+                            Pnl_DatosProveedores.Enabled = true;
+                            configurarLoad();
+                            cargarDTGV();
+                        }
+                        catch (Exception ex)
+                        {
+                            CServ_MsjUsuario.MensajesDeError(ex.Message);
+                        }
+
+                    }
                 }
             }
-        }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+          }
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {
             CServ_Limpiar.LimpiarPanelBox(Pnl_DatosProveedores);
@@ -250,6 +263,32 @@ namespace Vista
             Chb_IIBB.Checked = Convert.ToBoolean(DTGV_Proveedores.CurrentRow.Cells[9].Value);
             Cmb_IVA.Text = DTGV_Proveedores.CurrentRow.Cells[10].Value.ToString();
         }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Agregar = true;
+                        Modificar = true;
+                        Eliminar = true;
+                        break;
+
+                    case 43:
+                        Agregar = true;
+                        break;
+                    case 44:
+                        Modificar = true;
+                        break;
+
+                    case 45:
+                        Eliminar = true;
+                        break;
+                }
+            }
+        }
+
         #endregion
- }
+    }
 }

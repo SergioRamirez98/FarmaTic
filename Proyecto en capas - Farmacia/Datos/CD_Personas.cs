@@ -62,7 +62,8 @@ namespace Datos
             try
             {
                 string sSql = "SP_Insertar_Persona";
-
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 50);
                 param_nombre.Value = atr_nombre;
                 SqlParameter param_apellido = new SqlParameter("@Apellido", SqlDbType.VarChar, 50);
@@ -87,6 +88,7 @@ namespace Datos
                 SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
                 param_Nacionalidad.Value = atr_nacionalidad;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_nombre);
                 listaParametros.Add(param_apellido);
                 listaParametros.Add(param_direccion);
@@ -115,9 +117,12 @@ namespace Datos
             try
             {
                 string sSql = "SP_Eliminar_Persona";
-                SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
+                SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);                
                 param_ID_Persona.Value = ID_Persona;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_ID_Persona);
                 lista = listaParametros.ToArray();
                 ejecutar(sSql, lista, false);
@@ -132,6 +137,8 @@ namespace Datos
             try
             {
                 string sSql = "SP_Modificar_Persona";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Persona.Value = ID_Persona;
                 SqlParameter param_nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 50);
@@ -169,6 +176,7 @@ namespace Datos
                 listaParametros.Add(param_Partido);
                 listaParametros.Add(param_Localidad);
                 listaParametros.Add(param_Nacionalidad);
+                listaParametros.Add(param_UserName);
 
                 lista = listaParametros.ToArray();
 

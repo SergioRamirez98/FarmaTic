@@ -170,6 +170,8 @@ namespace Datos
             try
             {
                 string sSql = "SP_Insertar_Producto_Inventario";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_NombreComercial = new SqlParameter("@NombreComercial", SqlDbType.VarChar, 200);
                 param_NombreComercial.Value = Prop_NombreComercial;
                 SqlParameter param_Monodroga = new SqlParameter("@NombreProd", SqlDbType.VarChar, 200);
@@ -199,6 +201,7 @@ namespace Datos
                 listaParametros.Add(param_NumLote);
                 listaParametros.Add(param_VtoProd);
                 listaParametros.Add(param_Categoria);
+                listaParametros.Add(param_UserName);
                 lista = listaParametros.ToArray();
 
                 ejecutar(sSql, lista, false);
@@ -215,6 +218,8 @@ namespace Datos
             try
             {
                 string sSql = "SP_Actualizar_Producto_Inventario";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
                 param_ID_Producto.Value = Prop_ID_Producto;
                 SqlParameter param_NombreComercial = new SqlParameter("@NombreComercial", SqlDbType.VarChar, 200);
@@ -235,6 +240,7 @@ namespace Datos
                 param_NumLote.Value = Prop_NumLote;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_ID_Producto);
                 listaParametros.Add(param_NombreComercial);
                 listaParametros.Add(param_Monodroga);
@@ -263,10 +269,11 @@ namespace Datos
                 string sSql = "SP_Eliminar_Producto_Inventario";
                 SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
                 param_ID_Producto.Value = ID_Producto;
-
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_ID_Producto);
-
+                listaParametros.Add(param_UserName);
                 lista = listaParametros.ToArray();
 
                 ejecutar(sSql, lista, false);

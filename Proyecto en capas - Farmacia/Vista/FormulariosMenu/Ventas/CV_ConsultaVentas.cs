@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Servicios;
 using Vista.FormulariosMenu.Ventas;
+using Sesion;
 
 namespace Vista
 {
@@ -17,6 +18,8 @@ namespace Vista
     {
         CL_ConsultaVentas Ventas = new CL_ConsultaVentas();
         int ID_Venta = 0;
+        bool Eliminar = false;
+        bool Visualizar = false;
         public CV_ConsultaVentas()
         {
             InitializeComponent();
@@ -24,6 +27,7 @@ namespace Vista
         private void CV_ConsultaVentas_Load(object sender, EventArgs e)
         {
             configurarDTGV();
+            cargarPermisos();
         }
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
@@ -39,33 +43,41 @@ namespace Vista
         }
         private void Btn_Ver_Click(object sender, EventArgs e)
         {
-            if (DTGV_BusqVentas.SelectedRows.Count>0)
+            if (Visualizar)
             {
-                int Seleccion = DTGV_BusqVentas.CurrentRow.Index;
-                seleccionarItem(Seleccion);
-
-                CV_VisualizadorVentas VisualizadordeVentas = new CV_VisualizadorVentas(ID_Venta);
-                VisualizadordeVentas.Show();
-            }
-        }              
-        private void Btn_Eliminar_Click(object sender, EventArgs e)
-        {
-            if (DTGV_BusqVentas.SelectedRows.Count > 0)
-            {
-               bool confirmacion= CServ_MsjUsuario.Preguntar("¿Esta seguro de eliminar el registro? Podría ser una gran pérdida para la empresa.");
-                if (confirmacion)
+                if (DTGV_BusqVentas.SelectedRows.Count > 0)
                 {
                     int Seleccion = DTGV_BusqVentas.CurrentRow.Index;
                     seleccionarItem(Seleccion);
-                    Ventas.EliminarVenta(ID_Venta);
-                    DTGV_BusqVentas.DataSource = null;
-                    CServ_MsjUsuario.Exito("La venta ha sido eliminada exitosamente");
+
+                    CV_VisualizadorVentas VisualizadordeVentas = new CV_VisualizadorVentas(ID_Venta);
+                    VisualizadordeVentas.Show();
                 }
             }
-            else
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+        }              
+        private void Btn_Eliminar_Click(object sender, EventArgs e)
+        {
+            if (Visualizar)
             {
-                CServ_MsjUsuario.MensajesDeError("No ha seleccionado ninguna Venta");
+                if (DTGV_BusqVentas.SelectedRows.Count > 0)
+                {
+                    bool confirmacion = CServ_MsjUsuario.Preguntar("¿Esta seguro de eliminar el registro? Podría ser una gran pérdida para la empresa.");
+                    if (confirmacion)
+                    {
+                        int Seleccion = DTGV_BusqVentas.CurrentRow.Index;
+                        seleccionarItem(Seleccion);
+                        Ventas.EliminarVenta(ID_Venta);
+                        DTGV_BusqVentas.DataSource = null;
+                        CServ_MsjUsuario.Exito("La venta ha sido eliminada exitosamente");
+                    }
+                }
+                else
+                {
+                    CServ_MsjUsuario.MensajesDeError("No ha seleccionado ninguna Venta");
+                }
             }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
 
         #region Metodos
@@ -105,6 +117,29 @@ namespace Vista
         {
             ID_Venta = Convert.ToInt32(DTGV_BusqVentas.Rows[seleccion].Cells[0].Value);
         }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Eliminar = true;
+                        Visualizar = true;
+                        break;
+
+                    case 40:
+                        Eliminar = true;
+                        break;
+                        
+                    case 41:
+                        Visualizar = true;
+                        break;
+
+                }
+            }
+        }
+
         #endregion        
     }
 }

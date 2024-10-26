@@ -95,7 +95,6 @@ namespace Datos
                 listaParametros.Clear();
             }
         }
-
         private void obtenerDatosPedidodeCompra(int PC)
         {
             string sSql = "SP_Obtener_Datos_Proveedores_Empresa_Para_PC";

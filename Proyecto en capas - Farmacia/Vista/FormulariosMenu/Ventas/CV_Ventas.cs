@@ -25,8 +25,14 @@ namespace Vista.FormulariosMenu
         double totalventa = 0, Desc =0;
         int ID_Cliente = 0;
         string cat;
+        bool RegistrarVenta = false;
+        bool AgregarCarrito = false;
+        bool EliminarCarrito = false;
+        bool SeleccionarCliente = false;
+        bool ConsultarVenta = false;
         public delegate void ClienteSeleccionadoHandler(string cliente, int idCliente, double Descuento, string Categoria);
         public event ClienteSeleccionadoHandler ClienteSeleccionado;
+
 
         #endregion
         public CV_Ventas()
@@ -40,7 +46,7 @@ namespace Vista.FormulariosMenu
             cargarDTGV();
             configurarDTGV();
             configurarLoad();
-
+            cargarPermisos();
         }
         private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
         {
@@ -48,76 +54,96 @@ namespace Vista.FormulariosMenu
         }
         private void Btn_AgregarCompra_Click(object sender, EventArgs e)
         {
-            if (DTGV_Ventas.SelectedRows.Count > 0 && Nud_Cantidad.Value > 0)
+            if (AgregarCarrito)
             {
-                int Seleccion = DTGV_Ventas.CurrentRow.Index;
-                int Id = Convert.ToInt32(DTGV_Ventas.Rows[Seleccion].Cells[0].Value);
-                bool ProductoenCarrito = compararCarrito(Id);
-                if (ProductoenCarrito)
+                if (DTGV_Ventas.SelectedRows.Count > 0 && Nud_Cantidad.Value > 0)
                 {
-                    agregarCantidadAlCarrito(Id);
+                    int Seleccion = DTGV_Ventas.CurrentRow.Index;
+                    int Id = Convert.ToInt32(DTGV_Ventas.Rows[Seleccion].Cells[0].Value);
+                    bool ProductoenCarrito = compararCarrito(Id);
+                    if (ProductoenCarrito)
+                    {
+                        agregarCantidadAlCarrito(Id);
+                    }
+                    else
+                    {
+                        agregarAlCarrito(Seleccion);
+                    }
                 }
                 else
                 {
-                    agregarAlCarrito(Seleccion);
+                    CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
                 }
+                configurarLoad();
             }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
-            }
-            configurarLoad();
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_EliminardeCompra_Click(object sender, EventArgs e)
         {
-            if (DTGV_Carrito.SelectedRows.Count > 0)
+            if (EliminarCarrito)
             {
-                eliminardeCarrito();
-                calculoTotalVenta();
-                configurarLoad();
+                if (DTGV_Carrito.SelectedRows.Count > 0)
+                {
+                    eliminardeCarrito();
+                    calculoTotalVenta();
+                    configurarLoad();
+                }
+                else
+                {
+                    CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
+                }
             }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No se ha seleccionado ningun producto.");
-            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_FinalizarCompra_Click(object sender, EventArgs e)
         {
-            if (DTGV_Carrito.Rows.Count >0)
+            if (RegistrarVenta)
             {
-                try
+                if (DTGV_Carrito.Rows.Count > 0)
                 {
-                    pasarDatos();
-                    int ID_Venta = Ventas.RealizarVenta();
-                    pasarDatos(ID_Venta);
-                    Ventas.RealizarVentaItem();
-                    CServ_MsjUsuario.Exito("Venta Generada con éxito");
-                    Txb_Cliente.Text = "";
-                    DTGV_Carrito.Rows.Clear();
-                    cargarDTGV();
-                }
-                catch (Exception ex)
-                {
+                    try
+                    {
+                        pasarDatos();
+                        int ID_Venta = Ventas.RealizarVenta();
+                        pasarDatos(ID_Venta);
+                        Ventas.RealizarVentaItem();
+                        CServ_MsjUsuario.Exito("Venta Generada con éxito");
+                        Txb_Cliente.Text = "";
+                        DTGV_Carrito.Rows.Clear();
+                        cargarDTGV();
+                    }
+                    catch (Exception ex)
+                    {
 
-                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                        CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
+                }
+                else
+                {
+                    CServ_MsjUsuario.MensajesDeError("No ha seleccionado ningun producto.");
                 }
             }
-            else
-            {
-                CServ_MsjUsuario.MensajesDeError("No ha seleccionado ningun producto.");
-            }            
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
 
         }        
         private void Btn_BuscarCliente_Click(object sender, EventArgs e)
         {
-            CV_ObtenerClientes obtenerClientes = new CV_ObtenerClientes();
-            obtenerClientes.ClienteSeleccionado += new CV_ObtenerClientes.ClienteSeleccionadoHandler(SeleccionCliente);
-            obtenerClientes.ShowDialog();
+            if (SeleccionarCliente)
+            {
+                CV_ObtenerClientes obtenerClientes = new CV_ObtenerClientes();
+                obtenerClientes.ClienteSeleccionado += new CV_ObtenerClientes.ClienteSeleccionadoHandler(SeleccionCliente);
+                obtenerClientes.ShowDialog();
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_Consultar_Click(object sender, EventArgs e)
         {
-            CV_ConsultaVentas consulta = new CV_ConsultaVentas();
-            consulta.Show();
+            if (ConsultarVenta)
+            {
+                CV_ConsultaVentas consulta = new CV_ConsultaVentas();
+                consulta.Show();
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         #endregion
 
@@ -316,6 +342,41 @@ namespace Vista.FormulariosMenu
             }
             cat = Categoria;
         }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        RegistrarVenta = true;
+                        AgregarCarrito = true;
+                        EliminarCarrito = true;
+                        SeleccionarCliente = true;
+                        ConsultarVenta = true;
+                        break;
+
+                    case 34:
+                        RegistrarVenta = true;
+                        break;
+
+                    case 36:
+                        SeleccionarCliente = true;
+                        break;
+                    case 37:
+                        AgregarCarrito = true;
+                        break;
+                    case 38:
+                        EliminarCarrito = true;
+                        break;
+                    case 39:
+                        EliminarCarrito = true;
+                        break;
+
+                }
+            }
+        }
+
         #endregion
 
     }

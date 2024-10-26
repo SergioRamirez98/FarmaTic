@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CM_Bitacora.cs" />
     <Compile Include="CM_DatosOCDefinitiva.cs" />
     <Compile Include="CM_OrdenDeCompraPorItemsPDF.cs" />
     <Compile Include="CM_Pedido.cs" />

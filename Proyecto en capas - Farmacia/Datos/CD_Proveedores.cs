@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sesion;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -117,6 +118,8 @@ namespace Datos
             try
             {
                 string sSql = "SP_Insertar_Proveedor";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_RazonSocial = new SqlParameter("@RazonSocial", SqlDbType.VarChar, 200);
                 param_RazonSocial.Value = RazonSocial;
                 SqlParameter param_CUIT = new SqlParameter("@CUIT", SqlDbType.VarChar, 13);
@@ -139,6 +142,7 @@ namespace Datos
                 param_IIBB.Value = IIBB;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_RazonSocial);
                 listaParametros.Add(param_CUIT);
                 listaParametros.Add(param_Matricula);
@@ -165,6 +169,9 @@ namespace Datos
             try
             {
                 string sSql = "SP_Actualizar_Proveedor";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
+
                 SqlParameter param_ID_Proveedor = new SqlParameter("@ID_Proveedor", SqlDbType.Int);
                 param_ID_Proveedor.Value = ID_Proveedor;
                 SqlParameter param_RazonSocial = new SqlParameter("@RazonSocial", SqlDbType.VarChar, 200);
@@ -189,6 +196,7 @@ namespace Datos
                 param_IIBB.Value = IIBB;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_ID_Proveedor);
                 listaParametros.Add(param_RazonSocial);
                 listaParametros.Add(param_CUIT);
@@ -217,9 +225,13 @@ namespace Datos
                 string sSql = "SP_Eliminar_Proveedor";
                 SqlParameter param_ID_Proveedor = new SqlParameter("@ID_Proveedor", SqlDbType.Int);
                 param_ID_Proveedor.Value = ID_Proveedor;
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
+
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_ID_Proveedor);
+                listaParametros.Add(param_UserName);
                 lista = listaParametros.ToArray();
 
                 ejecutar(sSql, lista, false);

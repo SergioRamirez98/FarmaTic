@@ -153,9 +153,12 @@ namespace Datos
             {
                 string sSql = "SP_Eliminar_Usuario";
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
-                param_ID_Persona.Value = ID_Persona;
+                param_ID_Persona.Value = ID_Persona; 
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_ID_Persona);
+                listaParametros.Add(param_UserName);
                 lista = listaParametros.ToArray();
                 ejecutar(sSql, lista, false);
             }
@@ -305,7 +308,10 @@ namespace Datos
             try
             {
                 string sSql = "SP_Insertar_Usuario";
-                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 20);
+
+                SqlParameter param_UsuarioEjecutor = new SqlParameter("@UsuarioEjecutor", SqlDbType.VarChar, 50);
+                param_UsuarioEjecutor.Value = CSesion_SesionIniciada.UserName;
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
                 param_UserName.Value = Prop_UserName;
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Persona.Value = ID_Persona;               
@@ -328,7 +334,7 @@ namespace Datos
                 param_CambioPass.Value = Prop_CambioPass;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
-                listaParametros.Add(param_UserName);
+                listaParametros.Add(param_UserName); listaParametros.Add(param_UsuarioEjecutor);
                 listaParametros.Add(param_ID_Persona);
                 listaParametros.Add(param_PassEncriptada);
                 listaParametros.Add(param_FeAlta);
@@ -350,11 +356,12 @@ namespace Datos
                 throw new Exception ("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
             }                        
         }
-        public void MmodificarUsuario() {
+        public void ActualizarUsuario() {
             try
             {
                 string sSql = "SP_Modificar_Usuario";
-                
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Persona.Value = ID_Persona;
                 SqlParameter param_FeAlta = new SqlParameter("@FeAlta", SqlDbType.DateTime);
@@ -369,6 +376,7 @@ namespace Datos
                 param_Estado.Value = Prop_Estado;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_ID_Persona);
                 listaParametros.Add(param_Familia);
                 listaParametros.Add(param_Estado);

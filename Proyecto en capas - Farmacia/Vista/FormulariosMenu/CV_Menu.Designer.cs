@@ -31,15 +31,15 @@
             this.Btn_GestionUsuarios = new System.Windows.Forms.Button();
             this.Btn_GestionVentas = new System.Windows.Forms.Button();
             this.Btn_CerraSesion = new System.Windows.Forms.Button();
-            this.Btn_Config = new System.Windows.Forms.Button();
+            this.Btn_ConfigSeguridad = new System.Windows.Forms.Button();
             this.Btn_ModuloInventario = new System.Windows.Forms.Button();
-            this.Btn_Proveedores = new System.Windows.Forms.Button();
             this.Btn_ModulodeCompra = new System.Windows.Forms.Button();
+            this.Btn_ConfigSistema = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // Btn_GestionUsuarios
             // 
-            this.Btn_GestionUsuarios.Location = new System.Drawing.Point(30, 34);
+            this.Btn_GestionUsuarios.Location = new System.Drawing.Point(12, 38);
             this.Btn_GestionUsuarios.Name = "Btn_GestionUsuarios";
             this.Btn_GestionUsuarios.Size = new System.Drawing.Size(184, 58);
             this.Btn_GestionUsuarios.TabIndex = 0;
@@ -49,7 +49,7 @@
             // 
             // Btn_GestionVentas
             // 
-            this.Btn_GestionVentas.Location = new System.Drawing.Point(430, 34);
+            this.Btn_GestionVentas.Location = new System.Drawing.Point(412, 38);
             this.Btn_GestionVentas.Name = "Btn_GestionVentas";
             this.Btn_GestionVentas.Size = new System.Drawing.Size(184, 58);
             this.Btn_GestionVentas.TabIndex = 2;
@@ -59,7 +59,7 @@
             // 
             // Btn_CerraSesion
             // 
-            this.Btn_CerraSesion.Location = new System.Drawing.Point(678, 40);
+            this.Btn_CerraSesion.Location = new System.Drawing.Point(607, 172);
             this.Btn_CerraSesion.Name = "Btn_CerraSesion";
             this.Btn_CerraSesion.Size = new System.Drawing.Size(85, 46);
             this.Btn_CerraSesion.TabIndex = 3;
@@ -67,19 +67,19 @@
             this.Btn_CerraSesion.UseVisualStyleBackColor = true;
             this.Btn_CerraSesion.Click += new System.EventHandler(this.Btn_CerraSesion_Click);
             // 
-            // Btn_Config
+            // Btn_ConfigSeguridad
             // 
-            this.Btn_Config.Location = new System.Drawing.Point(30, 315);
-            this.Btn_Config.Name = "Btn_Config";
-            this.Btn_Config.Size = new System.Drawing.Size(184, 58);
-            this.Btn_Config.TabIndex = 20;
-            this.Btn_Config.Text = "Configuración";
-            this.Btn_Config.UseVisualStyleBackColor = true;
-            this.Btn_Config.Click += new System.EventHandler(this.Btn_Config_Click);
+            this.Btn_ConfigSeguridad.Location = new System.Drawing.Point(147, 166);
+            this.Btn_ConfigSeguridad.Name = "Btn_ConfigSeguridad";
+            this.Btn_ConfigSeguridad.Size = new System.Drawing.Size(184, 58);
+            this.Btn_ConfigSeguridad.TabIndex = 20;
+            this.Btn_ConfigSeguridad.Text = "Modulo de Seguridad";
+            this.Btn_ConfigSeguridad.UseVisualStyleBackColor = true;
+            this.Btn_ConfigSeguridad.Click += new System.EventHandler(this.Btn_Config_Click);
             // 
             // Btn_ModuloInventario
             // 
-            this.Btn_ModuloInventario.Location = new System.Drawing.Point(230, 34);
+            this.Btn_ModuloInventario.Location = new System.Drawing.Point(212, 38);
             this.Btn_ModuloInventario.Name = "Btn_ModuloInventario";
             this.Btn_ModuloInventario.Size = new System.Drawing.Size(184, 58);
             this.Btn_ModuloInventario.TabIndex = 1;
@@ -87,19 +87,9 @@
             this.Btn_ModuloInventario.UseVisualStyleBackColor = true;
             this.Btn_ModuloInventario.Click += new System.EventHandler(this.Btn_ModuloInventario_Click);
             // 
-            // Btn_Proveedores
-            // 
-            this.Btn_Proveedores.Location = new System.Drawing.Point(30, 141);
-            this.Btn_Proveedores.Name = "Btn_Proveedores";
-            this.Btn_Proveedores.Size = new System.Drawing.Size(184, 58);
-            this.Btn_Proveedores.TabIndex = 4;
-            this.Btn_Proveedores.Text = "Proveedores";
-            this.Btn_Proveedores.UseVisualStyleBackColor = true;
-            this.Btn_Proveedores.Click += new System.EventHandler(this.Btn_Proveedores_Click);
-            // 
             // Btn_ModulodeCompra
             // 
-            this.Btn_ModulodeCompra.Location = new System.Drawing.Point(230, 141);
+            this.Btn_ModulodeCompra.Location = new System.Drawing.Point(602, 38);
             this.Btn_ModulodeCompra.Name = "Btn_ModulodeCompra";
             this.Btn_ModulodeCompra.Size = new System.Drawing.Size(184, 58);
             this.Btn_ModulodeCompra.TabIndex = 5;
@@ -107,15 +97,25 @@
             this.Btn_ModulodeCompra.UseVisualStyleBackColor = true;
             this.Btn_ModulodeCompra.Click += new System.EventHandler(this.Btn_ModulodeCompra_Click);
             // 
+            // Btn_ConfigSistema
+            // 
+            this.Btn_ConfigSistema.Location = new System.Drawing.Point(347, 166);
+            this.Btn_ConfigSistema.Name = "Btn_ConfigSistema";
+            this.Btn_ConfigSistema.Size = new System.Drawing.Size(184, 58);
+            this.Btn_ConfigSistema.TabIndex = 21;
+            this.Btn_ConfigSistema.Text = "Configuración";
+            this.Btn_ConfigSistema.UseVisualStyleBackColor = true;
+            this.Btn_ConfigSistema.Click += new System.EventHandler(this.Btn_ConfigSistema_Click);
+            // 
             // CV_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.Btn_ConfigSistema);
             this.Controls.Add(this.Btn_ModulodeCompra);
-            this.Controls.Add(this.Btn_Proveedores);
             this.Controls.Add(this.Btn_ModuloInventario);
-            this.Controls.Add(this.Btn_Config);
+            this.Controls.Add(this.Btn_ConfigSeguridad);
             this.Controls.Add(this.Btn_CerraSesion);
             this.Controls.Add(this.Btn_GestionVentas);
             this.Controls.Add(this.Btn_GestionUsuarios);
@@ -134,9 +134,9 @@
         private System.Windows.Forms.Button Btn_GestionUsuarios;
         private System.Windows.Forms.Button Btn_GestionVentas;
         private System.Windows.Forms.Button Btn_CerraSesion;
-        private System.Windows.Forms.Button Btn_Config;
+        private System.Windows.Forms.Button Btn_ConfigSeguridad;
         private System.Windows.Forms.Button Btn_ModuloInventario;
-        private System.Windows.Forms.Button Btn_Proveedores;
         private System.Windows.Forms.Button Btn_ModulodeCompra;
+        private System.Windows.Forms.Button Btn_ConfigSistema;
     }
 }

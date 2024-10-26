@@ -6,6 +6,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sesion;
 
 namespace Datos
 {
@@ -25,6 +26,8 @@ namespace Datos
             try
             {
                 string sSql = "SP_Insertar_Cliente";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Persona.Value = ID_Persona;
                 SqlParameter param_Categoria = new SqlParameter("@ID_Categoria", SqlDbType.Int);
@@ -35,6 +38,7 @@ namespace Datos
                 param_FeAlta.Value = FeAlta;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_Categoria);
                 listaParametros.Add(param_ID_Persona);
                 listaParametros.Add(param_Comentarios);
@@ -56,6 +60,8 @@ namespace Datos
             try
             {
                 string sSql = "SP_Modificar_Cliente";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
                 SqlParameter param_ID_Persona = new SqlParameter("@ID_Persona", SqlDbType.Int);
                 param_ID_Persona.Value = ID_Persona;
                 SqlParameter param_Categoria = new SqlParameter("@ID_Categoria", SqlDbType.Int);
@@ -66,6 +72,7 @@ namespace Datos
                 param_FeAlta.Value = FeAlta;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_Categoria);
                 listaParametros.Add(param_ID_Persona);
                 listaParametros.Add(param_Comentarios);

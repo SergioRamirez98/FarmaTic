@@ -10,13 +10,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Vista.FormulariosMenu;
 
 namespace Vista
 {
-    public partial class CV_Configuracion : Form
+    public partial class CV_ModulodeSeguridad : Form
     {
         CL_Sistema Sistema = new CL_Sistema();
-        public CV_Configuracion()
+        public CV_ModulodeSeguridad()
         {
             Sistema.CargarConfiguracion();
             InitializeComponent();
@@ -27,9 +28,8 @@ namespace Vista
             Chb_CaracEspec.Checked = CSistema_ConfiguracionSistema.CaractEspecial;
             Chb_DatosPersonales.Checked = CSistema_ConfiguracionSistema.DatosPersonales;
             Chb_MayMin.Checked = CSistema_ConfiguracionSistema.MayusMinus;
-            Chb_MinCaracteres.Checked = CSistema_ConfiguracionSistema.MinCaracteres;
-            Nud_CantMinStock.Value = CSistema_ConfiguracionSistema.CantMinimadeStock;
-            Nud_VtoProd.Value = CSistema_ConfiguracionSistema.AvisosVtoProductos;
+            Nud_CantidadIntentosFallidos.Value = CSistema_ConfiguracionSistema.CantIntentosFallidos;
+
         }
         private void Chb_NumYLetras_CheckedChanged(object sender, EventArgs e)
         {
@@ -74,8 +74,8 @@ namespace Vista
         {
             try
             {
-                CapturarDatos();
-                Sistema.GuardarCambios();
+                capturarDatos();
+                Sistema.GuardarCambiosDeSeguridad();
                 CServ_MsjUsuario.Exito("¡Configuración guardada con éxito!");
 
             }
@@ -84,7 +84,7 @@ namespace Vista
                 CServ_MsjUsuario.MensajesDeError("No se ha podido guardar los cambios realizados");
             }
         }
-        private void CapturarDatos()
+        private void capturarDatos()
         {
             Sistema.NumerosYLetras = Chb_NumYLetras.Checked;
             Sistema.CaractEspecial = Chb_CaracEspec.Checked;
@@ -92,10 +92,13 @@ namespace Vista
             Sistema.MayusMinus = Chb_MayMin.Checked;
             Sistema.MinCaracteres = Chb_MinCaracteres.Checked;
             Sistema.RepetirPass = Chb_RepetirPass.Checked;
-            Sistema.AvisosVtoProductos = Convert.ToInt32(Nud_VtoProd.Value);
-            Sistema.CantMinimadeStock = Convert.ToInt32(Nud_CantMinStock.Value);
             Sistema.CantIntentosFallidos = Convert.ToInt32(Nud_CantidadIntentosFallidos.Value);
+        }
 
+        private void Btn_Bitacora_Click(object sender, EventArgs e)
+        {
+            CV_Bitacora Bitacora = new CV_Bitacora();
+            Bitacora.Show();
         }
     }
 }

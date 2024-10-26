@@ -6,6 +6,7 @@ using Modelo;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sesion;
 
 namespace Datos
 {
@@ -123,6 +124,9 @@ namespace Datos
             try
             {
                 string sSql = "SP_Insertar_Producto_Catalogo";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
+
                 SqlParameter param_NombreComercial = new SqlParameter("@NombreComercial", SqlDbType.VarChar, 200);
                 param_NombreComercial.Value = NombreComercial;
                 SqlParameter param_Monodroga = new SqlParameter("@Monodroga", SqlDbType.VarChar, 200);
@@ -139,6 +143,7 @@ namespace Datos
                 param_PrecioProveedor.Value = PrecioProveedor;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_NombreComercial);
                 listaParametros.Add(param_Monodroga);
                 listaParametros.Add(param_Marca);
@@ -162,6 +167,9 @@ namespace Datos
             try
             {
                 string sSql = "SP_Modificar_Producto_Catalogo";
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
+
                 SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
                 param_ID_Producto.Value = ID_Producto;
                 SqlParameter param_NombreComercial = new SqlParameter("@NombreComercial", SqlDbType.VarChar, 200);
@@ -183,6 +191,7 @@ namespace Datos
                 param_PrecioProveedor.Value = PrecioProveedor;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
                 listaParametros.Add(param_NombreComercial);
                 listaParametros.Add(param_Monodroga);
                 listaParametros.Add(param_Marca);
@@ -209,9 +218,12 @@ namespace Datos
                 string sSql = "SP_Eliminar_Producto_Catalogo";
                 SqlParameter param_ID_Producto = new SqlParameter("@ID_Producto", SqlDbType.Int);
                 param_ID_Producto.Value = ID_Producto;
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
                 listaParametros.Add(param_ID_Producto);
+                listaParametros.Add(param_UserName);
                 lista = listaParametros.ToArray();
 
                 ejecutar(sSql, lista, false);

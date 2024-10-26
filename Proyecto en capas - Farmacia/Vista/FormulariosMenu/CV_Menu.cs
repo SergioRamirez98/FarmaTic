@@ -55,7 +55,7 @@ namespace Vista
         }
         private void Btn_Config_Click(object sender, EventArgs e)
         {
-            CV_Configuracion Configuracion = new CV_Configuracion();
+            CV_ModulodeSeguridad Configuracion = new CV_ModulodeSeguridad();
             Configuracion.Show();
         }
         private void Btn_ModuloInventario_Click(object sender, EventArgs e)
@@ -77,16 +77,18 @@ namespace Vista
         {
             CV_GestiondeCompras GC = new CV_GestiondeCompras();
             GC.Show();
-
         }
-
+        private void Btn_ConfigSistema_Click(object sender, EventArgs e)
+        {
+            CV_ConfiguracionSistema ConfiguracionSistema = new CV_ConfiguracionSistema();
+            ConfiguracionSistema.Show();
+        }
         private void accesoAModulos()
         {
             Btn_GestionUsuarios.Enabled = false;
             Btn_GestionVentas.Enabled = false;
             Btn_ModuloInventario.Enabled = false;
-            Btn_Config.Enabled = false;
-            Btn_Proveedores.Enabled = false;
+            Btn_ConfigSeguridad.Enabled = false;
             Btn_ModulodeCompra.Enabled = false;
 
             foreach (var permiso in CSesion_SesionIniciada.Permisos)
@@ -97,9 +99,9 @@ namespace Vista
                         Btn_GestionUsuarios.Enabled = true;
                         Btn_GestionVentas.Enabled = true;
                         Btn_ModuloInventario.Enabled = true;
-                        Btn_Config.Enabled = true;
-                        Btn_Proveedores.Enabled = true;
                         Btn_ModulodeCompra.Enabled = true;
+                        Btn_ConfigSeguridad.Enabled = true;
+                        Btn_ConfigSistema.Enabled = true;
                         break;
 
                     case 2: 
@@ -116,12 +118,12 @@ namespace Vista
                         break;
                     case 33:
                         Btn_GestionVentas.Enabled = true;
-                        break;
-                    case 42:
-                        Btn_Proveedores.Enabled = true;
-                        break;
+                        break;                    
                     case 61:
                         Btn_ModulodeCompra.Enabled = true;
+                        break;
+                    case 62:
+                        Btn_ConfigSistema.Enabled = true;
                         break;
                 }
             }

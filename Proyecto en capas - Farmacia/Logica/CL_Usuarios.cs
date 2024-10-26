@@ -74,7 +74,7 @@ namespace Logica
         public void ModificarUsuario()
         {
             PasarDatosModificacion();
-            Usuario.MmodificarUsuario();
+            Usuario.ActualizarUsuario();
         }
         public void BloqueodeUsuarios() 
         {

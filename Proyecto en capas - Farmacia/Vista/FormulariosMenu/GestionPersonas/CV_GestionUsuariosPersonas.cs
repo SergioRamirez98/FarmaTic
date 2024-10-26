@@ -18,6 +18,14 @@ namespace Vista
         int ID_Persona;
         public delegate void PersonaSeleccionadaHandler(int idCliente, string cliente);
         public event PersonaSeleccionadaHandler PersonaSeleccionada;
+        bool Registrar = false;
+        bool Eliminar = false;
+        bool Modificar = false;
+        bool Seleccionar = false;
+
+        bool AsociarUsuario = false;
+        bool AsociarCliente = false;
+        bool RegistrarCliente=true;
 
         public CV_GestionUsuariosPersonas()
         {
@@ -30,6 +38,7 @@ namespace Vista
             configurarLoad();
             cargarComboBox(false);
             CServ_Limpiar.LimpiarFormulario(this);
+            cargarPermisos();
         }      
         private void Cmb_Categoria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -85,44 +94,70 @@ namespace Vista
         }
         private void Btn_AsociarUsuario_Click(object sender, EventArgs e)
         {
-            CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
-            altaUsuario.Show();
+            if (AsociarUsuario)
+            {
+                CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
+                altaUsuario.Show();
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+        }
+        private void Btn_AsociarCliente_Click(object sender, EventArgs e)
+        {
+            if (AsociarCliente)
+            {
+                cargarComboBox(true);
+                Size = new Size(710, 420);
+                Txb_Descuento.Enabled = false;
+                Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 252);
+                Pnb_RegistroCliente.Enabled = true;
+                Pnb_RegistroCliente.Visible = true;
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            
         }
         private void Btn_RegistrarPersona_Click(object sender, EventArgs e)
         {
-            try
+            if (Registrar)
             {
-                capturarDatosPersonas();
-                DataTable dt = GestionPersonas.InsertarPersona();
-                if (dt.Rows.Count > 0)
+                try
                 {
-                    cargarComboBox(false);
-                    DataRow DT = dt.Rows[0];
-                    ID_Persona = Convert.ToInt32(DT["ID_Persona"]);                    
-                    cargarPersonas();                    
+                    capturarDatosPersonas();
+                    DataTable dt = GestionPersonas.InsertarPersona();
+                    if (dt.Rows.Count > 0)
+                    {
+                        cargarComboBox(false);
+                        DataRow DT = dt.Rows[0];
+                        ID_Persona = Convert.ToInt32(DT["ID_Persona"]);
+                        cargarPersonas();
+                    }
+                    CServ_MsjUsuario.Exito("La persona se ha registrado correctamente");
+                    Btn_Modificar.Enabled = true;
+                    Btn_Eliminar.Enabled = true;
+                    Rbt_Usuario.Enabled = true;
+                    Rbt_Cliente.Enabled = true;
+
                 }
-                CServ_MsjUsuario.Exito("La persona se ha registrado correctamente");
-                Btn_Modificar.Enabled = true;
-                Btn_Eliminar.Enabled = true;
-                Rbt_Usuario.Enabled = true;
-                Rbt_Cliente.Enabled = true;
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
 
             }
-            catch (Exception ex)
-            {
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_Modificar_Click(object sender, EventArgs e)
         {
-            if (ID_Persona!=0 )
+            if (Modificar)
             {
-                desbloquearControles();
-                Btn_RegistrarPersona.Enabled = false;
-                Btn_Eliminar.Enabled = false;
-                Btn_GuardarCambios.Enabled = true;
+                if (ID_Persona != 0)
+                {
+                    desbloquearControles();
+                    Btn_RegistrarPersona.Enabled = false;
+                    Btn_Eliminar.Enabled = false;
+                    Btn_GuardarCambios.Enabled = true;
+                }
             }
-            
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_GuardarCambios_Click(object sender, EventArgs e)
         {
@@ -146,15 +181,19 @@ namespace Vista
         }
         private void Btn_Eliminar_Click(object sender, EventArgs e)
         {
-            if (ID_Persona!=0)
+            if (Eliminar)
             {
-                bool Eliminar=CServ_MsjUsuario.Preguntar("¿Esta seguro de querer eliminar a la persona seleccionada? Si la persona es cliente o usuario se dará de baja también.");
-                if (Eliminar)
+                if (ID_Persona != 0)
                 {
-                    GestionPersonas.Eliminar(ID_Persona);
-                    CServ_MsjUsuario.Exito("Persona eliminada con éxito");
+                    bool Eliminar = CServ_MsjUsuario.Preguntar("¿Esta seguro de querer eliminar a la persona seleccionada? Si la persona es cliente o usuario se dará de baja también.");
+                    if (Eliminar)
+                    {
+                        GestionPersonas.Eliminar(ID_Persona);
+                        CServ_MsjUsuario.Exito("Persona eliminada con éxito");
+                    }
                 }
             }
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_RegistrarUsuario_Click(object sender, EventArgs e)
         {
@@ -172,19 +211,22 @@ namespace Vista
         }
         private void Btn_RegistrarCliente_Click(object sender, EventArgs e)
         {
-            try
+            if (RegistrarCliente)
             {
-                capturarDatosClientes();
-                Clientes.AltaCliente();
-                CServ_MsjUsuario.Exito("Cliente generado con éxito");
-                CServ_Limpiar.BloquearControles(Pnb_RegistroCliente);
+                try
+                {
+                    capturarDatosClientes();
+                    Clientes.AltaCliente();
+                    CServ_MsjUsuario.Exito("Cliente generado con éxito");
+                    CServ_Limpiar.BloquearControles(Pnb_RegistroCliente);
+                }
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
+                }
             }
-            catch (Exception ex)
-            {
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-                CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
-            }
-
+            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
         private void Btn_SeleccionarPersona_Click(object sender, EventArgs e)
         {
@@ -200,15 +242,6 @@ namespace Vista
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
 
-        }
-        private void Btn_AsociarCliente_Click(object sender, EventArgs e)
-        {
-            cargarComboBox(true);
-            Size = new Size(710, 420);
-            Txb_Descuento.Enabled = false;
-            Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 252);
-            Pnb_RegistroCliente.Enabled = true;
-            Pnb_RegistroCliente.Visible = true;
         }
         private void Cmb_Partido_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -279,11 +312,6 @@ namespace Vista
                 Cmb_Partido.SelectedIndex = -1;
 
                 Cmb_Localidad.Enabled = false;
-                /*
-                Cmb_Localidad.DataSource = GestionPersonas.ObtenerLocalidades(0);
-                Cmb_Localidad.DisplayMember = "Localidad";
-                Cmb_Localidad.ValueMember = "ID_Localidad";
-                Cmb_Localidad.SelectedIndex = -1;*/
 
                 Cmb_Nacionalidad.DataSource = GestionPersonas.ObtenerPais();
                 Cmb_Nacionalidad.DisplayMember = "Pais";
@@ -623,10 +651,49 @@ namespace Vista
                 Cmb_VenceCada.Enabled = true;
             }
         }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Registrar = true;
+                        Eliminar = true;
+                        Seleccionar = true;
+                        Modificar = true;
+                        AsociarUsuario = true;
+                        AsociarCliente = true;
+                        RegistrarCliente = true;
+                        break;
 
+                    case 4:
+                        Registrar = true;
+                        break;
 
+                    case 5:
+                        Eliminar = true;
+                        break;
+                    case 3:
+                        Modificar = true;
+                        break;
+                    case 6:
+                        Seleccionar = true;
+                        break;
+                    case 7:
+                        AsociarCliente = true;
+                        break;
+                    case 12:
+                        AsociarUsuario = true;
+                        break;
+                    case 8:
+                        RegistrarCliente = true;
+                        break;
+                }
+            }
+            Btn_SeleccionarPersona.Enabled = Seleccionar;
+        }
         #endregion
 
-        
     }
 }

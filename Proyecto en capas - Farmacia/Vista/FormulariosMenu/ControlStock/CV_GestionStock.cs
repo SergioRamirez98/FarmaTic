@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Logica;
 using Servicios;
+using Sesion;
 
 namespace Vista
 {
@@ -24,6 +25,13 @@ namespace Vista
         #region atributos
         CL_Productos Productos = new CL_Productos();
         DataTable Dt = new DataTable();
+        bool registrarStock = false;
+        bool modifcarStock= false;
+        bool eliminarStock = false;
+
+        bool accederPodBajoStcok = false;
+        bool prodAVencer= false;
+        bool prodVencidos = false;
         #endregion
 
         #region Eventos
@@ -33,6 +41,7 @@ namespace Vista
             Productos.EliminarProductosVencidos();
             mostrarProductos();
             configurarLoad();
+            cargarPermisos();
         }
         private void Chb_Busqueda_CheckedChanged(object sender, EventArgs e)
         {
@@ -188,7 +197,6 @@ namespace Vista
         #endregion
 
         #region Metodos
-
         private void configurarDTGV()
         {
             DTGV_Productos.AllowUserToResizeColumns = false;
@@ -411,6 +419,52 @@ namespace Vista
             DTGV_Productos.ClearSelection();
 
         }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        registrarStock = true;
+                        modifcarStock = true;
+                        eliminarStock = true;
+
+                        accederPodBajoStcok = true;
+                        prodAVencer = true;
+                        prodVencidos = true;
+                        break;
+
+                    case 20:
+                        registrarStock = true;
+                        break;
+
+                    case 21:
+                        modifcarStock = true;
+                        break;
+                    case 22:
+                        eliminarStock = true;
+                        break;
+
+
+                    case 23:
+                        prodAVencer = true;
+                        break;
+                    case 24:
+                        accederPodBajoStcok = true;
+                        break;
+                    case 25:
+                        prodVencidos = true;
+                        break;
+                }
+
+            }
+            Btn_StockCritico.Enabled = accederPodBajoStcok;
+            Btn_VerProdVencidos.Enabled=prodVencidos;
+
+            Btn_VtoProductos.Enabled= prodAVencer;
+        }
+
 
         #endregion       
     }

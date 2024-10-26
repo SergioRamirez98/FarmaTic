@@ -57,7 +57,6 @@ namespace Datos
             }
             return CatalogoProductos;
         }
-
         public List<CM_ObtenerPedidodeCompra> ObtenerHistorialPedidos()
         {
             DataTable dt = new DataTable();
@@ -80,7 +79,6 @@ namespace Datos
             }
             return CatalogoProductos;
         }
-
         public List<CM_Pedido> ObtenerPedidosPorItems(int id)
         {
             PedidoporItem.Clear();
@@ -185,9 +183,12 @@ namespace Datos
         public void EliminarPedidodeCompra()
         {
             string sSql = "SP_Eliminar_Pedido_de_Compra";
+            SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+            param_UserName.Value = CSesion_SesionIniciada.UserName;
             SqlParameter param_ID_Pedido = new SqlParameter("@ID_Pedido", SqlDbType.Int);
             param_ID_Pedido.Value = ID_Pedido;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
+            listaParametros.Add(param_UserName);
             listaParametros.Add(param_ID_Pedido);
             lista = listaParametros.ToArray();
             ejecutar(sSql, lista, false);
@@ -220,7 +221,6 @@ namespace Datos
             }
             return OCporItem;
         }
-
         private void obtenerDatosOrdendeCompra(int OC)
         {
             string sSql = "SP_Obtener_Datos_Proveedores_Empresa";

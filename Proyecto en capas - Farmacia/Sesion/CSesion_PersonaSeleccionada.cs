@@ -29,6 +29,7 @@ namespace Sesion
 
         #region Properties Usuarios
         public static bool SesionActiva { get => atr_SesionActiva; set { atr_SesionActiva = value; } }
+        public static bool EsUsuario { get; set; }
         public static string UserName { get; set; }
         public static string PassEncriptada { get; set; }
         public static int ID_VenceCada { get; set; }
@@ -102,7 +103,7 @@ namespace Sesion
                     DataRow fila2 = dt.Rows[2];
                     UserName = fila["UserName"].ToString();
                     PassEncriptada = fila["PassEncriptada"].ToString();
-
+                    EsUsuario = true;
                     ID_VenceCada = Convert.ToInt32(fila["ID_Vencimiento"]);
                     ID_Familia = Convert.ToInt32(fila["ID_Familia"]);
                     Pregunta1 = fila["Pregunta"].ToString();

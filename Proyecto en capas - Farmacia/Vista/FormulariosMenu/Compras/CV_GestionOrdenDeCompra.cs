@@ -13,6 +13,7 @@ using iTextSharp.tool.xml;
 using System.IO;
 using System.Windows.Forms;
 using System.Text;
+using Sesion;
 
 
 namespace Vista.FormulariosMenu
@@ -25,6 +26,10 @@ namespace Vista.FormulariosMenu
         List<CM_ObtenerPedidodeCompra> ListaPedidos = new List<CM_ObtenerPedidodeCompra>();
         List<CM_OrdenDeCompraPorItemsPDF> ItemsOCDef = new List<CM_OrdenDeCompraPorItemsPDF>();
         decimal TotalOC = 0;
+        bool Confirmar = false;
+        bool Descartar = false;
+        bool Historial = false;
+        bool Modificar = false;
 
 
         public CV_GestionOrdenDeCompra()
@@ -34,6 +39,7 @@ namespace Vista.FormulariosMenu
 
         private void CV_OrdenDeCompra_Load(object sender, EventArgs e)
         {
+            cargarPermisos();
             configurarLoad();
             configurarDTGV();
             mostrarPedidos();
@@ -57,69 +63,81 @@ namespace Vista.FormulariosMenu
         }
         private void Btn_Confirmar_Click(object sender, EventArgs e)
         {
-            calculoTotalOC();
-            try
+            if (Confirmar)
             {
-                if (DTGV_Pedidos.SelectedRows.Count > 0 && TotalOC > 0)
+                calculoTotalOC();
+                try
                 {
-                    pasarDatos();
-                    int oc = OC.InsertarOrden();
-                    pasarDatos(oc);
-                    OC.InsertarOrdenPorItems();
-                    generarPDF(oc);
-                    CServ_MsjUsuario.Exito("La Orden de compra se ha generado con éxito.");
-                    DTGV_OC.DataSource = null;
-                    DTGV_OC.Columns.Clear();
-                    DTGV_OC.Rows.Clear();
-                    mostrarPedidos();
-                    calculoTotalOC();
-                    CV_OrdenDeCompra_Load(sender, e);
-                }
-                else throw new Exception("No ha seleccionado ningun pedido de compra");
-
-
-            }
-            catch (Exception ex)
-            {
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
-        }
-        private void Btn_Descartar_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                bool respuesta = CServ_MsjUsuario.Preguntar("¿Está seguro de eliminar el pedido de compra");
-                if (respuesta)
-                {
-                    if (DTGV_Pedidos.SelectedRows.Count > 0)
+                    if (DTGV_Pedidos.SelectedRows.Count > 0 && TotalOC > 0)
                     {
                         pasarDatos();
-                        OC.EliminarPedido();
-                        CServ_MsjUsuario.Exito("El pedido de compra ha sido descartado");
-                        DTGV_Pedidos.ClearSelection();
+                        int oc = OC.InsertarOrden();
+                        pasarDatos(oc);
+                        OC.InsertarOrdenPorItems();
+                        generarPDF(oc);
+                        CServ_MsjUsuario.Exito("La Orden de compra se ha generado con éxito.");
                         DTGV_OC.DataSource = null;
                         DTGV_OC.Columns.Clear();
                         DTGV_OC.Rows.Clear();
-                        DTGV_OC.ClearSelection();
                         mostrarPedidos();
-                        TotalOC = 0;
                         calculoTotalOC();
+                        CV_OrdenDeCompra_Load(sender, e);
                     }
+                    else throw new Exception("No ha seleccionado ningun pedido de compra");
+
+
+                }
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
                 }
             }
-            catch (Exception ex)
+            else CServ_MsjUsuario.MensajesDeError("No posee los permisos para realizar esta operación");
+        }
+        private void Btn_Descartar_Click(object sender, EventArgs e)
+        {
+            if (Descartar)
             {
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
+                try
+                {
+                    bool respuesta = CServ_MsjUsuario.Preguntar("¿Está seguro de eliminar el pedido de compra");
+                    if (respuesta)
+                    {
+                        if (DTGV_Pedidos.SelectedRows.Count > 0)
+                        {
+                            pasarDatos();
+                            OC.EliminarPedido();
+                            CServ_MsjUsuario.Exito("El pedido de compra ha sido descartado");
+                            DTGV_Pedidos.ClearSelection();
+                            DTGV_OC.DataSource = null;
+                            DTGV_OC.Columns.Clear();
+                            DTGV_OC.Rows.Clear();
+                            DTGV_OC.ClearSelection();
+                            mostrarPedidos();
+                            TotalOC = 0;
+                            calculoTotalOC();
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
 
-            CV_OrdenDeCompra_Load(sender, e);
+                CV_OrdenDeCompra_Load(sender, e);
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee los permisos para realizar esta operación");
         }
         private void Btn_Historial_Click(object sender, EventArgs e)
         {
-            mostrarHistorialPedidos();
-            DTGV_Pedidos.Columns[5].Visible = true;
-            DTGV_Pedidos.Size = new System.Drawing.Size(610, 228);
-            Btn_Descartar.Enabled = false;
+            if (Historial)
+            {
+                mostrarHistorialPedidos();
+                DTGV_Pedidos.Columns[5].Visible = true;
+                DTGV_Pedidos.Size = new System.Drawing.Size(610, 228);
+                Btn_Descartar.Enabled = false;
+            }
+            else CServ_MsjUsuario.MensajesDeError("No posee los permisos para realizar esta operación");
         }
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {
@@ -127,15 +145,20 @@ namespace Vista.FormulariosMenu
         }
         private void DTGV_OC_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            int Seleccion = DTGV_OC.CurrentRow.Index;
-            bool Agregar = Convert.ToBoolean(DTGV_OC.Rows[Seleccion].Cells[7].Value);
-            if (Agregar)
+            if (Modificar)
             {
-                DTGV_OC.Rows[Seleccion].Cells[7].Value = false;
-            }
-            else
-            {
-                DTGV_OC.Rows[Seleccion].Cells[7].Value = true;
+                DTGV_OC.Columns[7].ReadOnly = false;
+                int Seleccion = DTGV_OC.CurrentRow.Index;
+                bool Agregar = Convert.ToBoolean(DTGV_OC.Rows[Seleccion].Cells[7].Value);
+
+                if (Agregar)
+                {
+                    DTGV_OC.Rows[Seleccion].Cells[7].Value = false;
+                }
+                else
+                {
+                    DTGV_OC.Rows[Seleccion].Cells[7].Value = true;
+                }
             }
             calculoTotalOC();
 
@@ -242,7 +265,9 @@ namespace Vista.FormulariosMenu
                 {
                     if (item == DTGV_OC.Columns[7])
                     {
-                        DTGV_OC.Columns[7].ReadOnly = false;
+                        if (Modificar) DTGV_OC.Columns[7].ReadOnly = false;
+                        else DTGV_OC.Columns[7].ReadOnly = true;
+                        //   DTGV_OC.Columns[7].ReadOnly = false;
                     }
                 }
             }
@@ -393,6 +418,35 @@ namespace Vista.FormulariosMenu
 
             return PDFhtml;
         }
+        private void cargarPermisos()
+        {
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Confirmar = true;
+                        Descartar = true;
+                        Historial = true;
+                        Modificar = true;
+                        break;
+                        
+                    case 60:
+                        Confirmar = true;
+                        break;
+                    case 58:
+                        Descartar = true;
+                        break;
+                    case 59:
+                        Historial = true;
+                        break;
+                    case 57:
+                        Modificar = true;
+                        break;
+                }
+            }
+        }
+
         #endregion
     }
 }

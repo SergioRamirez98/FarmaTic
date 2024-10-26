@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Sesion;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data;
@@ -88,8 +89,11 @@ namespace Datos
             string sSql = "SP_Eliminar_Venta";
             SqlParameter param_ID_Venta = new SqlParameter("@ID_Venta", SqlDbType.Int);
             param_ID_Venta.Value = ID_Venta;
+            SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+            param_UserName.Value = CSesion_SesionIniciada.UserName;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_ID_Venta);
+            listaParametros.Add(param_UserName);
             lista = listaParametros.ToArray();
             try
             {
