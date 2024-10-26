@@ -140,11 +140,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormulariosMenu\Compras\CV_GestiondeCompras.cs">
+    <Compile Include="FormulariosMenu\Compras\CV_MenudeCompras.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_GestiondeCompras.Designer.cs">
-      <DependentUpon>CV_GestiondeCompras.cs</DependentUpon>
+    <Compile Include="FormulariosMenu\Compras\CV_MenudeCompras.Designer.cs">
+      <DependentUpon>CV_MenudeCompras.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\Compras\CV_CatalogoProductos.cs">
       <SubType>Form</SubType>
@@ -280,8 +280,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormulariosMenu\Compras\CV_GestiondeCompras.resx">
-      <DependentUpon>CV_GestiondeCompras.cs</DependentUpon>
+    <EmbeddedResource Include="FormulariosMenu\Compras\CV_MenudeCompras.resx">
+      <DependentUpon>CV_MenudeCompras.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\Compras\CV_CatalogoProductos.resx">
       <DependentUpon>CV_CatalogoProductos.cs</DependentUpon>

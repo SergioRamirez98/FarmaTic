@@ -12,9 +12,9 @@ using Vista.FormulariosMenu;
 
 namespace Vista
 {
-    public partial class CV_GestiondeCompras : Form
+    public partial class CV_MenudeCompras : Form
     {
-        public CV_GestiondeCompras()
+        public CV_MenudeCompras()
         {
             InitializeComponent();
         }

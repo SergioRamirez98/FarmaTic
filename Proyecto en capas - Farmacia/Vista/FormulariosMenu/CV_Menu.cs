@@ -75,7 +75,7 @@ namespace Vista
         }
         private void Btn_ModulodeCompra_Click(object sender, EventArgs e)
         {
-            CV_GestiondeCompras GC = new CV_GestiondeCompras();
+            CV_MenudeCompras GC = new CV_MenudeCompras();
             GC.Show();
         }
         private void Btn_ConfigSistema_Click(object sender, EventArgs e)

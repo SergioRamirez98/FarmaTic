@@ -1,6 +1,6 @@
 ﻿namespace Vista
 {
-    partial class CV_GestiondeCompras
+    partial class CV_MenudeCompras
     {
         /// <summary>
         /// Required designer variable.
