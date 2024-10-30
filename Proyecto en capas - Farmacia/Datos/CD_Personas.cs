@@ -186,7 +186,7 @@ namespace Datos
             catch (Exception)
             {
 
-                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Insertar");
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||Modificar");
             }
         }
         public DataTable Partido() 
@@ -278,9 +278,10 @@ namespace Datos
                 SqlParameter[] parametros = listaparametros.ToArray();
 
                 Dt = ejecutar(sSql, parametros, true);
-                CSesion_PersonaSeleccionada.ActualizaFormularioUsuarios(Dt);
-                if (Dt.Rows.Count>1)
+                
+                if (Dt.Rows.Count>0)
                 {
+                    CSesion_PersonaSeleccionada.ActualizaFormularioUsuarios(Dt);
                     return true;
                 }
                 else

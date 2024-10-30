@@ -127,8 +127,8 @@ namespace Vista
                     {
                         cargarComboBox(false);
                         DataRow DT = dt.Rows[0];
-                        ID_Persona = Convert.ToInt32(DT["ID_Persona"]);
-                        cargarPersonas();
+                        ID_Persona = Convert.ToInt32(DT["ID_Persona"]);                       
+                        seleccionPersona(ID_Persona, Txb_Nombre.Text+" "+Txb_Apellido.Text);
                     }
                     CServ_MsjUsuario.Exito("La persona se ha registrado correctamente");
                     Btn_Modificar.Enabled = true;
@@ -260,6 +260,7 @@ namespace Vista
                 else
                 {
                     Cmb_Localidad.Enabled = false;
+                    Cmb_Localidad.Text = "";
                     Cmb_Localidad.SelectedIndex = -1;
                 }
             }
@@ -290,7 +291,8 @@ namespace Vista
             Btn_GuardarCambios.Enabled = false;
 
             Btn_AsociarCliente.Enabled = false;
-            Btn_AsociarUsuario.Enabled = false;
+            Btn_AsociarUsuario.Enabled = true;
+            Btn_AsociarUsuario.Text= "Ver usuarios";
         }
         private void cargarComboBox(bool Rbt_Cliente)
         {
@@ -435,7 +437,9 @@ namespace Vista
             if (EsUsuario)
             {
                 Btn_AsociarUsuario.Enabled = true;
+                Btn_AsociarUsuario.Text= "Ver usuario";
                 Btn_AsociarCliente.Enabled = true;
+                
 
                 Rbt_Usuario.Enabled = false; 
                 Rbt_Cliente.Checked = true;
@@ -448,8 +452,8 @@ namespace Vista
                 Btn_RegistrarUsuario.Enabled = false;
             }
             else if (EsCliente)
-            {
-                Btn_AsociarCliente.Enabled = true;
+            {                
+                Btn_AsociarCliente.Enabled = false;
                 Btn_AsociarUsuario.Enabled = true;
                 Rbt_Usuario.Checked = true;
                 Rbt_Cliente.Enabled = false;
@@ -464,6 +468,7 @@ namespace Vista
             {
                 Btn_AsociarCliente.Enabled = true;
                 Btn_AsociarUsuario.Enabled = true;
+                Btn_AsociarUsuario.Text = "Asociar usuario";
                 Rbt_Usuario.Checked = false;
                 Cmb_Categoria.Enabled = true;
                 Rbt_Cliente.Checked = false;
@@ -526,6 +531,7 @@ namespace Vista
                 Txb_Domicilio.Text = CSesion_PersonaSeleccionada.Domicilio;
                 Cmb_Partido.Text = CSesion_PersonaSeleccionada.Partido;
                 Cmb_Localidad.Text = CSesion_PersonaSeleccionada.Localidad;
+                Cmb_Localidad.Enabled = false;
                 Cmb_Nacionalidad.Text = CSesion_PersonaSeleccionada.Nacionalidad;
                 Txb_Telefono.Text = Convert.ToString(CSesion_PersonaSeleccionada.Telefono);
                 Dtp_FeNacimiento.Value = CSesion_PersonaSeleccionada.FeNacimiento;
