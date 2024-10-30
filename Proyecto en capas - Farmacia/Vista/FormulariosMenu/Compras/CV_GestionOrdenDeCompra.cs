@@ -2,6 +2,7 @@
 using Modelo;
 using Servicios;
 using System;
+
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -324,6 +325,8 @@ namespace Vista.FormulariosMenu
         }
         private void generarPDF(int oc)
         {
+            CServ_CrearPDF.ImgFarmacia = Properties.Resources.FarmaciaPasteur;
+            CServ_CrearPDF.ImgFarmatic= Properties.Resources.farmaTic_logo;
             try
             {
                 SaveFileDialog guardar = new SaveFileDialog();
