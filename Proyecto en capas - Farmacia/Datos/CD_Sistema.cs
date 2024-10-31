@@ -30,7 +30,11 @@ namespace Datos
         public int Accion { get; set; }
         public string UserName { get; set; }
 
-        public List<CM_Bitacora> ListaBitacora { get; set; } = new List<CM_Bitacora>(); 
+        public List<CM_Bitacora> ListaBitacora { get; set; } = new List<CM_Bitacora>();
+        public List<CM_GestionPermisos> ListaPermisos { get; set; } = new List<CM_GestionPermisos>();
+
+        public List<CM_ListadoPermisosActuales> ListaActual { get; set; } = new List<CM_ListadoPermisosActuales>();
+
 
         SqlParameter [] lista = null;
 
@@ -210,7 +214,133 @@ namespace Datos
             {
                 throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||ObtenerBitacora.");
             }
-           
+
+        }
+        public List<CM_GestionPermisos> Obtener(string UsuarioFamilia)
+        {
+            ListaPermisos.Clear();
+            if (UsuarioFamilia == "Usuario")
+            {
+                string sSql = "SP_Obtener_Lista_Usuarios";
+                try
+                {
+                    List<SqlParameter> listaparametros = new List<SqlParameter>();
+                    SqlParameter[] parametros = listaparametros.ToArray();
+                    DataTable dt = new DataTable();
+                    dt = ejecutar(sSql, parametros, true);
+                    if (dt.Rows.Count > 0)
+                    {
+                        cargarListaPermisos(dt);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||Obtener.");
+                }
+
+            }
+            else
+            {
+                string sSql = "SP_Obtener_Lista_Familias";
+                try
+                {
+                    List<SqlParameter> listaparametros = new List<SqlParameter>();
+                    SqlParameter[] parametros = listaparametros.ToArray();
+                    DataTable dt = new DataTable();
+                    dt = ejecutar(sSql, parametros, true);
+                    if (dt.Rows.Count > 0)
+                    {
+                        cargarListaPermisos(dt);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||Buscar.");
+                }
+
+            }
+            return ListaPermisos;
+        }
+
+        public List<CM_ListadoPermisosActuales> PermisosActuales(string FamiliaUsuario, bool Seleccion) 
+        {
+            ListaActual.Clear();
+            if (Seleccion)
+            {
+                string sSql = "SP_Obtener_Lista_Permisos_Por_Grupo"; //Grupo
+                try
+                {
+                    SqlParameter param_FamiliaUsuario = new SqlParameter("@FamiliaUsuario", SqlDbType.VarChar, 100);
+                    param_FamiliaUsuario.Value = FamiliaUsuario;
+
+
+                    List<SqlParameter> listaParametros = new List<SqlParameter>();
+                    listaParametros.Add(param_FamiliaUsuario);
+
+                    lista = listaParametros.ToArray();
+                    DataTable dt = new DataTable();
+                    dt =ejecutar(sSql, lista, true);
+                    if (dt.Rows.Count > 0)
+                    {
+                        cargarListaPermisosActuales(dt);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||PermisosActuales.");
+                }
+
+            }
+            else
+            {
+                string sSql = "SP_Obtener_Lista_Permisos_Por_Usuario";
+                try
+                {
+                    SqlParameter param_FamiliaUsuario = new SqlParameter("@FamiliaUsuario", SqlDbType.VarChar, 100);
+                    param_FamiliaUsuario.Value = FamiliaUsuario;
+
+
+                    List<SqlParameter> listaParametros = new List<SqlParameter>();
+                    listaParametros.Add(param_FamiliaUsuario);
+
+                    lista = listaParametros.ToArray();
+                    DataTable dt = new DataTable();
+                    dt = ejecutar(sSql, lista, true);
+                    if (dt.Rows.Count > 0)
+                    {
+                        cargarListaPermisosActuales(dt);
+                    }
+
+                }
+                catch (Exception)
+                {
+                    throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||PermisosActuales.");
+                }
+
+            }
+            string sSql2 = "SP_Obtener_Lista_Permisos_Totales";
+            try
+            {
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                SqlParameter[] parametros = listaparametros.ToArray();
+                DataTable dt = new DataTable();
+                dt = ejecutar(sSql2, parametros, true);
+
+                if (dt.Rows.Count > 0)
+                {
+                    cargarListaPermisosTotales(dt);
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||PermisosActuales.");
+            }
+
+            return ListaActual;
         }
         private void cargarBitacora(DataTable dt) 
         {
@@ -233,6 +363,55 @@ namespace Datos
 
             }
         }
+        public void cargarListaPermisos (DataTable dt)
+        {
+            ListaPermisos.Clear();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    CM_GestionPermisos FamiliaPersona = new CM_GestionPermisos
+                    {
+                        FamiliaUsuario = dr["FamiliaUsuario"].ToString()
+                    };
 
+                    ListaPermisos.Add(FamiliaPersona);
+                }
+
+            }
+        }
+
+        private void cargarListaPermisosActuales (DataTable dt)
+        {
+            ListaActual.Clear();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    CM_ListadoPermisosActuales FamiliaPersona = new CM_ListadoPermisosActuales
+                    {
+                        DescripcionPermiso = dr["DescripcionPermiso"].ToString()
+                    };
+                    ListaActual.Add(FamiliaPersona);
+                }
+
+}
+        }
+        private void cargarListaPermisosTotales(DataTable dt)
+        {
+            //ListaActual.Clear();
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {
+                    CM_ListadoPermisosActuales FamiliaPersona = new CM_ListadoPermisosActuales
+                    {
+                        DescripcionPermisosTotales = dr["Descripcion"].ToString()
+                    };
+                    ListaActual.Add(FamiliaPersona);
+                }
+
+            }
+        }
     }
 }

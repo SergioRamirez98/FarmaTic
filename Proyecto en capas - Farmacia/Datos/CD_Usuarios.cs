@@ -347,14 +347,37 @@ namespace Datos
 
                 lista = listaParametros.ToArray();
 
-                ejecutar(sSql, lista, false);               
+                ejecutar(sSql, lista, false);     
 
             }
             catch (Exception)
             {
 
                 throw new Exception ("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
-            }                        
+            }
+            try
+            {
+                string sSql = "SP_Asignar_Roles_A_Usuario_Por_Familia";
+
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = Prop_UserName;
+                SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.Int);
+                param_Familia.Value = Prop_Familia;
+
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                listaParametros.Add(param_UserName);
+                listaParametros.Add(param_Familia);
+
+                lista = listaParametros.ToArray();
+
+                ejecutar(sSql, lista, false);
+
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
+            }
         }
         public void ActualizarUsuario() {
             try

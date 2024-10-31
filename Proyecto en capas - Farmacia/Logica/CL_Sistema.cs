@@ -13,6 +13,9 @@ namespace Logica
     {
         CD_Sistema sistema = new CD_Sistema();
         List<CM_Bitacora> listaBitacora = new List<CM_Bitacora>();
+        List<CM_GestionPermisos> listaPermisos = new List<CM_GestionPermisos>();
+
+        List<CM_ListadoPermisosActuales> PermisosActuales = new List<CM_ListadoPermisosActuales>();
         #region Properties
         public bool MinCaracteres { get; set; }
         public bool CaractEspecial { get; set; }
@@ -30,6 +33,12 @@ namespace Logica
         public string Accion { get; set; }
         public string UserName { get; set; }
 
+        #endregion
+
+        #region Permisos
+        public string Familia { get; set; }
+        public string Usuario { get; set; }
+        List<CM_ListadoPermisosActuales> NuevosPermisos = new List<CM_ListadoPermisosActuales>();
         #endregion
 
         public DataTable CargarConfiguracion() 
@@ -50,6 +59,17 @@ namespace Logica
         public DataTable ObtenerAccion() 
         {
             return sistema.ObtenerAccionBitacora();
+        }
+        public List<CM_GestionPermisos> ObtenerPermisosUsuarioFamilia(string Usuario) 
+        {
+            listaPermisos.Clear();
+            return sistema.Obtener(Usuario);
+        }
+
+        public List<CM_ListadoPermisosActuales> ObtenerPermisosActuales(string FamiliaUsuario, bool Seleccion) 
+        {
+            PermisosActuales.Clear();
+            return PermisosActuales = sistema.PermisosActuales(FamiliaUsuario, Seleccion);
         }
         public void GuardarCambiosDeSeguridad()
         {
@@ -86,5 +106,31 @@ namespace Logica
             else sistema.UserName = UserName;
             
     }
+
+        public List<CM_ListadoPermisosActuales> FiltrarPermisos(List<CM_ListadoPermisosActuales> listaCompleta, bool obtenerActuales)
+        {
+            if (obtenerActuales)
+            {
+                // Filtrar permisos actuales (que tienen DescripcionPermiso no vacía)
+                return listaCompleta
+                    .Where(x => !string.IsNullOrEmpty(x.DescripcionPermiso))
+                    .ToList();
+            }
+            else
+            {
+                // Filtrar permisos totales que no están en DescripcionPermiso
+                var permisosActuales = listaCompleta
+                    .Where(x => !string.IsNullOrEmpty(x.DescripcionPermiso))
+                    .Select(x => x.DescripcionPermiso)
+                    .ToHashSet(); // Usamos HashSet para búsqueda rápida
+
+                return listaCompleta
+                    .Where(x => !permisosActuales.Contains(x.DescripcionPermisosTotales) && !string.IsNullOrEmpty(x.DescripcionPermisosTotales))
+                    .ToList();
+            }
+        }
+
+
+
     }
 }
