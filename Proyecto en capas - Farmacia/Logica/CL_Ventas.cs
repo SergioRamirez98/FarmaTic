@@ -49,6 +49,7 @@ namespace Logica
                 var ProductosEncontrados = Dt.AsEnumerable()
 
                         .Where(row => row.Field<string>("NombreProd").ToLower().Contains(Palabra) ||
+                        row.Field<string>("NombreComercial").ToLower().Contains(Palabra) ||
                         row.Field<string>("Marca").ToLower().Contains(Palabra) ||
                         row.Field<string>("DescripProd").ToLower().Contains(Palabra) ||
                         row.Field<string>("Categoria").ToLower().Contains(Palabra) 

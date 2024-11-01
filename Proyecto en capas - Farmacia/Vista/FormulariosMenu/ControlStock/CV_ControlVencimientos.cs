@@ -58,6 +58,8 @@ namespace Vista
             DTGV_Vencimientos.Columns[3].HeaderText = "Descripcion del producto";
             DTGV_Vencimientos.Columns[4].HeaderText = "Cantidad";
             DTGV_Vencimientos.Columns[5].HeaderText = "Precio unitario";
+
+            DTGV_Vencimientos.Columns[5].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Vencimientos.Columns[6].HeaderText = "Vencimiento";
             DTGV_Vencimientos.Columns[7].HeaderText = "Numero de lote";
             DTGV_Vencimientos.Columns[8].HeaderText = "Categoría";

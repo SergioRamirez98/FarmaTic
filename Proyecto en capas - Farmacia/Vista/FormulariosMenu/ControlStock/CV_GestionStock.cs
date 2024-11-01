@@ -87,7 +87,7 @@ namespace Vista
                     CServ_MsjUsuario.Exito("El producto fue ingresado exitosamente.");
                     mostrarProductos();
                     CServ_Limpiar.LimpiarFormulario(this);
-
+                    CV_GestionStock_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
@@ -135,6 +135,7 @@ namespace Vista
                     CServ_MsjUsuario.Exito("Producto actualizado");
                     mostrarProductos();
                     CServ_Limpiar.LimpiarFormulario(this);
+                    CV_GestionStock_Load(sender, e);
                 }
                 catch (Exception ex)
                 {
@@ -158,6 +159,7 @@ namespace Vista
                         mostrarProductos();
                         CServ_Limpiar.LimpiarFormulario(this);
                         desbloquearControles();
+                        CV_GestionStock_Load(sender, e);
                     }
                     catch (Exception ex)
                     {
@@ -193,6 +195,7 @@ namespace Vista
         {
             configurarLoad();
             desbloquearControles();
+            CV_GestionStock_Load(sender, e);
         }
         #endregion
 
@@ -371,6 +374,7 @@ namespace Vista
             Size = new Size(1050, 555);
             Pnl_Busqueda.Location = new Point(350, 20);
 
+            Cmb_Categoria.Items.Clear();
             Cmb_Categoria.Items.Add("Medicamentos");
             Cmb_Categoria.Items.Add("Cuidado personal");
             Cmb_Categoria.Items.Add("Higiene");

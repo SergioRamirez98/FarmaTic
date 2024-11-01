@@ -52,6 +52,7 @@ namespace Vista
                         Btn_Catalogo.Enabled = true;
                         Btn_PedidodeCompra.Enabled = true;
                         Btn_OrdendeCompra.Enabled = true;
+                        Btn_Proveedores.Enabled = true;
                         break;
                     case 42:
                         Btn_Proveedores.Enabled = true;

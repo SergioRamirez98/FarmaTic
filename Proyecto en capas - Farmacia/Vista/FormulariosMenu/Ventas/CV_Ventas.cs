@@ -161,27 +161,17 @@ namespace Vista.FormulariosMenu
             DTGV_Ventas.RowHeadersVisible = false;
             DTGV_Ventas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-            DTGV_Ventas.Columns[0].DisplayIndex = 0;
-            DTGV_Ventas.Columns[1].DisplayIndex = 1;
-            DTGV_Ventas.Columns[2].DisplayIndex = 2;
-            DTGV_Ventas.Columns[3].DisplayIndex = 4;
-            DTGV_Ventas.Columns[4].DisplayIndex = 5;
-            DTGV_Ventas.Columns[5].DisplayIndex = 6;
-            DTGV_Ventas.Columns[5].DefaultCellStyle.Format = "#,##0.00";
-            DTGV_Ventas.Columns[6].DisplayIndex = 7;
-            DTGV_Ventas.Columns[7].DisplayIndex = 8;
-            DTGV_Ventas.Columns[8].DisplayIndex = 3;
-
             DTGV_Ventas.Columns[0].HeaderText = "ID producto";
             DTGV_Ventas.Columns[1].HeaderText = "Nombre del producto";
-            DTGV_Ventas.Columns[2].HeaderText = "Marca";
-            DTGV_Ventas.Columns[3].HeaderText = "Descripcion del producto";
-            DTGV_Ventas.Columns[4].HeaderText = "Cantidad";
-            DTGV_Ventas.Columns[5].HeaderText = "Precio unitario";
-            DTGV_Ventas.Columns[6].HeaderText = "Vencimiento";
-            DTGV_Ventas.Columns[7].HeaderText = "Numero de lote";
-            DTGV_Ventas.Columns[8].HeaderText = "Categoría";
-
+            DTGV_Ventas.Columns[2].HeaderText = "Monodroga";
+            DTGV_Ventas.Columns[3].HeaderText = "Marca";
+            DTGV_Ventas.Columns[4].HeaderText = "Descripcion del producto";
+            DTGV_Ventas.Columns[5].HeaderText = "Cantidad";
+            DTGV_Ventas.Columns[6].HeaderText = "Precio Unitario";
+            DTGV_Ventas.Columns[6].DefaultCellStyle.Format = "#,##0.00";
+            DTGV_Ventas.Columns[7].HeaderText = "Vencimiento";
+            DTGV_Ventas.Columns[8].HeaderText = "N°de Lote"; 
+            DTGV_Ventas.Columns[9].HeaderText = "Categoría"; 
 
 
 
