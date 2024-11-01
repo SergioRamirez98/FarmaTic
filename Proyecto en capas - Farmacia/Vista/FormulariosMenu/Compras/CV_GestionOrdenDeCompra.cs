@@ -146,20 +146,13 @@ namespace Vista.FormulariosMenu
         }
         private void DTGV_OC_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (Modificar)
+            if (Modificar && e.ColumnIndex == 7)
             {
-                DTGV_OC.Columns[7].ReadOnly = false;
                 int Seleccion = DTGV_OC.CurrentRow.Index;
-                bool Agregar = Convert.ToBoolean(DTGV_OC.Rows[Seleccion].Cells[7].Value);
+                bool Agregar = Convert.ToBoolean(DTGV_OC.Rows[Seleccion].Cells[7].Value);             
 
-                if (Agregar)
-                {
-                    DTGV_OC.Rows[Seleccion].Cells[7].Value = false;
-                }
-                else
-                {
-                    DTGV_OC.Rows[Seleccion].Cells[7].Value = true;
-                }
+                if (Agregar) DTGV_OC.Rows[Seleccion].Cells[7].Value = false;
+                else DTGV_OC.Rows[Seleccion].Cells[7].Value = true;
             }
             calculoTotalOC();
 
@@ -261,16 +254,7 @@ namespace Vista.FormulariosMenu
                 DTGV_OC.Columns[6].DefaultCellStyle.Format = "#,##0.00";
                 DTGV_OC.Columns[7].HeaderText = "Agregar/Quitar";
                 for (int i = 0; i < 7; i++) DTGV_OC.Columns[i].ReadOnly = true;
-
-                foreach (DataGridViewColumn item in DTGV_OC.Columns)
-                {
-                    if (item == DTGV_OC.Columns[7])
-                    {
-                        if (Modificar) DTGV_OC.Columns[7].ReadOnly = false;
-                        else DTGV_OC.Columns[7].ReadOnly = true;
-                        //   DTGV_OC.Columns[7].ReadOnly = false;
-                    }
-                }
+               
             }
         }
         private void mostrarPedidosPorItems(int ID)
@@ -281,6 +265,10 @@ namespace Vista.FormulariosMenu
             DTGV_OC.Columns.Clear();
             DTGV_OC.Rows.Clear();
             DTGV_OC.DataSource = Pedido;
+            foreach (var item in Pedido)
+            {
+                bool valor = item.AgregarQuitar;
+            }
             nombrarColumnas();
             DTGV_OC.ClearSelection();
         }
@@ -296,13 +284,18 @@ namespace Vista.FormulariosMenu
         {
             foreach (DataGridViewRow item in DTGV_OC.Rows)
             {
-                CL_GestionOrdendeCompra OrdenItems = new CL_GestionOrdendeCompra();
-                OrdenItems.OrdenDeCompra = oc.ToString();
-                OrdenItems.Producto = item.Cells[0].Value.ToString();
-                OrdenItems.Cantidad = item.Cells[4].Value.ToString();
-                OrdenItems.PrecioUnitario = item.Cells[5].Value.ToString();
-                OrdenItems.Subtotal = item.Cells[6].Value.ToString();
-                ListaItems.Add(OrdenItems);
+                bool ValorBooleanoItem = Convert.ToBoolean(item.Cells[7].Value);
+                if (ValorBooleanoItem)
+                {
+                    CL_GestionOrdendeCompra OrdenItems = new CL_GestionOrdendeCompra();
+                    OrdenItems.OrdenDeCompra = oc.ToString();
+                    OrdenItems.Producto = item.Cells[0].Value.ToString();
+                    OrdenItems.Cantidad = item.Cells[4].Value.ToString();
+                    OrdenItems.PrecioUnitario = item.Cells[5].Value.ToString();
+                    OrdenItems.Subtotal = item.Cells[6].Value.ToString();
+                    ListaItems.Add(OrdenItems);
+
+                }
             }
             OC.ListaItems = ListaItems;
         }
