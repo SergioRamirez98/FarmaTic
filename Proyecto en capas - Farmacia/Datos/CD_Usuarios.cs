@@ -361,7 +361,7 @@ namespace Datos
 
                 SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
                 param_UserName.Value = Prop_UserName;
-                SqlParameter param_Familia = new SqlParameter("@Familia", SqlDbType.Int);
+                SqlParameter param_Familia = new SqlParameter("@ID_Familia", SqlDbType.Int);
                 param_Familia.Value = Prop_Familia;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();

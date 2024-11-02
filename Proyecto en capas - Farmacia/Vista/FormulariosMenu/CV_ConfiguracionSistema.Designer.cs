@@ -34,16 +34,18 @@
             this.Nud_VtoProd = new System.Windows.Forms.NumericUpDown();
             this.Btn_Guardar = new System.Windows.Forms.Button();
             this.DTGV_FamiliaUsuario = new System.Windows.Forms.DataGridView();
-            this.Btn_Usuarios = new System.Windows.Forms.Button();
-            this.Btn_Grupo = new System.Windows.Forms.Button();
             this.DTGV_PermisosActuales = new System.Windows.Forms.DataGridView();
             this.DTGV_PermisosRestantes = new System.Windows.Forms.DataGridView();
             this.Btn_Funcion = new System.Windows.Forms.Button();
+            this.Gpb_Permisos = new System.Windows.Forms.GroupBox();
+            this.Rbt_Usuario = new System.Windows.Forms.RadioButton();
+            this.Rbt_Grupo = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_FamiliaUsuario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosActuales)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosRestantes)).BeginInit();
+            this.Gpb_Permisos.SuspendLayout();
             this.SuspendLayout();
             // 
             // Lbl_CantMinStock
@@ -90,7 +92,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(345, 332);
+            this.Btn_Guardar.Location = new System.Drawing.Point(343, 351);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Guardar.TabIndex = 16;
@@ -101,7 +103,7 @@
             // DTGV_FamiliaUsuario
             // 
             this.DTGV_FamiliaUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_FamiliaUsuario.Location = new System.Drawing.Point(18, 144);
+            this.DTGV_FamiliaUsuario.Location = new System.Drawing.Point(14, 71);
             this.DTGV_FamiliaUsuario.Name = "DTGV_FamiliaUsuario";
             this.DTGV_FamiliaUsuario.RowHeadersWidth = 51;
             this.DTGV_FamiliaUsuario.RowTemplate.Height = 24;
@@ -109,30 +111,10 @@
             this.DTGV_FamiliaUsuario.TabIndex = 17;
             this.DTGV_FamiliaUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_FamiliaUsuario_CellClick);
             // 
-            // Btn_Usuarios
-            // 
-            this.Btn_Usuarios.Location = new System.Drawing.Point(41, 115);
-            this.Btn_Usuarios.Name = "Btn_Usuarios";
-            this.Btn_Usuarios.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Usuarios.TabIndex = 20;
-            this.Btn_Usuarios.Text = "Usuarios";
-            this.Btn_Usuarios.UseVisualStyleBackColor = true;
-            this.Btn_Usuarios.Click += new System.EventHandler(this.Btn_Usuarios_Click);
-            // 
-            // Btn_Grupo
-            // 
-            this.Btn_Grupo.Location = new System.Drawing.Point(141, 115);
-            this.Btn_Grupo.Name = "Btn_Grupo";
-            this.Btn_Grupo.Size = new System.Drawing.Size(75, 23);
-            this.Btn_Grupo.TabIndex = 21;
-            this.Btn_Grupo.Text = "Grupo";
-            this.Btn_Grupo.UseVisualStyleBackColor = true;
-            this.Btn_Grupo.Click += new System.EventHandler(this.Btn_Grupo_Click);
-            // 
             // DTGV_PermisosActuales
             // 
             this.DTGV_PermisosActuales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_PermisosActuales.Location = new System.Drawing.Point(324, 144);
+            this.DTGV_PermisosActuales.Location = new System.Drawing.Point(320, 71);
             this.DTGV_PermisosActuales.Name = "DTGV_PermisosActuales";
             this.DTGV_PermisosActuales.RowHeadersWidth = 51;
             this.DTGV_PermisosActuales.RowTemplate.Height = 24;
@@ -143,7 +125,7 @@
             // DTGV_PermisosRestantes
             // 
             this.DTGV_PermisosRestantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_PermisosRestantes.Location = new System.Drawing.Point(782, 144);
+            this.DTGV_PermisosRestantes.Location = new System.Drawing.Point(778, 71);
             this.DTGV_PermisosRestantes.Name = "DTGV_PermisosRestantes";
             this.DTGV_PermisosRestantes.RowHeadersWidth = 51;
             this.DTGV_PermisosRestantes.RowTemplate.Height = 24;
@@ -153,7 +135,7 @@
             // 
             // Btn_Funcion
             // 
-            this.Btn_Funcion.Location = new System.Drawing.Point(682, 213);
+            this.Btn_Funcion.Location = new System.Drawing.Point(678, 140);
             this.Btn_Funcion.Name = "Btn_Funcion";
             this.Btn_Funcion.Size = new System.Drawing.Size(75, 26);
             this.Btn_Funcion.TabIndex = 24;
@@ -161,17 +143,51 @@
             this.Btn_Funcion.UseVisualStyleBackColor = true;
             this.Btn_Funcion.Click += new System.EventHandler(this.Btn_Funcion_Click);
             // 
+            // Gpb_Permisos
+            // 
+            this.Gpb_Permisos.Controls.Add(this.Rbt_Grupo);
+            this.Gpb_Permisos.Controls.Add(this.Rbt_Usuario);
+            this.Gpb_Permisos.Controls.Add(this.Btn_Funcion);
+            this.Gpb_Permisos.Controls.Add(this.DTGV_FamiliaUsuario);
+            this.Gpb_Permisos.Controls.Add(this.DTGV_PermisosRestantes);
+            this.Gpb_Permisos.Controls.Add(this.DTGV_PermisosActuales);
+            this.Gpb_Permisos.Location = new System.Drawing.Point(12, 79);
+            this.Gpb_Permisos.Name = "Gpb_Permisos";
+            this.Gpb_Permisos.Size = new System.Drawing.Size(1127, 266);
+            this.Gpb_Permisos.TabIndex = 25;
+            this.Gpb_Permisos.TabStop = false;
+            this.Gpb_Permisos.Text = "Permisos para los usuarios";
+            // 
+            // Rbt_Usuario
+            // 
+            this.Rbt_Usuario.AutoSize = true;
+            this.Rbt_Usuario.Location = new System.Drawing.Point(34, 45);
+            this.Rbt_Usuario.Name = "Rbt_Usuario";
+            this.Rbt_Usuario.Size = new System.Drawing.Size(75, 20);
+            this.Rbt_Usuario.TabIndex = 25;
+            this.Rbt_Usuario.TabStop = true;
+            this.Rbt_Usuario.Text = "Usuario";
+            this.Rbt_Usuario.UseVisualStyleBackColor = true;
+            this.Rbt_Usuario.CheckedChanged += new System.EventHandler(this.Rbt_Usuario_CheckedChanged);
+            // 
+            // Rbt_Grupo
+            // 
+            this.Rbt_Grupo.AutoSize = true;
+            this.Rbt_Grupo.Location = new System.Drawing.Point(156, 45);
+            this.Rbt_Grupo.Name = "Rbt_Grupo";
+            this.Rbt_Grupo.Size = new System.Drawing.Size(65, 20);
+            this.Rbt_Grupo.TabIndex = 26;
+            this.Rbt_Grupo.TabStop = true;
+            this.Rbt_Grupo.Text = "Grupo";
+            this.Rbt_Grupo.UseVisualStyleBackColor = true;
+            this.Rbt_Grupo.CheckedChanged += new System.EventHandler(this.Rbt_Grupo_CheckedChanged);
+            // 
             // CV_ConfiguracionSistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1222, 450);
-            this.Controls.Add(this.Btn_Funcion);
-            this.Controls.Add(this.DTGV_PermisosRestantes);
-            this.Controls.Add(this.DTGV_PermisosActuales);
-            this.Controls.Add(this.Btn_Grupo);
-            this.Controls.Add(this.Btn_Usuarios);
-            this.Controls.Add(this.DTGV_FamiliaUsuario);
+            this.Controls.Add(this.Gpb_Permisos);
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.Lbl_CantMinStock);
             this.Controls.Add(this.Nud_CantMinStock);
@@ -185,6 +201,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_FamiliaUsuario)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosActuales)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosRestantes)).EndInit();
+            this.Gpb_Permisos.ResumeLayout(false);
+            this.Gpb_Permisos.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -197,10 +215,11 @@
         private System.Windows.Forms.NumericUpDown Nud_VtoProd;
         private System.Windows.Forms.Button Btn_Guardar;
         private System.Windows.Forms.DataGridView DTGV_FamiliaUsuario;
-        private System.Windows.Forms.Button Btn_Usuarios;
-        private System.Windows.Forms.Button Btn_Grupo;
         private System.Windows.Forms.DataGridView DTGV_PermisosActuales;
         private System.Windows.Forms.DataGridView DTGV_PermisosRestantes;
         private System.Windows.Forms.Button Btn_Funcion;
+        private System.Windows.Forms.GroupBox Gpb_Permisos;
+        private System.Windows.Forms.RadioButton Rbt_Grupo;
+        private System.Windows.Forms.RadioButton Rbt_Usuario;
     }
 }
