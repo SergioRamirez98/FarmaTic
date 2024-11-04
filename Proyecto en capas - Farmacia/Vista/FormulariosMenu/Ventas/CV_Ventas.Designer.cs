@@ -44,6 +44,7 @@
             this.Lbl_Total = new System.Windows.Forms.Label();
             this.Btn_BuscarCliente = new System.Windows.Forms.Button();
             this.Btn_Consultar = new System.Windows.Forms.Button();
+            this.Btn_CrearCliente = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).BeginInit();
@@ -68,7 +69,7 @@
             // 
             // Txb_BusquedaRapida
             // 
-            this.Txb_BusquedaRapida.Location = new System.Drawing.Point(597, 24);
+            this.Txb_BusquedaRapida.Location = new System.Drawing.Point(507, 23);
             this.Txb_BusquedaRapida.Name = "Txb_BusquedaRapida";
             this.Txb_BusquedaRapida.Size = new System.Drawing.Size(100, 22);
             this.Txb_BusquedaRapida.TabIndex = 1;
@@ -133,7 +134,7 @@
             // Lbl_BusquedaRapida
             // 
             this.Lbl_BusquedaRapida.AutoSize = true;
-            this.Lbl_BusquedaRapida.Location = new System.Drawing.Point(452, 27);
+            this.Lbl_BusquedaRapida.Location = new System.Drawing.Point(362, 26);
             this.Lbl_BusquedaRapida.Name = "Lbl_BusquedaRapida";
             this.Lbl_BusquedaRapida.Size = new System.Drawing.Size(117, 16);
             this.Lbl_BusquedaRapida.TabIndex = 26;
@@ -150,7 +151,7 @@
             // 
             // Txb_Cliente
             // 
-            this.Txb_Cliente.Location = new System.Drawing.Point(960, 24);
+            this.Txb_Cliente.Location = new System.Drawing.Point(870, 23);
             this.Txb_Cliente.Name = "Txb_Cliente";
             this.Txb_Cliente.Size = new System.Drawing.Size(177, 22);
             this.Txb_Cliente.TabIndex = 2;
@@ -175,7 +176,7 @@
             // 
             // Btn_BuscarCliente
             // 
-            this.Btn_BuscarCliente.Location = new System.Drawing.Point(825, 24);
+            this.Btn_BuscarCliente.Location = new System.Drawing.Point(735, 23);
             this.Btn_BuscarCliente.Name = "Btn_BuscarCliente";
             this.Btn_BuscarCliente.Size = new System.Drawing.Size(111, 23);
             this.Btn_BuscarCliente.TabIndex = 2;
@@ -193,11 +194,22 @@
             this.Btn_Consultar.UseVisualStyleBackColor = true;
             this.Btn_Consultar.Click += new System.EventHandler(this.Btn_Consultar_Click);
             // 
+            // Btn_CrearCliente
+            // 
+            this.Btn_CrearCliente.Location = new System.Drawing.Point(1072, 23);
+            this.Btn_CrearCliente.Name = "Btn_CrearCliente";
+            this.Btn_CrearCliente.Size = new System.Drawing.Size(134, 23);
+            this.Btn_CrearCliente.TabIndex = 32;
+            this.Btn_CrearCliente.Text = "Dar de alta cliente";
+            this.Btn_CrearCliente.UseVisualStyleBackColor = true;
+            this.Btn_CrearCliente.Click += new System.EventHandler(this.Btn_CrearCliente_Click);
+            // 
             // CV_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1656, 751);
+            this.Controls.Add(this.Btn_CrearCliente);
             this.Controls.Add(this.Btn_Consultar);
             this.Controls.Add(this.Btn_BuscarCliente);
             this.Controls.Add(this.Lbl_Total);
@@ -243,5 +255,6 @@
         private System.Windows.Forms.Label Lbl_Total;
         private System.Windows.Forms.Button Btn_BuscarCliente;
         private System.Windows.Forms.Button Btn_Consultar;
+        private System.Windows.Forms.Button Btn_CrearCliente;
     }
 }

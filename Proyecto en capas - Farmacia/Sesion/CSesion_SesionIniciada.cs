@@ -108,11 +108,15 @@ namespace Sesion
                         DateTime fechaVencimiento = Fe_CambioPass.AddDays(VenceCada);
 
                         DateTime hoy = DateTime.Today;
-                        if ((fechaVencimiento - hoy).Days <= 10) { CambioPass = true; }
-                        else if (hoy >=fechaVencimiento)
+                        if (VenceCada !=0)
                         {
-                            bool pregunta = CServ_CambioDeClave.CambiarClave();
-                            if (pregunta) CambioPass = true; 
+                            if ((fechaVencimiento - hoy).Days <= 10) { CambioPass = true; }
+                            else if (hoy >= fechaVencimiento)
+                            {
+                                bool pregunta = CServ_CambioDeClave.CambiarClave();
+                                if (pregunta) CambioPass = true;
+
+                            }
 
                         }
                     }

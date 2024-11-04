@@ -676,11 +676,13 @@ namespace Vista
                     case 4:
                         Registrar = true;
                         break;
-
                     case 5:
                         Eliminar = true;
                         break;
                     case 3:
+                        Modificar = true;
+                        break;
+                    case 9:
                         Modificar = true;
                         break;
                     case 6:

@@ -136,6 +136,11 @@ namespace Vista.FormulariosMenu
             }
             else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
+        private void Btn_CrearCliente_Click(object sender, EventArgs e)
+        {
+            CV_GestionUsuariosPersonas AltaCliente = new CV_GestionUsuariosPersonas();
+            AltaCliente.Show();
+        }
         private void Btn_Consultar_Click(object sender, EventArgs e)
         {
             if (ConsultarVenta)
@@ -332,6 +337,9 @@ namespace Vista.FormulariosMenu
             }
             cat = Categoria;
         }
+
+        
+
         private void cargarPermisos()
         {
             foreach (var permiso in CSesion_SesionIniciada.Permisos)
