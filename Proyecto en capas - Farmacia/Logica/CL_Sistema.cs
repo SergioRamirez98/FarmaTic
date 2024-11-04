@@ -12,17 +12,19 @@ namespace Logica
     public class CL_Sistema
     {
         CD_Sistema sistema = new CD_Sistema();
+
         List<CM_Bitacora> listaBitacora = new List<CM_Bitacora>();
         List<CM_GestionPermisos> listaPermisos = new List<CM_GestionPermisos>();
-
         List<CM_ListadoPermisosActuales> PermisosActuales = new List<CM_ListadoPermisosActuales>();
+        List<CD_Sistema> PermisosNuevos = new List<CD_Sistema>();
+
         #region Properties
         public bool MinCaracteres { get; set; }
         public bool CaractEspecial { get; set; }
         public bool DatosPersonales { get; set; }
         public bool MayusMinus { get; set; }
         public bool NumerosYLetras { get; set; }
-        public bool RepetirPass { get; set; }        
+        public bool RepetirPass { get; set; }
         public int AvisosVtoProductos { get; set; }
         public int CantMinimadeStock { get; set; }
         public int CantIntentosFallidos { get; set; }
@@ -36,89 +38,112 @@ namespace Logica
         #endregion
 
         #region Permisos
-        public string Familia { get; set; }
-        public string Usuario { get; set; }
-        List<CM_ListadoPermisosActuales> NuevosPermisos = new List<CM_ListadoPermisosActuales>();
+        public string UsuarioGrupo { get; set; }
+        public List<CL_Sistema> NuevosPermisos { get; set; }
+        public string PermisoNuevo { get; set; }
+
         #endregion
 
-        public DataTable CargarConfiguracion() 
+        #region Métodos
+        public DataTable CargarConfiguracion()
         {
-            return sistema.Configuracion();           
+            return sistema.Configuracion();
         }
-        public List<CM_Bitacora> MostrarBitacora() 
+        public List<CM_Bitacora> MostrarBitacora()
         {
             listaBitacora.Clear();
             listaBitacora = sistema.ObtenerBitacora();
             return listaBitacora;
         }
-        public List<CM_Bitacora> BuscarBitacora() 
+        public List<CM_Bitacora> BuscarBitacora()
         {
-            pasarDatos(); listaBitacora.Clear();
+          //  pasarDatosBitacora();
+            pasarDatos(1);
+            listaBitacora.Clear();
             return listaBitacora = sistema.Buscar();
         }
-        public DataTable ObtenerAccion() 
+        public DataTable ObtenerAccion()
         {
             return sistema.ObtenerAccionBitacora();
         }
-        public List<CM_GestionPermisos> ObtenerPermisosUsuarioFamilia(string Usuario) 
+        public List<CM_GestionPermisos> ObtenerPermisosUsuarioFamilia(string Usuario)
         {
             listaPermisos.Clear();
             return sistema.Obtener(Usuario);
         }
-
-        public List<CM_ListadoPermisosActuales> ObtenerPermisosActuales(string FamiliaUsuario, bool Seleccion) 
+        public List<CM_ListadoPermisosActuales> ObtenerPermisosActuales(string FamiliaUsuario, bool Seleccion)
         {
             PermisosActuales.Clear();
             return PermisosActuales = sistema.PermisosActuales(FamiliaUsuario, Seleccion);
         }
         public void GuardarCambiosDeSeguridad()
         {
-            pasarDatosSeguridad();
+            pasarDatos(2);
             sistema.GuardarCambiosSeguridad();
         }
         public void GuardarCambiosDeSistema()
-        {
-            pasarDatosSistema();
+        {        
+            pasarDatos(3);
             sistema.GuardarCambiosSistema();
         }
-        private void pasarDatosSeguridad() 
+        public void GuardarPermisos(bool Familia)
         {
-            sistema.MinCaracteres= MinCaracteres;
-            sistema.CaractEspecial= CaractEspecial;
-            sistema.DatosPersonales= DatosPersonales;
-            sistema.MayusMinus= MayusMinus;
-            sistema.NumerosYLetras = NumerosYLetras;
-            sistema.RepetirPass = RepetirPass;
-            sistema.CantIntentosFallidos = CantIntentosFallidos;
-        }
-        private void pasarDatosSistema()
-        {
-            sistema.AvisosVtoProductos = AvisosVtoProductos;
-            sistema.CantMinimadeStock = CantMinimadeStock;
-        }
-        private void pasarDatos() 
-        {
-            sistema.FechaDesde = Convert.ToDateTime(FechaDesde);
-            sistema.FechaHasta = Convert.ToDateTime(FechaHasta);
-           
-            sistema.Accion = Convert.ToInt32(Accion);
-            if (string.IsNullOrWhiteSpace(UserName)) sistema.UserName = "";
-            else sistema.UserName = UserName;
-            
-    }
 
+            pasarDatos(4);
+            NuevosPermisos.Clear();
+            sistema.GuardarNuevosPermisos(Familia);
+        }
+        private void pasarDatos(int valor)
+        {
+            switch (valor)
+            {
+                case 1:
+                    sistema.FechaDesde = Convert.ToDateTime(FechaDesde);
+                    sistema.FechaHasta = Convert.ToDateTime(FechaHasta);
+
+                    sistema.Accion = Convert.ToInt32(Accion);
+                    if (string.IsNullOrWhiteSpace(UserName)) sistema.UserName = "";
+                    else sistema.UserName = UserName;
+
+                    break;
+                case 2:
+                    sistema.MinCaracteres = MinCaracteres;
+                    sistema.CaractEspecial = CaractEspecial;
+                    sistema.DatosPersonales = DatosPersonales;
+                    sistema.MayusMinus = MayusMinus;
+                    sistema.NumerosYLetras = NumerosYLetras;
+                    sistema.RepetirPass = RepetirPass;
+                    sistema.CantIntentosFallidos = CantIntentosFallidos;
+                    break;
+                case 3:
+                    sistema.AvisosVtoProductos = AvisosVtoProductos;
+                    sistema.CantMinimadeStock = CantMinimadeStock;
+                    break;
+              
+                case 4:
+                    sistema.UsuarioGrupo = UsuarioGrupo;
+                    foreach (var item in NuevosPermisos)
+                    {
+                        CD_Sistema NuevosPermisos = new CD_Sistema();
+                        NuevosPermisos.PermisoNuevo = item.PermisoNuevo;
+                        NuevosPermisos.UsuarioGrupo = item.UsuarioGrupo;
+                        PermisosNuevos.Add(NuevosPermisos);
+
+                    }
+                    sistema.PermisosNuevos = PermisosNuevos;
+                    break;
+            }
+        }
         public List<CM_ListadoPermisosActuales> FiltrarPermisos(List<CM_ListadoPermisosActuales> listaCompleta, bool obtenerActuales)
         {
             if (obtenerActuales)
             {
-                // Filtrar permisos actuales (que tienen DescripcionPermiso no vacía)
                 return listaCompleta
                     .Where(x => !string.IsNullOrEmpty(x.DescripcionPermiso))
                     .ToList();
             }
             else
             {
-                // Filtrar permisos totales que no están en DescripcionPermiso
                 var permisosActuales = listaCompleta
                     .Where(x => !string.IsNullOrEmpty(x.DescripcionPermiso))
                     .Select(x => x.DescripcionPermiso)
@@ -129,8 +154,6 @@ namespace Logica
                     .ToList();
             }
         }
-
-
-
+        #endregion
     }
 }

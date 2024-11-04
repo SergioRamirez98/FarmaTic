@@ -66,16 +66,16 @@ namespace Sesion
                     Nombre = fila["Nombre"].ToString();
                     Apellido = fila["Apellido"].ToString();
                     Dni = fila["Documento"].ToString();
-                    Correo = fila["Mail"].ToString();
-                    Sexo = fila["Sexo"].ToString();
+                  //  Correo = fila["Mail"].ToString();
+                  //  Sexo = fila["Sexo"].ToString();
                     Domicilio = fila["Direccion"].ToString();
-                    Partido = fila["Partido"].ToString();
-                    Localidad = fila["Localidad"].ToString();
-                    Nacionalidad = fila["Pais"].ToString();
-                    Telefono = Convert.ToInt32(fila["Telefono"]);
-                    FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
-                    Comentario = fila["Comentarios"].ToString();
-                    ID_Familia = Convert.ToInt32(fila["ID_Familia"]);
+                   // Partido = fila["Partido"].ToString();
+                   // Localidad = fila["Localidad"].ToString();
+                   // Nacionalidad = fila["Pais"].ToString();
+                    //Telefono = Convert.ToInt32(fila["Telefono"]);
+                   // FeNacimiento = Convert.ToDateTime(fila["FeNacimiento"]);
+                   // Comentario = fila["Comentarios"].ToString();
+                  //  ID_Familia = Convert.ToInt32(fila["ID_Familia"]);
                     NuevaPass = Convert.ToBoolean(fila["NuevaPass"]);
                     if (resultado.Rows.Count == 3)
                     {
@@ -89,6 +89,8 @@ namespace Sesion
                             Respuesta2 = fila1["Respuesta"].ToString();
                             Pregunta3 = fila2["Pregunta"].ToString();
                             Respuesta3 = fila2["Respuesta"].ToString();
+                            /*
+                             */
                         }
                         catch (Exception)
                         {
@@ -96,27 +98,22 @@ namespace Sesion
                         }
                     }
 
-                    RolDescripcion = fila["Descripcion"].ToString();
+                  //  RolDescripcion = fila["Descripcion"].ToString();
                     EstadoCuenta = Convert.ToInt32(fila["ID_Estado"]);
                     FeAlta = Convert.ToDateTime(fila["FeAlta"]);
                     if (NuevaPass == false)
                     {
                         Fe_CambioPass = Convert.ToDateTime(fila["Fe_CambioPass"]);
-                        if (VenceCada != 0)
+
+                        DateTime fechaVencimiento = Fe_CambioPass.AddDays(VenceCada);
+
+                        DateTime hoy = DateTime.Today;
+                        if ((fechaVencimiento - hoy).Days <= 10) { CambioPass = true; }
+                        else if (hoy >=fechaVencimiento)
                         {
-                            DateTime hoy = DateTime.Today;
-                            TimeSpan span = Fe_CambioPass.Subtract(hoy);
-                            TimeSpan span2 = hoy.Subtract(Fe_CambioPass);
-                            int espan = span.Days;
-                            if (espan <= 10)
-                            {
-                                bool pregunta = CServ_CambioDeClave.CambiarClave();
-                                if (pregunta) { CambioPass = true; }
-                            }
-                            else if (espan == 0)
-                            {
-                                NuevaPass = true;
-                            }
+                            bool pregunta = CServ_CambioDeClave.CambiarClave();
+                            if (pregunta) CambioPass = true; 
+
                         }
                     }
                 }

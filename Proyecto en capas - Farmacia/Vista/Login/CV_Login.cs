@@ -27,10 +27,6 @@ namespace Vista
         {            
            try
             {
-                Txb_Usuario.Text = "SRamirez98"; 
-                Txb_Contrasena.Text = "Sa";
-                //Txb_Usuario.Text = "NAliendro54"; 
-                //Txb_Contrasena.Text = "Na"; 
                 PasarDatos();
                 bool validar = Usuarios.Logear();
                 if (validar == true)

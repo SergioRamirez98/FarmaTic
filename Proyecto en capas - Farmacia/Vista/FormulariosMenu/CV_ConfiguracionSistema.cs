@@ -1,6 +1,7 @@
 ﻿using Logica;
 using Modelo;
 using Servicios;
+using Sesion;
 using Sistema;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,10 @@ namespace Vista.FormulariosMenu
         List<CM_ListadoPermisosActuales> listaCompleta = new List<CM_ListadoPermisosActuales>();
         List<CM_ListadoPermisosActuales> permisosActuales = new List<CM_ListadoPermisosActuales>();
         List<CM_ListadoPermisosActuales> permisosRestantes = new List<CM_ListadoPermisosActuales>();
+        List<CL_Sistema> NuevosPermisos = new List<CL_Sistema>();
 
-        bool Familia =false;
-        string Usuario, Grupo;
+        bool Familia = false;
+        string UsuarioGrupo;
         public CV_ConfiguracionSistema()
         {
             InitializeComponent();
@@ -30,20 +32,18 @@ namespace Vista.FormulariosMenu
 
         private void CV_ConfiguracionSistema_Load(object sender, EventArgs e)
         {
+            configurarLoad();
             configurarDTGV();
-            Nud_CantMinStock.Value = CSistema_ConfiguracionSistema.CantMinimadeStock;
-            Nud_VtoProd.Value = CSistema_ConfiguracionSistema.AvisosVtoProductos;
         }
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
             try
             {
                 capturarDatos();
-               // Sistema.GuardarCambiosDeSistema();
-                if (DTGV_PermisosActuales.Rows.Count>0)
+                Sistema.GuardarCambiosDeSistema();
+                if (DTGV_PermisosActuales.Rows.Count > 0)
                 {
-                    capturarDatos();
-
+                    Sistema.GuardarPermisos(Familia);
                 }
 
                 CServ_MsjUsuario.Exito("¡Configuración guardada con éxito!");
@@ -52,7 +52,7 @@ namespace Vista.FormulariosMenu
             {
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
-        }   
+        }
         private void Rbt_Usuario_CheckedChanged(object sender, EventArgs e)
         {
             DTGV_PermisosActuales.DataSource = null;
@@ -76,28 +76,30 @@ namespace Vista.FormulariosMenu
 
         }
         private void DTGV_FamiliaUsuario_CellClick(object sender, DataGridViewCellEventArgs e)
-        { 
+        {
             if (DTGV_FamiliaUsuario.SelectedRows.Count > 0)
             {
                 int Seleccion = DTGV_FamiliaUsuario.CurrentRow.Index;
                 string FamiliaUsuario = DTGV_FamiliaUsuario.Rows[Seleccion].Cells[0].Value.ToString();
-                if (Familia) Grupo = DTGV_FamiliaUsuario.Rows[Seleccion].Cells[0].Value.ToString();                
-                else Usuario = DTGV_FamiliaUsuario.Rows[Seleccion].Cells[0].Value.ToString();
+                if (Familia) UsuarioGrupo = DTGV_FamiliaUsuario.Rows[Seleccion].Cells[0].Value.ToString();
+                else UsuarioGrupo = DTGV_FamiliaUsuario.Rows[Seleccion].Cells[0].Value.ToString();
 
 
                 listaCompleta = Sistema.ObtenerPermisosActuales(FamiliaUsuario, Familia);
                 cargarListaPermisos(true);
+                Btn_Funcion.Visible = false;
             }
-
-
         }
         private void DTGV_PermisosActuales_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
+            Btn_Funcion.Visible = true;
             DTGV_PermisosRestantes.ClearSelection();
             Btn_Funcion.Text = "Quitar";
         }
         private void DTGV_PermisosRestantes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+            Btn_Funcion.Visible = true;
             DTGV_PermisosActuales.ClearSelection();
             Btn_Funcion.Text = "Agregar";
         }
@@ -116,6 +118,7 @@ namespace Vista.FormulariosMenu
                 };
                 permisosActuales.Add(nuevoPermiso);
                 permisosRestantes.RemoveAt(seleccion);
+                
             }
             else
             {
@@ -134,6 +137,37 @@ namespace Vista.FormulariosMenu
             cargarListaPermisos(false);
         }
 
+        private void configurarLoad()
+        {
+            Nud_CantMinStock.Value = CSistema_ConfiguracionSistema.CantMinimadeStock;
+            Nud_VtoProd.Value = CSistema_ConfiguracionSistema.AvisosVtoProductos;
+            Nud_CantMinStock.Enabled = false;
+            Nud_VtoProd.Enabled = false;
+            Gpb_Permisos.Enabled = false;
+            if (DTGV_PermisosActuales.Rows.Count <1 && DTGV_PermisosRestantes.Rows.Count <1) 
+            {
+                Btn_Funcion.Visible = false;
+            }
+            foreach (var permiso in CSesion_SesionIniciada.Permisos)
+            {
+                switch (permiso.ID_Rol)
+                {
+                    case 1:
+                        Nud_CantMinStock.Enabled = true;
+                        Nud_VtoProd.Enabled = true;
+                        Gpb_Permisos.Enabled = true;
+                        break;
+
+                    case 63:
+                        Nud_CantMinStock.Enabled = true;
+                        Nud_VtoProd.Enabled = true;
+                        break;
+                    case 64:
+                        Gpb_Permisos.Enabled = true;
+                        break;
+                }
+            }
+        }
         private void cargarListaPermisos(bool booleano)
         {
             if (booleano)
@@ -149,7 +183,7 @@ namespace Vista.FormulariosMenu
             DTGV_PermisosActuales.ClearSelection();
 
             DTGV_PermisosRestantes.DataSource = null;
-            DTGV_PermisosRestantes.DataSource= permisosRestantes;
+            DTGV_PermisosRestantes.DataSource = permisosRestantes;
             DTGV_PermisosRestantes.Columns[1].HeaderText = "Permiso restantes";
             DTGV_PermisosRestantes.Columns[0].Visible = false;
             DTGV_PermisosRestantes.ClearSelection();
@@ -204,28 +238,37 @@ namespace Vista.FormulariosMenu
         {
             Sistema.AvisosVtoProductos = Convert.ToInt32(Nud_VtoProd.Value);
             Sistema.CantMinimadeStock = Convert.ToInt32(Nud_CantMinStock.Value);
+            Sistema.UsuarioGrupo = UsuarioGrupo;
             if (DTGV_FamiliaUsuario.SelectedRows.Count > 0)
             {
+                if (Sistema.NuevosPermisos != null) Sistema.NuevosPermisos.Clear();
+
                 if (Familia)
                 {
                     foreach (var item in permisosActuales)
                     {
-                        Console.WriteLine(item.DescripcionPermiso);
+                        CL_Sistema sistema = new CL_Sistema();
+                        sistema.PermisoNuevo = item.DescripcionPermiso;
+                        sistema.UsuarioGrupo = UsuarioGrupo;
+                        NuevosPermisos.Add(sistema);
                     }
+                    Sistema.NuevosPermisos = NuevosPermisos;
+
                 }
                 else
                 {
                     foreach (var item in permisosActuales)
                     {
-                        Console.WriteLine(item.DescripcionPermiso);
+                        CL_Sistema sistema = new CL_Sistema();
+                        sistema.PermisoNuevo = item.DescripcionPermiso;
+                        sistema.UsuarioGrupo = UsuarioGrupo;
+                        NuevosPermisos.Add(sistema);
                     }
+                    Sistema.NuevosPermisos = NuevosPermisos;
 
                 }
             }
-
         }
-
-
 
     }
 }

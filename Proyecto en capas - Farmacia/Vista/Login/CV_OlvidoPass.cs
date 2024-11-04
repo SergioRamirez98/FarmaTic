@@ -265,9 +265,19 @@ namespace Vista
             else
             {
                 Usuarios.Prop_UserName = Txb_UserName.Text;
-                Usuarios.Prop_Preg1 = CSesion_PreguntasUsuarios.Pregunta1;
-                Usuarios.Prop_Preg2 = CSesion_PreguntasUsuarios.Pregunta2;
-                Usuarios.Prop_Preg3 = CSesion_PreguntasUsuarios.Pregunta3;
+                if (string.IsNullOrEmpty(CSesion_PreguntasUsuarios.Pregunta1))
+                {
+                    Usuarios.Prop_Preg1 = CSesion_SesionIniciada.Pregunta1;
+                    Usuarios.Prop_Preg2 = CSesion_SesionIniciada.Pregunta2;
+                    Usuarios.Prop_Preg3 = CSesion_SesionIniciada.Pregunta3;
+                }
+                else
+                {
+                    Usuarios.Prop_Preg1 = CSesion_PreguntasUsuarios.Pregunta1;
+                    Usuarios.Prop_Preg2 = CSesion_PreguntasUsuarios.Pregunta2;
+                    Usuarios.Prop_Preg3 = CSesion_PreguntasUsuarios.Pregunta3;
+
+                }
                 Usuarios.Prop_Resp1 = Txb_Respuesta1.Text;
                 Usuarios.Prop_Resp2 = Txb_Respuesta2.Text;
                 Usuarios.Prop_Resp3 = Txb_Respuesta3.Text;

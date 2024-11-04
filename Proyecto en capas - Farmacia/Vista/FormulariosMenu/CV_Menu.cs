@@ -88,8 +88,9 @@ namespace Vista
             Btn_GestionUsuarios.Enabled = false;
             Btn_GestionVentas.Enabled = false;
             Btn_ModuloInventario.Enabled = false;
-            Btn_ConfigSeguridad.Enabled = false;
             Btn_ModulodeCompra.Enabled = false;
+            Btn_ConfigSeguridad.Enabled = false;
+            Btn_ConfigSistema.Enabled = false;
 
             foreach (var permiso in CSesion_SesionIniciada.Permisos)
             {
@@ -111,7 +112,7 @@ namespace Vista
                         Btn_GestionUsuarios.Enabled = true;
                         break;
                     case 17:
-                        Btn_ModuloInventario.Enabled = true;
+                        Btn_ConfigSeguridad.Enabled = true;
                         break;
                     case 19:
                         Btn_ModuloInventario.Enabled = true;

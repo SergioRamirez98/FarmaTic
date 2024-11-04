@@ -12,7 +12,7 @@ using Sistema;
 
 namespace Datos
 {
-    public class CD_Sistema: CD_EjecutarSP
+    public class CD_Sistema : CD_EjecutarSP
     {
         #region Properties
         public bool MinCaracteres { get; set; }
@@ -30,13 +30,18 @@ namespace Datos
         public int Accion { get; set; }
         public string UserName { get; set; }
 
+        public string UsuarioGrupo { get; set; }
+        public string PermisoNuevo { get; set; }
+
+
         public List<CM_Bitacora> ListaBitacora { get; set; } = new List<CM_Bitacora>();
         public List<CM_GestionPermisos> ListaPermisos { get; set; } = new List<CM_GestionPermisos>();
-
         public List<CM_ListadoPermisosActuales> ListaActual { get; set; } = new List<CM_ListadoPermisosActuales>();
 
+        public List<CD_Sistema> PermisosNuevos = new List<CD_Sistema>();
 
-        SqlParameter [] lista = null;
+
+        SqlParameter[] lista = null;
 
         #endregion
         public DataTable Configuracion()
@@ -60,7 +65,7 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||Configuracion.");
             }
         }
-        public List<CM_Bitacora> ObtenerBitacora() 
+        public List<CM_Bitacora> ObtenerBitacora()
         {
             string sSql = "SP_Obtener_Bitacora";
             ListaBitacora.Clear();
@@ -82,7 +87,7 @@ namespace Datos
             }
             return ListaBitacora;
         }
-        public void GuardarCambiosSeguridad() 
+        public void GuardarCambiosSeguridad()
         {
             try
             {
@@ -160,7 +165,7 @@ namespace Datos
 
         }
 
-        public List<CM_Bitacora> Buscar() 
+        public List<CM_Bitacora> Buscar()
         {
             string sSql = "SP_Buscar_Bitacora";
             ListaBitacora.Clear();
@@ -181,7 +186,7 @@ namespace Datos
                 listaParametros.Add(param_Accion);
                 listaParametros.Add(param_UserName);
                 lista = listaParametros.ToArray();
-                
+
                 DataTable dt = new DataTable();
                 dt = ejecutar(sSql, lista, true);
                 if (dt.Rows.Count > 0)
@@ -197,10 +202,56 @@ namespace Datos
             return ListaBitacora;
 
         }
+
+
+        public void GuardarNuevosPermisos(bool Familia)
+        {
+            string sSql;
+            try
+            {
+                sSql = "SP_Eliminar_Permisos_Actuales";
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+                SqlParameter param_FamiliaUsuario = new SqlParameter("@UsuarioFamilia", SqlDbType.VarChar, 200);
+                param_FamiliaUsuario.Value = UsuarioGrupo;
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = CSesion_SesionIniciada.UserName;
+                SqlParameter param_EsFamilia = new SqlParameter("@EsFamilia", SqlDbType.Bit);
+                param_EsFamilia.Value = Familia;
+
+
+                listaParametros.Add(param_FamiliaUsuario);
+                listaParametros.Add(param_UserName);
+                listaParametros.Add(param_EsFamilia);
+                lista = listaParametros.ToArray();
+                ejecutar(sSql, lista, false);
+                listaParametros.Clear();
+
+                if (Familia) sSql = "SP_Modificar_Permisos_Por_Familia"; else sSql = "SP_Modificar_Permisos_Por_Usuario";
+
+                foreach (var item in PermisosNuevos)
+                {
+                    SqlParameter param_UsuarioGrupo = new SqlParameter("@UsuarioFamilia", SqlDbType.VarChar, 200);
+                    param_UsuarioGrupo.Value = item.UsuarioGrupo;
+                    SqlParameter param_PermisoNuevo = new SqlParameter("@Permiso", SqlDbType.VarChar, 200);
+                    param_PermisoNuevo.Value = item.PermisoNuevo;
+                    listaParametros.Add(param_UsuarioGrupo);
+                    listaParametros.Add(param_PermisoNuevo);                 
+                    lista = listaParametros.ToArray();
+                    ejecutar(sSql, lista, false);
+                    listaParametros.Clear();
+                }
+                if (PermisosNuevos != null) PermisosNuevos.Clear();
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||GuardarNuevosPermisos.");
+            }
+
+        }
         public DataTable ObtenerAccionBitacora()
         {
             string sSql = "SP_Obtener_Accion_Bitacora";
-           
+
             try
             {
                 List<SqlParameter> listaparametros = new List<SqlParameter>();
@@ -264,7 +315,7 @@ namespace Datos
             return ListaPermisos;
         }
 
-        public List<CM_ListadoPermisosActuales> PermisosActuales(string FamiliaUsuario, bool Seleccion) 
+        public List<CM_ListadoPermisosActuales> PermisosActuales(string FamiliaUsuario, bool Seleccion)
         {
             ListaActual.Clear();
             if (Seleccion)
@@ -281,7 +332,7 @@ namespace Datos
 
                     lista = listaParametros.ToArray();
                     DataTable dt = new DataTable();
-                    dt =ejecutar(sSql, lista, true);
+                    dt = ejecutar(sSql, lista, true);
                     if (dt.Rows.Count > 0)
                     {
                         cargarListaPermisosActuales(dt);
@@ -342,10 +393,10 @@ namespace Datos
 
             return ListaActual;
         }
-        private void cargarBitacora(DataTable dt) 
+        private void cargarBitacora(DataTable dt)
         {
             ListaBitacora.Clear();
-             if (dt.Rows.Count > 0)
+            if (dt.Rows.Count > 0)
             {
                 foreach (DataRow dr in dt.Rows)
                 {
@@ -363,7 +414,7 @@ namespace Datos
 
             }
         }
-        public void cargarListaPermisos (DataTable dt)
+        public void cargarListaPermisos(DataTable dt)
         {
             ListaPermisos.Clear();
             if (dt.Rows.Count > 0)
@@ -381,7 +432,7 @@ namespace Datos
             }
         }
 
-        private void cargarListaPermisosActuales (DataTable dt)
+        private void cargarListaPermisosActuales(DataTable dt)
         {
             ListaActual.Clear();
             if (dt.Rows.Count > 0)
@@ -395,7 +446,7 @@ namespace Datos
                     ListaActual.Add(FamiliaPersona);
                 }
 
-}
+            }
         }
         private void cargarListaPermisosTotales(DataTable dt)
         {

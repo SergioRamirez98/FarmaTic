@@ -159,17 +159,34 @@ namespace Logica
         }
         public bool CompararDatos()
         {
-            if (Prop_Resp1.ToLower() == CSesion_PreguntasUsuarios.Respuesta1
-                & Prop_Resp2.ToLower() == CSesion_PreguntasUsuarios.Respuesta2
-                & Prop_Resp3.ToLower() == CSesion_PreguntasUsuarios.Respuesta3 || Prop_Resp1.ToLower() == CSesion_SesionIniciada.Respuesta1
-                & Prop_Resp2.ToLower() == CSesion_SesionIniciada.Respuesta2
-                & Prop_Resp3.ToLower() == CSesion_SesionIniciada.Respuesta3)
+            if (string.IsNullOrEmpty(CSesion_PreguntasUsuarios.Respuesta1))
             {
-                return true;
+                if (Prop_Resp1.ToLower() == CSesion_SesionIniciada.Respuesta1.ToLower()
+                    & Prop_Resp2.ToLower() == CSesion_SesionIniciada.Respuesta2.ToLower()
+                    & Prop_Resp3.ToLower() == CSesion_SesionIniciada.Respuesta3.ToLower())
+                {
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Lasr respuestas brindadas no son correctas");
+                }
+
             }
             else
-            {                
-                throw new Exception("Lasr respuestas brindadas no son correctas");                
+            {
+
+                if (Prop_Resp1.ToLower() == CSesion_PreguntasUsuarios.Respuesta1.ToLower()
+                    & Prop_Resp2.ToLower() == CSesion_PreguntasUsuarios.Respuesta2.ToLower()
+                    & Prop_Resp3.ToLower() == CSesion_PreguntasUsuarios.Respuesta3.ToLower())
+                {
+                    return true;
+                }
+                else
+                {
+                    throw new Exception("Lasr respuestas brindadas no son correctas");
+                }
+
             }
         }
         public void PasarDatos() 
