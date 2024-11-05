@@ -21,8 +21,20 @@ namespace Vista
         }
         private void CV_ControlVencimientos_Load(object sender, EventArgs e)
         {
+            cargarDTGV();
             configurarDTGV();
-            cargarDTGV();            
+        }
+        private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Txb_BusquedaRapida.Text) &&Txb_BusquedaRapida.Text !="Buscar")
+            {
+                DTGV_Vencimientos.DataSource = null;
+                DTGV_Vencimientos.DataSource = Productos.BusquedaRapida(Txb_BusquedaRapida.Text);
+                configurarDTGV();
+            }
+            else cargarDTGV(); configurarDTGV();
+            
+
         }
         private void configurarDTGV()
         {
@@ -36,12 +48,8 @@ namespace Vista
             DTGV_Vencimientos.ReadOnly = true;
             DTGV_Vencimientos.RowHeadersVisible = false;
             DTGV_Vencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            // DTGV_Vencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;         
-        }
-        private void cargarDTGV() 
-        {
-            DTGV_Vencimientos.DataSource = CSesion_CacheVtoProductos.ListaVtoProductos; /*Productos.CargarVtoProductos();*/
-
+            // DTGV_Vencimientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            // 
             DTGV_Vencimientos.Columns[0].DisplayIndex = 0;
             DTGV_Vencimientos.Columns[1].DisplayIndex = 1;
             DTGV_Vencimientos.Columns[2].DisplayIndex = 2;
@@ -64,5 +72,10 @@ namespace Vista
             DTGV_Vencimientos.Columns[7].HeaderText = "Numero de lote";
             DTGV_Vencimientos.Columns[8].HeaderText = "Categoría";
         }
+        private void cargarDTGV() 
+        {
+            DTGV_Vencimientos.DataSource = CSesion_CacheVtoProductos.ListaVtoProductos;
+        }
+        
     }
 }

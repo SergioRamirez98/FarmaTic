@@ -5,6 +5,8 @@ using Datos;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Sesion;
+using Modelo;
 
 namespace Logica
 {
@@ -49,10 +51,37 @@ namespace Logica
         public DataTable CargarStockMinimo() 
         {
             return Productos.StockMinimo();
-        }
+        }        
         public DataTable CargarProdVencidos()
         {
             return Productos.ProductosVencidos();
+        }
+
+        public List<CM_CargaProductos> BusquedaRapida(string palabra) 
+        {
+            palabra=palabra.ToLower();
+            if (!string.IsNullOrEmpty(palabra))
+            {
+
+                return CSesion_CacheVtoProductos.ListaVtoProductos
+                    .Where(x => x.DescripProd.ToLower().Contains(palabra) ||
+                    x.NombreProd.ToLower().Contains(palabra)||
+                    x.PrecUnit.ToString().Contains(palabra) || 
+                    x.Marca.ToLower().Contains(palabra) || //marca
+                    x.ID_Producto.ToString().Contains(palabra) || //id 
+                    x.FeVtoProd.ToString().Contains(palabra) || //vto 
+                    x.NumLote.ToString().Contains(palabra)  //nro loto
+
+                    )
+
+                    .ToList();
+                
+            }
+            else
+            {
+                return CSesion_CacheVtoProductos.ListaVtoProductos;
+            }
+
         }
 
         public bool ConsultarLote(string NumLote, DataTable Dt)
@@ -267,5 +296,6 @@ namespace Logica
                 }
             }
         }
+                
     }
 }

@@ -38,8 +38,10 @@
             this.DTGV_PermisosRestantes = new System.Windows.Forms.DataGridView();
             this.Btn_Funcion = new System.Windows.Forms.Button();
             this.Gpb_Permisos = new System.Windows.Forms.GroupBox();
-            this.Rbt_Usuario = new System.Windows.Forms.RadioButton();
             this.Rbt_Grupo = new System.Windows.Forms.RadioButton();
+            this.Rbt_Usuario = new System.Windows.Forms.RadioButton();
+            this.Txb_BuscarPermisoActual = new System.Windows.Forms.TextBox();
+            this.Txb_BuscarPermisoRestante = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_FamiliaUsuario)).BeginInit();
@@ -145,6 +147,8 @@
             // 
             // Gpb_Permisos
             // 
+            this.Gpb_Permisos.Controls.Add(this.Txb_BuscarPermisoRestante);
+            this.Gpb_Permisos.Controls.Add(this.Txb_BuscarPermisoActual);
             this.Gpb_Permisos.Controls.Add(this.Rbt_Grupo);
             this.Gpb_Permisos.Controls.Add(this.Rbt_Usuario);
             this.Gpb_Permisos.Controls.Add(this.Btn_Funcion);
@@ -158,6 +162,18 @@
             this.Gpb_Permisos.TabStop = false;
             this.Gpb_Permisos.Text = "Permisos para los usuarios";
             // 
+            // Rbt_Grupo
+            // 
+            this.Rbt_Grupo.AutoSize = true;
+            this.Rbt_Grupo.Location = new System.Drawing.Point(156, 45);
+            this.Rbt_Grupo.Name = "Rbt_Grupo";
+            this.Rbt_Grupo.Size = new System.Drawing.Size(65, 20);
+            this.Rbt_Grupo.TabIndex = 26;
+            this.Rbt_Grupo.TabStop = true;
+            this.Rbt_Grupo.Text = "Grupo";
+            this.Rbt_Grupo.UseVisualStyleBackColor = true;
+            this.Rbt_Grupo.CheckedChanged += new System.EventHandler(this.Rbt_Grupo_CheckedChanged);
+            // 
             // Rbt_Usuario
             // 
             this.Rbt_Usuario.AutoSize = true;
@@ -170,17 +186,21 @@
             this.Rbt_Usuario.UseVisualStyleBackColor = true;
             this.Rbt_Usuario.CheckedChanged += new System.EventHandler(this.Rbt_Usuario_CheckedChanged);
             // 
-            // Rbt_Grupo
+            // Txb_BuscarPermisoActual
             // 
-            this.Rbt_Grupo.AutoSize = true;
-            this.Rbt_Grupo.Location = new System.Drawing.Point(156, 45);
-            this.Rbt_Grupo.Name = "Rbt_Grupo";
-            this.Rbt_Grupo.Size = new System.Drawing.Size(65, 20);
-            this.Rbt_Grupo.TabIndex = 26;
-            this.Rbt_Grupo.TabStop = true;
-            this.Rbt_Grupo.Text = "Grupo";
-            this.Rbt_Grupo.UseVisualStyleBackColor = true;
-            this.Rbt_Grupo.CheckedChanged += new System.EventHandler(this.Rbt_Grupo_CheckedChanged);
+            this.Txb_BuscarPermisoActual.Location = new System.Drawing.Point(423, 42);
+            this.Txb_BuscarPermisoActual.Name = "Txb_BuscarPermisoActual";
+            this.Txb_BuscarPermisoActual.Size = new System.Drawing.Size(100, 22);
+            this.Txb_BuscarPermisoActual.TabIndex = 27;
+            this.Txb_BuscarPermisoActual.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoActual_TextChanged);
+            // 
+            // Txb_BuscarPermisoRestante
+            // 
+            this.Txb_BuscarPermisoRestante.Location = new System.Drawing.Point(882, 32);
+            this.Txb_BuscarPermisoRestante.Name = "Txb_BuscarPermisoRestante";
+            this.Txb_BuscarPermisoRestante.Size = new System.Drawing.Size(100, 22);
+            this.Txb_BuscarPermisoRestante.TabIndex = 28;
+            this.Txb_BuscarPermisoRestante.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoRestante_TextChanged);
             // 
             // CV_ConfiguracionSistema
             // 
@@ -221,5 +241,7 @@
         private System.Windows.Forms.GroupBox Gpb_Permisos;
         private System.Windows.Forms.RadioButton Rbt_Grupo;
         private System.Windows.Forms.RadioButton Rbt_Usuario;
+        private System.Windows.Forms.TextBox Txb_BuscarPermisoRestante;
+        private System.Windows.Forms.TextBox Txb_BuscarPermisoActual;
     }
 }

@@ -57,7 +57,6 @@ namespace Logica
         }
         public List<CM_Bitacora> BuscarBitacora()
         {
-          //  pasarDatosBitacora();
             pasarDatos(1);
             listaBitacora.Clear();
             return listaBitacora = sistema.Buscar();
@@ -75,6 +74,33 @@ namespace Logica
         {
             PermisosActuales.Clear();
             return PermisosActuales = sistema.PermisosActuales(FamiliaUsuario, Seleccion);
+        }
+
+        public List<CM_ListadoPermisosActuales> FiltrarBusqueda(string Permiso, List<CM_ListadoPermisosActuales> listado, string s = null) 
+        {
+            Permiso= Permiso.ToLower();
+
+            if (!string.IsNullOrEmpty(Permiso))
+            {
+                if (s!=null)
+                {
+                    return listado
+                    .Where(x => x.DescripcionPermisosTotales.ToLower().Contains(Permiso))
+                    .ToList();
+
+                }
+                else
+                {
+                    return listado
+                    .Where(x=> x.DescripcionPermiso.ToLower().Contains(Permiso))
+                    
+                    .ToList();
+                }
+            }
+            else
+            {
+                return listado;
+            }
         }
         public void GuardarCambiosDeSeguridad()
         {

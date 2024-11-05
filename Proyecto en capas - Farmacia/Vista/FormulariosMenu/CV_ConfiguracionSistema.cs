@@ -30,6 +30,7 @@ namespace Vista.FormulariosMenu
             InitializeComponent();
         }
 
+        #region Eventos
         private void CV_ConfiguracionSistema_Load(object sender, EventArgs e)
         {
             configurarLoad();
@@ -136,9 +137,35 @@ namespace Vista.FormulariosMenu
 
             cargarListaPermisos(false);
         }
+        private void Txb_BuscarPermisoActual_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Txb_BuscarPermisoActual.Text) && Txb_BuscarPermisoActual.Text !="Buscar")
+            {
+                DTGV_PermisosActuales.DataSource = null;
+                DTGV_PermisosActuales.DataSource = Sistema.FiltrarBusqueda(Txb_BuscarPermisoActual.Text, permisosActuales);
+                DTGV_PermisosActuales.Columns[0].HeaderText = "Permiso Actual";
+                DTGV_PermisosActuales.Columns[1].Visible = false;
+            }
+            else cargarListaPermisos(false);
+        }
+        private void Txb_BuscarPermisoRestante_TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(Txb_BuscarPermisoRestante.Text) && Txb_BuscarPermisoRestante.Text != "Buscar")
+            {
+                DTGV_PermisosRestantes.DataSource = null;
+                DTGV_PermisosRestantes.DataSource = Sistema.FiltrarBusqueda(Txb_BuscarPermisoRestante.Text, permisosRestantes,"");
+                DTGV_PermisosRestantes.Columns[1].HeaderText = "Permisos restantes";
+                DTGV_PermisosRestantes.Columns[0].Visible = false;
+            }
+            else cargarListaPermisos(false);
+        }
+        #endregion
 
+        #region Métodos
         private void configurarLoad()
         {
+            Txb_BuscarPermisoActual.Text = "Buscar";
+            Txb_BuscarPermisoRestante.Text = "Buscar";
             Nud_CantMinStock.Value = CSistema_ConfiguracionSistema.CantMinimadeStock;
             Nud_VtoProd.Value = CSistema_ConfiguracionSistema.AvisosVtoProductos;
             Nud_CantMinStock.Enabled = false;
@@ -184,7 +211,7 @@ namespace Vista.FormulariosMenu
 
             DTGV_PermisosRestantes.DataSource = null;
             DTGV_PermisosRestantes.DataSource = permisosRestantes;
-            DTGV_PermisosRestantes.Columns[1].HeaderText = "Permiso restantes";
+            DTGV_PermisosRestantes.Columns[1].HeaderText = "Permisos restantes";
             DTGV_PermisosRestantes.Columns[0].Visible = false;
             DTGV_PermisosRestantes.ClearSelection();
 
@@ -269,6 +296,7 @@ namespace Vista.FormulariosMenu
                 }
             }
         }
+        #endregion
 
     }
 }
