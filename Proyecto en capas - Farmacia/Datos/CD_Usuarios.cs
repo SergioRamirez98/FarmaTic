@@ -413,7 +413,7 @@ namespace Datos
 
             }
         }
-            public bool ComprobarUsuario() 
+        public bool ComprobarUsuario()
         {
             try
             {

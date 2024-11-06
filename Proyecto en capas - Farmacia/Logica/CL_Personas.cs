@@ -61,6 +61,11 @@ namespace Logica
             PasarDatos();
             return Personas.Insertar();
         }
+        public bool ExistePersona() 
+        {
+            PasarDatos();
+            return Personas.ComprobarPersona();
+        }
         public void Eliminar(int ID_Persona) 
         {
             Personas.EliminarPersona(ID_Persona);

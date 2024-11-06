@@ -61,55 +61,112 @@ namespace Datos
         {
             try
             {
-                string sSql = "SP_Insertar_Persona";
-                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
-                param_UserName.Value = CSesion_SesionIniciada.UserName;
-                SqlParameter param_nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 50);
-                param_nombre.Value = atr_nombre;
-                SqlParameter param_apellido = new SqlParameter("@Apellido", SqlDbType.VarChar, 50);
-                param_apellido.Value = atr_apellido;
-                SqlParameter param_direccion = new SqlParameter("@Direccion", SqlDbType.VarChar, 50);
-                param_direccion.Value = atr_domicilio;
-                SqlParameter param_mail = new SqlParameter("@Mail", SqlDbType.VarChar, 50);
-                param_mail.Value = atr_correo;
+                string sSql = "";
+
+                sSql = "SP_Persona_Activa_o_inactiva";
                 SqlParameter param_documento = new SqlParameter("@Documento", SqlDbType.VarChar, 50);
                 param_documento.Value = atr_dni;
-                SqlParameter param_sexo = new SqlParameter("@Sexo", SqlDbType.VarChar, 50);
-                param_sexo.Value = atr_sexo;
-                SqlParameter param_telefono = new SqlParameter("@Telefono", SqlDbType.Int);
-                param_telefono.Value = atr_telefono;
-                SqlParameter param_Nacimiento = new SqlParameter("@FeNacimiento", SqlDbType.DateTime);
-                param_Nacimiento.Value = atr_nacimiento;
-                SqlParameter param_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 50);
-                param_Partido.Value = atr_Partido;
 
-                SqlParameter param_Localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
-                param_Localidad.Value = atr_Localidad;
-                SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
-                param_Nacionalidad.Value = atr_nacionalidad;
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
-                listaParametros.Add(param_UserName);
-                listaParametros.Add(param_nombre);
-                listaParametros.Add(param_apellido);
-                listaParametros.Add(param_direccion);
-                listaParametros.Add(param_mail);
                 listaParametros.Add(param_documento);
-                listaParametros.Add(param_sexo);
-                listaParametros.Add(param_telefono);
-                listaParametros.Add(param_Nacimiento);
-                listaParametros.Add(param_Partido);
-                listaParametros.Add(param_Localidad);
-                listaParametros.Add(param_Nacionalidad);
-
                 lista = listaParametros.ToArray();
+                DataTable DT = ejecutar(sSql, lista, true);
+                if (DT.Rows.Count==0)
+                {
+                    sSql = "SP_Insertar_Persona";
+                    SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                    param_UserName.Value = CSesion_SesionIniciada.UserName;
+                    SqlParameter param_nombre = new SqlParameter("@Nombre", SqlDbType.VarChar, 50);
+                    param_nombre.Value = atr_nombre;
+                    SqlParameter param_apellido = new SqlParameter("@Apellido", SqlDbType.VarChar, 50);
+                    param_apellido.Value = atr_apellido;
+                    SqlParameter param_direccion = new SqlParameter("@Direccion", SqlDbType.VarChar, 50);
+                    param_direccion.Value = atr_domicilio;
+                    SqlParameter param_mail = new SqlParameter("@Mail", SqlDbType.VarChar, 50);
+                    param_mail.Value = atr_correo;
+                    SqlParameter param_documento1 = new SqlParameter("@Documento", SqlDbType.VarChar, 50);
+                    param_documento1.Value = atr_dni;
+                    SqlParameter param_sexo = new SqlParameter("@Sexo", SqlDbType.VarChar, 50);
+                    param_sexo.Value = atr_sexo;
+                    SqlParameter param_telefono = new SqlParameter("@Telefono", SqlDbType.Int);
+                    param_telefono.Value = atr_telefono;
+                    SqlParameter param_Nacimiento = new SqlParameter("@FeNacimiento", SqlDbType.DateTime);
+                    param_Nacimiento.Value = atr_nacimiento;
+                    SqlParameter param_Partido = new SqlParameter("@Partido", SqlDbType.VarChar, 50);
+                    param_Partido.Value = atr_Partido;
 
-                return ejecutar(sSql, lista, true);
+                    SqlParameter param_Localidad = new SqlParameter("@Localidad", SqlDbType.VarChar, 50);
+                    param_Localidad.Value = atr_Localidad;
+                    SqlParameter param_Nacionalidad = new SqlParameter("@Pais", SqlDbType.VarChar, 50);
+                    param_Nacionalidad.Value = atr_nacionalidad;
+                    
+                    listaParametros.Clear();
+                    listaParametros.Add(param_UserName);
+                    listaParametros.Add(param_nombre);
+                    listaParametros.Add(param_apellido);
+                    listaParametros.Add(param_direccion);
+                    listaParametros.Add(param_mail);
+                    listaParametros.Add(param_documento1);
+                    listaParametros.Add(param_sexo);
+                    listaParametros.Add(param_telefono);
+                    listaParametros.Add(param_Nacimiento);
+                    listaParametros.Add(param_Partido);
+                    listaParametros.Add(param_Localidad);
+                    listaParametros.Add(param_Nacionalidad);
+
+                    lista = listaParametros.ToArray();
+
+                    return ejecutar(sSql, lista, true);
+                }
+                else
+                {
+                    sSql = "SP_Reestablecer_Persona"; 
+                    SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                    param_UserName.Value = CSesion_SesionIniciada.UserName;
+                    SqlParameter param_documento1 = new SqlParameter("@Documento", SqlDbType.VarChar, 50);
+                    param_documento1.Value = atr_dni;
+
+                    listaParametros.Clear();
+                    listaParametros.Add(param_UserName);                    
+                    listaParametros.Add(param_documento1);
+                    lista = listaParametros.ToArray();
+
+                    return ejecutar(sSql, lista, true);
+                }
 
             }
             catch (Exception)
             {
 
                 throw new Exception ("No se ha podido realizar la operación. Error CD_Personas||Insertar");
+            }
+        }
+
+        public bool ComprobarPersona()
+        {
+            try
+            {
+                string sSql = "SP_Comprobar_Si_Existe_Persona";
+                SqlParameter param_Documento = new SqlParameter("@Documento", SqlDbType.VarChar , 50);
+                param_Documento.Value = atr_dni;
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Add(param_Documento);
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                DataTable Dt = ejecutar(sSql, parametros, true);
+                if (Dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||ComprobarUsuario.");
             }
         }
         public void EliminarPersona(int ID_Persona) 

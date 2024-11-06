@@ -122,20 +122,25 @@ namespace Vista
                 try
                 {
                     capturarDatosPersonas();
-                    DataTable dt = GestionPersonas.InsertarPersona();
-                    if (dt.Rows.Count > 0)
+                    bool existe = GestionPersonas.ExistePersona();
+                    if (!existe)
                     {
-                        cargarComboBox(false);
-                        DataRow DT = dt.Rows[0];
-                        ID_Persona = Convert.ToInt32(DT["ID_Persona"]);                       
-                        seleccionPersona(ID_Persona, Txb_Nombre.Text+" "+Txb_Apellido.Text);
+                        DataTable dt = GestionPersonas.InsertarPersona();
+                        if (dt.Rows.Count > 0)
+                        {
+                            cargarComboBox(false);
+                            DataRow DT = dt.Rows[0];
+                            ID_Persona = Convert.ToInt32(DT["ID_Persona"]);
+                            string nombre= DT["NombreApellido"].ToString();
+                            seleccionPersona(ID_Persona, nombre);
+                        }
+                        CServ_MsjUsuario.Exito("La persona se ha registrado correctamente");
+                        Btn_Modificar.Enabled = true;
+                        Btn_Eliminar.Enabled = true;
+                        Rbt_Usuario.Enabled = true;
+                        Rbt_Cliente.Enabled = true;
                     }
-                    CServ_MsjUsuario.Exito("La persona se ha registrado correctamente");
-                    Btn_Modificar.Enabled = true;
-                    Btn_Eliminar.Enabled = true;
-                    Rbt_Usuario.Enabled = true;
-                    Rbt_Cliente.Enabled = true;
-
+                    else  CServ_MsjUsuario.Exito("La persona ya se encuentra dada de alta.");
                 }
                 catch (Exception ex)
                 {
