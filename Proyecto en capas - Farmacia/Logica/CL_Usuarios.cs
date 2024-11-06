@@ -136,6 +136,19 @@ namespace Logica
             Usuario.Insertar();
 
         }
+        public bool ExisteUsuario() 
+        {
+            Usuario.Prop_UserName=Prop_UserName;
+            Usuario.ID_Persona = Prop_ID_Persona;
+            return Usuario.ComprobarUsuario();
+        }
+
+        public int ReactivarUsuario() 
+        {            
+            Usuario.Prop_UserName = Prop_UserName;
+            Usuario.ID_Persona = Prop_ID_Persona;
+            return Prop_ID_Persona= Usuario.ReestablecerUsuario();
+        }
         public void GuardarNuevaPass()
         {
             try
@@ -257,8 +270,10 @@ namespace Logica
         public void PasarDatos(string passaleatoria)
         {
             try
-            {
-                Usuario.ID_Persona = Prop_ID_Persona;
+            {if (Prop_ID_Persona==0) throw new Exception("No ha seleccionado ninguna persona para dar de alta como cliente");
+                else Usuario.ID_Persona = Prop_ID_Persona;
+
+
                 Usuario.Prop_UserName = Prop_UserName;
                 Usuario.Prop_Contrasena = passaleatoria;
                 string contra = Prop_UserName + passaleatoria;
@@ -284,10 +299,10 @@ namespace Logica
                 Usuario.Prop_CambioPass = Convert.ToBoolean(Prop_CambioPass);
                 Usuario.Prop_Comentarios = Prop_Comentarios;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
-                throw new Exception ("Error al guardar los datos, verifique que todos los campos estén completos");
+                throw new Exception (ex.Message);
             }         
 
         }

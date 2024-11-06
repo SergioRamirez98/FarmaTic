@@ -16,8 +16,10 @@ namespace Servicios
             public static string Prop_Correo { get; set; }
         #endregion
         public static void EnviarCorreo()
-        {            
-            SmtpClient client = new SmtpClient("smtp.gmail.com");
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient("smtp.gmail.com");
             client.Port = 587;
             client.EnableSsl = true;
             client.UseDefaultCredentials = false;
@@ -40,15 +42,13 @@ namespace Servicios
                 "por favor, respete mayúsculas, minúsculas, numeros y caracteres especiales. " +
                 "Una vez dentro del sistema, deberá modificar su contraseña";
 
-            try
-            {
+            
                 client.Send(mensaje);
-                Console.WriteLine("Correo electrónico enviado correctamente.");
                 mensaje.Dispose();
             }
             catch (Exception ex)
             {
-                Console.WriteLine("Error al enviar el correo electrónico: " + ex.Message);
+                throw new Exception("Error al enviar el correo electrónico");
             }
         }
 

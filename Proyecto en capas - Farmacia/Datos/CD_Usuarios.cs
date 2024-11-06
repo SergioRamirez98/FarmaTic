@@ -235,9 +235,9 @@ namespace Datos
                 SqlParameter[] parametros = listaparametros.ToArray();
 
                 Dt = ejecutar(sSql, parametros, true);
-                CSesion_PersonaSeleccionada.ActualizaFormularioUsuarios(Dt);
                 if (Dt.Rows.Count > 1)
                 {
+                    CSesion_PersonaSeleccionada.ActualizaFormularioUsuarios(Dt);
                     return true;
                 }
                 else
@@ -378,6 +378,71 @@ namespace Datos
 
                 throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
             }
+        }
+
+        public int ReestablecerUsuario()
+        {
+            try
+            {
+                string sSql = "SP_Reestablecer_Usuario";
+                SqlParameter param_ID_Usuario = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Usuario.Value = ID_Persona;
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = Prop_UserName;
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Clear();
+                listaparametros.Add(param_ID_Usuario);
+                listaparametros.Add(param_UserName);
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                DataTable Dt = ejecutar(sSql, parametros, true);
+                if (Dt.Rows.Count > 0)
+                {
+                    return ID_Persona = Convert.ToInt32(Dt.Rows[0]["ID_Persona"]);
+                   // ID_Persona;
+                }
+                else
+                {
+                    return ID_Persona;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||ComprobarUsuario.");
+
+            }
+        }
+            public bool ComprobarUsuario() 
+        {
+            try
+            {
+                string sSql = "SP_Comprobar_Si_Existe_Usuario";
+                SqlParameter param_ID_Usuario = new SqlParameter("@ID_Persona", SqlDbType.Int);
+                param_ID_Usuario.Value = ID_Persona;
+                SqlParameter param_UserName = new SqlParameter("@UserName", SqlDbType.VarChar, 50);
+                param_UserName.Value = Prop_UserName;
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                listaparametros.Add(param_ID_Usuario);
+                listaparametros.Add(param_UserName);
+                SqlParameter[] parametros = listaparametros.ToArray();
+
+                DataTable Dt = ejecutar(sSql, parametros, true);
+                if (Dt.Rows.Count > 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Personas||ComprobarUsuario.");
+            }
+
         }
         public void ActualizarUsuario() {
             try

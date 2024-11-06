@@ -45,16 +45,22 @@ namespace Vista.FormulariosMenu.GestionPersonas
             if (Registrar)
             {
                 capturarDatosUsuarios();
-                try
+                bool ExisteUsuario = Usuario.ExisteUsuario();
+                if (!ExisteUsuario) 
                 {
-                    Usuario.CrearUsuario();
-                    CServ_MsjUsuario.Exito("Usuario Generado con éxito");
-                    bloquearControles();
+                    try
+                    {
+                        Usuario.CrearUsuario();
+                        CServ_MsjUsuario.Exito("Usuario Generado con éxito");
+                        bloquearControles();
+                    }
+                    catch (Exception ex)
+                    {
+                        CServ_MsjUsuario.MensajesDeError(ex.Message);
+                    }
                 }
-                catch (Exception ex)
-                {
-                    CServ_MsjUsuario.MensajesDeError(ex.Message);
-                }
+                else ID_Persona= Usuario.ReactivarUsuario();  seleccionPersona(ID_Persona,"");
+                CServ_MsjUsuario.Exito("El usuario se encontraba dado de baja, se ha reactivado, puede darlo de baja si lo desea.");
             }
             else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
@@ -139,7 +145,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             Txb_Respuesta3.Enabled = false;
 
 
-            if (ID_Persona !=0 && !CSesion_PersonaSeleccionada.EsCliente && !string.IsNullOrEmpty( CSesion_PersonaSeleccionada.UserName))
+            if (ID_Persona !=0 && !CSesion_PersonaSeleccionada.EsCliente && !string.IsNullOrEmpty( CSesion_PersonaSeleccionada.UserName) && CSesion_PersonaSeleccionada.EstadoUsuario==1)
             {                
                 Txb_UserName.Enabled = false;
                 Dtp_FeAlta.Enabled = false;
@@ -177,8 +183,9 @@ namespace Vista.FormulariosMenu.GestionPersonas
             Btn_RegistrarUsuario.Enabled=true;
             Btn_Modificar.Enabled = false;
             Btn_Guardar.Enabled = false;
+            Txb_Persona.Enabled = false;    
 
-            if (ID!= 0 && CSesion_PersonaSeleccionada.EsCliente ==false && CSesion_PersonaSeleccionada.EsUsuario ==true)
+            if (ID!= 0 && CSesion_PersonaSeleccionada.EsCliente ==false && CSesion_PersonaSeleccionada.EsUsuario ==true && CSesion_PersonaSeleccionada.EstadoCuenta ==1)
             { 
                 Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;
                 Txb_UserName.Text = CSesion_PersonaSeleccionada.UserName;
