@@ -112,16 +112,23 @@ namespace Logica
                 {
                     throw new Exception("Los campos DNI, Telefono deben ser numeros.");
                 }
-                Personas.Prop_NOMBRE = atr_nombre;
-                Personas.Prop_APELLIDO = atr_apellido;
+                if (!string.IsNullOrEmpty(atr_nombre)|| !string.IsNullOrEmpty(atr_apellido))
+                {
+                    Personas.Prop_NOMBRE = atr_nombre;
+                    Personas.Prop_APELLIDO = atr_apellido;
+                }
+                else throw new Exception("El campo nombre y apellido no pueden estar vacios.");
                 Personas.Prop_CORREO = atr_correo;
                 Personas.Prop_SEXO = atr_sexo;
                 Personas.Prop_DOMICILIO = atr_domicilio;
-                Personas.Prop_Partido = atr_Partido;
+                if (atr_Partido != null) Personas.Prop_Partido = atr_Partido;
+                else throw new Exception("Debe seleccionar un partido.");
                 if (string.IsNullOrEmpty(atr_Localidad)) Personas.Prop_Localidad = "Homónimo";
                 else Personas.Prop_Localidad = atr_Localidad;
+
+                if (atr_nacionalidad != null) Personas.Prop_NACIONALIDAD = atr_nacionalidad;
+                else throw new Exception("Debe seleccionar la nacionalidad.");
                 
-                Personas.Prop_NACIONALIDAD = atr_nacionalidad;
 
             }
             catch (Exception)

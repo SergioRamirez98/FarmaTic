@@ -246,7 +246,7 @@ namespace Vista
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroPersona);
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
             CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroCliente);
-
+            ID_Persona = 0;
         }
         private void Cmb_Partido_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -457,7 +457,8 @@ namespace Vista
                 Btn_RegistrarUsuario.Enabled = false;
             }
             else if (EsCliente)
-            {                
+            {
+                Btn_AsociarUsuario.Text = "Asociar a usuario";
                 Btn_AsociarCliente.Enabled = false;
                 Btn_AsociarUsuario.Enabled = true;
                 Rbt_Usuario.Checked = true;
@@ -642,6 +643,10 @@ namespace Vista
             Cmb_Sexo.Enabled = true;
             Txb_Domicilio.Enabled = true;
             Cmb_Partido.Enabled = true;
+            if (Cmb_Localidad.Text != "")
+            {
+                Cmb_Localidad.Enabled = true;
+            }
             Cmb_Nacionalidad.Enabled = true;
             Txb_Telefono.Enabled = true;
             Dtp_FeNacimiento.Enabled = true;

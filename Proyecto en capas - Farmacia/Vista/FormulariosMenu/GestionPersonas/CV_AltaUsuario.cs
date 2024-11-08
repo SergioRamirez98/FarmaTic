@@ -44,23 +44,24 @@ namespace Vista.FormulariosMenu.GestionPersonas
         {
             if (Registrar)
             {
-                capturarDatosUsuarios();
-                bool ExisteUsuario = Usuario.ExisteUsuario();
-                if (!ExisteUsuario) 
+                try
                 {
-                    try
+                    capturarDatosUsuarios();
+                    bool ExisteUsuario = Usuario.ExisteUsuario();
+                    if (!ExisteUsuario)
                     {
                         Usuario.CrearUsuario();
                         CServ_MsjUsuario.Exito("Usuario Generado con éxito");
                         bloquearControles();
                     }
-                    catch (Exception ex)
-                    {
-                        CServ_MsjUsuario.MensajesDeError(ex.Message);
-                    }
+                    else ID_Persona = Usuario.ReactivarUsuario(); seleccionPersona(ID_Persona, "");
+                    CServ_MsjUsuario.Exito("El usuario se encontraba dado de baja, se ha reactivado, puede darlo de baja si lo desea.");
+
                 }
-                else ID_Persona= Usuario.ReactivarUsuario();  seleccionPersona(ID_Persona,"");
-                CServ_MsjUsuario.Exito("El usuario se encontraba dado de baja, se ha reactivado, puede darlo de baja si lo desea.");
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
             }
             else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
@@ -125,9 +126,12 @@ namespace Vista.FormulariosMenu.GestionPersonas
             {
                 Usuario.Prop_FeAlta = FeAlta.ToString("yyyy-MM-dd 00:00:00");
             }
-            Usuario.Prop_Familia = Cmb_Familia.SelectedValue.ToString();
-            Usuario.Prop_Estado = Cmb_Estado.SelectedValue.ToString();
-            Usuario.Prop_VtoPass = Cmb_VenceCada.SelectedValue.ToString();
+            if (Cmb_Estado.SelectedValue != null) Usuario.Prop_Estado = Cmb_Estado.SelectedValue.ToString();
+            else throw new Exception("Por favor, seleccione el estado del usuario");
+            if (Cmb_Familia.SelectedValue !=null) Usuario.Prop_Familia = Cmb_Familia.SelectedValue.ToString();
+            else throw new Exception("Por favor, seleccione la familia a la que pertenece el usuario");
+            if (Cmb_VenceCada.SelectedValue != null) Usuario.Prop_VtoPass = Cmb_VenceCada.SelectedValue.ToString();
+            else throw new Exception("Por favor, seleccione el vencimineto de la contraseña");
             Usuario.Prop_NuevaPass = Convert.ToString(NuevaPass);
             Usuario.Prop_CambioPass = Convert.ToString(CambioPass);
             Usuario.Prop_Comentarios = Txb_Comentario.Text;
@@ -178,15 +182,14 @@ namespace Vista.FormulariosMenu.GestionPersonas
         }
         private void cargarLoad(int ID) 
         {
-            Txb_Persona.Text= "";
             Btn_Eliminar.Enabled = false;
             Btn_RegistrarUsuario.Enabled=true;
             Btn_Modificar.Enabled = false;
             Btn_Guardar.Enabled = false;
-            Txb_Persona.Enabled = false;    
+            Txb_Persona.Enabled = false;
 
-            if (ID!= 0 && CSesion_PersonaSeleccionada.EsCliente ==false && CSesion_PersonaSeleccionada.EsUsuario ==true && CSesion_PersonaSeleccionada.EstadoCuenta ==1)
-            { 
+            if (ID != 0 && CSesion_PersonaSeleccionada.EsCliente == false && CSesion_PersonaSeleccionada.EsUsuario == true && CSesion_PersonaSeleccionada.EstadoCuenta == 1)
+            {
                 Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;
                 Txb_UserName.Text = CSesion_PersonaSeleccionada.UserName;
                 Txb_Contrasena.Text = CSesion_PersonaSeleccionada.PassEncriptada;
@@ -217,9 +220,16 @@ namespace Vista.FormulariosMenu.GestionPersonas
                 Btn_Guardar.Enabled = false;
                 Btn_RegistrarUsuario.Enabled = false;
             }
+            else if (ID == 0)
+            {
+                Txb_Persona.Text = "";
+                Txb_UserName.Enabled = true;
+                CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
+                habilitarControles();
+            }
             else
             {
-                Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;                
+                Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;
                 CServ_Limpiar.LimpiarPanelBox(Pnb_RegistroUsuario);
                 habilitarControles();
             }
