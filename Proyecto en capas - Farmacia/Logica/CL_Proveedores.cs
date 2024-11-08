@@ -25,7 +25,7 @@ namespace Logica
         public string Matricula { get; set; }
         public string Telefono { get; set; }
         public string Direccion { get; set; }
-        public string Partido { get; set; } //Localidad
+        public string Partido { get; set; } 
         public string Localidad { get; set; } 
         public string Mail { get; set; }
         public string IVA { get; set; }
@@ -46,13 +46,11 @@ namespace Logica
             pasarDatos(true);
             return Proveedores.Buscar();
         }
-
         public void EliminarProveedor() 
         {
             Proveedores.ID_Proveedor = Convert.ToInt32(ID_Proveedor);
             Proveedores.Eliminar();        
         }
-
         public void InsertarProveedor() 
         {
             pasarDatos();
@@ -80,10 +78,8 @@ namespace Logica
         }
         private void pasarDatos() 
         {
-            if (ID_Proveedor!= null)
-            {
-                Proveedores.ID_Proveedor = Convert.ToInt32(ID_Proveedor);
-            }
+            if (ID_Proveedor!= null) Proveedores.ID_Proveedor = Convert.ToInt32(ID_Proveedor);
+            
             Proveedores.Mail = Mail;            
             Proveedores.Direccion = Direccion;
             Proveedores.IIBB = Convert.ToBoolean(IIBB);            
@@ -132,7 +128,6 @@ namespace Logica
             Proveedores.Partido = Partido;
             Proveedores.IVA = IVA;
         }
-
         public DataTable BusquedaRapida(string Palabra)
         {
 

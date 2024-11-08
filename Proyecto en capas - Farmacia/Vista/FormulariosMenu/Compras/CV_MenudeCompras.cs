@@ -38,6 +38,11 @@ namespace Vista
             CV_GestionOrdenDeCompra OC = new CV_GestionOrdenDeCompra();
             OC.Show();
         }
+        private void Btn_Proveedores_Click(object sender, EventArgs e)
+        {
+            CV_GestionProveedores Proveedores = new CV_GestionProveedores();
+            Proveedores.Show();
+        }
         private void cargarPermisos()
         {
             Btn_Catalogo.Enabled = false;
@@ -70,5 +75,7 @@ namespace Vista
                 }
             }
         }
+
+       
     }
 }

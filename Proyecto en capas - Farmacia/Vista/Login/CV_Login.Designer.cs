@@ -64,7 +64,7 @@
             // 
             // Txb_Usuario
             // 
-            this.Txb_Usuario.Location = new System.Drawing.Point(418, 88);
+            this.Txb_Usuario.Location = new System.Drawing.Point(424, 87);
             this.Txb_Usuario.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Usuario.Name = "Txb_Usuario";
             this.Txb_Usuario.Size = new System.Drawing.Size(131, 22);
@@ -72,7 +72,7 @@
             // 
             // Txb_Contrasena
             // 
-            this.Txb_Contrasena.Location = new System.Drawing.Point(418, 113);
+            this.Txb_Contrasena.Location = new System.Drawing.Point(424, 112);
             this.Txb_Contrasena.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Contrasena.Name = "Txb_Contrasena";
             this.Txb_Contrasena.Size = new System.Drawing.Size(131, 22);
@@ -85,7 +85,7 @@
             this.Btn_Ingresar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Ingresar.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_Ingresar.ForeColor = System.Drawing.Color.WhiteSmoke;
-            this.Btn_Ingresar.Location = new System.Drawing.Point(418, 149);
+            this.Btn_Ingresar.Location = new System.Drawing.Point(424, 148);
             this.Btn_Ingresar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Btn_Ingresar.Name = "Btn_Ingresar";
             this.Btn_Ingresar.Size = new System.Drawing.Size(131, 31);
@@ -98,7 +98,7 @@
             // 
             this.LnkLbl_OlvideContrasena.AutoSize = true;
             this.LnkLbl_OlvideContrasena.BackColor = System.Drawing.Color.Transparent;
-            this.LnkLbl_OlvideContrasena.Location = new System.Drawing.Point(417, 191);
+            this.LnkLbl_OlvideContrasena.Location = new System.Drawing.Point(423, 190);
             this.LnkLbl_OlvideContrasena.Name = "LnkLbl_OlvideContrasena";
             this.LnkLbl_OlvideContrasena.Size = new System.Drawing.Size(133, 16);
             this.LnkLbl_OlvideContrasena.TabIndex = 4;
@@ -124,7 +124,7 @@
             this.btnMostrarContrasenia.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnMostrarContrasenia.FlatAppearance.BorderSize = 0;
             this.btnMostrarContrasenia.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnMostrarContrasenia.Location = new System.Drawing.Point(557, 115);
+            this.btnMostrarContrasenia.Location = new System.Drawing.Point(563, 114);
             this.btnMostrarContrasenia.Name = "btnMostrarContrasenia";
             this.btnMostrarContrasenia.Size = new System.Drawing.Size(30, 19);
             this.btnMostrarContrasenia.TabIndex = 8;

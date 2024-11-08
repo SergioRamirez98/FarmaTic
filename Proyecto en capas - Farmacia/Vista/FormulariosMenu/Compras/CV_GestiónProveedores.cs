@@ -42,9 +42,9 @@ namespace Vista
         {
             if (Agregar)
             {
-                pasarDatos();
                 if (Proveedores.ConsultarCUIT(Txb_Cuit.Text, dt) == false)
                 {
+                    pasarDatos();
                     try
                     {
                         Proveedores.InsertarProveedor();
@@ -65,10 +65,10 @@ namespace Vista
         }
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
-            pasarDatos();
             try
             {
-              DTGV_Proveedores.DataSource=  Proveedores.BuscarProveedor();
+                pasarDatos();
+                DTGV_Proveedores.DataSource=  Proveedores.BuscarProveedor();
             }
             catch (Exception ex)
             {
@@ -87,9 +87,9 @@ namespace Vista
         }
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {
-            pasarDatos();
             try
             {
+                pasarDatos();
                 Proveedores.InsertarCambios();
                 CServ_MsjUsuario.Exito("El Proveedor fue actualizado exitosamente.");
                 cargarDTGV();

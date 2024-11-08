@@ -72,8 +72,9 @@
             this.Btn_Proveedores.TabIndex = 3;
             this.Btn_Proveedores.Text = "Gestion de proveedores";
             this.Btn_Proveedores.UseVisualStyleBackColor = true;
+            this.Btn_Proveedores.Click += new System.EventHandler(this.Btn_Proveedores_Click);
             // 
-            // CV_GestiondeCompras
+            // CV_MenudeCompras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -82,7 +83,7 @@
             this.Controls.Add(this.Btn_OrdendeCompra);
             this.Controls.Add(this.Btn_PedidodeCompra);
             this.Controls.Add(this.Btn_Catalogo);
-            this.Name = "CV_GestiondeCompras";
+            this.Name = "CV_MenudeCompras";
             this.Text = "Gestion de compras";
             this.Load += new System.EventHandler(this.CV_GestiondeCompras_Load);
             this.ResumeLayout(false);
