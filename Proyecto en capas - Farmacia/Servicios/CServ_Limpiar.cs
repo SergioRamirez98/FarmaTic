@@ -34,6 +34,10 @@ namespace Servicios
                 {
                     ((DateTimePicker)control).Value = DateTime.Today;
                 }
+                else if (control is DataGridView) 
+                {
+                    ((DataGridView)control).DataSource= null;
+                }
             }
                 
         }

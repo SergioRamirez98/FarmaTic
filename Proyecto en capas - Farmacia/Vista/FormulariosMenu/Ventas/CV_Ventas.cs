@@ -109,6 +109,7 @@ namespace Vista.FormulariosMenu
                         Ventas.RealizarVentaItem();
                         CServ_MsjUsuario.Exito("Venta Generada con éxito");
                         Txb_Cliente.Text = "";
+                        Desc = 0;
                         DTGV_Carrito.Rows.Clear();
                         cargarDTGV();
                     }

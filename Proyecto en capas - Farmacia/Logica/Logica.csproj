@@ -45,6 +45,7 @@
     <Compile Include="CL_Clientes.cs" />
     <Compile Include="CL_ConsultaVentas.cs" />
     <Compile Include="CL_GestionOrdendeCompra.cs" />
+    <Compile Include="CL_Informes.cs" />
     <Compile Include="CL_PedidodeCompra.cs" />
     <Compile Include="CL_Productos.cs" />
     <Compile Include="CL_Personas.cs" />

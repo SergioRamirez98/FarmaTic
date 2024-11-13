@@ -129,6 +129,7 @@
     <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -140,16 +141,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FormulariosMenu\Compras\CV_MenudeCompras.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_Informes.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_MenudeCompras.Designer.cs">
-      <DependentUpon>CV_MenudeCompras.cs</DependentUpon>
+    <Compile Include="FormulariosMenu\Administracion\CV_Informes.Designer.cs">
+      <DependentUpon>CV_Informes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_CatalogoProductos.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_MenudeAdministracion.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_CatalogoProductos.Designer.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_MenudeAdministracion.Designer.cs">
+      <DependentUpon>CV_MenudeAdministracion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormulariosMenu\Administracion\CV_CatalogoProductos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormulariosMenu\Administracion\CV_CatalogoProductos.Designer.cs">
       <DependentUpon>CV_CatalogoProductos.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\CV_Bitacora.cs">
@@ -164,28 +171,28 @@
     <Compile Include="FormulariosMenu\CV_ConfiguracionSistema.Designer.cs">
       <DependentUpon>CV_ConfiguracionSistema.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_GestiónProveedores.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_GestiónProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_GestiónProveedores.Designer.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_GestiónProveedores.Designer.cs">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_ObtenerProveedores.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_ObtenerProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_ObtenerProveedores.Designer.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_ObtenerProveedores.Designer.cs">
       <DependentUpon>CV_ObtenerProveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_GestionOrdenDeCompra.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_GestionOrdenDeCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_GestionOrdenDeCompra.Designer.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_GestionOrdenDeCompra.Designer.cs">
       <DependentUpon>CV_GestionOrdenDeCompra.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_PedidodeCompra.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_PedidodeCompra.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Compras\CV_PedidodeCompra.Designer.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_PedidodeCompra.Designer.cs">
       <DependentUpon>CV_PedidodeCompra.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\GestionPersonas\CV_AltaUsuario.cs">
@@ -280,10 +287,13 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormulariosMenu\Compras\CV_MenudeCompras.resx">
-      <DependentUpon>CV_MenudeCompras.cs</DependentUpon>
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_Informes.resx">
+      <DependentUpon>CV_Informes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\Compras\CV_CatalogoProductos.resx">
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_MenudeAdministracion.resx">
+      <DependentUpon>CV_MenudeAdministracion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_CatalogoProductos.resx">
       <DependentUpon>CV_CatalogoProductos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\CV_Bitacora.resx">
@@ -292,16 +302,16 @@
     <EmbeddedResource Include="FormulariosMenu\CV_ConfiguracionSistema.resx">
       <DependentUpon>CV_ConfiguracionSistema.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\Compras\CV_GestiónProveedores.resx">
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_GestiónProveedores.resx">
       <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\Compras\CV_ObtenerProveedores.resx">
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_ObtenerProveedores.resx">
       <DependentUpon>CV_ObtenerProveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\Compras\CV_GestionOrdenDeCompra.resx">
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_GestionOrdenDeCompra.resx">
       <DependentUpon>CV_GestionOrdenDeCompra.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\Compras\CV_PedidodeCompra.resx">
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_PedidodeCompra.resx">
       <DependentUpon>CV_PedidodeCompra.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\GestionPersonas\CV_AltaUsuario.resx">

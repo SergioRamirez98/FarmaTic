@@ -47,6 +47,7 @@
     <Compile Include="CD_ConsultaVentas.cs" />
     <Compile Include="CD_EjecutarSP.cs" />
     <Compile Include="CD_GestionOrdendeCompra.cs" />
+    <Compile Include="CD_Informes.cs" />
     <Compile Include="CD_PedidodeCompra.cs" />
     <Compile Include="CD_Personas.cs" />
     <Compile Include="CD_Productos.cs" />

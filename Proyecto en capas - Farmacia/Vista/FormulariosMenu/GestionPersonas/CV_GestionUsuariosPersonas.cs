@@ -653,13 +653,13 @@ namespace Vista
             Btn_RegistrarPersona.Enabled = true;
             Rbt_Cliente.Enabled = true;
             Rbt_Usuario.Enabled = true;
-            if (Rbt_Cliente.Checked)
-            {
+            //if (Rbt_Cliente.Checked)
+            //{
                 Txb_ComentarioCliente.Enabled = true;
                 Cmb_Categoria.Enabled = true;
                 Dtp_FeAltaCliente.Enabled = true;
-            }
-            else if (Rbt_Usuario.Checked)
+           // }
+            if (Rbt_Usuario.Checked)
             {
                 Dtp_FeAlta.Enabled = true;
                 Cmb_Familia.Enabled = true;

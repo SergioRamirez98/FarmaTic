@@ -73,9 +73,9 @@ namespace Vista
             CV_GestionProveedores Proveedores = new CV_GestionProveedores();
             Proveedores.Show();
         }
-        private void Btn_ModulodeCompra_Click(object sender, EventArgs e)
+        private void Btn_Administracion_Click(object sender, EventArgs e)
         {
-            CV_MenudeCompras GC = new CV_MenudeCompras();
+            CV_MenudeAdministracion GC = new CV_MenudeAdministracion();
             GC.Show();
         }
         private void Btn_ConfigSistema_Click(object sender, EventArgs e)
@@ -88,7 +88,7 @@ namespace Vista
             Btn_GestionUsuarios.Enabled = false;
             Btn_GestionVentas.Enabled = false;
             Btn_ModuloInventario.Enabled = false;
-            Btn_ModulodeCompra.Enabled = false;
+            Btn_Administracion.Enabled = false;
             Btn_ConfigSeguridad.Enabled = false;
             Btn_ConfigSistema.Enabled = false;
 
@@ -100,7 +100,7 @@ namespace Vista
                         Btn_GestionUsuarios.Enabled = true;
                         Btn_GestionVentas.Enabled = true;
                         Btn_ModuloInventario.Enabled = true;
-                        Btn_ModulodeCompra.Enabled = true;
+                        Btn_Administracion.Enabled = true;
                         Btn_ConfigSeguridad.Enabled = true;
                         Btn_ConfigSistema.Enabled = true;
                         break;
@@ -121,7 +121,7 @@ namespace Vista
                         Btn_GestionVentas.Enabled = true;
                         break;                    
                     case 61:
-                        Btn_ModulodeCompra.Enabled = true;
+                        Btn_Administracion.Enabled = true;
                         break;
                     case 62:
                         Btn_ConfigSistema.Enabled = true;

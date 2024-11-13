@@ -33,7 +33,7 @@
             this.Btn_CerraSesion = new System.Windows.Forms.Button();
             this.Btn_ConfigSeguridad = new System.Windows.Forms.Button();
             this.Btn_ModuloInventario = new System.Windows.Forms.Button();
-            this.Btn_ModulodeCompra = new System.Windows.Forms.Button();
+            this.Btn_Administracion = new System.Windows.Forms.Button();
             this.Btn_ConfigSistema = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -87,15 +87,15 @@
             this.Btn_ModuloInventario.UseVisualStyleBackColor = true;
             this.Btn_ModuloInventario.Click += new System.EventHandler(this.Btn_ModuloInventario_Click);
             // 
-            // Btn_ModulodeCompra
+            // Btn_Administracion
             // 
-            this.Btn_ModulodeCompra.Location = new System.Drawing.Point(602, 38);
-            this.Btn_ModulodeCompra.Name = "Btn_ModulodeCompra";
-            this.Btn_ModulodeCompra.Size = new System.Drawing.Size(184, 58);
-            this.Btn_ModulodeCompra.TabIndex = 5;
-            this.Btn_ModulodeCompra.Text = "Modulo de Compra";
-            this.Btn_ModulodeCompra.UseVisualStyleBackColor = true;
-            this.Btn_ModulodeCompra.Click += new System.EventHandler(this.Btn_ModulodeCompra_Click);
+            this.Btn_Administracion.Location = new System.Drawing.Point(602, 38);
+            this.Btn_Administracion.Name = "Btn_Administracion";
+            this.Btn_Administracion.Size = new System.Drawing.Size(184, 58);
+            this.Btn_Administracion.TabIndex = 5;
+            this.Btn_Administracion.Text = "Administración";
+            this.Btn_Administracion.UseVisualStyleBackColor = true;
+            this.Btn_Administracion.Click += new System.EventHandler(this.Btn_Administracion_Click);
             // 
             // Btn_ConfigSistema
             // 
@@ -113,7 +113,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.Btn_ConfigSistema);
-            this.Controls.Add(this.Btn_ModulodeCompra);
+            this.Controls.Add(this.Btn_Administracion);
             this.Controls.Add(this.Btn_ModuloInventario);
             this.Controls.Add(this.Btn_ConfigSeguridad);
             this.Controls.Add(this.Btn_CerraSesion);
@@ -136,7 +136,7 @@
         private System.Windows.Forms.Button Btn_CerraSesion;
         private System.Windows.Forms.Button Btn_ConfigSeguridad;
         private System.Windows.Forms.Button Btn_ModuloInventario;
-        private System.Windows.Forms.Button Btn_ModulodeCompra;
+        private System.Windows.Forms.Button Btn_Administracion;
         private System.Windows.Forms.Button Btn_ConfigSistema;
     }
 }
