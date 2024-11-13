@@ -1,4 +1,5 @@
 ﻿using System;
+using Modelo;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -19,17 +20,19 @@ namespace Servicios
         #region Properties 
         public static System.Drawing.Image ImgFarmacia { get; set; }
         public static System.Drawing.Image ImgFarmatic { get; set; }
+        public static int OC { get; set; }
+
         #endregion
-        public static void GenerarPDF(int oc)
+        public static void GenerarPDF(List<CM_OrdenDeCompraPorItemsPDF> items)
         {
             try
             {
                 SaveFileDialog guardar = new SaveFileDialog();
-                guardar.FileName = "OC N° " + oc.ToString() + ".pdf";
+                guardar.FileName = "OC N° " + OC.ToString() + ".pdf";
                 string rutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
                 string PDFhtml = "";
                 PDFhtml = File.ReadAllText(rutaArchivo.ToString());
-               // PDFhtml = CargarDatosPDF(PDFhtml, oc);
+                PDFhtml = CargarDatosPDF(PDFhtml, items);
 
                 if (guardar.ShowDialog() == DialogResult.OK)
                 {
@@ -66,13 +69,12 @@ namespace Servicios
 
                 throw new Exception("La compra se ha realizado con éxito pero no se ha podido generar el PDF. Por favor, contáctes con el proveedor del sistema");
             }
-        }/*
-        public static string CargarDatosPDF(string PDFhtml, int oc)
+        }
+        private static string CargarDatosPDF(string PDFhtml, List<CM_OrdenDeCompraPorItemsPDF> items)
         {
-            ItemsOCDef = OC.ObtenerItemsOC(oc);
 
             PDFhtml = PDFhtml.Replace("@OC", "Orden de Compra");
-            PDFhtml = PDFhtml.Replace("@NUMERO", oc.ToString());
+            PDFhtml = PDFhtml.Replace("@NUMERO", OC.ToString());
 
             PDFhtml = PDFhtml.Replace("@Proveedor", CM_DatosOCDefinitiva.NombreEmpresa);
             PDFhtml = PDFhtml.Replace("@Fecha", CM_DatosOCDefinitiva.Fecha.ToString("d"));
@@ -95,7 +97,8 @@ namespace Servicios
 
 
             string FilaProductos = "";
-            foreach (var producto in ItemsOCDef)
+            double TotalOC = 0;
+            foreach (var producto in items)
             {
                 FilaProductos += "<tr>";
                 FilaProductos += "<td>" + producto.NombreComercial + "</td>";
@@ -105,6 +108,7 @@ namespace Servicios
                 FilaProductos += "<td>" + producto.PrecioUnitario.ToString("#,##0.00") + "</td>";
                 FilaProductos += "<td>" + producto.Subtotal.ToString("#,##0.00") + "</td>";
                 FilaProductos += "</tr>";
+                TotalOC += producto.Subtotal;
             }
 
             PDFhtml = PDFhtml.Replace("@Items", FilaProductos);
@@ -116,6 +120,6 @@ namespace Servicios
 
             return PDFhtml;
         }
-*/    }
+    }
             
 }
