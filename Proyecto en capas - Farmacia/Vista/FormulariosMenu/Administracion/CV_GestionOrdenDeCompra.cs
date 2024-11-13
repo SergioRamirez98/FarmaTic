@@ -276,6 +276,7 @@ namespace Vista.FormulariosMenu
         {
             int Seleccion = DTGV_Pedidos.CurrentRow.Index;
             OC.ID_Pedido = DTGV_Pedidos.Rows[Seleccion].Cells[0].Value.ToString();
+            CServ_CrearPDF.ID_Pedido = Convert.ToInt32(DTGV_Pedidos.Rows[Seleccion].Cells[0].Value);
             OC.Proveedor = DTGV_Pedidos.Rows[Seleccion].Cells[2].Value.ToString();
             OC.Total = TotalOC.ToString();
 
@@ -322,7 +323,8 @@ namespace Vista.FormulariosMenu
             CServ_CrearPDF.ImgFarmatic= Properties.Resources.farmaTic_logo;
             CServ_CrearPDF.OC= oc;
             ItemsOCDef = OC.ObtenerItemsOC(oc);
-            CServ_CrearPDF.GenerarPDF(ItemsOCDef);
+            CServ_CrearPDF.ListadeItems = ItemsOCDef;
+            CServ_CrearPDF.GenerarPDF(1);
         }       
         private void cargarPermisos()
         {

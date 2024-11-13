@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CM_Bitacora.cs" />
     <Compile Include="CM_DatosOCDefinitiva.cs" />
+    <Compile Include="CM_DatosVenta.cs" />
     <Compile Include="CM_GestionPermisos.cs" />
     <Compile Include="CM_Informe.cs" />
     <Compile Include="CM_ListadoPermisosActuales.cs" />

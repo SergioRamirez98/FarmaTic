@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
+using Modelo;
 
 namespace Vista.FormulariosMenu
 {
@@ -19,10 +20,12 @@ namespace Vista.FormulariosMenu
         #region Properties
         CL_Productos Productos = new CL_Productos();
         CL_Ventas Ventas = new CL_Ventas();
-        List<CL_Ventas> VentaItems = new List<CL_Ventas>();    
+        List<CL_Ventas> VentaItems = new List<CL_Ventas>();
         DataTable Dt = new DataTable();
 
-        double totalventa = 0, Desc =0;
+        List<CM_DatosVenta> ItemsVendidos = new List<CM_DatosVenta>();
+
+        double totalventa = 0, Desc = 0;
         int ID_Cliente = 0;
         string cat;
         bool RegistrarVenta = false;
@@ -107,6 +110,16 @@ namespace Vista.FormulariosMenu
                         int ID_Venta = Ventas.RealizarVenta();
                         pasarDatos(ID_Venta);
                         Ventas.RealizarVentaItem();
+                        try
+                        {
+                            pasarDatosVenta(ID_Venta);
+                            CServ_CrearPDF.GenerarPDF(3);
+                        }
+                        catch (Exception)
+                        {
+
+                            throw;
+                        }
                         CServ_MsjUsuario.Exito("Venta Generada con éxito");
                         Txb_Cliente.Text = "";
                         Desc = 0;
@@ -126,7 +139,7 @@ namespace Vista.FormulariosMenu
             }
             else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
 
-        }        
+        }
         private void Btn_BuscarCliente_Click(object sender, EventArgs e)
         {
             if (SeleccionarCliente)
@@ -176,8 +189,8 @@ namespace Vista.FormulariosMenu
             DTGV_Ventas.Columns[6].HeaderText = "Precio Unitario";
             DTGV_Ventas.Columns[6].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Ventas.Columns[7].HeaderText = "Vencimiento";
-            DTGV_Ventas.Columns[8].HeaderText = "N°de Lote"; 
-            DTGV_Ventas.Columns[9].HeaderText = "Categoría"; 
+            DTGV_Ventas.Columns[8].HeaderText = "N°de Lote";
+            DTGV_Ventas.Columns[9].HeaderText = "Categoría";
 
 
 
@@ -191,6 +204,7 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.AllowUserToResizeRows = false;
             DTGV_Carrito.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
             DTGV_Carrito.Columns.Add("ID", "ID Producto");
+            DTGV_Carrito.Columns.Add("Monodroga", "Monodroga");
             DTGV_Carrito.Columns.Add("Nombre", "Nombre");
             DTGV_Carrito.Columns.Add("Marca", "Marca");
             DTGV_Carrito.Columns.Add("Cantidad", "Cantidad");
@@ -200,10 +214,7 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.Columns["Subtotal"].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Carrito.Columns.Add("Vencimiento", "Vencimiento");
             DTGV_Carrito.Columns.Add("NumLote", "Numero de lote");
-
-            //            
             DTGV_Carrito.Columns.Add("Descuento", "Descuento por cliente");
-            //DTGV_Carrito.Columns["Descuento"].DefaultCellStyle.Format = "0.00%";
         }
         private void cargarDTGV()
         {
@@ -226,12 +237,17 @@ namespace Vista.FormulariosMenu
         private void pasarDatos()
         {
             Ventas.ID_UsuarioVendedor = CSesion_SesionIniciada.ID_Usuario.ToString();
-            if (ID_Cliente!=0)Ventas.ID_Cliente = ID_Cliente.ToString(); 
+            if (ID_Cliente != 0) Ventas.ID_Cliente = ID_Cliente.ToString();
             else Ventas.ID_Cliente = 2.ToString();
 
             Ventas.FechaVenta = DateTime.Today.ToString();
             Ventas.TotalVenta = totalventa.ToString();
-            Ventas.Descuento=Desc.ToString();
+            Ventas.Descuento = Desc.ToString();
+            CServ_CrearPDF.Fecha= DateTime.Now;
+            CServ_CrearPDF.NombreCliente = Txb_Cliente.Text;
+            CServ_CrearPDF.UsuarioVendedor = CSesion_SesionIniciada.Nombre +" "+ CSesion_SesionIniciada.Apellido;
+            CServ_CrearPDF.CategoriaCliente = cat;
+            CServ_CrearPDF.Descuento = Desc;
         }
         private void pasarDatos(int ID_Venta)
         {
@@ -240,11 +256,11 @@ namespace Vista.FormulariosMenu
                 CL_Ventas NuevaVenta = new CL_Ventas();
                 NuevaVenta.ID_Venta = ID_Venta.ToString();
                 NuevaVenta.ID_Producto = itemCarrito.Cells[0].Value.ToString();
-                NuevaVenta.PrecUnitario = itemCarrito.Cells[4].Value.ToString();
-                NuevaVenta.Cantidad = itemCarrito.Cells[3].Value.ToString();
-                NuevaVenta.Subtotal = itemCarrito.Cells[5].Value.ToString();
-                NuevaVenta.TotalconDescuento = Ventas.CalcularTotalConDescuentoporItem(NuevaVenta.Subtotal,Desc);
-                VentaItems.Add(NuevaVenta);
+                NuevaVenta.Cantidad = itemCarrito.Cells[4].Value.ToString();
+                NuevaVenta.PrecUnitario = itemCarrito.Cells[5].Value.ToString();
+                NuevaVenta.Subtotal = itemCarrito.Cells[6].Value.ToString();
+                NuevaVenta.TotalconDescuento = Ventas.CalcularTotalConDescuentoporItem(NuevaVenta.Subtotal, Desc);
+                VentaItems.Add(NuevaVenta);                
             }
             Ventas.VentaItems = VentaItems;
         }
@@ -256,24 +272,25 @@ namespace Vista.FormulariosMenu
                 double valor = Convert.ToDouble(subtotal.Cells[5].Value);
                 totalventa = valor + totalventa;
             }
-            totalventa= Ventas.CalcularTotalConDescuento(Desc, totalventa);
+            totalventa = Ventas.CalcularTotalConDescuento(Desc, totalventa);
             return totalventa;
         }
         private void agregarAlCarrito(int ProdSeleccionado)
         {
             int Id = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[0].Value);
-            string Nombre = DTGV_Ventas.Rows[ProdSeleccionado].Cells[2].Value.ToString();
+            string Nombre = DTGV_Ventas.Rows[ProdSeleccionado].Cells[1].Value.ToString();
+            string Monodroga = DTGV_Ventas.Rows[ProdSeleccionado].Cells[2].Value.ToString();
             string Marca = DTGV_Ventas.Rows[ProdSeleccionado].Cells[3].Value.ToString();
             int Cantidad = Convert.ToInt32(Nud_Cantidad.Value);
             double Precio = Convert.ToDouble(DTGV_Ventas.Rows[ProdSeleccionado].Cells[6].Value);
             double SubTotal = Cantidad * Precio;
             DateTime Vto = Convert.ToDateTime(DTGV_Ventas.Rows[ProdSeleccionado].Cells[7].Value);
-            int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[8].Value);       
+            int NumeroLote = Convert.ToInt32(DTGV_Ventas.Rows[ProdSeleccionado].Cells[8].Value);
 
-            DTGV_Carrito.Rows.Add(Id, Nombre, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote,Desc);
+            DTGV_Carrito.Rows.Add(Id, Nombre,Monodroga, Marca, Cantidad, Precio, SubTotal, Vto, NumeroLote, Desc);
             foreach (DataGridViewRow row in DTGV_Carrito.Rows)
             {
-                row.Cells[8].Value = Desc;
+                row.Cells[9].Value = Desc;
             }
 
 
@@ -310,6 +327,8 @@ namespace Vista.FormulariosMenu
                     break;
                 }
             }
+            calculoTotalVenta();
+            configurarLoad();
         }
         private void eliminardeCarrito()
         {
@@ -334,12 +353,37 @@ namespace Vista.FormulariosMenu
             Desc = Descuento;
             foreach (DataGridViewRow row in DTGV_Carrito.Rows)
             {
-                row.Cells[8].Value = Desc;
+                row.Cells[9].Value = Desc;
             }
             cat = Categoria;
+            calculoTotalVenta();
+            configurarLoad();
         }
 
-        
+        private void pasarDatosVenta(int ID_Venta) 
+        {
+            foreach (DataGridViewRow itemCarrito in DTGV_Carrito.Rows)
+            {
+                CM_DatosVenta DatosVenta = new CM_DatosVenta();
+
+                DatosVenta.NombreProducto = itemCarrito.Cells[1].Value.ToString();
+                DatosVenta.Monodroga = itemCarrito.Cells[2].Value.ToString();
+                DatosVenta.Marca = itemCarrito.Cells[3].Value.ToString();
+                DatosVenta.Cantidad = Convert.ToInt32(itemCarrito.Cells[4].Value);
+                DatosVenta.PrecUnit = Convert.ToDouble(itemCarrito.Cells[5].Value);
+                DatosVenta.Subtotal = Convert.ToDouble(itemCarrito.Cells[6].Value);
+                DatosVenta.Descuento = Desc;
+                DatosVenta.Total= totalventa;
+                ItemsVendidos.Add(DatosVenta);              
+
+            }
+
+            CServ_CrearPDF.ImgFarmacia = Properties.Resources.FarmaciaPasteur;
+            CServ_CrearPDF.ImgFarmatic = Properties.Resources.farmaTic_logo;
+            CServ_CrearPDF.ID_Venta= ID_Venta;
+            CServ_CrearPDF.ItemsVendidos = ItemsVendidos;
+
+        }
 
         private void cargarPermisos()
         {

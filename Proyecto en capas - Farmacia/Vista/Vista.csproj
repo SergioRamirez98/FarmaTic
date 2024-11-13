@@ -422,6 +422,8 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\FarmaciaPasteur.Png" />
+    <None Include="bin\Debug\Resources\PlantillaVentas.html" />
+    <None Include="bin\Debug\Resources\PlantillaParaVentas.html" />
     <Content Include="Resources\Plantilla.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

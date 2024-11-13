@@ -157,5 +157,32 @@ namespace Vista.Properties {
                 return ResourceManager.GetString("Plantilla", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a &lt;!--&lt;!DOCTYPE html&gt;
+        ///&lt;html&gt;
+        ///&lt;head&gt;
+        ///    &lt;title&gt;Plantilla Orden de Compra&lt;/title&gt;
+        ///    &lt;style&gt;
+        ///        @page {
+        ///            size: A4;
+        ///            margin: 25mm; /* Márgenes de 25mm */
+        ///        }
+        ///
+        ///        body {
+        ///            margin: 0; /* Elimina márgenes predeterminados del navegador */
+        ///            padding: 0; /* Elimina relleno predeterminado */
+        ///            font-size: 10px; /* Tamaño de fuente global reducido */
+        ///        }
+        ///
+        ///        table.border {
+        ///            border-collapse: collapse;
+        ///             [resto de la cadena truncado]&quot;;.
+        /// </summary>
+        internal static string PlantillaParaVentas {
+            get {
+                return ResourceManager.GetString("PlantillaParaVentas", resourceCulture);
+            }
+        }
     }
 }
