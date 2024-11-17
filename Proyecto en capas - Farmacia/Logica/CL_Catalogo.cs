@@ -66,16 +66,14 @@ namespace Logica
         }
 
         public bool ConsultarCatalogo(string nombre) 
-        {
-            nombre.ToLower();
-            
+        {            
             bool ExisteProducto = false;
             if (string.IsNullOrEmpty(nombre)) { ExisteProducto = false; }
             else
             {
                 foreach (var item in CatalogoProductos)
                 {
-                    if (nombre == item.NombreComercial.ToLower())
+                    if (nombre.ToLower() == item.NombreComercial.ToLower())
                     {
                         ExisteProducto = true;
                         break;

@@ -66,9 +66,10 @@ namespace Vista.FormulariosMenu
         {
             if (Confirmar)
             {
-                calculoTotalOC();
                 try
                 {
+
+                    calculoTotalOC();
                     if (DTGV_Pedidos.SelectedRows.Count > 0 && TotalOC > 0)
                     {
                         pasarDatos();
@@ -322,9 +323,16 @@ namespace Vista.FormulariosMenu
             CServ_CrearPDF.ImgFarmacia = Properties.Resources.FarmaciaPasteur;
             CServ_CrearPDF.ImgFarmatic= Properties.Resources.farmaTic_logo;
             CServ_CrearPDF.OC= oc;
+            CServ_CrearPDF.Fecha = DateTime.Today;
             ItemsOCDef = OC.ObtenerItemsOC(oc);
             CServ_CrearPDF.ListadeItems = ItemsOCDef;
             CServ_CrearPDF.GenerarPDF(1);
+            
+            //Este va a ser para los remitos de r
+
+            CServ_CrearPDF.GenerarPDF(2);
+            CServ_CrearPDF.ListadeItems.Clear();
+
         }       
         private void cargarPermisos()
         {

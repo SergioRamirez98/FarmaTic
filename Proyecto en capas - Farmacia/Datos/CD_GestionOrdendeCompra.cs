@@ -1,4 +1,5 @@
 ﻿using Modelo;
+using Servicios;
 using Sesion;
 using System;
 using System.Collections.Generic;
@@ -172,6 +173,7 @@ namespace Datos
                     listaParametros.Clear();
 
                 }
+                cargarCatalogoParaDescuentos();
             }
             catch (Exception)
             {
@@ -327,6 +329,49 @@ namespace Datos
 
             }
         }
+        private void cargarCatalogoParaDescuentos()
+        {
+            DataTable dt = new DataTable();
+            try
+            {
+                string sSql = "SP_Obtener_Catalogo";
+                List<SqlParameter> listaparametros = new List<SqlParameter>();
+                SqlParameter[] parametros = listaparametros.ToArray();
 
+                dt = ejecutar(sSql, parametros, true);
+
+            }
+            catch (Exception)
+            {
+                throw new Exception("No se ha podido realizar la operación. Error CD_Catalogo||ObtenerProductos");
+            }
+            if (dt.Rows.Count > 0)
+            {
+                cargarCatalogo(dt);
+            }
+        }
+        private void cargarCatalogo(DataTable dt) 
+        {
+          CServ_CrearPDF.CATALOGO.Clear();
+
+            if (dt.Rows.Count > 0)
+            {
+                foreach (DataRow dr in dt.Rows)
+                {                    
+                    CM_Catalogo catalogo = new CM_Catalogo
+                    {
+                        ID_Producto = Convert.ToInt32(dr["ID_Producto"]),
+                        NombreComercial = dr["NombreComercial"].ToString(),
+                        Monodroga = dr["Monodroga"].ToString(),
+                        Marca = dr["Marca"].ToString(),
+                        Proveedor = dr["Nombre"].ToString(),
+                        UnidadporLote = Convert.ToInt32(dr["UnidadesporLote"]),
+                        CompraMinima = Convert.ToInt32(dr["CompraMinima"]),
+                        PrecioProveedor = Convert.ToDouble(dr["PrecioProveedor"])
+                    };
+                    CServ_CrearPDF.CATALOGO.Add(catalogo);
+                }
+            }
+        }
     }
 }

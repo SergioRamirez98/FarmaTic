@@ -23,11 +23,17 @@ namespace Servicios
         public static System.Drawing.Image ImgFarmatic { get; set; }
         public static string RutaArchivo { get; set; }
         public static string PDFhtml { get; set; }
+        public static string carpetaEspecifica { get; set; }
+        public static string nombreArchivo { get; set; }
         #endregion
         #region Properties OC
         public static int ID_Pedido { get; set; }
         public static int OC { get; set; }
+
         public static List <CM_OrdenDeCompraPorItemsPDF> ListadeItems = new List<CM_OrdenDeCompraPorItemsPDF> ();
+        public static List<CM_PedidosdeCompra> ListadeItemsPC = new List<CM_PedidosdeCompra>();
+
+        public static List <CM_Catalogo> CATALOGO = new List<CM_Catalogo> ();
         #endregion
 
         #region Properties Ventas
@@ -47,21 +53,48 @@ namespace Servicios
             try
             {
                 SaveFileDialog guardar = new SaveFileDialog();
+                string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+
+                string carpetaBase = Path.Combine(carpetaDocumentos, "Farmatic");
+
+                if (!Directory.Exists(carpetaBase))
+                {
+                    Directory.CreateDirectory(carpetaBase);
+                }
+                carpetaEspecifica = "";
+                nombreArchivo = "";
+
                 switch (valor)
                 {
                     case 1:
-                        guardar.FileName = "OC N° " + OC.ToString() + ".pdf";
-                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
+                        carpetaEspecifica = Path.Combine(carpetaBase, "OrdenesDeCompra");
+                        nombreArchivo = "OC N° " + OC.ToString() + ".pdf";
+                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");                        
                         break;
                     case 2:
-                        guardar.FileName = "Recibo de OC N° " + OC.ToString() + ".pdf";
-                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
+                        carpetaEspecifica = Path.Combine(carpetaBase, "Remitos");
+                        nombreArchivo = "Remito de recepción de OC N° " + OC.ToString() + ".pdf";
+                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");                        
                         break;
                     case 3:
-                        guardar.FileName = "Venta N° " + ID_Venta.ToString() + ".pdf";
-                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "PlantillaParaVentas.html");
+                        carpetaEspecifica = Path.Combine(carpetaBase, "Ventas");
+                        nombreArchivo = "Venta N° " + ID_Venta.ToString() + ".pdf";
+                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
+                        break;
+                    case 4:
+                        carpetaEspecifica = Path.Combine(carpetaBase, "Pedidos de Compra");
+                        nombreArchivo = "PC N° " + ID_Venta.ToString() + ".pdf";
+                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
                         break;
                 }
+                if (!Directory.Exists(carpetaEspecifica))
+                {
+                    Directory.CreateDirectory(carpetaEspecifica);
+                }                
+                guardar.InitialDirectory = carpetaEspecifica;
+                guardar.FileName = nombreArchivo;
+
+
                 PDFhtml = "";
                 PDFhtml = File.ReadAllText(RutaArchivo.ToString());
                 PDFhtml = CargarDatosPDF(PDFhtml, valor);
@@ -132,7 +165,7 @@ namespace Servicios
                     PDFhtml = PDFhtml.Replace("@PartidoFarma", CM_DatosOCDefinitiva.PartidoFarma.ToString());
                     PDFhtml = PDFhtml.Replace("@LocalidadFarma", CM_DatosOCDefinitiva.LocalidadFarma.ToString());
 
-
+                    PDFhtml = PDFhtml.Replace("@Total", "Total de la orden de compra");
                     foreach (var producto in ListadeItems)
                     {
                         FilaProductos += "<tr>";
@@ -151,13 +184,62 @@ namespace Servicios
                     PDFhtml = PDFhtml.Replace("@TotOC", TotalOC.ToString("#,##0.00"));
 
                     PDFhtml = PDFhtml.Replace("@Usuario", CM_DatosOCDefinitiva.NombreApellido.ToString());
+                    PDFhtml = PDFhtml.Replace("@AutoFecha", Fecha.ToString());
+                    break;
+                case 2:
+                    PDFhtml = PDFhtml.Replace("@OC", "Remito de recepción");
+                    PDFhtml = PDFhtml.Replace("@NUMERO", OC.ToString());
+
+                    PDFhtml = PDFhtml.Replace("@Proveedor", CM_DatosOCDefinitiva.NombreEmpresa);
+                    PDFhtml = PDFhtml.Replace("@PC", ID_Pedido.ToString());
+                    PDFhtml = PDFhtml.Replace("@Fecha", CM_DatosOCDefinitiva.Fecha.ToString("d"));
+                    PDFhtml = PDFhtml.Replace("@MatriculaProveedor", CM_DatosOCDefinitiva.MatriculaProveedor.ToString());
+                    PDFhtml = PDFhtml.Replace("@CUITProveedor", CM_DatosOCDefinitiva.CUITProveedor);
+                    PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionProv);
+                    PDFhtml = PDFhtml.Replace("@CorreoProv", CM_DatosOCDefinitiva.CorreoProv);
+                    PDFhtml = PDFhtml.Replace("@LocalidadProv", CM_DatosOCDefinitiva.LocalidadProv);
+                    PDFhtml = PDFhtml.Replace("@PartidoProv", CM_DatosOCDefinitiva.PartidoProv);
+                    PDFhtml = PDFhtml.Replace("@TelefonoProv", CM_DatosOCDefinitiva.TelefonoProv.ToString());
+
+                    PDFhtml = PDFhtml.Replace("@NombreEmpresa", CM_DatosOCDefinitiva.NombreEmpresa.ToString());
+                    PDFhtml = PDFhtml.Replace("@DireccionFarma", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+                    PDFhtml = PDFhtml.Replace("@CUITEmpresa", CM_DatosOCDefinitiva.CUITEmpresa.ToString());
+                    PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+                    PDFhtml = PDFhtml.Replace("@DomicilioEntrega", CM_DatosOCDefinitiva.DomicilioEntrega.ToString());
+                    PDFhtml = PDFhtml.Replace("@Fe", CM_DatosOCDefinitiva.FechaInicioAct.ToString("d"));
+                    PDFhtml = PDFhtml.Replace("@PartidoFarma", CM_DatosOCDefinitiva.PartidoFarma.ToString());
+                    PDFhtml = PDFhtml.Replace("@LocalidadFarma", CM_DatosOCDefinitiva.LocalidadFarma.ToString());
+
+
+                    PDFhtml = PDFhtml.Replace("@Total", "Precio sugerido para cada unidad");
+
+                    foreach (var producto in ListadeItems)
+                    {
+                        FilaProductos += "<tr>";
+                        FilaProductos += "<td>" + producto.NombreComercial + "</td>";
+                        FilaProductos += "<td>" + producto.Monodroga + "</td>";
+                        FilaProductos += "<td>" + producto.Marca + "</td>";
+                        FilaProductos += "<td>" + producto.Cantidad.ToString() + "</td>";
+
+                       double preciosugerido= consultaRepetido(producto.NombreComercial,producto.PrecioUnitario);
+
+                        FilaProductos += "<td>" + producto.PrecioUnitario.ToString("#,##0.00") + "</td>";
+                      //  double PrecioConProffit = 0;
+                      //  PrecioConProffit = producto.PrecioUnitario * 1.30;
+                        FilaProductos += "<td>" + preciosugerido.ToString("#,##0.00") + "</td>";
+                        FilaProductos += "</tr>";
+                        TotalOC += producto.Subtotal;
+
+                    }
+
+                    PDFhtml = PDFhtml.Replace("@Items", FilaProductos);
+                    PDFhtml = PDFhtml.Replace("@TotOC", TotalOC.ToString("#,##0.00"));
+
+                    PDFhtml = PDFhtml.Replace("@Usuario", CM_DatosOCDefinitiva.NombreApellido.ToString());
                     PDFhtml = PDFhtml.Replace("@AutoFecha", CM_DatosOCDefinitiva.Fecha.ToString());
                     CM_DatosOCDefinitiva.LimpiarDatos(true);
                     ID_Pedido = 0;
-                    ListadeItems.Clear();
                     break;
-
-
                 case 3:
 
                     if (string.IsNullOrEmpty(NombreCliente))
@@ -202,10 +284,90 @@ namespace Servicios
                     Descuento = 0;
                     CategoriaCliente = null;
                     break;
+                case 4:
+                    PDFhtml = PDFhtml.Replace("@OC", "Pedido de Compra");
+                    PDFhtml = PDFhtml.Replace("@NUMERO", OC.ToString());
+
+                    PDFhtml = PDFhtml.Replace("@Proveedor", CM_DatosOCDefinitiva.NombreEmpresa);
+                    PDFhtml = PDFhtml.Replace("@PC", OC.ToString());
+                    PDFhtml = PDFhtml.Replace("@Fecha", CM_DatosOCDefinitiva.Fecha.ToString("d"));
+                    PDFhtml = PDFhtml.Replace("@MatriculaProveedor", CM_DatosOCDefinitiva.MatriculaProveedor.ToString());
+                    PDFhtml = PDFhtml.Replace("@CUITProveedor", CM_DatosOCDefinitiva.CUITProveedor);
+                    PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionProv);
+                    PDFhtml = PDFhtml.Replace("@CorreoProv", CM_DatosOCDefinitiva.CorreoProv);
+                    PDFhtml = PDFhtml.Replace("@LocalidadProv", CM_DatosOCDefinitiva.LocalidadProv);
+                    PDFhtml = PDFhtml.Replace("@PartidoProv", CM_DatosOCDefinitiva.PartidoProv);
+                    PDFhtml = PDFhtml.Replace("@TelefonoProv", CM_DatosOCDefinitiva.TelefonoProv.ToString());
+
+                    PDFhtml = PDFhtml.Replace("@NombreEmpresa", CM_DatosOCDefinitiva.NombreEmpresa.ToString());
+                    PDFhtml = PDFhtml.Replace("@DireccionFarma", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+                    PDFhtml = PDFhtml.Replace("@CUITEmpresa", CM_DatosOCDefinitiva.CUITEmpresa.ToString());
+                    PDFhtml = PDFhtml.Replace("@DireccionProv", CM_DatosOCDefinitiva.DireccionFarma.ToString());
+                    PDFhtml = PDFhtml.Replace("@DomicilioEntrega", CM_DatosOCDefinitiva.DomicilioEntrega.ToString());
+                    PDFhtml = PDFhtml.Replace("@Fe", CM_DatosOCDefinitiva.FechaInicioAct.ToString("d"));
+                    PDFhtml = PDFhtml.Replace("@PartidoFarma", CM_DatosOCDefinitiva.PartidoFarma.ToString());
+                    PDFhtml = PDFhtml.Replace("@LocalidadFarma", CM_DatosOCDefinitiva.LocalidadFarma.ToString());
+
+                    PDFhtml = PDFhtml.Replace("@Total", "Total pedido de Compra");
+                    foreach (var producto in ListadeItemsPC)
+                    {
+                        FilaProductos += "<tr>";
+                        FilaProductos += "<td>" + producto.NombreComercial + "</td>";
+                        FilaProductos += "<td>" + producto.Monodroga + "</td>";
+                        FilaProductos += "<td>" + producto.Marca + "</td>";
+                        FilaProductos += "<td>" + producto.Cantidad.ToString() + "</td>";
+                        FilaProductos += "<td>" + producto.PrecioUnitario.ToString("#,##0.00") + "</td>";
+                        FilaProductos += "<td>" + producto.Subtotal.ToString("#,##0.00") + "</td>";
+                        FilaProductos += "</tr>";
+                        TotalOC += producto.Subtotal;
+
+                    }
+
+                    PDFhtml = PDFhtml.Replace("@Items", FilaProductos);
+                    PDFhtml = PDFhtml.Replace("@TotOC", TotalOC.ToString("#,##0.00"));
+
+                    PDFhtml = PDFhtml.Replace("@Usuario", CM_DatosOCDefinitiva.NombreApellido.ToString());
+                    PDFhtml = PDFhtml.Replace("@AutoFecha", Fecha.ToString());
+                    break;
             }
             return PDFhtml;
 
         }
-    }
+        private static double consultaRepetido(string nombreproducto, double preciodePromocion) 
+        {
+            double precionormal = 0;
+            double precioenOC = 0;
+            double precioSugerido = 0;
+            foreach (var item in CATALOGO) 
+            {
+                if (nombreproducto ==item.NombreComercial)
+                {
+                    double precio = item.PrecioProveedor / item.UnidadporLote;
+                    if (precio != preciodePromocion)
+                    {
+                        precionormal = precio;
+
+                    }
+                    break;
+                }
+            }
+            foreach (var item in ListadeItems)
+            {
+                if (nombreproducto == item.NombreComercial )
+                {
+                    precioenOC= item.PrecioUnitario;
+                    precioenOC = precioenOC * 1.30;
+                    break;
+                }
+            }
+
+            if (precioenOC < precionormal)
+            {
+                precioSugerido = precionormal;
+            }
+            else precioSugerido = precioenOC;
+            return precioSugerido;
+        }
+    }   
             
 }

@@ -37,7 +37,6 @@ namespace Datos
 
         #endregion
 
-
         #region Métodos
         public List <CM_Catalogo> ObtenerProductos()
         {

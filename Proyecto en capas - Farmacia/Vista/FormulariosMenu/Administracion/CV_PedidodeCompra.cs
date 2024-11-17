@@ -21,6 +21,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Sesion;
+using iText.StyledXmlParser.Node;
 
 namespace Vista.FormulariosMenu
 {
@@ -340,6 +341,32 @@ namespace Vista.FormulariosMenu
         }
         private void generarPDF(int Pc)
         {
+            CServ_CrearPDF.ImgFarmacia = Properties.Resources.FarmaciaPasteur;
+            CServ_CrearPDF.ImgFarmatic= Properties.Resources.farmaTic_logo;
+            CServ_CrearPDF.OC= Pc;
+            CServ_CrearPDF.Fecha = DateTime.Today;
+
+            List<CL_PedidodeCompra> ItemsOCDef = PedidodeCompra.ProductosPorProveedor;
+            CServ_CrearPDF.ListadeItemsPC.Clear();
+            foreach (var item in ItemsOCDef)
+            {
+
+                CM_PedidosdeCompra catalogo = new CM_PedidosdeCompra
+                {
+                    ID_Producto = Convert.ToInt32(item.ID_Producto),
+                    NombreComercial = item.NombreComercial,
+                    Monodroga = item.Monodroga,
+                    Marca = item.Marca,
+                    Proveedor= item.Proveedor,
+                    Cantidad = Convert.ToInt32(item.Cantidad),
+                    PrecioUnitario = Convert.ToDouble(item.Precio),
+                    Subtotal = Convert.ToDouble(item.Subtotal),
+                };
+                CServ_CrearPDF.ListadeItemsPC.Add(catalogo);
+            }
+            CServ_CrearPDF.GenerarPDF(4);
+            CServ_CrearPDF.ListadeItemsPC.Clear();/*
+
             try
             {
                 SaveFileDialog guardar = new SaveFileDialog();
@@ -384,11 +411,28 @@ namespace Vista.FormulariosMenu
             {
 
                 throw new Exception("La compra se ha realizado con éxito pero no se ha podido generar el PDF. Por favor, contáctes con el proveedor del sistema");
-            }
+            }*/
         }
         private string cargarDatosPDF(string PDFhtml, int oc)
         {
             List<CL_PedidodeCompra> ItemsOCDef = PedidodeCompra.ProductosPorProveedor;
+            CServ_CrearPDF.ListadeItemsPC.Clear();
+            foreach (var item in ItemsOCDef)
+            {
+
+                CM_PedidosdeCompra catalogo = new CM_PedidosdeCompra
+                {
+                    ID_Producto = Convert.ToInt32(item.ID_Producto),
+                    NombreComercial = item.NombreComercial,
+                    Monodroga = item.Monodroga,
+                    Marca = item.Marca,
+                    Proveedor= item.Proveedor,
+                    Cantidad = Convert.ToInt32(item.Cantidad),
+                    PrecioUnitario = Convert.ToDouble(item.Precio),
+                    Subtotal = Convert.ToDouble(item.Subtotal),
+                };
+                CServ_CrearPDF.ListadeItemsPC.Add(catalogo);
+            }
 
             PDFhtml = PDFhtml.Replace("@OC", "Pedido de Compra");
             PDFhtml = PDFhtml.Replace("@NUMERO", oc.ToString());
@@ -414,6 +458,8 @@ namespace Vista.FormulariosMenu
 
 
             string FilaProductos = "";
+            PDFhtml = PDFhtml.Replace("@Total", "Total pedido de Compra");
+
             foreach (var producto in ItemsOCDef)
             {
                 FilaProductos += "<tr>";
@@ -429,8 +475,9 @@ namespace Vista.FormulariosMenu
             PDFhtml = PDFhtml.Replace("@Items", FilaProductos);
             PDFhtml = PDFhtml.Replace("@TotOC", totalProveedor.ToString("#,##0.00"));
 
+            DateTime fecha= DateTime.Today;
             PDFhtml = PDFhtml.Replace("@Usuario", CM_DatosOCDefinitiva.NombreApellido.ToString());
-            PDFhtml = PDFhtml.Replace("@AutoFecha", CM_DatosOCDefinitiva.Fecha.ToString());
+            PDFhtml = PDFhtml.Replace("@AutoFecha", fecha.ToString());
             CM_DatosOCDefinitiva.LimpiarDatos(true);
 
             return PDFhtml;

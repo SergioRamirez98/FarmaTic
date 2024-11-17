@@ -36,8 +36,8 @@ namespace Vista.FormulariosMenu
         private void CV_CatalogoProductos_Load(object sender, EventArgs e)
         {
             configurarDTGV();
-            mostrarProductos();
             configurarLoad();
+            mostrarProductos();
             cargarPermisos();
         }
         private void Btn_Agregar_Click(object sender, EventArgs e)
@@ -51,8 +51,8 @@ namespace Vista.FormulariosMenu
                         pasarDatos(false);
                         Catalogo.InsertarProducto();
                         CServ_MsjUsuario.Exito("El producto fue ingresado exitosamente.");
-                        mostrarProductos();
                         CServ_Limpiar.LimpiarFormulario(this);
+                        mostrarProductos();
 
                     }
                     catch (Exception ex)
@@ -63,7 +63,7 @@ namespace Vista.FormulariosMenu
                 }
                 else
                 {
-                    if (CServ_MsjUsuario.Preguntar("El producto ya existe. ¿Desea actualizar el producto existente?") == true)
+                    if (CServ_MsjUsuario.Preguntar("El producto ya existe. ¿Desea modificarlo?") == true)
                     {
                         try
                         {
@@ -75,6 +75,23 @@ namespace Vista.FormulariosMenu
 
                             CServ_MsjUsuario.MensajesDeError(ex.Message);
                         }
+                    }
+                    else if (CServ_MsjUsuario.Preguntar("El producto ya existe. ¿Desea agregarlo como producto con promoción/descuento?") == true)
+                    {
+                        try
+                        {
+                            pasarDatos(false);
+                            Catalogo.InsertarProducto();
+                            CServ_MsjUsuario.Exito("El producto fue ingresado exitosamente.");
+                            CServ_Limpiar.LimpiarFormulario(this);
+                            mostrarProductos();
+                        }
+                        catch (Exception ex)
+                        {
+
+                            CServ_MsjUsuario.MensajesDeError(ex.Message);
+                        }
+
                     }
                 }
             }
@@ -192,8 +209,6 @@ namespace Vista.FormulariosMenu
         }
         #endregion
 
-
-
         #region Métodos
 
         private void configurarDTGV()
@@ -257,8 +272,7 @@ namespace Vista.FormulariosMenu
                         break;
                     case 50:
                         Eliminar= true;
-                        break;
-                    
+                        break;                    
                 }
             }
         }
@@ -269,7 +283,6 @@ namespace Vista.FormulariosMenu
             Catalogo.Marca = Txb_Marca.Text;
             Catalogo.ID_Proveedor = ID_Proveedor.ToString();
             Catalogo.ID_Producto = ID_Producto.ToString();
-
 
             if (busqueda)
             {
