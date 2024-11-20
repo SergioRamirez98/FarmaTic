@@ -77,14 +77,14 @@
             // 
             // Nud_Cantidad
             // 
-            this.Nud_Cantidad.Location = new System.Drawing.Point(1508, 200);
+            this.Nud_Cantidad.Location = new System.Drawing.Point(1448, 200);
             this.Nud_Cantidad.Name = "Nud_Cantidad";
             this.Nud_Cantidad.Size = new System.Drawing.Size(94, 22);
             this.Nud_Cantidad.TabIndex = 4;
             // 
             // Btn_AgregarCompra
             // 
-            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1508, 256);
+            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1448, 256);
             this.Btn_AgregarCompra.Name = "Btn_AgregarCompra";
             this.Btn_AgregarCompra.Size = new System.Drawing.Size(94, 55);
             this.Btn_AgregarCompra.TabIndex = 5;
@@ -94,7 +94,7 @@
             // 
             // Btn_EliminardeCompra
             // 
-            this.Btn_EliminardeCompra.Location = new System.Drawing.Point(1508, 351);
+            this.Btn_EliminardeCompra.Location = new System.Drawing.Point(1448, 475);
             this.Btn_EliminardeCompra.Name = "Btn_EliminardeCompra";
             this.Btn_EliminardeCompra.Size = new System.Drawing.Size(94, 55);
             this.Btn_EliminardeCompra.TabIndex = 6;
@@ -104,7 +104,7 @@
             // 
             // Btn_FinalizarCompra
             // 
-            this.Btn_FinalizarCompra.Location = new System.Drawing.Point(1508, 466);
+            this.Btn_FinalizarCompra.Location = new System.Drawing.Point(1448, 590);
             this.Btn_FinalizarCompra.Name = "Btn_FinalizarCompra";
             this.Btn_FinalizarCompra.Size = new System.Drawing.Size(94, 55);
             this.Btn_FinalizarCompra.TabIndex = 7;
@@ -143,7 +143,7 @@
             // Lbl_Cantidad
             // 
             this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(1505, 159);
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(1445, 159);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
             this.Lbl_Cantidad.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Cantidad.TabIndex = 27;
@@ -186,7 +186,7 @@
             // 
             // Btn_Consultar
             // 
-            this.Btn_Consultar.Location = new System.Drawing.Point(1508, 64);
+            this.Btn_Consultar.Location = new System.Drawing.Point(1448, 64);
             this.Btn_Consultar.Name = "Btn_Consultar";
             this.Btn_Consultar.Size = new System.Drawing.Size(94, 50);
             this.Btn_Consultar.TabIndex = 3;
@@ -228,6 +228,7 @@
             this.Controls.Add(this.DTGV_Ventas);
             this.Name = "CV_Ventas";
             this.Text = "Ventas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_Ventas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).EndInit();

@@ -49,13 +49,13 @@
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Chb_IIBB = new System.Windows.Forms.CheckBox();
             this.Pnl_DatosProveedores = new System.Windows.Forms.Panel();
+            this.Cmb_Localidad = new System.Windows.Forms.ComboBox();
+            this.Lbl_Localidad = new System.Windows.Forms.Label();
             this.Txb_Mail = new System.Windows.Forms.TextBox();
             this.Lbl_Mail = new System.Windows.Forms.Label();
             this.Cmb_IVA = new System.Windows.Forms.ComboBox();
             this.Lbl_IIBB = new System.Windows.Forms.Label();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
-            this.Cmb_Localidad = new System.Windows.Forms.ComboBox();
-            this.Lbl_Localidad = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Proveedores)).BeginInit();
             this.Pnl_DatosProveedores.SuspendLayout();
             this.SuspendLayout();
@@ -265,6 +265,23 @@
             this.Pnl_DatosProveedores.Size = new System.Drawing.Size(598, 199);
             this.Pnl_DatosProveedores.TabIndex = 22;
             // 
+            // Cmb_Localidad
+            // 
+            this.Cmb_Localidad.FormattingEnabled = true;
+            this.Cmb_Localidad.Location = new System.Drawing.Point(388, 58);
+            this.Cmb_Localidad.Name = "Cmb_Localidad";
+            this.Cmb_Localidad.Size = new System.Drawing.Size(182, 24);
+            this.Cmb_Localidad.TabIndex = 6;
+            // 
+            // Lbl_Localidad
+            // 
+            this.Lbl_Localidad.AutoSize = true;
+            this.Lbl_Localidad.Location = new System.Drawing.Point(315, 58);
+            this.Lbl_Localidad.Name = "Lbl_Localidad";
+            this.Lbl_Localidad.Size = new System.Drawing.Size(67, 16);
+            this.Lbl_Localidad.TabIndex = 20;
+            this.Lbl_Localidad.Text = "Localidad";
+            // 
             // Txb_Mail
             // 
             this.Txb_Mail.Location = new System.Drawing.Point(388, 92);
@@ -308,23 +325,6 @@
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
             this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
             // 
-            // Cmb_Localidad
-            // 
-            this.Cmb_Localidad.FormattingEnabled = true;
-            this.Cmb_Localidad.Location = new System.Drawing.Point(388, 58);
-            this.Cmb_Localidad.Name = "Cmb_Localidad";
-            this.Cmb_Localidad.Size = new System.Drawing.Size(182, 24);
-            this.Cmb_Localidad.TabIndex = 6;
-            // 
-            // Lbl_Localidad
-            // 
-            this.Lbl_Localidad.AutoSize = true;
-            this.Lbl_Localidad.Location = new System.Drawing.Point(315, 58);
-            this.Lbl_Localidad.Name = "Lbl_Localidad";
-            this.Lbl_Localidad.Size = new System.Drawing.Size(67, 16);
-            this.Lbl_Localidad.TabIndex = 20;
-            this.Lbl_Localidad.Text = "Localidad";
-            // 
             // CV_GestionProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -340,6 +340,7 @@
             this.Controls.Add(this.DTGV_Proveedores);
             this.Name = "CV_GestionProveedores";
             this.Text = "Gestión Proveedores";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_GestionProveedores_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Proveedores)).EndInit();
             this.Pnl_DatosProveedores.ResumeLayout(false);

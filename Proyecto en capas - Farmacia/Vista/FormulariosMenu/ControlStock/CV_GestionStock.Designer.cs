@@ -526,6 +526,7 @@
             this.Name = "CV_Stock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de inventario";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_GestionStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).EndInit();
             this.Pnl_Busqueda.ResumeLayout(false);

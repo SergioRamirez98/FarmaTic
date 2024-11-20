@@ -443,6 +443,7 @@
             this.Controls.Add(this.DTGV_Catalogo);
             this.Name = "CV_CatalogoProductos";
             this.Text = "Catalogo";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_CatalogoProductos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Catalogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_UnidadporLote)).EndInit();

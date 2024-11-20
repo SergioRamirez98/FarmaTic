@@ -455,6 +455,7 @@
             this.Controls.Add(this.Pnb_RegistroUsuario);
             this.Name = "CV_AltaUsuario";
             this.Text = "Alta usuario";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_AltaUsuario_Load);
             this.Pnb_RegistroUsuario.ResumeLayout(false);
             this.Pnb_RegistroUsuario.PerformLayout();

@@ -96,8 +96,16 @@ namespace Vista
         {
             if (AsociarUsuario)
             {
-                CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
-                altaUsuario.Show();
+                Form FrmOpen = Application.OpenForms["CV_AltaUsuario"];
+                if (FrmOpen == null)
+                {
+                    CV_AltaUsuario stock = new CV_AltaUsuario(ID_Persona);
+                    stock.MdiParent = this;
+                    stock.Show();
+                }
+                /*
+                  CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
+                  altaUsuario.Show();*/
             }
             else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
@@ -290,6 +298,8 @@ namespace Vista
             Txb_PersonaSeleccionada.Enabled = false;
             Rbt_Cliente.Enabled = false;
             Rbt_Usuario.Enabled = false;
+            Rbt_Cliente.Visible= false;
+            Rbt_Usuario.Visible = false;
 
             Btn_Modificar.Enabled = false;
             Btn_Eliminar.Enabled = false;

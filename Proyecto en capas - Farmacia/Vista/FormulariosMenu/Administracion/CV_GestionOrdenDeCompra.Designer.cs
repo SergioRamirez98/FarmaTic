@@ -122,7 +122,7 @@
             this.Txb_Buscar.Click += new System.EventHandler(this.Txb_Buscar_Click);
             this.Txb_Buscar.TextChanged += new System.EventHandler(this.Txb_Buscar_TextChanged);
             // 
-            // CV_OrdenDeCompra
+            // CV_GestionOrdenDeCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -135,8 +135,9 @@
             this.Controls.Add(this.Btn_Descartar);
             this.Controls.Add(this.Btn_ConfTotal);
             this.Controls.Add(this.DTGV_Pedidos);
-            this.Name = "CV_OrdenDeCompra";
+            this.Name = "CV_GestionOrdenDeCompra";
             this.Text = "Visualizador de Pedidos de Compra";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_OrdenDeCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Pedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_OC)).EndInit();

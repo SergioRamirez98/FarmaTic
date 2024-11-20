@@ -195,6 +195,7 @@
             this.Controls.Add(this.Pnl_Graficos);
             this.Name = "CV_Informes";
             this.Text = "CV_Informes";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_Informes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Grafico)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Datos)).EndInit();

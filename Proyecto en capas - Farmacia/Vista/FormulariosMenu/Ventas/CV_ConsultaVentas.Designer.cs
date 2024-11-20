@@ -190,6 +190,7 @@
             this.Controls.Add(this.Txb_Cliente);
             this.Name = "CV_ConsultaVentas";
             this.Text = "Consulta de ventas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_ConsultaVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_BusqVentas)).EndInit();
             this.ResumeLayout(false);

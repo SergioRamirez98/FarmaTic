@@ -142,6 +142,7 @@
             this.Controls.Add(this.DTGV_Catalogo);
             this.Name = "CV_PedidodeCompra";
             this.Text = "Gestion de Pedidos de compra";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_OrdendeCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Catalogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).EndInit();

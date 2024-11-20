@@ -83,7 +83,7 @@ namespace Servicios
                         break;
                     case 4:
                         carpetaEspecifica = Path.Combine(carpetaBase, "Pedidos de Compra");
-                        nombreArchivo = "PC N° " + ID_Venta.ToString() + ".pdf";
+                        nombreArchivo = "PC N° " + OC.ToString() + ".pdf";
                         RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
                         break;
                 }

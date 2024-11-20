@@ -920,6 +920,7 @@
             this.Name = "CV_GestionUsuariosPersonas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modulo de gestión de usuarios y personas";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_AgregarPersona_Load);
             this.Pnb_RegistroPersona.ResumeLayout(false);
             this.Pnb_RegistroPersona.PerformLayout();
