@@ -83,6 +83,16 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Administracion {
+            get {
+                object obj = ResourceManager.GetObject("Administracion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FarmaciaPasteur {
             get {
                 object obj = ResourceManager.GetObject("FarmaciaPasteur", resourceCulture);
@@ -123,9 +133,9 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap icons8_añadir_usuario_masculino_40 {
+        internal static System.Drawing.Bitmap icons8_registration_20 {
             get {
-                object obj = ResourceManager.GetObject("icons8-añadir-usuario-masculino-40", resourceCulture);
+                object obj = ResourceManager.GetObject("icons8-registration-20", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

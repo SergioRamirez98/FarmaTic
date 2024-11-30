@@ -475,7 +475,7 @@
             this.Pnb_RegistroCliente.Controls.Add(this.Lbl_FeAltaCliente);
             this.Pnb_RegistroCliente.Controls.Add(this.Lbl_ComentarioCliente);
             this.Pnb_RegistroCliente.Controls.Add(this.Txb_ComentarioCliente);
-            this.Pnb_RegistroCliente.Location = new System.Drawing.Point(927, 308);
+            this.Pnb_RegistroCliente.Location = new System.Drawing.Point(15, 340);
             this.Pnb_RegistroCliente.Margin = new System.Windows.Forms.Padding(4);
             this.Pnb_RegistroCliente.Name = "Pnb_RegistroCliente";
             this.Pnb_RegistroCliente.Size = new System.Drawing.Size(893, 168);
@@ -900,7 +900,7 @@
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Pregunta3);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Respuesta1);
             this.Pnb_RegistroUsuario.Controls.Add(this.Txb_Pregunta1);
-            this.Pnb_RegistroUsuario.Location = new System.Drawing.Point(15, 340);
+            this.Pnb_RegistroUsuario.Location = new System.Drawing.Point(933, 226);
             this.Pnb_RegistroUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.Pnb_RegistroUsuario.Name = "Pnb_RegistroUsuario";
             this.Pnb_RegistroUsuario.Size = new System.Drawing.Size(893, 368);
@@ -910,7 +910,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1768, 686);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(927, 516);
             this.Controls.Add(this.Pnb_RegistroCliente);
             this.Controls.Add(this.Pnb_RegistroUsuario);
             this.Controls.Add(this.Pnb_RegistroPersona);

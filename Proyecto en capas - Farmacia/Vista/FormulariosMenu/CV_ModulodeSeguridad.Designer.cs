@@ -147,7 +147,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(556, 249);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
+            this.ClientSize = new System.Drawing.Size(834, 548);
             this.Controls.Add(this.Btn_Bitacora);
             this.Controls.Add(this.Lbl_CantIntentosFallidos);
             this.Controls.Add(this.Nud_CantidadIntentosFallidos);
@@ -161,6 +162,7 @@
             this.Name = "CV_ModulodeSeguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración de seguridad";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_Configuracion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantidadIntentosFallidos)).EndInit();
             this.ResumeLayout(false);

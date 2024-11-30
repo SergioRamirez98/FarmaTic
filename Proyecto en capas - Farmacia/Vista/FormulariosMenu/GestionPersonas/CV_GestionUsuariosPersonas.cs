@@ -95,19 +95,21 @@ namespace Vista
         private void Btn_AsociarUsuario_Click(object sender, EventArgs e)
         {
             if (AsociarUsuario)
-            {
+            {                
                 Form FrmOpen = Application.OpenForms["CV_AltaUsuario"];
                 if (FrmOpen == null)
                 {
-                    CV_AltaUsuario stock = new CV_AltaUsuario(ID_Persona);
-                    stock.MdiParent = this;
-                    stock.Show();
+                    CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
+                    altaUsuario.MdiParent = (CV_Menu)this.MdiParent;
+                    altaUsuario.Show();
                 }
-                /*
-                  CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
-                  altaUsuario.Show();*/
+                else FrmOpen.BringToFront();
+                
             }
-            else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            else
+            {
+                CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
+            }
         }
         private void Btn_AsociarCliente_Click(object sender, EventArgs e)
         {
@@ -246,6 +248,7 @@ namespace Vista
             CV_SeleccionarPersona SeleccionarPersona = new CV_SeleccionarPersona();
             SeleccionarPersona.PersonaSeleccionada += new CV_SeleccionarPersona.PersonaSeleccionadaHandler(seleccionPersona);
             SeleccionarPersona.ShowDialog();
+            
         }
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {

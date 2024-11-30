@@ -38,10 +38,10 @@
             this.DTGV_PermisosRestantes = new System.Windows.Forms.DataGridView();
             this.Btn_Funcion = new System.Windows.Forms.Button();
             this.Gpb_Permisos = new System.Windows.Forms.GroupBox();
+            this.Txb_BuscarPermisoRestante = new System.Windows.Forms.TextBox();
+            this.Txb_BuscarPermisoActual = new System.Windows.Forms.TextBox();
             this.Rbt_Grupo = new System.Windows.Forms.RadioButton();
             this.Rbt_Usuario = new System.Windows.Forms.RadioButton();
-            this.Txb_BuscarPermisoActual = new System.Windows.Forms.TextBox();
-            this.Txb_BuscarPermisoRestante = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_FamiliaUsuario)).BeginInit();
@@ -162,6 +162,22 @@
             this.Gpb_Permisos.TabStop = false;
             this.Gpb_Permisos.Text = "Permisos para los usuarios";
             // 
+            // Txb_BuscarPermisoRestante
+            // 
+            this.Txb_BuscarPermisoRestante.Location = new System.Drawing.Point(882, 32);
+            this.Txb_BuscarPermisoRestante.Name = "Txb_BuscarPermisoRestante";
+            this.Txb_BuscarPermisoRestante.Size = new System.Drawing.Size(100, 22);
+            this.Txb_BuscarPermisoRestante.TabIndex = 28;
+            this.Txb_BuscarPermisoRestante.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoRestante_TextChanged);
+            // 
+            // Txb_BuscarPermisoActual
+            // 
+            this.Txb_BuscarPermisoActual.Location = new System.Drawing.Point(423, 42);
+            this.Txb_BuscarPermisoActual.Name = "Txb_BuscarPermisoActual";
+            this.Txb_BuscarPermisoActual.Size = new System.Drawing.Size(100, 22);
+            this.Txb_BuscarPermisoActual.TabIndex = 27;
+            this.Txb_BuscarPermisoActual.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoActual_TextChanged);
+            // 
             // Rbt_Grupo
             // 
             this.Rbt_Grupo.AutoSize = true;
@@ -186,26 +202,11 @@
             this.Rbt_Usuario.UseVisualStyleBackColor = true;
             this.Rbt_Usuario.CheckedChanged += new System.EventHandler(this.Rbt_Usuario_CheckedChanged);
             // 
-            // Txb_BuscarPermisoActual
-            // 
-            this.Txb_BuscarPermisoActual.Location = new System.Drawing.Point(423, 42);
-            this.Txb_BuscarPermisoActual.Name = "Txb_BuscarPermisoActual";
-            this.Txb_BuscarPermisoActual.Size = new System.Drawing.Size(100, 22);
-            this.Txb_BuscarPermisoActual.TabIndex = 27;
-            this.Txb_BuscarPermisoActual.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoActual_TextChanged);
-            // 
-            // Txb_BuscarPermisoRestante
-            // 
-            this.Txb_BuscarPermisoRestante.Location = new System.Drawing.Point(882, 32);
-            this.Txb_BuscarPermisoRestante.Name = "Txb_BuscarPermisoRestante";
-            this.Txb_BuscarPermisoRestante.Size = new System.Drawing.Size(100, 22);
-            this.Txb_BuscarPermisoRestante.TabIndex = 28;
-            this.Txb_BuscarPermisoRestante.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoRestante_TextChanged);
-            // 
             // CV_ConfiguracionSistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1222, 450);
             this.Controls.Add(this.Gpb_Permisos);
             this.Controls.Add(this.Btn_Guardar);

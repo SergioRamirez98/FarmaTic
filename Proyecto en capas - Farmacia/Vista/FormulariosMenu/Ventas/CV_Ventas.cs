@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using Modelo;
+using Vista.FormulariosMenu.GestionPersonas;
 
 namespace Vista.FormulariosMenu
 {
@@ -159,8 +160,25 @@ namespace Vista.FormulariosMenu
         {
             if (ConsultarVenta)
             {
-                CV_ConsultaVentas consulta = new CV_ConsultaVentas();
-                consulta.Show();
+                Form FrmOpen = Application.OpenForms["CV_ConsultaVentas"];
+                if (FrmOpen == null)
+                {
+                    CV_ConsultaVentas consulta = new CV_ConsultaVentas();
+                    consulta.MdiParent = (CV_Menu)this.MdiParent;
+                    CV_Menu Menu = this.MdiParent as CV_Menu;
+
+                    if (Menu != null)
+                    {                       
+                        consulta.MdiParent = Menu;                        
+                        Menu.Size = new Size(
+                            consulta.Width,
+                            consulta.Height
+                        );
+                        consulta.Show();
+                    }
+
+                }
+                else FrmOpen.BringToFront();
             }
             else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
