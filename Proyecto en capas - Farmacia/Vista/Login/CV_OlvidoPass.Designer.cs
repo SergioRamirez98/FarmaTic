@@ -38,13 +38,13 @@
             this.Lbl_UserName = new System.Windows.Forms.Label();
             this.Gpb_PregSeg = new System.Windows.Forms.GroupBox();
             this.Lbl_Pregunta3 = new System.Windows.Forms.Label();
-            this.Lbl_Respuesta3 = new System.Windows.Forms.Label();
             this.Lbl_Pregunta2 = new System.Windows.Forms.Label();
+            this.Lbl_Pregunta1 = new System.Windows.Forms.Label();
+            this.Lbl_Respuesta3 = new System.Windows.Forms.Label();
             this.Lbl_Respuesta2 = new System.Windows.Forms.Label();
             this.Lbl_PregGuardada = new System.Windows.Forms.Label();
-            this.Btn_Guardar = new System.Windows.Forms.Button();
             this.Lbl_Respuesta1 = new System.Windows.Forms.Label();
-            this.Lbl_Pregunta1 = new System.Windows.Forms.Label();
+            this.Btn_Guardar = new System.Windows.Forms.Button();
             this.Btn_GuardarPass = new System.Windows.Forms.Button();
             this.Txb_Pass = new System.Windows.Forms.TextBox();
             this.Txb_ConfPass = new System.Windows.Forms.TextBox();
@@ -159,15 +159,6 @@
             this.Lbl_Pregunta3.TabIndex = 14;
             this.Lbl_Pregunta3.Text = "Pregunta";
             // 
-            // Lbl_Respuesta3
-            // 
-            this.Lbl_Respuesta3.AutoSize = true;
-            this.Lbl_Respuesta3.Location = new System.Drawing.Point(15, 209);
-            this.Lbl_Respuesta3.Name = "Lbl_Respuesta3";
-            this.Lbl_Respuesta3.Size = new System.Drawing.Size(73, 16);
-            this.Lbl_Respuesta3.TabIndex = 17;
-            this.Lbl_Respuesta3.Text = "Respuesta";
-            // 
             // Lbl_Pregunta2
             // 
             this.Lbl_Pregunta2.AutoSize = true;
@@ -176,6 +167,24 @@
             this.Lbl_Pregunta2.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Pregunta2.TabIndex = 13;
             this.Lbl_Pregunta2.Text = "Pregunta";
+            // 
+            // Lbl_Pregunta1
+            // 
+            this.Lbl_Pregunta1.AutoSize = true;
+            this.Lbl_Pregunta1.Location = new System.Drawing.Point(15, 38);
+            this.Lbl_Pregunta1.Name = "Lbl_Pregunta1";
+            this.Lbl_Pregunta1.Size = new System.Drawing.Size(61, 16);
+            this.Lbl_Pregunta1.TabIndex = 12;
+            this.Lbl_Pregunta1.Text = "Pregunta";
+            // 
+            // Lbl_Respuesta3
+            // 
+            this.Lbl_Respuesta3.AutoSize = true;
+            this.Lbl_Respuesta3.Location = new System.Drawing.Point(15, 209);
+            this.Lbl_Respuesta3.Name = "Lbl_Respuesta3";
+            this.Lbl_Respuesta3.Size = new System.Drawing.Size(73, 16);
+            this.Lbl_Respuesta3.TabIndex = 17;
+            this.Lbl_Respuesta3.Text = "Respuesta";
             // 
             // Lbl_Respuesta2
             // 
@@ -196,16 +205,6 @@
             this.Lbl_PregGuardada.Text = "Guardado con éxito";
             this.Lbl_PregGuardada.Visible = false;
             // 
-            // Btn_Guardar
-            // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(182, 243);
-            this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(122, 29);
-            this.Btn_Guardar.TabIndex = 8;
-            this.Btn_Guardar.Text = "Guardar";
-            this.Btn_Guardar.UseVisualStyleBackColor = true;
-            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
-            // 
             // Lbl_Respuesta1
             // 
             this.Lbl_Respuesta1.AutoSize = true;
@@ -215,14 +214,15 @@
             this.Lbl_Respuesta1.TabIndex = 15;
             this.Lbl_Respuesta1.Text = "Respuesta";
             // 
-            // Lbl_Pregunta1
+            // Btn_Guardar
             // 
-            this.Lbl_Pregunta1.AutoSize = true;
-            this.Lbl_Pregunta1.Location = new System.Drawing.Point(15, 38);
-            this.Lbl_Pregunta1.Name = "Lbl_Pregunta1";
-            this.Lbl_Pregunta1.Size = new System.Drawing.Size(61, 16);
-            this.Lbl_Pregunta1.TabIndex = 12;
-            this.Lbl_Pregunta1.Text = "Pregunta";
+            this.Btn_Guardar.Location = new System.Drawing.Point(182, 243);
+            this.Btn_Guardar.Name = "Btn_Guardar";
+            this.Btn_Guardar.Size = new System.Drawing.Size(122, 29);
+            this.Btn_Guardar.TabIndex = 8;
+            this.Btn_Guardar.Text = "Guardar";
+            this.Btn_Guardar.UseVisualStyleBackColor = true;
+            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
             // Btn_GuardarPass
             // 
@@ -362,6 +362,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(648, 652);
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.Pnl_GuardarPass);

@@ -216,6 +216,7 @@
             this.Controls.Add(this.Nud_VtoProd);
             this.Name = "CV_ConfiguracionSistema";
             this.Text = "Configuracion Sistema";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_ConfiguracionSistema_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).EndInit();

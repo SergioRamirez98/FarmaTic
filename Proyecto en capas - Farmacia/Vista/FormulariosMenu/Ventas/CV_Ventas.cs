@@ -51,6 +51,7 @@ namespace Vista.FormulariosMenu
             configurarDTGV();
             configurarLoad();
             cargarPermisos();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }
         private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
         {

@@ -388,18 +388,8 @@ namespace Vista
         private void TimerVerificarCursor_Tick(object sender, EventArgs e)
         {
             if (this.IsDisposed) return;
-
-            
             Point posicionCursor = this.PointToClient(Cursor.Position);
-
-            //Rectangle areaFormulario = this.ClientRectangle;
             Rectangle areaMenu = Pnl_Principal.Bounds;
-
-            //Rectangle areaMenuLimitada = new Rectangle(areaMenu.Left, areaMenu.Top,35, areaMenu.Height);
-
-            //bool cursorEnFormulario = posicionCursor.X >= 0 && posicionCursor.X <= areaFormulario.Width &&
-            //                           posicionCursor.Y >= 0 && posicionCursor.Y <= areaFormulario.Height;
-
             bool cursorEnMargenIzquierdo = posicionCursor.X <= 20;
             bool cursorEnAreaMenu = areaMenu.Contains(posicionCursor);
             if (cursorEnMargenIzquierdo || PanelSecundario)
@@ -457,10 +447,15 @@ namespace Vista
             Btn_OrdendeCompra.Visible = false;
             Btn_Informes.Visible = false;
         }
-        private void configurarFormulario(Form padre, Form Hijo) 
+        public void configurarFormulario(Form padre, Form Hijo) 
         {
             padre.Width = Hijo.Width;
-            padre.Height = Hijo.Height;
+            if (padre.Height < Hijo.Height) { padre.Height = Hijo.Height; Pnl_Principal.Height = Hijo.Height; }
+            else
+            {
+                padre.Height = padre.Height;
+                Pnl_Principal.Height = padre.Height;
+            }
             PanelSecundario = false;
         }
 
@@ -603,6 +598,71 @@ namespace Vista
             Btn_PedidodeCompra.Visible = false;
             Btn_OrdendeCompra.Visible = false;
             Btn_Informes.Visible = false;
+        }
+
+        private void Btn_Proveedores_Click(object sender, EventArgs e)
+        {
+            Form FrmOpen = Application.OpenForms["CV_GestionProveedores"];
+            if (FrmOpen == null)
+            {
+                CV_GestionProveedores Proveedores = new CV_GestionProveedores();
+                configurarFormulario(this, Proveedores);
+                Proveedores.MdiParent = this;
+                Proveedores.Show();
+            }
+
+        }
+
+        private void Btn_PedidodeCompra_Click(object sender, EventArgs e)
+        {
+
+            Form FrmOpen = Application.OpenForms["CV_PedidodeCompra"];
+            if (FrmOpen == null)
+            {
+                CV_PedidodeCompra PC = new CV_PedidodeCompra();
+                configurarFormulario(this, PC);
+                PC.MdiParent = this;
+                PC.Show();
+            }
+        }
+
+        private void Btn_OrdendeCompra_Click(object sender, EventArgs e)
+        {
+
+            Form FrmOpen = Application.OpenForms["CV_GestionOrdenDeCompra"];
+            if (FrmOpen == null)
+            {
+                CV_GestionOrdenDeCompra oc = new CV_GestionOrdenDeCompra();
+                configurarFormulario(this, oc);
+                oc.MdiParent = this;
+                oc.Show();
+            }
+        }
+
+        private void Btn_Catalogo_Click(object sender, EventArgs e)
+        {
+
+            Form FrmOpen = Application.OpenForms["CV_CatalogoProductos"];
+            if (FrmOpen == null)
+            {
+                CV_CatalogoProductos Catalogo = new CV_CatalogoProductos();
+                configurarFormulario(this, Catalogo);
+                Catalogo.MdiParent = this;
+                Catalogo.Show();
+            }
+        }
+
+        private void Btn_Informes_Click(object sender, EventArgs e)
+        {
+
+            Form FrmOpen = Application.OpenForms["CV_Informes"];
+            if (FrmOpen == null)
+            {
+                CV_Informes Informes = new CV_Informes();
+                configurarFormulario(this, Informes);
+                Informes.MdiParent = this;
+                Informes.Show();
+            }
         }
     }
 }

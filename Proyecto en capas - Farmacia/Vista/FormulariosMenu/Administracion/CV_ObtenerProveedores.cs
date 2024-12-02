@@ -30,6 +30,7 @@ namespace Vista.FormulariosMenu
             configurarLoad();
             configurarDTGV();
             cargarDTGV();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }
         private void DTGV_SeleccionProveedores_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {            

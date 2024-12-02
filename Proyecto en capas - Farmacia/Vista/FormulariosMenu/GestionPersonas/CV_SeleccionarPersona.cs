@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -39,6 +40,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
         {
             cargarDTVG();
             configurarDTGV();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }
         private void DTGV_SeleccionarPersona_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

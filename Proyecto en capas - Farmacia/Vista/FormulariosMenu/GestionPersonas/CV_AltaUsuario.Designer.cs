@@ -104,7 +104,7 @@
             this.Pnb_RegistroUsuario.Location = new System.Drawing.Point(54, 58);
             this.Pnb_RegistroUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.Pnb_RegistroUsuario.Name = "Pnb_RegistroUsuario";
-            this.Pnb_RegistroUsuario.Size = new System.Drawing.Size(893, 368);
+            this.Pnb_RegistroUsuario.Size = new System.Drawing.Size(893, 379);
             this.Pnb_RegistroUsuario.TabIndex = 38;
             // 
             // Btn_Eliminar
@@ -449,7 +449,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1050, 450);
+            this.ClientSize = new System.Drawing.Size(1050, 461);
             this.Controls.Add(this.Btn_Refrescar);
             this.Controls.Add(this.btn_SeleccionarPersona);
             this.Controls.Add(this.Txb_Persona);

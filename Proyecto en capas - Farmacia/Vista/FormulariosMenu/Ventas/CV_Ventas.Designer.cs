@@ -86,7 +86,7 @@
             // 
             this.Btn_AgregarCompra.Location = new System.Drawing.Point(1448, 256);
             this.Btn_AgregarCompra.Name = "Btn_AgregarCompra";
-            this.Btn_AgregarCompra.Size = new System.Drawing.Size(94, 55);
+            this.Btn_AgregarCompra.Size = new System.Drawing.Size(104, 45);
             this.Btn_AgregarCompra.TabIndex = 5;
             this.Btn_AgregarCompra.Text = "Agregar a la compra";
             this.Btn_AgregarCompra.UseVisualStyleBackColor = true;
@@ -96,7 +96,7 @@
             // 
             this.Btn_EliminardeCompra.Location = new System.Drawing.Point(1448, 475);
             this.Btn_EliminardeCompra.Name = "Btn_EliminardeCompra";
-            this.Btn_EliminardeCompra.Size = new System.Drawing.Size(94, 55);
+            this.Btn_EliminardeCompra.Size = new System.Drawing.Size(104, 45);
             this.Btn_EliminardeCompra.TabIndex = 6;
             this.Btn_EliminardeCompra.Text = "Eliminar de la compra";
             this.Btn_EliminardeCompra.UseVisualStyleBackColor = true;
@@ -106,7 +106,7 @@
             // 
             this.Btn_FinalizarCompra.Location = new System.Drawing.Point(1448, 590);
             this.Btn_FinalizarCompra.Name = "Btn_FinalizarCompra";
-            this.Btn_FinalizarCompra.Size = new System.Drawing.Size(94, 55);
+            this.Btn_FinalizarCompra.Size = new System.Drawing.Size(104, 45);
             this.Btn_FinalizarCompra.TabIndex = 7;
             this.Btn_FinalizarCompra.Text = "Finalizar Compra";
             this.Btn_FinalizarCompra.UseVisualStyleBackColor = true;
@@ -188,7 +188,7 @@
             // 
             this.Btn_Consultar.Location = new System.Drawing.Point(1448, 64);
             this.Btn_Consultar.Name = "Btn_Consultar";
-            this.Btn_Consultar.Size = new System.Drawing.Size(94, 50);
+            this.Btn_Consultar.Size = new System.Drawing.Size(104, 40);
             this.Btn_Consultar.TabIndex = 3;
             this.Btn_Consultar.Text = "Consultar ventas";
             this.Btn_Consultar.UseVisualStyleBackColor = true;
@@ -208,6 +208,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1656, 751);
             this.Controls.Add(this.Btn_CrearCliente);
             this.Controls.Add(this.Btn_Consultar);

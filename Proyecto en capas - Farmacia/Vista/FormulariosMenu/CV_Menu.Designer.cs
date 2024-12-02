@@ -51,7 +51,7 @@
             // 
             // Btn_CerraSesion
             // 
-            this.Btn_CerraSesion.Location = new System.Drawing.Point(54, 517);
+            this.Btn_CerraSesion.Location = new System.Drawing.Point(56, 426);
             this.Btn_CerraSesion.Name = "Btn_CerraSesion";
             this.Btn_CerraSesion.Size = new System.Drawing.Size(108, 48);
             this.Btn_CerraSesion.TabIndex = 3;
@@ -282,6 +282,7 @@
             this.Btn_PedidodeCompra.Text = "Pedido de compra";
             this.Btn_PedidodeCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_PedidodeCompra.UseVisualStyleBackColor = false;
+            this.Btn_PedidodeCompra.Click += new System.EventHandler(this.Btn_PedidodeCompra_Click);
             // 
             // Btn_Proveedores
             // 
@@ -299,6 +300,7 @@
             this.Btn_Proveedores.Text = "Proveedores";
             this.Btn_Proveedores.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_Proveedores.UseVisualStyleBackColor = false;
+            this.Btn_Proveedores.Click += new System.EventHandler(this.Btn_Proveedores_Click);
             // 
             // Btn_Catalogo
             // 
@@ -316,6 +318,7 @@
             this.Btn_Catalogo.Text = "Catálogo de compras";
             this.Btn_Catalogo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_Catalogo.UseVisualStyleBackColor = false;
+            this.Btn_Catalogo.Click += new System.EventHandler(this.Btn_Catalogo_Click);
             // 
             // Btn_OrdendeCompra
             // 
@@ -333,6 +336,7 @@
             this.Btn_OrdendeCompra.Text = "Órden de compra";
             this.Btn_OrdendeCompra.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_OrdendeCompra.UseVisualStyleBackColor = false;
+            this.Btn_OrdendeCompra.Click += new System.EventHandler(this.Btn_OrdendeCompra_Click);
             // 
             // Btn_Informes
             // 
@@ -350,12 +354,13 @@
             this.Btn_Informes.Text = "Informes";
             this.Btn_Informes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_Informes.UseVisualStyleBackColor = false;
+            this.Btn_Informes.Click += new System.EventHandler(this.Btn_Informes_Click);
             // 
             // CV_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1616, 751);
+            this.ClientSize = new System.Drawing.Size(1255, 512);
             this.Controls.Add(this.Btn_Informes);
             this.Controls.Add(this.Btn_Catalogo);
             this.Controls.Add(this.Btn_OrdendeCompra);

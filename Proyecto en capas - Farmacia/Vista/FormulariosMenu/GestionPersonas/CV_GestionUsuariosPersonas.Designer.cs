@@ -235,90 +235,162 @@
             // 
             // Btn_AsociarCliente
             // 
+            this.Btn_AsociarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_AsociarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_AsociarCliente.FlatAppearance.BorderSize = 0;
+            this.Btn_AsociarCliente.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_AsociarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_AsociarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_AsociarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_AsociarCliente.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_AsociarCliente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_AsociarCliente.Location = new System.Drawing.Point(730, 262);
             this.Btn_AsociarCliente.Name = "Btn_AsociarCliente";
             this.Btn_AsociarCliente.Size = new System.Drawing.Size(131, 40);
             this.Btn_AsociarCliente.TabIndex = 16;
             this.Btn_AsociarCliente.Text = "Asociar a cliente";
-            this.Btn_AsociarCliente.UseVisualStyleBackColor = true;
+            this.Btn_AsociarCliente.UseVisualStyleBackColor = false;
             this.Btn_AsociarCliente.Click += new System.EventHandler(this.Btn_AsociarCliente_Click);
             // 
             // Btn_Eliminar
             // 
+            this.Btn_Eliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_Eliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_Eliminar.FlatAppearance.BorderSize = 0;
+            this.Btn_Eliminar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_Eliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_Eliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_Eliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Eliminar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Eliminar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Eliminar.Location = new System.Drawing.Point(730, 226);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(131, 30);
             this.Btn_Eliminar.TabIndex = 14;
             this.Btn_Eliminar.Text = "Eliminar";
-            this.Btn_Eliminar.UseVisualStyleBackColor = true;
+            this.Btn_Eliminar.UseVisualStyleBackColor = false;
             this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
             // Btn_GuardarCambios
             // 
+            this.Btn_GuardarCambios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_GuardarCambios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_GuardarCambios.FlatAppearance.BorderSize = 0;
+            this.Btn_GuardarCambios.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_GuardarCambios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_GuardarCambios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_GuardarCambios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_GuardarCambios.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_GuardarCambios.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_GuardarCambios.Location = new System.Drawing.Point(595, 226);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
             this.Btn_GuardarCambios.Size = new System.Drawing.Size(131, 30);
             this.Btn_GuardarCambios.TabIndex = 13;
             this.Btn_GuardarCambios.Text = "Guardar";
-            this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
+            this.Btn_GuardarCambios.UseVisualStyleBackColor = false;
             this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_GuardarCambios_Click);
             // 
             // Btn_AsociarUsuario
             // 
+            this.Btn_AsociarUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_AsociarUsuario.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_AsociarUsuario.FlatAppearance.BorderSize = 0;
+            this.Btn_AsociarUsuario.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_AsociarUsuario.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_AsociarUsuario.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_AsociarUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_AsociarUsuario.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_AsociarUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_AsociarUsuario.Location = new System.Drawing.Point(595, 262);
             this.Btn_AsociarUsuario.Name = "Btn_AsociarUsuario";
             this.Btn_AsociarUsuario.Size = new System.Drawing.Size(131, 40);
             this.Btn_AsociarUsuario.TabIndex = 15;
             this.Btn_AsociarUsuario.Text = "Asociar a usuario";
-            this.Btn_AsociarUsuario.UseVisualStyleBackColor = true;
+            this.Btn_AsociarUsuario.UseVisualStyleBackColor = false;
             this.Btn_AsociarUsuario.Click += new System.EventHandler(this.Btn_AsociarUsuario_Click);
             // 
             // Btn_Modificar
             // 
+            this.Btn_Modificar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_Modificar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_Modificar.FlatAppearance.BorderSize = 0;
+            this.Btn_Modificar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_Modificar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_Modificar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_Modificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Modificar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Modificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Modificar.Location = new System.Drawing.Point(730, 190);
             this.Btn_Modificar.Name = "Btn_Modificar";
             this.Btn_Modificar.Size = new System.Drawing.Size(131, 30);
             this.Btn_Modificar.TabIndex = 12;
             this.Btn_Modificar.Text = "Modificar";
-            this.Btn_Modificar.UseVisualStyleBackColor = true;
+            this.Btn_Modificar.UseVisualStyleBackColor = false;
             this.Btn_Modificar.Click += new System.EventHandler(this.Btn_Modificar_Click);
             // 
             // Btn_Refrescar
             // 
+            this.Btn_Refrescar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_Refrescar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_Refrescar.FlatAppearance.BorderSize = 0;
+            this.Btn_Refrescar.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_Refrescar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_Refrescar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_Refrescar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Refrescar.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Refrescar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Refrescar.Location = new System.Drawing.Point(446, 2);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(81, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(88, 23);
             this.Btn_Refrescar.TabIndex = 30;
             this.Btn_Refrescar.Text = "Refrescar";
-            this.Btn_Refrescar.UseVisualStyleBackColor = true;
+            this.Btn_Refrescar.UseVisualStyleBackColor = false;
             this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
             // 
             // Txb_PersonaSeleccionada
             // 
-            this.Txb_PersonaSeleccionada.Location = new System.Drawing.Point(197, 4);
+            this.Txb_PersonaSeleccionada.Location = new System.Drawing.Point(192, 4);
             this.Txb_PersonaSeleccionada.Name = "Txb_PersonaSeleccionada";
             this.Txb_PersonaSeleccionada.Size = new System.Drawing.Size(213, 22);
             this.Txb_PersonaSeleccionada.TabIndex = 29;
             // 
             // Btn_SeleccionarPersona
             // 
-            this.Btn_SeleccionarPersona.Location = new System.Drawing.Point(7, 3);
+            this.Btn_SeleccionarPersona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_SeleccionarPersona.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_SeleccionarPersona.FlatAppearance.BorderSize = 0;
+            this.Btn_SeleccionarPersona.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_SeleccionarPersona.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_SeleccionarPersona.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_SeleccionarPersona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_SeleccionarPersona.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_SeleccionarPersona.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.Btn_SeleccionarPersona.Location = new System.Drawing.Point(0, 3);
             this.Btn_SeleccionarPersona.Name = "Btn_SeleccionarPersona";
             this.Btn_SeleccionarPersona.Size = new System.Drawing.Size(152, 23);
             this.Btn_SeleccionarPersona.TabIndex = 28;
             this.Btn_SeleccionarPersona.Text = "Seleccione Persona";
-            this.Btn_SeleccionarPersona.UseVisualStyleBackColor = true;
+            this.Btn_SeleccionarPersona.UseVisualStyleBackColor = false;
             this.Btn_SeleccionarPersona.Click += new System.EventHandler(this.Btn_SeleccionarPersona_Click);
             // 
             // Btn_RegistrarPersona
             // 
+            this.Btn_RegistrarPersona.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_RegistrarPersona.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_RegistrarPersona.FlatAppearance.BorderSize = 0;
+            this.Btn_RegistrarPersona.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_RegistrarPersona.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_RegistrarPersona.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_RegistrarPersona.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_RegistrarPersona.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_RegistrarPersona.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_RegistrarPersona.Location = new System.Drawing.Point(595, 190);
             this.Btn_RegistrarPersona.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarPersona.Name = "Btn_RegistrarPersona";
             this.Btn_RegistrarPersona.Size = new System.Drawing.Size(131, 30);
             this.Btn_RegistrarPersona.TabIndex = 11;
             this.Btn_RegistrarPersona.Text = "Registrar ";
-            this.Btn_RegistrarPersona.UseVisualStyleBackColor = true;
+            this.Btn_RegistrarPersona.UseVisualStyleBackColor = false;
             this.Btn_RegistrarPersona.Click += new System.EventHandler(this.Btn_RegistrarPersona_Click);
             // 
             // Cmb_Nacionalidad
@@ -497,7 +569,7 @@
             this.Txb_DescCategoria.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_DescCategoria.Multiline = true;
             this.Txb_DescCategoria.Name = "Txb_DescCategoria";
-            this.Txb_DescCategoria.Size = new System.Drawing.Size(473, 22);
+            this.Txb_DescCategoria.Size = new System.Drawing.Size(529, 22);
             this.Txb_DescCategoria.TabIndex = 55;
             this.Txb_DescCategoria.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -517,19 +589,28 @@
             this.Txb_Descuento.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Txb_Descuento.Multiline = true;
             this.Txb_Descuento.Name = "Txb_Descuento";
-            this.Txb_Descuento.Size = new System.Drawing.Size(59, 22);
+            this.Txb_Descuento.Size = new System.Drawing.Size(115, 22);
             this.Txb_Descuento.TabIndex = 53;
             this.Txb_Descuento.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // Btn_RegistrarCliente
             // 
+            this.Btn_RegistrarCliente.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_RegistrarCliente.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(220)))), ((int)(((byte)(230)))), ((int)(((byte)(240)))));
+            this.Btn_RegistrarCliente.FlatAppearance.BorderSize = 0;
+            this.Btn_RegistrarCliente.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.Btn_RegistrarCliente.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_RegistrarCliente.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(80)))), ((int)(((byte)(190)))));
+            this.Btn_RegistrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_RegistrarCliente.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_RegistrarCliente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_RegistrarCliente.Location = new System.Drawing.Point(259, 121);
             this.Btn_RegistrarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarCliente.Name = "Btn_RegistrarCliente";
             this.Btn_RegistrarCliente.Size = new System.Drawing.Size(277, 31);
             this.Btn_RegistrarCliente.TabIndex = 52;
             this.Btn_RegistrarCliente.Text = "Registrar Cliente";
-            this.Btn_RegistrarCliente.UseVisualStyleBackColor = true;
+            this.Btn_RegistrarCliente.UseVisualStyleBackColor = false;
             this.Btn_RegistrarCliente.Click += new System.EventHandler(this.Btn_RegistrarCliente_Click);
             // 
             // Cmb_Categoria

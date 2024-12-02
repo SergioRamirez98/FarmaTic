@@ -37,6 +37,7 @@ namespace Vista
             cargarDTGV();
             configurarLoad();
             cargarPermisos();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }
         private void Btn_Agregar_Click(object sender, EventArgs e)
         {

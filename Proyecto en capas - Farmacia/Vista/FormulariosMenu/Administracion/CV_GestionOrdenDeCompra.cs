@@ -44,6 +44,7 @@ namespace Vista.FormulariosMenu
             configurarLoad();
             configurarDTGV();
             mostrarPedidos();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }
         private void DTGV_Pedidos_CellClick(object sender, DataGridViewCellEventArgs e)
         {

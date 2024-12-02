@@ -39,6 +39,7 @@ namespace Vista
             cargarComboBox(false);
             CServ_Limpiar.LimpiarFormulario(this);
             cargarPermisos();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }      
         private void Cmb_Categoria_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -100,7 +101,12 @@ namespace Vista
                 if (FrmOpen == null)
                 {
                     CV_AltaUsuario altaUsuario = new CV_AltaUsuario(ID_Persona);
-                    altaUsuario.MdiParent = (CV_Menu)this.MdiParent;
+                  
+                    altaUsuario.MdiParent = (CV_Menu)this.MdiParent; 
+                    if (altaUsuario.MdiParent is CV_Menu MenuPrincipal)
+                    {
+                        MenuPrincipal.configurarFormulario(MenuPrincipal, altaUsuario);
+                    }
                     altaUsuario.Show();
                 }
                 else FrmOpen.BringToFront();

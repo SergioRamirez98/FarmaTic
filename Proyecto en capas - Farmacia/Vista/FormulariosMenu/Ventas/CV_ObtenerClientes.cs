@@ -1,4 +1,5 @@
 ﻿using Logica;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -38,6 +39,7 @@ namespace Vista
         {
             cargarDTGV();
             configurarDTGV();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }
         private void configurarDTGV() 
         {

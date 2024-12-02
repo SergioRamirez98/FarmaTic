@@ -32,6 +32,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             cargarLoad(ID_Persona);
             bloquearControles();
             cargarPermisos();
+            CServ_ConfBotones.ConfiguracionDeBotones(this);
         }
         private void btn_SeleccionarPersona_Click(object sender, EventArgs e)
         {
