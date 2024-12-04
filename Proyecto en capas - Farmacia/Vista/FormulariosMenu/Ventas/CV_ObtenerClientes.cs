@@ -39,7 +39,7 @@ namespace Vista
         {
             cargarDTGV();
             configurarDTGV();
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
         private void configurarDTGV() 
         {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_Bitacora));
             this.DTGV_Bitacora = new System.Windows.Forms.DataGridView();
             this.Dtp_Desde = new System.Windows.Forms.DateTimePicker();
             this.Dtp_Hasta = new System.Windows.Forms.DateTimePicker();
@@ -156,6 +157,7 @@
             this.Controls.Add(this.Dtp_Hasta);
             this.Controls.Add(this.Dtp_Desde);
             this.Controls.Add(this.DTGV_Bitacora);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_Bitacora";
             this.Text = "Bitacora";
             this.Load += new System.EventHandler(this.CV_Bitacora_Load);

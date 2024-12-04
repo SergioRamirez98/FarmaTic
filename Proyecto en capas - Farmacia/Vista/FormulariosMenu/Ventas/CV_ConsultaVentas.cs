@@ -28,6 +28,7 @@ namespace Vista
         {
             configurarDTGV();
             cargarPermisos();
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {

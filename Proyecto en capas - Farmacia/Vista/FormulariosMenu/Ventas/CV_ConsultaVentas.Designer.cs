@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_ConsultaVentas));
             this.Txb_Cliente = new System.Windows.Forms.TextBox();
             this.Txb_PrecDesde = new System.Windows.Forms.TextBox();
             this.Txb_PrecHasta = new System.Windows.Forms.TextBox();
@@ -202,6 +203,7 @@
             this.Controls.Add(this.Txb_PrecHasta);
             this.Controls.Add(this.Txb_PrecDesde);
             this.Controls.Add(this.Txb_Cliente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ConsultaVentas";
             this.Text = "Consulta de ventas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

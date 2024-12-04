@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_PedidodeCompra));
             this.DTGV_Catalogo = new System.Windows.Forms.DataGridView();
             this.Lbl_Cantidad = new System.Windows.Forms.Label();
             this.Btn_FinalizarPedido = new System.Windows.Forms.Button();
@@ -141,6 +142,7 @@
             this.Controls.Add(this.Btn_AgregarAlPedido);
             this.Controls.Add(this.Nud_Cantidad);
             this.Controls.Add(this.DTGV_Catalogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_PedidodeCompra";
             this.Text = "Gestion de Pedidos de compra";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

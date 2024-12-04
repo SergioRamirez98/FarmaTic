@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_GestionOrdenDeCompra));
             this.DTGV_Pedidos = new System.Windows.Forms.DataGridView();
             this.Btn_ConfTotal = new System.Windows.Forms.Button();
             this.Btn_Descartar = new System.Windows.Forms.Button();
@@ -36,8 +37,10 @@
             this.Lbl_Total = new System.Windows.Forms.Label();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
             this.Txb_Buscar = new System.Windows.Forms.TextBox();
+            this.Pnl_Total = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Pedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_OC)).BeginInit();
+            this.Pnl_Total.SuspendLayout();
             this.SuspendLayout();
             // 
             // DTGV_Pedidos
@@ -95,11 +98,12 @@
             // Lbl_Total
             // 
             this.Lbl_Total.AutoSize = true;
-            this.Lbl_Total.Location = new System.Drawing.Point(26, 601);
+            this.Lbl_Total.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Total.Location = new System.Drawing.Point(29, 17);
             this.Lbl_Total.Name = "Lbl_Total";
-            this.Lbl_Total.Size = new System.Drawing.Size(210, 16);
+            this.Lbl_Total.Size = new System.Drawing.Size(285, 23);
             this.Lbl_Total.TabIndex = 6;
-            this.Lbl_Total.Text = "El total de la orden de compra es: ";
+            this.Lbl_Total.Text = "El total de la órden de compra es: ";
             // 
             // Btn_Refrescar
             // 
@@ -122,26 +126,38 @@
             this.Txb_Buscar.Click += new System.EventHandler(this.Txb_Buscar_Click);
             this.Txb_Buscar.TextChanged += new System.EventHandler(this.Txb_Buscar_TextChanged);
             // 
+            // Pnl_Total
+            // 
+            this.Pnl_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_Total.Controls.Add(this.Lbl_Total);
+            this.Pnl_Total.Location = new System.Drawing.Point(29, 593);
+            this.Pnl_Total.Name = "Pnl_Total";
+            this.Pnl_Total.Size = new System.Drawing.Size(1468, 51);
+            this.Pnl_Total.TabIndex = 8;
+            // 
             // CV_GestionOrdenDeCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1543, 626);
+            this.ClientSize = new System.Drawing.Size(1543, 684);
+            this.Controls.Add(this.Pnl_Total);
             this.Controls.Add(this.Txb_Buscar);
             this.Controls.Add(this.Btn_Refrescar);
-            this.Controls.Add(this.Lbl_Total);
             this.Controls.Add(this.DTGV_OC);
             this.Controls.Add(this.Btn_Historial);
             this.Controls.Add(this.Btn_Descartar);
             this.Controls.Add(this.Btn_ConfTotal);
             this.Controls.Add(this.DTGV_Pedidos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_GestionOrdenDeCompra";
-            this.Text = "Visualizador de Pedidos de Compra";
+            this.Text = "Órden de compra";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_OrdenDeCompra_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Pedidos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_OC)).EndInit();
+            this.Pnl_Total.ResumeLayout(false);
+            this.Pnl_Total.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +173,6 @@
         private System.Windows.Forms.Label Lbl_Total;
         private System.Windows.Forms.Button Btn_Refrescar;
         private System.Windows.Forms.TextBox Txb_Buscar;
+        private System.Windows.Forms.Panel Pnl_Total;
     }
 }

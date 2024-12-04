@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_ControlVencimientos));
             this.DTGV_Vencimientos = new System.Windows.Forms.DataGridView();
             this.Txb_BusquedaRapida = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Vencimientos)).BeginInit();
@@ -59,6 +60,7 @@
             this.ClientSize = new System.Drawing.Size(1093, 483);
             this.Controls.Add(this.Txb_BusquedaRapida);
             this.Controls.Add(this.DTGV_Vencimientos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ControlVencimientos";
             this.Text = "Control de vencimientos";
             this.Load += new System.EventHandler(this.CV_ControlVencimientos_Load);

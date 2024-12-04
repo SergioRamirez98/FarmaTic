@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_CatalogoProductos));
             this.Lbl_Nombre = new System.Windows.Forms.Label();
             this.Txb_NombreComercial = new System.Windows.Forms.TextBox();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
@@ -442,6 +443,7 @@
             this.Controls.Add(this.Txb_Marca);
             this.Controls.Add(this.Txb_Monodroga);
             this.Controls.Add(this.DTGV_Catalogo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_CatalogoProductos";
             this.Text = "Catalogo";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_OlvidoPass));
             this.Txb_UserName = new System.Windows.Forms.TextBox();
             this.Txb_Preg1 = new System.Windows.Forms.TextBox();
             this.Txb_Respuesta1 = new System.Windows.Forms.TextBox();
@@ -363,12 +364,13 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(648, 652);
+            this.ClientSize = new System.Drawing.Size(552, 652);
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.Pnl_GuardarPass);
             this.Controls.Add(this.Gpb_PregSeg);
             this.Controls.Add(this.Lbl_UserName);
             this.Controls.Add(this.Txb_UserName);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_OlvidoPass";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Olvidé mi contraseña";

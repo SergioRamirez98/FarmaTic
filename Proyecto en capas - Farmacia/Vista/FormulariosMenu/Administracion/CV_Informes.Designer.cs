@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_Informes));
             this.Dtp_FechaInicio = new System.Windows.Forms.DateTimePicker();
             this.Dtp_FechaFin = new System.Windows.Forms.DateTimePicker();
             this.Cmb_TipoAnalisis = new System.Windows.Forms.ComboBox();
@@ -128,7 +129,7 @@
             // 
             this.Btn_GenerarInforme.Location = new System.Drawing.Point(288, 106);
             this.Btn_GenerarInforme.Name = "Btn_GenerarInforme";
-            this.Btn_GenerarInforme.Size = new System.Drawing.Size(75, 23);
+            this.Btn_GenerarInforme.Size = new System.Drawing.Size(95, 23);
             this.Btn_GenerarInforme.TabIndex = 16;
             this.Btn_GenerarInforme.Text = "Generar Informe";
             this.Btn_GenerarInforme.UseVisualStyleBackColor = true;
@@ -138,7 +139,7 @@
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(363, 10);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(95, 23);
             this.Btn_Refrescar.TabIndex = 17;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
@@ -149,13 +150,15 @@
             this.Lbl_Resultados.AutoSize = true;
             this.Lbl_Resultados.Location = new System.Drawing.Point(3, 0);
             this.Lbl_Resultados.Name = "Lbl_Resultados";
-            this.Lbl_Resultados.Size = new System.Drawing.Size(44, 16);
+            this.Lbl_Resultados.Size = new System.Drawing.Size(43, 17);
             this.Lbl_Resultados.TabIndex = 0;
             this.Lbl_Resultados.Text = "label1";
             // 
             // Pnl_Totales
             // 
+            this.Pnl_Totales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Pnl_Totales.Controls.Add(this.Lbl_Resultados);
+            this.Pnl_Totales.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Pnl_Totales.Location = new System.Drawing.Point(857, 360);
             this.Pnl_Totales.Name = "Pnl_Totales";
             this.Pnl_Totales.Size = new System.Drawing.Size(437, 77);
@@ -194,8 +197,9 @@
             this.ClientSize = new System.Drawing.Size(1536, 762);
             this.Controls.Add(this.Pnl_Controles);
             this.Controls.Add(this.Pnl_Graficos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_Informes";
-            this.Text = "CV_Informes";
+            this.Text = "Informes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_Informes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Grafico)).EndInit();

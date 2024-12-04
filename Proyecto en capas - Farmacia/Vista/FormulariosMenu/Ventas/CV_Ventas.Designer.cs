@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_Ventas));
             this.DTGV_Ventas = new System.Windows.Forms.DataGridView();
             this.Txb_UserName = new System.Windows.Forms.TextBox();
             this.Txb_BusquedaRapida = new System.Windows.Forms.TextBox();
@@ -45,9 +46,11 @@
             this.Btn_BuscarCliente = new System.Windows.Forms.Button();
             this.Btn_Consultar = new System.Windows.Forms.Button();
             this.Btn_CrearCliente = new System.Windows.Forms.Button();
+            this.Pnl_Total = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).BeginInit();
+            this.Pnl_Total.SuspendLayout();
             this.SuspendLayout();
             // 
             // DTGV_Ventas
@@ -168,9 +171,10 @@
             // Lbl_Total
             // 
             this.Lbl_Total.AutoSize = true;
-            this.Lbl_Total.Location = new System.Drawing.Point(9, 688);
+            this.Lbl_Total.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Total.Location = new System.Drawing.Point(7, 8);
             this.Lbl_Total.Name = "Lbl_Total";
-            this.Lbl_Total.Size = new System.Drawing.Size(126, 16);
+            this.Lbl_Total.Size = new System.Drawing.Size(169, 23);
             this.Lbl_Total.TabIndex = 31;
             this.Lbl_Total.Text = "Total de la compra: ";
             // 
@@ -204,16 +208,25 @@
             this.Btn_CrearCliente.UseVisualStyleBackColor = true;
             this.Btn_CrearCliente.Click += new System.EventHandler(this.Btn_CrearCliente_Click);
             // 
+            // Pnl_Total
+            // 
+            this.Pnl_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_Total.Controls.Add(this.Lbl_Total);
+            this.Pnl_Total.Location = new System.Drawing.Point(12, 672);
+            this.Pnl_Total.Name = "Pnl_Total";
+            this.Pnl_Total.Size = new System.Drawing.Size(1430, 37);
+            this.Pnl_Total.TabIndex = 33;
+            // 
             // CV_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1656, 751);
+            this.Controls.Add(this.Pnl_Total);
             this.Controls.Add(this.Btn_CrearCliente);
             this.Controls.Add(this.Btn_Consultar);
             this.Controls.Add(this.Btn_BuscarCliente);
-            this.Controls.Add(this.Lbl_Total);
             this.Controls.Add(this.Lbl_Fecha);
             this.Controls.Add(this.Txb_Cliente);
             this.Controls.Add(this.Lbl_Cantidad);
@@ -227,6 +240,7 @@
             this.Controls.Add(this.Txb_BusquedaRapida);
             this.Controls.Add(this.Txb_UserName);
             this.Controls.Add(this.DTGV_Ventas);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_Ventas";
             this.Text = "Ventas";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -234,6 +248,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).EndInit();
+            this.Pnl_Total.ResumeLayout(false);
+            this.Pnl_Total.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,5 +274,6 @@
         private System.Windows.Forms.Button Btn_BuscarCliente;
         private System.Windows.Forms.Button Btn_Consultar;
         private System.Windows.Forms.Button Btn_CrearCliente;
+        private System.Windows.Forms.Panel Pnl_Total;
     }
 }

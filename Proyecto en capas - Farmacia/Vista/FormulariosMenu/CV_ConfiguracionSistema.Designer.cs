@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_ConfiguracionSistema));
             this.Lbl_CantMinStock = new System.Windows.Forms.Label();
             this.Nud_CantMinStock = new System.Windows.Forms.NumericUpDown();
             this.Lbl_DiasVtoProd = new System.Windows.Forms.Label();
@@ -214,6 +215,7 @@
             this.Controls.Add(this.Nud_CantMinStock);
             this.Controls.Add(this.Lbl_DiasVtoProd);
             this.Controls.Add(this.Nud_VtoProd);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ConfiguracionSistema";
             this.Text = "Configuracion Sistema";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

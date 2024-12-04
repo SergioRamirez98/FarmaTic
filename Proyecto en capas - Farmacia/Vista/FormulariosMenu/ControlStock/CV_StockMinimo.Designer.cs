@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_StockMinimo));
             this.DTGV_StockMinimo = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_StockMinimo)).BeginInit();
             this.SuspendLayout();
@@ -49,8 +50,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1090, 450);
             this.Controls.Add(this.DTGV_StockMinimo);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_StockMinimo";
-            this.Text = "CV_StockMinimo";
+            this.Text = "Bajo stock";
             this.Load += new System.EventHandler(this.CV_StockMinimo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_StockMinimo)).EndInit();
             this.ResumeLayout(false);

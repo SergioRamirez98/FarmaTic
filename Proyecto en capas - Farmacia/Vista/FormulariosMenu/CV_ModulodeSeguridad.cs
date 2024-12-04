@@ -35,7 +35,7 @@ namespace Vista
             Chb_MayMin.Checked = CSistema_ConfiguracionSistema.MayusMinus;
             Nud_CantidadIntentosFallidos.Value = CSistema_ConfiguracionSistema.CantIntentosFallidos;
 
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
 
         }
         private void Chb_NumYLetras_CheckedChanged(object sender, EventArgs e)

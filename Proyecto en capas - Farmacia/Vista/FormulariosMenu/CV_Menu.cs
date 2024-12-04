@@ -34,132 +34,284 @@ namespace Vista
             accesoAModulos();
         }
 
-
-        private void Ms_Personas_Click(object sender, EventArgs e)
+        #region Eventos
+        private void Btn_GestionAltas_MouseEnter(object sender, EventArgs e)
         {
-
-        }
-        private void Ms_ModuloConfiguracionSistema_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_ConfiguracionSistema"];
-            if (FrmOpen == null)
+            if (!Btn_Ventas.Visible && !Btn_Proveedores.Visible)
             {
-                CV_ConfiguracionSistema configuracionSistema = new CV_ConfiguracionSistema();
-                configuracionSistema.MdiParent = this;
-                configuracionSistema.Show();
+                Btn_AltaPersonas.Visible = true;
+                Btn_Usuarios.Visible = true;
             }
         }
-        private void Ms_ModuloStock_Click(object sender, EventArgs e)
+        private void Btn_GestionVentas_MouseEnter(object sender, EventArgs e)
+        {
+            if (!Btn_Usuarios.Visible && !Btn_Proveedores.Visible)
+            {
+                Btn_Ventas.Visible = true;
+                Btn_ConsultaVentas.Visible = true;
+            }
+        }
+        private void Btb_Administracion_MouseEnter(object sender, EventArgs e)
+        {
+            if (!Btn_Usuarios.Visible && !Btn_ConsultaVentas.Visible)
+            {
+                Btn_Informes.Visible = true;
+                Btn_Catalogo.Visible = true;
+                Btn_OrdendeCompra.Visible = true;
+                Btn_PedidodeCompra.Visible = true;
+                Btn_Proveedores.Visible = true;
+            }
+        }
+
+        private void Btn_GestionAltas_MouseLeave(object sender, EventArgs e)
+        {
+            if (!PanelSecundario)
+            {
+                Btn_AltaPersonas.Visible = false;
+                Btn_Usuarios.Visible = false;
+            }
+        }
+
+
+        private void Btn_GestionVentas_MouseLeave(object sender, EventArgs e)
+        {
+            if (!PanelSecundario)
+            {
+
+                Btn_ConsultaVentas.Visible = false;
+                Btn_Ventas.Visible = false;
+            }
+
+        }
+
+        private void Btn_ModuloAdministracion_MouseLeave(object sender, EventArgs e)
+        {
+            if (!PanelSecundario)
+            {
+
+                Btn_Informes.Visible = false;
+                Btn_Catalogo.Visible = false;
+                Btn_OrdendeCompra.Visible = false;
+                Btn_PedidodeCompra.Visible = false;
+                Btn_Proveedores.Visible = false;
+            }
+        }
+        private void Btn_GestionAltas_Click(object sender, EventArgs e)
+        {
+            PanelSecundario = true;
+            if (PanelSecundario)
+            {
+                Btn_AltaPersonas.Visible = true;
+                Btn_Usuarios.Visible = true;
+                Btn_Ventas.Visible = false;
+                Btn_ConsultaVentas.Visible = false;
+                Btn_Proveedores.Visible = false;
+                Btn_Catalogo.Visible = false;
+                Btn_PedidodeCompra.Visible = false;
+                Btn_OrdendeCompra.Visible = false;
+                Btn_Informes.Visible = false;
+            }
+        }
+        private void Btn_GestionVentas_Click(object sender, EventArgs e)
+        {
+            PanelSecundario = true;
+            if (PanelSecundario)
+            {
+                Btn_ConsultaVentas.Visible = true;
+                Btn_Ventas.Visible = true;
+
+                Btn_AltaPersonas.Visible = false;
+                Btn_Usuarios.Visible = false;
+
+                Btn_Proveedores.Visible = false;
+                Btn_Catalogo.Visible = false;
+                Btn_PedidodeCompra.Visible = false;
+                Btn_OrdendeCompra.Visible = false;
+                Btn_Informes.Visible = false;
+            }
+
+        }
+
+        private void Btn_ModuloAdministracion_Click(object sender, EventArgs e)
+        {
+            PanelSecundario = true;
+            if (PanelSecundario)
+            {
+                Btn_Informes.Visible = true;
+                Btn_Catalogo.Visible = true;
+                Btn_OrdendeCompra.Visible = true;
+                Btn_PedidodeCompra.Visible = true;
+                Btn_Proveedores.Visible = true;
+
+                Btn_AltaPersonas.Visible = false;
+                Btn_Usuarios.Visible = false;
+                Btn_ConsultaVentas.Visible = false;
+                Btn_Ventas.Visible = false;
+            }
+        }
+
+        private void Btn_Ventas_Click(object sender, EventArgs e)
+        {
+            Form FrmOpen = Application.OpenForms["CV_Ventas"];
+            if (FrmOpen == null)
+            {
+                CV_Ventas ventas = new CV_Ventas();
+                configurarFormulario(this, ventas);
+                ventas.MdiParent = this;
+                ventas.Show();
+            }
+            else FrmOpen.BringToFront();
+
+        }
+
+        private void Btn_ConsultaVentas_Click(object sender, EventArgs e)
+        {
+            Form FrmOpen = Application.OpenForms["CV_ConsultaVentas"];
+            if (FrmOpen == null)
+            {
+                CV_ConsultaVentas consulta = new CV_ConsultaVentas();
+                configurarFormulario(this, consulta);
+                consulta.MdiParent = this;
+                consulta.Show();
+            }
+            else FrmOpen.BringToFront();
+
+        }
+
+        private void Btn_AltaPersonas_Click(object sender, EventArgs e)
+        {
+            Form FrmOpen = Application.OpenForms["CV_GestionUsuariosPersonas"];
+            if (FrmOpen == null)
+            {
+                CV_GestionUsuariosPersonas agregarPersona = new CV_GestionUsuariosPersonas();
+                configurarFormulario(this, agregarPersona);
+                agregarPersona.MdiParent = this;
+                agregarPersona.Show();
+            }
+            else FrmOpen.BringToFront();
+
+        }
+
+        private void Btn_Usuarios_Click(object sender, EventArgs e)
+        {
+            Form FrmOpen = Application.OpenForms["CV_AltaUsuario"];
+            if (FrmOpen == null)
+            {
+                CV_AltaUsuario usuario = new CV_AltaUsuario(0);
+                configurarFormulario(this, usuario);
+                usuario.MdiParent = this;
+                usuario.Show();
+            }
+            else FrmOpen.BringToFront();
+        }
+        private void Btn_GestionStock_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_Stock"];
             if (FrmOpen == null)
             {
-                CV_Stock stock = new CV_Stock();
-                stock.MdiParent = this;
-                stock.Show();
+                CV_Stock Stock = new CV_Stock();
+                configurarFormulario(this, Stock);
+                Stock.MdiParent = this;
+                Stock.Show();
             }
+            else FrmOpen.BringToFront();
         }
 
-        private void Ms_ModuloVentas_Click(object sender, EventArgs e)
-        {
-        }
-
-        private void Ms_ModuloSeguridad_Click(object sender, EventArgs e)
+        private void Btn_Seguridad_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_ModulodeSeguridad"];
             if (FrmOpen == null)
             {
-                CV_ModulodeSeguridad seguridad = new CV_ModulodeSeguridad();
-                seguridad.MdiParent = this;
-                seguridad.Show();
+                CV_ModulodeSeguridad Seguridad = new CV_ModulodeSeguridad();
+                configurarFormulario(this, Seguridad);
+                Seguridad.MdiParent = this;
+                Seguridad.Show();
             }
+            else FrmOpen.BringToFront();
         }
 
-        private void Ms_Proveedores_Click(object sender, EventArgs e)
+        private void Btn_ConfSistema_Click(object sender, EventArgs e)
+        {
+            Form FrmOpen = Application.OpenForms["CV_ConfiguracionSistema "];
+            if (FrmOpen == null)
+            {
+                CV_ConfiguracionSistema Sistema = new CV_ConfiguracionSistema();
+                configurarFormulario(this, Sistema);
+                Sistema.MdiParent = this;
+                Sistema.Show();
+            }
+            else FrmOpen.BringToFront();
+
+        }
+        private void Btn_Proveedores_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_GestionProveedores"];
             if (FrmOpen == null)
             {
                 CV_GestionProveedores Proveedores = new CV_GestionProveedores();
+                configurarFormulario(this, Proveedores);
                 Proveedores.MdiParent = this;
                 Proveedores.Show();
             }
-        }
-        private void Ms_Catalogo_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_CatalogoProductos"];
-            if (FrmOpen == null)
-            {
-                CV_CatalogoProductos Catalogo = new CV_CatalogoProductos();
-                Catalogo.MdiParent = this;
-                Catalogo.Show();
-            }
+            else FrmOpen.BringToFront();
         }
 
-        private void Ms_PediodeCompra_Click(object sender, EventArgs e)
+        private void Btn_PedidodeCompra_Click(object sender, EventArgs e)
         {
+
             Form FrmOpen = Application.OpenForms["CV_PedidodeCompra"];
             if (FrmOpen == null)
             {
                 CV_PedidodeCompra PC = new CV_PedidodeCompra();
+                configurarFormulario(this, PC);
                 PC.MdiParent = this;
                 PC.Show();
             }
+            else FrmOpen.BringToFront();
         }
 
-        private void Ms_OrdendeCompra_Click(object sender, EventArgs e)
+        private void Btn_OrdendeCompra_Click(object sender, EventArgs e)
         {
+
             Form FrmOpen = Application.OpenForms["CV_GestionOrdenDeCompra"];
             if (FrmOpen == null)
             {
-                CV_GestionOrdenDeCompra OC = new CV_GestionOrdenDeCompra();
-                OC.MdiParent = this;
-                OC.Show();
+                CV_GestionOrdenDeCompra oc = new CV_GestionOrdenDeCompra();
+                configurarFormulario(this, oc);
+                oc.MdiParent = this;
+                oc.Show();
             }
+            else FrmOpen.BringToFront();
         }
 
-        private void Ms_Informes_Click(object sender, EventArgs e)
+        private void Btn_Catalogo_Click(object sender, EventArgs e)
         {
+
+            Form FrmOpen = Application.OpenForms["CV_CatalogoProductos"];
+            if (FrmOpen == null)
+            {
+                CV_CatalogoProductos Catalogo = new CV_CatalogoProductos();
+                configurarFormulario(this, Catalogo);
+                Catalogo.MdiParent = this;
+                Catalogo.Show();
+            }
+            else FrmOpen.BringToFront();
+        }
+
+        private void Btn_Informes_Click(object sender, EventArgs e)
+        {
+
             Form FrmOpen = Application.OpenForms["CV_Informes"];
             if (FrmOpen == null)
             {
-                CV_Informes informes = new CV_Informes();
-                informes.MdiParent = this;
-                informes.Show();
+                CV_Informes Informes = new CV_Informes();
+                configurarFormulario(this, Informes);
+                Informes.MdiParent = this;
+                Informes.Show();
             }
+            else FrmOpen.BringToFront();
         }
 
-        private void Ms_Usuarios_Click(object sender, EventArgs e)
-        {
-          
-        }
-
-
-
-        private void Btn_GestionUsuarios_Click(object sender, EventArgs e)
-        {
-            CV_GestionUsuariosPersonas agregarPersona = new CV_GestionUsuariosPersonas();
-            agregarPersona.Show();
-        }
-        private void Btn_Config_Click(object sender, EventArgs e)
-        {
-        }
-        private void Btn_ModuloInventario_Click(object sender, EventArgs e)
-        {
-            CV_Stock stock = new CV_Stock();
-            stock.Show();
-        }
-        
-        private void Btn_Administracion_Click(object sender, EventArgs e)
-        {
-            CV_MenudeAdministracion GC = new CV_MenudeAdministracion();
-            GC.Show();
-        }
-        private void Btn_ConfigSistema_Click(object sender, EventArgs e)
-        {
-            CV_ConfiguracionSistema ConfiguracionSistema = new CV_ConfiguracionSistema();
-            ConfiguracionSistema.Show();
-        }
 
         private void Btn_CerraSesion_Click(object sender, EventArgs e)
         {
@@ -182,6 +334,9 @@ namespace Vista
             CSesion_PreguntasUsuarios.LimpiarCache();
             Program.Login.Show();
         }
+        #endregion
+
+        #region Métodos
         private void accesoAModulos()
         {
             Btn_GestionAltas.Enabled = false;
@@ -262,39 +417,7 @@ namespace Vista
                         break;
                 }
             }
-        }
-        private void CV_Menu_MouseMove(object sender, MouseEventArgs e)
-        {
-            int areaMenu = 113;
-            if (e.X <= areaMenu) { Pnl_Principal.Visible = true; Btn_CerraSesion.Visible = true; }
-            else { Pnl_Principal.Visible = false; Btn_CerraSesion.Visible = false; }
-        }
-        private void Ms_Menu_MouseLeave(object sender, EventArgs e)
-        {
-            mouseMenu = false;
-            Pnl_Principal.Visible = false;
-            Btn_CerraSesion.Visible = false;
-        }
-        private void Ms_Menu_MouseEnter(object sender, EventArgs e)
-        {
-            mouseMenu = true;
-            
-            Pnl_Principal.Visible = true;
-            Btn_CerraSesion.Visible = true;
-
-        }
-        private void Ms_Menu_Item_MouseEnter(object sender, EventArgs e)
-        {
-            mouseMenu = true;
-            Pnl_Principal.Visible = true;
-            Btn_CerraSesion.Visible = true;
-        }
-        private void Ms_Menu_Item_MouseLeave(object sender, EventArgs e)
-        {
-            mouseMenu = false;
-            Pnl_Principal.Visible = false;
-            Btn_CerraSesion.Visible = false;
-        }
+        }       
         private void InitializeMenuEvents()
         {
 
@@ -304,86 +427,15 @@ namespace Vista
             timerVerificarCursor.Start();
         }
 
-        private void Btn_GestionAltas_MouseEnter(object sender, EventArgs e)
+
+
+        private void CV_Menu_MouseMove(object sender, MouseEventArgs e)
         {
-            if (!Btn_Ventas.Visible && !Btn_Proveedores.Visible)
-            {
-                Btn_AltaPersonas.Visible = true;
-                Btn_Usuarios.Visible = true;
-            }
+            int areaMenu = 113;
+            Console.WriteLine("el cursor está en " + e.X);
+            if (e.X <= areaMenu) { Pnl_Principal.Visible = true; Btn_CerraSesion.Visible = true; }
+            else { Pnl_Principal.Visible = false; Btn_CerraSesion.Visible = false; }
         }
-        private void Btn_GestionVentas_MouseEnter(object sender, EventArgs e)
-        {
-            if (!Btn_Usuarios.Visible && !Btn_Proveedores.Visible)
-            {
-                Btn_Ventas.Visible = true;
-                Btn_ConsultaVentas.Visible = true;
-            }
-        }
-        private void Btb_Administracion_MouseEnter(object sender, EventArgs e)
-        {
-            if (!Btn_Usuarios.Visible && !Btn_ConsultaVentas.Visible)
-            {
-                Btn_Informes.Visible = true;
-                Btn_Catalogo.Visible = true;
-                Btn_OrdendeCompra.Visible = true;
-                Btn_PedidodeCompra.Visible = true;
-                Btn_Proveedores.Visible = true;
-            }
-        }
-
-        private void Btn_Ventas_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_Ventas"];
-            if (FrmOpen == null)
-            {
-                CV_Ventas ventas = new CV_Ventas();
-                configurarFormulario(this, ventas);
-                ventas.MdiParent = this;
-                ventas.Show();
-            }
-
-        }
-
-        private void Btn_ConsultaVentas_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_ConsultaVentas"];
-            if (FrmOpen == null)
-            {
-                CV_ConsultaVentas consulta = new CV_ConsultaVentas();
-                configurarFormulario(this, consulta);
-                consulta.MdiParent = this;
-                consulta.Show();
-            }
-
-        }
-
-        private void Btn_AltaPersonas_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_GestionUsuariosPersonas"];
-            if (FrmOpen == null)
-            {
-                CV_GestionUsuariosPersonas agregarPersona = new CV_GestionUsuariosPersonas();
-                configurarFormulario(this, agregarPersona);
-                agregarPersona.MdiParent = this;
-                agregarPersona.Show();
-            }
-
-        }
-
-        private void Btn_Usuarios_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_AltaUsuario"];
-            if (FrmOpen == null)
-            {
-                CV_AltaUsuario usuario = new CV_AltaUsuario(0);
-                configurarFormulario(this, usuario);
-                usuario.MdiParent = this;
-                usuario.Show();
-            }
-        }
-
-
 
         private void TimerVerificarCursor_Tick(object sender, EventArgs e)
         {
@@ -458,132 +510,6 @@ namespace Vista
             }
             PanelSecundario = false;
         }
-
-        private void Btn_GestionAltas_Click(object sender, EventArgs e)
-        {
-            PanelSecundario = true;
-            if (PanelSecundario)
-            {
-                Btn_AltaPersonas.Visible = true;
-                Btn_Usuarios.Visible= true;                
-                Btn_Ventas.Visible = false;
-                Btn_ConsultaVentas.Visible = false;
-                Btn_Proveedores.Visible = false;
-                Btn_Catalogo.Visible = false;
-                Btn_PedidodeCompra.Visible = false;
-                Btn_OrdendeCompra.Visible = false;
-                Btn_Informes.Visible = false;
-            }
-        }
-
-        private void Btn_GestionAltas_MouseLeave(object sender, EventArgs e)
-        {
-            if (!PanelSecundario)
-            {
-                Btn_AltaPersonas.Visible = false;
-                Btn_Usuarios.Visible = false;
-            }
-        }
-
-        private void Btn_GestionVentas_Click(object sender, EventArgs e)
-        {
-            PanelSecundario = true;
-            if (PanelSecundario)
-            {
-                Btn_ConsultaVentas.Visible = true;
-                Btn_Ventas.Visible = true;
-
-                Btn_AltaPersonas.Visible = false;
-                Btn_Usuarios.Visible = false;
-               
-                Btn_Proveedores.Visible = false;
-                Btn_Catalogo.Visible = false;
-                Btn_PedidodeCompra.Visible = false;
-                Btn_OrdendeCompra.Visible = false;
-                Btn_Informes.Visible = false;
-            }
-
-        }
-
-        private void Btn_GestionVentas_MouseLeave(object sender, EventArgs e)
-        {
-            if (!PanelSecundario)
-            {
-
-                Btn_ConsultaVentas.Visible = false;
-                Btn_Ventas.Visible = false;
-            }
-
-        }
-
-        private void Btn_ModuloAdministracion_MouseLeave(object sender, EventArgs e)
-        {
-            if (!PanelSecundario)
-            {
-
-                Btn_Informes.Visible = false;
-                Btn_Catalogo.Visible = false;
-                Btn_OrdendeCompra.Visible = false;
-                Btn_PedidodeCompra.Visible = false;
-                Btn_Proveedores.Visible = false;
-            }
-        }
-
-        private void Btn_ModuloAdministracion_Click(object sender, EventArgs e)
-        {
-            PanelSecundario = true;
-            if (PanelSecundario)
-            {
-                Btn_Informes.Visible = true;
-                Btn_Catalogo.Visible = true;
-                Btn_OrdendeCompra.Visible = true;
-                Btn_PedidodeCompra.Visible = true;
-                Btn_Proveedores.Visible = true;
-
-                Btn_AltaPersonas.Visible = false;
-                Btn_Usuarios.Visible = false;
-                Btn_ConsultaVentas.Visible = false;
-                Btn_Ventas.Visible = false;
-            }
-        }
-
-        private void Btn_GestionStock_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_Stock"];
-            if (FrmOpen == null)
-            {
-                CV_Stock Stock = new CV_Stock();
-                configurarFormulario(this, Stock);
-                Stock.MdiParent = this;
-                Stock.Show();
-            }
-        }
-
-        private void Btn_Seguridad_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_ModulodeSeguridad"];
-            if (FrmOpen == null)
-            {
-                CV_ModulodeSeguridad Seguridad = new CV_ModulodeSeguridad();
-                configurarFormulario(this, Seguridad);
-                Seguridad.MdiParent = this;
-                Seguridad.Show();
-            }
-        }
-
-        private void Btn_ConfSistema_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_ConfiguracionSistema "];
-            if (FrmOpen == null)
-            {
-             CV_ConfiguracionSistema Sistema= new CV_ConfiguracionSistema();
-                configurarFormulario(this, Sistema);
-                Sistema.MdiParent = this;
-                Sistema.Show();
-            }
-
-        }
-
         private void CV_Menu_Click(object sender, EventArgs e)
         {
             PanelSecundario = false;
@@ -599,70 +525,7 @@ namespace Vista
             Btn_OrdendeCompra.Visible = false;
             Btn_Informes.Visible = false;
         }
+        #endregion
 
-        private void Btn_Proveedores_Click(object sender, EventArgs e)
-        {
-            Form FrmOpen = Application.OpenForms["CV_GestionProveedores"];
-            if (FrmOpen == null)
-            {
-                CV_GestionProveedores Proveedores = new CV_GestionProveedores();
-                configurarFormulario(this, Proveedores);
-                Proveedores.MdiParent = this;
-                Proveedores.Show();
-            }
-
-        }
-
-        private void Btn_PedidodeCompra_Click(object sender, EventArgs e)
-        {
-
-            Form FrmOpen = Application.OpenForms["CV_PedidodeCompra"];
-            if (FrmOpen == null)
-            {
-                CV_PedidodeCompra PC = new CV_PedidodeCompra();
-                configurarFormulario(this, PC);
-                PC.MdiParent = this;
-                PC.Show();
-            }
-        }
-
-        private void Btn_OrdendeCompra_Click(object sender, EventArgs e)
-        {
-
-            Form FrmOpen = Application.OpenForms["CV_GestionOrdenDeCompra"];
-            if (FrmOpen == null)
-            {
-                CV_GestionOrdenDeCompra oc = new CV_GestionOrdenDeCompra();
-                configurarFormulario(this, oc);
-                oc.MdiParent = this;
-                oc.Show();
-            }
-        }
-
-        private void Btn_Catalogo_Click(object sender, EventArgs e)
-        {
-
-            Form FrmOpen = Application.OpenForms["CV_CatalogoProductos"];
-            if (FrmOpen == null)
-            {
-                CV_CatalogoProductos Catalogo = new CV_CatalogoProductos();
-                configurarFormulario(this, Catalogo);
-                Catalogo.MdiParent = this;
-                Catalogo.Show();
-            }
-        }
-
-        private void Btn_Informes_Click(object sender, EventArgs e)
-        {
-
-            Form FrmOpen = Application.OpenForms["CV_Informes"];
-            if (FrmOpen == null)
-            {
-                CV_Informes Informes = new CV_Informes();
-                configurarFormulario(this, Informes);
-                Informes.MdiParent = this;
-                Informes.Show();
-            }
-        }
     }
 }

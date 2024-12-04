@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_SeleccionarPersona));
             this.DTGV_SeleccionarPersona = new System.Windows.Forms.DataGridView();
             this.Txb_BusqPersona = new System.Windows.Forms.TextBox();
             this.Lbl_BuscarPersona = new System.Windows.Forms.Label();
@@ -72,6 +73,7 @@
             this.Controls.Add(this.Lbl_BuscarPersona);
             this.Controls.Add(this.Txb_BusqPersona);
             this.Controls.Add(this.DTGV_SeleccionarPersona);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_SeleccionarPersona";
             this.Text = "Seleccione Persona";
             this.Load += new System.EventHandler(this.CV_SeleccionarPersona_Load);

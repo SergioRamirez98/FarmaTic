@@ -51,17 +51,27 @@
             // 
             // Btn_CerraSesion
             // 
-            this.Btn_CerraSesion.Location = new System.Drawing.Point(56, 426);
+            this.Btn_CerraSesion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_CerraSesion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_CerraSesion.FlatAppearance.BorderSize = 0;
+            this.Btn_CerraSesion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_CerraSesion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_CerraSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_CerraSesion.Font = new System.Drawing.Font("Segoe UI", 10.2F);
+            this.Btn_CerraSesion.Image = global::Vista.Properties.Resources.icons8_cerrar_sesión_40;
+            this.Btn_CerraSesion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.Btn_CerraSesion.Location = new System.Drawing.Point(0, 420);
             this.Btn_CerraSesion.Name = "Btn_CerraSesion";
-            this.Btn_CerraSesion.Size = new System.Drawing.Size(108, 48);
+            this.Btn_CerraSesion.Size = new System.Drawing.Size(215, 70);
             this.Btn_CerraSesion.TabIndex = 3;
             this.Btn_CerraSesion.Text = "Cerrar sesión";
-            this.Btn_CerraSesion.UseVisualStyleBackColor = true;
+            this.Btn_CerraSesion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.Btn_CerraSesion.UseVisualStyleBackColor = false;
             this.Btn_CerraSesion.Click += new System.EventHandler(this.Btn_CerraSesion_Click);
             // 
             // Pnl_Principal
             // 
-            this.Pnl_Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
+            this.Pnl_Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
             this.Pnl_Principal.Controls.Add(this.Btn_ConfSistema);
             this.Pnl_Principal.Controls.Add(this.Btn_Seguridad);
             this.Pnl_Principal.Controls.Add(this.Btn_ModuloAdministracion);
@@ -76,12 +86,12 @@
             // 
             // Btn_ConfSistema
             // 
-            this.Btn_ConfSistema.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_ConfSistema.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_ConfSistema.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_ConfSistema.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_ConfSistema.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_ConfSistema.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_ConfSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_ConfSistema.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ConfSistema.ForeColor = System.Drawing.Color.White;
+            this.Btn_ConfSistema.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_ConfSistema.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ConfSistema.Image")));
             this.Btn_ConfSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_ConfSistema.Location = new System.Drawing.Point(0, 350);
@@ -95,12 +105,12 @@
             // 
             // Btn_Seguridad
             // 
-            this.Btn_Seguridad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Seguridad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_Seguridad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_Seguridad.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Seguridad.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_Seguridad.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_Seguridad.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Seguridad.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Seguridad.ForeColor = System.Drawing.Color.White;
+            this.Btn_Seguridad.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_Seguridad.Image = ((System.Drawing.Image)(resources.GetObject("Btn_Seguridad.Image")));
             this.Btn_Seguridad.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_Seguridad.Location = new System.Drawing.Point(0, 280);
@@ -114,12 +124,12 @@
             // 
             // Btn_ModuloAdministracion
             // 
-            this.Btn_ModuloAdministracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_ModuloAdministracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_ModuloAdministracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_ModuloAdministracion.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_ModuloAdministracion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_ModuloAdministracion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_ModuloAdministracion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_ModuloAdministracion.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ModuloAdministracion.ForeColor = System.Drawing.Color.White;
+            this.Btn_ModuloAdministracion.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_ModuloAdministracion.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ModuloAdministracion.Image")));
             this.Btn_ModuloAdministracion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_ModuloAdministracion.Location = new System.Drawing.Point(0, 210);
@@ -135,12 +145,12 @@
             // 
             // Btn_GestionVentas
             // 
-            this.Btn_GestionVentas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_GestionVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_GestionVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_GestionVentas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_GestionVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_GestionVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_GestionVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_GestionVentas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_GestionVentas.ForeColor = System.Drawing.Color.White;
+            this.Btn_GestionVentas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_GestionVentas.Image = ((System.Drawing.Image)(resources.GetObject("Btn_GestionVentas.Image")));
             this.Btn_GestionVentas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_GestionVentas.Location = new System.Drawing.Point(0, 140);
@@ -156,12 +166,12 @@
             // 
             // Btn_GestionStock
             // 
-            this.Btn_GestionStock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_GestionStock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_GestionStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_GestionStock.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_GestionStock.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_GestionStock.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_GestionStock.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_GestionStock.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_GestionStock.ForeColor = System.Drawing.Color.White;
+            this.Btn_GestionStock.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_GestionStock.Image = ((System.Drawing.Image)(resources.GetObject("Btn_GestionStock.Image")));
             this.Btn_GestionStock.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_GestionStock.Location = new System.Drawing.Point(0, 70);
@@ -175,19 +185,19 @@
             // 
             // Btn_GestionAltas
             // 
-            this.Btn_GestionAltas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_GestionAltas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_GestionAltas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_GestionAltas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_GestionAltas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_GestionAltas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_GestionAltas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_GestionAltas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_GestionAltas.ForeColor = System.Drawing.Color.White;
+            this.Btn_GestionAltas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_GestionAltas.Image = ((System.Drawing.Image)(resources.GetObject("Btn_GestionAltas.Image")));
             this.Btn_GestionAltas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.Btn_GestionAltas.Location = new System.Drawing.Point(0, 0);
             this.Btn_GestionAltas.Name = "Btn_GestionAltas";
             this.Btn_GestionAltas.Size = new System.Drawing.Size(215, 70);
             this.Btn_GestionAltas.TabIndex = 4;
-            this.Btn_GestionAltas.Text = "Gestió de Altas";
+            this.Btn_GestionAltas.Text = "Gestión de Altas";
             this.Btn_GestionAltas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.Btn_GestionAltas.UseVisualStyleBackColor = true;
             this.Btn_GestionAltas.Click += new System.EventHandler(this.Btn_GestionAltas_Click);
@@ -196,13 +206,13 @@
             // 
             // Btn_Usuarios
             // 
-            this.Btn_Usuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Usuarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Usuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_Usuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_Usuarios.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Usuarios.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Usuarios.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_Usuarios.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_Usuarios.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Usuarios.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Usuarios.ForeColor = System.Drawing.Color.White;
+            this.Btn_Usuarios.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_Usuarios.Location = new System.Drawing.Point(215, 32);
             this.Btn_Usuarios.Name = "Btn_Usuarios";
             this.Btn_Usuarios.Size = new System.Drawing.Size(215, 38);
@@ -214,13 +224,13 @@
             // 
             // Btn_AltaPersonas
             // 
-            this.Btn_AltaPersonas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_AltaPersonas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_AltaPersonas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_AltaPersonas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_AltaPersonas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_AltaPersonas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_AltaPersonas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_AltaPersonas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_AltaPersonas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_AltaPersonas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_AltaPersonas.ForeColor = System.Drawing.Color.White;
+            this.Btn_AltaPersonas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_AltaPersonas.Location = new System.Drawing.Point(215, 0);
             this.Btn_AltaPersonas.Name = "Btn_AltaPersonas";
             this.Btn_AltaPersonas.Size = new System.Drawing.Size(215, 38);
@@ -232,13 +242,13 @@
             // 
             // Btn_ConsultaVentas
             // 
-            this.Btn_ConsultaVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_ConsultaVentas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_ConsultaVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_ConsultaVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_ConsultaVentas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_ConsultaVentas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_ConsultaVentas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_ConsultaVentas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_ConsultaVentas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_ConsultaVentas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ConsultaVentas.ForeColor = System.Drawing.Color.White;
+            this.Btn_ConsultaVentas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_ConsultaVentas.Location = new System.Drawing.Point(215, 177);
             this.Btn_ConsultaVentas.Name = "Btn_ConsultaVentas";
             this.Btn_ConsultaVentas.Size = new System.Drawing.Size(215, 38);
@@ -250,13 +260,13 @@
             // 
             // Btn_Ventas
             // 
-            this.Btn_Ventas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Ventas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Ventas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_Ventas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_Ventas.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Ventas.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Ventas.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_Ventas.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_Ventas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Ventas.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Ventas.ForeColor = System.Drawing.Color.White;
+            this.Btn_Ventas.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_Ventas.Location = new System.Drawing.Point(215, 140);
             this.Btn_Ventas.Name = "Btn_Ventas";
             this.Btn_Ventas.Size = new System.Drawing.Size(215, 38);
@@ -268,13 +278,13 @@
             // 
             // Btn_PedidodeCompra
             // 
-            this.Btn_PedidodeCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_PedidodeCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_PedidodeCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_PedidodeCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_PedidodeCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_PedidodeCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_PedidodeCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_PedidodeCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_PedidodeCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_PedidodeCompra.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_PedidodeCompra.ForeColor = System.Drawing.Color.White;
+            this.Btn_PedidodeCompra.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_PedidodeCompra.Location = new System.Drawing.Point(215, 247);
             this.Btn_PedidodeCompra.Name = "Btn_PedidodeCompra";
             this.Btn_PedidodeCompra.Size = new System.Drawing.Size(215, 38);
@@ -286,13 +296,13 @@
             // 
             // Btn_Proveedores
             // 
-            this.Btn_Proveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Proveedores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Proveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_Proveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_Proveedores.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Proveedores.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Proveedores.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_Proveedores.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_Proveedores.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Proveedores.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Proveedores.ForeColor = System.Drawing.Color.White;
+            this.Btn_Proveedores.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_Proveedores.Location = new System.Drawing.Point(215, 210);
             this.Btn_Proveedores.Name = "Btn_Proveedores";
             this.Btn_Proveedores.Size = new System.Drawing.Size(215, 38);
@@ -304,13 +314,13 @@
             // 
             // Btn_Catalogo
             // 
-            this.Btn_Catalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Catalogo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Catalogo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_Catalogo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_Catalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Catalogo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Catalogo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_Catalogo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_Catalogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Catalogo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Catalogo.ForeColor = System.Drawing.Color.White;
+            this.Btn_Catalogo.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_Catalogo.Location = new System.Drawing.Point(215, 317);
             this.Btn_Catalogo.Name = "Btn_Catalogo";
             this.Btn_Catalogo.Size = new System.Drawing.Size(215, 38);
@@ -322,13 +332,13 @@
             // 
             // Btn_OrdendeCompra
             // 
-            this.Btn_OrdendeCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_OrdendeCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_OrdendeCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_OrdendeCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_OrdendeCompra.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_OrdendeCompra.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_OrdendeCompra.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_OrdendeCompra.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_OrdendeCompra.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_OrdendeCompra.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_OrdendeCompra.ForeColor = System.Drawing.Color.White;
+            this.Btn_OrdendeCompra.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_OrdendeCompra.Location = new System.Drawing.Point(215, 280);
             this.Btn_OrdendeCompra.Name = "Btn_OrdendeCompra";
             this.Btn_OrdendeCompra.Size = new System.Drawing.Size(215, 38);
@@ -340,13 +350,13 @@
             // 
             // Btn_Informes
             // 
-            this.Btn_Informes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Informes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(110)))));
-            this.Btn_Informes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
-            this.Btn_Informes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(210)))));
+            this.Btn_Informes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Informes.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Btn_Informes.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
+            this.Btn_Informes.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
             this.Btn_Informes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_Informes.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_Informes.ForeColor = System.Drawing.Color.White;
+            this.Btn_Informes.ForeColor = System.Drawing.SystemColors.ControlText;
             this.Btn_Informes.Location = new System.Drawing.Point(215, 355);
             this.Btn_Informes.Name = "Btn_Informes";
             this.Btn_Informes.Size = new System.Drawing.Size(215, 38);

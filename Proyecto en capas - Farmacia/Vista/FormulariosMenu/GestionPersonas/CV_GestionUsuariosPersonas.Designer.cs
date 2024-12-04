@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_GestionUsuariosPersonas));
             this.Txb_Nombre = new System.Windows.Forms.TextBox();
             this.Txb_Apellido = new System.Windows.Forms.TextBox();
             this.Txb_Domicilio = new System.Windows.Forms.TextBox();
@@ -998,6 +999,7 @@
             this.Controls.Add(this.Pnb_RegistroPersona);
             this.Controls.Add(this.Rbt_Usuario);
             this.Controls.Add(this.Rbt_Cliente);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "CV_GestionUsuariosPersonas";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

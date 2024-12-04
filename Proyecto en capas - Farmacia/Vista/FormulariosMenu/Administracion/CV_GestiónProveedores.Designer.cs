@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_GestionProveedores));
             this.Txb_RazonSocial = new System.Windows.Forms.TextBox();
             this.Txb_Cuit = new System.Windows.Forms.TextBox();
             this.Txb_Matricula = new System.Windows.Forms.TextBox();
@@ -339,6 +340,7 @@
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.Btn_Agregar);
             this.Controls.Add(this.DTGV_Proveedores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_GestionProveedores";
             this.Text = "Gestión Proveedores";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

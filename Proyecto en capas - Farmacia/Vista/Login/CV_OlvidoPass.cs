@@ -46,7 +46,7 @@ namespace Vista
             }
             Sistema.CargarConfiguracion();
 
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {

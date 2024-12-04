@@ -40,7 +40,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
         {
             cargarDTVG();
             configurarDTGV();
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
         private void DTGV_SeleccionarPersona_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

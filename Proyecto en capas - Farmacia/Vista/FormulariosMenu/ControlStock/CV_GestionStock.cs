@@ -42,6 +42,7 @@ namespace Vista
             mostrarProductos();
             configurarLoad();
             cargarPermisos();
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
         private void Chb_Busqueda_CheckedChanged(object sender, EventArgs e)
         {
@@ -179,17 +180,17 @@ namespace Vista
         private void Btn_VtoProductos_Click(object sender, EventArgs e)
         {
             CV_ControlVencimientos ControldeVencimientos = new CV_ControlVencimientos();
-            ControldeVencimientos.Show();
+            ControldeVencimientos.ShowDialog();
         }
         private void Btn_StockCritico_Click(object sender, EventArgs e)
         {
             CV_StockMinimo ControldeVencimientos = new CV_StockMinimo();
-            ControldeVencimientos.Show();
+            ControldeVencimientos.ShowDialog();
         }
         private void Btn_VerProdVencidos_Click(object sender, EventArgs e)
         {
             CV_ProdVencido ProductosVencidos = new CV_ProdVencido();
-            ProductosVencidos.Show();
+            ProductosVencidos.ShowDialog();
         }
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {

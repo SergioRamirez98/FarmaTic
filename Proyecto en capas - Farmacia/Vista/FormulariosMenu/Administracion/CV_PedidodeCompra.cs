@@ -46,7 +46,7 @@ namespace Vista.FormulariosMenu
             configurarDTGV();
             mostrarCatalogo();
             cargarPermisos();
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
         private void Btn_AgregarAlPedido_Click(object sender, EventArgs e)
         {

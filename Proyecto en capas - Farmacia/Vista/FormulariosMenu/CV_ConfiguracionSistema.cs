@@ -35,7 +35,7 @@ namespace Vista.FormulariosMenu
         {
             configurarLoad();
             configurarDTGV();
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
         private void Btn_Guardar_Click(object sender, EventArgs e)
         {

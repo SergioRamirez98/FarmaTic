@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_AltaUsuario));
             this.Pnb_RegistroUsuario = new System.Windows.Forms.Panel();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_Guardar = new System.Windows.Forms.Button();
@@ -454,6 +455,7 @@
             this.Controls.Add(this.btn_SeleccionarPersona);
             this.Controls.Add(this.Txb_Persona);
             this.Controls.Add(this.Pnb_RegistroUsuario);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_AltaUsuario";
             this.Text = "Alta usuario";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;

@@ -28,7 +28,7 @@ namespace Vista.FormulariosMenu.Compras
         {
             configurarLoad();            
             configurarDTGV();
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }
 
         private void Cmb_TipoAnalisis_SelectedIndexChanged(object sender, EventArgs e)

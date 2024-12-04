@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_ProdVencido));
             this.DTGV_ProductosVencidos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_ProductosVencidos)).BeginInit();
             this.SuspendLayout();
@@ -49,6 +50,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1361, 450);
             this.Controls.Add(this.DTGV_ProductosVencidos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ProdVencido";
             this.Text = "Productos Vencidos";
             this.Load += new System.EventHandler(this.CV_ProdVencido_Load);

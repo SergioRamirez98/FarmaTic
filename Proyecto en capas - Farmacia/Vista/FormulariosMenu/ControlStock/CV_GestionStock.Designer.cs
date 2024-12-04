@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_Stock));
             this.Txb_Monodroga = new System.Windows.Forms.TextBox();
             this.Txb_Marca = new System.Windows.Forms.TextBox();
             this.Txb_Descripcion = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@
             this.Txb_NLoteBusq = new System.Windows.Forms.TextBox();
             this.Lbl_PrecDesde = new System.Windows.Forms.Label();
             this.Dtp_VtoDesde = new System.Windows.Forms.DateTimePicker();
-            this.Btn_VtoProductos = new System.Windows.Forms.Button();
             this.Btn_StockCritico = new System.Windows.Forms.Button();
             this.Lbl_Categoria = new System.Windows.Forms.Label();
             this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
@@ -72,6 +72,7 @@
             this.Lbl_Nombre = new System.Windows.Forms.Label();
             this.Txb_NombreComercial = new System.Windows.Forms.TextBox();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
+            this.Btn_VtoProductos = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
@@ -201,7 +202,7 @@
             // 
             this.Btn_Agregar.Location = new System.Drawing.Point(860, 68);
             this.Btn_Agregar.Name = "Btn_Agregar";
-            this.Btn_Agregar.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Agregar.Size = new System.Drawing.Size(88, 30);
             this.Btn_Agregar.TabIndex = 10;
             this.Btn_Agregar.Text = "Agregar";
             this.Btn_Agregar.UseVisualStyleBackColor = true;
@@ -211,7 +212,7 @@
             // 
             this.Btn_Buscar.Location = new System.Drawing.Point(860, 109);
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(75, 29);
+            this.Btn_Buscar.Size = new System.Drawing.Size(88, 29);
             this.Btn_Buscar.TabIndex = 11;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
@@ -221,7 +222,7 @@
             // 
             this.Btn_Modificar.Location = new System.Drawing.Point(860, 144);
             this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(75, 29);
+            this.Btn_Modificar.Size = new System.Drawing.Size(88, 29);
             this.Btn_Modificar.TabIndex = 12;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
@@ -231,7 +232,7 @@
             // 
             this.Btn_GuardarCambios.Location = new System.Drawing.Point(860, 179);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
-            this.Btn_GuardarCambios.Size = new System.Drawing.Size(75, 30);
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(88, 30);
             this.Btn_GuardarCambios.TabIndex = 13;
             this.Btn_GuardarCambios.Text = "Guardar";
             this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
@@ -252,7 +253,7 @@
             // 
             this.Btn_Eliminar.Location = new System.Drawing.Point(860, 215);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 31);
+            this.Btn_Eliminar.Size = new System.Drawing.Size(88, 31);
             this.Btn_Eliminar.TabIndex = 14;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
@@ -414,23 +415,13 @@
             this.Dtp_VtoDesde.Size = new System.Drawing.Size(106, 22);
             this.Dtp_VtoDesde.TabIndex = 25;
             // 
-            // Btn_VtoProductos
-            // 
-            this.Btn_VtoProductos.Location = new System.Drawing.Point(1088, 31);
-            this.Btn_VtoProductos.Name = "Btn_VtoProductos";
-            this.Btn_VtoProductos.Size = new System.Drawing.Size(121, 60);
-            this.Btn_VtoProductos.TabIndex = 15;
-            this.Btn_VtoProductos.Text = "Tiene productos próximos a vencer";
-            this.Btn_VtoProductos.UseVisualStyleBackColor = true;
-            this.Btn_VtoProductos.Click += new System.EventHandler(this.Btn_VtoProductos_Click);
-            // 
             // Btn_StockCritico
             // 
             this.Btn_StockCritico.Location = new System.Drawing.Point(1088, 106);
             this.Btn_StockCritico.Name = "Btn_StockCritico";
             this.Btn_StockCritico.Size = new System.Drawing.Size(121, 60);
             this.Btn_StockCritico.TabIndex = 16;
-            this.Btn_StockCritico.Text = "Tiene productos con bajo stock";
+            this.Btn_StockCritico.Text = "Productos con bajo stock";
             this.Btn_StockCritico.UseVisualStyleBackColor = true;
             this.Btn_StockCritico.Click += new System.EventHandler(this.Btn_StockCritico_Click);
             // 
@@ -457,7 +448,7 @@
             this.Btn_VerProdVencidos.Name = "Btn_VerProdVencidos";
             this.Btn_VerProdVencidos.Size = new System.Drawing.Size(121, 60);
             this.Btn_VerProdVencidos.TabIndex = 27;
-            this.Btn_VerProdVencidos.Text = "Ver productos vencidos";
+            this.Btn_VerProdVencidos.Text = "Productos vencidos";
             this.Btn_VerProdVencidos.UseVisualStyleBackColor = true;
             this.Btn_VerProdVencidos.Click += new System.EventHandler(this.Btn_VerProdVencidos_Click);
             // 
@@ -482,11 +473,21 @@
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(860, 31);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 31);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(88, 31);
             this.Btn_Refrescar.TabIndex = 30;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
             this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
+            // 
+            // Btn_VtoProductos
+            // 
+            this.Btn_VtoProductos.Location = new System.Drawing.Point(1088, 31);
+            this.Btn_VtoProductos.Name = "Btn_VtoProductos";
+            this.Btn_VtoProductos.Size = new System.Drawing.Size(121, 60);
+            this.Btn_VtoProductos.TabIndex = 15;
+            this.Btn_VtoProductos.Text = "Productos próximos a vencer";
+            this.Btn_VtoProductos.UseVisualStyleBackColor = true;
+            this.Btn_VtoProductos.Click += new System.EventHandler(this.Btn_VtoProductos_Click);
             // 
             // CV_Stock
             // 
@@ -524,6 +525,7 @@
             this.Controls.Add(this.Txb_Marca);
             this.Controls.Add(this.Txb_Monodroga);
             this.Controls.Add(this.DTGV_Productos);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_Stock";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de inventario";
@@ -574,7 +576,6 @@
         private System.Windows.Forms.TextBox Txb_NLoteBusq;
         private System.Windows.Forms.Label Lbl_PrecDesde;
         private System.Windows.Forms.DateTimePicker Dtp_VtoDesde;
-        private System.Windows.Forms.Button Btn_VtoProductos;
         private System.Windows.Forms.Button Btn_StockCritico;
         private System.Windows.Forms.Label Lbl_Categoria;
         private System.Windows.Forms.ComboBox Cmb_Categoria;
@@ -582,5 +583,6 @@
         private System.Windows.Forms.Label Lbl_Nombre;
         private System.Windows.Forms.TextBox Txb_NombreComercial;
         private System.Windows.Forms.Button Btn_Refrescar;
+        private System.Windows.Forms.Button Btn_VtoProductos;
     }
 }

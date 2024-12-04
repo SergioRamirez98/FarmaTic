@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_ObtenerProveedores));
             this.DTGV_SeleccionProveedores = new System.Windows.Forms.DataGridView();
             this.Lbl_Busqueda = new System.Windows.Forms.Label();
             this.Txb_BusquedaRapida = new System.Windows.Forms.TextBox();
@@ -72,6 +73,7 @@
             this.Controls.Add(this.Txb_BusquedaRapida);
             this.Controls.Add(this.Lbl_Busqueda);
             this.Controls.Add(this.DTGV_SeleccionProveedores);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ObtenerProveedores";
             this.Text = "Obtener Proveedores";
             this.Load += new System.EventHandler(this.CV_ObtenerProveedores_Load);

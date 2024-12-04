@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_ModulodeSeguridad));
             this.Chb_MinCaracteres = new System.Windows.Forms.CheckBox();
             this.Chb_MayMin = new System.Windows.Forms.CheckBox();
             this.Chb_CaracEspec = new System.Windows.Forms.CheckBox();
@@ -289,6 +290,7 @@
             this.Controls.Add(this.Chb_CaracEspec);
             this.Controls.Add(this.Chb_MayMin);
             this.Controls.Add(this.Chb_MinCaracteres);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ModulodeSeguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Configuración de seguridad";

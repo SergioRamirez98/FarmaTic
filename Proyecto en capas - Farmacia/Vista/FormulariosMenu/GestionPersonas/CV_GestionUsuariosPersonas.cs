@@ -39,7 +39,7 @@ namespace Vista
             cargarComboBox(false);
             CServ_Limpiar.LimpiarFormulario(this);
             cargarPermisos();
-            CServ_ConfBotones.ConfiguracionDeBotones(this);
+            CServ_ConfControles.ConfiguraciondeControles(this);
         }      
         private void Cmb_Categoria_SelectedIndexChanged(object sender, EventArgs e)
         {
