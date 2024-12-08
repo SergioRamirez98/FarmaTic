@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_CatalogoProductos));
-            this.Lbl_Nombre = new System.Windows.Forms.Label();
+            this.Lbl_NombreComercial = new System.Windows.Forms.Label();
             this.Txb_NombreComercial = new System.Windows.Forms.TextBox();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
             this.Btn_GuardarCambios = new System.Windows.Forms.Button();
             this.Btn_Modificar = new System.Windows.Forms.Button();
             this.Btn_Buscar = new System.Windows.Forms.Button();
             this.Btn_Agregar = new System.Windows.Forms.Button();
-            this.Lbl_Precio = new System.Windows.Forms.Label();
+            this.Lbl_PrecioPorLote = new System.Windows.Forms.Label();
             this.Lbl_CompraMinima = new System.Windows.Forms.Label();
             this.Lbl_UnidadesporLote = new System.Windows.Forms.Label();
             this.Lbl_Marca = new System.Windows.Forms.Label();
@@ -71,14 +71,14 @@
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
             // 
-            // Lbl_Nombre
+            // Lbl_NombreComercial
             // 
-            this.Lbl_Nombre.AutoSize = true;
-            this.Lbl_Nombre.Location = new System.Drawing.Point(49, 102);
-            this.Lbl_Nombre.Name = "Lbl_Nombre";
-            this.Lbl_Nombre.Size = new System.Drawing.Size(118, 16);
-            this.Lbl_Nombre.TabIndex = 57;
-            this.Lbl_Nombre.Text = "Nombre comercial";
+            this.Lbl_NombreComercial.AutoSize = true;
+            this.Lbl_NombreComercial.Location = new System.Drawing.Point(49, 102);
+            this.Lbl_NombreComercial.Name = "Lbl_NombreComercial";
+            this.Lbl_NombreComercial.Size = new System.Drawing.Size(118, 16);
+            this.Lbl_NombreComercial.TabIndex = 57;
+            this.Lbl_NombreComercial.Text = "Nombre comercial";
             // 
             // Txb_NombreComercial
             // 
@@ -138,14 +138,14 @@
             this.Btn_Agregar.UseVisualStyleBackColor = true;
             this.Btn_Agregar.Click += new System.EventHandler(this.Btn_Agregar_Click);
             // 
-            // Lbl_Precio
+            // Lbl_PrecioPorLote
             // 
-            this.Lbl_Precio.AutoSize = true;
-            this.Lbl_Precio.Location = new System.Drawing.Point(541, 169);
-            this.Lbl_Precio.Name = "Lbl_Precio";
-            this.Lbl_Precio.Size = new System.Drawing.Size(98, 16);
-            this.Lbl_Precio.TabIndex = 45;
-            this.Lbl_Precio.Text = "Precio por Lote";
+            this.Lbl_PrecioPorLote.AutoSize = true;
+            this.Lbl_PrecioPorLote.Location = new System.Drawing.Point(541, 169);
+            this.Lbl_PrecioPorLote.Name = "Lbl_PrecioPorLote";
+            this.Lbl_PrecioPorLote.Size = new System.Drawing.Size(98, 16);
+            this.Lbl_PrecioPorLote.TabIndex = 45;
+            this.Lbl_PrecioPorLote.Text = "Precio por Lote";
             // 
             // Lbl_CompraMinima
             // 
@@ -263,7 +263,7 @@
             // 
             this.Btn_SeleccionarProveedor.Location = new System.Drawing.Point(393, 203);
             this.Btn_SeleccionarProveedor.Name = "Btn_SeleccionarProveedor";
-            this.Btn_SeleccionarProveedor.Size = new System.Drawing.Size(81, 23);
+            this.Btn_SeleccionarProveedor.Size = new System.Drawing.Size(81, 24);
             this.Btn_SeleccionarProveedor.TabIndex = 58;
             this.Btn_SeleccionarProveedor.Text = "Seleccion";
             this.Btn_SeleccionarProveedor.UseVisualStyleBackColor = true;
@@ -426,7 +426,7 @@
             this.Controls.Add(this.Txb_Proveedor);
             this.Controls.Add(this.Nud_CompraMinima);
             this.Controls.Add(this.Nud_UnidadporLote);
-            this.Controls.Add(this.Lbl_Nombre);
+            this.Controls.Add(this.Lbl_NombreComercial);
             this.Controls.Add(this.Txb_NombreComercial);
             this.Controls.Add(this.Lbl_Proveedor);
             this.Controls.Add(this.Btn_Eliminar);
@@ -434,7 +434,7 @@
             this.Controls.Add(this.Btn_Modificar);
             this.Controls.Add(this.Btn_Buscar);
             this.Controls.Add(this.Btn_Agregar);
-            this.Controls.Add(this.Lbl_Precio);
+            this.Controls.Add(this.Lbl_PrecioPorLote);
             this.Controls.Add(this.Lbl_CompraMinima);
             this.Controls.Add(this.Lbl_UnidadesporLote);
             this.Controls.Add(this.Lbl_Marca);
@@ -460,14 +460,14 @@
 
         #endregion
 
-        private System.Windows.Forms.Label Lbl_Nombre;
+        private System.Windows.Forms.Label Lbl_NombreComercial;
         private System.Windows.Forms.TextBox Txb_NombreComercial;
         private System.Windows.Forms.Button Btn_Eliminar;
         private System.Windows.Forms.Button Btn_GuardarCambios;
         private System.Windows.Forms.Button Btn_Modificar;
         private System.Windows.Forms.Button Btn_Buscar;
         private System.Windows.Forms.Button Btn_Agregar;
-        private System.Windows.Forms.Label Lbl_Precio;
+        private System.Windows.Forms.Label Lbl_PrecioPorLote;
         private System.Windows.Forms.Label Lbl_CompraMinima;
         private System.Windows.Forms.Label Lbl_UnidadesporLote;
         private System.Windows.Forms.Label Lbl_Marca;

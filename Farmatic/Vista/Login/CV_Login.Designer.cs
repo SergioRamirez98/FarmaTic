@@ -37,6 +37,8 @@
             this.LnkLbl_OlvideContrasena = new System.Windows.Forms.LinkLabel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnMostrarContrasenia = new System.Windows.Forms.Button();
+            this.Cmb_Lenguaje = new System.Windows.Forms.ComboBox();
+            this.Lbl_Lenguaje = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -133,6 +135,26 @@
             this.btnMostrarContrasenia.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnMostrarContrasenia_MouseDown);
             this.btnMostrarContrasenia.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnMostrarContrasenia_MouseUp);
             // 
+            // Cmb_Lenguaje
+            // 
+            this.Cmb_Lenguaje.FormattingEnabled = true;
+            this.Cmb_Lenguaje.Location = new System.Drawing.Point(424, 229);
+            this.Cmb_Lenguaje.Name = "Cmb_Lenguaje";
+            this.Cmb_Lenguaje.Size = new System.Drawing.Size(131, 24);
+            this.Cmb_Lenguaje.TabIndex = 11;
+            this.Cmb_Lenguaje.SelectionChangeCommitted += new System.EventHandler(this.Cmb_Lenguaje_SelectionChangeCommitted);
+            // 
+            // Lbl_Lenguaje
+            // 
+            this.Lbl_Lenguaje.AutoSize = true;
+            this.Lbl_Lenguaje.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_Lenguaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Lenguaje.Location = new System.Drawing.Point(316, 229);
+            this.Lbl_Lenguaje.Name = "Lbl_Lenguaje";
+            this.Lbl_Lenguaje.Size = new System.Drawing.Size(77, 20);
+            this.Lbl_Lenguaje.TabIndex = 12;
+            this.Lbl_Lenguaje.Text = "Lenguaje";
+            // 
             // CV_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -140,6 +162,8 @@
             this.BackgroundImage = global::Vista.Properties.Resources.fondo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(645, 277);
+            this.Controls.Add(this.Lbl_Lenguaje);
+            this.Controls.Add(this.Cmb_Lenguaje);
             this.Controls.Add(this.btnMostrarContrasenia);
             this.Controls.Add(this.Lbl_Usuario);
             this.Controls.Add(this.Llb_Contrasena);
@@ -172,6 +196,8 @@
         private System.Windows.Forms.LinkLabel LnkLbl_OlvideContrasena;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnMostrarContrasenia;
+        private System.Windows.Forms.ComboBox Cmb_Lenguaje;
+        private System.Windows.Forms.Label Lbl_Lenguaje;
     }
 }
 

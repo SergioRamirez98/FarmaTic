@@ -142,6 +142,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CV_Idioma.cs" />
+    <Compile Include="CV_Lista.cs" />
     <Compile Include="FormulariosMenu\Administracion\CV_Informes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +252,11 @@
     <Compile Include="FormulariosMenu\Ventas\CV_VisualizadorVentas.Designer.cs">
       <DependentUpon>CV_VisualizadorVentas.cs</DependentUpon>
     </Compile>
+    <Compile Include="Lenguaje\Strings.es-AR.Designer.cs">
+      <DependentUpon>Strings.es-AR.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Lenguaje\Strings.en-GB.Designer.cs">
       <DependentUpon>Strings.en-GB.resx</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -293,7 +300,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Strings.Designer.cs">
+    <Compile Include="Lenguaje\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
@@ -352,6 +359,10 @@
     <EmbeddedResource Include="FormulariosMenu\Ventas\CV_VisualizadorVentas.resx">
       <DependentUpon>CV_VisualizadorVentas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Lenguaje\Strings.es-AR.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Strings.es-AR.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Lenguaje\Strings.en-GB.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.en-GB.Designer.cs</LastGenOutput>
@@ -379,7 +390,7 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Strings.resx">
+    <EmbeddedResource Include="Lenguaje\Strings.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
@@ -447,6 +458,8 @@
     <None Include="Resources\icons8-añadir-usuario-masculino-40.png" />
     <None Include="Resources\icons8-cerrar-sesión-30.png" />
     <None Include="Resources\icons8-cerrar-sesión-40.png" />
+    <None Include="Resources\GB.png" />
+    <None Include="Resources\ARG.png" />
     <Content Include="Resources\Plantilla.html">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

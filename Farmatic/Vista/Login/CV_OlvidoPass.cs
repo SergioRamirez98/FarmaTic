@@ -17,6 +17,7 @@ namespace Vista
         public CV_OlvidoPass()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this); //Asigno los nombres a los controles del formulario
         }
         #region Eventos
         private void CV_OlvidoPass_Load(object sender, EventArgs e)

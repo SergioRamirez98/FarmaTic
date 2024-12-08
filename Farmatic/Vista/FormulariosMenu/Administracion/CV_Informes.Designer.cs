@@ -55,7 +55,7 @@
             // Dtp_FechaInicio
             // 
             this.Dtp_FechaInicio.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Dtp_FechaInicio.Location = new System.Drawing.Point(118, 57);
+            this.Dtp_FechaInicio.Location = new System.Drawing.Point(136, 57);
             this.Dtp_FechaInicio.Name = "Dtp_FechaInicio";
             this.Dtp_FechaInicio.Size = new System.Drawing.Size(133, 22);
             this.Dtp_FechaInicio.TabIndex = 1;
@@ -71,7 +71,7 @@
             // Cmb_TipoAnalisis
             // 
             this.Cmb_TipoAnalisis.FormattingEnabled = true;
-            this.Cmb_TipoAnalisis.Location = new System.Drawing.Point(118, 10);
+            this.Cmb_TipoAnalisis.Location = new System.Drawing.Point(136, 10);
             this.Cmb_TipoAnalisis.Name = "Cmb_TipoAnalisis";
             this.Cmb_TipoAnalisis.Size = new System.Drawing.Size(133, 24);
             this.Cmb_TipoAnalisis.TabIndex = 0;
@@ -129,7 +129,7 @@
             // 
             this.Btn_GenerarInforme.Location = new System.Drawing.Point(288, 106);
             this.Btn_GenerarInforme.Name = "Btn_GenerarInforme";
-            this.Btn_GenerarInforme.Size = new System.Drawing.Size(95, 23);
+            this.Btn_GenerarInforme.Size = new System.Drawing.Size(95, 26);
             this.Btn_GenerarInforme.TabIndex = 16;
             this.Btn_GenerarInforme.Text = "Generar Informe";
             this.Btn_GenerarInforme.UseVisualStyleBackColor = true;
@@ -139,7 +139,7 @@
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(363, 10);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(95, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(95, 26);
             this.Btn_Refrescar.TabIndex = 17;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;

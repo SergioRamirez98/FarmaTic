@@ -32,6 +32,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
         public CV_SeleccionarPersona()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         #region Eventos

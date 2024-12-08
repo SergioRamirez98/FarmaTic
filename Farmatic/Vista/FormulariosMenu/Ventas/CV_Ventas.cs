@@ -42,6 +42,7 @@ namespace Vista.FormulariosMenu
         public CV_Ventas()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         #region Eventos

@@ -100,7 +100,7 @@
             // Chb_NumYLetras
             // 
             this.Chb_NumYLetras.AutoSize = true;
-            this.Chb_NumYLetras.Location = new System.Drawing.Point(290, 25);
+            this.Chb_NumYLetras.Location = new System.Drawing.Point(330, 25);
             this.Chb_NumYLetras.Name = "Chb_NumYLetras";
             this.Chb_NumYLetras.Size = new System.Drawing.Size(184, 20);
             this.Chb_NumYLetras.TabIndex = 4;
@@ -120,7 +120,7 @@
             // Chb_RepetirPass
             // 
             this.Chb_RepetirPass.AutoSize = true;
-            this.Chb_RepetirPass.Location = new System.Drawing.Point(290, 55);
+            this.Chb_RepetirPass.Location = new System.Drawing.Point(330, 55);
             this.Chb_RepetirPass.Name = "Chb_RepetirPass";
             this.Chb_RepetirPass.Size = new System.Drawing.Size(165, 20);
             this.Chb_RepetirPass.TabIndex = 5;
@@ -130,7 +130,7 @@
             // Lbl_CantIntentosFallidos
             // 
             this.Lbl_CantIntentosFallidos.AutoSize = true;
-            this.Lbl_CantIntentosFallidos.Location = new System.Drawing.Point(353, 85);
+            this.Lbl_CantIntentosFallidos.Location = new System.Drawing.Point(393, 85);
             this.Lbl_CantIntentosFallidos.Name = "Lbl_CantIntentosFallidos";
             this.Lbl_CantIntentosFallidos.Size = new System.Drawing.Size(175, 16);
             this.Lbl_CantIntentosFallidos.TabIndex = 9;
@@ -138,7 +138,7 @@
             // 
             // Nud_CantidadIntentosFallidos
             // 
-            this.Nud_CantidadIntentosFallidos.Location = new System.Drawing.Point(290, 85);
+            this.Nud_CantidadIntentosFallidos.Location = new System.Drawing.Point(330, 85);
             this.Nud_CantidadIntentosFallidos.Name = "Nud_CantidadIntentosFallidos";
             this.Nud_CantidadIntentosFallidos.Size = new System.Drawing.Size(54, 22);
             this.Nud_CantidadIntentosFallidos.TabIndex = 9;
@@ -150,9 +150,9 @@
             // 
             // Btn_Bitacora
             // 
-            this.Btn_Bitacora.Location = new System.Drawing.Point(290, 115);
+            this.Btn_Bitacora.Location = new System.Drawing.Point(330, 115);
             this.Btn_Bitacora.Name = "Btn_Bitacora";
-            this.Btn_Bitacora.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Bitacora.Size = new System.Drawing.Size(84, 23);
             this.Btn_Bitacora.TabIndex = 11;
             this.Btn_Bitacora.Text = "Bitácora";
             this.Btn_Bitacora.UseVisualStyleBackColor = true;

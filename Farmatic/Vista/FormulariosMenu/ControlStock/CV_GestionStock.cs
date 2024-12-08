@@ -21,6 +21,7 @@ namespace Vista
         public CV_Stock()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
         #region atributos
         CL_Productos Productos = new CL_Productos();

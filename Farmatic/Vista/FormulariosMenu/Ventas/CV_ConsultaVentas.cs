@@ -23,6 +23,7 @@ namespace Vista
         public CV_ConsultaVentas()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
         private void CV_ConsultaVentas_Load(object sender, EventArgs e)
         {

@@ -20,6 +20,7 @@ namespace Vista.FormulariosMenu.Compras
         public CV_Informes()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
         CL_Informes Informes = new CL_Informes();
         List<CM_Informe> ListaInforme { get; set; } = new List<CM_Informe>();

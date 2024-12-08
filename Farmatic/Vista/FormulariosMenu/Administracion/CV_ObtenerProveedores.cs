@@ -22,6 +22,7 @@ namespace Vista.FormulariosMenu
         public CV_ObtenerProveedores()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         #region Eventos

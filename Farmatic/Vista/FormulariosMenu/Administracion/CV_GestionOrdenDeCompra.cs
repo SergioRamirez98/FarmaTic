@@ -36,6 +36,7 @@ namespace Vista.FormulariosMenu
         public CV_GestionOrdenDeCompra()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         private void CV_OrdenDeCompra_Load(object sender, EventArgs e)

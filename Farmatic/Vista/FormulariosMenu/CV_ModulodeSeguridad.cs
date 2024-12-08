@@ -21,7 +21,7 @@ namespace Vista
         {
             Sistema.CargarConfiguracion();
             InitializeComponent();
-
+            CV_Idioma.CargarIdioma(this.Controls, this); 
         }
         private void CV_Configuracion_Load(object sender, EventArgs e)
         {

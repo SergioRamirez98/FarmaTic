@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_ObtenerProveedores));
             this.DTGV_SeleccionProveedores = new System.Windows.Forms.DataGridView();
-            this.Lbl_Busqueda = new System.Windows.Forms.Label();
+            this.Lbl_Buscar = new System.Windows.Forms.Label();
             this.Txb_BusquedaRapida = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_SeleccionProveedores)).BeginInit();
             this.SuspendLayout();
@@ -47,14 +47,14 @@
             this.DTGV_SeleccionProveedores.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_SeleccionProveedores_CellDoubleClick);
             this.DTGV_SeleccionProveedores.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DTGV_SeleccionProveedores_KeyDown);
             // 
-            // Lbl_Busqueda
+            // Lbl_Buscar
             // 
-            this.Lbl_Busqueda.AutoSize = true;
-            this.Lbl_Busqueda.Location = new System.Drawing.Point(406, 51);
-            this.Lbl_Busqueda.Name = "Lbl_Busqueda";
-            this.Lbl_Busqueda.Size = new System.Drawing.Size(69, 16);
-            this.Lbl_Busqueda.TabIndex = 1;
-            this.Lbl_Busqueda.Text = "Busqueda";
+            this.Lbl_Buscar.AutoSize = true;
+            this.Lbl_Buscar.Location = new System.Drawing.Point(406, 51);
+            this.Lbl_Buscar.Name = "Lbl_Buscar";
+            this.Lbl_Buscar.Size = new System.Drawing.Size(49, 16);
+            this.Lbl_Buscar.TabIndex = 1;
+            this.Lbl_Buscar.Text = "Buscar";
             // 
             // Txb_BusquedaRapida
             // 
@@ -71,7 +71,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1305, 450);
             this.Controls.Add(this.Txb_BusquedaRapida);
-            this.Controls.Add(this.Lbl_Busqueda);
+            this.Controls.Add(this.Lbl_Buscar);
             this.Controls.Add(this.DTGV_SeleccionProveedores);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ObtenerProveedores";
@@ -86,7 +86,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView DTGV_SeleccionProveedores;
-        private System.Windows.Forms.Label Lbl_Busqueda;
+        private System.Windows.Forms.Label Lbl_Buscar;
         private System.Windows.Forms.TextBox Txb_BusquedaRapida;
     }
 }

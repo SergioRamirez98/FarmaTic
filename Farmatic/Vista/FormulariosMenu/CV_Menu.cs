@@ -26,12 +26,14 @@ namespace Vista
         {
             InitializeComponent();
             InitializeMenuEvents();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
         private void CV_Menu_Load(object sender, EventArgs e)
         {
             configurarFormulario(this, this);
             configurarLoad();
             accesoAModulos();
+
         }
 
         #region Eventos

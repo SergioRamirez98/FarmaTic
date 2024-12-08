@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_AltaUsuario));
             this.Pnb_RegistroUsuario = new System.Windows.Forms.Panel();
             this.Btn_Eliminar = new System.Windows.Forms.Button();
-            this.Btn_Guardar = new System.Windows.Forms.Button();
+            this.Btn_GuardarCambios = new System.Windows.Forms.Button();
             this.Btn_Modificar = new System.Windows.Forms.Button();
             this.Cmb_VenceCada = new System.Windows.Forms.ComboBox();
             this.Lbl_VenceCada = new System.Windows.Forms.Label();
@@ -63,7 +63,7 @@
             this.Txb_Respuesta1 = new System.Windows.Forms.TextBox();
             this.Txb_Pregunta1 = new System.Windows.Forms.TextBox();
             this.Txb_Persona = new System.Windows.Forms.TextBox();
-            this.btn_SeleccionarPersona = new System.Windows.Forms.Button();
+            this.Btn_SeleccionarPersona = new System.Windows.Forms.Button();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
             this.Pnb_RegistroUsuario.SuspendLayout();
             this.SuspendLayout();
@@ -71,7 +71,7 @@
             // Pnb_RegistroUsuario
             // 
             this.Pnb_RegistroUsuario.Controls.Add(this.Btn_Eliminar);
-            this.Pnb_RegistroUsuario.Controls.Add(this.Btn_Guardar);
+            this.Pnb_RegistroUsuario.Controls.Add(this.Btn_GuardarCambios);
             this.Pnb_RegistroUsuario.Controls.Add(this.Btn_Modificar);
             this.Pnb_RegistroUsuario.Controls.Add(this.Cmb_VenceCada);
             this.Pnb_RegistroUsuario.Controls.Add(this.Lbl_VenceCada);
@@ -119,16 +119,16 @@
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
             this.Btn_Eliminar.Click += new System.EventHandler(this.Btn_Eliminar_Click);
             // 
-            // Btn_Guardar
+            // Btn_GuardarCambios
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(521, 333);
-            this.Btn_Guardar.Margin = new System.Windows.Forms.Padding(4);
-            this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(154, 31);
-            this.Btn_Guardar.TabIndex = 55;
-            this.Btn_Guardar.Text = "Guardar cambios";
-            this.Btn_Guardar.UseVisualStyleBackColor = true;
-            this.Btn_Guardar.Click += new System.EventHandler(this.Btn_Guardar_Click);
+            this.Btn_GuardarCambios.Location = new System.Drawing.Point(521, 333);
+            this.Btn_GuardarCambios.Margin = new System.Windows.Forms.Padding(4);
+            this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(154, 31);
+            this.Btn_GuardarCambios.TabIndex = 55;
+            this.Btn_GuardarCambios.Text = "Guardar cambios";
+            this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
+            this.Btn_GuardarCambios.Click += new System.EventHandler(this.Btn_Guardar_Click);
             // 
             // Btn_Modificar
             // 
@@ -425,21 +425,21 @@
             this.Txb_Persona.Size = new System.Drawing.Size(169, 22);
             this.Txb_Persona.TabIndex = 39;
             // 
-            // btn_SeleccionarPersona
+            // Btn_SeleccionarPersona
             // 
-            this.btn_SeleccionarPersona.Location = new System.Drawing.Point(323, 12);
-            this.btn_SeleccionarPersona.Name = "btn_SeleccionarPersona";
-            this.btn_SeleccionarPersona.Size = new System.Drawing.Size(118, 23);
-            this.btn_SeleccionarPersona.TabIndex = 40;
-            this.btn_SeleccionarPersona.Text = "Seleccionar Persona";
-            this.btn_SeleccionarPersona.UseVisualStyleBackColor = true;
-            this.btn_SeleccionarPersona.Click += new System.EventHandler(this.btn_SeleccionarPersona_Click);
+            this.Btn_SeleccionarPersona.Location = new System.Drawing.Point(323, 12);
+            this.Btn_SeleccionarPersona.Name = "Btn_SeleccionarPersona";
+            this.Btn_SeleccionarPersona.Size = new System.Drawing.Size(118, 26);
+            this.Btn_SeleccionarPersona.TabIndex = 40;
+            this.Btn_SeleccionarPersona.Text = "Seleccionar Persona";
+            this.Btn_SeleccionarPersona.UseVisualStyleBackColor = true;
+            this.Btn_SeleccionarPersona.Click += new System.EventHandler(this.btn_SeleccionarPersona_Click);
             // 
             // Btn_Refrescar
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(631, 12);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(118, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(118, 26);
             this.Btn_Refrescar.TabIndex = 41;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
@@ -452,7 +452,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1050, 461);
             this.Controls.Add(this.Btn_Refrescar);
-            this.Controls.Add(this.btn_SeleccionarPersona);
+            this.Controls.Add(this.Btn_SeleccionarPersona);
             this.Controls.Add(this.Txb_Persona);
             this.Controls.Add(this.Pnb_RegistroUsuario);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -500,9 +500,9 @@
         private System.Windows.Forms.TextBox Txb_Respuesta1;
         private System.Windows.Forms.TextBox Txb_Pregunta1;
         private System.Windows.Forms.TextBox Txb_Persona;
-        private System.Windows.Forms.Button btn_SeleccionarPersona;
+        private System.Windows.Forms.Button Btn_SeleccionarPersona;
         private System.Windows.Forms.Button Btn_Eliminar;
-        private System.Windows.Forms.Button Btn_Guardar;
+        private System.Windows.Forms.Button Btn_GuardarCambios;
         private System.Windows.Forms.Button Btn_Modificar;
         private System.Windows.Forms.Button Btn_Refrescar;
     }

@@ -69,7 +69,7 @@
             this.Lbl_Categoria = new System.Windows.Forms.Label();
             this.Cmb_Categoria = new System.Windows.Forms.ComboBox();
             this.Btn_VerProdVencidos = new System.Windows.Forms.Button();
-            this.Lbl_Nombre = new System.Windows.Forms.Label();
+            this.Lbl_NombreComercial = new System.Windows.Forms.Label();
             this.Txb_NombreComercial = new System.Windows.Forms.TextBox();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
             this.Btn_VtoProductos = new System.Windows.Forms.Button();
@@ -452,14 +452,14 @@
             this.Btn_VerProdVencidos.UseVisualStyleBackColor = true;
             this.Btn_VerProdVencidos.Click += new System.EventHandler(this.Btn_VerProdVencidos_Click);
             // 
-            // Lbl_Nombre
+            // Lbl_NombreComercial
             // 
-            this.Lbl_Nombre.AutoSize = true;
-            this.Lbl_Nombre.Location = new System.Drawing.Point(40, 58);
-            this.Lbl_Nombre.Name = "Lbl_Nombre";
-            this.Lbl_Nombre.Size = new System.Drawing.Size(59, 16);
-            this.Lbl_Nombre.TabIndex = 29;
-            this.Lbl_Nombre.Text = "Nombre ";
+            this.Lbl_NombreComercial.AutoSize = true;
+            this.Lbl_NombreComercial.Location = new System.Drawing.Point(40, 58);
+            this.Lbl_NombreComercial.Name = "Lbl_NombreComercial";
+            this.Lbl_NombreComercial.Size = new System.Drawing.Size(59, 16);
+            this.Lbl_NombreComercial.TabIndex = 29;
+            this.Lbl_NombreComercial.Text = "Nombre ";
             // 
             // Txb_NombreComercial
             // 
@@ -496,7 +496,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1395, 817);
             this.Controls.Add(this.Btn_Refrescar);
-            this.Controls.Add(this.Lbl_Nombre);
+            this.Controls.Add(this.Lbl_NombreComercial);
             this.Controls.Add(this.Txb_NombreComercial);
             this.Controls.Add(this.Btn_VerProdVencidos);
             this.Controls.Add(this.Cmb_Categoria);
@@ -580,7 +580,7 @@
         private System.Windows.Forms.Label Lbl_Categoria;
         private System.Windows.Forms.ComboBox Cmb_Categoria;
         private System.Windows.Forms.Button Btn_VerProdVencidos;
-        private System.Windows.Forms.Label Lbl_Nombre;
+        private System.Windows.Forms.Label Lbl_NombreComercial;
         private System.Windows.Forms.TextBox Txb_NombreComercial;
         private System.Windows.Forms.Button Btn_Refrescar;
         private System.Windows.Forms.Button Btn_VtoProductos;

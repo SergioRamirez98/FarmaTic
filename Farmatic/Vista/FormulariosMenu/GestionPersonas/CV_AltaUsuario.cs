@@ -25,6 +25,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
         public CV_AltaUsuario(int idpersona)
         {
             InitializeComponent();if (idpersona != 0) ID_Persona = idpersona;
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
         private void CV_AltaUsuario_Load(object sender, EventArgs e)
         {
@@ -82,7 +83,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             {
                 Usuario.ModificarUsuario(); bloquearControles();
                 seleccionPersona(ID_Persona, CSesion_PersonaSeleccionada.Nombre + ' ' + CSesion_PersonaSeleccionada.Apellido);
-                Btn_Guardar.Enabled = false;
+                Btn_GuardarCambios.Enabled = false;
                 Btn_Eliminar.Enabled = true;
                 CServ_MsjUsuario.Exito("Datos Guardados con éxito");
             }
@@ -186,7 +187,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             Btn_Eliminar.Enabled = false;
             Btn_RegistrarUsuario.Enabled=true;
             Btn_Modificar.Enabled = false;
-            Btn_Guardar.Enabled = false;
+            Btn_GuardarCambios.Enabled = false;
             Txb_Persona.Enabled = false;
 
             if (ID != 0 && CSesion_PersonaSeleccionada.EsCliente == false && CSesion_PersonaSeleccionada.EsUsuario == true && CSesion_PersonaSeleccionada.EstadoCuenta == 1)
@@ -218,7 +219,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
                 Txb_Persona.Enabled = false;
                 Btn_Eliminar.Enabled = true;
                 Btn_Modificar.Enabled = true;
-                Btn_Guardar.Enabled = false;
+                Btn_GuardarCambios.Enabled = false;
                 Btn_RegistrarUsuario.Enabled = false;
             }
             else if (ID == 0)
@@ -292,7 +293,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
                         break;
                 }
             }
-            btn_SeleccionarPersona.Enabled = SeleccionarUsuarios;
+            Btn_SeleccionarPersona.Enabled = SeleccionarUsuarios;
         }
 
     }

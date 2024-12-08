@@ -30,6 +30,7 @@ namespace Vista
         public CV_GestionUsuariosPersonas()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         #region Eventos

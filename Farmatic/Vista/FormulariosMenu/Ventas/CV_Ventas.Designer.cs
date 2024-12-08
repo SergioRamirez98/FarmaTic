@@ -44,7 +44,7 @@
             this.Lbl_Fecha = new System.Windows.Forms.Label();
             this.Lbl_Total = new System.Windows.Forms.Label();
             this.Btn_BuscarCliente = new System.Windows.Forms.Button();
-            this.Btn_Consultar = new System.Windows.Forms.Button();
+            this.Btn_ConsultaVentas = new System.Windows.Forms.Button();
             this.Btn_CrearCliente = new System.Windows.Forms.Button();
             this.Pnl_Total = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
@@ -65,7 +65,7 @@
             // 
             // Txb_UserName
             // 
-            this.Txb_UserName.Location = new System.Drawing.Point(94, 24);
+            this.Txb_UserName.Location = new System.Drawing.Point(109, 24);
             this.Txb_UserName.Name = "Txb_UserName";
             this.Txb_UserName.Size = new System.Drawing.Size(100, 22);
             this.Txb_UserName.TabIndex = 0;
@@ -162,7 +162,7 @@
             // Lbl_Fecha
             // 
             this.Lbl_Fecha.AutoSize = true;
-            this.Lbl_Fecha.Location = new System.Drawing.Point(1243, 30);
+            this.Lbl_Fecha.Location = new System.Drawing.Point(1251, 27);
             this.Lbl_Fecha.Name = "Lbl_Fecha";
             this.Lbl_Fecha.Size = new System.Drawing.Size(45, 16);
             this.Lbl_Fecha.TabIndex = 30;
@@ -182,29 +182,29 @@
             // 
             this.Btn_BuscarCliente.Location = new System.Drawing.Point(735, 23);
             this.Btn_BuscarCliente.Name = "Btn_BuscarCliente";
-            this.Btn_BuscarCliente.Size = new System.Drawing.Size(111, 23);
+            this.Btn_BuscarCliente.Size = new System.Drawing.Size(111, 25);
             this.Btn_BuscarCliente.TabIndex = 2;
             this.Btn_BuscarCliente.Text = "Buscar Cliente";
             this.Btn_BuscarCliente.UseVisualStyleBackColor = true;
             this.Btn_BuscarCliente.Click += new System.EventHandler(this.Btn_BuscarCliente_Click);
             // 
-            // Btn_Consultar
+            // Btn_ConsultaVentas
             // 
-            this.Btn_Consultar.Location = new System.Drawing.Point(1448, 64);
-            this.Btn_Consultar.Name = "Btn_Consultar";
-            this.Btn_Consultar.Size = new System.Drawing.Size(104, 40);
-            this.Btn_Consultar.TabIndex = 3;
-            this.Btn_Consultar.Text = "Consultar ventas";
-            this.Btn_Consultar.UseVisualStyleBackColor = true;
-            this.Btn_Consultar.Click += new System.EventHandler(this.Btn_Consultar_Click);
+            this.Btn_ConsultaVentas.Location = new System.Drawing.Point(1448, 64);
+            this.Btn_ConsultaVentas.Name = "Btn_ConsultaVentas";
+            this.Btn_ConsultaVentas.Size = new System.Drawing.Size(104, 46);
+            this.Btn_ConsultaVentas.TabIndex = 3;
+            this.Btn_ConsultaVentas.Text = "Consultar ventas";
+            this.Btn_ConsultaVentas.UseVisualStyleBackColor = true;
+            this.Btn_ConsultaVentas.Click += new System.EventHandler(this.Btn_Consultar_Click);
             // 
             // Btn_CrearCliente
             // 
             this.Btn_CrearCliente.Location = new System.Drawing.Point(1072, 23);
             this.Btn_CrearCliente.Name = "Btn_CrearCliente";
-            this.Btn_CrearCliente.Size = new System.Drawing.Size(134, 23);
+            this.Btn_CrearCliente.Size = new System.Drawing.Size(145, 25);
             this.Btn_CrearCliente.TabIndex = 32;
-            this.Btn_CrearCliente.Text = "Dar de alta cliente";
+            this.Btn_CrearCliente.Text = "Registrar cliente";
             this.Btn_CrearCliente.UseVisualStyleBackColor = true;
             this.Btn_CrearCliente.Click += new System.EventHandler(this.Btn_CrearCliente_Click);
             // 
@@ -225,7 +225,7 @@
             this.ClientSize = new System.Drawing.Size(1656, 751);
             this.Controls.Add(this.Pnl_Total);
             this.Controls.Add(this.Btn_CrearCliente);
-            this.Controls.Add(this.Btn_Consultar);
+            this.Controls.Add(this.Btn_ConsultaVentas);
             this.Controls.Add(this.Btn_BuscarCliente);
             this.Controls.Add(this.Lbl_Fecha);
             this.Controls.Add(this.Txb_Cliente);
@@ -272,7 +272,7 @@
         private System.Windows.Forms.Label Lbl_Fecha;
         private System.Windows.Forms.Label Lbl_Total;
         private System.Windows.Forms.Button Btn_BuscarCliente;
-        private System.Windows.Forms.Button Btn_Consultar;
+        private System.Windows.Forms.Button Btn_ConsultaVentas;
         private System.Windows.Forms.Button Btn_CrearCliente;
         private System.Windows.Forms.Panel Pnl_Total;
     }

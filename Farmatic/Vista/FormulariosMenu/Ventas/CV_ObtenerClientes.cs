@@ -33,6 +33,7 @@ namespace Vista
         public CV_ObtenerClientes()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         private void CV_ObtenerClientes_Load(object sender, EventArgs e)

@@ -27,7 +27,8 @@ namespace Vista.FormulariosMenu
         string UsuarioGrupo;
         public CV_ConfiguracionSistema()
         {
-            InitializeComponent();
+            InitializeComponent(); 
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         #region Eventos

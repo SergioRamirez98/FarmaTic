@@ -6,6 +6,7 @@ using Sesion;
 using Sistema;
 using Vista.FormulariosMenu;
 using Modelo;
+using Vista.Properties;
 
 namespace Vista
 {
@@ -13,9 +14,12 @@ namespace Vista
     {
         CL_Usuarios Usuarios = new CL_Usuarios();
         CL_Sistema Sistema = new CL_Sistema();
+
         public CV_Login()
         {
             InitializeComponent();
+            cargarComboLenguajes();
+            CV_Idioma.CargarIdioma(this.Controls, this);
 
         }
         private void CV_Login_Load(object sender, EventArgs e)
@@ -27,10 +31,10 @@ namespace Vista
         {            
            try
             {
-                //Txb_Usuario.Text = "SRamirez98";
-                //Txb_Contrasena.Text = "Sa";
-                Txb_Usuario.Text = "Paca";
-                Txb_Contrasena.Text = "pa";
+                Txb_Usuario.Text = "SRamirez98";
+                Txb_Contrasena.Text = "Sa";
+                //Txb_Usuario.Text = "Paca";
+                //Txb_Contrasena.Text = "pa";
                 PasarDatos();
                 bool validar = Usuarios.Logear();
                 if (validar == true)
@@ -99,6 +103,19 @@ namespace Vista
         private void btnMostrarContrasenia_MouseUp(object sender, MouseEventArgs e)
         {
             Txb_Contrasena.PasswordChar = '*';
+        }
+        private void cargarComboLenguajes()
+        {
+            Cmb_Lenguaje.DataSource = CV_Idioma.ObtenerIdiomas();//Cargo el Combo con la lista de la clase Idioma
+            Cmb_Lenguaje.DisplayMember = "Nombre"; //Muestro el "campo" nombre de la lista
+            Cmb_Lenguaje.ValueMember = "InfoCultura";//Guardo la informacion Cultural en el Combo
+            Cmb_Lenguaje.SelectedValue = Settings.Default.Idioma; //Selecciono el idioma guardado por defecto
+        }
+        private void Cmb_Lenguaje_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Settings.Default.Idioma = Cmb_Lenguaje.SelectedValue.ToString();//Cargo el idioma seleccionado por el combo
+            Settings.Default.Save(); //Guardo el idioma seleccionado para que quede grabado
+            CV_Idioma.CargarIdioma(this.Controls, this);//Llamo al metodo que cambiara el idioma en los formularios
         }
     }
 }

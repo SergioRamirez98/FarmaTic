@@ -83,6 +83,16 @@ namespace Vista.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ARG {
+            get {
+                object obj = ResourceManager.GetObject("ARG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap FarmaciaPasteur {
             get {
                 object obj = ResourceManager.GetObject("FarmaciaPasteur", resourceCulture);
@@ -116,6 +126,16 @@ namespace Vista.Properties {
         internal static System.Drawing.Bitmap fondo {
             get {
                 object obj = ResourceManager.GetObject("fondo", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap GB {
+            get {
+                object obj = ResourceManager.GetObject("GB", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

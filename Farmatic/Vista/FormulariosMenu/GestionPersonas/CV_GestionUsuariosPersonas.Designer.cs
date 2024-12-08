@@ -342,7 +342,7 @@
             this.Btn_Refrescar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_Refrescar.Location = new System.Drawing.Point(446, 2);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(88, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(88, 26);
             this.Btn_Refrescar.TabIndex = 30;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = false;
@@ -368,7 +368,7 @@
             this.Btn_SeleccionarPersona.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_SeleccionarPersona.Location = new System.Drawing.Point(0, 3);
             this.Btn_SeleccionarPersona.Name = "Btn_SeleccionarPersona";
-            this.Btn_SeleccionarPersona.Size = new System.Drawing.Size(152, 23);
+            this.Btn_SeleccionarPersona.Size = new System.Drawing.Size(152, 26);
             this.Btn_SeleccionarPersona.TabIndex = 28;
             this.Btn_SeleccionarPersona.Text = "Seleccione Persona";
             this.Btn_SeleccionarPersona.UseVisualStyleBackColor = false;

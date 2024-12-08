@@ -27,6 +27,7 @@ namespace Vista
         public CV_GestionProveedores()
         {
             InitializeComponent();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
 
         #region Eventos
