@@ -58,7 +58,7 @@
             // Lbl_BuscarCliente
             // 
             this.Lbl_BuscarCliente.AutoSize = true;
-            this.Lbl_BuscarCliente.Location = new System.Drawing.Point(258, 47);
+            this.Lbl_BuscarCliente.Location = new System.Drawing.Point(208, 47);
             this.Lbl_BuscarCliente.Name = "Lbl_BuscarCliente";
             this.Lbl_BuscarCliente.Size = new System.Drawing.Size(49, 16);
             this.Lbl_BuscarCliente.TabIndex = 2;

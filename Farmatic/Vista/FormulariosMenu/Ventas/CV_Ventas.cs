@@ -128,6 +128,7 @@ namespace Vista.FormulariosMenu
                         Desc = 0;
                         DTGV_Carrito.Rows.Clear();
                         cargarDTGV();
+                        configurarLoad();
                     }
                     catch (Exception ex)
                     {
@@ -156,7 +157,8 @@ namespace Vista.FormulariosMenu
         private void Btn_CrearCliente_Click(object sender, EventArgs e)
         {
             CV_GestionUsuariosPersonas AltaCliente = new CV_GestionUsuariosPersonas();
-            AltaCliente.Show();
+            AltaCliente.WindowState = FormWindowState.Normal;
+            AltaCliente.ShowDialog();
         }
         private void Btn_Consultar_Click(object sender, EventArgs e)
         {
@@ -289,7 +291,7 @@ namespace Vista.FormulariosMenu
             totalventa = 0;
             foreach (DataGridViewRow subtotal in DTGV_Carrito.Rows)
             {
-                double valor = Convert.ToDouble(subtotal.Cells[5].Value);
+                double valor = Convert.ToDouble(subtotal.Cells[6].Value);
                 totalventa = valor + totalventa;
             }
             totalventa = Ventas.CalcularTotalConDescuento(Desc, totalventa);

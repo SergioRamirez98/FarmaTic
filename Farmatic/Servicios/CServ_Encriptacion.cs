@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Org.BouncyCastle.Math;
+
+using System;
 using System.Security.Cryptography;
 using System.Text;
 
@@ -37,7 +39,10 @@ namespace Servicios
             StringBuilder sb = new StringBuilder();
             byte[] stream = sha256.ComputeHash(encoding.GetBytes(atr_EncriptacionLogin));
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
+         
             return sb.ToString();
         }
+        
+
     }
 }

@@ -38,15 +38,21 @@
             this.DTGV_PedidodeCompra = new System.Windows.Forms.DataGridView();
             this.Lbl_BusqCatalogo = new System.Windows.Forms.Label();
             this.Txb_BusqCatalogo = new System.Windows.Forms.TextBox();
+            this.Pnl_Catalogo = new System.Windows.Forms.Panel();
+            this.Lbl_Catalogo = new System.Windows.Forms.Label();
+            this.Pnl_Carrito = new System.Windows.Forms.Panel();
+            this.Lbl_CarritoPC = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Catalogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_PedidodeCompra)).BeginInit();
+            this.Pnl_Catalogo.SuspendLayout();
+            this.Pnl_Carrito.SuspendLayout();
             this.SuspendLayout();
             // 
             // DTGV_Catalogo
             // 
             this.DTGV_Catalogo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_Catalogo.Location = new System.Drawing.Point(25, 58);
+            this.DTGV_Catalogo.Location = new System.Drawing.Point(23, 81);
             this.DTGV_Catalogo.Name = "DTGV_Catalogo";
             this.DTGV_Catalogo.RowHeadersWidth = 51;
             this.DTGV_Catalogo.RowTemplate.Height = 24;
@@ -57,7 +63,7 @@
             // Lbl_Cantidad
             // 
             this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(1332, 58);
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(1330, 81);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
             this.Lbl_Cantidad.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Cantidad.TabIndex = 59;
@@ -65,7 +71,7 @@
             // 
             // Btn_FinalizarPedido
             // 
-            this.Btn_FinalizarPedido.Location = new System.Drawing.Point(1335, 596);
+            this.Btn_FinalizarPedido.Location = new System.Drawing.Point(1333, 619);
             this.Btn_FinalizarPedido.Name = "Btn_FinalizarPedido";
             this.Btn_FinalizarPedido.Size = new System.Drawing.Size(94, 55);
             this.Btn_FinalizarPedido.TabIndex = 58;
@@ -75,7 +81,7 @@
             // 
             // Btn_EliminardePedido
             // 
-            this.Btn_EliminardePedido.Location = new System.Drawing.Point(1335, 499);
+            this.Btn_EliminardePedido.Location = new System.Drawing.Point(1333, 522);
             this.Btn_EliminardePedido.Name = "Btn_EliminardePedido";
             this.Btn_EliminardePedido.Size = new System.Drawing.Size(94, 55);
             this.Btn_EliminardePedido.TabIndex = 57;
@@ -85,7 +91,7 @@
             // 
             // Btn_AgregarAlPedido
             // 
-            this.Btn_AgregarAlPedido.Location = new System.Drawing.Point(1335, 127);
+            this.Btn_AgregarAlPedido.Location = new System.Drawing.Point(1333, 150);
             this.Btn_AgregarAlPedido.Name = "Btn_AgregarAlPedido";
             this.Btn_AgregarAlPedido.Size = new System.Drawing.Size(94, 55);
             this.Btn_AgregarAlPedido.TabIndex = 56;
@@ -95,7 +101,7 @@
             // 
             // Nud_Cantidad
             // 
-            this.Nud_Cantidad.Location = new System.Drawing.Point(1335, 77);
+            this.Nud_Cantidad.Location = new System.Drawing.Point(1333, 100);
             this.Nud_Cantidad.Name = "Nud_Cantidad";
             this.Nud_Cantidad.Size = new System.Drawing.Size(94, 22);
             this.Nud_Cantidad.TabIndex = 55;
@@ -103,11 +109,11 @@
             // DTGV_PedidodeCompra
             // 
             this.DTGV_PedidodeCompra.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_PedidodeCompra.Location = new System.Drawing.Point(25, 499);
+            this.DTGV_PedidodeCompra.Location = new System.Drawing.Point(23, 522);
             this.DTGV_PedidodeCompra.Name = "DTGV_PedidodeCompra";
             this.DTGV_PedidodeCompra.RowHeadersWidth = 51;
             this.DTGV_PedidodeCompra.RowTemplate.Height = 24;
-            this.DTGV_PedidodeCompra.Size = new System.Drawing.Size(1286, 369);
+            this.DTGV_PedidodeCompra.Size = new System.Drawing.Size(1286, 331);
             this.DTGV_PedidodeCompra.TabIndex = 60;
             // 
             // Lbl_BusqCatalogo
@@ -127,12 +133,52 @@
             this.Txb_BusqCatalogo.TabIndex = 1;
             this.Txb_BusqCatalogo.TextChanged += new System.EventHandler(this.Txb_BusqCatalogo_TextChanged);
             // 
+            // Pnl_Catalogo
+            // 
+            this.Pnl_Catalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_Catalogo.Controls.Add(this.Lbl_Catalogo);
+            this.Pnl_Catalogo.Location = new System.Drawing.Point(23, 55);
+            this.Pnl_Catalogo.Name = "Pnl_Catalogo";
+            this.Pnl_Catalogo.Size = new System.Drawing.Size(1286, 37);
+            this.Pnl_Catalogo.TabIndex = 62;
+            // 
+            // Lbl_Catalogo
+            // 
+            this.Lbl_Catalogo.AutoSize = true;
+            this.Lbl_Catalogo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Catalogo.Location = new System.Drawing.Point(550, 8);
+            this.Lbl_Catalogo.Name = "Lbl_Catalogo";
+            this.Lbl_Catalogo.Size = new System.Drawing.Size(34, 23);
+            this.Lbl_Catalogo.TabIndex = 31;
+            this.Lbl_Catalogo.Text = "cat";
+            // 
+            // Pnl_Carrito
+            // 
+            this.Pnl_Carrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_Carrito.Controls.Add(this.Lbl_CarritoPC);
+            this.Pnl_Carrito.Location = new System.Drawing.Point(23, 488);
+            this.Pnl_Carrito.Name = "Pnl_Carrito";
+            this.Pnl_Carrito.Size = new System.Drawing.Size(1286, 37);
+            this.Pnl_Carrito.TabIndex = 63;
+            // 
+            // Lbl_CarritoPC
+            // 
+            this.Lbl_CarritoPC.AutoSize = true;
+            this.Lbl_CarritoPC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_CarritoPC.Location = new System.Drawing.Point(550, 8);
+            this.Lbl_CarritoPC.Name = "Lbl_CarritoPC";
+            this.Lbl_CarritoPC.Size = new System.Drawing.Size(71, 23);
+            this.Lbl_CarritoPC.TabIndex = 31;
+            this.Lbl_CarritoPC.Text = "Carrito ";
+            // 
             // CV_PedidodeCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1441, 889);
+            this.Controls.Add(this.Pnl_Catalogo);
+            this.Controls.Add(this.Pnl_Carrito);
             this.Controls.Add(this.Txb_BusqCatalogo);
             this.Controls.Add(this.Lbl_BusqCatalogo);
             this.Controls.Add(this.DTGV_PedidodeCompra);
@@ -150,6 +196,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Catalogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_PedidodeCompra)).EndInit();
+            this.Pnl_Catalogo.ResumeLayout(false);
+            this.Pnl_Catalogo.PerformLayout();
+            this.Pnl_Carrito.ResumeLayout(false);
+            this.Pnl_Carrito.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +216,9 @@
         private System.Windows.Forms.DataGridView DTGV_PedidodeCompra;
         private System.Windows.Forms.Label Lbl_BusqCatalogo;
         private System.Windows.Forms.TextBox Txb_BusqCatalogo;
+        private System.Windows.Forms.Panel Pnl_Catalogo;
+        private System.Windows.Forms.Label Lbl_Catalogo;
+        private System.Windows.Forms.Panel Pnl_Carrito;
+        private System.Windows.Forms.Label Lbl_CarritoPC;
     }
 }

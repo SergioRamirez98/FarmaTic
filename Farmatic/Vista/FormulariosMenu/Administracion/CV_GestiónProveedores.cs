@@ -52,7 +52,7 @@ namespace Vista
                         Proveedores.InsertarProveedor();
                         CServ_MsjUsuario.Exito("El Proveedor fue ingresado exitosamente.");
                         cargarDTGV();
-                        CServ_Limpiar.LimpiarFormulario(this);
+                        Btn_Refrescar_Click(sender, e);
 
                     }
                     catch (Exception ex)
@@ -117,7 +117,7 @@ namespace Vista
                         try
                         {
                             Proveedores.EliminarProveedor();
-                            CServ_MsjUsuario.Exito("El producto ha sido eliminado");
+                            CServ_MsjUsuario.Exito("El proveedor ha sido eliminado");
                             CServ_Limpiar.LimpiarPanelBox(Pnl_DatosProveedores);
                             Pnl_DatosProveedores.Enabled = true;
                             configurarLoad();

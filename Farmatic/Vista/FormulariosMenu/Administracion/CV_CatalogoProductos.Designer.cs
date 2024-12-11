@@ -92,7 +92,7 @@
             // 
             this.Btn_Eliminar.Location = new System.Drawing.Point(874, 227);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 31);
+            this.Btn_Eliminar.Size = new System.Drawing.Size(87, 31);
             this.Btn_Eliminar.TabIndex = 11;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
@@ -102,7 +102,7 @@
             // 
             this.Btn_GuardarCambios.Location = new System.Drawing.Point(874, 191);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
-            this.Btn_GuardarCambios.Size = new System.Drawing.Size(75, 30);
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(87, 30);
             this.Btn_GuardarCambios.TabIndex = 10;
             this.Btn_GuardarCambios.Text = "Guardar";
             this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
@@ -112,7 +112,7 @@
             // 
             this.Btn_Modificar.Location = new System.Drawing.Point(874, 156);
             this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(75, 29);
+            this.Btn_Modificar.Size = new System.Drawing.Size(87, 29);
             this.Btn_Modificar.TabIndex = 9;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
@@ -122,7 +122,7 @@
             // 
             this.Btn_Buscar.Location = new System.Drawing.Point(874, 121);
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(75, 29);
+            this.Btn_Buscar.Size = new System.Drawing.Size(87, 29);
             this.Btn_Buscar.TabIndex = 8;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@
             // 
             this.Btn_Agregar.Location = new System.Drawing.Point(874, 80);
             this.Btn_Agregar.Name = "Btn_Agregar";
-            this.Btn_Agregar.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Agregar.Size = new System.Drawing.Size(87, 30);
             this.Btn_Agregar.TabIndex = 7;
             this.Btn_Agregar.Text = "Agregar";
             this.Btn_Agregar.UseVisualStyleBackColor = true;
@@ -263,7 +263,7 @@
             // 
             this.Btn_SeleccionarProveedor.Location = new System.Drawing.Point(393, 203);
             this.Btn_SeleccionarProveedor.Name = "Btn_SeleccionarProveedor";
-            this.Btn_SeleccionarProveedor.Size = new System.Drawing.Size(81, 24);
+            this.Btn_SeleccionarProveedor.Size = new System.Drawing.Size(89, 24);
             this.Btn_SeleccionarProveedor.TabIndex = 58;
             this.Btn_SeleccionarProveedor.Text = "Seleccion";
             this.Btn_SeleccionarProveedor.UseVisualStyleBackColor = true;
@@ -407,7 +407,7 @@
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(874, 44);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(87, 23);
             this.Btn_Refrescar.TabIndex = 61;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;

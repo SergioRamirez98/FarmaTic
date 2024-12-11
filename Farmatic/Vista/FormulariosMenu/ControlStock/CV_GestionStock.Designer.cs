@@ -79,7 +79,7 @@
             // 
             // Txb_Monodroga
             // 
-            this.Txb_Monodroga.Location = new System.Drawing.Point(125, 94);
+            this.Txb_Monodroga.Location = new System.Drawing.Point(190, 91);
             this.Txb_Monodroga.Name = "Txb_Monodroga";
             this.Txb_Monodroga.Size = new System.Drawing.Size(210, 22);
             this.Txb_Monodroga.TabIndex = 1;
@@ -87,7 +87,7 @@
             // 
             // Txb_Marca
             // 
-            this.Txb_Marca.Location = new System.Drawing.Point(124, 128);
+            this.Txb_Marca.Location = new System.Drawing.Point(189, 125);
             this.Txb_Marca.Name = "Txb_Marca";
             this.Txb_Marca.Size = new System.Drawing.Size(210, 22);
             this.Txb_Marca.TabIndex = 2;
@@ -95,7 +95,7 @@
             // 
             // Txb_Descripcion
             // 
-            this.Txb_Descripcion.Location = new System.Drawing.Point(125, 161);
+            this.Txb_Descripcion.Location = new System.Drawing.Point(190, 158);
             this.Txb_Descripcion.Name = "Txb_Descripcion";
             this.Txb_Descripcion.Size = new System.Drawing.Size(210, 22);
             this.Txb_Descripcion.TabIndex = 3;
@@ -103,7 +103,7 @@
             // 
             // Txb_Cantidad
             // 
-            this.Txb_Cantidad.Location = new System.Drawing.Point(125, 200);
+            this.Txb_Cantidad.Location = new System.Drawing.Point(190, 197);
             this.Txb_Cantidad.Multiline = true;
             this.Txb_Cantidad.Name = "Txb_Cantidad";
             this.Txb_Cantidad.Size = new System.Drawing.Size(210, 22);
@@ -202,7 +202,7 @@
             // 
             this.Btn_Agregar.Location = new System.Drawing.Point(860, 68);
             this.Btn_Agregar.Name = "Btn_Agregar";
-            this.Btn_Agregar.Size = new System.Drawing.Size(88, 30);
+            this.Btn_Agregar.Size = new System.Drawing.Size(93, 30);
             this.Btn_Agregar.TabIndex = 10;
             this.Btn_Agregar.Text = "Agregar";
             this.Btn_Agregar.UseVisualStyleBackColor = true;
@@ -212,7 +212,7 @@
             // 
             this.Btn_Buscar.Location = new System.Drawing.Point(860, 109);
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(88, 29);
+            this.Btn_Buscar.Size = new System.Drawing.Size(93, 29);
             this.Btn_Buscar.TabIndex = 11;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
@@ -222,7 +222,7 @@
             // 
             this.Btn_Modificar.Location = new System.Drawing.Point(860, 144);
             this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(88, 29);
+            this.Btn_Modificar.Size = new System.Drawing.Size(93, 29);
             this.Btn_Modificar.TabIndex = 12;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
@@ -232,7 +232,7 @@
             // 
             this.Btn_GuardarCambios.Location = new System.Drawing.Point(860, 179);
             this.Btn_GuardarCambios.Name = "Btn_GuardarCambios";
-            this.Btn_GuardarCambios.Size = new System.Drawing.Size(88, 30);
+            this.Btn_GuardarCambios.Size = new System.Drawing.Size(93, 30);
             this.Btn_GuardarCambios.TabIndex = 13;
             this.Btn_GuardarCambios.Text = "Guardar";
             this.Btn_GuardarCambios.UseVisualStyleBackColor = true;
@@ -253,7 +253,7 @@
             // 
             this.Btn_Eliminar.Location = new System.Drawing.Point(860, 215);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(88, 31);
+            this.Btn_Eliminar.Size = new System.Drawing.Size(93, 31);
             this.Btn_Eliminar.TabIndex = 14;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
@@ -303,7 +303,7 @@
             // Lbl_PrecHasta
             // 
             this.Lbl_PrecHasta.AutoSize = true;
-            this.Lbl_PrecHasta.Location = new System.Drawing.Point(220, 52);
+            this.Lbl_PrecHasta.Location = new System.Drawing.Point(222, 72);
             this.Lbl_PrecHasta.Name = "Lbl_PrecHasta";
             this.Lbl_PrecHasta.Size = new System.Drawing.Size(43, 16);
             this.Lbl_PrecHasta.TabIndex = 33;
@@ -312,7 +312,7 @@
             // Lbl_CantHasta
             // 
             this.Lbl_CantHasta.AutoSize = true;
-            this.Lbl_CantHasta.Location = new System.Drawing.Point(220, 11);
+            this.Lbl_CantHasta.Location = new System.Drawing.Point(222, 31);
             this.Lbl_CantHasta.Name = "Lbl_CantHasta";
             this.Lbl_CantHasta.Size = new System.Drawing.Size(43, 16);
             this.Lbl_CantHasta.TabIndex = 32;
@@ -330,7 +330,7 @@
             // 
             // Txb_PrecHasta
             // 
-            this.Txb_PrecHasta.Location = new System.Drawing.Point(287, 45);
+            this.Txb_PrecHasta.Location = new System.Drawing.Point(289, 65);
             this.Txb_PrecHasta.Name = "Txb_PrecHasta";
             this.Txb_PrecHasta.Size = new System.Drawing.Size(41, 22);
             this.Txb_PrecHasta.TabIndex = 30;
@@ -338,7 +338,7 @@
             // 
             // Txb_CantHasta
             // 
-            this.Txb_CantHasta.Location = new System.Drawing.Point(287, 8);
+            this.Txb_CantHasta.Location = new System.Drawing.Point(289, 28);
             this.Txb_CantHasta.Multiline = true;
             this.Txb_CantHasta.Name = "Txb_CantHasta";
             this.Txb_CantHasta.Size = new System.Drawing.Size(42, 22);
@@ -348,7 +348,7 @@
             // Lbl_CantDesde
             // 
             this.Lbl_CantDesde.AutoSize = true;
-            this.Lbl_CantDesde.Location = new System.Drawing.Point(7, 11);
+            this.Lbl_CantDesde.Location = new System.Drawing.Point(9, 31);
             this.Lbl_CantDesde.Name = "Lbl_CantDesde";
             this.Lbl_CantDesde.Size = new System.Drawing.Size(103, 16);
             this.Lbl_CantDesde.TabIndex = 24;
@@ -365,7 +365,7 @@
             // 
             // Txb_CantDesde
             // 
-            this.Txb_CantDesde.Location = new System.Drawing.Point(116, 11);
+            this.Txb_CantDesde.Location = new System.Drawing.Point(118, 31);
             this.Txb_CantDesde.Multiline = true;
             this.Txb_CantDesde.Name = "Txb_CantDesde";
             this.Txb_CantDesde.Size = new System.Drawing.Size(42, 22);
@@ -374,7 +374,7 @@
             // 
             // Txb_PrecDesde
             // 
-            this.Txb_PrecDesde.Location = new System.Drawing.Point(116, 48);
+            this.Txb_PrecDesde.Location = new System.Drawing.Point(118, 68);
             this.Txb_PrecDesde.Name = "Txb_PrecDesde";
             this.Txb_PrecDesde.Size = new System.Drawing.Size(41, 22);
             this.Txb_PrecDesde.TabIndex = 23;
@@ -383,7 +383,7 @@
             // Lbl_LoteBusq
             // 
             this.Lbl_LoteBusq.AutoSize = true;
-            this.Lbl_LoteBusq.Location = new System.Drawing.Point(6, 84);
+            this.Lbl_LoteBusq.Location = new System.Drawing.Point(8, 104);
             this.Lbl_LoteBusq.Name = "Lbl_LoteBusq";
             this.Lbl_LoteBusq.Size = new System.Drawing.Size(50, 16);
             this.Lbl_LoteBusq.TabIndex = 27;
@@ -391,7 +391,7 @@
             // 
             // Txb_NLoteBusq
             // 
-            this.Txb_NLoteBusq.Location = new System.Drawing.Point(116, 84);
+            this.Txb_NLoteBusq.Location = new System.Drawing.Point(118, 104);
             this.Txb_NLoteBusq.Name = "Txb_NLoteBusq";
             this.Txb_NLoteBusq.Size = new System.Drawing.Size(92, 22);
             this.Txb_NLoteBusq.TabIndex = 24;
@@ -400,7 +400,7 @@
             // Lbl_PrecDesde
             // 
             this.Lbl_PrecDesde.AutoSize = true;
-            this.Lbl_PrecDesde.Location = new System.Drawing.Point(7, 48);
+            this.Lbl_PrecDesde.Location = new System.Drawing.Point(9, 68);
             this.Lbl_PrecDesde.Name = "Lbl_PrecDesde";
             this.Lbl_PrecDesde.Size = new System.Drawing.Size(88, 16);
             this.Lbl_PrecDesde.TabIndex = 26;
@@ -463,7 +463,7 @@
             // 
             // Txb_NombreComercial
             // 
-            this.Txb_NombreComercial.Location = new System.Drawing.Point(124, 58);
+            this.Txb_NombreComercial.Location = new System.Drawing.Point(189, 55);
             this.Txb_NombreComercial.Name = "Txb_NombreComercial";
             this.Txb_NombreComercial.Size = new System.Drawing.Size(210, 22);
             this.Txb_NombreComercial.TabIndex = 28;
@@ -473,7 +473,7 @@
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(860, 31);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(88, 31);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(93, 31);
             this.Btn_Refrescar.TabIndex = 30;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;

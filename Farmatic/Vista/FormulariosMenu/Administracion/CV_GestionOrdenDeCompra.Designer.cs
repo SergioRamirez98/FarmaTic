@@ -58,7 +58,7 @@
             // 
             this.Btn_ConfTotal.Location = new System.Drawing.Point(104, 55);
             this.Btn_ConfTotal.Name = "Btn_ConfTotal";
-            this.Btn_ConfTotal.Size = new System.Drawing.Size(86, 45);
+            this.Btn_ConfTotal.Size = new System.Drawing.Size(100, 45);
             this.Btn_ConfTotal.TabIndex = 1;
             this.Btn_ConfTotal.Text = "Confirmar OC";
             this.Btn_ConfTotal.UseVisualStyleBackColor = true;
@@ -68,7 +68,7 @@
             // 
             this.Btn_Descartar.Location = new System.Drawing.Point(104, 115);
             this.Btn_Descartar.Name = "Btn_Descartar";
-            this.Btn_Descartar.Size = new System.Drawing.Size(86, 45);
+            this.Btn_Descartar.Size = new System.Drawing.Size(100, 45);
             this.Btn_Descartar.TabIndex = 2;
             this.Btn_Descartar.Text = "Descartar OC";
             this.Btn_Descartar.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             // 
             this.Btn_Historial.Location = new System.Drawing.Point(104, 170);
             this.Btn_Historial.Name = "Btn_Historial";
-            this.Btn_Historial.Size = new System.Drawing.Size(86, 45);
+            this.Btn_Historial.Size = new System.Drawing.Size(100, 45);
             this.Btn_Historial.TabIndex = 6;
             this.Btn_Historial.Text = "Historial";
             this.Btn_Historial.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(104, 235);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(86, 45);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(100, 45);
             this.Btn_Refrescar.TabIndex = 4;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;

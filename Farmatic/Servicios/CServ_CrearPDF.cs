@@ -79,7 +79,7 @@ namespace Servicios
                     case 3:
                         carpetaEspecifica = Path.Combine(carpetaBase, "Ventas");
                         nombreArchivo = "Venta N° " + ID_Venta.ToString() + ".pdf";
-                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "Plantilla.html");
+                        RutaArchivo = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources", "PlantillaParaVentas.html");
                         break;
                     case 4:
                         carpetaEspecifica = Path.Combine(carpetaBase, "Pedidos de Compra");
@@ -288,7 +288,7 @@ namespace Servicios
                     PDFhtml = PDFhtml.Replace("@OC", "Pedido de Compra");
                     PDFhtml = PDFhtml.Replace("@NUMERO", OC.ToString());
 
-                    PDFhtml = PDFhtml.Replace("@Proveedor", CM_DatosOCDefinitiva.NombreEmpresa);
+                    PDFhtml = PDFhtml.Replace("@Proveedor", CM_DatosOCDefinitiva.NombreProveedor);
                     PDFhtml = PDFhtml.Replace("@PC", OC.ToString());
                     PDFhtml = PDFhtml.Replace("@Fecha", CM_DatosOCDefinitiva.Fecha.ToString("d"));
                     PDFhtml = PDFhtml.Replace("@MatriculaProveedor", CM_DatosOCDefinitiva.MatriculaProveedor.ToString());

@@ -161,6 +161,7 @@ namespace Vista
                 configurarFormulario(this, ventas);
                 ventas.MdiParent = this;
                 ventas.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
 
@@ -175,6 +176,7 @@ namespace Vista
                 configurarFormulario(this, consulta);
                 consulta.MdiParent = this;
                 consulta.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
 
@@ -189,6 +191,7 @@ namespace Vista
                 configurarFormulario(this, agregarPersona);
                 agregarPersona.MdiParent = this;
                 agregarPersona.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
 
@@ -203,6 +206,7 @@ namespace Vista
                 configurarFormulario(this, usuario);
                 usuario.MdiParent = this;
                 usuario.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -215,6 +219,7 @@ namespace Vista
                 configurarFormulario(this, Stock);
                 Stock.MdiParent = this;
                 Stock.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -228,6 +233,7 @@ namespace Vista
                 configurarFormulario(this, Seguridad);
                 Seguridad.MdiParent = this;
                 Seguridad.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -241,6 +247,7 @@ namespace Vista
                 configurarFormulario(this, Sistema);
                 Sistema.MdiParent = this;
                 Sistema.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
 
@@ -254,6 +261,7 @@ namespace Vista
                 configurarFormulario(this, Proveedores);
                 Proveedores.MdiParent = this;
                 Proveedores.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -268,6 +276,7 @@ namespace Vista
                 configurarFormulario(this, PC);
                 PC.MdiParent = this;
                 PC.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -282,6 +291,7 @@ namespace Vista
                 configurarFormulario(this, oc);
                 oc.MdiParent = this;
                 oc.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -296,6 +306,7 @@ namespace Vista
                 configurarFormulario(this, Catalogo);
                 Catalogo.MdiParent = this;
                 Catalogo.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -310,6 +321,7 @@ namespace Vista
                 configurarFormulario(this, Informes);
                 Informes.MdiParent = this;
                 Informes.Show();
+                Pnl_Menu.SendToBack();
             }
             else FrmOpen.BringToFront();
         }
@@ -439,8 +451,7 @@ namespace Vista
         }       
         private void InitializeMenuEvents()
         {
-
-         Timer   timerVerificarCursor = new Timer();
+            Timer timerVerificarCursor = new Timer();
             timerVerificarCursor.Interval = 100;
             timerVerificarCursor.Tick += TimerVerificarCursor_Tick;
             timerVerificarCursor.Start();
@@ -468,6 +479,7 @@ namespace Vista
                 {
                     Pnl_Principal.Visible = true;
                     Btn_CerraSesion.Visible = true;
+                    Pnl_Menu.Visible = false;
 
                 }
             }
@@ -477,6 +489,8 @@ namespace Vista
                 {
                     Pnl_Principal.Visible = false;
                     Btn_CerraSesion.Visible = false;
+
+                    Pnl_Menu.Visible = true;
 
                     if (!PanelSecundario)
                     {
@@ -489,12 +503,14 @@ namespace Vista
                         Btn_PedidodeCompra.Visible = false;
                         Btn_OrdendeCompra.Visible = false;
                         Btn_Informes.Visible = false;
+                        Pnl_Menu.Visible = true;
                     }
                 }
             }
         }
         private void configurarLoad()
         {
+            Pnl_Menu.Location = new Point (1, 150);
             this.BackColor = Color.FromArgb(173, 216, 230); 
 
             foreach (Control control in this.Controls)
@@ -516,6 +532,7 @@ namespace Vista
             Btn_PedidodeCompra.Visible = false;
             Btn_OrdendeCompra.Visible = false;
             Btn_Informes.Visible = false;
+            Pnl_Menu.Visible = true;
         }
         public void configurarFormulario(Form padre, Form Hijo) 
         {
@@ -545,5 +562,6 @@ namespace Vista
         }
         #endregion
 
+        
     }
 }

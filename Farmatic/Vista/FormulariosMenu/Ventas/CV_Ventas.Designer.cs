@@ -47,16 +47,22 @@
             this.Btn_ConsultaVentas = new System.Windows.Forms.Button();
             this.Btn_CrearCliente = new System.Windows.Forms.Button();
             this.Pnl_Total = new System.Windows.Forms.Panel();
+            this.Pnl_Carrito = new System.Windows.Forms.Panel();
+            this.Lbl_Carrito = new System.Windows.Forms.Label();
+            this.Pnl_Catalogo = new System.Windows.Forms.Panel();
+            this.Lbl_Catalogo = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).BeginInit();
             this.Pnl_Total.SuspendLayout();
+            this.Pnl_Carrito.SuspendLayout();
+            this.Pnl_Catalogo.SuspendLayout();
             this.SuspendLayout();
             // 
             // DTGV_Ventas
             // 
             this.DTGV_Ventas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_Ventas.Location = new System.Drawing.Point(12, 64);
+            this.DTGV_Ventas.Location = new System.Drawing.Point(12, 110);
             this.DTGV_Ventas.Name = "DTGV_Ventas";
             this.DTGV_Ventas.RowHeadersWidth = 51;
             this.DTGV_Ventas.RowTemplate.Height = 24;
@@ -80,14 +86,14 @@
             // 
             // Nud_Cantidad
             // 
-            this.Nud_Cantidad.Location = new System.Drawing.Point(1448, 200);
+            this.Nud_Cantidad.Location = new System.Drawing.Point(1448, 226);
             this.Nud_Cantidad.Name = "Nud_Cantidad";
             this.Nud_Cantidad.Size = new System.Drawing.Size(94, 22);
             this.Nud_Cantidad.TabIndex = 4;
             // 
             // Btn_AgregarCompra
             // 
-            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1448, 256);
+            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1448, 282);
             this.Btn_AgregarCompra.Name = "Btn_AgregarCompra";
             this.Btn_AgregarCompra.Size = new System.Drawing.Size(104, 45);
             this.Btn_AgregarCompra.TabIndex = 5;
@@ -118,7 +124,7 @@
             // DTGV_Carrito
             // 
             this.DTGV_Carrito.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_Carrito.Location = new System.Drawing.Point(12, 435);
+            this.DTGV_Carrito.Location = new System.Drawing.Point(12, 455);
             this.DTGV_Carrito.Name = "DTGV_Carrito";
             this.DTGV_Carrito.RowHeadersWidth = 51;
             this.DTGV_Carrito.RowTemplate.Height = 24;
@@ -146,7 +152,7 @@
             // Lbl_Cantidad
             // 
             this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(1445, 159);
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(1461, 207);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
             this.Lbl_Cantidad.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Cantidad.TabIndex = 27;
@@ -180,9 +186,9 @@
             // 
             // Btn_BuscarCliente
             // 
-            this.Btn_BuscarCliente.Location = new System.Drawing.Point(735, 23);
+            this.Btn_BuscarCliente.Location = new System.Drawing.Point(735, 12);
             this.Btn_BuscarCliente.Name = "Btn_BuscarCliente";
-            this.Btn_BuscarCliente.Size = new System.Drawing.Size(111, 25);
+            this.Btn_BuscarCliente.Size = new System.Drawing.Size(111, 49);
             this.Btn_BuscarCliente.TabIndex = 2;
             this.Btn_BuscarCliente.Text = "Buscar Cliente";
             this.Btn_BuscarCliente.UseVisualStyleBackColor = true;
@@ -190,7 +196,7 @@
             // 
             // Btn_ConsultaVentas
             // 
-            this.Btn_ConsultaVentas.Location = new System.Drawing.Point(1448, 64);
+            this.Btn_ConsultaVentas.Location = new System.Drawing.Point(1448, 110);
             this.Btn_ConsultaVentas.Name = "Btn_ConsultaVentas";
             this.Btn_ConsultaVentas.Size = new System.Drawing.Size(104, 46);
             this.Btn_ConsultaVentas.TabIndex = 3;
@@ -200,9 +206,9 @@
             // 
             // Btn_CrearCliente
             // 
-            this.Btn_CrearCliente.Location = new System.Drawing.Point(1072, 23);
+            this.Btn_CrearCliente.Location = new System.Drawing.Point(1072, 12);
             this.Btn_CrearCliente.Name = "Btn_CrearCliente";
-            this.Btn_CrearCliente.Size = new System.Drawing.Size(145, 25);
+            this.Btn_CrearCliente.Size = new System.Drawing.Size(111, 49);
             this.Btn_CrearCliente.TabIndex = 32;
             this.Btn_CrearCliente.Text = "Registrar cliente";
             this.Btn_CrearCliente.UseVisualStyleBackColor = true;
@@ -212,17 +218,57 @@
             // 
             this.Pnl_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Pnl_Total.Controls.Add(this.Lbl_Total);
-            this.Pnl_Total.Location = new System.Drawing.Point(12, 672);
+            this.Pnl_Total.Location = new System.Drawing.Point(12, 692);
             this.Pnl_Total.Name = "Pnl_Total";
             this.Pnl_Total.Size = new System.Drawing.Size(1430, 37);
             this.Pnl_Total.TabIndex = 33;
+            // 
+            // Pnl_Carrito
+            // 
+            this.Pnl_Carrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_Carrito.Controls.Add(this.Lbl_Carrito);
+            this.Pnl_Carrito.Location = new System.Drawing.Point(12, 418);
+            this.Pnl_Carrito.Name = "Pnl_Carrito";
+            this.Pnl_Carrito.Size = new System.Drawing.Size(1430, 37);
+            this.Pnl_Carrito.TabIndex = 34;
+            // 
+            // Lbl_Carrito
+            // 
+            this.Lbl_Carrito.AutoSize = true;
+            this.Lbl_Carrito.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Carrito.Location = new System.Drawing.Point(600, 8);
+            this.Lbl_Carrito.Name = "Lbl_Carrito";
+            this.Lbl_Carrito.Size = new System.Drawing.Size(71, 23);
+            this.Lbl_Carrito.TabIndex = 31;
+            this.Lbl_Carrito.Text = "Carrito ";
+            // 
+            // Pnl_Catalogo
+            // 
+            this.Pnl_Catalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_Catalogo.Controls.Add(this.Lbl_Catalogo);
+            this.Pnl_Catalogo.Location = new System.Drawing.Point(12, 74);
+            this.Pnl_Catalogo.Name = "Pnl_Catalogo";
+            this.Pnl_Catalogo.Size = new System.Drawing.Size(1430, 37);
+            this.Pnl_Catalogo.TabIndex = 34;
+            // 
+            // Lbl_Catalogo
+            // 
+            this.Lbl_Catalogo.AutoSize = true;
+            this.Lbl_Catalogo.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Catalogo.Location = new System.Drawing.Point(600, 8);
+            this.Lbl_Catalogo.Name = "Lbl_Catalogo";
+            this.Lbl_Catalogo.Size = new System.Drawing.Size(34, 23);
+            this.Lbl_Catalogo.TabIndex = 31;
+            this.Lbl_Catalogo.Text = "cat";
             // 
             // CV_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1656, 751);
+            this.ClientSize = new System.Drawing.Size(1656, 735);
+            this.Controls.Add(this.Pnl_Catalogo);
+            this.Controls.Add(this.Pnl_Carrito);
             this.Controls.Add(this.Pnl_Total);
             this.Controls.Add(this.Btn_CrearCliente);
             this.Controls.Add(this.Btn_ConsultaVentas);
@@ -250,6 +296,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).EndInit();
             this.Pnl_Total.ResumeLayout(false);
             this.Pnl_Total.PerformLayout();
+            this.Pnl_Carrito.ResumeLayout(false);
+            this.Pnl_Carrito.PerformLayout();
+            this.Pnl_Catalogo.ResumeLayout(false);
+            this.Pnl_Catalogo.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,5 +325,9 @@
         private System.Windows.Forms.Button Btn_ConsultaVentas;
         private System.Windows.Forms.Button Btn_CrearCliente;
         private System.Windows.Forms.Panel Pnl_Total;
+        private System.Windows.Forms.Panel Pnl_Carrito;
+        private System.Windows.Forms.Label Lbl_Carrito;
+        private System.Windows.Forms.Panel Pnl_Catalogo;
+        private System.Windows.Forms.Label Lbl_Catalogo;
     }
 }

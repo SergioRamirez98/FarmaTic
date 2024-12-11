@@ -40,10 +40,10 @@ namespace Vista
         {
             configurarDTGV();
             Productos.EliminarProductosVencidos();
-            mostrarProductos();
-            configurarLoad();
-            cargarPermisos();
             CServ_ConfControles.ConfiguraciondeControles(this);
+            configurarLoad();
+            mostrarProductos();
+            cargarPermisos();
         }
         private void Chb_Busqueda_CheckedChanged(object sender, EventArgs e)
         {
@@ -394,7 +394,7 @@ namespace Vista
                 timer.Tick += (sender, e) =>
                 {
                     if (Btn_VtoProductos.BackColor == Color.Yellow)
-                    { Btn_VtoProductos.BackColor = Color.White; }
+                    { Btn_VtoProductos.BackColor = Color.FromArgb(230, 240, 255);  }
                     else
                     { Btn_VtoProductos.BackColor = Color.Yellow; }
                 };
@@ -402,7 +402,7 @@ namespace Vista
             }
             else
             {
-                Btn_VtoProductos.BackColor = Color.White; ;
+                Btn_VtoProductos.BackColor = Color.FromArgb(230, 240, 255); ;
             }
             DataTable DT2 = Productos.CargarStockMinimo();
             if (DT2.Rows.Count > 0)
@@ -412,7 +412,7 @@ namespace Vista
                 timer.Tick += (sender, e) =>
                 {
                     if (Btn_StockCritico.BackColor == Color.Yellow)
-                    { Btn_StockCritico.BackColor = Color.White; }
+                    { Btn_StockCritico.BackColor = Color.FromArgb(230, 240, 255); }
                     else
                     { Btn_StockCritico.BackColor = Color.Yellow; }
                 };
@@ -420,7 +420,7 @@ namespace Vista
             }
             else
             {
-                Btn_StockCritico.BackColor = Color.White; ;
+                Btn_StockCritico.BackColor = Color.FromArgb(230, 240, 255); ;
             }
             DTGV_Productos.ClearSelection();
 

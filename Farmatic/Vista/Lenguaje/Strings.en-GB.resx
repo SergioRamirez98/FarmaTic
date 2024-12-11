@@ -627,4 +627,13 @@
   <data name="Lbl_Lenguaje" xml:space="preserve">
     <value>Language</value>
   </data>
+  <data name="Lbl_Catalogo" xml:space="preserve">
+    <value>Product catalog</value>
+  </data>
+  <data name="Lbl_Carrito" xml:space="preserve">
+    <value>Shopping Cart</value>
+  </data>
+  <data name="Lbl_CarritoPC" xml:space="preserve">
+    <value>Cart PR</value>
+  </data>
 </root>

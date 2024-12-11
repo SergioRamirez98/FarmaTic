@@ -136,7 +136,7 @@ namespace Vista.FormulariosMenu
                 Catalogo.ModificarProductos();
                 CServ_MsjUsuario.Exito("Modificación realizada con éxito");
                 mostrarProductos();
-                configurarLoad();
+                Btn_Refrescar_Click(sender, e);
             }
             catch (Exception ex)
             {
@@ -157,7 +157,7 @@ namespace Vista.FormulariosMenu
                         Catalogo.EliminarProducto();
                         CServ_MsjUsuario.Exito("Producto eliminado con éxito");
                         mostrarProductos();
-                        configurarLoad();
+                        Btn_Refrescar_Click(sender, e);
                     }
                 }
                 else

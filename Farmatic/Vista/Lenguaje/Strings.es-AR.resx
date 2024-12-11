@@ -160,7 +160,7 @@
     <value>Consultar venta</value>
   </data>
   <data name="Btn_CrearCliente" xml:space="preserve">
-    <value>Registrar</value>
+    <value>Registrar cliente</value>
   </data>
   <data name="Btn_Descartar" xml:space="preserve">
     <value>Descartar OC</value>
@@ -421,7 +421,7 @@
     <value>Compra minima</value>
   </data>
   <data name="Lbl_CondIVA" xml:space="preserve">
-    <value>Condicion IVA</value>
+    <value>Cond. IVA</value>
   </data>
   <data name="Lbl_ConfContrasena" xml:space="preserve">
     <value>Confirmar contraseña</value>
@@ -626,5 +626,14 @@
   </data>
   <data name="Rbt_Usuario" xml:space="preserve">
     <value>Usuarios</value>
+  </data>
+  <data name="Lbl_Catalogo" xml:space="preserve">
+    <value>Catálogo de productos</value>
+  </data>
+  <data name="Lbl_Carrito" xml:space="preserve">
+    <value>Carrito de compras</value>
+  </data>
+  <data name="Lbl_CarritoPC" xml:space="preserve">
+    <value>Carrito del pedido de compra</value>
   </data>
 </root>

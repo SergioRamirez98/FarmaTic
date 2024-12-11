@@ -187,7 +187,7 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Registrar.
+        ///   Busca una cadena traducida similar a Registrar cliente.
         /// </summary>
         internal static string Btn_CrearCliente {
             get {
@@ -898,6 +898,33 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Carrito de compras.
+        /// </summary>
+        internal static string Lbl_Carrito {
+            get {
+                return ResourceManager.GetString("Lbl_Carrito", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Carrito del pedido de compra.
+        /// </summary>
+        internal static string Lbl_CarritoPC {
+            get {
+                return ResourceManager.GetString("Lbl_CarritoPC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Catálogo.
+        /// </summary>
+        internal static string Lbl_Catalogo {
+            get {
+                return ResourceManager.GetString("Lbl_Catalogo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Categoría.
         /// </summary>
         internal static string Lbl_Categoria {
@@ -970,7 +997,7 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Condicion IVA.
+        ///   Busca una cadena traducida similar a Cond. IVA.
         /// </summary>
         internal static string Lbl_CondIVA {
             get {

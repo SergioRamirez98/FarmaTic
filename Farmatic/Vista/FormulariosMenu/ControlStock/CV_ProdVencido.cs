@@ -42,6 +42,7 @@ namespace Vista
         }
         private void cargarDTGV()
         {
+            DTGV_ProductosVencidos.DataSource = null;
             DTGV_ProductosVencidos.DataSource = Productos.CargarProdVencidos();
 
             DTGV_ProductosVencidos.Columns[0].DisplayIndex = 0;

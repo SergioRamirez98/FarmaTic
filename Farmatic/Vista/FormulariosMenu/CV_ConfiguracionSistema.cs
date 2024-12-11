@@ -109,58 +109,69 @@ namespace Vista.FormulariosMenu
         private void Btn_Funcion_Click(object sender, EventArgs e)
         {
             int seleccion = 0;
+
             if (Btn_Funcion.Text == "Agregar")
             {
-                seleccion = DTGV_PermisosRestantes.CurrentRow.Index;
-
-                var permisoSeleccionado = permisosRestantes[seleccion];
-                var nuevoPermiso = new CM_ListadoPermisosActuales
+                if (DTGV_PermisosRestantes.CurrentRow != null)
                 {
-                    DescripcionPermiso = permisoSeleccionado.DescripcionPermisosTotales,
-                    DescripcionPermisosTotales = null
-                };
-                permisosActuales.Add(nuevoPermiso);
-                permisosRestantes.RemoveAt(seleccion);
-                
+
+                    seleccion = DTGV_PermisosRestantes.CurrentRow.Index;
+
+                    var permisoSeleccionado = permisosRestantes[seleccion];
+                    var nuevoPermiso = new CM_ListadoPermisosActuales
+                    {
+                        DescripcionPermiso = permisoSeleccionado.DescripcionPermisosTotales,
+                        DescripcionPermisosTotales = null
+                    };
+                    permisosActuales.Add(nuevoPermiso);
+                    permisosRestantes.RemoveAt(seleccion);
+                }
             }
             else
             {
-                seleccion = DTGV_PermisosActuales.CurrentRow.Index;
-
-                var permisoAEliminar = permisosActuales[seleccion];
-                var nuevoPermisoRestante = new CM_ListadoPermisosActuales
+                if (DTGV_PermisosActuales.CurrentRow != null)
                 {
-                    DescripcionPermisosTotales = permisoAEliminar.DescripcionPermiso,
-                    DescripcionPermiso = null
-                };
-                permisosRestantes.Add(nuevoPermisoRestante);
-                permisosActuales.RemoveAt(seleccion);
+
+
+                    seleccion = DTGV_PermisosActuales.CurrentRow.Index;
+
+                    var permisoAEliminar = permisosActuales[seleccion];
+                    var nuevoPermisoRestante = new CM_ListadoPermisosActuales
+                    {
+                        DescripcionPermisosTotales = permisoAEliminar.DescripcionPermiso,
+                        DescripcionPermiso = null
+                    };
+                    permisosRestantes.Add(nuevoPermisoRestante);
+                    permisosActuales.RemoveAt(seleccion);
+                }
             }
 
             cargarListaPermisos(false);
         }
         private void Txb_BuscarPermisoActual_TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Txb_BuscarPermisoActual.Text) && Txb_BuscarPermisoActual.Text !="Buscar")
+            if (!string.IsNullOrEmpty(Txb_BuscarPermisoActual.Text) && Txb_BuscarPermisoActual.Text != "Buscar")
             {
                 DTGV_PermisosActuales.DataSource = null;
                 DTGV_PermisosActuales.DataSource = Sistema.FiltrarBusqueda(Txb_BuscarPermisoActual.Text, permisosActuales);
                 DTGV_PermisosActuales.Columns[0].HeaderText = "Permiso Actual";
                 DTGV_PermisosActuales.Columns[1].Visible = false;
+                DTGV_PermisosActuales.ClearSelection();
             }
-            else cargarListaPermisos(false);
+            else { cargarListaPermisos(false); DTGV_PermisosActuales.ClearSelection(); }
         }
         private void Txb_BuscarPermisoRestante_TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(Txb_BuscarPermisoRestante.Text) && Txb_BuscarPermisoRestante.Text != "Buscar")
             {
                 DTGV_PermisosRestantes.DataSource = null;
-                DTGV_PermisosRestantes.DataSource = Sistema.FiltrarBusqueda(Txb_BuscarPermisoRestante.Text, permisosRestantes,"");
+                DTGV_PermisosRestantes.DataSource = Sistema.FiltrarBusqueda(Txb_BuscarPermisoRestante.Text, permisosRestantes, "");
                 DTGV_PermisosRestantes.Columns[1].HeaderText = "Permisos restantes";
                 DTGV_PermisosRestantes.Columns[0].Visible = false;
+                DTGV_PermisosRestantes.ClearSelection();
             }
-            else cargarListaPermisos(false);
-        }
+            else { cargarListaPermisos(false); DTGV_PermisosRestantes.ClearSelection(); }
+            }
         #endregion
 
         #region Métodos
@@ -267,6 +278,8 @@ namespace Vista.FormulariosMenu
         {
             Sistema.AvisosVtoProductos = Convert.ToInt32(Nud_VtoProd.Value);
             Sistema.CantMinimadeStock = Convert.ToInt32(Nud_CantMinStock.Value);
+            CSistema_ConfiguracionSistema.AvisosVtoProductos = Sistema.AvisosVtoProductos;
+            CSistema_ConfiguracionSistema.CantMinimadeStock= Sistema.CantMinimadeStock;
             Sistema.UsuarioGrupo = UsuarioGrupo;
             if (DTGV_FamiliaUsuario.SelectedRows.Count > 0)
             {

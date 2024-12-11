@@ -183,7 +183,7 @@
             // 
             this.Btn_Agregar.Location = new System.Drawing.Point(624, 56);
             this.Btn_Agregar.Name = "Btn_Agregar";
-            this.Btn_Agregar.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Agregar.Size = new System.Drawing.Size(87, 30);
             this.Btn_Agregar.TabIndex = 17;
             this.Btn_Agregar.Text = "Agregar";
             this.Btn_Agregar.UseVisualStyleBackColor = true;
@@ -194,7 +194,7 @@
             this.Btn_Buscar.Cursor = System.Windows.Forms.Cursors.Default;
             this.Btn_Buscar.Location = new System.Drawing.Point(624, 92);
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Buscar.Size = new System.Drawing.Size(87, 30);
             this.Btn_Buscar.TabIndex = 18;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
@@ -204,7 +204,7 @@
             // 
             this.Btn_Modificar.Location = new System.Drawing.Point(624, 129);
             this.Btn_Modificar.Name = "Btn_Modificar";
-            this.Btn_Modificar.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Modificar.Size = new System.Drawing.Size(87, 30);
             this.Btn_Modificar.TabIndex = 19;
             this.Btn_Modificar.Text = "Modificar";
             this.Btn_Modificar.UseVisualStyleBackColor = true;
@@ -214,7 +214,7 @@
             // 
             this.Btn_Guardar.Location = new System.Drawing.Point(624, 162);
             this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Guardar.Size = new System.Drawing.Size(87, 30);
             this.Btn_Guardar.TabIndex = 20;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;
@@ -224,7 +224,7 @@
             // 
             this.Btn_Eliminar.Location = new System.Drawing.Point(624, 196);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
-            this.Btn_Eliminar.Size = new System.Drawing.Size(75, 30);
+            this.Btn_Eliminar.Size = new System.Drawing.Size(87, 30);
             this.Btn_Eliminar.TabIndex = 21;
             this.Btn_Eliminar.Text = "Eliminar";
             this.Btn_Eliminar.UseVisualStyleBackColor = true;
@@ -320,7 +320,7 @@
             // 
             this.Btn_Refrescar.Location = new System.Drawing.Point(624, 27);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(87, 23);
             this.Btn_Refrescar.TabIndex = 16;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;

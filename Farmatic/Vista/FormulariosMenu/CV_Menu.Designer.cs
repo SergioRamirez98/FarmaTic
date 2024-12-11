@@ -46,7 +46,13 @@
             this.Btn_Catalogo = new System.Windows.Forms.Button();
             this.Btn_OrdendeCompra = new System.Windows.Forms.Button();
             this.Btn_Informes = new System.Windows.Forms.Button();
+            this.Pnl_Menu = new System.Windows.Forms.Panel();
+            this.Lbl_Menu = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.Pnl_Principal.SuspendLayout();
+            this.Pnl_Menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // Btn_CerraSesion
@@ -366,11 +372,60 @@
             this.Btn_Informes.UseVisualStyleBackColor = false;
             this.Btn_Informes.Click += new System.EventHandler(this.Btn_Informes_Click);
             // 
+            // Pnl_Menu
+            // 
+            this.Pnl_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
+            this.Pnl_Menu.Controls.Add(this.label3);
+            this.Pnl_Menu.Controls.Add(this.label2);
+            this.Pnl_Menu.Controls.Add(this.label1);
+            this.Pnl_Menu.Controls.Add(this.Lbl_Menu);
+            this.Pnl_Menu.Location = new System.Drawing.Point(733, 247);
+            this.Pnl_Menu.Name = "Pnl_Menu";
+            this.Pnl_Menu.Size = new System.Drawing.Size(22, 75);
+            this.Pnl_Menu.TabIndex = 35;
+            // 
+            // Lbl_Menu
+            // 
+            this.Lbl_Menu.AutoSize = true;
+            this.Lbl_Menu.Location = new System.Drawing.Point(1, 10);
+            this.Lbl_Menu.Name = "Lbl_Menu";
+            this.Lbl_Menu.Size = new System.Drawing.Size(18, 16);
+            this.Lbl_Menu.TabIndex = 0;
+            this.Lbl_Menu.Text = "M";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "e";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 37);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(14, 16);
+            this.label2.TabIndex = 2;
+            this.label2.Text = "n";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 16);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "ú";
+            // 
             // CV_Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1255, 512);
+            this.Controls.Add(this.Pnl_Menu);
             this.Controls.Add(this.Btn_Informes);
             this.Controls.Add(this.Btn_Catalogo);
             this.Controls.Add(this.Btn_OrdendeCompra);
@@ -392,6 +447,8 @@
             this.Click += new System.EventHandler(this.CV_Menu_Click);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CV_Menu_MouseMove);
             this.Pnl_Principal.ResumeLayout(false);
+            this.Pnl_Menu.ResumeLayout(false);
+            this.Pnl_Menu.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -414,5 +471,10 @@
         private System.Windows.Forms.Button Btn_Catalogo;
         private System.Windows.Forms.Button Btn_OrdendeCompra;
         private System.Windows.Forms.Button Btn_Informes;
+        private System.Windows.Forms.Panel Pnl_Menu;
+        private System.Windows.Forms.Label Lbl_Menu;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

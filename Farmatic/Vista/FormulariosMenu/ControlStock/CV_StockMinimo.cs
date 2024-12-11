@@ -60,6 +60,8 @@ namespace Vista
             DTGV_StockMinimo.Columns[3].HeaderText = "Descripcion del producto";
             DTGV_StockMinimo.Columns[4].HeaderText = "Cantidad";
             DTGV_StockMinimo.Columns[5].HeaderText = "Precio unitario";
+
+            DTGV_StockMinimo.Columns[5].DefaultCellStyle.Format = "#,##0.00";
             DTGV_StockMinimo.Columns[6].HeaderText = "Vencimiento";
             DTGV_StockMinimo.Columns[7].HeaderText = "Numero de lote";
             DTGV_StockMinimo.Columns[8].HeaderText = "Categoría";

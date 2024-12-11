@@ -72,8 +72,9 @@ namespace Vista
             DTGV_Vencimientos.Columns[7].HeaderText = "Numero de lote";
             DTGV_Vencimientos.Columns[8].HeaderText = "Categoría";
         }
-        private void cargarDTGV() 
+        private void cargarDTGV()
         {
+            DTGV_Vencimientos.DataSource = null;
             DTGV_Vencimientos.DataSource = CSesion_CacheVtoProductos.ListaVtoProductos;
         }
         

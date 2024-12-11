@@ -137,28 +137,10 @@ namespace Vista.FormulariosMenu.Compras
             bool tieneVentas = false;
             bool tieneCompras = false;
 
-            foreach (var row in NuevoInforme)
-            {
-                DateTime fecha = row.Fecha;
-                double total = row.Total;
-                string tipo = row.Tipo;
-
-                if (tipo == "Venta")
-                {
-                    Ventas.Points.AddXY(fecha, total);
-                    tieneVentas = true;
-                }
-                else if (tipo == "Compra")
-                {
-                    Compras.Points.AddXY(fecha, total);
-                    tieneCompras = true;
-                }
-            }
-
-            if (NuevoInforme.Count >0) 
+            if (NuevoInforme.Count > 0)
             {
                 DateTime FechaCompra = DateTime.Now;
-                DateTime FechaVenta = DateTime.Now; 
+                DateTime FechaVenta = DateTime.Now;
                 foreach (var item in NuevoInforme)
                 {
                     if (item.Tipo == "Compra")
@@ -179,10 +161,30 @@ namespace Vista.FormulariosMenu.Compras
 
 
                 }
-                if (tieneCompras) Compras.Points.AddXY(FechaCompra.AddDays(0), 0);                 
+                if (tieneCompras) Compras.Points.AddXY(FechaCompra.AddDays(0), 0);
                 if (tieneVentas) Ventas.Points.AddXY(FechaVenta.AddDays(0), 0);
-                
+
             }
+
+            foreach (var row in NuevoInforme)
+            {
+                DateTime fecha = row.Fecha;
+                double total = row.Total;
+                string tipo = row.Tipo;
+
+                if (tipo == "Venta")
+                {
+                    Ventas.Points.AddXY(fecha, total);
+                    tieneVentas = true;
+                }
+                else if (tipo == "Compra")
+                {
+                    Compras.Points.AddXY(fecha, total);
+                    tieneCompras = true;
+                }
+            }
+
+           
             Chart_Grafico.Series.Add(Ventas); 
             Chart_Grafico.Series.Add(Compras);
 
