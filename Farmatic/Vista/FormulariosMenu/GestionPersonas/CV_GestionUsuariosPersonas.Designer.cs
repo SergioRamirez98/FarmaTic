@@ -247,7 +247,7 @@
             this.Btn_AsociarCliente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_AsociarCliente.Location = new System.Drawing.Point(730, 262);
             this.Btn_AsociarCliente.Name = "Btn_AsociarCliente";
-            this.Btn_AsociarCliente.Size = new System.Drawing.Size(131, 40);
+            this.Btn_AsociarCliente.Size = new System.Drawing.Size(131, 42);
             this.Btn_AsociarCliente.TabIndex = 16;
             this.Btn_AsociarCliente.Text = "Asociar a cliente";
             this.Btn_AsociarCliente.UseVisualStyleBackColor = false;
@@ -304,7 +304,7 @@
             this.Btn_AsociarUsuario.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Btn_AsociarUsuario.Location = new System.Drawing.Point(595, 262);
             this.Btn_AsociarUsuario.Name = "Btn_AsociarUsuario";
-            this.Btn_AsociarUsuario.Size = new System.Drawing.Size(131, 40);
+            this.Btn_AsociarUsuario.Size = new System.Drawing.Size(131, 42);
             this.Btn_AsociarUsuario.TabIndex = 15;
             this.Btn_AsociarUsuario.Text = "Asociar a usuario";
             this.Btn_AsociarUsuario.UseVisualStyleBackColor = false;
@@ -605,7 +605,7 @@
             this.Btn_RegistrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Btn_RegistrarCliente.Font = new System.Drawing.Font("Segoe UI", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Btn_RegistrarCliente.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.Btn_RegistrarCliente.Location = new System.Drawing.Point(259, 121);
+            this.Btn_RegistrarCliente.Location = new System.Drawing.Point(286, 123);
             this.Btn_RegistrarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.Btn_RegistrarCliente.Name = "Btn_RegistrarCliente";
             this.Btn_RegistrarCliente.Size = new System.Drawing.Size(277, 31);

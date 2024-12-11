@@ -56,8 +56,11 @@ namespace Vista.FormulariosMenu.GestionPersonas
                         CServ_MsjUsuario.Exito("Usuario Generado con éxito");
                         bloquearControles();
                     }
-                    else ID_Persona = Usuario.ReactivarUsuario(); seleccionPersona(ID_Persona, "");
-                    CServ_MsjUsuario.Exito("El usuario se encontraba dado de baja, se ha reactivado, puede darlo de baja si lo desea.");
+                    else
+                    {
+                        ID_Persona = Usuario.ReactivarUsuario(); seleccionPersona(ID_Persona, "");
+                        CServ_MsjUsuario.Exito("El usuario se encontraba dado de baja, se ha reactivado, puede darlo de baja si lo desea.");
+                    }
 
                 }
                 catch (Exception ex)
@@ -150,8 +153,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             Txb_Respuesta2.Enabled = false;
             Txb_Respuesta3.Enabled = false;
 
-
-            if (ID_Persona !=0 && !CSesion_PersonaSeleccionada.EsCliente && !string.IsNullOrEmpty( CSesion_PersonaSeleccionada.UserName) && CSesion_PersonaSeleccionada.EstadoUsuario==1)
+            if (ID_Persona !=0 && !CSesion_PersonaSeleccionada.EsCliente && !string.IsNullOrEmpty(CSesion_PersonaSeleccionada.UserName) && CSesion_PersonaSeleccionada.EstadoUsuario==1)
             {                
                 Txb_UserName.Enabled = false;
                 Dtp_FeAlta.Enabled = false;
@@ -189,7 +191,7 @@ namespace Vista.FormulariosMenu.GestionPersonas
             Btn_Modificar.Enabled = false;
             Btn_GuardarCambios.Enabled = false;
             Txb_Persona.Enabled = false;
-
+            Console.WriteLine(ID_Persona);
             if (ID != 0 && CSesion_PersonaSeleccionada.EsCliente == false && CSesion_PersonaSeleccionada.EsUsuario == true && CSesion_PersonaSeleccionada.EstadoCuenta == 1)
             {
                 Txb_Persona.Text = CSesion_PersonaSeleccionada.Nombre + " " + CSesion_PersonaSeleccionada.Apellido;

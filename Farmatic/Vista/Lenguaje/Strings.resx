@@ -117,4 +117,514 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Btn_Buscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Btn_Guardar" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="Btn_GuardarPass" xml:space="preserve">
+    <value>Guardar</value>
+  </data>
+  <data name="CV_OlvidoPass" xml:space="preserve">
+    <value>Olvidé mi contraseña</value>
+  </data>
+  <data name="Lbl_CoincidePass" xml:space="preserve">
+    <value>Las contraseñas no coinciden</value>
+  </data>
+  <data name="Lbl_ConfPass" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="Lbl_Pass" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Lbl_PregGuardada" xml:space="preserve">
+    <value>Guardado con éxito</value>
+  </data>
+  <data name="Lbl_Pregunta1" xml:space="preserve">
+    <value>Pregunta 1</value>
+  </data>
+  <data name="Lbl_Pregunta2" xml:space="preserve">
+    <value>Pregunta 2</value>
+  </data>
+  <data name="Lbl_Pregunta3" xml:space="preserve">
+    <value>Pregunta 3</value>
+  </data>
+  <data name="Lbl_Respuesta1" xml:space="preserve">
+    <value>Respuesta 1</value>
+  </data>
+  <data name="Lbl_Respuesta2" xml:space="preserve">
+    <value>Respuesta 2</value>
+  </data>
+  <data name="Lbl_Respuesta3" xml:space="preserve">
+    <value>Respuesta 3</value>
+  </data>
+  <data name="Lbl_UserName" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="CV_Login" xml:space="preserve">
+    <value>Login</value>
+  </data>
+  <data name="Gpb_PregSeg" xml:space="preserve">
+    <value>Preguntas de seguridad</value>
+  </data>
+  <data name="Btn_AltaPersonas" xml:space="preserve">
+    <value>Alta de personas</value>
+  </data>
+  <data name="Btn_Catalogo" xml:space="preserve">
+    <value>Catálogo</value>
+  </data>
+  <data name="Btn_CerraSesion" xml:space="preserve">
+    <value>Cerrar sesión</value>
+  </data>
+  <data name="Btn_ConfSistema" xml:space="preserve">
+    <value>Configuración de Sistema</value>
+  </data>
+  <data name="Btn_ConsultaVentas" xml:space="preserve">
+    <value>Consultar venta</value>
+  </data>
+  <data name="Btn_GestionAltas" xml:space="preserve">
+    <value>Gestión de altas</value>
+  </data>
+  <data name="Btn_GestionStock" xml:space="preserve">
+    <value>Gestión de stock</value>
+  </data>
+  <data name="Btn_GestionVentas" xml:space="preserve">
+    <value>Gestión de ventas</value>
+  </data>
+  <data name="Btn_Informes" xml:space="preserve">
+    <value>Informes</value>
+  </data>
+  <data name="Btn_Ingresar" xml:space="preserve">
+    <value>Ingresar</value>
+  </data>
+  <data name="Btn_ModuloAdministracion" xml:space="preserve">
+    <value>Administración</value>
+  </data>
+  <data name="Btn_OrdendeCompra" xml:space="preserve">
+    <value>Órden de compra</value>
+  </data>
+  <data name="Btn_PedidodeCompra" xml:space="preserve">
+    <value>Pedido de compra</value>
+  </data>
+  <data name="Btn_Proveedores" xml:space="preserve">
+    <value>Proveedores</value>
+  </data>
+  <data name="Btn_Seguridad" xml:space="preserve">
+    <value>Seguridad</value>
+  </data>
+  <data name="Btn_Usuarios" xml:space="preserve">
+    <value>Alta de usuarios</value>
+  </data>
+  <data name="Btn_Ventas" xml:space="preserve">
+    <value>Ventas</value>
+  </data>
+  <data name="Lbl_CacaterEspecial" xml:space="preserve">
+    <value>Debe tener un caracter especial</value>
+  </data>
+  <data name="Lbl_DatosPersonales" xml:space="preserve">
+    <value>La contraseña no puede contener datos personales</value>
+  </data>
+  <data name="Lbl_MayusMinus" xml:space="preserve">
+    <value>Debe combinar mayúsculas y minúsculas</value>
+  </data>
+  <data name="Lbl_MinCaracteres" xml:space="preserve">
+    <value>Debe tener mínimo 8 caracteres</value>
+  </data>
+  <data name="Lbl_NumerosYLetras" xml:space="preserve">
+    <value>Debe tener numeros y letras</value>
+  </data>
+  <data name="Lbl_Usuario" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Llb_Contrasena" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="LnkLbl_OlvideContrasena" xml:space="preserve">
+    <value>Olvidé mi contraseña</value>
+  </data>
+  <data name="Btn_Bitacora" xml:space="preserve">
+    <value>Bitácora</value>
+  </data>
+  <data name="Btn_VerTodo" xml:space="preserve">
+    <value>Ver todo</value>
+  </data>
+  <data name="Chb_CaracEspec" xml:space="preserve">
+    <value>Debe tener un caracter especial</value>
+  </data>
+  <data name="Chb_DatosPersonales" xml:space="preserve">
+    <value>No puede contener datos personales</value>
+  </data>
+  <data name="Chb_MayMin" xml:space="preserve">
+    <value>Debe tener una minúscula y una mayúscula</value>
+  </data>
+  <data name="Chb_MinCaracteres" xml:space="preserve">
+    <value>Debe tener mínimo 8 caracteres</value>
+  </data>
+  <data name="Chb_NumYLetras" xml:space="preserve">
+    <value>Debe combinar numeros y letras</value>
+  </data>
+  <data name="Chb_RepetirPass" xml:space="preserve">
+    <value>No se puede repetir contraseñas</value>
+  </data>
+  <data name="Lbl_CantIntentosFallidos" xml:space="preserve">
+    <value>Cantidad de intentos fallidos</value>
+  </data>
+  <data name="Lbl_Desde" xml:space="preserve">
+    <value>Desde</value>
+  </data>
+  <data name="Lbl_Hasta" xml:space="preserve">
+    <value>Hasta</value>
+  </data>
+  <data name="Lbl_Tipo" xml:space="preserve">
+    <value>Tipo</value>
+  </data>
+  <data name="Lbl_Usuario1" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Btn_Agregar" xml:space="preserve">
+    <value>Agregar</value>
+  </data>
+  <data name="Btn_AgregarAlPedido" xml:space="preserve">
+    <value>Agregar al pedido</value>
+  </data>
+  <data name="Btn_AgregarCompra" xml:space="preserve">
+    <value>Agregar a la compra</value>
+  </data>
+  <data name="Btn_AsociarCliente" xml:space="preserve">
+    <value>Asociar cliente</value>
+  </data>
+  <data name="Btn_AsociarUsuario" xml:space="preserve">
+    <value>Asociar usuario</value>
+  </data>
+  <data name="Btn_BuscarCliente" xml:space="preserve">
+    <value>Buscar cliente</value>
+  </data>
+  <data name="Btn_ConfTotal" xml:space="preserve">
+    <value>Confirmar OC</value>
+  </data>
+  <data name="Btn_CrearCliente" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="Btn_Descartar" xml:space="preserve">
+    <value>Descartar OC</value>
+  </data>
+  <data name="Btn_Eliminar" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Btn_Eliminar1" xml:space="preserve">
+    <value>Eliminar</value>
+  </data>
+  <data name="Btn_EliminardeCompra" xml:space="preserve">
+    <value>Eliminar de la compra</value>
+  </data>
+  <data name="Btn_EliminardePedido" xml:space="preserve">
+    <value>Eliminar de pedido</value>
+  </data>
+  <data name="Btn_FinalizarCompra" xml:space="preserve">
+    <value>Finalizar compra</value>
+  </data>
+  <data name="Btn_FinalizarPedido" xml:space="preserve">
+    <value>Finalizar Pedido</value>
+  </data>
+  <data name="Btn_Funcion" xml:space="preserve">
+    <value>Función</value>
+  </data>
+  <data name="Btn_GenerarInforme" xml:space="preserve">
+    <value>Generar</value>
+  </data>
+  <data name="Btn_GuardarCambios" xml:space="preserve">
+    <value>Guardar cambios</value>
+  </data>
+  <data name="Btn_Historial" xml:space="preserve">
+    <value>Historial</value>
+  </data>
+  <data name="Btn_Modificar" xml:space="preserve">
+    <value>Modificar</value>
+  </data>
+  <data name="Btn_Refrescar" xml:space="preserve">
+    <value>Refrescar</value>
+  </data>
+  <data name="Btn_RegistrarCliente" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="Btn_RegistrarPersona" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="Btn_RegistrarUsuario" xml:space="preserve">
+    <value>Registrar</value>
+  </data>
+  <data name="Btn_SeleccionarPersona" xml:space="preserve">
+    <value>Seleccionar persona</value>
+  </data>
+  <data name="Btn_SeleccionarProveedor" xml:space="preserve">
+    <value>Seleccionar</value>
+  </data>
+  <data name="Btn_StockCritico" xml:space="preserve">
+    <value>Productos con bajo stock</value>
+  </data>
+  <data name="Btn_Ver" xml:space="preserve">
+    <value>Ver</value>
+  </data>
+  <data name="Btn_VerProdVencidos" xml:space="preserve">
+    <value>Productos vencidos</value>
+  </data>
+  <data name="Btn_VtoProductos" xml:space="preserve">
+    <value>Productos próximos a vencer</value>
+  </data>
+  <data name="Chb_Busqueda" xml:space="preserve">
+    <value>¿Desea realizar una búsqueda?</value>
+  </data>
+  <data name="Chb_IIBB" xml:space="preserve">
+    <value>IIBB</value>
+  </data>
+  <data name="CV_AltaUsuario" xml:space="preserve">
+    <value>Alta usuarios</value>
+  </data>
+  <data name="CV_CatalogoProductos" xml:space="preserve">
+    <value>Catálogo de productos</value>
+  </data>
+  <data name="CV_ConfiguracionSistema" xml:space="preserve">
+    <value>Configuración de Sistema</value>
+  </data>
+  <data name="CV_ConsultaVentas" xml:space="preserve">
+    <value>Consulta de ventas</value>
+  </data>
+  <data name="CV_GestionOrdendeCompra" xml:space="preserve">
+    <value>Órden de compra</value>
+  </data>
+  <data name="CV_GestionStock" xml:space="preserve">
+    <value>Gestión de Stock</value>
+  </data>
+  <data name="CV_GestionUsuariosPersonas" xml:space="preserve">
+    <value>Alta de Personas</value>
+  </data>
+  <data name="CV_GestiónProveedores" xml:space="preserve">
+    <value>Gestión de proveedores</value>
+  </data>
+  <data name="CV_Informes" xml:space="preserve">
+    <value>Informes</value>
+  </data>
+  <data name="CV_Menu" xml:space="preserve">
+    <value>Menú</value>
+  </data>
+  <data name="CV_ModulodeSeguridad" xml:space="preserve">
+    <value>Modulo de seguridad</value>
+  </data>
+  <data name="CV_ObtenerClientes" xml:space="preserve">
+    <value>Obtener Clientes</value>
+  </data>
+  <data name="CV_ObtenerProveedores" xml:space="preserve">
+    <value>Obtener proveedores</value>
+  </data>
+  <data name="CV_PedidodeCompra" xml:space="preserve">
+    <value>Pedido de Compra</value>
+  </data>
+  <data name="CV_SeleccionarPersona" xml:space="preserve">
+    <value>Seleccionar persona</value>
+  </data>
+  <data name="CV_Ventas" xml:space="preserve">
+    <value>Ventas</value>
+  </data>
+  <data name="Gpb_Permisos" xml:space="preserve">
+    <value>Permisos</value>
+  </data>
+  <data name="Lbl_Analisis" xml:space="preserve">
+    <value>Tipo de nalisis</value>
+  </data>
+  <data name="Lbl_Apellido" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="Lbl_Buscar" xml:space="preserve">
+    <value>Buscar</value>
+  </data>
+  <data name="Lbl_BuscarCliente" xml:space="preserve">
+    <value>Buscar cliente</value>
+  </data>
+  <data name="Lbl_BuscarPersona" xml:space="preserve">
+    <value>Buscar Persona</value>
+  </data>
+  <data name="Lbl_BusqCatalogo" xml:space="preserve">
+    <value>Buscar en catálogo</value>
+  </data>
+  <data name="Lbl_BusquedaRapida" xml:space="preserve">
+    <value>Busqueda rápida</value>
+  </data>
+  <data name="Lbl_CantDesde" xml:space="preserve">
+    <value>Cantidad desde</value>
+  </data>
+  <data name="Lbl_CantHasta" xml:space="preserve">
+    <value>hasta</value>
+  </data>
+  <data name="Lbl_Cantidad" xml:space="preserve">
+    <value>Cantidad</value>
+  </data>
+  <data name="Lbl_CantMinStock" xml:space="preserve">
+    <value>Cantidad mínima de stock</value>
+  </data>
+  <data name="Lbl_Categoria" xml:space="preserve">
+    <value>Categoría</value>
+  </data>
+  <data name="Lbl_Cliente" xml:space="preserve">
+    <value>Cliente</value>
+  </data>
+  <data name="Lbl_ComentarioCliente" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="Lbl_Comentarios" xml:space="preserve">
+    <value>Comentarios</value>
+  </data>
+  <data name="Lbl_CompraMinDesde" xml:space="preserve">
+    <value>Compra mínima desde</value>
+  </data>
+  <data name="Lbl_CompraMinHasta" xml:space="preserve">
+    <value>hasta</value>
+  </data>
+  <data name="Lbl_CompraMinima" xml:space="preserve">
+    <value>Compra minima</value>
+  </data>
+  <data name="Lbl_CondIVA" xml:space="preserve">
+    <value>Condicion IVA</value>
+  </data>
+  <data name="Lbl_ConfContrasena" xml:space="preserve">
+    <value>Confirmar contraseña</value>
+  </data>
+  <data name="Lbl_Contrasena" xml:space="preserve">
+    <value>Contraseña</value>
+  </data>
+  <data name="Lbl_Correo" xml:space="preserve">
+    <value>Correo</value>
+  </data>
+  <data name="Lbl_Cuit" xml:space="preserve">
+    <value>CUIT</value>
+  </data>
+  <data name="Lbl_DescCateg" xml:space="preserve">
+    <value>Descripción descuento</value>
+  </data>
+  <data name="Lbl_Descripcion" xml:space="preserve">
+    <value>Descripcion</value>
+  </data>
+  <data name="Lbl_DescuentoAplicado" xml:space="preserve">
+    <value>Descuento aplicado</value>
+  </data>
+  <data name="Lbl_DiasVtoProd" xml:space="preserve">
+    <value>Días para el vencimiento de productos</value>
+  </data>
+  <data name="Lbl_Direccion" xml:space="preserve">
+    <value>Direccion</value>
+  </data>
+  <data name="Lbl_Documento" xml:space="preserve">
+    <value>DNI</value>
+  </data>
+  <data name="Lbl_Domicilio" xml:space="preserve">
+    <value>Domicilio</value>
+  </data>
+  <data name="Lbl_Estado" xml:space="preserve">
+    <value>Estado</value>
+  </data>
+  <data name="Lbl_Familia" xml:space="preserve">
+    <value>Familia</value>
+  </data>
+  <data name="Lbl_FeAltaCliente" xml:space="preserve">
+    <value>Fecha de alta</value>
+  </data>
+  <data name="Lbl_FechaAlta" xml:space="preserve">
+    <value>Fecha de alta</value>
+  </data>
+  <data name="Lbl_FechaHasta" xml:space="preserve">
+    <value>Fecha desde</value>
+  </data>
+  <data name="Lbl_FechaInicio" xml:space="preserve">
+    <value>Fecha inicio</value>
+  </data>
+  <data name="Lbl_FeDesde" xml:space="preserve">
+    <value>Fecha desde</value>
+  </data>
+  <data name="Lbl_FeHasta" xml:space="preserve">
+    <value>Fecha hasta</value>
+  </data>
+  <data name="Lbl_FeNacimiento" xml:space="preserve">
+    <value>Fecha de nacimiento</value>
+  </data>
+  <data name="Lbl_Localidad" xml:space="preserve">
+    <value>Localidad</value>
+  </data>
+  <data name="Lbl_LoteBusq" xml:space="preserve">
+    <value>Lote N°</value>
+  </data>
+  <data name="Lbl_Marca" xml:space="preserve">
+    <value>Marca</value>
+  </data>
+  <data name="Lbl_Matrícula" xml:space="preserve">
+    <value>Matrícula N°</value>
+  </data>
+  <data name="Lbl_Monodroga" xml:space="preserve">
+    <value>Monodroga</value>
+  </data>
+  <data name="Lbl_Nacionalidad" xml:space="preserve">
+    <value>Nacionalidad</value>
+  </data>
+  <data name="Lbl_Nombre" xml:space="preserve">
+    <value>Nombre</value>
+  </data>
+  <data name="Lbl_NombreComercial" xml:space="preserve">
+    <value>Nombre comercial</value>
+  </data>
+  <data name="Lbl_NroLote" xml:space="preserve">
+    <value>Lote N°</value>
+  </data>
+  <data name="Lbl_Partido" xml:space="preserve">
+    <value>Partido</value>
+  </data>
+  <data name="Lbl_PrecDesde" xml:space="preserve">
+    <value>Precio desde</value>
+  </data>
+  <data name="Lbl_PrecHasta" xml:space="preserve">
+    <value>hasta</value>
+  </data>
+  <data name="Lbl_Precio" xml:space="preserve">
+    <value>Precio</value>
+  </data>
+  <data name="Lbl_PrecioPorLote" xml:space="preserve">
+    <value>Precio por lote</value>
+  </data>
+  <data name="Lbl_Proveedor" xml:space="preserve">
+    <value>Proveedor</value>
+  </data>
+  <data name="Lbl_RazonSocial" xml:space="preserve">
+    <value>Razón social</value>
+  </data>
+  <data name="Lbl_Sexo" xml:space="preserve">
+    <value>Sexo</value>
+  </data>
+  <data name="Lbl_Telefono" xml:space="preserve">
+    <value>Teléfono</value>
+  </data>
+  <data name="Lbl_UnidadesporLote" xml:space="preserve">
+    <value>Unidades por lote</value>
+  </data>
+  <data name="Lbl_Usuario2" xml:space="preserve">
+    <value>Usuario</value>
+  </data>
+  <data name="Lbl_VenceCada" xml:space="preserve">
+    <value>Vence cada</value>
+  </data>
+  <data name="Lbl_Vto" xml:space="preserve">
+    <value>Vencimiento</value>
+  </data>
+  <data name="Lbl_VtoDesde" xml:space="preserve">
+    <value>Vencimiento desde</value>
+  </data>
+  <data name="Lbl_VtoHasta" xml:space="preserve">
+    <value>Hasta</value>
+  </data>
+  <data name="Rbt_Grupo" xml:space="preserve">
+    <value>Grupo</value>
+  </data>
+  <data name="Rbt_Usuario" xml:space="preserve">
+    <value>Usuarios</value>
+  </data>
+  <data name="Lbl_Lenguaje" xml:space="preserve">
+    <value>Lenguaje</value>
+  </data>
 </root>

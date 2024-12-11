@@ -342,14 +342,19 @@ namespace Vista
         private void accesoAModulos()
         {
             Btn_GestionAltas.Enabled = false;
-            Btn_Ventas.Enabled = false;
-            Btn_GestionStock.Enabled = false;
-            Btn_ModuloAdministracion.Enabled = false;
-            Btn_Seguridad.Enabled = false;
-            Btn_ConfSistema.Enabled = false;
             Btn_Usuarios.Enabled = false;
             Btn_AltaPersonas.Enabled = false;
 
+            Btn_Ventas.Enabled = false;
+            Btn_ConsultaVentas.Enabled = false;
+            Btn_GestionVentas.Enabled = false;
+
+            Btn_GestionStock.Enabled = false;
+            Btn_Seguridad.Enabled = false;
+            Btn_ConfSistema.Enabled = false;
+
+
+            Btn_ModuloAdministracion.Enabled = false;
             Btn_Proveedores.Enabled = false;
             Btn_PedidodeCompra.Enabled = false;
             Btn_OrdendeCompra.Enabled = false;
@@ -363,13 +368,21 @@ namespace Vista
                 {
                     case 1:
                         Btn_GestionAltas.Enabled = true;
+
                         Btn_Ventas.Enabled = true;
+                        Btn_ConsultaVentas.Enabled = true;
+                        Btn_GestionVentas.Enabled = true;
+                        
+
+
                         Btn_GestionStock.Enabled = true;
                         Btn_Usuarios.Enabled = true;
                         Btn_ModuloAdministracion.Enabled = true;
                         Btn_Seguridad.Enabled = true;
                         Btn_ConfSistema.Enabled = true;
                         Btn_AltaPersonas.Enabled = true;
+
+
                         Btn_Proveedores.Enabled = true;
                         Btn_PedidodeCompra.Enabled = true;
                         Btn_OrdendeCompra.Enabled = true;
@@ -388,13 +401,17 @@ namespace Vista
                         Btn_Usuarios.Enabled = true;
                         break;
                     case 17:
-                     //   Ms_ModuloConfiguracionSistema.Enabled = true;
+                           Btn_ConfSistema.Enabled = true;
                         break;
                     case 19:
                         Btn_GestionStock.Enabled = true;
                         break;
                     case 33:
-                      //  Ms_ModuloVentas.Enabled = true;
+                        Btn_GestionVentas.Enabled = true;
+                        Btn_Ventas.Enabled=true;
+                        break;
+                    case 39:
+                        Btn_ConsultaVentas.Enabled = true;
                         break;
                     case 42:
                         Btn_Proveedores.Enabled = true;
@@ -412,7 +429,7 @@ namespace Vista
                         Btn_ModuloAdministracion.Enabled = true;
                         break;
                     case 62:
-                        //Ms_ModuloConfiguracionSistema.Enabled = true;
+                        Btn_ConfSistema.Enabled = true;
                         break;
                     case 67:
                         Btn_Informes.Enabled = true;

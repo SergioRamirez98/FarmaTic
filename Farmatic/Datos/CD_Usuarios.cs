@@ -371,6 +371,8 @@ namespace Datos
                 lista = listaParametros.ToArray();
 
                 ejecutar(sSql, lista, false);
+                CSesion_PersonaSeleccionada.UserName = Prop_UserName;
+                CSesion_PersonaSeleccionada.EstadoUsuario = 1;
 
             }
             catch (Exception)
