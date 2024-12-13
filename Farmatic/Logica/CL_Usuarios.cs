@@ -143,7 +143,6 @@ namespace Logica
             Usuario.ID_Persona = Prop_ID_Persona;
             return Usuario.ComprobarUsuario();
         }
-
         public int ReactivarUsuario() 
         {            
             Usuario.Prop_UserName = Prop_UserName;
@@ -254,7 +253,7 @@ namespace Logica
                         Usuario.Prop_UserName = Prop_UserName;
                         Usuario.Prop_Contrasena = Prop_Contrasena;
                         Usuario.Prop_Encriptacion = CServ_Encriptacion.SHA256(Prop_Encriptacion);
-                        Usuario.DigitoVerificador = CServ_Encriptacion.convertiraCadena(Usuario.Prop_EncriptacionLogin);
+                        Usuario.DigitoVerificador = CServ_Encriptacion.convertiraCadena(Usuario.Prop_Encriptacion);
                         Usuario.Prop_NuevaPass = Convert.ToBoolean(Prop_NuevaPass);
                         DateTime hoy = DateTime.Today;
                         Usuario.Prop_FeCambioPass = hoy.AddDays(CSesion_SesionIniciada.VenceCada);
@@ -281,7 +280,7 @@ namespace Logica
                 Usuario.Prop_Contrasena = passaleatoria;
                 string contra = Prop_UserName + passaleatoria;
                 Usuario.Prop_Encriptacion = CServ_Encriptacion.SHA256(contra);
-                Usuario.DigitoVerificador = CServ_Encriptacion.convertiraCadena(Usuario.Prop_EncriptacionLogin);
+                Usuario.DigitoVerificador = CServ_Encriptacion.convertiraCadena(Usuario.Prop_Encriptacion);
                 CServ_EnvioMail.Prop_UserName = Prop_UserName;
                 CServ_EnvioMail.Prop_PassAleatoria = passaleatoria;
                 CServ_EnvioMail.Prop_Correo = CSesion_PersonaSeleccionada.Correo;

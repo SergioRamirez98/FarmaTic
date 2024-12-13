@@ -63,6 +63,7 @@ namespace Datos
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_UserName);
             listaParametros.Add(param_Encriptacion);
+            listaParametros.Add(param_DigitoVerificador);
             lista = listaParametros.ToArray();
             DataTable resultado = ejecutar(sSql, lista, true);
 
@@ -275,8 +276,9 @@ namespace Datos
             SqlParameter param_FeCambioPass = new SqlParameter("@Fe_CambioPass", SqlDbType.DateTime);
             param_FeCambioPass.Value = Prop_FeCambioPass;
             List<SqlParameter> listaParametros = new List<SqlParameter>();
-            listaParametros.Add(param_UserName);            
+            listaParametros.Add(param_UserName);
             listaParametros.Add(param_Encriptacion);
+            listaParametros.Add(param_DigitoVerificador);
             listaParametros.Add(param_NuevaPass);
             listaParametros.Add(param_FeCambioPass);
             lista = listaParametros.ToArray();
@@ -357,6 +359,7 @@ namespace Datos
                 listaParametros.Add(param_PassEncriptada);
                 listaParametros.Add(param_FeAlta);
                 listaParametros.Add(param_Familia);
+                listaParametros.Add(param_DigitoVerificador);
                 listaParametros.Add(param_Comentarios);
                 listaParametros.Add(param_Estado);
                 listaParametros.Add(param_VtoPass);
