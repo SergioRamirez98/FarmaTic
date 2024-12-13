@@ -26,6 +26,7 @@ namespace Datos
         public string Prop_EncriptacionLogin
         { get => atr_EncriptacionLogin; set { atr_EncriptacionLogin = value; } }
 
+        public int DigitoVerificador { get;set; }
         public int ID_Persona { get; set; }
         public string Prop_UserName { get; set; }
         public string Prop_Contrasena { get; set; }
@@ -55,6 +56,10 @@ namespace Datos
             param_UserName.Value = atr_NombreUsuarioLogin;
             SqlParameter param_Encriptacion = new SqlParameter("@PassEncriptada", SqlDbType.VarChar, 500);
             param_Encriptacion.Value = atr_EncriptacionLogin;
+
+            SqlParameter param_DigitoVerificador = new SqlParameter("@DigitoVerificador", SqlDbType.Int);
+            param_DigitoVerificador.Value = DigitoVerificador;
+
             List<SqlParameter> listaParametros = new List<SqlParameter>();
             listaParametros.Add(param_UserName);
             listaParametros.Add(param_Encriptacion);
@@ -259,6 +264,12 @@ namespace Datos
             param_UserName.Value = Prop_UserName;           
             SqlParameter param_Encriptacion = new SqlParameter("@PassEncriptada", SqlDbType.VarChar, 500);
             param_Encriptacion.Value = Prop_Encriptacion;
+
+
+
+            SqlParameter param_DigitoVerificador = new SqlParameter("@DigitoVerificador", SqlDbType.Int);
+            param_DigitoVerificador.Value = DigitoVerificador;
+
             SqlParameter param_NuevaPass = new SqlParameter("@NuevaPass", SqlDbType.Bit);
             param_NuevaPass.Value = Prop_NuevaPass;
             SqlParameter param_FeCambioPass = new SqlParameter("@Fe_CambioPass", SqlDbType.DateTime);
@@ -323,6 +334,12 @@ namespace Datos
                 param_Familia.Value = Prop_Familia;
                 SqlParameter param_Comentarios = new SqlParameter("@Comentarios", SqlDbType.VarChar, 200);
                 param_Comentarios.Value = Prop_Comentarios;
+
+
+
+                SqlParameter param_DigitoVerificador = new SqlParameter("@DigitoVerificador", SqlDbType.Int);
+                param_DigitoVerificador.Value = DigitoVerificador;
+
                 //Agregar Comentarios al insertar un usuario
                 SqlParameter param_Estado = new SqlParameter("@EstadoCuenta", SqlDbType.Int);
                 param_Estado.Value = Prop_Estado;
@@ -334,7 +351,8 @@ namespace Datos
                 param_CambioPass.Value = Prop_CambioPass;
 
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
-                listaParametros.Add(param_UserName); listaParametros.Add(param_UsuarioEjecutor);
+                listaParametros.Add(param_UserName);
+                listaParametros.Add(param_UsuarioEjecutor);
                 listaParametros.Add(param_ID_Persona);
                 listaParametros.Add(param_PassEncriptada);
                 listaParametros.Add(param_FeAlta);

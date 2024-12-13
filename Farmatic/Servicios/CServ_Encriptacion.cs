@@ -2,6 +2,7 @@
 
 using System;
 using System.Security.Cryptography;
+using System.Security.Policy;
 using System.Text;
 
 
@@ -39,10 +40,51 @@ namespace Servicios
             StringBuilder sb = new StringBuilder();
             byte[] stream = sha256.ComputeHash(encoding.GetBytes(atr_EncriptacionLogin));
             for (int i = 0; i < stream.Length; i++) sb.AppendFormat("{0:x2}", stream[i]);
-         
+            convertiraCadena(sb.ToString());
             return sb.ToString();
         }
-        
+        public static int convertiraCadena(string cadena)
+        {
+            string resultado = "";
+
+            foreach (char c in cadena)
+            {
+                if (char.IsDigit(c))
+                {
+                    resultado += c;
+                }
+                else if (char.IsLetter(c))
+                {                    
+                    int valorDecimal = Convert.ToInt32(c.ToString(), 16);
+                    resultado += valorDecimal.ToString();
+                }
+            }
+
+          return  digitoVerificador(resultado);            
+        }
+        private static int digitoVerificador(string resultado)
+        {
+            int suma = 0;
+            bool doble = false;
+
+            
+            for (int i = resultado.Length - 1; i >= 0; i--)
+            {
+                int digito = int.Parse(resultado[i].ToString());
+
+                if (doble)
+                {
+                    digito *= 2;
+                    if (digito > 9) digito -= 9;
+                }
+
+                suma += digito;
+                doble = !doble; 
+            }
+
+            suma =suma % 10;
+            return suma;
+        }
 
     }
 }

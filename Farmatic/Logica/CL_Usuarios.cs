@@ -52,6 +52,7 @@ namespace Logica
         public string Prop_FeAlta { get; set; }
         public string Prop_Familia { get; set; }
         public string Prop_Estado { get; set; }
+        public string DigitoVerificador { get; set; }
         public string Prop_Preg1 { get; set; }
         public string Prop_Resp1 { get; set; }
         public string Prop_Preg2 { get; set; }
@@ -235,6 +236,7 @@ namespace Logica
             {
                 Usuario.Prop_NombreUsuarioLogin = atr_NombreUsuarioLogin;
                 Usuario.Prop_EncriptacionLogin = CServ_Encriptacion.SHA256(atr_EncriptacionLogin);
+                Usuario.DigitoVerificador = CServ_Encriptacion.convertiraCadena(Usuario.Prop_EncriptacionLogin);
             }
         }
         public void PasarDatos(bool nuevaContrasena)
@@ -252,6 +254,7 @@ namespace Logica
                         Usuario.Prop_UserName = Prop_UserName;
                         Usuario.Prop_Contrasena = Prop_Contrasena;
                         Usuario.Prop_Encriptacion = CServ_Encriptacion.SHA256(Prop_Encriptacion);
+                        Usuario.DigitoVerificador = CServ_Encriptacion.convertiraCadena(Usuario.Prop_EncriptacionLogin);
                         Usuario.Prop_NuevaPass = Convert.ToBoolean(Prop_NuevaPass);
                         DateTime hoy = DateTime.Today;
                         Usuario.Prop_FeCambioPass = hoy.AddDays(CSesion_SesionIniciada.VenceCada);
@@ -278,6 +281,7 @@ namespace Logica
                 Usuario.Prop_Contrasena = passaleatoria;
                 string contra = Prop_UserName + passaleatoria;
                 Usuario.Prop_Encriptacion = CServ_Encriptacion.SHA256(contra);
+                Usuario.DigitoVerificador = CServ_Encriptacion.convertiraCadena(Usuario.Prop_EncriptacionLogin);
                 CServ_EnvioMail.Prop_UserName = Prop_UserName;
                 CServ_EnvioMail.Prop_PassAleatoria = passaleatoria;
                 CServ_EnvioMail.Prop_Correo = CSesion_PersonaSeleccionada.Correo;
