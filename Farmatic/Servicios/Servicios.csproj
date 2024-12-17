@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CServ_Aleatorios.cs" />
+    <Compile Include="CServ_BackUpBDD.cs" />
     <Compile Include="CServ_CambioDeClave.cs" />
     <Compile Include="CServ_ConfControles.cs" />
     <Compile Include="CServ_CrearPDF.cs" />

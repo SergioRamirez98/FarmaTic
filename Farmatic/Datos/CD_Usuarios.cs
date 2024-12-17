@@ -402,7 +402,6 @@ namespace Datos
                 throw new Exception("No se ha podido realizar la operación. Error CD_Usuarios||Insertar.");
             }
         }
-
         public int ReestablecerUsuario()
         {
             try
@@ -548,5 +547,11 @@ namespace Datos
                 throw new Exception ("No se ha podido realizar la operación. Error CD_Usuarios||InsertarRespuesta.");
             }        
         }
+
+        public static void BackUpBDD()
+        {
+          //  ejecutarr();
+        }
+        private void ejecutarr() { }
     }
 }

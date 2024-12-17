@@ -48,6 +48,11 @@ namespace Vista.FormulariosMenu
             mostrarCatalogo();
             cargarPermisos();
             CServ_ConfControles.ConfiguraciondeControles(this);
+            totalProveedor = 0;
+        }
+        private void Btn_Refrescar_Click(object sender, EventArgs e)
+        {
+            CV_OrdendeCompra_Load(sender, e);
         }
         private void Btn_AgregarAlPedido_Click(object sender, EventArgs e)
         {
@@ -162,6 +167,7 @@ namespace Vista.FormulariosMenu
             DTGV_PedidodeCompra.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
             DTGV_PedidodeCompra.Rows.Clear();
+            DTGV_PedidodeCompra.ColumnCount = 0;
             DTGV_PedidodeCompra.Columns.Add("ID", "ID Producto");
             DTGV_PedidodeCompra.Columns.Add("NombreComercial", "Nombre Comercial");
             DTGV_PedidodeCompra.Columns.Add("Monodroga", "Monodroga");
@@ -517,5 +523,6 @@ namespace Vista.FormulariosMenu
 
         #endregion
 
+        
     }
 }

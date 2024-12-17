@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Logica
@@ -47,7 +48,18 @@ namespace Logica
         #region Métodos
         public DataTable CargarConfiguracion()
         {
+            ejecutarBackUp();
             return sistema.Configuracion();
+        }
+        private void ejecutarBackUp() 
+        {
+            
+            Timer temporizador = new Timer(ejecutarMetodo, null, TimeSpan.Zero, TimeSpan.FromHours(8));
+
+        }
+        private void ejecutarMetodo(object state) 
+        {
+            sistema.EjecutarBackUp();
         }
         public List<CM_Bitacora> MostrarBitacora()
         {

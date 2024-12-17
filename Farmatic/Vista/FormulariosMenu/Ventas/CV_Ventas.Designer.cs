@@ -51,6 +51,7 @@
             this.Lbl_Carrito = new System.Windows.Forms.Label();
             this.Pnl_Catalogo = new System.Windows.Forms.Panel();
             this.Lbl_Catalogo = new System.Windows.Forms.Label();
+            this.Btn_Refrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Ventas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Carrito)).BeginInit();
@@ -86,14 +87,14 @@
             // 
             // Nud_Cantidad
             // 
-            this.Nud_Cantidad.Location = new System.Drawing.Point(1448, 226);
+            this.Nud_Cantidad.Location = new System.Drawing.Point(1448, 240);
             this.Nud_Cantidad.Name = "Nud_Cantidad";
             this.Nud_Cantidad.Size = new System.Drawing.Size(94, 22);
             this.Nud_Cantidad.TabIndex = 4;
             // 
             // Btn_AgregarCompra
             // 
-            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1448, 282);
+            this.Btn_AgregarCompra.Location = new System.Drawing.Point(1448, 296);
             this.Btn_AgregarCompra.Name = "Btn_AgregarCompra";
             this.Btn_AgregarCompra.Size = new System.Drawing.Size(104, 45);
             this.Btn_AgregarCompra.TabIndex = 5;
@@ -152,7 +153,7 @@
             // Lbl_Cantidad
             // 
             this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(1461, 207);
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(1461, 221);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
             this.Lbl_Cantidad.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Cantidad.TabIndex = 27;
@@ -196,7 +197,7 @@
             // 
             // Btn_ConsultaVentas
             // 
-            this.Btn_ConsultaVentas.Location = new System.Drawing.Point(1448, 110);
+            this.Btn_ConsultaVentas.Location = new System.Drawing.Point(1448, 155);
             this.Btn_ConsultaVentas.Name = "Btn_ConsultaVentas";
             this.Btn_ConsultaVentas.Size = new System.Drawing.Size(104, 46);
             this.Btn_ConsultaVentas.TabIndex = 3;
@@ -261,12 +262,23 @@
             this.Lbl_Catalogo.TabIndex = 31;
             this.Lbl_Catalogo.Text = "cat";
             // 
+            // Btn_Refrescar
+            // 
+            this.Btn_Refrescar.Location = new System.Drawing.Point(1448, 82);
+            this.Btn_Refrescar.Name = "Btn_Refrescar";
+            this.Btn_Refrescar.Size = new System.Drawing.Size(104, 43);
+            this.Btn_Refrescar.TabIndex = 65;
+            this.Btn_Refrescar.Text = "Refrescar";
+            this.Btn_Refrescar.UseVisualStyleBackColor = true;
+            this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
+            // 
             // CV_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1656, 735);
+            this.Controls.Add(this.Btn_Refrescar);
             this.Controls.Add(this.Pnl_Catalogo);
             this.Controls.Add(this.Pnl_Carrito);
             this.Controls.Add(this.Pnl_Total);
@@ -329,5 +341,6 @@
         private System.Windows.Forms.Label Lbl_Carrito;
         private System.Windows.Forms.Panel Pnl_Catalogo;
         private System.Windows.Forms.Label Lbl_Catalogo;
+        private System.Windows.Forms.Button Btn_Refrescar;
     }
 }

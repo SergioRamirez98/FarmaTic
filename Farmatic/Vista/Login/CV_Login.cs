@@ -102,16 +102,16 @@ namespace Vista
         }
         private void cargarComboLenguajes()
         {
-            Cmb_Lenguaje.DataSource = CV_Idioma.ObtenerIdiomas();//Cargo el Combo con la lista de la clase Idioma
-            Cmb_Lenguaje.DisplayMember = "Nombre"; //Muestro el "campo" nombre de la lista
-            Cmb_Lenguaje.ValueMember = "InfoCultura";//Guardo la informacion Cultural en el Combo
-            Cmb_Lenguaje.SelectedValue = Settings.Default.Idioma; //Selecciono el idioma guardado por defecto
+            Cmb_Lenguaje.DataSource = CV_Idioma.ObtenerIdiomas();
+            Cmb_Lenguaje.DisplayMember = "Nombre"; 
+            Cmb_Lenguaje.ValueMember = "InfoCultura";
+            Cmb_Lenguaje.SelectedValue = Settings.Default.Idioma; 
         }
         private void Cmb_Lenguaje_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            Settings.Default.Idioma = Cmb_Lenguaje.SelectedValue.ToString();//Cargo el idioma seleccionado por el combo
-            Settings.Default.Save(); //Guardo el idioma seleccionado para que quede grabado
-            CV_Idioma.CargarIdioma(this.Controls, this);//Llamo al metodo que cambiara el idioma en los formularios
+            Settings.Default.Idioma = Cmb_Lenguaje.SelectedValue.ToString();
+            Settings.Default.Save();
+            CV_Idioma.CargarIdioma(this.Controls, this);
         }
     }
 }

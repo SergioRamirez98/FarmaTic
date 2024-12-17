@@ -109,9 +109,9 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(560, 115);
+            this.Btn_Guardar.Location = new System.Drawing.Point(551, 115);
             this.Btn_Guardar.Name = "Btn_Guardar";
-            this.Btn_Guardar.Size = new System.Drawing.Size(75, 23);
+            this.Btn_Guardar.Size = new System.Drawing.Size(84, 23);
             this.Btn_Guardar.TabIndex = 10;
             this.Btn_Guardar.Text = "Guardar";
             this.Btn_Guardar.UseVisualStyleBackColor = true;

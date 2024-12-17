@@ -42,6 +42,7 @@
             this.Lbl_Catalogo = new System.Windows.Forms.Label();
             this.Pnl_Carrito = new System.Windows.Forms.Panel();
             this.Lbl_CarritoPC = new System.Windows.Forms.Label();
+            this.Btn_Refrescar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Catalogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_Cantidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_PedidodeCompra)).BeginInit();
@@ -63,7 +64,7 @@
             // Lbl_Cantidad
             // 
             this.Lbl_Cantidad.AutoSize = true;
-            this.Lbl_Cantidad.Location = new System.Drawing.Point(1330, 81);
+            this.Lbl_Cantidad.Location = new System.Drawing.Point(1330, 156);
             this.Lbl_Cantidad.Name = "Lbl_Cantidad";
             this.Lbl_Cantidad.Size = new System.Drawing.Size(61, 16);
             this.Lbl_Cantidad.TabIndex = 59;
@@ -91,7 +92,7 @@
             // 
             // Btn_AgregarAlPedido
             // 
-            this.Btn_AgregarAlPedido.Location = new System.Drawing.Point(1333, 150);
+            this.Btn_AgregarAlPedido.Location = new System.Drawing.Point(1333, 225);
             this.Btn_AgregarAlPedido.Name = "Btn_AgregarAlPedido";
             this.Btn_AgregarAlPedido.Size = new System.Drawing.Size(94, 55);
             this.Btn_AgregarAlPedido.TabIndex = 56;
@@ -101,7 +102,7 @@
             // 
             // Nud_Cantidad
             // 
-            this.Nud_Cantidad.Location = new System.Drawing.Point(1333, 100);
+            this.Nud_Cantidad.Location = new System.Drawing.Point(1333, 175);
             this.Nud_Cantidad.Name = "Nud_Cantidad";
             this.Nud_Cantidad.Size = new System.Drawing.Size(94, 22);
             this.Nud_Cantidad.TabIndex = 55;
@@ -137,7 +138,7 @@
             // 
             this.Pnl_Catalogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Pnl_Catalogo.Controls.Add(this.Lbl_Catalogo);
-            this.Pnl_Catalogo.Location = new System.Drawing.Point(23, 55);
+            this.Pnl_Catalogo.Location = new System.Drawing.Point(23, 42);
             this.Pnl_Catalogo.Name = "Pnl_Catalogo";
             this.Pnl_Catalogo.Size = new System.Drawing.Size(1286, 37);
             this.Pnl_Catalogo.TabIndex = 62;
@@ -156,7 +157,7 @@
             // 
             this.Pnl_Carrito.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Pnl_Carrito.Controls.Add(this.Lbl_CarritoPC);
-            this.Pnl_Carrito.Location = new System.Drawing.Point(23, 488);
+            this.Pnl_Carrito.Location = new System.Drawing.Point(23, 484);
             this.Pnl_Carrito.Name = "Pnl_Carrito";
             this.Pnl_Carrito.Size = new System.Drawing.Size(1286, 37);
             this.Pnl_Carrito.TabIndex = 63;
@@ -171,12 +172,23 @@
             this.Lbl_CarritoPC.TabIndex = 31;
             this.Lbl_CarritoPC.Text = "Carrito ";
             // 
+            // Btn_Refrescar
+            // 
+            this.Btn_Refrescar.Location = new System.Drawing.Point(1333, 65);
+            this.Btn_Refrescar.Name = "Btn_Refrescar";
+            this.Btn_Refrescar.Size = new System.Drawing.Size(87, 43);
+            this.Btn_Refrescar.TabIndex = 64;
+            this.Btn_Refrescar.Text = "Refrescar";
+            this.Btn_Refrescar.UseVisualStyleBackColor = true;
+            this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
+            // 
             // CV_PedidodeCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1441, 889);
+            this.ClientSize = new System.Drawing.Size(1441, 904);
+            this.Controls.Add(this.Btn_Refrescar);
             this.Controls.Add(this.Pnl_Catalogo);
             this.Controls.Add(this.Pnl_Carrito);
             this.Controls.Add(this.Txb_BusqCatalogo);
@@ -220,5 +232,6 @@
         private System.Windows.Forms.Label Lbl_Catalogo;
         private System.Windows.Forms.Panel Pnl_Carrito;
         private System.Windows.Forms.Label Lbl_CarritoPC;
+        private System.Windows.Forms.Button Btn_Refrescar;
     }
 }

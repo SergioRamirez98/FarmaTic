@@ -53,6 +53,13 @@ namespace Vista.FormulariosMenu
             configurarLoad();
             cargarPermisos();
             CServ_ConfControles.ConfiguraciondeControles(this);
+            totalventa = 0;
+            Desc = 0;
+            ID_Cliente = 0;
+        }
+        private void Btn_Refrescar_Click(object sender, EventArgs e)
+        {
+            CV_Ventas_Load(sender, e);
         }
         private void Txb_BusquedaRapida_TextChanged(object sender, EventArgs e)
         {
@@ -217,6 +224,7 @@ namespace Vista.FormulariosMenu
 
 
             DTGV_Carrito.Rows.Clear();
+            DTGV_Carrito.ColumnCount = 0;
             DTGV_Carrito.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             DTGV_Carrito.MultiSelect = true;
             DTGV_Carrito.AllowUserToAddRows = false;
@@ -240,6 +248,7 @@ namespace Vista.FormulariosMenu
         }
         private void cargarDTGV()
         {
+            DTGV_Ventas.DataSource = null;
             Dt = Productos.MostrarProductos();
             DTGV_Ventas.DataSource = Dt;
             DTGV_Ventas.ClearSelection();
@@ -406,6 +415,8 @@ namespace Vista.FormulariosMenu
             CServ_CrearPDF.ItemsVendidos = ItemsVendidos;
 
         }
+
+        
 
         private void cargarPermisos()
         {

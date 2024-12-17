@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo;
+using Servicios;
 using Sesion;
 using Sistema;
 
@@ -43,7 +44,9 @@ namespace Datos
 
         SqlParameter[] lista = null;
 
-        #endregion
+
+
+        #endregion      
         public DataTable Configuracion()
         {
             string sSql = "SP_Obtener_Configuracion";
@@ -133,6 +136,31 @@ namespace Datos
             }
 
         }
+        public void EjecutarBackUp() 
+        {
+            try
+            {
+                string direccion = CServ_BackUpBDD.CrearCarpetaBackUp();
+                string sSql = "SP_BackUp_BDD";
+
+                SqlParameter param_DireccionBDD = new SqlParameter("@DireccionBDD", SqlDbType.VarChar, 255);
+                param_DireccionBDD.Value = direccion;
+
+
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+
+                listaParametros.Add(param_DireccionBDD);
+
+                lista = listaParametros.ToArray();
+
+                ejecutar(sSql, lista, false);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||EjecutarBackUp.");
+            }
+        }
         public void GuardarCambiosSistema()
         {
             try
@@ -164,7 +192,6 @@ namespace Datos
             }
 
         }
-
         public List<CM_Bitacora> Buscar()
         {
             string sSql = "SP_Buscar_Bitacora";
@@ -202,8 +229,6 @@ namespace Datos
             return ListaBitacora;
 
         }
-
-
         public void GuardarNuevosPermisos(bool Familia)
         {
             string sSql;
@@ -314,7 +339,6 @@ namespace Datos
             }
             return ListaPermisos;
         }
-
         public List<CM_ListadoPermisosActuales> PermisosActuales(string FamiliaUsuario, bool Seleccion)
         {
             ListaActual.Clear();
@@ -431,7 +455,6 @@ namespace Datos
 
             }
         }
-
         private void cargarListaPermisosActuales(DataTable dt)
         {
             ListaActual.Clear();
