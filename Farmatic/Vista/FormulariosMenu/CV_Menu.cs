@@ -45,6 +45,15 @@ namespace Vista
                 Btn_Usuarios.Visible = true;
             }
         }
+        private void Btn_GestionAltas_MouseLeave(object sender, EventArgs e)
+        {
+            if (!PanelSecundario)
+            {
+                Btn_AltaPersonas.Visible = false;
+                Btn_Usuarios.Visible = false;
+            }
+        }
+
         private void Btn_GestionVentas_MouseEnter(object sender, EventArgs e)
         {
             if (!Btn_Usuarios.Visible && !Btn_Proveedores.Visible)
@@ -52,6 +61,15 @@ namespace Vista
                 Btn_Ventas.Visible = true;
                 Btn_ConsultaVentas.Visible = true;
             }
+        }
+        private void Btn_GestionVentas_MouseLeave(object sender, EventArgs e)
+        {
+            if (!PanelSecundario)
+            {
+                Btn_ConsultaVentas.Visible = false;
+                Btn_Ventas.Visible = false;
+            }
+
         }
         private void Btb_Administracion_MouseEnter(object sender, EventArgs e)
         {
@@ -63,29 +81,7 @@ namespace Vista
                 Btn_PedidodeCompra.Visible = true;
                 Btn_Proveedores.Visible = true;
             }
-        }
-
-        private void Btn_GestionAltas_MouseLeave(object sender, EventArgs e)
-        {
-            if (!PanelSecundario)
-            {
-                Btn_AltaPersonas.Visible = false;
-                Btn_Usuarios.Visible = false;
-            }
-        }
-
-
-        private void Btn_GestionVentas_MouseLeave(object sender, EventArgs e)
-        {
-            if (!PanelSecundario)
-            {
-
-                Btn_ConsultaVentas.Visible = false;
-                Btn_Ventas.Visible = false;
-            }
-
-        }
-
+        }   
         private void Btn_ModuloAdministracion_MouseLeave(object sender, EventArgs e)
         {
             if (!PanelSecundario)
@@ -133,7 +129,6 @@ namespace Vista
             }
 
         }
-
         private void Btn_ModuloAdministracion_Click(object sender, EventArgs e)
         {
             PanelSecundario = true;
@@ -151,7 +146,6 @@ namespace Vista
                 Btn_Ventas.Visible = false;
             }
         }
-
         private void Btn_Ventas_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_Ventas"];
@@ -163,10 +157,12 @@ namespace Vista
                 ventas.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
-
+            else
+            {
+                configurarFormulario(this, FrmOpen);  
+                FrmOpen.BringToFront();
+            }
         }
-
         private void Btn_ConsultaVentas_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_ConsultaVentas"];
@@ -178,10 +174,13 @@ namespace Vista
                 consulta.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
 
         }
-
         private void Btn_AltaPersonas_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_GestionUsuariosPersonas"];
@@ -193,10 +192,13 @@ namespace Vista
                 agregarPersona.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
 
         }
-
         private void Btn_Usuarios_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_AltaUsuario"];
@@ -208,8 +210,12 @@ namespace Vista
                 usuario.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
-        }
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
+        } 
         private void Btn_GestionStock_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_Stock"];
@@ -221,9 +227,12 @@ namespace Vista
                 Stock.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
         }
-
         private void Btn_Seguridad_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_ModulodeSeguridad"];
@@ -235,9 +244,12 @@ namespace Vista
                 Seguridad.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
         }
-
         private void Btn_ConfSistema_Click(object sender, EventArgs e)
         {
             Form FrmOpen = Application.OpenForms["CV_ConfiguracionSistema "];
@@ -249,7 +261,11 @@ namespace Vista
                 Sistema.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
 
         }
         private void Btn_Proveedores_Click(object sender, EventArgs e)
@@ -263,9 +279,12 @@ namespace Vista
                 Proveedores.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
         }
-
         private void Btn_PedidodeCompra_Click(object sender, EventArgs e)
         {
 
@@ -278,9 +297,12 @@ namespace Vista
                 PC.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
         }
-
         private void Btn_OrdendeCompra_Click(object sender, EventArgs e)
         {
 
@@ -293,9 +315,12 @@ namespace Vista
                 oc.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
         }
-
         private void Btn_Catalogo_Click(object sender, EventArgs e)
         {
 
@@ -308,9 +333,12 @@ namespace Vista
                 Catalogo.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
         }
-
         private void Btn_Informes_Click(object sender, EventArgs e)
         {
 
@@ -323,10 +351,12 @@ namespace Vista
                 Informes.Show();
                 Pnl_Menu.SendToBack();
             }
-            else FrmOpen.BringToFront();
+            else
+            {
+                configurarFormulario(this, FrmOpen);
+                FrmOpen.BringToFront();
+            }
         }
-
-
         private void Btn_CerraSesion_Click(object sender, EventArgs e)
         {
             CSesion_PersonaSeleccionada.SesionActiva = false;
@@ -456,16 +486,12 @@ namespace Vista
             timerVerificarCursor.Tick += TimerVerificarCursor_Tick;
             timerVerificarCursor.Start();
         }
-
-
-
         private void CV_Menu_MouseMove(object sender, MouseEventArgs e)
         {
             int areaMenu = 113;
             if (e.X <= areaMenu) { Pnl_Principal.Visible = true; Btn_CerraSesion.Visible = true; }
             else { Pnl_Principal.Visible = false; Btn_CerraSesion.Visible = false; }
         }
-
         private void TimerVerificarCursor_Tick(object sender, EventArgs e)
         {
             if (this.IsDisposed) return;

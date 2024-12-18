@@ -189,7 +189,10 @@ namespace Vista.FormulariosMenu
                     }
 
                 }
-                else FrmOpen.BringToFront();
+                else
+                {
+                    FrmOpen.BringToFront(); 
+                }
             }
             else CServ_MsjUsuario.MensajesDeError("No posee permisos para realizar esta operación");
         }
@@ -390,7 +393,6 @@ namespace Vista.FormulariosMenu
             calculoTotalVenta();
             configurarLoad();
         }
-
         private void pasarDatosVenta(int ID_Venta) 
         {
             foreach (DataGridViewRow itemCarrito in DTGV_Carrito.Rows)
@@ -415,9 +417,6 @@ namespace Vista.FormulariosMenu
             CServ_CrearPDF.ItemsVendidos = ItemsVendidos;
 
         }
-
-        
-
         private void cargarPermisos()
         {
             foreach (var permiso in CSesion_SesionIniciada.Permisos)

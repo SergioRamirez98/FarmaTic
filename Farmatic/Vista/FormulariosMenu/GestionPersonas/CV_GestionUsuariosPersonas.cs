@@ -110,8 +110,12 @@ namespace Vista
                     }
                     altaUsuario.Show();
                 }
-                else FrmOpen.BringToFront();
-                
+                else
+                {
+                    //configurarFormulario(this, FrmOpen);
+                    FrmOpen.BringToFront();
+                }
+
             }
             else
             {
