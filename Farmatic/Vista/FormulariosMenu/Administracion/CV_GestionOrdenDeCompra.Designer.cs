@@ -38,15 +38,21 @@
             this.Btn_Refrescar = new System.Windows.Forms.Button();
             this.Txb_Buscar = new System.Windows.Forms.TextBox();
             this.Pnl_Total = new System.Windows.Forms.Panel();
+            this.Pnl_OCdetallada = new System.Windows.Forms.Panel();
+            this.Lbl_Oc_Detallada = new System.Windows.Forms.Label();
+            this.Pnl_OC = new System.Windows.Forms.Panel();
+            this.Lbl_OC = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Pedidos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_OC)).BeginInit();
             this.Pnl_Total.SuspendLayout();
+            this.Pnl_OCdetallada.SuspendLayout();
+            this.Pnl_OC.SuspendLayout();
             this.SuspendLayout();
             // 
             // DTGV_Pedidos
             // 
             this.DTGV_Pedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_Pedidos.Location = new System.Drawing.Point(311, 12);
+            this.DTGV_Pedidos.Location = new System.Drawing.Point(316, 68);
             this.DTGV_Pedidos.Name = "DTGV_Pedidos";
             this.DTGV_Pedidos.RowHeadersWidth = 51;
             this.DTGV_Pedidos.RowTemplate.Height = 24;
@@ -56,9 +62,9 @@
             // 
             // Btn_ConfTotal
             // 
-            this.Btn_ConfTotal.Location = new System.Drawing.Point(104, 55);
+            this.Btn_ConfTotal.Location = new System.Drawing.Point(90, 94);
             this.Btn_ConfTotal.Name = "Btn_ConfTotal";
-            this.Btn_ConfTotal.Size = new System.Drawing.Size(100, 45);
+            this.Btn_ConfTotal.Size = new System.Drawing.Size(114, 45);
             this.Btn_ConfTotal.TabIndex = 1;
             this.Btn_ConfTotal.Text = "Confirmar OC";
             this.Btn_ConfTotal.UseVisualStyleBackColor = true;
@@ -66,9 +72,9 @@
             // 
             // Btn_Descartar
             // 
-            this.Btn_Descartar.Location = new System.Drawing.Point(104, 115);
+            this.Btn_Descartar.Location = new System.Drawing.Point(90, 154);
             this.Btn_Descartar.Name = "Btn_Descartar";
-            this.Btn_Descartar.Size = new System.Drawing.Size(100, 45);
+            this.Btn_Descartar.Size = new System.Drawing.Size(114, 45);
             this.Btn_Descartar.TabIndex = 2;
             this.Btn_Descartar.Text = "Descartar OC";
             this.Btn_Descartar.UseVisualStyleBackColor = true;
@@ -76,9 +82,9 @@
             // 
             // Btn_Historial
             // 
-            this.Btn_Historial.Location = new System.Drawing.Point(104, 170);
+            this.Btn_Historial.Location = new System.Drawing.Point(90, 209);
             this.Btn_Historial.Name = "Btn_Historial";
-            this.Btn_Historial.Size = new System.Drawing.Size(100, 45);
+            this.Btn_Historial.Size = new System.Drawing.Size(114, 45);
             this.Btn_Historial.TabIndex = 6;
             this.Btn_Historial.Text = "Historial";
             this.Btn_Historial.UseVisualStyleBackColor = true;
@@ -87,11 +93,11 @@
             // DTGV_OC
             // 
             this.DTGV_OC.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_OC.Location = new System.Drawing.Point(29, 312);
+            this.DTGV_OC.Location = new System.Drawing.Point(34, 418);
             this.DTGV_OC.Name = "DTGV_OC";
             this.DTGV_OC.RowHeadersWidth = 51;
             this.DTGV_OC.RowTemplate.Height = 24;
-            this.DTGV_OC.Size = new System.Drawing.Size(1468, 280);
+            this.DTGV_OC.Size = new System.Drawing.Size(1468, 230);
             this.DTGV_OC.TabIndex = 5;
             this.DTGV_OC.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_OC_CellContentClick);
             // 
@@ -107,9 +113,9 @@
             // 
             // Btn_Refrescar
             // 
-            this.Btn_Refrescar.Location = new System.Drawing.Point(104, 235);
+            this.Btn_Refrescar.Location = new System.Drawing.Point(90, 274);
             this.Btn_Refrescar.Name = "Btn_Refrescar";
-            this.Btn_Refrescar.Size = new System.Drawing.Size(100, 45);
+            this.Btn_Refrescar.Size = new System.Drawing.Size(114, 45);
             this.Btn_Refrescar.TabIndex = 4;
             this.Btn_Refrescar.Text = "Refrescar";
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
@@ -130,17 +136,57 @@
             // 
             this.Pnl_Total.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Pnl_Total.Controls.Add(this.Lbl_Total);
-            this.Pnl_Total.Location = new System.Drawing.Point(29, 593);
+            this.Pnl_Total.Location = new System.Drawing.Point(34, 649);
             this.Pnl_Total.Name = "Pnl_Total";
             this.Pnl_Total.Size = new System.Drawing.Size(1468, 51);
             this.Pnl_Total.TabIndex = 8;
+            // 
+            // Pnl_OCdetallada
+            // 
+            this.Pnl_OCdetallada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_OCdetallada.Controls.Add(this.Lbl_Oc_Detallada);
+            this.Pnl_OCdetallada.Location = new System.Drawing.Point(34, 366);
+            this.Pnl_OCdetallada.Name = "Pnl_OCdetallada";
+            this.Pnl_OCdetallada.Size = new System.Drawing.Size(1468, 51);
+            this.Pnl_OCdetallada.TabIndex = 9;
+            // 
+            // Lbl_Oc_Detallada
+            // 
+            this.Lbl_Oc_Detallada.AutoSize = true;
+            this.Lbl_Oc_Detallada.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Oc_Detallada.Location = new System.Drawing.Point(29, 17);
+            this.Lbl_Oc_Detallada.Name = "Lbl_Oc_Detallada";
+            this.Lbl_Oc_Detallada.Size = new System.Drawing.Size(254, 23);
+            this.Lbl_Oc_Detallada.TabIndex = 6;
+            this.Lbl_Oc_Detallada.Text = "Detalle de la orden de compra";
+            // 
+            // Pnl_OC
+            // 
+            this.Pnl_OC.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_OC.Controls.Add(this.Lbl_OC);
+            this.Pnl_OC.Location = new System.Drawing.Point(316, 16);
+            this.Pnl_OC.Name = "Pnl_OC";
+            this.Pnl_OC.Size = new System.Drawing.Size(725, 51);
+            this.Pnl_OC.TabIndex = 10;
+            // 
+            // Lbl_OC
+            // 
+            this.Lbl_OC.AutoSize = true;
+            this.Lbl_OC.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold);
+            this.Lbl_OC.Location = new System.Drawing.Point(29, 17);
+            this.Lbl_OC.Name = "Lbl_OC";
+            this.Lbl_OC.Size = new System.Drawing.Size(167, 23);
+            this.Lbl_OC.TabIndex = 6;
+            this.Lbl_OC.Text = "Órdenes de compra";
             // 
             // CV_GestionOrdenDeCompra
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1543, 684);
+            this.ClientSize = new System.Drawing.Size(1543, 748);
+            this.Controls.Add(this.Pnl_OC);
+            this.Controls.Add(this.Pnl_OCdetallada);
             this.Controls.Add(this.Pnl_Total);
             this.Controls.Add(this.Txb_Buscar);
             this.Controls.Add(this.Btn_Refrescar);
@@ -158,6 +204,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_OC)).EndInit();
             this.Pnl_Total.ResumeLayout(false);
             this.Pnl_Total.PerformLayout();
+            this.Pnl_OCdetallada.ResumeLayout(false);
+            this.Pnl_OCdetallada.PerformLayout();
+            this.Pnl_OC.ResumeLayout(false);
+            this.Pnl_OC.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -174,5 +224,9 @@
         private System.Windows.Forms.Button Btn_Refrescar;
         private System.Windows.Forms.TextBox Txb_Buscar;
         private System.Windows.Forms.Panel Pnl_Total;
+        private System.Windows.Forms.Panel Pnl_OCdetallada;
+        private System.Windows.Forms.Label Lbl_Oc_Detallada;
+        private System.Windows.Forms.Panel Pnl_OC;
+        private System.Windows.Forms.Label Lbl_OC;
     }
 }

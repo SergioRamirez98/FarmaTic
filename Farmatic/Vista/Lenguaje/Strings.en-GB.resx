@@ -390,16 +390,16 @@
   <data name="CV_ConsultaVentas" xml:space="preserve">
     <value>Consult sales</value>
   </data>
-  <data name="CV_GestionOrdendeCompra" xml:space="preserve">
+  <data name="CV_GestionOrdenDeCompra" xml:space="preserve">
     <value>Purchase order management</value>
   </data>
-  <data name="CV_GestionStock" xml:space="preserve">
+  <data name="CV_Stock" xml:space="preserve">
     <value>Stock management</value>
   </data>
   <data name="CV_GestionUsuariosPersonas" xml:space="preserve">
     <value>Person management</value>
   </data>
-  <data name="CV_GestiónProveedores" xml:space="preserve">
+  <data name="CV_GestionProveedores" xml:space="preserve">
     <value>Supplier management</value>
   </data>
   <data name="CV_Informes" xml:space="preserve">
@@ -635,5 +635,11 @@
   </data>
   <data name="Lbl_CarritoPC" xml:space="preserve">
     <value>Cart PR</value>
+  </data>
+  <data name="Lbl_Oc_Detallada" xml:space="preserve">
+    <value>Detail purchase order</value>
+  </data>
+  <data name="Lbl_OC" xml:space="preserve">
+    <value>Purchase Order</value>
   </data>
 </root>

@@ -56,8 +56,8 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		RESX_AutoCreateNewLanguageFiles = True
-		RESX_NeutralResourcesLanguage = es-AR
 		SolutionGuid = {C2099C8E-2BC5-4F55-8FF1-8FFC9C5CC95F}
+		RESX_NeutralResourcesLanguage = es-AR
+		RESX_AutoCreateNewLanguageFiles = True
 	EndGlobalSection
 EndGlobal

@@ -639,27 +639,18 @@ namespace Vista.Lenguaje {
         /// <summary>
         ///   Busca una cadena traducida similar a Órden de compra.
         /// </summary>
-        internal static string CV_GestionOrdendeCompra {
+        internal static string CV_GestionOrdenDeCompra {
             get {
-                return ResourceManager.GetString("CV_GestionOrdendeCompra", resourceCulture);
+                return ResourceManager.GetString("CV_GestionOrdenDeCompra", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Gestión de proveedores.
+        ///   Busca una cadena traducida similar a Proveedores.
         /// </summary>
-        internal static string CV_GestiónProveedores {
+        internal static string CV_GestionProveedores {
             get {
-                return ResourceManager.GetString("CV_GestiónProveedores", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Busca una cadena traducida similar a Gestión de Stock.
-        /// </summary>
-        internal static string CV_GestionStock {
-            get {
-                return ResourceManager.GetString("CV_GestionStock", resourceCulture);
+                return ResourceManager.GetString("CV_GestionProveedores", resourceCulture);
             }
         }
         
@@ -750,6 +741,15 @@ namespace Vista.Lenguaje {
         internal static string CV_SeleccionarPersona {
             get {
                 return ResourceManager.GetString("CV_SeleccionarPersona", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Gestión de Stock.
+        /// </summary>
+        internal static string CV_Stock {
+            get {
+                return ResourceManager.GetString("CV_Stock", resourceCulture);
             }
         }
         
@@ -1335,6 +1335,24 @@ namespace Vista.Lenguaje {
         internal static string Lbl_NumerosYLetras {
             get {
                 return ResourceManager.GetString("Lbl_NumerosYLetras", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Órdenes de compra.
+        /// </summary>
+        internal static string Lbl_OC {
+            get {
+                return ResourceManager.GetString("Lbl_OC", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Órden de compra detallada.
+        /// </summary>
+        internal static string Lbl_Oc_Detallada {
+            get {
+                return ResourceManager.GetString("Lbl_Oc_Detallada", resourceCulture);
             }
         }
         

@@ -122,7 +122,7 @@
             this.DTGV_Datos.Name = "DTGV_Datos";
             this.DTGV_Datos.RowHeadersWidth = 51;
             this.DTGV_Datos.RowTemplate.Height = 24;
-            this.DTGV_Datos.Size = new System.Drawing.Size(437, 337);
+            this.DTGV_Datos.Size = new System.Drawing.Size(437, 420);
             this.DTGV_Datos.TabIndex = 15;
             // 
             // Btn_GenerarInforme
@@ -159,7 +159,7 @@
             this.Pnl_Totales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
             this.Pnl_Totales.Controls.Add(this.Lbl_Resultados);
             this.Pnl_Totales.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pnl_Totales.Location = new System.Drawing.Point(857, 360);
+            this.Pnl_Totales.Location = new System.Drawing.Point(648, 57);
             this.Pnl_Totales.Name = "Pnl_Totales";
             this.Pnl_Totales.Size = new System.Drawing.Size(437, 77);
             this.Pnl_Totales.TabIndex = 18;
@@ -167,7 +167,6 @@
             // Pnl_Graficos
             // 
             this.Pnl_Graficos.Controls.Add(this.Chart_Grafico);
-            this.Pnl_Graficos.Controls.Add(this.Pnl_Totales);
             this.Pnl_Graficos.Controls.Add(this.DTGV_Datos);
             this.Pnl_Graficos.Location = new System.Drawing.Point(30, 177);
             this.Pnl_Graficos.Name = "Pnl_Graficos";
@@ -186,7 +185,7 @@
             this.Pnl_Controles.Controls.Add(this.Lbl_FechaHasta);
             this.Pnl_Controles.Location = new System.Drawing.Point(30, 28);
             this.Pnl_Controles.Name = "Pnl_Controles";
-            this.Pnl_Controles.Size = new System.Drawing.Size(654, 143);
+            this.Pnl_Controles.Size = new System.Drawing.Size(603, 143);
             this.Pnl_Controles.TabIndex = 20;
             // 
             // CV_Informes
@@ -196,6 +195,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1536, 762);
             this.Controls.Add(this.Pnl_Controles);
+            this.Controls.Add(this.Pnl_Totales);
             this.Controls.Add(this.Pnl_Graficos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_Informes";

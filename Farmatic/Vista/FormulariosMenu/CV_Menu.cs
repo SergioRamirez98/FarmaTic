@@ -53,7 +53,6 @@ namespace Vista
                 Btn_Usuarios.Visible = false;
             }
         }
-
         private void Btn_GestionVentas_MouseEnter(object sender, EventArgs e)
         {
             if (!Btn_Usuarios.Visible && !Btn_Proveedores.Visible)

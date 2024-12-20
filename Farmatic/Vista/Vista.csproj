@@ -174,11 +174,11 @@
     <Compile Include="FormulariosMenu\CV_ConfiguracionSistema.Designer.cs">
       <DependentUpon>CV_ConfiguracionSistema.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormulariosMenu\Administracion\CV_GestiónProveedores.cs">
+    <Compile Include="FormulariosMenu\Administracion\CV_GestionProveedores.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormulariosMenu\Administracion\CV_GestiónProveedores.Designer.cs">
-      <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
+    <Compile Include="FormulariosMenu\Administracion\CV_GestionProveedores.Designer.cs">
+      <DependentUpon>CV_GestionProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="FormulariosMenu\Administracion\CV_ObtenerProveedores.cs">
       <SubType>Form</SubType>
@@ -320,8 +320,8 @@
     <EmbeddedResource Include="FormulariosMenu\CV_ConfiguracionSistema.resx">
       <DependentUpon>CV_ConfiguracionSistema.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_GestiónProveedores.resx">
-      <DependentUpon>CV_GestiónProveedores.cs</DependentUpon>
+    <EmbeddedResource Include="FormulariosMenu\Administracion\CV_GestionProveedores.resx">
+      <DependentUpon>CV_GestionProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormulariosMenu\Administracion\CV_ObtenerProveedores.resx">
       <DependentUpon>CV_ObtenerProveedores.cs</DependentUpon>
@@ -451,9 +451,10 @@
     <None Include="Resources\fondo.jpg" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\PlantillaParaVentas.html" />
     <None Include="Resources\FarmaciaPasteur.Png" />
     <None Include="bin\Debug\Resources\PlantillaVentas.html" />
-    <None Include="bin\Debug\Resources\PlantillaParaVentas.html" />
+    <Content Include="bin\Debug\Resources\PlantillaParaVentas.html" />
     <None Include="Resources\icons8-registration-30.png" />
     <None Include="Resources\icons8-añadir-usuario-masculino-40.png" />
     <None Include="Resources\icons8-cerrar-sesión-30.png" />

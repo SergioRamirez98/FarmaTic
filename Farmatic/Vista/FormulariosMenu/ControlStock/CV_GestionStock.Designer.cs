@@ -527,8 +527,7 @@
             this.Controls.Add(this.DTGV_Productos);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_Stock";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Gestión de inventario";
+            this.Text = "Gestión de Stock";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_GestionStock_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).EndInit();
