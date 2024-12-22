@@ -23,6 +23,9 @@ namespace Vista.FormulariosMenu.Compras
             CV_Idioma.CargarIdioma(this.Controls, this);
         }
         CL_Informes Informes = new CL_Informes();
+        string LblEgresos = "";
+        string LblIngresos = "";
+        string LblTotal = "";
         List<CM_Informe> ListaInforme { get; set; } = new List<CM_Informe>();
         #region Eventos
         private void CV_Informes_Load(object sender, EventArgs e)
@@ -55,6 +58,9 @@ namespace Vista.FormulariosMenu.Compras
 
         private void Btn_GenerarInforme_Click(object sender, EventArgs e)
         {
+            Lbl_Ingresos.Text = LblIngresos;
+            Lbl_Egresos.Text = LblEgresos;
+            Lbl_Total.Text = LblTotal;
             try
             {
                 ListaInforme.Clear();
@@ -75,27 +81,47 @@ namespace Vista.FormulariosMenu.Compras
         }
         private void Btn_Refrescar_Click(object sender, EventArgs e)
         {
+            Lbl_Ingresos.Text=LblIngresos;
+            Lbl_Egresos.Text=LblEgresos;
+            Lbl_Total.Text=LblTotal;
             DTGV_Datos.DataSource= null;
             configurarLoad();
             Chart_Grafico.Series.Clear();
+            actualizarBalance();
+            CV_Informes_Load(sender, e);
         }
         
         #endregion
 
         #region Métodos
         private void configurarLoad()
-        {         
+        {
+            if (LblTotal=="") 
+            { 
+                LblEgresos = Lbl_Egresos.Text;
+                LblIngresos = Lbl_Ingresos.Text;
+                LblTotal = Lbl_Total.Text;                
+            }
+            else if (LblTotal!="")
+            {
+                //Lbl_Ingresos.Text
+
+            }
 
             DateTime fechaActual = DateTime.Now;
             DateTime primerDiaMes = new DateTime(fechaActual.Year, fechaActual.Month, 1);
             DateTime ultimoDiaMes = primerDiaMes.AddMonths(1).AddDays(-1);
             Dtp_FechaInicio.Value = primerDiaMes;
             Dtp_FechaFin.Value = ultimoDiaMes;
+            Cmb_TipoAnalisis.Items.Clear();
             Cmb_TipoAnalisis.Items.Add("Balance general");
             Cmb_TipoAnalisis.Items.Add("Ingresos");
             Cmb_TipoAnalisis.Items.Add("Egresos");
             Cmb_TipoAnalisis.SelectedIndex = 0;
-            Lbl_Resultados.Visible = false;
+            Lbl_Resultado.Visible = true;
+            Lbl_Total.Visible = false;
+            Lbl_Ingresos.Visible = false;
+            Lbl_Egresos.Visible = false;
 
         }
         private void pasarDatos() 
@@ -221,6 +247,7 @@ namespace Vista.FormulariosMenu.Compras
             double total = 0;
             double Ingresos = 0;
             double Egresos= 0;
+
             if (DTGV_Datos.Rows.Count > 0)
             {
                 foreach (DataGridViewRow fila in DTGV_Datos.Rows)
@@ -234,22 +261,41 @@ namespace Vista.FormulariosMenu.Compras
                         Ingresos += Convert.ToDouble(fila.Cells["Total"].Value);
                     }
                 }
-                Lbl_Resultados.Visible = true;
+                Lbl_Resultado.Visible = true;
                 switch (Cmb_TipoAnalisis.Text)
                 {
-                    case "Balance general": total = Ingresos - Egresos; Lbl_Resultados.Text = "El balance general es: $" + total.ToString("#,##0.00")+"\n"+
-                            "El total de gastos efectuados por compras es: $" + Egresos.ToString("#,##0.00")+"\n"+
-                            "El total de ingresos generados por venta es: $" + Ingresos.ToString("#,##0.00");
+                    case "Balance general": total = Ingresos - Egresos;
+                        Lbl_Total.Visible = true;
+                        Lbl_Ingresos.Visible = true;
+                        Lbl_Egresos.Visible = true;
+                        Lbl_Ingresos.Location = new Point(2, 59);
+                        Lbl_Egresos.Location = new Point(2, 84);
+                        Lbl_Total.Text = LblTotal+ total.ToString("#,##0.00");
+                        Lbl_Ingresos.Text = LblIngresos+ Ingresos.ToString("#,##0.00");
+                        Lbl_Egresos.Text = LblEgresos+ Egresos.ToString("#,##0.00");                        
                         break;
-                    case "Ingresos": Lbl_Resultados.Text = "El total de ingresos generados por venta es: $" + Ingresos.ToString("#,##0.00");
+                    case "Ingresos":
+                        Lbl_Ingresos.Visible = true;
+                        Lbl_Ingresos.Location = new Point(2, 59);
+                        Lbl_Ingresos.Text = Lbl_Ingresos.Text + Ingresos.ToString("#,##0.00");
+                        Lbl_Total.Visible = false;
+                        Lbl_Egresos.Visible=false;
                         break;
-                    case "Egresos": Lbl_Resultados.Text = "El total de gastos efectuados por compras es: $" + Egresos.ToString("#,##0.00");
+                    case "Egresos":
+                        Lbl_Egresos.Visible = true;
+                        Lbl_Egresos.Location= new Point(2, 59);
+                        Lbl_Egresos.Text = Lbl_Egresos.Text + Egresos.ToString("#,##0.00");
+                        Lbl_Total.Visible= false;
+                        Lbl_Ingresos.Visible = false;
                         break;
                 }
             }
-            else {
-                Lbl_Resultados.Visible = false;
-                Lbl_Resultados.Text = "el resultado es: " + total.ToString();
+            else 
+            {
+                Lbl_Resultado.Visible = true;
+                Lbl_Total.Visible = false;
+                Lbl_Ingresos.Visible = false;
+                Lbl_Egresos.Visible = false;
             }
         }
         #endregion

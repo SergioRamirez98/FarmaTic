@@ -1132,6 +1132,15 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Egresos: $ .
+        /// </summary>
+        internal static string Lbl_Egresos {
+            get {
+                return ResourceManager.GetString("Lbl_Egresos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Estado.
         /// </summary>
         internal static string Lbl_Estado {
@@ -1218,6 +1227,15 @@ namespace Vista.Lenguaje {
         internal static string Lbl_Hasta {
             get {
                 return ResourceManager.GetString("Lbl_Hasta", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Ingresos: $ .
+        /// </summary>
+        internal static string Lbl_Ingresos {
+            get {
+                return ResourceManager.GetString("Lbl_Ingresos", resourceCulture);
             }
         }
         
@@ -1492,6 +1510,15 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a RESULTADOS.
+        /// </summary>
+        internal static string Lbl_Resultado {
+            get {
+                return ResourceManager.GetString("Lbl_Resultado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Sexo.
         /// </summary>
         internal static string Lbl_Sexo {
@@ -1515,6 +1542,15 @@ namespace Vista.Lenguaje {
         internal static string Lbl_Tipo {
             get {
                 return ResourceManager.GetString("Lbl_Tipo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total: $ .
+        /// </summary>
+        internal static string Lbl_Total {
+            get {
+                return ResourceManager.GetString("Lbl_Total", resourceCulture);
             }
         }
         

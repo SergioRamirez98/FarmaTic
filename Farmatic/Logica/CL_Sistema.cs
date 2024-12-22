@@ -48,7 +48,7 @@ namespace Logica
         #region Métodos
         public DataTable CargarConfiguracion()
         {
-            ejecutarBackUp();
+         //   ejecutarBackUp();
             return sistema.Configuracion();
         }
         private void ejecutarBackUp() 

@@ -642,4 +642,16 @@
   <data name="Lbl_OC" xml:space="preserve">
     <value>Purchase Order</value>
   </data>
+  <data name="Lbl_Total" xml:space="preserve">
+    <value>Total: $ </value>
+  </data>
+  <data name="Lbl_Ingresos" xml:space="preserve">
+    <value>Income: $ </value>
+  </data>
+  <data name="Lbl_Egresos" xml:space="preserve">
+    <value>Expenses: $ </value>
+  </data>
+  <data name="Lbl_Resultado" xml:space="preserve">
+    <value>RESULTS</value>
+  </data>
 </root>

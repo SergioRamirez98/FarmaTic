@@ -41,15 +41,20 @@
             this.DTGV_Datos = new System.Windows.Forms.DataGridView();
             this.Btn_GenerarInforme = new System.Windows.Forms.Button();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
-            this.Lbl_Resultados = new System.Windows.Forms.Label();
             this.Pnl_Totales = new System.Windows.Forms.Panel();
+            this.Lbl_Total = new System.Windows.Forms.Label();
+            this.Lbl_Ingresos = new System.Windows.Forms.Label();
+            this.Lbl_Egresos = new System.Windows.Forms.Label();
+            this.Lbl_Resultado = new System.Windows.Forms.Label();
             this.Pnl_Graficos = new System.Windows.Forms.Panel();
             this.Pnl_Controles = new System.Windows.Forms.Panel();
+            this.Pnl_Total = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.Chart_Grafico)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Datos)).BeginInit();
             this.Pnl_Totales.SuspendLayout();
             this.Pnl_Graficos.SuspendLayout();
             this.Pnl_Controles.SuspendLayout();
+            this.Pnl_Total.SuspendLayout();
             this.SuspendLayout();
             // 
             // Dtp_FechaInicio
@@ -145,24 +150,57 @@
             this.Btn_Refrescar.UseVisualStyleBackColor = true;
             this.Btn_Refrescar.Click += new System.EventHandler(this.Btn_Refrescar_Click);
             // 
-            // Lbl_Resultados
-            // 
-            this.Lbl_Resultados.AutoSize = true;
-            this.Lbl_Resultados.Location = new System.Drawing.Point(3, 0);
-            this.Lbl_Resultados.Name = "Lbl_Resultados";
-            this.Lbl_Resultados.Size = new System.Drawing.Size(43, 17);
-            this.Lbl_Resultados.TabIndex = 0;
-            this.Lbl_Resultados.Text = "label1";
-            // 
             // Pnl_Totales
             // 
             this.Pnl_Totales.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
-            this.Pnl_Totales.Controls.Add(this.Lbl_Resultados);
+            this.Pnl_Totales.Controls.Add(this.Lbl_Total);
+            this.Pnl_Totales.Controls.Add(this.Lbl_Ingresos);
+            this.Pnl_Totales.Controls.Add(this.Lbl_Egresos);
             this.Pnl_Totales.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Pnl_Totales.Location = new System.Drawing.Point(648, 57);
+            this.Pnl_Totales.Location = new System.Drawing.Point(648, 28);
             this.Pnl_Totales.Name = "Pnl_Totales";
-            this.Pnl_Totales.Size = new System.Drawing.Size(437, 77);
+            this.Pnl_Totales.Size = new System.Drawing.Size(437, 143);
             this.Pnl_Totales.TabIndex = 18;
+            // 
+            // Lbl_Total
+            // 
+            this.Lbl_Total.AutoSize = true;
+            this.Lbl_Total.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Total.Location = new System.Drawing.Point(3, 43);
+            this.Lbl_Total.Name = "Lbl_Total";
+            this.Lbl_Total.Size = new System.Drawing.Size(55, 25);
+            this.Lbl_Total.TabIndex = 3;
+            this.Lbl_Total.Text = "Total";
+            // 
+            // Lbl_Ingresos
+            // 
+            this.Lbl_Ingresos.AutoSize = true;
+            this.Lbl_Ingresos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Ingresos.Location = new System.Drawing.Point(3, 73);
+            this.Lbl_Ingresos.Name = "Lbl_Ingresos";
+            this.Lbl_Ingresos.Size = new System.Drawing.Size(88, 25);
+            this.Lbl_Ingresos.TabIndex = 2;
+            this.Lbl_Ingresos.Text = "Ingresos";
+            // 
+            // Lbl_Egresos
+            // 
+            this.Lbl_Egresos.AutoSize = true;
+            this.Lbl_Egresos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Egresos.Location = new System.Drawing.Point(3, 103);
+            this.Lbl_Egresos.Name = "Lbl_Egresos";
+            this.Lbl_Egresos.Size = new System.Drawing.Size(80, 25);
+            this.Lbl_Egresos.TabIndex = 1;
+            this.Lbl_Egresos.Text = "Egresos";
+            // 
+            // Lbl_Resultado
+            // 
+            this.Lbl_Resultado.AutoSize = true;
+            this.Lbl_Resultado.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.Lbl_Resultado.Location = new System.Drawing.Point(185, 11);
+            this.Lbl_Resultado.Name = "Lbl_Resultado";
+            this.Lbl_Resultado.Size = new System.Drawing.Size(55, 25);
+            this.Lbl_Resultado.TabIndex = 4;
+            this.Lbl_Resultado.Text = "Total";
             // 
             // Pnl_Graficos
             // 
@@ -188,12 +226,23 @@
             this.Pnl_Controles.Size = new System.Drawing.Size(603, 143);
             this.Pnl_Controles.TabIndex = 20;
             // 
+            // Pnl_Total
+            // 
+            this.Pnl_Total.BackColor = System.Drawing.Color.Yellow;
+            this.Pnl_Total.Controls.Add(this.Lbl_Resultado);
+            this.Pnl_Total.Font = new System.Drawing.Font("Segoe UI", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Pnl_Total.Location = new System.Drawing.Point(648, 23);
+            this.Pnl_Total.Name = "Pnl_Total";
+            this.Pnl_Total.Size = new System.Drawing.Size(437, 45);
+            this.Pnl_Total.TabIndex = 19;
+            // 
             // CV_Informes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1536, 762);
+            this.Controls.Add(this.Pnl_Total);
             this.Controls.Add(this.Pnl_Controles);
             this.Controls.Add(this.Pnl_Totales);
             this.Controls.Add(this.Pnl_Graficos);
@@ -209,6 +258,8 @@
             this.Pnl_Graficos.ResumeLayout(false);
             this.Pnl_Controles.ResumeLayout(false);
             this.Pnl_Controles.PerformLayout();
+            this.Pnl_Total.ResumeLayout(false);
+            this.Pnl_Total.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -225,9 +276,13 @@
         private System.Windows.Forms.DataGridView DTGV_Datos;
         private System.Windows.Forms.Button Btn_GenerarInforme;
         private System.Windows.Forms.Button Btn_Refrescar;
-        private System.Windows.Forms.Label Lbl_Resultados;
         private System.Windows.Forms.Panel Pnl_Totales;
         private System.Windows.Forms.Panel Pnl_Graficos;
         private System.Windows.Forms.Panel Pnl_Controles;
+        private System.Windows.Forms.Label Lbl_Total;
+        private System.Windows.Forms.Label Lbl_Ingresos;
+        private System.Windows.Forms.Label Lbl_Egresos;
+        private System.Windows.Forms.Label Lbl_Resultado;
+        private System.Windows.Forms.Panel Pnl_Total;
     }
 }

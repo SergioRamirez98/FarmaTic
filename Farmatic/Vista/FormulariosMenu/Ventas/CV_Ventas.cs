@@ -245,7 +245,8 @@ namespace Vista.FormulariosMenu
             DTGV_Carrito.Columns["Precio"].DefaultCellStyle.Format = "#,##0.00";
             DTGV_Carrito.Columns.Add("Subtotal", "SubTotal");
             DTGV_Carrito.Columns["Subtotal"].DefaultCellStyle.Format = "#,##0.00";
-            DTGV_Carrito.Columns.Add("Vencimiento", "Vencimiento");
+            DTGV_Carrito.Columns.Add("Vencimiento", "Vencimiento");            
+            DTGV_Carrito.Columns["Vencimiento"].DefaultCellStyle.Format = "dd/MM/yyyy";
             DTGV_Carrito.Columns.Add("NumLote", "Numero de lote");
             DTGV_Carrito.Columns.Add("Descuento", "Descuento por cliente");
         }
