@@ -654,4 +654,16 @@
   <data name="Lbl_Resultado" xml:space="preserve">
     <value>RESULTADOS</value>
   </data>
+  <data name="Lbl_VentaGral" xml:space="preserve">
+    <value>Visualizador de ventas</value>
+  </data>
+  <data name="Lbl_VisorDetalle" xml:space="preserve">
+    <value>Visualizador de ventas detalladas</value>
+  </data>
+  <data name="Lbl_Bitacora" xml:space="preserve">
+    <value>Bitácora</value>
+  </data>
+  <data name="Lbl_ConfigPass" xml:space="preserve">
+    <value>Configuración de contraseña</value>
+  </data>
 </root>

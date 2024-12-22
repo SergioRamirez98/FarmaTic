@@ -40,6 +40,7 @@
             this.Nud_CantidadIntentosFallidos = new System.Windows.Forms.NumericUpDown();
             this.Btn_Bitacora = new System.Windows.Forms.Button();
             this.Pnl_Bitacora = new System.Windows.Forms.Panel();
+            this.Lbl_Bitacora = new System.Windows.Forms.Label();
             this.Lbl_Usuario = new System.Windows.Forms.Label();
             this.Txb_UserName = new System.Windows.Forms.TextBox();
             this.Lbl_Tipo = new System.Windows.Forms.Label();
@@ -51,15 +52,18 @@
             this.Dtp_Hasta = new System.Windows.Forms.DateTimePicker();
             this.Dtp_Desde = new System.Windows.Forms.DateTimePicker();
             this.DTGV_Bitacora = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.Lbl_ConfigPass = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantidadIntentosFallidos)).BeginInit();
             this.Pnl_Bitacora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Bitacora)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // Chb_MinCaracteres
             // 
             this.Chb_MinCaracteres.AutoSize = true;
-            this.Chb_MinCaracteres.Location = new System.Drawing.Point(20, 25);
+            this.Chb_MinCaracteres.Location = new System.Drawing.Point(9, 33);
             this.Chb_MinCaracteres.Name = "Chb_MinCaracteres";
             this.Chb_MinCaracteres.Size = new System.Drawing.Size(168, 20);
             this.Chb_MinCaracteres.TabIndex = 0;
@@ -70,7 +74,7 @@
             // Chb_MayMin
             // 
             this.Chb_MayMin.AutoSize = true;
-            this.Chb_MayMin.Location = new System.Drawing.Point(20, 55);
+            this.Chb_MayMin.Location = new System.Drawing.Point(9, 63);
             this.Chb_MayMin.Name = "Chb_MayMin";
             this.Chb_MayMin.Size = new System.Drawing.Size(242, 20);
             this.Chb_MayMin.TabIndex = 1;
@@ -80,7 +84,7 @@
             // Chb_CaracEspec
             // 
             this.Chb_CaracEspec.AutoSize = true;
-            this.Chb_CaracEspec.Location = new System.Drawing.Point(20, 85);
+            this.Chb_CaracEspec.Location = new System.Drawing.Point(9, 93);
             this.Chb_CaracEspec.Name = "Chb_CaracEspec";
             this.Chb_CaracEspec.Size = new System.Drawing.Size(165, 20);
             this.Chb_CaracEspec.TabIndex = 2;
@@ -90,7 +94,7 @@
             // Chb_DatosPersonales
             // 
             this.Chb_DatosPersonales.AutoSize = true;
-            this.Chb_DatosPersonales.Location = new System.Drawing.Point(20, 115);
+            this.Chb_DatosPersonales.Location = new System.Drawing.Point(9, 123);
             this.Chb_DatosPersonales.Name = "Chb_DatosPersonales";
             this.Chb_DatosPersonales.Size = new System.Drawing.Size(202, 20);
             this.Chb_DatosPersonales.TabIndex = 3;
@@ -100,7 +104,7 @@
             // Chb_NumYLetras
             // 
             this.Chb_NumYLetras.AutoSize = true;
-            this.Chb_NumYLetras.Location = new System.Drawing.Point(330, 25);
+            this.Chb_NumYLetras.Location = new System.Drawing.Point(319, 33);
             this.Chb_NumYLetras.Name = "Chb_NumYLetras";
             this.Chb_NumYLetras.Size = new System.Drawing.Size(184, 20);
             this.Chb_NumYLetras.TabIndex = 4;
@@ -109,7 +113,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(551, 115);
+            this.Btn_Guardar.Location = new System.Drawing.Point(319, 123);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(84, 23);
             this.Btn_Guardar.TabIndex = 10;
@@ -120,7 +124,7 @@
             // Chb_RepetirPass
             // 
             this.Chb_RepetirPass.AutoSize = true;
-            this.Chb_RepetirPass.Location = new System.Drawing.Point(330, 55);
+            this.Chb_RepetirPass.Location = new System.Drawing.Point(319, 63);
             this.Chb_RepetirPass.Name = "Chb_RepetirPass";
             this.Chb_RepetirPass.Size = new System.Drawing.Size(165, 20);
             this.Chb_RepetirPass.TabIndex = 5;
@@ -130,7 +134,7 @@
             // Lbl_CantIntentosFallidos
             // 
             this.Lbl_CantIntentosFallidos.AutoSize = true;
-            this.Lbl_CantIntentosFallidos.Location = new System.Drawing.Point(393, 85);
+            this.Lbl_CantIntentosFallidos.Location = new System.Drawing.Point(382, 93);
             this.Lbl_CantIntentosFallidos.Name = "Lbl_CantIntentosFallidos";
             this.Lbl_CantIntentosFallidos.Size = new System.Drawing.Size(175, 16);
             this.Lbl_CantIntentosFallidos.TabIndex = 9;
@@ -138,7 +142,7 @@
             // 
             // Nud_CantidadIntentosFallidos
             // 
-            this.Nud_CantidadIntentosFallidos.Location = new System.Drawing.Point(330, 85);
+            this.Nud_CantidadIntentosFallidos.Location = new System.Drawing.Point(319, 93);
             this.Nud_CantidadIntentosFallidos.Name = "Nud_CantidadIntentosFallidos";
             this.Nud_CantidadIntentosFallidos.Size = new System.Drawing.Size(54, 22);
             this.Nud_CantidadIntentosFallidos.TabIndex = 9;
@@ -150,9 +154,9 @@
             // 
             // Btn_Bitacora
             // 
-            this.Btn_Bitacora.Location = new System.Drawing.Point(330, 115);
+            this.Btn_Bitacora.Location = new System.Drawing.Point(273, 190);
             this.Btn_Bitacora.Name = "Btn_Bitacora";
-            this.Btn_Bitacora.Size = new System.Drawing.Size(84, 23);
+            this.Btn_Bitacora.Size = new System.Drawing.Size(95, 25);
             this.Btn_Bitacora.TabIndex = 11;
             this.Btn_Bitacora.Text = "Bitácora";
             this.Btn_Bitacora.UseVisualStyleBackColor = true;
@@ -160,6 +164,8 @@
             // 
             // Pnl_Bitacora
             // 
+            this.Pnl_Bitacora.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnl_Bitacora.Controls.Add(this.Lbl_Bitacora);
             this.Pnl_Bitacora.Controls.Add(this.Lbl_Usuario);
             this.Pnl_Bitacora.Controls.Add(this.Txb_UserName);
             this.Pnl_Bitacora.Controls.Add(this.Lbl_Tipo);
@@ -171,15 +177,24 @@
             this.Pnl_Bitacora.Controls.Add(this.Dtp_Hasta);
             this.Pnl_Bitacora.Controls.Add(this.Dtp_Desde);
             this.Pnl_Bitacora.Controls.Add(this.DTGV_Bitacora);
-            this.Pnl_Bitacora.Location = new System.Drawing.Point(22, 161);
+            this.Pnl_Bitacora.Location = new System.Drawing.Point(20, 225);
             this.Pnl_Bitacora.Name = "Pnl_Bitacora";
-            this.Pnl_Bitacora.Size = new System.Drawing.Size(628, 403);
+            this.Pnl_Bitacora.Size = new System.Drawing.Size(628, 413);
             this.Pnl_Bitacora.TabIndex = 12;
+            // 
+            // Lbl_Bitacora
+            // 
+            this.Lbl_Bitacora.AutoSize = true;
+            this.Lbl_Bitacora.Location = new System.Drawing.Point(9, 4);
+            this.Lbl_Bitacora.Name = "Lbl_Bitacora";
+            this.Lbl_Bitacora.Size = new System.Drawing.Size(57, 16);
+            this.Lbl_Bitacora.TabIndex = 15;
+            this.Lbl_Bitacora.Text = "Bitácora";
             // 
             // Lbl_Usuario
             // 
             this.Lbl_Usuario.AutoSize = true;
-            this.Lbl_Usuario.Location = new System.Drawing.Point(31, 9);
+            this.Lbl_Usuario.Location = new System.Drawing.Point(30, 35);
             this.Lbl_Usuario.Name = "Lbl_Usuario";
             this.Lbl_Usuario.Size = new System.Drawing.Size(54, 16);
             this.Lbl_Usuario.TabIndex = 63;
@@ -187,7 +202,7 @@
             // 
             // Txb_UserName
             // 
-            this.Txb_UserName.Location = new System.Drawing.Point(34, 28);
+            this.Txb_UserName.Location = new System.Drawing.Point(33, 54);
             this.Txb_UserName.Name = "Txb_UserName";
             this.Txb_UserName.Size = new System.Drawing.Size(119, 22);
             this.Txb_UserName.TabIndex = 53;
@@ -195,7 +210,7 @@
             // Lbl_Tipo
             // 
             this.Lbl_Tipo.AutoSize = true;
-            this.Lbl_Tipo.Location = new System.Drawing.Point(485, 9);
+            this.Lbl_Tipo.Location = new System.Drawing.Point(484, 35);
             this.Lbl_Tipo.Name = "Lbl_Tipo";
             this.Lbl_Tipo.Size = new System.Drawing.Size(118, 16);
             this.Lbl_Tipo.TabIndex = 61;
@@ -204,7 +219,7 @@
             // Lbl_Hasta
             // 
             this.Lbl_Hasta.AutoSize = true;
-            this.Lbl_Hasta.Location = new System.Drawing.Point(332, 9);
+            this.Lbl_Hasta.Location = new System.Drawing.Point(331, 35);
             this.Lbl_Hasta.Name = "Lbl_Hasta";
             this.Lbl_Hasta.Size = new System.Drawing.Size(43, 16);
             this.Lbl_Hasta.TabIndex = 60;
@@ -213,7 +228,7 @@
             // Lbl_Desde
             // 
             this.Lbl_Desde.AutoSize = true;
-            this.Lbl_Desde.Location = new System.Drawing.Point(177, 9);
+            this.Lbl_Desde.Location = new System.Drawing.Point(176, 35);
             this.Lbl_Desde.Name = "Lbl_Desde";
             this.Lbl_Desde.Size = new System.Drawing.Size(48, 16);
             this.Lbl_Desde.TabIndex = 59;
@@ -221,9 +236,9 @@
             // 
             // Btn_VerTodo
             // 
-            this.Btn_VerTodo.Location = new System.Drawing.Point(321, 75);
+            this.Btn_VerTodo.Location = new System.Drawing.Point(320, 101);
             this.Btn_VerTodo.Name = "Btn_VerTodo";
-            this.Btn_VerTodo.Size = new System.Drawing.Size(115, 23);
+            this.Btn_VerTodo.Size = new System.Drawing.Size(115, 25);
             this.Btn_VerTodo.TabIndex = 58;
             this.Btn_VerTodo.Text = "Ver todo";
             this.Btn_VerTodo.UseVisualStyleBackColor = true;
@@ -231,9 +246,9 @@
             // 
             // Btn_Buscar
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(180, 75);
+            this.Btn_Buscar.Location = new System.Drawing.Point(179, 101);
             this.Btn_Buscar.Name = "Btn_Buscar";
-            this.Btn_Buscar.Size = new System.Drawing.Size(115, 23);
+            this.Btn_Buscar.Size = new System.Drawing.Size(115, 25);
             this.Btn_Buscar.TabIndex = 56;
             this.Btn_Buscar.Text = "Buscar";
             this.Btn_Buscar.UseVisualStyleBackColor = true;
@@ -242,7 +257,7 @@
             // Cmb_Tipo
             // 
             this.Cmb_Tipo.FormattingEnabled = true;
-            this.Cmb_Tipo.Location = new System.Drawing.Point(488, 26);
+            this.Cmb_Tipo.Location = new System.Drawing.Point(487, 52);
             this.Cmb_Tipo.Name = "Cmb_Tipo";
             this.Cmb_Tipo.Size = new System.Drawing.Size(121, 24);
             this.Cmb_Tipo.TabIndex = 57;
@@ -250,7 +265,7 @@
             // Dtp_Hasta
             // 
             this.Dtp_Hasta.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Dtp_Hasta.Location = new System.Drawing.Point(335, 28);
+            this.Dtp_Hasta.Location = new System.Drawing.Point(334, 54);
             this.Dtp_Hasta.Name = "Dtp_Hasta";
             this.Dtp_Hasta.Size = new System.Drawing.Size(130, 22);
             this.Dtp_Hasta.TabIndex = 55;
@@ -258,7 +273,7 @@
             // Dtp_Desde
             // 
             this.Dtp_Desde.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.Dtp_Desde.Location = new System.Drawing.Point(180, 28);
+            this.Dtp_Desde.Location = new System.Drawing.Point(179, 54);
             this.Dtp_Desde.Name = "Dtp_Desde";
             this.Dtp_Desde.Size = new System.Drawing.Size(130, 22);
             this.Dtp_Desde.TabIndex = 54;
@@ -266,30 +281,49 @@
             // DTGV_Bitacora
             // 
             this.DTGV_Bitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_Bitacora.Location = new System.Drawing.Point(13, 104);
+            this.DTGV_Bitacora.Location = new System.Drawing.Point(12, 130);
             this.DTGV_Bitacora.Name = "DTGV_Bitacora";
             this.DTGV_Bitacora.RowHeadersWidth = 51;
             this.DTGV_Bitacora.RowTemplate.Height = 24;
             this.DTGV_Bitacora.Size = new System.Drawing.Size(603, 262);
             this.DTGV_Bitacora.TabIndex = 62;
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.Lbl_ConfigPass);
+            this.panel1.Controls.Add(this.Chb_MinCaracteres);
+            this.panel1.Controls.Add(this.Chb_MayMin);
+            this.panel1.Controls.Add(this.Chb_CaracEspec);
+            this.panel1.Controls.Add(this.Lbl_CantIntentosFallidos);
+            this.panel1.Controls.Add(this.Chb_DatosPersonales);
+            this.panel1.Controls.Add(this.Nud_CantidadIntentosFallidos);
+            this.panel1.Controls.Add(this.Chb_NumYLetras);
+            this.panel1.Controls.Add(this.Chb_RepetirPass);
+            this.panel1.Controls.Add(this.Btn_Guardar);
+            this.panel1.Location = new System.Drawing.Point(23, 17);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(628, 163);
+            this.panel1.TabIndex = 13;
+            // 
+            // Lbl_ConfigPass
+            // 
+            this.Lbl_ConfigPass.AutoSize = true;
+            this.Lbl_ConfigPass.Location = new System.Drawing.Point(6, 4);
+            this.Lbl_ConfigPass.Name = "Lbl_ConfigPass";
+            this.Lbl_ConfigPass.Size = new System.Drawing.Size(185, 16);
+            this.Lbl_ConfigPass.TabIndex = 14;
+            this.Lbl_ConfigPass.Text = "Configuración de contraseñas";
+            // 
             // CV_ModulodeSeguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(693, 576);
+            this.ClientSize = new System.Drawing.Size(960, 661);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.Pnl_Bitacora);
             this.Controls.Add(this.Btn_Bitacora);
-            this.Controls.Add(this.Lbl_CantIntentosFallidos);
-            this.Controls.Add(this.Nud_CantidadIntentosFallidos);
-            this.Controls.Add(this.Chb_RepetirPass);
-            this.Controls.Add(this.Btn_Guardar);
-            this.Controls.Add(this.Chb_NumYLetras);
-            this.Controls.Add(this.Chb_DatosPersonales);
-            this.Controls.Add(this.Chb_CaracEspec);
-            this.Controls.Add(this.Chb_MayMin);
-            this.Controls.Add(this.Chb_MinCaracteres);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ModulodeSeguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -300,8 +334,9 @@
             this.Pnl_Bitacora.ResumeLayout(false);
             this.Pnl_Bitacora.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Bitacora)).EndInit();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -329,5 +364,8 @@
         private System.Windows.Forms.DateTimePicker Dtp_Hasta;
         private System.Windows.Forms.DateTimePicker Dtp_Desde;
         private System.Windows.Forms.DataGridView DTGV_Bitacora;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label Lbl_Bitacora;
+        private System.Windows.Forms.Label Lbl_ConfigPass;
     }
 }

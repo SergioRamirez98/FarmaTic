@@ -44,8 +44,14 @@
             this.Lbl_FeDesde = new System.Windows.Forms.Label();
             this.Lbl_FeHasta = new System.Windows.Forms.Label();
             this.DTGV_VisualizadorVentas = new System.Windows.Forms.DataGridView();
+            this.Pnl_VentaDetallada = new System.Windows.Forms.Panel();
+            this.Lbl_VisorDetalle = new System.Windows.Forms.Label();
+            this.Pnl_VentaGeneral = new System.Windows.Forms.Panel();
+            this.Lbl_VentaGral = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_BusqVentas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_VisualizadorVentas)).BeginInit();
+            this.Pnl_VentaDetallada.SuspendLayout();
+            this.Pnl_VentaGeneral.SuspendLayout();
             this.SuspendLayout();
             // 
             // Txb_Cliente
@@ -89,7 +95,7 @@
             // 
             // Btn_Buscar
             // 
-            this.Btn_Buscar.Location = new System.Drawing.Point(420, 84);
+            this.Btn_Buscar.Location = new System.Drawing.Point(147, 197);
             this.Btn_Buscar.Name = "Btn_Buscar";
             this.Btn_Buscar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Buscar.TabIndex = 6;
@@ -99,7 +105,7 @@
             // 
             // Btn_Ver
             // 
-            this.Btn_Ver.Location = new System.Drawing.Point(420, 122);
+            this.Btn_Ver.Location = new System.Drawing.Point(1017, 134);
             this.Btn_Ver.Name = "Btn_Ver";
             this.Btn_Ver.Size = new System.Drawing.Size(75, 23);
             this.Btn_Ver.TabIndex = 7;
@@ -109,7 +115,7 @@
             // 
             // Btn_Eliminar
             // 
-            this.Btn_Eliminar.Location = new System.Drawing.Point(420, 162);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(1017, 174);
             this.Btn_Eliminar.Name = "Btn_Eliminar";
             this.Btn_Eliminar.Size = new System.Drawing.Size(75, 23);
             this.Btn_Eliminar.TabIndex = 8;
@@ -120,11 +126,11 @@
             // DTGV_BusqVentas
             // 
             this.DTGV_BusqVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_BusqVentas.Location = new System.Drawing.Point(549, 70);
+            this.DTGV_BusqVentas.Location = new System.Drawing.Point(412, 103);
             this.DTGV_BusqVentas.Name = "DTGV_BusqVentas";
             this.DTGV_BusqVentas.RowHeadersWidth = 51;
             this.DTGV_BusqVentas.RowTemplate.Height = 24;
-            this.DTGV_BusqVentas.Size = new System.Drawing.Size(633, 150);
+            this.DTGV_BusqVentas.Size = new System.Drawing.Size(575, 117);
             this.DTGV_BusqVentas.TabIndex = 9;
             // 
             // Lbl_Cliente
@@ -175,12 +181,50 @@
             // DTGV_VisualizadorVentas
             // 
             this.DTGV_VisualizadorVentas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_VisualizadorVentas.Location = new System.Drawing.Point(69, 236);
+            this.DTGV_VisualizadorVentas.Location = new System.Drawing.Point(69, 281);
             this.DTGV_VisualizadorVentas.Name = "DTGV_VisualizadorVentas";
             this.DTGV_VisualizadorVentas.RowHeadersWidth = 51;
             this.DTGV_VisualizadorVentas.RowTemplate.Height = 24;
-            this.DTGV_VisualizadorVentas.Size = new System.Drawing.Size(918, 269);
+            this.DTGV_VisualizadorVentas.Size = new System.Drawing.Size(918, 224);
             this.DTGV_VisualizadorVentas.TabIndex = 15;
+            // 
+            // Pnl_VentaDetallada
+            // 
+            this.Pnl_VentaDetallada.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_VentaDetallada.Controls.Add(this.Lbl_VisorDetalle);
+            this.Pnl_VentaDetallada.Location = new System.Drawing.Point(69, 243);
+            this.Pnl_VentaDetallada.Name = "Pnl_VentaDetallada";
+            this.Pnl_VentaDetallada.Size = new System.Drawing.Size(918, 37);
+            this.Pnl_VentaDetallada.TabIndex = 35;
+            // 
+            // Lbl_VisorDetalle
+            // 
+            this.Lbl_VisorDetalle.AutoSize = true;
+            this.Lbl_VisorDetalle.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_VisorDetalle.Location = new System.Drawing.Point(350, 8);
+            this.Lbl_VisorDetalle.Name = "Lbl_VisorDetalle";
+            this.Lbl_VisorDetalle.Size = new System.Drawing.Size(87, 23);
+            this.Lbl_VisorDetalle.TabIndex = 31;
+            this.Lbl_VisorDetalle.Text = "Detallada";
+            // 
+            // Pnl_VentaGeneral
+            // 
+            this.Pnl_VentaGeneral.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(240)))), ((int)(((byte)(240)))));
+            this.Pnl_VentaGeneral.Controls.Add(this.Lbl_VentaGral);
+            this.Pnl_VentaGeneral.Location = new System.Drawing.Point(412, 65);
+            this.Pnl_VentaGeneral.Name = "Pnl_VentaGeneral";
+            this.Pnl_VentaGeneral.Size = new System.Drawing.Size(575, 37);
+            this.Pnl_VentaGeneral.TabIndex = 36;
+            // 
+            // Lbl_VentaGral
+            // 
+            this.Lbl_VentaGral.AutoSize = true;
+            this.Lbl_VentaGral.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_VentaGral.Location = new System.Drawing.Point(205, 7);
+            this.Lbl_VentaGral.Name = "Lbl_VentaGral";
+            this.Lbl_VentaGral.Size = new System.Drawing.Size(71, 23);
+            this.Lbl_VentaGral.TabIndex = 31;
+            this.Lbl_VentaGral.Text = "General";
             // 
             // CV_ConsultaVentas
             // 
@@ -188,6 +232,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1208, 547);
+            this.Controls.Add(this.Pnl_VentaGeneral);
+            this.Controls.Add(this.Pnl_VentaDetallada);
             this.Controls.Add(this.DTGV_VisualizadorVentas);
             this.Controls.Add(this.Lbl_FeHasta);
             this.Controls.Add(this.Lbl_FeDesde);
@@ -210,6 +256,10 @@
             this.Load += new System.EventHandler(this.CV_ConsultaVentas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_BusqVentas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_VisualizadorVentas)).EndInit();
+            this.Pnl_VentaDetallada.ResumeLayout(false);
+            this.Pnl_VentaDetallada.PerformLayout();
+            this.Pnl_VentaGeneral.ResumeLayout(false);
+            this.Pnl_VentaGeneral.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -232,5 +282,9 @@
         private System.Windows.Forms.Label Lbl_FeDesde;
         private System.Windows.Forms.Label Lbl_FeHasta;
         private System.Windows.Forms.DataGridView DTGV_VisualizadorVentas;
+        private System.Windows.Forms.Panel Pnl_VentaDetallada;
+        private System.Windows.Forms.Label Lbl_VisorDetalle;
+        private System.Windows.Forms.Panel Pnl_VentaGeneral;
+        private System.Windows.Forms.Label Lbl_VentaGral;
     }
 }

@@ -244,7 +244,7 @@
     <value>I forgot my password</value>
   </data>
   <data name="Btn_Bitacora" xml:space="preserve">
-    <value>Binnacle</value>
+    <value>Log</value>
   </data>
   <data name="Btn_VerTodo" xml:space="preserve">
     <value>See all</value>
@@ -653,5 +653,17 @@
   </data>
   <data name="Lbl_Resultado" xml:space="preserve">
     <value>RESULTS</value>
+  </data>
+  <data name="Lbl_VisorDetalle" xml:space="preserve">
+    <value>Detailed Sales Viewer</value>
+  </data>
+  <data name="Lbl_VentaGral" xml:space="preserve">
+    <value>Sales Viewer</value>
+  </data>
+  <data name="Lbl_Bitacora" xml:space="preserve">
+    <value>Log</value>
+  </data>
+  <data name="Lbl_ConfigPass" xml:space="preserve">
+    <value>Password Configuration</value>
   </data>
 </root>

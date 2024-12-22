@@ -799,6 +799,15 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Bitácora.
+        /// </summary>
+        internal static string Lbl_Bitacora {
+            get {
+                return ResourceManager.GetString("Lbl_Bitacora", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Buscar.
         /// </summary>
         internal static string Lbl_Buscar {
@@ -1011,6 +1020,15 @@ namespace Vista.Lenguaje {
         internal static string Lbl_ConfContrasena {
             get {
                 return ResourceManager.GetString("Lbl_ConfContrasena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Configuración de contraseña.
+        /// </summary>
+        internal static string Lbl_ConfigPass {
+            get {
+                return ResourceManager.GetString("Lbl_ConfigPass", resourceCulture);
             }
         }
         
@@ -1605,6 +1623,24 @@ namespace Vista.Lenguaje {
         internal static string Lbl_VenceCada {
             get {
                 return ResourceManager.GetString("Lbl_VenceCada", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Visualizador de ventas.
+        /// </summary>
+        internal static string Lbl_VentaGral {
+            get {
+                return ResourceManager.GetString("Lbl_VentaGral", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Visualizador de ventas detalladas.
+        /// </summary>
+        internal static string Lbl_VisorDetalle {
+            get {
+                return ResourceManager.GetString("Lbl_VisorDetalle", resourceCulture);
             }
         }
         
