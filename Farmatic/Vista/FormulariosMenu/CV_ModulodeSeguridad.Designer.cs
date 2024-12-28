@@ -38,7 +38,6 @@
             this.Chb_RepetirPass = new System.Windows.Forms.CheckBox();
             this.Lbl_CantIntentosFallidos = new System.Windows.Forms.Label();
             this.Nud_CantidadIntentosFallidos = new System.Windows.Forms.NumericUpDown();
-            this.Btn_Bitacora = new System.Windows.Forms.Button();
             this.Pnl_Bitacora = new System.Windows.Forms.Panel();
             this.Lbl_Bitacora = new System.Windows.Forms.Label();
             this.Lbl_Usuario = new System.Windows.Forms.Label();
@@ -52,12 +51,33 @@
             this.Dtp_Hasta = new System.Windows.Forms.DateTimePicker();
             this.Dtp_Desde = new System.Windows.Forms.DateTimePicker();
             this.DTGV_Bitacora = new System.Windows.Forms.DataGridView();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.Pnl_ConfPass = new System.Windows.Forms.Panel();
             this.Lbl_ConfigPass = new System.Windows.Forms.Label();
+            this.Pnl_Permisos = new System.Windows.Forms.Panel();
+            this.Lbl_PermisosUsuarios = new System.Windows.Forms.Label();
+            this.Txb_BuscarPermisoRestante = new System.Windows.Forms.TextBox();
+            this.Txb_BuscarPermisoActual = new System.Windows.Forms.TextBox();
+            this.Rbt_Grupo = new System.Windows.Forms.RadioButton();
+            this.Rbt_Usuario = new System.Windows.Forms.RadioButton();
+            this.Btn_Funcion = new System.Windows.Forms.Button();
+            this.DTGV_FamiliaUsuario = new System.Windows.Forms.DataGridView();
+            this.DTGV_PermisosRestantes = new System.Windows.Forms.DataGridView();
+            this.DTGV_PermisosActuales = new System.Windows.Forms.DataGridView();
+            this.Pnl_Backup = new System.Windows.Forms.Panel();
+            this.Btn_RestaurarBDD = new System.Windows.Forms.Button();
+            this.DTGV_BackUp = new System.Windows.Forms.DataGridView();
+            this.Lbl_BackUp = new System.Windows.Forms.Label();
+            this.Btn_Bitacora = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantidadIntentosFallidos)).BeginInit();
             this.Pnl_Bitacora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Bitacora)).BeginInit();
-            this.panel1.SuspendLayout();
+            this.Pnl_ConfPass.SuspendLayout();
+            this.Pnl_Permisos.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_FamiliaUsuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosRestantes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosActuales)).BeginInit();
+            this.Pnl_Backup.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_BackUp)).BeginInit();
             this.SuspendLayout();
             // 
             // Chb_MinCaracteres
@@ -113,7 +133,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(319, 123);
+            this.Btn_Guardar.Location = new System.Drawing.Point(617, 653);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(84, 23);
             this.Btn_Guardar.TabIndex = 10;
@@ -151,16 +171,6 @@
             0,
             0,
             0});
-            // 
-            // Btn_Bitacora
-            // 
-            this.Btn_Bitacora.Location = new System.Drawing.Point(273, 190);
-            this.Btn_Bitacora.Name = "Btn_Bitacora";
-            this.Btn_Bitacora.Size = new System.Drawing.Size(95, 25);
-            this.Btn_Bitacora.TabIndex = 11;
-            this.Btn_Bitacora.Text = "Bitácora";
-            this.Btn_Bitacora.UseVisualStyleBackColor = true;
-            this.Btn_Bitacora.Click += new System.EventHandler(this.Btn_Bitacora_Click);
             // 
             // Pnl_Bitacora
             // 
@@ -288,23 +298,22 @@
             this.DTGV_Bitacora.Size = new System.Drawing.Size(603, 262);
             this.DTGV_Bitacora.TabIndex = 62;
             // 
-            // panel1
+            // Pnl_ConfPass
             // 
-            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.Lbl_ConfigPass);
-            this.panel1.Controls.Add(this.Chb_MinCaracteres);
-            this.panel1.Controls.Add(this.Chb_MayMin);
-            this.panel1.Controls.Add(this.Chb_CaracEspec);
-            this.panel1.Controls.Add(this.Lbl_CantIntentosFallidos);
-            this.panel1.Controls.Add(this.Chb_DatosPersonales);
-            this.panel1.Controls.Add(this.Nud_CantidadIntentosFallidos);
-            this.panel1.Controls.Add(this.Chb_NumYLetras);
-            this.panel1.Controls.Add(this.Chb_RepetirPass);
-            this.panel1.Controls.Add(this.Btn_Guardar);
-            this.panel1.Location = new System.Drawing.Point(23, 17);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(628, 163);
-            this.panel1.TabIndex = 13;
+            this.Pnl_ConfPass.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnl_ConfPass.Controls.Add(this.Lbl_ConfigPass);
+            this.Pnl_ConfPass.Controls.Add(this.Chb_MinCaracteres);
+            this.Pnl_ConfPass.Controls.Add(this.Chb_MayMin);
+            this.Pnl_ConfPass.Controls.Add(this.Chb_CaracEspec);
+            this.Pnl_ConfPass.Controls.Add(this.Lbl_CantIntentosFallidos);
+            this.Pnl_ConfPass.Controls.Add(this.Chb_DatosPersonales);
+            this.Pnl_ConfPass.Controls.Add(this.Nud_CantidadIntentosFallidos);
+            this.Pnl_ConfPass.Controls.Add(this.Chb_NumYLetras);
+            this.Pnl_ConfPass.Controls.Add(this.Chb_RepetirPass);
+            this.Pnl_ConfPass.Location = new System.Drawing.Point(23, 17);
+            this.Pnl_ConfPass.Name = "Pnl_ConfPass";
+            this.Pnl_ConfPass.Size = new System.Drawing.Size(628, 163);
+            this.Pnl_ConfPass.TabIndex = 13;
             // 
             // Lbl_ConfigPass
             // 
@@ -315,15 +324,177 @@
             this.Lbl_ConfigPass.TabIndex = 14;
             this.Lbl_ConfigPass.Text = "Configuración de contraseñas";
             // 
+            // Pnl_Permisos
+            // 
+            this.Pnl_Permisos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnl_Permisos.Controls.Add(this.Lbl_PermisosUsuarios);
+            this.Pnl_Permisos.Controls.Add(this.Txb_BuscarPermisoRestante);
+            this.Pnl_Permisos.Controls.Add(this.Txb_BuscarPermisoActual);
+            this.Pnl_Permisos.Controls.Add(this.Rbt_Grupo);
+            this.Pnl_Permisos.Controls.Add(this.Rbt_Usuario);
+            this.Pnl_Permisos.Controls.Add(this.Btn_Funcion);
+            this.Pnl_Permisos.Controls.Add(this.DTGV_FamiliaUsuario);
+            this.Pnl_Permisos.Controls.Add(this.DTGV_PermisosRestantes);
+            this.Pnl_Permisos.Controls.Add(this.DTGV_PermisosActuales);
+            this.Pnl_Permisos.Location = new System.Drawing.Point(678, 225);
+            this.Pnl_Permisos.Name = "Pnl_Permisos";
+            this.Pnl_Permisos.Size = new System.Drawing.Size(710, 413);
+            this.Pnl_Permisos.TabIndex = 64;
+            // 
+            // Lbl_PermisosUsuarios
+            // 
+            this.Lbl_PermisosUsuarios.AutoSize = true;
+            this.Lbl_PermisosUsuarios.Location = new System.Drawing.Point(9, 4);
+            this.Lbl_PermisosUsuarios.Name = "Lbl_PermisosUsuarios";
+            this.Lbl_PermisosUsuarios.Size = new System.Drawing.Size(51, 16);
+            this.Lbl_PermisosUsuarios.TabIndex = 16;
+            this.Lbl_PermisosUsuarios.Text = "Label 2";
+            // 
+            // Txb_BuscarPermisoRestante
+            // 
+            this.Txb_BuscarPermisoRestante.Location = new System.Drawing.Point(516, 216);
+            this.Txb_BuscarPermisoRestante.Name = "Txb_BuscarPermisoRestante";
+            this.Txb_BuscarPermisoRestante.Size = new System.Drawing.Size(100, 22);
+            this.Txb_BuscarPermisoRestante.TabIndex = 36;
+            this.Txb_BuscarPermisoRestante.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoRestante_TextChanged);
+            // 
+            // Txb_BuscarPermisoActual
+            // 
+            this.Txb_BuscarPermisoActual.Location = new System.Drawing.Point(94, 215);
+            this.Txb_BuscarPermisoActual.Name = "Txb_BuscarPermisoActual";
+            this.Txb_BuscarPermisoActual.Size = new System.Drawing.Size(100, 22);
+            this.Txb_BuscarPermisoActual.TabIndex = 35;
+            this.Txb_BuscarPermisoActual.TextChanged += new System.EventHandler(this.Txb_BuscarPermisoActual_TextChanged);
+            // 
+            // Rbt_Grupo
+            // 
+            this.Rbt_Grupo.AutoSize = true;
+            this.Rbt_Grupo.Location = new System.Drawing.Point(398, 9);
+            this.Rbt_Grupo.Name = "Rbt_Grupo";
+            this.Rbt_Grupo.Size = new System.Drawing.Size(65, 20);
+            this.Rbt_Grupo.TabIndex = 34;
+            this.Rbt_Grupo.TabStop = true;
+            this.Rbt_Grupo.Text = "Grupo";
+            this.Rbt_Grupo.UseVisualStyleBackColor = true;
+            this.Rbt_Grupo.CheckedChanged += new System.EventHandler(this.Rbt_Grupo_CheckedChanged);
+            // 
+            // Rbt_Usuario
+            // 
+            this.Rbt_Usuario.AutoSize = true;
+            this.Rbt_Usuario.Location = new System.Drawing.Point(276, 9);
+            this.Rbt_Usuario.Name = "Rbt_Usuario";
+            this.Rbt_Usuario.Size = new System.Drawing.Size(75, 20);
+            this.Rbt_Usuario.TabIndex = 33;
+            this.Rbt_Usuario.TabStop = true;
+            this.Rbt_Usuario.Text = "Usuario";
+            this.Rbt_Usuario.UseVisualStyleBackColor = true;
+            this.Rbt_Usuario.CheckedChanged += new System.EventHandler(this.Rbt_Usuario_CheckedChanged);
+            // 
+            // Btn_Funcion
+            // 
+            this.Btn_Funcion.Location = new System.Drawing.Point(329, 315);
+            this.Btn_Funcion.Name = "Btn_Funcion";
+            this.Btn_Funcion.Size = new System.Drawing.Size(75, 26);
+            this.Btn_Funcion.TabIndex = 32;
+            this.Btn_Funcion.Text = "funcion";
+            this.Btn_Funcion.UseVisualStyleBackColor = true;
+            this.Btn_Funcion.Click += new System.EventHandler(this.Btn_Funcion_Click);
+            // 
+            // DTGV_FamiliaUsuario
+            // 
+            this.DTGV_FamiliaUsuario.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DTGV_FamiliaUsuario.Location = new System.Drawing.Point(256, 35);
+            this.DTGV_FamiliaUsuario.Name = "DTGV_FamiliaUsuario";
+            this.DTGV_FamiliaUsuario.RowHeadersWidth = 51;
+            this.DTGV_FamiliaUsuario.RowTemplate.Height = 24;
+            this.DTGV_FamiliaUsuario.Size = new System.Drawing.Size(226, 152);
+            this.DTGV_FamiliaUsuario.TabIndex = 29;
+            this.DTGV_FamiliaUsuario.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_FamiliaUsuario_CellClick);
+            // 
+            // DTGV_PermisosRestantes
+            // 
+            this.DTGV_PermisosRestantes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DTGV_PermisosRestantes.Location = new System.Drawing.Point(449, 244);
+            this.DTGV_PermisosRestantes.Name = "DTGV_PermisosRestantes";
+            this.DTGV_PermisosRestantes.RowHeadersWidth = 51;
+            this.DTGV_PermisosRestantes.RowTemplate.Height = 24;
+            this.DTGV_PermisosRestantes.Size = new System.Drawing.Size(245, 152);
+            this.DTGV_PermisosRestantes.TabIndex = 31;
+            this.DTGV_PermisosRestantes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_PermisosRestantes_CellClick);
+            // 
+            // DTGV_PermisosActuales
+            // 
+            this.DTGV_PermisosActuales.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DTGV_PermisosActuales.Location = new System.Drawing.Point(24, 244);
+            this.DTGV_PermisosActuales.Name = "DTGV_PermisosActuales";
+            this.DTGV_PermisosActuales.RowHeadersWidth = 51;
+            this.DTGV_PermisosActuales.RowTemplate.Height = 24;
+            this.DTGV_PermisosActuales.Size = new System.Drawing.Size(245, 152);
+            this.DTGV_PermisosActuales.TabIndex = 30;
+            this.DTGV_PermisosActuales.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DTGV_PermisosActuales_CellClick);
+            // 
+            // Pnl_Backup
+            // 
+            this.Pnl_Backup.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Pnl_Backup.Controls.Add(this.Btn_RestaurarBDD);
+            this.Pnl_Backup.Controls.Add(this.DTGV_BackUp);
+            this.Pnl_Backup.Controls.Add(this.Lbl_BackUp);
+            this.Pnl_Backup.Location = new System.Drawing.Point(678, 17);
+            this.Pnl_Backup.Name = "Pnl_Backup";
+            this.Pnl_Backup.Size = new System.Drawing.Size(710, 163);
+            this.Pnl_Backup.TabIndex = 65;
+            // 
+            // Btn_RestaurarBDD
+            // 
+            this.Btn_RestaurarBDD.Location = new System.Drawing.Point(516, 51);
+            this.Btn_RestaurarBDD.Name = "Btn_RestaurarBDD";
+            this.Btn_RestaurarBDD.Size = new System.Drawing.Size(133, 58);
+            this.Btn_RestaurarBDD.TabIndex = 17;
+            this.Btn_RestaurarBDD.Text = "button1";
+            this.Btn_RestaurarBDD.UseVisualStyleBackColor = true;
+            this.Btn_RestaurarBDD.Click += new System.EventHandler(this.Btn_RestaurarBDD_Click);
+            // 
+            // DTGV_BackUp
+            // 
+            this.DTGV_BackUp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DTGV_BackUp.Location = new System.Drawing.Point(166, 8);
+            this.DTGV_BackUp.Name = "DTGV_BackUp";
+            this.DTGV_BackUp.RowHeadersWidth = 51;
+            this.DTGV_BackUp.RowTemplate.Height = 24;
+            this.DTGV_BackUp.Size = new System.Drawing.Size(331, 139);
+            this.DTGV_BackUp.TabIndex = 16;
+            // 
+            // Lbl_BackUp
+            // 
+            this.Lbl_BackUp.AutoSize = true;
+            this.Lbl_BackUp.Location = new System.Drawing.Point(10, 5);
+            this.Lbl_BackUp.Name = "Lbl_BackUp";
+            this.Lbl_BackUp.Size = new System.Drawing.Size(44, 16);
+            this.Lbl_BackUp.TabIndex = 15;
+            this.Lbl_BackUp.Text = "label1";
+            // 
+            // Btn_Bitacora
+            // 
+            this.Btn_Bitacora.Location = new System.Drawing.Point(273, 190);
+            this.Btn_Bitacora.Name = "Btn_Bitacora";
+            this.Btn_Bitacora.Size = new System.Drawing.Size(95, 25);
+            this.Btn_Bitacora.TabIndex = 11;
+            this.Btn_Bitacora.Text = "Bitácora";
+            this.Btn_Bitacora.UseVisualStyleBackColor = true;
+            this.Btn_Bitacora.Click += new System.EventHandler(this.Btn_Bitacora_Click);
+            // 
             // CV_ModulodeSeguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(960, 661);
-            this.Controls.Add(this.panel1);
+            this.ClientSize = new System.Drawing.Size(1429, 688);
+            this.Controls.Add(this.Pnl_Backup);
+            this.Controls.Add(this.Pnl_Permisos);
+            this.Controls.Add(this.Pnl_ConfPass);
             this.Controls.Add(this.Pnl_Bitacora);
             this.Controls.Add(this.Btn_Bitacora);
+            this.Controls.Add(this.Btn_Guardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ModulodeSeguridad";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -334,8 +505,16 @@
             this.Pnl_Bitacora.ResumeLayout(false);
             this.Pnl_Bitacora.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Bitacora)).EndInit();
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.Pnl_ConfPass.ResumeLayout(false);
+            this.Pnl_ConfPass.PerformLayout();
+            this.Pnl_Permisos.ResumeLayout(false);
+            this.Pnl_Permisos.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_FamiliaUsuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosRestantes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_PermisosActuales)).EndInit();
+            this.Pnl_Backup.ResumeLayout(false);
+            this.Pnl_Backup.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DTGV_BackUp)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -351,7 +530,6 @@
         private System.Windows.Forms.CheckBox Chb_RepetirPass;
         private System.Windows.Forms.Label Lbl_CantIntentosFallidos;
         private System.Windows.Forms.NumericUpDown Nud_CantidadIntentosFallidos;
-        private System.Windows.Forms.Button Btn_Bitacora;
         private System.Windows.Forms.Panel Pnl_Bitacora;
         private System.Windows.Forms.Label Lbl_Usuario;
         private System.Windows.Forms.TextBox Txb_UserName;
@@ -364,8 +542,23 @@
         private System.Windows.Forms.DateTimePicker Dtp_Hasta;
         private System.Windows.Forms.DateTimePicker Dtp_Desde;
         private System.Windows.Forms.DataGridView DTGV_Bitacora;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel Pnl_ConfPass;
         private System.Windows.Forms.Label Lbl_Bitacora;
         private System.Windows.Forms.Label Lbl_ConfigPass;
+        private System.Windows.Forms.Panel Pnl_Permisos;
+        private System.Windows.Forms.TextBox Txb_BuscarPermisoRestante;
+        private System.Windows.Forms.TextBox Txb_BuscarPermisoActual;
+        private System.Windows.Forms.RadioButton Rbt_Grupo;
+        private System.Windows.Forms.RadioButton Rbt_Usuario;
+        private System.Windows.Forms.Button Btn_Funcion;
+        private System.Windows.Forms.DataGridView DTGV_FamiliaUsuario;
+        private System.Windows.Forms.DataGridView DTGV_PermisosRestantes;
+        private System.Windows.Forms.DataGridView DTGV_PermisosActuales;
+        private System.Windows.Forms.Label Lbl_PermisosUsuarios;
+        private System.Windows.Forms.Panel Pnl_Backup;
+        private System.Windows.Forms.Label Lbl_BackUp;
+        private System.Windows.Forms.DataGridView DTGV_BackUp;
+        private System.Windows.Forms.Button Btn_Bitacora;
+        private System.Windows.Forms.Button Btn_RestaurarBDD;
     }
 }

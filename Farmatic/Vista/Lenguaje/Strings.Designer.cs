@@ -439,6 +439,15 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Restaurar Base de datos.
+        /// </summary>
+        internal static string Btn_RestaurarBDD {
+            get {
+                return ResourceManager.GetString("Btn_RestaurarBDD", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Seguridad.
         /// </summary>
         internal static string Btn_Seguridad {
@@ -795,6 +804,15 @@ namespace Vista.Lenguaje {
         internal static string Lbl_Apellido {
             get {
                 return ResourceManager.GetString("Lbl_Apellido", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Back up base de datos.
+        /// </summary>
+        internal static string Lbl_BackUp {
+            get {
+                return ResourceManager.GetString("Lbl_BackUp", resourceCulture);
             }
         }
         
@@ -1407,6 +1425,15 @@ namespace Vista.Lenguaje {
         internal static string Lbl_Pass {
             get {
                 return ResourceManager.GetString("Lbl_Pass", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Permisos.
+        /// </summary>
+        internal static string Lbl_PermisosUsuarios {
+            get {
+                return ResourceManager.GetString("Lbl_PermisosUsuarios", resourceCulture);
             }
         }
         

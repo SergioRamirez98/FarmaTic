@@ -43,8 +43,10 @@
   <ItemGroup>
     <Compile Include="CD_Catalogo.cs" />
     <Compile Include="CD_Clientes.cs" />
+    <Compile Include="CD_ConectarBDD_MASTER.cs" />
     <Compile Include="CD_ConectarBDD.cs" />
     <Compile Include="CD_ConsultaVentas.cs" />
+    <Compile Include="CD_EjecutarBackUp.cs" />
     <Compile Include="CD_EjecutarSP.cs" />
     <Compile Include="CD_GestionOrdendeCompra.cs" />
     <Compile Include="CD_Informes.cs" />
@@ -52,6 +54,7 @@
     <Compile Include="CD_Personas.cs" />
     <Compile Include="CD_Productos.cs" />
     <Compile Include="CD_Proveedores.cs" />
+    <Compile Include="CD_BackUp.cs" />
     <Compile Include="CD_Sistema.cs" />
     <Compile Include="CD_Usuarios.cs" />
     <Compile Include="CD_Ventas.cs" />

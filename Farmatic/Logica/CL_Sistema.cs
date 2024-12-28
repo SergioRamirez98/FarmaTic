@@ -13,6 +13,7 @@ namespace Logica
     public class CL_Sistema
     {
         CD_Sistema sistema = new CD_Sistema();
+        CD_Backup Bak = new CD_Backup();
 
         List<CM_Bitacora> listaBitacora = new List<CM_Bitacora>();
         List<CM_GestionPermisos> listaPermisos = new List<CM_GestionPermisos>();
@@ -36,6 +37,8 @@ namespace Logica
         public string Accion { get; set; }
         public string UserName { get; set; }
 
+        public string NombreBDD { get; set; }
+
         #endregion
 
         #region Permisos
@@ -50,6 +53,11 @@ namespace Logica
         {
          //   ejecutarBackUp();
             return sistema.Configuracion();
+        }
+        public void RestaurarBDD() 
+        {
+            Bak.NombreBDD = NombreBDD;
+            Bak.RestaurarBasedeDatos();
         }
         private void ejecutarBackUp() 
         {

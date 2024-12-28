@@ -666,4 +666,13 @@
   <data name="Lbl_ConfigPass" xml:space="preserve">
     <value>Password Configuration</value>
   </data>
+  <data name="Lbl_PermisosUsuarios" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="Lbl_BackUp" xml:space="preserve">
+    <value>Data base Back up</value>
+  </data>
+  <data name="Btn_RestaurarBDD" xml:space="preserve">
+    <value>Restore Data base</value>
+  </data>
 </root>

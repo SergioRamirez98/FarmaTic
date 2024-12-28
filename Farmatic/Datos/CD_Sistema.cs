@@ -34,6 +34,8 @@ namespace Datos
         public string UsuarioGrupo { get; set; }
         public string PermisoNuevo { get; set; }
 
+        public string NombreBDD { get; set; }
+
 
         public List<CM_Bitacora> ListaBitacora { get; set; } = new List<CM_Bitacora>();
         public List<CM_GestionPermisos> ListaPermisos { get; set; } = new List<CM_GestionPermisos>();
@@ -150,6 +152,35 @@ namespace Datos
                 List<SqlParameter> listaParametros = new List<SqlParameter>();
 
                 listaParametros.Add(param_DireccionBDD);
+
+                lista = listaParametros.ToArray();
+
+                ejecutar(sSql, lista, false);
+            }
+            catch (Exception)
+            {
+
+                throw new Exception("No se ha podido realizar la operación. Error CD_Sistema||EjecutarBackUp.");
+            }
+        }
+        public void RestaurarBasedeDatos()
+        {
+            try
+            {
+                string direccion = CServ_BackUpBDD.ObtenerUbicacionBackup(NombreBDD);
+                string sSql = "SP_BackUp_BDD";
+
+                SqlParameter param_DireccionBDD = new SqlParameter("@DireccionBDD", SqlDbType.VarChar, 255);
+                param_DireccionBDD.Value = direccion;
+
+                SqlParameter param_NombreBDD = new SqlParameter("@NombreBDD", SqlDbType.VarChar, 255);
+                param_NombreBDD.Value = NombreBDD;
+
+
+                List<SqlParameter> listaParametros = new List<SqlParameter>();
+
+                listaParametros.Add(param_DireccionBDD);
+                listaParametros.Add(param_NombreBDD);
 
                 lista = listaParametros.ToArray();
 
