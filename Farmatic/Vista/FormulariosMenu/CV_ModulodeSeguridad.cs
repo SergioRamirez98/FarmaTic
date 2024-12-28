@@ -35,12 +35,13 @@ namespace Vista
             InitializeComponent();
             CV_Idioma.CargarIdioma(this.Controls, this); 
         }
+
+        #region Eventos
         private void CV_Configuracion_Load(object sender, EventArgs e)
         {
             configurarLoad();
             configurarDTGV();
             cargarDTGV();
-            Pnl_Bitacora.Visible = false;
             Chb_NumYLetras.Checked = CSistema_ConfiguracionSistema.NumerosYLetras;
             Chb_CaracEspec.Checked = CSistema_ConfiguracionSistema.CaractEspecial;
             Chb_DatosPersonales.Checked = CSistema_ConfiguracionSistema.DatosPersonales;
@@ -230,18 +231,24 @@ namespace Vista
         }
         private void Btn_RestaurarBDD_Click(object sender, EventArgs e)
         {
-            try
+            if (CServ_MsjUsuario.Preguntar("¿Está seguro que desea restaurar la base de datos? Posterior a esto, el programa se reiniciará."))
             {
-                capturarDatos(3);
-                Sistema.RestaurarBDD();
+                try
+                {
+                    capturarDatos(3);
+                    Sistema.RestaurarBDD(); 
+                    Application.Restart();
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    CServ_MsjUsuario.MensajesDeError(ex.Message);
+                }
             }
-            catch (Exception ex)
-            {
-
-                CServ_MsjUsuario.MensajesDeError(ex.Message);
-            }
+          
         }
 
+#endregion
 
 
 
@@ -250,7 +257,7 @@ namespace Vista
 
 
 
-
+        #region Métodos
         private void capturarDatos(int Numero)
         {
             switch (Numero)
@@ -311,12 +318,10 @@ namespace Vista
             }
 
         }
-
         private void Btn_Bitacora_Click(object sender, EventArgs e)
         {
             Pnl_Bitacora.Visible = true;
         }
-
         private void Btn_Buscar_Click(object sender, EventArgs e)
         {
             try
@@ -332,7 +337,6 @@ namespace Vista
                 CServ_MsjUsuario.MensajesDeError(ex.Message);
             }
         }
-
         private void Btn_VerTodo_Click(object sender, EventArgs e)
         {
             cargarDTGV();
@@ -349,32 +353,40 @@ namespace Vista
             ///////////////////////////////////////
 
 
-            Txb_BuscarPermisoActual.Text = "Buscar";
-            Txb_BuscarPermisoRestante.Text = "Buscar";           
             if (DTGV_PermisosActuales.Rows.Count < 1 && DTGV_PermisosRestantes.Rows.Count < 1)
             {
                 Btn_Funcion.Visible = false;
             }
+            Btn_RestaurarBDD.Enabled = false;            
+            Pnl_Permisos.Enabled = false;
+            Pnl_ConfPass.Enabled = false;
+            Pnl_Backup.Enabled = false;
+            Pnl_Bitacora.Enabled = false;
+            Pnl_Backup.Enabled=false;
             foreach (var permiso in CSesion_SesionIniciada.Permisos)
             {
                 switch (permiso.ID_Rol)
                 {
                     case 1:
-
-                        /*ESTABLECER PERMISOS*/
-
-
-                       // Nud_CantMinStock.Enabled = true;
-                       // Nud_VtoProd.Enabled = true;
-                       // Gpb_Permisos.Enabled = true;
+                        Btn_RestaurarBDD.Enabled = true;
+                        Pnl_Backup.Enabled = true;
+                        Pnl_Bitacora.Enabled = true;
+                        Pnl_Backup.Enabled = true;
+                        Pnl_Permisos.Enabled = true;
+                        Pnl_ConfPass.Enabled = true;
                         break;
-
-                    case 63:
-//                        Nud_CantMinStock.Enabled = true;
-  //                      Nud_VtoProd.Enabled = true;
+                    case 18:
+                        Pnl_ConfPass.Enabled = true;
+                        break;
+                    case 62:
+                        Pnl_Backup.Enabled = true;
+                        Btn_RestaurarBDD.Enabled = true;
                         break;
                     case 64:
-    //                    Gpb_Permisos.Enabled = true;
+                        Pnl_Permisos.Enabled = true;
+                        break;
+                    case 65:
+                        Pnl_ConfPass.Enabled = true;
                         break;
                 }
             }
@@ -391,6 +403,7 @@ namespace Vista
             DTGV_Bitacora.ReadOnly = true;
             DTGV_Bitacora.RowHeadersVisible = false;
             DTGV_Bitacora.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DTGV_Bitacora.ClearSelection();
 
             DTGV_BackUp.Rows.Clear();
             DTGV_BackUp.AllowUserToResizeColumns = false;
@@ -402,11 +415,11 @@ namespace Vista
             DTGV_BackUp.AllowUserToResizeRows = false;
             DTGV_BackUp.ReadOnly = true;
             DTGV_BackUp.RowHeadersVisible = false;
-            DTGV_BackUp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
+            DTGV_BackUp.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;          
             DTGV_BackUp.Columns.Add("NombreArchivo", "Nombre del Archivo");
 
             CServ_BackUpBDD.CargarBackUps(DTGV_BackUp);
-
+            DTGV_BackUp.ClearSelection();
             ///////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -449,7 +462,6 @@ namespace Vista
             DTGV_PermisosRestantes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             DTGV_PermisosRestantes.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
         }
-
         private void cargarDTGV()
         {
             DTGV_Bitacora.DataSource = null;
@@ -465,7 +477,6 @@ namespace Vista
             DTGV_Bitacora.Columns[3].HeaderText = "Acción";
             DTGV_Bitacora.Columns[4].HeaderText = "Descripción";
         }
-
         private void cargarListaPermisos(bool booleano)
         {
             if (booleano)
@@ -488,11 +499,6 @@ namespace Vista
 
         }
 
-
-
-
-
-
-     
+        #endregion
     }
 }

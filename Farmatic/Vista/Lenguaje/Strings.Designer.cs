@@ -160,6 +160,15 @@ namespace Vista.Lenguaje {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Configurar avisos.
+        /// </summary>
+        internal static string Btn_ConfigStock {
+            get {
+                return ResourceManager.GetString("Btn_ConfigStock", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configuración de Sistema.
         /// </summary>
         internal static string Btn_ConfSistema {

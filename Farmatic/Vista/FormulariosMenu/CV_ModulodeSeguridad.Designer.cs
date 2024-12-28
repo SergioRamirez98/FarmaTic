@@ -67,7 +67,6 @@
             this.Btn_RestaurarBDD = new System.Windows.Forms.Button();
             this.DTGV_BackUp = new System.Windows.Forms.DataGridView();
             this.Lbl_BackUp = new System.Windows.Forms.Label();
-            this.Btn_Bitacora = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantidadIntentosFallidos)).BeginInit();
             this.Pnl_Bitacora.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Bitacora)).BeginInit();
@@ -133,7 +132,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(617, 653);
+            this.Btn_Guardar.Location = new System.Drawing.Point(618, 647);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(84, 23);
             this.Btn_Guardar.TabIndex = 10;
@@ -187,7 +186,7 @@
             this.Pnl_Bitacora.Controls.Add(this.Dtp_Hasta);
             this.Pnl_Bitacora.Controls.Add(this.Dtp_Desde);
             this.Pnl_Bitacora.Controls.Add(this.DTGV_Bitacora);
-            this.Pnl_Bitacora.Location = new System.Drawing.Point(20, 225);
+            this.Pnl_Bitacora.Location = new System.Drawing.Point(21, 219);
             this.Pnl_Bitacora.Name = "Pnl_Bitacora";
             this.Pnl_Bitacora.Size = new System.Drawing.Size(628, 413);
             this.Pnl_Bitacora.TabIndex = 12;
@@ -312,7 +311,7 @@
             this.Pnl_ConfPass.Controls.Add(this.Chb_RepetirPass);
             this.Pnl_ConfPass.Location = new System.Drawing.Point(23, 17);
             this.Pnl_ConfPass.Name = "Pnl_ConfPass";
-            this.Pnl_ConfPass.Size = new System.Drawing.Size(628, 163);
+            this.Pnl_ConfPass.Size = new System.Drawing.Size(628, 181);
             this.Pnl_ConfPass.TabIndex = 13;
             // 
             // Lbl_ConfigPass
@@ -336,7 +335,7 @@
             this.Pnl_Permisos.Controls.Add(this.DTGV_FamiliaUsuario);
             this.Pnl_Permisos.Controls.Add(this.DTGV_PermisosRestantes);
             this.Pnl_Permisos.Controls.Add(this.DTGV_PermisosActuales);
-            this.Pnl_Permisos.Location = new System.Drawing.Point(678, 225);
+            this.Pnl_Permisos.Location = new System.Drawing.Point(679, 219);
             this.Pnl_Permisos.Name = "Pnl_Permisos";
             this.Pnl_Permisos.Size = new System.Drawing.Size(710, 413);
             this.Pnl_Permisos.TabIndex = 64;
@@ -441,12 +440,12 @@
             this.Pnl_Backup.Controls.Add(this.Lbl_BackUp);
             this.Pnl_Backup.Location = new System.Drawing.Point(678, 17);
             this.Pnl_Backup.Name = "Pnl_Backup";
-            this.Pnl_Backup.Size = new System.Drawing.Size(710, 163);
+            this.Pnl_Backup.Size = new System.Drawing.Size(710, 181);
             this.Pnl_Backup.TabIndex = 65;
             // 
             // Btn_RestaurarBDD
             // 
-            this.Btn_RestaurarBDD.Location = new System.Drawing.Point(516, 51);
+            this.Btn_RestaurarBDD.Location = new System.Drawing.Point(562, 55);
             this.Btn_RestaurarBDD.Name = "Btn_RestaurarBDD";
             this.Btn_RestaurarBDD.Size = new System.Drawing.Size(133, 58);
             this.Btn_RestaurarBDD.TabIndex = 17;
@@ -457,11 +456,11 @@
             // DTGV_BackUp
             // 
             this.DTGV_BackUp.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DTGV_BackUp.Location = new System.Drawing.Point(166, 8);
+            this.DTGV_BackUp.Location = new System.Drawing.Point(170, 22);
             this.DTGV_BackUp.Name = "DTGV_BackUp";
             this.DTGV_BackUp.RowHeadersWidth = 51;
             this.DTGV_BackUp.RowTemplate.Height = 24;
-            this.DTGV_BackUp.Size = new System.Drawing.Size(331, 139);
+            this.DTGV_BackUp.Size = new System.Drawing.Size(376, 139);
             this.DTGV_BackUp.TabIndex = 16;
             // 
             // Lbl_BackUp
@@ -473,27 +472,16 @@
             this.Lbl_BackUp.TabIndex = 15;
             this.Lbl_BackUp.Text = "label1";
             // 
-            // Btn_Bitacora
-            // 
-            this.Btn_Bitacora.Location = new System.Drawing.Point(273, 190);
-            this.Btn_Bitacora.Name = "Btn_Bitacora";
-            this.Btn_Bitacora.Size = new System.Drawing.Size(95, 25);
-            this.Btn_Bitacora.TabIndex = 11;
-            this.Btn_Bitacora.Text = "Bitácora";
-            this.Btn_Bitacora.UseVisualStyleBackColor = true;
-            this.Btn_Bitacora.Click += new System.EventHandler(this.Btn_Bitacora_Click);
-            // 
             // CV_ModulodeSeguridad
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1429, 688);
+            this.ClientSize = new System.Drawing.Size(1429, 719);
             this.Controls.Add(this.Pnl_Backup);
             this.Controls.Add(this.Pnl_Permisos);
             this.Controls.Add(this.Pnl_ConfPass);
             this.Controls.Add(this.Pnl_Bitacora);
-            this.Controls.Add(this.Btn_Bitacora);
             this.Controls.Add(this.Btn_Guardar);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ModulodeSeguridad";
@@ -558,7 +546,6 @@
         private System.Windows.Forms.Panel Pnl_Backup;
         private System.Windows.Forms.Label Lbl_BackUp;
         private System.Windows.Forms.DataGridView DTGV_BackUp;
-        private System.Windows.Forms.Button Btn_Bitacora;
         private System.Windows.Forms.Button Btn_RestaurarBDD;
     }
 }

@@ -675,4 +675,7 @@
   <data name="Btn_RestaurarBDD" xml:space="preserve">
     <value>Restore Data base</value>
   </data>
+  <data name="Btn_ConfigStock" xml:space="preserve">
+    <value>Set alerts</value>
+  </data>
 </root>

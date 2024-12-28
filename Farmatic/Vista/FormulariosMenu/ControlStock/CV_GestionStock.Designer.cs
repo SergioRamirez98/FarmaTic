@@ -73,6 +73,7 @@
             this.Txb_NombreComercial = new System.Windows.Forms.TextBox();
             this.Btn_Refrescar = new System.Windows.Forms.Button();
             this.Btn_VtoProductos = new System.Windows.Forms.Button();
+            this.Btn_ConfigStock = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DTGV_Productos)).BeginInit();
             this.Pnl_Busqueda.SuspendLayout();
             this.SuspendLayout();
@@ -417,7 +418,7 @@
             // 
             // Btn_StockCritico
             // 
-            this.Btn_StockCritico.Location = new System.Drawing.Point(1088, 106);
+            this.Btn_StockCritico.Location = new System.Drawing.Point(1020, 143);
             this.Btn_StockCritico.Name = "Btn_StockCritico";
             this.Btn_StockCritico.Size = new System.Drawing.Size(121, 60);
             this.Btn_StockCritico.TabIndex = 16;
@@ -444,7 +445,7 @@
             // 
             // Btn_VerProdVencidos
             // 
-            this.Btn_VerProdVencidos.Location = new System.Drawing.Point(1088, 187);
+            this.Btn_VerProdVencidos.Location = new System.Drawing.Point(1176, 71);
             this.Btn_VerProdVencidos.Name = "Btn_VerProdVencidos";
             this.Btn_VerProdVencidos.Size = new System.Drawing.Size(121, 60);
             this.Btn_VerProdVencidos.TabIndex = 27;
@@ -481,7 +482,7 @@
             // 
             // Btn_VtoProductos
             // 
-            this.Btn_VtoProductos.Location = new System.Drawing.Point(1088, 31);
+            this.Btn_VtoProductos.Location = new System.Drawing.Point(1020, 68);
             this.Btn_VtoProductos.Name = "Btn_VtoProductos";
             this.Btn_VtoProductos.Size = new System.Drawing.Size(121, 60);
             this.Btn_VtoProductos.TabIndex = 15;
@@ -489,12 +490,23 @@
             this.Btn_VtoProductos.UseVisualStyleBackColor = true;
             this.Btn_VtoProductos.Click += new System.EventHandler(this.Btn_VtoProductos_Click);
             // 
+            // Btn_ConfigStock
+            // 
+            this.Btn_ConfigStock.Location = new System.Drawing.Point(1176, 143);
+            this.Btn_ConfigStock.Name = "Btn_ConfigStock";
+            this.Btn_ConfigStock.Size = new System.Drawing.Size(121, 60);
+            this.Btn_ConfigStock.TabIndex = 31;
+            this.Btn_ConfigStock.Text = "Btn";
+            this.Btn_ConfigStock.UseVisualStyleBackColor = true;
+            this.Btn_ConfigStock.Click += new System.EventHandler(this.Btn_ConfigStock_Click);
+            // 
             // CV_Stock
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
             this.ClientSize = new System.Drawing.Size(1395, 817);
+            this.Controls.Add(this.Btn_ConfigStock);
             this.Controls.Add(this.Btn_Refrescar);
             this.Controls.Add(this.Lbl_NombreComercial);
             this.Controls.Add(this.Txb_NombreComercial);
@@ -583,5 +595,6 @@
         private System.Windows.Forms.TextBox Txb_NombreComercial;
         private System.Windows.Forms.Button Btn_Refrescar;
         private System.Windows.Forms.Button Btn_VtoProductos;
+        private System.Windows.Forms.Button Btn_ConfigStock;
     }
 }

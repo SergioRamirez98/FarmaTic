@@ -548,10 +548,5 @@ namespace Datos
             }        
         }
 
-        public static void BackUpBDD()
-        {
-          //  ejecutarr();
-        }
-        private void ejecutarr() { }
     }
 }

@@ -95,7 +95,7 @@
             // 
             // Btn_Guardar
             // 
-            this.Btn_Guardar.Location = new System.Drawing.Point(580, 351);
+            this.Btn_Guardar.Location = new System.Drawing.Point(290, 79);
             this.Btn_Guardar.Name = "Btn_Guardar";
             this.Btn_Guardar.Size = new System.Drawing.Size(90, 23);
             this.Btn_Guardar.TabIndex = 16;
@@ -156,7 +156,7 @@
             this.Gpb_Permisos.Controls.Add(this.DTGV_FamiliaUsuario);
             this.Gpb_Permisos.Controls.Add(this.DTGV_PermisosRestantes);
             this.Gpb_Permisos.Controls.Add(this.DTGV_PermisosActuales);
-            this.Gpb_Permisos.Location = new System.Drawing.Point(12, 79);
+            this.Gpb_Permisos.Location = new System.Drawing.Point(12, 172);
             this.Gpb_Permisos.Name = "Gpb_Permisos";
             this.Gpb_Permisos.Size = new System.Drawing.Size(1127, 266);
             this.Gpb_Permisos.TabIndex = 25;
@@ -208,7 +208,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1222, 450);
+            this.ClientSize = new System.Drawing.Size(664, 132);
             this.Controls.Add(this.Gpb_Permisos);
             this.Controls.Add(this.Btn_Guardar);
             this.Controls.Add(this.Lbl_CantMinStock);
@@ -218,7 +218,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CV_ConfiguracionSistema";
             this.Text = "Configuracion Sistema";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.CV_ConfiguracionSistema_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Nud_CantMinStock)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Nud_VtoProd)).EndInit();

@@ -392,7 +392,7 @@ namespace Vista
 
             Btn_GestionStock.Enabled = false;
             Btn_Seguridad.Enabled = false;
-            Btn_ConfSistema.Enabled = false;
+            //Btn_ConfSistema.Enabled = false;
 
 
             Btn_ModuloAdministracion.Enabled = false;
@@ -420,7 +420,7 @@ namespace Vista
                         Btn_Usuarios.Enabled = true;
                         Btn_ModuloAdministracion.Enabled = true;
                         Btn_Seguridad.Enabled = true;
-                        Btn_ConfSistema.Enabled = true;
+                        //Btn_ConfSistema.Enabled = true;
                         Btn_AltaPersonas.Enabled = true;
 
 
@@ -441,9 +441,9 @@ namespace Vista
                     case 12:
                         Btn_Usuarios.Enabled = true;
                         break;
-                    case 17:
-                           Btn_ConfSistema.Enabled = true;
-                        break;
+                    //case 17:
+                    //       Btn_ConfSistema.Enabled = true;
+                    //    break;
                     case 19:
                         Btn_GestionStock.Enabled = true;
                         break;
@@ -469,9 +469,9 @@ namespace Vista
                     case 61:
                         Btn_ModuloAdministracion.Enabled = true;
                         break;
-                    case 62:
-                        Btn_ConfSistema.Enabled = true;
-                        break;
+                    //case 62:
+                    //    Btn_ConfSistema.Enabled = true;
+                    //    break;
                     case 67:
                         Btn_Informes.Enabled = true;
                         break;

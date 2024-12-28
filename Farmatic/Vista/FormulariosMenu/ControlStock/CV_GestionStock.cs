@@ -13,6 +13,7 @@ using System.Windows.Forms;
 using Logica;
 using Servicios;
 using Sesion;
+using Vista.FormulariosMenu;
 
 namespace Vista
 {
@@ -182,6 +183,11 @@ namespace Vista
         {
             CV_ControlVencimientos ControldeVencimientos = new CV_ControlVencimientos();
             ControldeVencimientos.ShowDialog();
+        }
+        private void Btn_ConfigStock_Click(object sender, EventArgs e)
+        {
+            CV_ConfiguracionSistema ConfSistema = new CV_ConfiguracionSistema();
+            ConfSistema.ShowDialog();
         }
         private void Btn_StockCritico_Click(object sender, EventArgs e)
         {
@@ -472,6 +478,8 @@ namespace Vista
         }
 
 
-        #endregion       
+        #endregion
+
+        
     }
 }

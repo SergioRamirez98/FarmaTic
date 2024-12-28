@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CV_Menu));
             this.Btn_CerraSesion = new System.Windows.Forms.Button();
             this.Pnl_Principal = new System.Windows.Forms.Panel();
-            this.Btn_ConfSistema = new System.Windows.Forms.Button();
             this.Btn_Seguridad = new System.Windows.Forms.Button();
             this.Btn_ModuloAdministracion = new System.Windows.Forms.Button();
             this.Btn_GestionVentas = new System.Windows.Forms.Button();
@@ -47,10 +46,10 @@
             this.Btn_OrdendeCompra = new System.Windows.Forms.Button();
             this.Btn_Informes = new System.Windows.Forms.Button();
             this.Pnl_Menu = new System.Windows.Forms.Panel();
-            this.Lbl_Menu = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.Lbl_Menu = new System.Windows.Forms.Label();
             this.Pnl_Principal.SuspendLayout();
             this.Pnl_Menu.SuspendLayout();
             this.SuspendLayout();
@@ -78,7 +77,6 @@
             // Pnl_Principal
             // 
             this.Pnl_Principal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.Pnl_Principal.Controls.Add(this.Btn_ConfSistema);
             this.Pnl_Principal.Controls.Add(this.Btn_Seguridad);
             this.Pnl_Principal.Controls.Add(this.Btn_ModuloAdministracion);
             this.Pnl_Principal.Controls.Add(this.Btn_GestionVentas);
@@ -89,25 +87,6 @@
             this.Pnl_Principal.Name = "Pnl_Principal";
             this.Pnl_Principal.Size = new System.Drawing.Size(215, 798);
             this.Pnl_Principal.TabIndex = 24;
-            // 
-            // Btn_ConfSistema
-            // 
-            this.Btn_ConfSistema.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(240)))), ((int)(((byte)(255)))));
-            this.Btn_ConfSistema.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            this.Btn_ConfSistema.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(200)))), ((int)(((byte)(255)))));
-            this.Btn_ConfSistema.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_ConfSistema.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ConfSistema.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.Btn_ConfSistema.Image = ((System.Drawing.Image)(resources.GetObject("Btn_ConfSistema.Image")));
-            this.Btn_ConfSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.Btn_ConfSistema.Location = new System.Drawing.Point(0, 350);
-            this.Btn_ConfSistema.Name = "Btn_ConfSistema";
-            this.Btn_ConfSistema.Size = new System.Drawing.Size(215, 70);
-            this.Btn_ConfSistema.TabIndex = 9;
-            this.Btn_ConfSistema.Text = "Configuración de Sistema";
-            this.Btn_ConfSistema.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.Btn_ConfSistema.UseVisualStyleBackColor = true;
-            this.Btn_ConfSistema.Click += new System.EventHandler(this.Btn_ConfSistema_Click);
             // 
             // Btn_Seguridad
             // 
@@ -384,23 +363,14 @@
             this.Pnl_Menu.Size = new System.Drawing.Size(22, 75);
             this.Pnl_Menu.TabIndex = 35;
             // 
-            // Lbl_Menu
+            // label3
             // 
-            this.Lbl_Menu.AutoSize = true;
-            this.Lbl_Menu.Location = new System.Drawing.Point(1, 10);
-            this.Lbl_Menu.Name = "Lbl_Menu";
-            this.Lbl_Menu.Size = new System.Drawing.Size(18, 16);
-            this.Lbl_Menu.TabIndex = 0;
-            this.Lbl_Menu.Text = "M";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(15, 16);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "e";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 51);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(14, 16);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "ú";
             // 
             // label2
             // 
@@ -411,14 +381,23 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "n";
             // 
-            // label3
+            // label1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 51);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(14, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "ú";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(15, 16);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "e";
+            // 
+            // Lbl_Menu
+            // 
+            this.Lbl_Menu.AutoSize = true;
+            this.Lbl_Menu.Location = new System.Drawing.Point(1, 10);
+            this.Lbl_Menu.Name = "Lbl_Menu";
+            this.Lbl_Menu.Size = new System.Drawing.Size(18, 16);
+            this.Lbl_Menu.TabIndex = 0;
+            this.Lbl_Menu.Text = "M";
             // 
             // CV_Menu
             // 
@@ -461,7 +440,6 @@
         private System.Windows.Forms.Button Btn_GestionVentas;
         private System.Windows.Forms.Button Btn_GestionStock;
         private System.Windows.Forms.Button Btn_GestionAltas;
-        private System.Windows.Forms.Button Btn_ConfSistema;
         private System.Windows.Forms.Button Btn_Usuarios;
         private System.Windows.Forms.Button Btn_AltaPersonas;
         private System.Windows.Forms.Button Btn_ConsultaVentas;

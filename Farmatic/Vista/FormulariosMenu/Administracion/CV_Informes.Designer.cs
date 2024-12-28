@@ -196,7 +196,7 @@
             // 
             this.Lbl_Resultado.AutoSize = true;
             this.Lbl_Resultado.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
-            this.Lbl_Resultado.Location = new System.Drawing.Point(185, 11);
+            this.Lbl_Resultado.Location = new System.Drawing.Point(158, 11);
             this.Lbl_Resultado.Name = "Lbl_Resultado";
             this.Lbl_Resultado.Size = new System.Drawing.Size(55, 25);
             this.Lbl_Resultado.TabIndex = 4;
@@ -204,6 +204,7 @@
             // 
             // Pnl_Graficos
             // 
+            this.Pnl_Graficos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Pnl_Graficos.Controls.Add(this.Chart_Grafico);
             this.Pnl_Graficos.Controls.Add(this.DTGV_Datos);
             this.Pnl_Graficos.Location = new System.Drawing.Point(30, 177);

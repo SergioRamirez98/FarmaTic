@@ -44,10 +44,10 @@ namespace Vista.FormulariosMenu
             {
                 capturarDatos();
                 Sistema.GuardarCambiosDeSistema();
-                if (DTGV_PermisosActuales.Rows.Count > 0)
-                {
-                    Sistema.GuardarPermisos(Familia);
-                }
+                //if (DTGV_PermisosActuales.Rows.Count > 0)
+                //{
+                //    Sistema.GuardarPermisos(Familia);
+                //}
 
                 CServ_MsjUsuario.Exito("¡Configuración guardada con éxito!");
             }
@@ -280,36 +280,36 @@ namespace Vista.FormulariosMenu
             Sistema.CantMinimadeStock = Convert.ToInt32(Nud_CantMinStock.Value);
             CSistema_ConfiguracionSistema.AvisosVtoProductos = Sistema.AvisosVtoProductos;
             CSistema_ConfiguracionSistema.CantMinimadeStock= Sistema.CantMinimadeStock;
-            Sistema.UsuarioGrupo = UsuarioGrupo;
-            if (DTGV_FamiliaUsuario.SelectedRows.Count > 0)
-            {
-                if (Sistema.NuevosPermisos != null) Sistema.NuevosPermisos.Clear();
+            //Sistema.UsuarioGrupo = UsuarioGrupo;
+            //if (DTGV_FamiliaUsuario.SelectedRows.Count > 0)
+            //{
+            //    if (Sistema.NuevosPermisos != null) Sistema.NuevosPermisos.Clear();
 
-                if (Familia)
-                {
-                    foreach (var item in permisosActuales)
-                    {
-                        CL_Sistema sistema = new CL_Sistema();
-                        sistema.PermisoNuevo = item.DescripcionPermiso;
-                        sistema.UsuarioGrupo = UsuarioGrupo;
-                        NuevosPermisos.Add(sistema);
-                    }
-                    Sistema.NuevosPermisos = NuevosPermisos;
+            //    if (Familia)
+            //    {
+            //        foreach (var item in permisosActuales)
+            //        {
+            //            CL_Sistema sistema = new CL_Sistema();
+            //            sistema.PermisoNuevo = item.DescripcionPermiso;
+            //            sistema.UsuarioGrupo = UsuarioGrupo;
+            //            NuevosPermisos.Add(sistema);
+            //        }
+            //        Sistema.NuevosPermisos = NuevosPermisos;
 
-                }
-                else
-                {
-                    foreach (var item in permisosActuales)
-                    {
-                        CL_Sistema sistema = new CL_Sistema();
-                        sistema.PermisoNuevo = item.DescripcionPermiso;
-                        sistema.UsuarioGrupo = UsuarioGrupo;
-                        NuevosPermisos.Add(sistema);
-                    }
-                    Sistema.NuevosPermisos = NuevosPermisos;
+            //    }
+            //    else
+            //    {
+            //        foreach (var item in permisosActuales)
+            //        {
+            //            CL_Sistema sistema = new CL_Sistema();
+            //            sistema.PermisoNuevo = item.DescripcionPermiso;
+            //            sistema.UsuarioGrupo = UsuarioGrupo;
+            //            NuevosPermisos.Add(sistema);
+            //        }
+            //        Sistema.NuevosPermisos = NuevosPermisos;
 
-                }
-            }
+            //    }
+            //}
         }
         #endregion
 

@@ -114,6 +114,7 @@ namespace Vista.FormulariosMenu.Compras
             Dtp_FechaInicio.Value = primerDiaMes;
             Dtp_FechaFin.Value = ultimoDiaMes;
             Cmb_TipoAnalisis.Items.Clear();
+
             Cmb_TipoAnalisis.Items.Add("Balance general");
             Cmb_TipoAnalisis.Items.Add("Ingresos");
             Cmb_TipoAnalisis.Items.Add("Egresos");
@@ -132,7 +133,7 @@ namespace Vista.FormulariosMenu.Compras
         }
         private void mostrarGrafico() 
         {
-           List<CM_Informe> NuevoInforme= Informes.CalcularPorFecha(ListaInforme);
+            List<CM_Informe> NuevoInforme = Informes.CalcularPorFecha(ListaInforme);
 
             Chart_Grafico.Series.Clear();
             Chart_Grafico.ChartAreas.Clear();
@@ -144,9 +145,9 @@ namespace Vista.FormulariosMenu.Compras
                 ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line,
                 BorderWidth = 3,
                 Color = System.Drawing.Color.Blue,
-                MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle,  
-                MarkerSize = 8,  
-                MarkerColor = System.Drawing.Color.Blue 
+                MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle,
+                MarkerSize = 8,
+                MarkerColor = System.Drawing.Color.Blue
             };
 
             var Compras = new System.Windows.Forms.DataVisualization.Charting.Series
@@ -155,9 +156,9 @@ namespace Vista.FormulariosMenu.Compras
                 ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line,
                 BorderWidth = 3,
                 Color = System.Drawing.Color.Red,
-                MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle,  
-                MarkerSize = 8,  
-                MarkerColor = System.Drawing.Color.Red  
+                MarkerStyle = System.Windows.Forms.DataVisualization.Charting.MarkerStyle.Circle,
+                MarkerSize = 8,
+                MarkerColor = System.Drawing.Color.Red
             };
 
             bool tieneVentas = false;
@@ -165,53 +166,26 @@ namespace Vista.FormulariosMenu.Compras
 
             if (NuevoInforme.Count > 0)
             {
-                DateTime FechaCompra = DateTime.Now;
-                DateTime FechaVenta = DateTime.Now;
                 foreach (var item in NuevoInforme)
                 {
-                    if (item.Tipo == "Compra")
+                    DateTime fecha = item.Fecha;
+                    double total = item.Total;
+                    string tipo = item.Tipo;
+
+                    if (tipo == "Venta")
                     {
-                        FechaCompra = item.Fecha;
-                        break;
+                        Ventas.Points.AddXY(fecha, total);
+                        tieneVentas = true;
                     }
-                    //   else FechaVenta=item.Fecha;                       
-
-                }
-                foreach (var item in NuevoInforme)
-                {
-                    if (item.Tipo == "Venta")
+                    else if (tipo == "Compra")
                     {
-                        FechaVenta = item.Fecha;
-                        break;
+                        Compras.Points.AddXY(fecha, total);
+                        tieneCompras = true;
                     }
-
-
-                }
-                if (tieneCompras) Compras.Points.AddXY(FechaCompra.AddDays(0), 0);
-                if (tieneVentas) Ventas.Points.AddXY(FechaVenta.AddDays(0), 0);
-
-            }
-
-            foreach (var row in NuevoInforme)
-            {
-                DateTime fecha = row.Fecha;
-                double total = row.Total;
-                string tipo = row.Tipo;
-
-                if (tipo == "Venta")
-                {
-                    Ventas.Points.AddXY(fecha, total);
-                    tieneVentas = true;
-                }
-                else if (tipo == "Compra")
-                {
-                    Compras.Points.AddXY(fecha, total);
-                    tieneCompras = true;
                 }
             }
 
-           
-            Chart_Grafico.Series.Add(Ventas); 
+            Chart_Grafico.Series.Add(Ventas);
             Chart_Grafico.Series.Add(Compras);
 
             Chart_Grafico.ChartAreas[0].AxisX.LabelStyle.Format = "dd/MM/yy";
@@ -219,6 +193,7 @@ namespace Vista.FormulariosMenu.Compras
             Chart_Grafico.ChartAreas[0].AxisY.LabelStyle.Format = "#,##0";
             Chart_Grafico.ChartAreas[0].AxisX.Title = "Fecha";
             Chart_Grafico.ChartAreas[0].AxisY.Minimum = 0;
+
         }
         private void configurarDTGV()
         {
