@@ -277,7 +277,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(200)))), ((int)(((byte)(220)))), ((int)(((byte)(240)))));
-            this.ClientSize = new System.Drawing.Size(1656, 735);
+            this.ClientSize = new System.Drawing.Size(1656, 769);
             this.Controls.Add(this.Btn_Refrescar);
             this.Controls.Add(this.Pnl_Catalogo);
             this.Controls.Add(this.Pnl_Carrito);
