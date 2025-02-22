@@ -11,6 +11,9 @@ namespace Servicios
 {
     public static class CServ_BackUpBDD
     {
+        #region properties
+        public static DateTime FechaUltimoRespaldo { get; set; }
+        #endregion
         public static string CrearCarpetaBackUp()
         {
             string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
@@ -74,6 +77,38 @@ namespace Servicios
 
                 throw;
             }
+        }
+        public static bool ListadeBackUps()
+        {
+            bool Resultado= false;
+            string carpetaDocumentos = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            string carpetaBackup = Path.Combine(carpetaDocumentos, "Farmatic", "Back up");
+
+            if (Directory.Exists(carpetaBackup))
+            {
+                string[] archivosBackup = Directory.GetFiles(carpetaBackup, "*.bak");
+                foreach (var archivo in archivosBackup)
+                {
+                    DateTime fechaCreacion = File.GetCreationTime(archivo);
+                    DateTime fechaHoy = DateTime.Today;
+                    if (fechaCreacion.Date == fechaHoy)
+                    {
+                        TimeSpan diferencia = DateTime.Now - fechaCreacion;
+
+                        if (diferencia.TotalHours < 8)
+                        {
+                            FechaUltimoRespaldo = fechaCreacion;
+                            Resultado = true;
+                            break;
+                        }
+                        else
+                        {
+                            Resultado = false;
+                        }
+                    }
+                }
+            }
+            return Resultado;
         }
     }
 }

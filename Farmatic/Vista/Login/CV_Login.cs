@@ -44,7 +44,6 @@ namespace Vista
                         }
                         else
                         {
-                            CServ_MsjUsuario.Exito("¡Conexión exitosa!");
                             CV_Menu Menu = new CV_Menu();
                             Menu.Show();
                             CSesion_PreguntasUsuarios.LimpiarCache();

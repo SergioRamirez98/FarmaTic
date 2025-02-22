@@ -1,5 +1,6 @@
 ﻿using Datos;
 using Modelo;
+using Servicios;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -59,13 +60,25 @@ namespace Logica
             Bak.NombreBDD = NombreBDD;
             Bak.RestaurarBasedeDatos();
         }
-        private void ejecutarBackUp() 
+        private void ejecutarBackUp()
         {
-            
-            Timer temporizador = new Timer(ejecutarMetodo, null, TimeSpan.Zero, TimeSpan.FromHours(8));
+            bool ExisteRespaldo = CServ_BackUpBDD.ListadeBackUps();
+            if (!ExisteRespaldo)
+            {
+                Timer temporizador = new Timer(ejecutarRespaldo, null, TimeSpan.Zero, TimeSpan.FromHours(8));
+            } 
+            else
+            {
+                TimeSpan diferencia = DateTime.Now - CServ_BackUpBDD.FechaUltimoRespaldo;
 
+                if (diferencia.TotalHours < 8)
+                {
+                    double horasRestantes = 8 - diferencia.TotalHours;
+                    Timer temporizador = new Timer(ejecutarRespaldo, null, TimeSpan.FromHours(horasRestantes), TimeSpan.FromHours(8));
+                }
+            }
         }
-        private void ejecutarMetodo(object state) 
+        private void ejecutarRespaldo(object state) 
         {
             sistema.EjecutarBackUp();
         }
@@ -95,7 +108,6 @@ namespace Logica
             PermisosActuales.Clear();
             return PermisosActuales = sistema.PermisosActuales(FamiliaUsuario, Seleccion);
         }
-
         public List<CM_ListadoPermisosActuales> FiltrarBusqueda(string Permiso, List<CM_ListadoPermisosActuales> listado, string s = null) 
         {
             Permiso= Permiso.ToLower();
